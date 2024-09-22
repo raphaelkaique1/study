@@ -1124,7 +1124,7 @@ Modelagem de Processo
  ┌─────┬────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────|─────────────────┐
  │     │                                                |                                                             v                 │
  │     │                                                |                                                   [ACESSAR PLATAFORMA]        │
- │     │                                                └------------------------------------> ✧ <────────────────────┘		│
+ │     │                                                └------------------------------------> ✧ <────────────────────┘		        │
  │ USR │                                                                                       │                                        │
  │     │                                                                                       v                                        │
  │     │                                                                                       ●                                        │
@@ -1209,18 +1209,18 @@ Garantia e Qualidade de Software
 
  2. O que considerar como Qualidade? Requisitos de qualidade
 	A busca pela excelência implica em considerar uma frequente validação e verificação dos procedimentos e padrões utilizados no desenvolvimento de sistemas, gerando a qualidade necessária tanto para o processo, quanto para o produto. Sommerville diz que a garantia de qualidade é o processo que define como a qualidade de software pode ser atingida e como a organização de desenvolvimento sabe que o software possui o nível de qualidade necessário. Existem 3 quesitos básicos que ajudam a definir o que incluir dentro do processo para obter qualidade no produto gerado.
-										     ┌───────────────────────────────────────────────────────────────────────────────┐
-										   ┌─┤         PADRÕES DE PRODUTO           x          PADRÕES DE PROCESSO           |
-	- Padrões de Produto (Define COMO fazer)                                 ┐ | └───────────────────────────────────────────────────────────────────────────────┘
-		> Estrutura de documentos de requisitos;                         ├─┘  Formulário de revisão de projeto                   Conduta de revisão de projeto
-		> Padrões de assuntos incluídos na documentação;                 |    Estrutura de documento de requisitos           Envio de documento para o cliente
-		> Padrões de codificação, para uso nas linguagens de programação.|    Formato de cabeçalho de método                   Processo de liberação de versão
-	- Padrões de Processo (Define O QUE fazer)                               |    Estilo de programação (ling + mtdlg)   Processo de aprovação de plano de projeto
-		> Definição dos processos de especificação, projeto e validação. |    Formato de plano de projeto                      Processo de controle de mudança
-	- Padrões de Software                                                    ┘    Formato de solicitação de mudança                  Processo de registro de teste
-		> Evita repetição de erros cometidos em projetos anteriores, já que os padrões são definidos baseados em experiências próprias da empresa;
-		> Apresenta framework com melhores práticas, garantindo padrões de acordo com as necessidades das empresas e a sua utilização;
-		> Colaboram com a continuidade do sistema, facilitando para a equipe que assumirá manutenção do sistema.
+								     ┌───────────────────────────────────────────────────────────────────────────────┐
+								    ┌┤         PADRÕES DE PRODUTO           x          PADRÕES DE PROCESSO           |
+- Padrões de Produto (Define COMO fazer)                           ┐|└───────────────────────────────────────────────────────────────────────────────┘
+  > Estrutura de documentos de requisitos;                         ├┘ Formulário de revisão de projeto            Conduta de revisão de projeto
+  > Padrões de assuntos incluídos na documentação;                 |  Estrutura de documento de requisitos      Envio de documento para o cliente
+  > Padrões de codificação, para uso nas linguagens de programação.|  Formato de cabeçalho de método             Processo de liberação de versão
+- Padrões de Processo (Define O QUE fazer)                         |  Estilo de programação (ling + mtdlg)  Processo de aprovação de plano de projeto
+  > Definição dos processos de especificação, projeto e validação. |  Formato de plano de projeto                Processo de controle de mudança
+- Padrões de Software                                              ┘  Formato de solicitação de mudança           Processo de registro de teste
+  > Evita repetição de erros cometidos em projetos anteriores, já que os padrões são definidos baseados em experiências próprias da empresa;
+  > Apresenta framework com melhores práticas, garantindo padrões de acordo com as necessidades das empresas e a sua utilização;
+  > Colaboram com a continuidade do sistema, facilitando para a equipe que assumirá manutenção do sistema.
 
  3. Técnicas e Tipos de Validação: Conhecendo as técnicas de qualidade
 	O planejamento da qualidade adota técnicas estabelecidas por processos de certificação definidos por instituições nacionais e internacionais, como: US DoD (Uniter States Department of Defense), ANSI (American National Standards Institute), BSI (British Standards Instituitions) e IEE (Institute of Electrical and Electronic Engineers). Um processo de certificação estabelece padrões que devem ser seguidos para obtenção de qualidade e são definidos para os diversos segmentos de produção, seja produto ou serviço.
@@ -1358,9 +1358,9 @@ Garantia e Qualidade de Software
         | claras e objetivas.          |                              |
         ├──────────────────────────────┴──────────────────────────────┤
 	|                     NÍVEIS DE AVALIAÇÃO                     |
-        ├─────────────────────────────────────────────────────────────┤
-        | Inicial, fase de definição, integração e otimização, pre-   | *Conjunto planejado e sistemático de todas as ações necessárias para fornecer uma confiança 
-        | venção de defeitos e *controle de qualidade.                |  adequada de que o item ou produto está de acordo com os requisitos técnicos estabelecidos.
+        ├─────────────────────────────────────────────────────────────┤ *Conjunto planejado e sistemático de todas as ações necessárias
+        | Inicial, fase de definição, integração e otimização, pre-   |  para fornecer uma confiança adequada de que o item ou produto
+        | venção de defeitos e *controle de qualidade.                |  está de acordo com os requisitos técnicos estabelecidos.
 	└─────────────────────────────────────────────────────────────┘  (ANSI/IEEE Std 730-1984).
         ┌──────────────────────────────────────────────────────────────┐
         |                     CONTROLE DE QUALIDADE                    |
