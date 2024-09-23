@@ -399,7 +399,7 @@ upmach() {
 	sudo snap refresh
 	sudo fwupdmgr refresh
 	sudo fwupdmgr get-updates -y
-	sudo fwupdmgr update -y
+	sudo fwupdmgr update -y --no-reboot-check
 	sudo fwupdmgr get-upgrades -y
 	sudo fwupdmgr upgrade -y
 
