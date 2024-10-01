@@ -11,7 +11,8 @@
 2.1. https://www.cpetech.com.br/dev-full-stack<br>2.2. https://matriculas.ampli.com.br/curso-tecnico/tecnico-em-desenvolvimento-de-sistemas
 
 3. ★
-- https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer
+- https://origamid.com/curso/
+- https://coursera.org/professional-certificates/ibm-full-stack-cloud-developer
 - https://curso.fullcycle.com.br/curso-fullcycle
 - https://kenzie.com.br/curriculo
 - https://xpeducacao.com.br/bootcamp/gerente-de-projetos
@@ -26,6 +27,7 @@
 - https://alura.com.br
 - https://udemy.com/pt
 - https://lp.trainning.com.br/mastertech
+- https://hashtagtreinamentos.com/
 
 4. https://estacio.br/cursos/graduacao/desenvolvimento-full-stack
 
