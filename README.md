@@ -6,11 +6,13 @@
 ## STUDY
 
 <!--1. https://anhanguera.com/eja-->
-   + https://app.kultivi.com
+   + [english](https://github.com/raphaelkaique1/study/blob/3847660bfc29053b15c2ac09118ab6f104d25f47/languages/english/README.md)
 
 2.1. https://www.cpetech.com.br/dev-full-stack<br>2.2. https://matriculas.ampli.com.br/curso-tecnico/tecnico-em-desenvolvimento-de-sistemas
 
 3. ★
+- https://skills.github.com/
+- https://comunidade.ada.tech/
 - https://origamid.com/curso/
 - https://coursera.org/professional-certificates/ibm-full-stack-cloud-developer
 - https://curso.fullcycle.com.br/curso-fullcycle
