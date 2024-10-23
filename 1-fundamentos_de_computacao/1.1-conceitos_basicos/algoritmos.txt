@@ -50,7 +50,7 @@ Algoritmos
           | INÍCIO |
           ╰────┬───╯
                v
-          /⎺⎺⎺⎺⎺⎺⎺⎺⌝
+          /⎺⎺⎺⎺⎺⌝
           | N1, N2 |
           └────┬───┘
                v
@@ -101,7 +101,7 @@ Algoritmos
     Esta estrutura repete uma sequência de comandos ENQUANTO uma determinada condição / expressão lógica, for satisfeita; Essa expressão é avaliada antes de cada repetição do laço, quando seu resultado for VERDADEIRO, <sequência-de-comandos> é executada. Quando a condição não for mais satisfeita, o fluxo desvia do laço de execução.
            ↓    condição    |  Algoritmo "Números de 1 a 10 (com enquanto...faça)"
         ╱teste╲ verdadeira  |  var i: inteiro
-   ┌─> ⟨de  con-⟩ ────────┐  |  início
+   ┌─> ⟨de  con-⟩ ───────┐  |  início
    |    ╲dição╱          |  |  i <- 1
    |       | condição    |  |  enquanto i <= 10 faca
    |       ↓ falsa       |  |    escreva(i)
