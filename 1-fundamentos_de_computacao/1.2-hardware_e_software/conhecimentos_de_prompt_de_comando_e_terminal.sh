@@ -290,7 +290,7 @@ sleep $seconds
 echo "ending"'
 
 # Script
-echo '#!/bin/bash
+sudo echo '#!/bin/bash
 
 echo "file in execution"
 gdialog --title "INITIALIZE PROGRAM" --caption "PROGRAM ON" --msgbox "GUI - Shell Script Program"
@@ -402,13 +402,16 @@ upmach() {
 	sudo fwupdmgr update -y --no-reboot-check
 	sudo fwupdmgr get-upgrades -y
 	sudo fwupdmgr upgrade -y
+ 
+	# cleaning cache
+	sudo sync; sudo sysctl -w vm.drop_caches=3
 
 	gsettings reset org.gnome.desktop.session idle-delay
 	gsettings reset org.gnome.desktop.screensaver lock-enabled
 	gsettings reset org.gnome.desktop.screensaver ubuntu-lock-on-suspend
 }
 
-start_function' > file_name.sh && sudo chmod +x ./file_name.sh && ./file_name.sh
+start_function' > /usr/local/bin/upsystem.sh && sudo chmod +x /usr/local/bin/upsystem.sh && upsystem
 
 nano file_name.sh
 [ctrl] + [o]
