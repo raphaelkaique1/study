@@ -107,11 +107,11 @@ dividimos a escrita em partes menores que vão sendo construídas aos poucos.
 resolução de problemas: dividir um problema complexo em problemas menores, portanto, problemas mais fáceis de resolver.
 
 Estratégia:
-                                        _          _´         __   ___
+                                        _          _/         __   ___
 Processo de quebrar e determinar \\    /_\  |\ |  /_\  |   | |__  |__
 partes menores e gerenciáveis    //   /   \ | \| /   \ |__ |  __| |___
-                                       ___  ´     _____  ____  ___   ____
-(RE)Combinar os elementos        \\   |___  | |\  |___  |___  |___
+                                       ___  /     _____  ____  ___   ____
+(RE)Combinar os elementos        \\   |___  | |\ |  |   |___  |___  |___
 recompondo o problema original   //    ___| | | \|  |   |____  ___| |____
 
 Ordem de execução de   \\    > Sequencial -> Dependência entre tarefas executadas em fila
