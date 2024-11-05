@@ -293,7 +293,7 @@ Representação dos Dados:
 >ALGORITMO
 
  Ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação,
-quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer.
+quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Algoritmo = Sistema.
 
  Automatizar: Definir passo-a-passo da execução da tarefa.
  
