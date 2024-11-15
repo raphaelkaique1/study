@@ -5,12 +5,11 @@ funcao fator: real
 var iterador, armazena: inteiro;
 inicio
     escreval("\n--- FATORIAL ---");
-    // TODO: cálculo
-    // 5!=5×4×3×2×1=120
     armazena <- 1;
     para iterador de numeros[2] ate 1 faca
         armazena <- iterador * armazena;
     fimpara
+    retorne armazena;
 fimfuncao
 
 var
@@ -24,5 +23,5 @@ inicio
     numeros[2] <- 5;
 
     // fator
-    fator();
+    escreva(fator());
 fimalgoritmo
