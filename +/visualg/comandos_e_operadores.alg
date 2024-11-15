@@ -9,86 +9,121 @@ algoritmo "ComandosEOperadores"
 // Função com parâmetros: Usada quando a operação precisa de entradas externas para ser realizada.
 // Função sem retorno: Usada quando a operação apenas modifica o estado ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
 // Função com retorno: Usada quando é necessário calcular um valor e utilizá-lo posteriormente no código.
-funcao sum(sum_number_1, sum_number_2: real): real
+funcao adicao(mais_numero_1, mais_numero_2: real): real
 var
 // variável local
-result: real;
+resultado: real;
 inicio
-    escreval("\n--- SOMA ---");
-    result <- sum_number_1 + sum_number_2;
-    escreval(sum_number_1, " + ", sum_number_2, " = ", result);
+    escreval("\n--- ADIÇÃO ---");
+    resultado <- mais_numero_1 + mais_numero_2;
+    escreval(mais_numero_1, " + ", mais_numero_2, " = ", resultado);
 fimfuncao
 
-funcao sub(sub_number_1, sub_number_2: real): real
+funcao subtracao(menos_numero_1, menos_numero_2: real): real
 inicio
     escreval("\n--- SUBTRAÇÃO ---");
-    escreval(sub_number_1, " - ", sub_number_2, " = ", sub_number_1 - sub_number_2);
+    escreval(menos_numero_1, " - ", menos_numero_2, " = ", menos_numero_1 - menos_numero_2);
 fimfuncao
 
-funcao mult(mult_number_1, mult_number_2: real): real
+funcao multiplicacao(vezes_numero_1, vezes_numero_2: real): real
 inicio
     escreval("\n--- MULTIPLICAÇÃO ---");
-    retorne mult_number_1 * mult_number_2;
+    retorne vezes_numero_1 * vezes_numero_2;
 fimfuncao
 
-funcao div: real
-var
-// variável local
-resposta: inteiro;
+funcao divisao: real
 inicio
     escreval("\n--- DIVISÃO ---");
-    retorne resposta <- number_1 / number_2;
+    retorne numeros[1] / numeros[2];
 fimfuncao
 
 funcao modulo: real
 inicio
     escreval("\n--- MÓDULO ---");
-    // TODO: cálculo
-    escreval("Exemplo (falta codificar cálculo matemático): ", sub_number_1 + sub_number_2);
+    escreval(numeros[1], " % ", numeros[2], " = ", numeros[1] % numeros[2]);
+fimfuncao
+
+funcao primo: real
+var
+iterador, contador, controle: inteiro
+inicio
+    contador <- 0;
+    escreval("\n--- PRIMO ---");
+
+    se (numeros[1] <= 1) e (numeros[2] <= 1) entao
+        iterador <- 2
+        escreval("Nenhum número primo.")
+    senao
+        para controle de 1 ate 2 faca
+            para iterador de 1 ate numeros[controle] faca
+                se (numeros[controle] % iterador = 0) entao
+                    contador <- contador + 1
+                fimse
+                se (contador = 2) e (numeros[controle] = iterador) entao
+                    escreval(numeros[controle], " é primo.")
+                    contador <- 0
+                senao
+                    se (contador <> 2) e (numeros[controle] = iterador) entao
+                        escreval(numeros[controle], " não é primo.")
+                        contador <- 0;
+                    fimse
+                fimse
+            fimpara
+        fimpara
+    fimse
 fimfuncao
 
 funcao fator: real
 inicio
     escreval("\n--- FATORIAL ---");
     // TODO: cálculo
-    retorne sub_number_1 + sub_number_2; // Exemplo (falta codificar cálculo matemático)
+    // 5!=5×4×3×2×1=120
+    retorne any; // Exemplo (falta codificar cálculo matemático)
 fimfuncao
 
 funcao calculadora: caractere
 var divisao: real;
 inicio
-    escreva("\n--- CALCULADORA ---\n[a] [+] [-] [*] [/] [%] [!] [?] [x] >>> ");
+    escreva("\n--- CALCULADORA SIMPLES ---\n[a] [+] [-] [*] [/] [%] [~] [!] [^] [@] [?] [x] >>> ");
     leia(opcao);
     escolha opcao
         caso "+"
-            // soma: função com parâmetros sem retorno imprimindo resultado armazenado em variável.
-            sum(number_1, number_2);
+            // adição: função com parâmetros sem retorno imprimindo resultado armazenado em variável.
+            adicao(numeros[1], numeros[2]);
         caso "-"
             // subtração: função com parâmetros sem retorno operando e imprimindo o resultado durante a saída.
-            sub(number_1, number_2);
+            subtracao(numeros[1], numeros[2]);
         caso "*"
             // multiplicação: função com parâmetros e retorno operando e imprimindo o resultado durante a saída.
-            escreva(number_1, " * ", number_2, " = ", mult(number_1, number_2), "\n");
+            escreva(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]), "\n");
         caso "/"
             // divisão: função sem parâmetros e com retorno imprimindo resultado armazenado em variável.
             // TODO: div 0
-            escreva(number_1, " / ", number_2, " = ", divisao <- div(), "\n");
+            escreva(numeros[1], " / ", numeros[2], " = ", divisao <- divisao(), "\n");
         caso "%"
             // módulo: função sem parâmetros e retorno operando e imprimindo o resultado durante a saída.
             modulo();
+        caso "~"
+            // primo: função sem parâmetro e retorno imprimindo resultado da operação.
+            primo();
         caso "!"
             // fatorial: função sem parâmetros com retorno operando e imprimindo o resultado durante a saída.
             fator();
+        caso "^"
+            // potenciação: função sem parâmetros e com retorno imprimindo resultado armazenado em variável.
+            potencia();
+        caso"@"
+            raiz();
         caso "?"
             // Permite o usuário alterar os valores de entrada.
             // TODO: escolher qual valor alterar
             calculo();
         caso "a"
             // realiza proposta inicial do exercício
-            sum(number_1, number_2);
-            sub(number_1, number_2);
-            escreva(number_1, " * ", number_2, " = ", mult(number_1, number_2), "\n");
-            escreva(number_1, " / ", number_2, " = ", divisao <- div(), "\n");
+            adicao(numeros[1], numeros[2]);
+            subtracao(numeros[1], numeros[2]);
+            escreva(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]), "\n");
+            escreva(numeros[1], " / ", numeros[2], " = ", divisao <- divisao(), "\n");
         caso "x"
             // "fecha" a calculadora.
             interrompa;
@@ -99,23 +134,24 @@ inicio
 fimfuncao
 
 funcao entrada: real
-var verifica: logico;
+var
+verifica: logico;
 inicio
     escreva("\nDigite o 1º número: ");
-    leia(number_1);
-    se number_1 <= 0 ou number_1 >= 0 entao
+    leia(numeros[1]);
+    se numeros[1] <= 0 ou numeros[1] >= 0 entao
         verdadeiro;
         se verdadeiro entao
             escreva("Digite o 2º número: ");
-            leia(number_2);
-            se number_2 <= 0 ou number_2 >= 0 entao
+            leia(numeros[2]);
+            se numeros[2] <= 0 ou numeros[2] >= 0 entao
                 verdadeiro;
             senao
                 invalido();
                 repita
                     escreva("Digite o 2º número: ");
-                    leia(number_2);
-                    se number_2 <= 0 ou number_2 >= 0 entao
+                    leia(numeros[2]);
+                    se numeros[2] <= 0 ou numeros[2] >= 0 entao
                         verifica := verdadeiro;
                     senao
                         invalido();
@@ -169,8 +205,9 @@ fimprocedimento
 
 var
     // variáveis globais
-    number_1, number_2: real;
     opcao: caractere;
+    //vetor
+    numeros: vetor[1..2] de real
 inicio
     // Resolução Exercício 1
     calcular();
