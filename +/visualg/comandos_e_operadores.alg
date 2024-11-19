@@ -7,48 +7,48 @@ algoritmo "ComandosEOperadores"
 // Quando usar cada tipo?
 // Função sem parâmetros: Usada quando a operação pode ser feita com valores internos ou globais, ou quando não há necessidade de interação com o resto do código.
 // Função com parâmetros: Usada quando a operação precisa de entradas externas para ser realizada.
-// Função sem retorno: Usada quando a operação apenas modifica o estado ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
+// Função sem retorno: Usada quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
 // Função com retorno: Usada quando é necessário calcular um valor e utilizá-lo posteriormente no código.
 funcao adicao(mais_numero_1, mais_numero_2: real): real
 var
 // variável local
 resultado: real;
 inicio
-    escreval("\n--- ADIÇÃO ---");
+    escreva("\n--- ADIÇÃO ---\n");
     resultado <- mais_numero_1 + mais_numero_2;
     escreval(mais_numero_1, " + ", mais_numero_2, " = ", resultado);
 fimfuncao
 
 funcao subtracao(menos_numero_1, menos_numero_2: real): real
 inicio
-    escreval("\n--- SUBTRAÇÃO ---");
+    escreva("\n--- SUBTRAÇÃO ---\n");
     escreval(menos_numero_1, " - ", menos_numero_2, " = ", menos_numero_1 - menos_numero_2);
 fimfuncao
 
 funcao multiplicacao(vezes_numero_1, vezes_numero_2: real): real
 inicio
-    escreval("\n--- MULTIPLICAÇÃO ---");
+    escreva("\n--- MULTIPLICAÇÃO ---\n");
     retorne vezes_numero_1 * vezes_numero_2;
 fimfuncao
 
 funcao divisao: real
 inicio
-    escreval("\n--- DIVISÃO ---");
+    escreva("\n--- DIVISÃO ---\n");
     retorne numeros[1] / numeros[2];
 fimfuncao
 
 funcao modulo: real
 inicio
-    escreval("\n--- MÓDULO ---");
+    escreva("\n--- MÓDULO ---\n");
     escreval(numeros[1], " % ", numeros[2], " = ", numeros[1] % numeros[2]);
 fimfuncao
 
-funcao primo: real
+funcao primo: inteiro
 var
 iterador, contador, controle: inteiro
 inicio
     contador <- 0;
-    escreval("\n--- PRIMO ---");
+    escreva("\n--- PRIMO ---\n");
 
     se (numeros[1] <= 1) e (numeros[2] <= 1) entao
         iterador <- 2
@@ -74,15 +74,34 @@ inicio
 fimfuncao
 
 funcao fator: real
+var
+controle, iterador, armazena, resultado: inteiro;
+retorno: vetor[1..2] de inteiro
 inicio
-    escreval("\n--- FATORIAL ---");
-    // TODO: cálculo
-    // 5!=5×4×3×2×1=120
-    retorne any; // Exemplo (falta codificar cálculo matemático)
+    escreva("\n--- FATORIAL ---\n");
+    armazena := 1;
+    resultado := 1;
+    para controle de 1 ate 2 faca
+        para iterador de numeros[controle] ate 1 faca
+            armazena <- iterador * armazena;
+        fimpara
+        retorno[controle] <- armazena;
+        armazena := 1;
+    fimpara
+    retorne retorno;
+fimfuncao
+
+funcao potencia: real
+inicio
+    escreva("\n--- POTENCIAÇÃO ---\n");
+    retorne numeros[1] ^ numeros[2];
 fimfuncao
 
 funcao calculadora: caractere
-var divisao: real;
+var
+exibir: inteiro;
+divisao: real;
+fatoracao: vetor[1..2] de real;
 inicio
     escreva("\n--- CALCULADORA SIMPLES ---\n[a] [+] [-] [*] [/] [%] [~] [!] [^] [@] [?] [x] >>> ");
     leia(opcao);
@@ -95,23 +114,27 @@ inicio
             subtracao(numeros[1], numeros[2]);
         caso "*"
             // multiplicação: função com parâmetros e retorno operando e imprimindo o resultado durante a saída.
-            escreva(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]), "\n");
+            escreval(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]));
         caso "/"
             // divisão: função sem parâmetros e com retorno imprimindo resultado armazenado em variável.
             // TODO: div 0
-            escreva(numeros[1], " / ", numeros[2], " = ", divisao <- divisao(), "\n");
+            escreval(numeros[1], " / ", numeros[2], " = ", divisao <- divisao());
         caso "%"
-            // módulo: função sem parâmetros e retorno operando e imprimindo o resultado durante a saída.
+            // módulo: função sem parâmetros e sem retorno operando e imprimindo o resultado durante a saída.
             modulo();
         caso "~"
-            // primo: função sem parâmetro e retorno imprimindo resultado da operação.
+            // primo: função sem parâmetro e sem retorno imprimindo resultado da operação.
             primo();
         caso "!"
-            // fatorial: função sem parâmetros com retorno operando e imprimindo o resultado durante a saída.
-            fator();
+            // fatorial: função sem parâmetros com retorno imprimindo resultado armazenado em variável/vetor.
+            fatoracao := fator();
+            exibir := 1;
+            para exibir de 1 ate 2 faca
+                escreval(numeros[exibir], ": ", fatoracao[exibir]);
+            fimpara
         caso "^"
-            // potenciação: função sem parâmetros e com retorno imprimindo resultado armazenado em variável.
-            potencia();
+            // potenciação: função sem parâmetros com retorno operando e imprimindo o resultado durante a saída.
+            escreval(numeros[1], " ^ ", numeros[2], " = ", potencia());
         caso"@"
             raiz();
         caso "?"
@@ -122,8 +145,8 @@ inicio
             // realiza proposta inicial do exercício
             adicao(numeros[1], numeros[2]);
             subtracao(numeros[1], numeros[2]);
-            escreva(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]), "\n");
-            escreva(numeros[1], " / ", numeros[2], " = ", divisao <- divisao(), "\n");
+            escreval(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]));
+            escreval(numeros[1], " / ", numeros[2], " = ", divisao <- divisao());
         caso "x"
             // "fecha" a calculadora.
             interrompa;
