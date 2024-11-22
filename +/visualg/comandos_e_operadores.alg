@@ -168,7 +168,7 @@ inicio
         para iterador de 1 ate 2 faca
             escreva("Digite o ", iterador,"º número: ");
             leia(numeros[iterador]);
-            se numeros[iterador] <= 0 ou numeros[iterador] >= 0 entao
+            se numeros[iterador] <= 0 ou numeros[iterador] > 0 entao
                 verdadeiro;
             senao
                 invalido();
@@ -234,6 +234,58 @@ inicio
     escreva("\nOpção inválida, tente novamente.\n");
 fimprocedimento
 
+// Exercício 2
+procedimento consumo_medio
+var
+distancia_combustivel: vetor[1..2] de real;
+repete, invalido: caractere;
+inicio
+    invalido <- "Digite um número válido: ";
+    repita
+        escreva("\nDistância Total Percorrida (km): ");
+        leia(distancia_combustivel[1]);
+        se (distancia_combustivel[1] <= 0) ou (distancia_combustivel[1] > 0) entao
+            verdadeiro;
+        senao
+            repita
+                escreva(invalido);
+                leia(distancia_combustivel[1]);
+            ate (distancia_combustivel[1] <= 0) ou (distancia_combustivel[1] > 0)
+        fimse
+        se distancia_combustivel[1] <= 0 entao
+            repita
+                escreva(invalido)
+                leia(distancia_combustivel[1]);
+            ate distancia_combustivel[1] > 0
+        fimse
+        escreva("Qntd Total de Combustível Gasto (l): ");
+        leia(distancia_combustivel[2]);
+        se (distancia_combustivel[2] <= 0) ou (distancia_combustivel[2] > 0) entao
+            verdadeiro;
+        senao
+            repita
+                escreva(invalido);
+                leia(distancia_combustivel[2]);
+            ate (distancia_combustivel[2] <= 0) ou (distancia_combustivel[2] > 0)
+        fimse
+        se distancia_combustivel[2] <= 0 entao
+        repita
+            escreva(invalido)
+            leia(distancia_combustivel[2]);
+        ate distancia_combustivel[2] > 0
+        fimse
+        escreval("Consumo médio (km/l): ", distancia_combustivel[1] / distancia_combustivel[2]);
+        escreva("Deseja realizar novo cálculo? [s/n]: ");
+        leia(repete);
+        se (repete <> "n") e (repete <> "s") entao
+            repita
+                escreva("Escolha uma das opções válidas [s/n]: ");
+                leia(repete);
+            ate repete = "n" ou repete = "s"
+        fimse
+    ate repete = "n"
+fimprocedimento
+
 var
     // variáveis globais
     opcao: caractere;
@@ -245,4 +297,6 @@ inicio
     calcular();
 
     // Resolução Exercício 2
+    consumo_medio();
+
 fimalgoritmo
