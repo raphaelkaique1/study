@@ -124,7 +124,6 @@ inicio
             escreval(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]));
         caso "/"
             // divisão: função sem parâmetros com retorno imprimindo resultado armazenado em variável.
-            // TODO: div 0
             escreval(numeros[1], " / ", numeros[2], " = ", dividir <- divisao());
         caso "%"
             // módulo: função sem parâmetros e sem retorno operando e imprimindo o resultado durante a saída.
@@ -147,8 +146,7 @@ inicio
             escreval(numeros[2], "√", numeros[1], " = ", raiz(numeros[1], numeros[2]));
         caso "?"
             // Permite o usuário alterar os valores de entrada.
-            // TODO: escolher qual valor alterar
-            calculo();
+            calculo("?");
         caso "a"
             // realiza proposta inicial do exercício
             adicao(numeros[1], numeros[2]);
@@ -164,19 +162,39 @@ inicio
     fimescolha
 fimfuncao
 
-funcao entrada(): real
-var iterador: inteiro;
+funcao entrada(valor: caractere): real
 inicio
-    para iterador de 1 ate 2 faca
-        escreva("Digite o ", iterador,"º número: ");
-        leia(numeros[iterador]);
-        se numeros[iterador] <= 0 ou numeros[iterador] >= 0 entao
-            verdadeiro;
-        senao
+    se valor = "0" entao
+        para iterador de 1 ate 2 faca
+            escreva("Digite o ", iterador,"º número: ");
+            leia(numeros[iterador]);
+            se numeros[iterador] <= 0 ou numeros[iterador] >= 0 entao
+                verdadeiro;
+            senao
+                invalido();
+                entrada("0");
+            fimse
+        fimpara
+    senao
+        escreva("\nEscolha a alteração: [1] [2] [a] [x] >>> ");
+        leia(valor);
+        escolha valor
+        caso "1"
+            escreva("Digite o 1º número: ");
+            leia(numeros[1]);
+        caso "2"
+            escreva("Digite o 2º número: ");
+            leia(numeros[2]);
+        caso "a"
+            entrada("0");
+        caso "x"
+            escreval("Cancelado.");
+            interrompa;
+        outrocaso
             invalido();
-            entrada();
-        fimse
-    fimpara
+            entrada(".");
+        fimescolha
+    fimse
 fimfuncao
 
 procedimento repete
@@ -199,15 +217,15 @@ inicio
     fimse
 fimprocedimento
 
-procedimento calculo
+procedimento calculo(escolhe: caractere)
 inicio
-    entrada();
+    entrada(escolhe);
     calculadora();
 fimprocedimento
 
 procedimento calcular
 inicio
-    calculo();
+    calculo("0");
     repete();
 fimprocedimento
 
@@ -219,6 +237,7 @@ fimprocedimento
 var
     // variáveis globais
     opcao: caractere;
+    iterador: inteiro;
     //vetor
     numeros: vetor[1..2] de real
 inicio
