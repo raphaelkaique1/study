@@ -165,10 +165,10 @@ fimfuncao
 funcao entrada(valor: caractere): real
 inicio
     se valor = "0" entao
-        para iterador de 1 ate 2 faca
-            escreva("Digite o ", iterador,"º número: ");
-            leia(numeros[iterador]);
-            se numeros[iterador] <= 0 ou numeros[iterador] > 0 entao
+        para input de 1 ate 2 faca
+            escreva("Digite o ", input,"º número: ");
+            leia(numeros[input]);
+            se numeros[input] <= 0 ou numeros[input] > 0 entao
                 verdadeiro;
             senao
                 invalido();
@@ -289,7 +289,7 @@ fimprocedimento
 var
     // variáveis globais
     opcao: caractere;
-    iterador: inteiro;
+    input: inteiro;
     //vetor
     numeros: vetor[1..2] de real
 inicio
