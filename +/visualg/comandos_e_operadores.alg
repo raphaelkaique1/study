@@ -97,6 +97,13 @@ inicio
     retorne numeros[1] ^ numeros[2];
 fimfuncao
 
+funcao raiz(raiz_numero_1, raiz_numero_2: real): real
+var resultado: real;
+inicio
+    escreva("\n--- RAIZ ---\n");
+    retorne resultado <- raiz_numero_1 ^ (1 / raiz_numero_2);
+fimfuncao
+
 funcao calculadora: caractere
 var
 exibir: inteiro;
@@ -113,20 +120,20 @@ inicio
             // subtração: função com parâmetros sem retorno operando e imprimindo o resultado durante a saída.
             subtracao(numeros[1], numeros[2]);
         caso "*"
-            // multiplicação: função com parâmetros e retorno operando e imprimindo o resultado durante a saída.
+            // multiplicação: função com parâmetros e com retorno operando e imprimindo o resultado durante a saída.
             escreval(numeros[1], " * ", numeros[2], " = ", multiplicacao(numeros[1], numeros[2]));
         caso "/"
-            // divisão: função sem parâmetros e com retorno imprimindo resultado armazenado em variável.
+            // divisão: função sem parâmetros com retorno imprimindo resultado armazenado em variável.
             // TODO: div 0
             escreval(numeros[1], " / ", numeros[2], " = ", divisao <- divisao());
         caso "%"
             // módulo: função sem parâmetros e sem retorno operando e imprimindo o resultado durante a saída.
             modulo();
         caso "~"
-            // primo: função sem parâmetro e sem retorno imprimindo resultado da operação.
+            // primo: função sem parâmetros e sem retorno imprimindo resultado da operação.
             primo();
         caso "!"
-            // fatorial: função sem parâmetros com retorno imprimindo resultado armazenado em variável/vetor.
+            // fatorial: função sem parâmetros com retorno imprimindo resultado armazenado em vetor.
             fatoracao := fator();
             exibir := 1;
             para exibir de 1 ate 2 faca
@@ -136,7 +143,8 @@ inicio
             // potenciação: função sem parâmetros com retorno operando e imprimindo o resultado durante a saída.
             escreval(numeros[1], " ^ ", numeros[2], " = ", potencia());
         caso"@"
-            raiz();
+            // raiz: função com parâmetros e com retorno imprimindo resultado armazenado em variável.
+            escreval(numeros[2], "√", numeros[1], " = ", raiz(numeros[1], numeros[2]));
         caso "?"
             // Permite o usuário alterar os valores de entrada.
             // TODO: escolher qual valor alterar

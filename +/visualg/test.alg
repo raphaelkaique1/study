@@ -1,6 +1,5 @@
 algoritmo "algoritmo"
-var
-msg: caractere;
+var msg: caractere;
 inicio
     msg <- "Hello world!";
     escreval(msg);
