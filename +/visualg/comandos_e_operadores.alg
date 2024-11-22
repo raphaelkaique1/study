@@ -107,7 +107,7 @@ fimfuncao
 funcao calculadora: caractere
 var
 exibir: inteiro;
-divisao: real;
+dividir: real;
 fatoracao: vetor[1..2] de real;
 inicio
     escreva("\n--- CALCULADORA SIMPLES ---\n[a] [+] [-] [*] [/] [%] [~] [!] [^] [@] [?] [x] >>> ");
@@ -125,7 +125,7 @@ inicio
         caso "/"
             // divisão: função sem parâmetros com retorno imprimindo resultado armazenado em variável.
             // TODO: div 0
-            escreval(numeros[1], " / ", numeros[2], " = ", divisao <- divisao());
+            escreval(numeros[1], " / ", numeros[2], " = ", dividir <- divisao());
         caso "%"
             // módulo: função sem parâmetros e sem retorno operando e imprimindo o resultado durante a saída.
             modulo();
@@ -164,37 +164,19 @@ inicio
     fimescolha
 fimfuncao
 
-funcao entrada: real
-var
-verifica: logico;
+funcao entrada(): real
+var iterador: inteiro;
 inicio
-    escreva("\nDigite o 1º número: ");
-    leia(numeros[1]);
-    se numeros[1] <= 0 ou numeros[1] >= 0 entao
-        verdadeiro;
-        se verdadeiro entao
-            escreva("Digite o 2º número: ");
-            leia(numeros[2]);
-            se numeros[2] <= 0 ou numeros[2] >= 0 entao
-                verdadeiro;
-            senao
-                invalido();
-                repita
-                    escreva("Digite o 2º número: ");
-                    leia(numeros[2]);
-                    se numeros[2] <= 0 ou numeros[2] >= 0 entao
-                        verifica := verdadeiro;
-                    senao
-                        invalido();
-                        verifica := falso;
-                    fimse
-                ate verifica = verdadeiro;
-            fimse
+    para iterador de 1 ate 2 faca
+        escreva("Digite o ", iterador,"º número: ");
+        leia(numeros[iterador]);
+        se numeros[iterador] <= 0 ou numeros[iterador] >= 0 entao
+            verdadeiro;
+        senao
+            invalido();
+            entrada();
         fimse
-    senao
-        invalido()
-        entrada();
-    fimse
+    fimpara
 fimfuncao
 
 procedimento repete
