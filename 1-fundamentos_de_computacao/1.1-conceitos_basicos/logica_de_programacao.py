@@ -37,7 +37,8 @@
     >>>COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
     >>>FUNÇÕES
   >>DESENVOLVIMENTO DE PROGRAMAS
-  >>LINGUAGENS DE PROGRAMAÇÃO
+    >>LINGUAGENS DE PROGRAMAÇÃO
+    >>>SINTAXE E SEMÂNTICA
     >>>ESTRUTURA DE TIPOS
       >>>>SISTEMAS DE TIPOS
       >>>>GRAU DE ABSTRAÇÃO
@@ -292,8 +293,13 @@ Representação dos Dados:
 
 >ALGORITMO
 
- Ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação,
-quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Algoritmo = Sistema.
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo
+a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua
+de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema ou permitem
+realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência
+finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve
+fazer. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar
+alguma tarefa, ou seja, resolver um problema. Programa = Algoritmo = Sistema.
 
  Automatizar: Definir passo-a-passo da execução da tarefa.
  
@@ -305,11 +311,16 @@ quando escrevemos um código, descrevemos passo-a-passo o que o computador deve 
              Input ➝ Processamento ➝ Output
                            ⤻
 
+ *O processamento são os passos lógicos necessários para que os elementos de entrada se transformem em dados/informaões
+de saída. Ex. - Receita de Bolo: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).
+Observe que o modo de preparo - processamento (instruções para realizar a tarefa = algoritmo) - precisa ser apresentado de
+forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
+
  Design de Algoritmos:
  
                         Análise
                   (definir a solução)
-              /                         \ 
+              /                         \
         Refinamento                    Teste
  (Aperfeiçoamento da solução)  -  (testar a solução)
 
@@ -329,7 +340,7 @@ Aplicações:
 3. Math + Sci/Eng: Desenvolvimento e Abstração, Reconhecimento de Padrões
 4. CS + Math + Sci/Eng: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
 
->>Raciocínio Lógico: Raciocínio lógico é uma forma de pensamento estruturado, que permite encontrar a conclusão ou determinar a
+>>Raciocínio Lógico: Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a conclusão ou determinar a
 resolução de um problema.
 
                  /               Indução
@@ -465,15 +476,24 @@ Primeiros passos para começar a programar:
 
 >>>TIPOS DE DADOS
 
- Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o tipo de comportamento que o dado deve ter.
+ Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o tipo de comportamento que o dado deve ter
+(em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos
+especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memóri. Assim, ao declararmos uma
+variável além do identificador, precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica
+também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com
+o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é
+uma incoerência e pode causar erros.
 
-           / Inteiros: -3, -2, -1, 0, 1, 2, 3...
-Numéricos ❮
-           \ Reais: -5.5, -1.5, -0.555, 1.3, 5.9...
 
-Caracter ❮ ? A # b + C ! / *
+            / Inteiros: -3, -2, -1, 0, 1, 2, 3...
+Numéricos  ❮
+            \ Reais: -5.5, -1.5, -0.555, 1.3, 5.9...
 
-Booleano ❮ Lógico: VERDADEIRO (1) | FALSO (0)
+Caracteres ❮ ? A # b + C ! / *
+
+Cadeia     ❮ palavras
+
+Booleano   ❮ Lógico: VERDADEIRO (1) | FALSO (0)
 
 >>>>TIPAGEM DE DADOS
  ____________________________________________________________
@@ -524,7 +544,29 @@ Regras:
 
 >>>>>VARIÁVEL
 
- Para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis.
+ Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos
+armazenar este dado, é necessário realizar a RESERVA DE MEMÓRIA. A reserva de memória se dá através da declaração
+de variáveis, podemos fazer a analogia da memória do computador com um armário contendo gavetas, utilizadas para
+guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra
+para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de
+identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta. Sabemos que os espaços
+dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa
+que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja,
+cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e
+também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação hexadecimal
+ou binária, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de
+programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso
+ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do
+computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa,
+eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num
+determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é
+de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um
+"apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar),
+cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para
+armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, cada uma ocupando
+uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo idade1
+e idade2 os identificadores (ou seja, o nome das variáveis) e 29 e 26 os respectivos conteúdos no atual momento. Lembrando
+que uma variável só pode assumir 1 valor por vez.
 
 Características de variáveis:
 
@@ -537,7 +579,7 @@ Características de variáveis:
 um dos valores de um determinado conjunto de valores, contudo, ela está restrita ao seu
 tipo, ou seja, ela só pode assumir um tipo de valor por vez.
 
-           /    AÇÃO -> modificação/alteração/manipulação de estado
+           /   AÇÃO    -> modificação/alteração/manipulação de estado
 Pápeis da ❮      ou
 variável   \  CONTROLE -> monitorada/vigiada
 
@@ -1644,8 +1686,10 @@ if __name__ == "__main__":
 >>LINGUAGENS DE PROGRAMAÇÃO
 
  A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para
-criar um algoritmo, que através de uma linguagem de programação define um programa de computador escrito em código fonte e traduzido
-para linguagem de máquina para ser executada por algum equipamento.
+criar um algoritmo, que através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através
+de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina para ser executada por algum
+equipamento e realizar a tarefa a qual foi designada. Resumindo, uma linguagem de programação é um método composto por um conjunto de regras
+sintáticas e semânticas de implementação de um código fonte.
 
  Exemplo de programa em C:
  ______________________________________________
@@ -1667,12 +1711,52 @@ para linguagem de máquina para ser executada por algum equipamento.
  | }                                          |
  ----------------------------------------------
 
+>>>SINTAXE E SEMÂNTICA
+
+ As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, essas regras são chamadas de sintaxe e semântica,
+(assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever palavras corretamente em uma língua, enquanto a semântica
+trata de como usar essas palavras para formar frases que fazem sentido.
+
+ - SINTAXE: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao conjunto de regras que
+define a estrutura e o formato válido para escrever código em uma linguagem de programação. É como a "gramática" de uma linguagem. Exemplo em
+Python:
+'''
+print("Hello world!")
+'''
+ O código acima segue a sintaxe correta do Python para imprimir uma mensagem no console, visto que a mensagem está dentro de aspas e parênteses,
+ou seja, a simbologia para que a impressão da mensagem na tela aconteça está coerente com o que se espera nessa linguagem. No entanto, se
+escrevermos algo como:
+'''
+print "Hello world!"
+'''
+ Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print", iremos receber uma mensagem
+de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os erros mais comuns de sintaxe são relacionados à escrita: a falta de 
+símbolos obrigatórios (como parênteses, vírgulas, ponto-e-vírgula, endentação e etc), palavras reservadas escritas incorretamente, estruturas
+de código mal formatadas, entre outros.
+
+ - SEMÂNTICA: É a "organização" do código, ou seja, o que o código faz; Complementar à sintaxe, corresponde à descrição do significado das
+instruções válida de uma linguagem. Refere-se ao significado ou comportamento do código, é o que garante que o código faça o que se espera
+dele, ou seja, que ele tenha lógica e funcione corretamente. Exemplo em Python:
+'''
+resultado = 10 / 2 # divisão válida
+'''
+ Esse código tem uma semântica correta, já que a operação de divisão é válida. No entanto, considerando que vimos algo assim:
+'''
+resultado = 10 / 0 # divisão inválida
+'''
+ Apesar de a sintaxe estar correta, a semântica está errada, porque dividir por zero não é permitido, gerando um erro lógico durante a execução.
+ 
+     	                   SINTAXE                                  SEMÂNTICA
+ Pergunta-chave	 "Está escrito corretamente?"	                "Faz sentido?"
+ Erro	         O programa não será executado	    O programa é executado, mas pode falhar
+                     (erro de compilação).              ou produzir resultados errados.
+ Foco	         Estrutura e formato do código.         Significado e lógica do código.
+
 >>>ESTRUTURA DE TIPOS
 
  Refere-se ao sistema que uma linguagem de programação utiliza para definir, manipular e verificar os tipos de dados. Ela estabelece como 
 os tipos são tratados e como as conversões entre tipos são realizadas. A estrutura de tipos pode influenciar diretamente a flexibilidade,
-a segurança e a facilidade de uso da linguagem. Resumindo, uma linguagem de programação é um método composto por um conjunto de regras
-sintáticas e semânticas de implementação de um código fonte.
+a segurança e a facilidade de uso da linguagem.
 
 >>>>SISTEMAS DE TIPOS
 
@@ -1705,8 +1789,17 @@ sintáticas e semânticas de implementação de um código fonte.
 
  >>>>GRAU DE ABSTRAÇÃO
 
-  O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está
-da linguagem humana. Existem 3 tipos de grau de abstração:
+ Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de
+programação não é diferente, é preciso que exista um termo (comando) para solicitar a entrada de dados, outro para solicitar a saída de dados e assim por
+diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem
+escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem
+compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o
+computador entende), linguagens de baixo nível dão maior controle sobre o hardware, e por isso e também pela sua sintáxe complexa e de difícil leitura,
+torna-se muito complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais
+próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de
+programas mais rápido. Cada linguagem é mais indicada para categorias de problemas específicos, e definimos qual linguagem usar para a resolução do problema
+em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina,
+e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
 
  1. Baixo Nível: Possui símbolos que representam o código de máquina propriamente.
  2. Médio Nível: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador.

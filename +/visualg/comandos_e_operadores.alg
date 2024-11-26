@@ -104,13 +104,19 @@ inicio
     retorne resultado <- raiz_numero_1 ^ (1 / raiz_numero_2);
 fimfuncao
 
+funcao porcentagem(porcento_numero_1, porcento_numero_2: real; var resposta: real): real
+inicio
+    escreva("\n--- PERCENTUAL ---\n");
+    retorne resposta <- (porcento_numero_1 * porcento_numero_2) / 100;
+fimfuncao
+
 funcao calculadora: caractere
 var
 exibir: inteiro;
-dividir: real;
+dividir, porcento: real;
 fatoracao: vetor[1..2] de real;
 inicio
-    escreva("\n--- CALCULADORA SIMPLES ---\n[a] [+] [-] [*] [/] [%] [~] [!] [^] [@] [?] [x] >>> ");
+    escreva("\n--- CALCULADORA SIMPLES ---\n[a] [+] [-] [*] [/] [//] [%] [~] [!] [^] [@] [?] [x] >>> ");
     leia(opcao);
     escolha opcao
         caso "+"
@@ -126,6 +132,9 @@ inicio
             // divisão: função sem parâmetros com retorno imprimindo resultado armazenado em variável.
             escreval(numeros[1], " / ", numeros[2], " = ", dividir <- divisao());
         caso "%"
+            // porcentagem: função com parâmetros e com retorno imprimindo resultado armazenado em variável por referência.
+            escreval(numeros[1], "% -> ", numeros[2], " = ", porcentagem(numeros[1], numeros[2], porcento));
+        caso "//"
             // módulo: função sem parâmetros e sem retorno operando e imprimindo o resultado durante a saída.
             modulo();
         caso "~"

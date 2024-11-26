@@ -5,12 +5,12 @@ Arquitetura de Computadores
 
  2. Principais Partes de um Computador: Modelo de Von Neumann
 	Os componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
-		- Unidade de Controle - UC: Busca cada instrução dos programas na memória e executa sobre os dados de entrada.
-		- Unidade Lógica e Aritmética - ULA: Parte da unidade central de processamento (UCP).
+		- Unidade de Controle - UC: Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
+		- Unidade Lógica e Aritmética - ULA: Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
 		- Memória (RAM ou ROM): Armazena dados e programas.
 
 	A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
-A memória, componente crucial nesse processo, guarda os dados e as instruções que serão processados pela CPU. A memória RAM, volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM, não volátil, armazena informações permanentes, como a BIOS.
+A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. A memória RAM, volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM, não volátil, armazena informações permanentes, como a BIOS.
 Os dispositivos de entrada e saída permitem a interação do usuário com o computador. Através do teclado e do mouse, inserimos dados e comandos, enquanto o monitor e a impressora nos fornecem a saída das informações processadas. Os dispositivos de entrada e saída (I/O) interagem com o modelo, mas não fazem parte dos componentes principais.
 
  ┌──────────────────────────────────────────────────────────────────────────────┐
