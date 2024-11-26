@@ -579,7 +579,7 @@ Características de variáveis:
 um dos valores de um determinado conjunto de valores, contudo, ela está restrita ao seu
 tipo, ou seja, ela só pode assumir um tipo de valor por vez.
 
-           /   AÇÃO    -> modificação/alteração/manipulação de estado
+           /    AÇÃO -> modificação/alteração/manipulação de estado
 Pápeis da ❮      ou
 variável   \  CONTROLE -> monitorada/vigiada
 
