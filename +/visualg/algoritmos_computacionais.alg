@@ -43,8 +43,11 @@ inicio
 fimprocedimento
 
 procedimento valor(qntd_latas: inteiro)
+var preco: real;
 inicio
-    retorne valor <- qntd_latas * 66.70;
+    escreva("Valor unitário tinta: R$ ");
+    leia(preco);
+    retorne valor <- qntd_latas * preco;
 fimprocedimento
 
 var
