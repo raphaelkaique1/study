@@ -11,13 +11,13 @@ algoritmo "Logica"
 // Resposta: A quantidade de latas de tintas necessárias para pintar o piso e também o custo total para comprar as latas de tintas necessárias.
 
 procedimento area()
-var area_total, altura, base: real
+var altura, base: real
 inicio
     escreva("Informe a altura (m): ");
     leia(altura);
     escreva("Informe a base (m): ");
     leia(base);
-    retorne area_total <- base * altura;
+    retorne base * altura;
 fimprocedimento
 
 procedimento pintar(m2: real)
@@ -33,12 +33,10 @@ inicio
     tinta <- latas;
 
     // arredondando qntd total de latas à comprar:
-    // resto recebe a diferença do real - inteiro
-    resto <- latas - tinta;
     // verifica se resto é diferente de 0 para fazer o arredondamento
-    se resto <> 0 entao
-        // soma o resto com o valor real para que o inteiro arredonde
-        tinta <- resto + latas;
+    se latas - tinta <> 0 entao
+        // arredonda para mais
+        tinta <- tinta + 1;
     fimse
 
     retorne tinta
