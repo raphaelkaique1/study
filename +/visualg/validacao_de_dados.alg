@@ -8,28 +8,35 @@ n_pessoas, i, s, n: inteiro;
 prgt, r: caractere;
 
 inicio
-prgt <- "Você gosta de futebol? [s/n]: ";
-
     repita
-        escreva("Informe quantas pessoas participarão da pesquisa: ");
-        leia(n_pessoas);
-    ate n_pessoas > 0
-
-    para i de 1 ate n_pessoas faca
         repita
-            escreva(prgt);
-            leia(r);
-            se r = "s" entao
-                s <- s + 1;
-            senao
-                se r = "n" entao
-                    n <- n + 1;
+            escreva("Informe quantas pessoas participarão da pesquisa: ");
+            leia(n_pessoas);
+            escreva("Pesquisa sobre: ");
+            leia(prgt);
+        ate n_pessoas > 0
+        para i de 1 ate n_pessoas faca
+            repita
+                escreva("Você gosta de ", prgt, "? [s/n]: ");
+                leia(r);
+                se r = "s" entao
+                    s <- s + 1;
                 senao
-                    escreval("Opção inválida, tente novamente.")
+                    se r = "n" entao
+                        n <- n + 1;
+                    senao
+                        escreval("Opção inválida, tente novamente.")
+                    fimse
                 fimse
-            fimse
-        ate (r = "s") ou (r = "n")
-    fimpara
-
-    escreva("SIM: ", s, "\nNÃO: ", n);
+            ate (r = "s") ou (r = "n")
+        fimpara
+        escreval("\nPESQUISA: ", prgt, "\n  SIM: ", s, " (", (s * 100) / n_pessoas, "%)", "\n  NÃO: ", n, " (", (n * 100) / n_pessoas, "%)", "\n");
+        s := 0;
+        n := 0;
+        repita
+            escreva("Deseja realizar nova pesquisa? [s/n]: ");
+            leia(prgt);
+        ate (prgt = "s") ou (prgt = "n")
+        escreva("\n");
+    ate prgt = "n"
 fimalgoritmo
