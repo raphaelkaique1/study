@@ -1,6 +1,6 @@
 algoritmo "ValidacaoDeDados"
 // escreva um programa para computar os resultados de uma pesquisa realizada com N pessoas
-// em que respondem à pergunta: "você gosta de futebol?"
+// em que respondem à uma pesquisa X
 // o programa deve informar quantas pessoas responderam "S" / "N"
 
 var

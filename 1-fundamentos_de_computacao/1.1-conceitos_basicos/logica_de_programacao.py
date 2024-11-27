@@ -691,6 +691,12 @@ após a definição, até o final do arquivo ou até que sejam substituídas por
 
  Container ou Matriz Unidimensional, um vetor é caracterizado por uma variável dimensionada
 com tamanho pré-fixado, ou seja, é uma variável com tamanho fixo que irá receber "n" valores.
+Diferente da variável que armazena apenas 1 valor por vez, um vetor pode armazenar "n" valores
+indexados nas respectivas posições quais foram armazenados/inputados. Ou seja, vetor é um
+agrupamento contíguo de variáveis que armazenam valores do mesmo tipo. Um vetor possui 4
+características importantes, são elas: nome (identificador), tamanho (define o número de dados
+que podem ser armazenados), tipo (tipo dos dados armazenados) e índices (indica a posição de cada
+dado no vetor).
 
 >>>>>>MATRIZ
 
