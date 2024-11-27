@@ -24,8 +24,9 @@ prgt <- "Você gosta de futebol? [s/n]: ";
             senao
                 se r = "n" entao
                     n <- n + 1;
+                senao
+                    escreval("Opção inválida, tente novamente.")
                 fimse
-                escreval("Opção inválida, tente novamente.")
             fimse
         ate (r = "s") ou (r = "n")
     fimpara
