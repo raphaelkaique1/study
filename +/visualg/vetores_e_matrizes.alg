@@ -1,7 +1,7 @@
 algoritmo "VetoresEMatrizes"
 
 var
-pessoa: vetor[1..2, 1..2] de caracter;
+pessoa: vetor[1..2] de caracter;
 nome: caractere;
 i: inteiro;
 
