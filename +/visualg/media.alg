@@ -1,8 +1,8 @@
-algoritmo "Idade"
+algoritmo "media"
 // Escreva um algoritmo para calcular a média de `n` números
 
 var
-idade, soma, i, n: inteiro;
+media, soma, i, n: inteiro;
 
 inicio
 
@@ -11,10 +11,10 @@ inicio
 
     para i de 1 ate n faca
         escreva("Digite o ", i, "º n°: ");
-        leia(idade);
-        soma <- soma + idade;
+        leia(media);
+        soma <- soma + media;
     fimpara
 
-    escreva("Média: ", soma / 10);
+    escreva("Média: ", soma / n);
 
 fimalgoritmo
