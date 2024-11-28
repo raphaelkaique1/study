@@ -697,11 +697,24 @@ agrupamento contíguo de variáveis que armazenam valores do mesmo tipo. Um veto
 características importantes, são elas: nome (identificador), tamanho (define o número de dados
 que podem ser armazenados), tipo (tipo dos dados armazenados) e índices (indica a posição de cada
 dado no vetor).
+           __
+ VARIÁVEL |__|
+           ___________
+ VETOR    |__|__|__|__|
 
 >>>>>>MATRIZ
 
- Matriz é uma tabela organizada em linhas e colunas no fomarto [m] x [n], onde [m] representa
-o número de LINHAS (horizontal) e [n] o número de COLUNAS (vertical).
+ Uma Matriz é um vetor bidimensional utilizado para armazenar valores do mesmo tipo, ou seja, é uma
+tabela organizada em linhas e colunas no fomarto [m] x [n], onde [m] representa o número de LINHAS
+(horizontal) e [n] o número de COLUNAS (vertical).
+           __
+ VARIÁVEL |__|
+           ________
+ VETOR    |__|__|__|
+           ________
+          |__|__|__|
+ MATRIZ   |__|__|__|
+          |__|__|__|
 
           colunas
             n ↓
