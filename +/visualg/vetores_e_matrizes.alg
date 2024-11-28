@@ -52,10 +52,14 @@ inicio
         fimpara
             escreva("\n");
     fimpara
-    escreva("\nPESSOAS\n");
+    escreval("PESSOAS");
     para linha de 0 ate 2 faca
         para coluna de 0 ate 1 faca
-            escreva(pessoa[linha, coluna], " ");
+            se coluna > 0 entao
+                escreva(" ", pessoa[linha, coluna]);
+            senao
+                escreva(pessoa[linha, coluna]);
+            fimse
         fimpara
         escreva("\n");
     fimpara
