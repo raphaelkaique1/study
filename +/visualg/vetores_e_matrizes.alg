@@ -53,15 +53,16 @@ inicio
             escreva("\n");
     fimpara
     escreval("PESSOAS");
+    i := 0;
     para linha de 0 ate 2 faca
         para coluna de 0 ate 1 faca
-            se coluna > 0 entao
+            se coluna > i entao
                 escreva(" ", pessoa[linha, coluna]);
             senao
                 escreva(pessoa[linha, coluna]);
             fimse
+            i <- coluna;
         fimpara
         escreva("\n");
     fimpara
-
 fimalgoritmo
