@@ -1,0 +1,5 @@
+codeacademy: https://www.codecademy.com/
+exercism: https://exercism.org/
+geeksforgeeks: https://www.geeksforgeeks.org/
+hackerrank; https://www.hackerrank.com/
+leetcode: https://leetcode.com/
