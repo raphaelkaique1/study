@@ -1,0 +1,22 @@
+<script>
+    var n1, n2, r, o
+    n1 = prompt("1º n°:")
+    n2 = prompt("2º n°:")
+    o = prompt("[+] [-] [x] [/]: ")
+
+    n1 > n2 ? alert(`${n1} > ${n2}`) : (n1 == n2? alert(`${n1} == ${n2}`): alert(`${n1} < ${n2}`))
+
+    if(o == "+"){
+        r = Number(n1) + Number(n2)
+        alert(`${n1} + ${n2} = ${r}`)
+    } else if(o == "-") {
+        r = Number(n1) - Number(n2)
+        alert(`${n1} - ${n2} = ${r}`)
+    } else if(o == "x") {
+        r = Number(n1) * Number(n2)
+        alert(`${n1} x ${n2} = ${r}`)
+    } else if(o == "/") {
+        r = Number(n1) / Number(n2)
+        alert(`${n1} / ${n2} = ${r}`)
+    } else {alert("Opção inválida.")}
+</script>
