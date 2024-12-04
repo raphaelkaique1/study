@@ -2,7 +2,10 @@
 Algoritmos
 
  1. Conceitos: Compreender o que é um algoritmo e suas aplicações.
-  Algoritmo é uma série ordenada de passos não ambíguos executáveis; É uma sequência de instruções ou comandos realizados de maneira sistemática com o objetivo de resolver um problema ou executar uma tarefa. São como uma receita de bolo: uma sequência de ações que devem ser executadas até que o objetivo final - o bolo pronto - seja atingido.
+ Algoritmo é uma série ordenada de passos não ambíguos executáveis; É uma sequência de instruções ou comandos
+realizados de maneira sistemática com o objetivo de resolver um problema ou executar uma tarefa. São como uma
+receita de bolo: uma sequência de ações que devem ser executadas até que o objetivo final (o bolo pronto) seja
+atingido.
     ┌─────────┐  ┌───────────────┐  ┌───────┐
     | Entrada ├─>| Processamento ├─>| Saída |
     └─────────┘  └───────────────┘  └───────┘
@@ -17,7 +20,7 @@ Algoritmos
        └─────────┘┌──────┴───────┐└───────────────┘
                   | delineamento |
                   └──────────────┘
-  Exemplo de algoritmo: troca de lâmpada versão 1  |  Exemplo de algoritmo: cálculo de média anual de aluno versão 1
+  Exemplo de algoritmo: troca de lâmpada versão 1  |  Ex. algoritmo: cálculo de média anual de aluno versão 1
     - Pegar uma escada;                            |  início
     - Posicionar a escada embaixo da lâmpada;      |    // declaração de variáveis
     - Buscar uma lâmpada nova;                     |    real: N1, N2, N3, N4, // notas bimestrais
@@ -31,10 +34,14 @@ Algoritmos
                                                    |    fimse;
                                                    |  fim;
   Como representar os algoritmos?
-    Os algoritmos podem ser representados de 3 maneiras básicas: narração descritiva; fluxograma e pseudocódigo. Utilizando essas representações, procura-se aguçar a lógica e diminuir possíveis erros, antes da programação em si. Quando codificamos em uma linguagem de programação, o algotimo "está por trás".
+    Os algoritmos podem ser representados de 3 maneiras básicas: narração descritiva; fluxograma e pseudocódigo.
+    Utilizando essas representações, procura-se aguçar a lógica e diminuir possíveis erros, antes da programação
+    em si. Quando codificamos em uma linguagem de programação, o algotimo "está por trás".
 
       - Narração Descritiva
-        A forma mais simples e direta de se representar um algoritmo; Consiste em escrever um texto simples, uma narrativa do que deve ser realizado para que o problema proposto seja solucionado. Pouco utilizada, pois, por ser aberta a várias interpretações é bastante suscetível a erros:
+        A forma mais simples e direta de se representar um algoritmo; Consiste em escrever um texto simples, uma
+        narrativa do que deve ser realizado para que o problema proposto seja solucionado. Pouco utilizada, pois,
+        por ser aberta a várias interpretações é bastante suscetível a erros:
           1. Pare o carro (...desligo o motor?)
           2. Abra a porta (...qual?)
           3. Retire o estepe (...onde está o estepe?)
@@ -46,7 +53,9 @@ Algoritmos
         Aqui o nível de abstração é bastante alto, pois várias situações foram deixadas de lado.
 
       - Fluxograma
-        Utiliza-se de gráficos para representar os passos que devem ser executados pelo algoritmo. Hojse são usados para representações específicas ou para modelagens. O problema desta representação é ocultar a estrutura de dados e pode se tornar muito trabalhosa para algoritmos complexos.
+        Utiliza-se de gráficos para representar os passos que devem ser executados pelo algoritmo. Hojse são usados
+        para representações específicas ou para modelagens. O problema desta representação é ocultar a estrutura de
+        dados e pode se tornar muito trabalhosa para algoritmos complexos.
           ╭────────╮
           | INÍCIO |
           ╰────┬───╯
@@ -67,7 +76,9 @@ Algoritmos
         └~~~~~~~~~~~~~┘   ╰─────╯
 
       - Pseudocódigo
-        O pseudocódigo utiliza formatação e regras que se assemelham a da maioria das linguagens, mas se utiliza de lingugagem natural como na narrativa descritiva, poém dentro de uma norma de escrita próxima a das linguagens de programação, sem realmente ser uma linguagem de programação.
+        O pseudocódigo utiliza formatação e regras que se assemelham a da maioria das linguagens, mas se utiliza de
+        lingugagem natural como na narrativa descritiva, poém dentro de uma norma de escrita próxima a das linguagens
+        de programação, sem realmente ser uma linguagem de programação.
           início
             // declaração de variáveis
             texto: nome; // armazena o dado informado pelo usuário
@@ -76,10 +87,13 @@ Algoritmos
           fim
 
  2. Diferentes estruturas: Estruturas para repetição e controle de fluxo.
-  Em um algoritmo ou mesmo programa de computador, são várias as estruturas que utilizamos para controlar o fluxo de execução dos comandos e funções. Essas estruturas determinam o que, como e quando será executado.
+  Em um algoritmo ou mesmo programa de computador, são várias as estruturas que utilizamos para controlar o fluxo de
+  execução dos comandos e funções. Essas estruturas determinam o que, como e quando será executado.
 
     - IF: Estrutura de Seleção: SE () ENTÃO {} SENÃO
-      A condição "se-(então)(-senão)" é uma estrutura de seleção comum em diversas linguagens de programação. Utiliza-se de expressões booleanas (vem do binário - do tipo lógica verdadeiro/falso) para desviar a execução do código para um outro determinado fluxo, dependendo do valor avaliado ser verdadeiro ou falso.
+      A condição "se-(então)(-senão)" é uma estrutura de seleção comum em diversas linguagens de programação. Utiliza-se
+      de expressões booleanas (vem do binário - do tipo lógica verdadeiro/falso) para desviar a execução do código para
+      um outro determinado fluxo, dependendo do valor avaliado ser verdadeiro ou falso.
            ↓                    |
         ╱(con- ╲ ───┐           |
         ╲dição)╱   SIM          |
@@ -99,7 +113,9 @@ Algoritmos
         FIM                                         |
 
   - WHILE: Estrutura de Repetição Booleana: ENQUANTO () FAÇA {}
-    Esta estrutura repete uma sequência de comandos ENQUANTO uma determinada condição / expressão lógica, for satisfeita; Essa expressão é avaliada antes de cada repetição do laço, quando seu resultado for VERDADEIRO, <sequência-de-comandos> é executada. Quando a condição não for mais satisfeita, o fluxo desvia do laço de execução.
+    Esta estrutura repete uma sequência de comandos ENQUANTO uma determinada condição (expressão lógica), for satisfeita;
+    Essa expressão é avaliada antes de cada repetição do laço, quando seu resultado for VERDADEIRO, <sequência-de-comandos>
+    é executada. Quando a condição não for mais satisfeita, o fluxo desvia do laço de execução.
            ↓    condição    |  Algoritmo "Números de 1 a 10 (com enquanto...faça)"
         ╱teste╲ verdadeira  |  var i: inteiro
    ┌─> ⟨de con-⟩ ────────┐  |  início
@@ -111,7 +127,8 @@ Algoritmos
      └────────────┘      ↓  |  fimalgoritmo
 
   - DO: Estrutura de Repetição Booleana: REPITA {} ATÉ ()
-    A estrutura de repetição REPITA-ATÉ é utilizada quando um conjunto de comandos deve ser executado pelo menos 1 vez e então repetidamente até que uma condição (expressão lógica) seja verdadeira. Aqui a condição é testada ao final do laço.
+    A estrutura de repetição REPITA-ATÉ é utilizada quando um conjunto de comandos deve ser executado pelo menos 1 vez e
+    então repetidamente até que uma condição (expressão lógica) seja verdadeira. Aqui a condição é testada ao final do laço.
            ↓             |  Algoritmo "Números de 1 a 10 (com enquanto...faça)"
      ┌────────────┐      |  var num: inteiro
    ┌>| comando(s) |      |  início
@@ -128,10 +145,14 @@ falsa      ↓ verdadeira  |  fimalgoritmo
   - eficiência na utilização dos recursos do computador e rapidez, através de seu tempo de execução.
 
   Métodos de Busca e Ordenação
-    Seguindo um pensamento objetivo, quase tudo que fazemos em termos de computação é busca de elementos em uma lista ou ordenação de elementos em uma lista. Métodos de Busca e Ordenação são a essência de muitos problemas e soluções em computação.
+    Seguindo um pensamento objetivo, quase tudo que fazemos em termos de computação é busca de elementos em uma lista ou ordenação
+    de elementos em uma lista. Métodos de Busca e Ordenação são a essência de muitos problemas e soluções em computação.
 
     - Busca Sequencial (ou Linear)
-      O método de busca linear faz com que o elemento em cada posição da lista seja comparado ao elemento que se busca. A busca sequencial é um algoritmo pouco eficiente para encontrar um item em uma lista grande de elementos, pois se o item estiver entre os últimos, todos os elementos serão visitados, ou no pior dos casos, aguardaremos muito tempo para se descobrir que o item não está presente na lista.
+      O método de busca linear faz com que o elemento em cada posição da lista seja comparado ao elemento que se busca.
+      A busca sequencial é um algoritmo pouco eficiente para encontrar um item em uma lista grande de elementos, pois se
+      o item estiver entre os últimos, todos os elementos serão visitados, ou no pior dos casos, aguardaremos muito tempo
+      para se descobrir que o item não está presente na lista.
          ₀    ₁   ₂    ₃    ₄    ₅    ₆
        ┌────┬───┬────┬────┬────┬────┬────┐
      V | 23 | 4 | 67 | -8 | 54 | 90 | 21 | Array / Vetor.
@@ -157,7 +178,14 @@ falsa      ↓ verdadeira  |  fimalgoritmo
        ───────────────────────────────────
 
     - Busca Binária
-      A busca binária é um eficiente algoritmo para encontrar um item em uma LISTA ORDENADA de itens. Ela funciona dividindo repetidamente pela metade a porção da lista que deve conter o item, até reduzir as localizações possíveis a apenas uma. O valor a ser buscado é comparado com o valor do meio da lista. Se o valor a ser procurado é maior do que o valor do meio da lista, descartamos a metade inferior da lista, afinal ele não estará lá com certeza. Concentramos os esforços então na lista que sobrou. Repetimos o processo analisando o elemento que está no meio da lista. Assim, de forma repetida e rápida vamos descartando os elementos e chegando cada vez mais perto da resposta, se o número está ou não na lista. Repare que quando consultamos um dicionário, em geral fazemos uma espécie de busca binária. Abaixo o número a ser procurado é o 4 na lista V.
+      A busca binária é um eficiente algoritmo para encontrar um item em uma LISTA ORDENADA de itens. Ela funciona dividindo
+      repetidamente pela metade a porção da lista que deve conter o item, até reduzir as localizações possíveis a apenas uma.
+      O valor a ser buscado é comparado com o valor do meio da lista. Se o valor a ser procurado é maior do que o valor do meio
+      da lista, descartamos a metade inferior da lista, afinal ele não estará lá com certeza. Concentramos os esforços então na
+      lista que sobrou. Repetimos o processo analisando o elemento que está no meio da lista. Assim, de forma repetida e rápida
+      vamos descartando os elementos e chegando cada vez mais perto da resposta, se o número está ou não na lista. Repare que
+      quando consultamos um dicionário, em geral fazemos uma espécie de busca binária. Abaixo o número a ser procurado é o 4 na
+      lista V.
          ₀    ₁   ₂    ₃   ₄    ₅    ₆    ₇    ₈    ₉
        ┌────┬────┬───┬───┬────┬────┬────┬────┬────┬────┐
      V | -8 | -5 | 1 | 4 | 14 | 21 | 23 | 54 | 67 | 90 | Array / Vetor.
@@ -185,16 +213,19 @@ meio=3 | -8 | -5 | 1 | 𝟰 | 14 | 21 | 23 | 54 | 67 | 90 | Valor é igual: term
   Busca Sequencial x Busca Binária
   - Se a lista não está ordenada, a busca binária não se aplica.
   - A busca sequencial é muito ineficiente para conjuntos grandes de valores.
-  - Olhando o comportamento matemático dos processos computacionais (complexidade assintótica) podemos enxergar os algoritmos por meio de gráficos de funções. No eixo X a quantidade n de elementos, no eixo Y o número de comparações.
-  - Costuma-se dizer que a busca sequencial "tem complexidade n" e que a busca binária "tem complexidade log n", fazendo muito menos comparações, torna-se mais eficiente.
-  - Como a função log n cresce significativamente mais devagar do que a busca linear em função do tamanho da entrada, dizemos que faz menos comparações, sendo mais eficiente do que a busca sequencial.
+  - Olhando o comportamento matemático dos processos computacionais (complexidade assintótica) podemos enxergar os algoritmos
+  por meio de gráficos de funções. No eixo X a quantidade n de elementos, no eixo Y o número de comparações.
+  - Costuma-se dizer que a busca sequencial "tem complexidade n" e que a busca binária "tem complexidade log n", fazendo muito
+  menos comparações, torna-se mais eficiente.
+  - Como a função log n cresce significativamente mais devagar do que a busca linear em função do tamanho da entrada, dizemos
+  que faz menos comparações, sendo mais eficiente do que a busca sequencial.
     Plot:                                   Plot:
     ┌                                       ┌
    ₉├                     ╭───         ¹⁰⁰⁰⁰├          ╱
    ₈├              ╭──────╯                 ├         ╱
    ₇├       ╭──────╯                    ⁸⁰⁰⁰├        ╱
    ₆├      /                                ├       ╱
-   ₅├     /               ↖ Log N      ⁶⁰⁰⁰ ├      ╱                  ↖ N
+   ₅├     /               ↖ Log N       ⁶⁰⁰⁰├      ╱                  ↖ N
    ₄├    /                                  ├     ╱
    ₃├   /                               ⁴⁰⁰⁰├    ╱
    ₂├  /                                    ├   ╱
