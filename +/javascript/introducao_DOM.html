@@ -264,11 +264,18 @@
         border-radius: 1rem;
         background-color: #333;
     }
+    .backTop {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        align-content: center;
+        text-align: center;
+    }
 </style>
 <body>
     <div class="center">
-        <h1>
-            Seletor: comando utilizado para identificar um elemento DOM (representação dos elementos HTML).
+        <h1 id="top">
+            <span>Seletor</span>: comando utilizado para identificar um elemento DOM (representação dos elementos HTML).
         </h1>
     </div>
     <div class="map">
@@ -427,12 +434,24 @@
     <h2 class="center">Tipos de Seletores</h2>
     <p class="center">Todos os seletores são chamados a partir do document. os principais são:</p>
     <div class="center">
-        <ul>
+        <ul id="tipos_seletores">
             <li>getElementById("")</li>
             <li>querySelector("")</li>
-            <li>getElementByName("")</li>
-            <li>getElementByClassName("")</li>
+            <li>getElementsByName("")</li>
+            <li>getElementsByClassName("")</li>
         </ul>
     </div>
 </body>
+<footer>
+    <div name="backTop" class="backTop"><a href="#top">🔝</a></div>
+</footer>
 </html>
+<script>
+    // document.body.style.backgroundColor = "#000"
+    document.querySelector("h1").style.borderBottom = "#111 solid 2px"
+    document.querySelector("h1>span").style.color = "rgb(0, 130, 255)"
+    document.getElementById("tipos_seletores").style.border = "#111 solid 2px"
+    /* -------------------------------------------------------------------- */
+    document.getElementsByName("backTop")[0].style.fontSize = "1.5rem"
+    document.getElementsByClassName("backTop")[0].style.border = "#333 solid 2px"
+</script>
