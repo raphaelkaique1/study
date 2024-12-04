@@ -1,4 +1,5 @@
-# Algoritmos
+<pre><code>
+Algoritmos
 
  1. Conceitos: Compreender o que é um algoritmo e suas aplicações.
   Algoritmo é uma série ordenada de passos não ambíguos executáveis; É uma sequência de instruções ou comandos realizados de maneira sistemática com o objetivo de resolver um problema ou executar uma tarefa. São como uma receita de bolo: uma sequência de ações que devem ser executadas até que o objetivo final - o bolo pronto - seja atingido.
@@ -189,14 +190,15 @@ meio=3 | -8 | -5 | 1 | 𝟰 | 14 | 21 | 23 | 54 | 67 | 90 | Valor é igual: term
   - Como a função log n cresce significativamente mais devagar do que a busca linear em função do tamanho da entrada, dizemos que faz menos comparações, sendo mais eficiente do que a busca sequencial.
     Plot:                                   Plot:
     ┌                                       ┌
-   ₉├                     ╭───         ¹⁰⁰⁰⁰├         ╱
-   ₈├              ╭──────╯                 ├        ╱
-   ₇├       ╭──────╯                    ⁸⁰⁰⁰├       ╱
-   ₆├      /                                ├      ╱
-   ₅├     /               ↖ Log N      ⁶⁰⁰⁰ ├     ╱                   ↖ N
-   ₄├    /                                  ├    ╱
-   ₃├   /                               ⁴⁰⁰⁰├   ╱
-   ₂├  /                                    ├  ╱
-   ₁├ ⎛                                 ²⁰⁰⁰├ ╱
+   ₉├                     ╭───         ¹⁰⁰⁰⁰├          ╱
+   ₈├              ╭──────╯                 ├         ╱
+   ₇├       ╭──────╯                    ⁸⁰⁰⁰├        ╱
+   ₆├      /                                ├       ╱
+   ₅├     /               ↖ Log N      ⁶⁰⁰⁰ ├      ╱                  ↖ N
+   ₄├    /                                  ├     ╱
+   ₃├   /                               ⁴⁰⁰⁰├    ╱
+   ₂├  /                                    ├   ╱
+   ₁├ ⎛                                 ²⁰⁰⁰├  ╱
     └─┴──┴──┴──┴──┴──┴──┴──┴──┴──┘          └─┴──┴──┴──┴──┴──┴──┴──┴──┴──┘
     ⁰   ²⁰⁰⁰  ⁴⁰⁰⁰  ⁶⁰⁰⁰  ⁸⁰⁰⁰  ¹⁰⁰⁰⁰       ⁰   ²⁰⁰⁰  ⁴⁰⁰⁰  ⁶⁰⁰⁰  ⁸⁰⁰⁰  ¹⁰⁰⁰⁰
+</code></pre>
