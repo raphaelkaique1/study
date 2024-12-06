@@ -62,11 +62,11 @@ Estruturas de Dados
     NOTAS[5] = 2,5
     NOTAS[9] = 4
   Para apagar ou inserir um elemento, os elementos do vetor serão movimentados. Veja que, quando um novo elemento é
-  inserido no meio da lista, essa inserção de um novo elemento irá forçar que os demais elementos sejam deslocados pela
-  estrutura exigindo um laço de programação. Em outras palavras, a inserção de um elemento no vetor sem copiar por cima
-  de um elemento pré-existente requer movimentar os elementos restantes da lista. Decididamente incluir um elemento em
-  um vetor sem apagar o anterior tem certo custo de programação. Isso é diferente da estrutura lista ligada que veremos
-  mais adiante.
+  inserido no meio da lista, essa inserção de um novo elemento irá forçar que os demais elementos sejam deslocados
+  pela estrutura exigindo um laço de programação. Em outras palavras, a inserção de um elemento no vetor sem copiar
+  por cima de um elemento pré-existente requer movimentar os elementos restantes da lista. Decididamente incluir um
+  elemento em um vetor sem apagar o anterior tem certo custo de programação. Isso é diferente da estrutura lista
+  ligada que veremos mais adiante.
           0   1   2   3   4   5    6    7   8   9
         ┌───┬───┬───┬───┬───┬───┬─────┬───┬───┬───┐
         | 9 | 4 | 8 | 7 | 3 | 8 |     |   |   |   |
@@ -74,12 +74,12 @@ Estruturas de Dados
                               + └───────────┬──────────┘
     NOTAS[5] = 8                  2,5   6   5    3    4
     NOTAS[9] = 3                                      ─>
-  Matriz é uma tabela organizada em linhas e colunas no formato m (linhas) x n (colunas), onde "m" representa o número
-  de linhas (horizontal) e "n" o número de colunas (vertical). Considere os dados como se estivessem todos dispostos em
-  uma tabela, isto é, uma estrutura retangular contendo elementos de um mesmo tipo (no caso de matriz homogênea). Pense
-  em uma forma de representar a ocupação de lugares em um teatro. A cada venda de um bilhete é preciso armazenar a
-  informação evitando que duas pessoas tenham o mesmo número de assentos.Veja a matriz (3L x 4C) armazenada segundo a
-  sequência de linhas: Matriz Bidimensional com 3 linhas e 4 colunas.
+  Matriz é uma tabela organizada em linhas e colunas no formato m (linhas) x n (colunas), onde "m" representa o nº de
+  linhas (horizontal) e "n" o número de colunas (vertical). Considere os dados como se estivessem todos dispostos em
+  uma tabela, isto é, uma estrutura retangular contendo elementos de um mesmo tipo (no caso de matrizes homogêneas).
+  Pense em uma forma de representar a ocupação de lugares em um teatro. A cada venda de um bilhete é preciso
+  armazenar a informação evitando que duas pessoas tenham o mesmo número de assentos. Matriz (3L x 4C) armazenada
+  segundo a sequência de linhas: Matriz Bidimensional com 3 linhas e 4 colunas.
                                                                               MATRIZ CONCEITUAL
                                                                             ┌────┬────┬────┬────┐
              ┌──────────────────────────────────────────────────────────────┤    |    |    |    | L1
@@ -194,10 +194,10 @@ Estruturas de Dados
                         |  K  |   |  L  |
                         └─────┘   └─────┘
   Árvore implementada por um sistema de listas ligadas. Note que a implementação da árvore se dá por lista ligada mas
-  poderia ser por vetores também. Isto é uma lista ou um vetor pode representar uma árvore, embora a representação por
-  listas seja mais fácil de se encontrar em algoritmos. O NIL representa um ponteiro que não aponta para outro elemento.
-  Organização real do armazenamento. Organização conceitual e real de uma árvore binária com a utilização de um sistema
-  de armazenamento ligado.
+  poderia ser por vetores também. Isto é uma lista ou um vetor pode representar uma árvore, embora a representação
+  por listas seja mais fácil de se encontrar em algoritmos. O NIL representa um ponteiro que não aponta para outro
+  elemento. Organização real do armazenamento. Organização conceitual e real de uma árvore binária com a utilização
+  de um sistema de armazenamento ligado.
     ┌────────────────┐                  ┌───┬───┬───┐                  ┌───┬───┬───┐
     | ponteiro para  ├────────────────> | A |   |   ├────────────────> | C |NIL|   |
     | raiz da árvore |                  └───┴─┬─┴───┘                  └───┴───┴─┬─┘
@@ -212,16 +212,16 @@ Estruturas de Dados
             ╰─────────────────────────────────> | E |NIL|NIL|
                                                 └───┴───┴───┘
   Árvore de Pesquisa Binária
-    É uma estrutura de dados útil quando precisam ser tomadas decisões bidirecionais em cada ponto de um processo. Um
-    exemplo: encontrar todas as repetições numa lista de números. Uma forma para fazer isto é comparar cada número com
-    todos que o precedem. Percorremos uma árvore para imprimir uma sequência de valores; para buscar um elemento; para
-    encontrar um elemento mínimo ou máximo; para obter o predecessor ou sucessor de um elemento; para inserir ou
-    eliminar um elemento. Repare como a "altura" da árvore tem relação com percorrê-la. Note que em uma árvore binária,
-    à esquerda de um nó pai, os filhos da subárvore esquerda são menores e os filhos da subárvore direita são maiores.
-    Observe como algoritmos PreOrdem, InOrdem e PosOrdem geram saídas diferentes. A chave da raiz de uma sub-árvore é
-    impressa entre os valores de sua sub-árvore esquerda e sub-árvore direita. Um exemplo de aplicação: encontrar todas
-    as repetições em uma lista de números, verificar se um dado elemento está presente na árvore ou não está, qual o
-    menor ou qual o maior elemento de uma lista.
+    É uma estrutura de dados útil quando precisam ser tomadas decisões bidirecionais em cada ponto de um processo.
+    Um exemplo: encontrar todas as repetições numa lista de números. Uma forma para fazer isto é comparar cada
+    número com todos que o precedem. Percorremos uma árvore para imprimir uma sequência de valores; para buscar
+    um elemento; para encontrar um elemento mínimo ou máximo; para obter o predecessor ou sucessor de um elemento;
+    para inserir ou eliminar um elemento. Repare como a "altura" da árvore tem relação com percorrê-la. Note que
+    em uma árvore binária, à esquerda de um nó pai, os filhos da subárvore esquerda são menores e os filhos da
+    subárvore direita são maiores. Observe como algoritmos PreOrdem, InOrdem e PosOrdem geram saídas diferentes.
+    A chave da raiz de uma sub-árvore é impressa entre os valores de sua sub-árvore esquerda e sub-árvore direita.
+    Um exemplo de aplicação: encontrar todas as repetições em uma lista de números, verificar se um dado elemento
+    está presente na árvore ou não está, qual o menor ou qual o maior elemento de uma lista.
   ┌─────────────────┐  ┌───────────┐
   |        5        |  |  2        |
   |       / \       |  |   \       |
@@ -237,13 +237,13 @@ Estruturas de Dados
   - Pilhas
       Quando operamos uma estrutura em que as operações de inserção ou remoção ocorrem só em um dos extremos da lista,
       chamamos essa estrutura de uma pilha. São estruturas de dados do tipo LIFO (last-in-first-out), onde o último
-      elemento a ser inserido será o primeiro a ser retirado. Assim, uma pilha permite acesso a apenas um item de dados
-      - o último inserido. Para processar o penúltimo item inserido, deve-se remover o último. São muito importantes
-      quando precisamos armazenar um conjunto de dados para ser utilizado em um determinado software. Uma vez criada
-      a pilha, seus elementos podem ser descarregados mas sempre a partir do topo da pilha. A extremidade em que as
-      operações ocorrem é chamada de topo da pilha, a outra é chamada de base da pilha. O processo de inserir um objeto
-      no topo da pilha é chamado de empilhamento (push), o de remover, operação de desempilhamento (pop). A memória do
-      computador tem estrutura de uma pilha. Exemplo:
+      elemento a ser inserido será o primeiro a ser retirado. Assim, uma pilha permite acesso a apenas um item de
+      dados - o último inserido. Para processar o penúltimo item inserido, deve-se remover o último. São muito
+      importantes quando precisamos armazenar um conjunto de dados para ser utilizado em um determinado software.
+      Uma vez criada a pilha, seus elementos podem ser descarregados mas sempre a partir do topo da pilha. A
+      extremidade em que as operações ocorrem é chamada de topo da pilha, a outra é chamada de base da pilha.
+      O processo de inserir um objeto no topo da pilha é chamado de empilhamento (push), o de remover, operação de
+      desempilhamento (pop). A memória do computador tem estrutura de uma pilha. Exemplo:
              estado da pilha durante a execução do programa
   INSTRUÇÕES  |  ┌────┬────┬────┬────┬────┬────┬─────┐
               |  |    |    |    |    |    |    |     |
@@ -261,8 +261,8 @@ Estruturas de Dados
         ou seja, adiciona-se itens no fim de remove-se do início. Outra forma de considerar fila é pensar que nela
         os objetos são retirados de acordo com a ordem com que chegaram. A extremidade na qual são retirados os
         elementos é chamada de início da fila, onde eles são inseridos é chamado de fim da fila. Exemplo:
-    ₀                       ₁   ₀                   ₂   ₁   ₀               ₃   ₂   ₁   ₀           ₃   ₂   ₁   ₀
-  ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐
-  | A |   |   |   |  |  ─>| B | A |   |   |  |  ─>| C | B | A |   |  |  ─>| D | C | B | A |  |  ─>| E | D | C | B | A
-  └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘ ─>
+  ₀                       ₁   ₀                   ₂   ₁   ₀               ₃   ₂   ₁   ₀           ₃   ₂   ₁   ₀
+┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐  |    ┌───┬───┬───┬───┐
+| A |   |   |   |  |  ─>| B | A |   |   |  |  ─>| C | B | A |   |  |  ─>| D | C | B | A |  |  ─>| E | D | C | B | A
+└───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘ ─>
 </code></pre>
