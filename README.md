@@ -49,7 +49,7 @@
   - Manipulação de variáveis, tipos e estruturas de dados.
   - Resolução de problemas computacionais.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/estruturas_de_dados.txt">Estruturas de Dados</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/estruturas_de_dados.md">Estruturas de Dados</a>**
   - Arrays, listas, filas, pilhas.
   - Estruturas de dados dinâmicas (árvores, grafos).
   - Algoritmos de ordenação e busca.
