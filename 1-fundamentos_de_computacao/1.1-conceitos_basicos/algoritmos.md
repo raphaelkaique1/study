@@ -2,10 +2,9 @@
 Algoritmos
 
  1. Conceitos: Compreender o que é um algoritmo e suas aplicações.
- Algoritmo é uma série ordenada de passos não ambíguos executáveis; É uma sequência de instruções ou comandos
-realizados de maneira sistemática com o objetivo de resolver um problema ou executar uma tarefa. São como uma
-receita de bolo: uma sequência de ações que devem ser executadas até que o objetivo final (o bolo pronto) seja
-atingido.
+ Algoritmo é uma série ordenada de passos não ambíguos executáveis; É uma sequência de instruções ou comandos realizados
+de maneira sistemática com o objetivo de resolver um problema ou executar uma tarefa. São como uma receita de bolo: uma
+sequência de ações que devem ser executadas até que o objetivo final (o bolo pronto) seja atingido.
     ┌─────────┐  ┌───────────────┐  ┌───────┐
     | Entrada ├─>| Processamento ├─>| Saída |
     └─────────┘  └───────────────┘  └───────┘
@@ -35,13 +34,13 @@ atingido.
                                                    |  fim;
   Como representar os algoritmos?
     Os algoritmos podem ser representados de 3 maneiras básicas: narração descritiva; fluxograma e pseudocódigo.
-    Utilizando essas representações, procura-se aguçar a lógica e diminuir possíveis erros, antes da programação
-    em si. Quando codificamos em uma linguagem de programação, o algotimo "está por trás".
+    Utilizando essas representações, procura-se aguçar a lógica e diminuir possíveis erros, antes da programação em si.
+    Quando codificamos em uma linguagem de programação, o algotimo "está por trás".
 
       - Narração Descritiva
-        A forma mais simples e direta de se representar um algoritmo; Consiste em escrever um texto simples, uma
-        narrativa do que deve ser realizado para que o problema proposto seja solucionado. Pouco utilizada, pois,
-        por ser aberta a várias interpretações é bastante suscetível a erros:
+        A forma mais simples e direta de se representar um algoritmo; Consiste em escrever um texto simples, uma narrativa
+        do que deve ser realizado para que o problema proposto seja solucionado. Pouco utilizada, pois, por ser aberta a
+        várias interpretações é bastante suscetível a erros:
           1. Pare o carro (...desligo o motor?)
           2. Abra a porta (...qual?)
           3. Retire o estepe (...onde está o estepe?)
@@ -53,9 +52,9 @@ atingido.
         Aqui o nível de abstração é bastante alto, pois várias situações foram deixadas de lado.
 
       - Fluxograma
-        Utiliza-se de gráficos para representar os passos que devem ser executados pelo algoritmo. Hojse são usados
-        para representações específicas ou para modelagens. O problema desta representação é ocultar a estrutura de
-        dados e pode se tornar muito trabalhosa para algoritmos complexos.
+        Utiliza-se de gráficos para representar os passos que devem ser executados pelo algoritmo. Hoje são usados para
+        representações específicas ou para modelagens. O problema desta representação é ocultar a estrutura de dados e
+        pode se tornar muito trabalhosa para algoritmos complexos.
           ╭────────╮
           | INÍCIO |
           ╰────┬───╯
@@ -107,14 +106,14 @@ atingido.
   - FOR: Estrutura com Número de Repetições Pré-Definido: PARA
     Loop de repetição que realiza a mesma tarefa até atingir o número de vezes determinado.
       PARA J <- valor inicial ATÉ valor final FAÇA  |
-        INÍCIO                                      |  PARA <variável contadora> DE <valor inicial> ATE <valor final> [PASSO <valor de incremento>] FAÇA
-          comando1;                                 |  <instruções a serem executadas repetidamente até a <variável contadora> atingir o valor final>
+        INÍCIO                                      |  PARA &lt;variável contadora&gt; DE &lt;valor inicial&gt; ATE &lt;valor final&gt; [PASSO &lt;valor de incremento&gt;] FAÇA
+          comando1;                                 |  &lt;instruções a serem executadas repetidamente até a &lt;variável contadora&gt; atingir o valor final&gt;
           comando2;                                 |  FIM-PARA
         FIM                                         |
 
   - WHILE: Estrutura de Repetição Booleana: ENQUANTO () FAÇA {}
     Esta estrutura repete uma sequência de comandos ENQUANTO uma determinada condição (expressão lógica), for satisfeita;
-    Essa expressão é avaliada antes de cada repetição do laço, quando seu resultado for VERDADEIRO, <sequência-de-comandos>
+    Essa expressão é avaliada antes de cada repetição do laço, quando seu resultado for VERDADEIRO, &lt;sequência-de-comandos&gt;
     é executada. Quando a condição não for mais satisfeita, o fluxo desvia do laço de execução.
            ↓    condição    |  Algoritmo "Números de 1 a 10 (com enquanto...faça)"
         ╱teste╲ verdadeira  |  var i: inteiro
@@ -140,13 +139,15 @@ condição╲dição╱ condição |  ate(num > 10)
 falsa      ↓ verdadeira  |  fimalgoritmo
 
  3. Eficiência de algoritmos: resolução de problemas
-  A análise de algoritmo fornece uma medida objetiva de desempenho proporcional ao tempo de execução do algoritmo. As vantagens são:
+  A análise de algoritmo fornece uma medida objetiva de desempenho proporcional ao tempo de execução do algoritmo. As
+  vantagens são:
   - facilidade na compreensão, codificação e depuração;
   - eficiência na utilização dos recursos do computador e rapidez, através de seu tempo de execução.
 
   Métodos de Busca e Ordenação
-    Seguindo um pensamento objetivo, quase tudo que fazemos em termos de computação é busca de elementos em uma lista ou ordenação
-    de elementos em uma lista. Métodos de Busca e Ordenação são a essência de muitos problemas e soluções em computação.
+    Seguindo um pensamento objetivo, quase tudo que fazemos em termos de computação é busca de elementos em uma lista
+    ou ordenação de elementos em uma lista. Métodos de Busca e Ordenação são a essência de muitos problemas e soluções
+    em computação.
 
     - Busca Sequencial (ou Linear)
       O método de busca linear faz com que o elemento em cada posição da lista seja comparado ao elemento que se busca.
@@ -178,14 +179,14 @@ falsa      ↓ verdadeira  |  fimalgoritmo
        ───────────────────────────────────
 
     - Busca Binária
-      A busca binária é um eficiente algoritmo para encontrar um item em uma LISTA ORDENADA de itens. Ela funciona dividindo
-      repetidamente pela metade a porção da lista que deve conter o item, até reduzir as localizações possíveis a apenas uma.
-      O valor a ser buscado é comparado com o valor do meio da lista. Se o valor a ser procurado é maior do que o valor do meio
-      da lista, descartamos a metade inferior da lista, afinal ele não estará lá com certeza. Concentramos os esforços então na
-      lista que sobrou. Repetimos o processo analisando o elemento que está no meio da lista. Assim, de forma repetida e rápida
-      vamos descartando os elementos e chegando cada vez mais perto da resposta, se o número está ou não na lista. Repare que
-      quando consultamos um dicionário, em geral fazemos uma espécie de busca binária. Abaixo o número a ser procurado é o 4 na
-      lista V.
+      A busca binária é um eficiente algoritmo para encontrar um item em uma LISTA ORDENADA de itens. Seu modo de busca
+      funciona dividindo repetidamente pela metade a porção da lista que deve conter o item, até reduzir as localizações
+      possíveis a apenas uma. O valor a ser buscado é comparado com o valor do meio da lista. Se o valor a ser procurado
+      é maior do que o valor do meio da lista, descartamos a metade inferior da lista, pois já sabemos que ele não estará
+      lá com certeza. Concentramos os esforços então na lista que sobrou. Repetimos o processo analisando o elemento que
+      está no meio da lista. Assim, de forma repetida e rápida vamos descartando os elementos e chegando cada vez mais
+      perto da resposta, se o número está ou não na lista. Repare que quando consultamos um dicionário, em geral fazemos
+      uma espécie de busca binária. Abaixo o número a ser procurado é o 4 na lista V.
          ₀    ₁   ₂    ₃   ₄    ₅    ₆    ₇    ₈    ₉
        ┌────┬────┬───┬───┬────┬────┬────┬────┬────┬────┐
      V | -8 | -5 | 1 | 4 | 14 | 21 | 23 | 54 | 67 | 90 | Array / Vetor.
@@ -213,23 +214,23 @@ meio=3 | -8 | -5 | 1 | 𝟰 | 14 | 21 | 23 | 54 | 67 | 90 | Valor é igual: term
   Busca Sequencial x Busca Binária
   - Se a lista não está ordenada, a busca binária não se aplica.
   - A busca sequencial é muito ineficiente para conjuntos grandes de valores.
-  - Olhando o comportamento matemático dos processos computacionais (complexidade assintótica) podemos enxergar os algoritmos
-  por meio de gráficos de funções. No eixo X a quantidade n de elementos, no eixo Y o número de comparações.
-  - Costuma-se dizer que a busca sequencial "tem complexidade n" e que a busca binária "tem complexidade log n", fazendo muito
-  menos comparações, torna-se mais eficiente.
-  - Como a função log n cresce significativamente mais devagar do que a busca linear em função do tamanho da entrada, dizemos
-  que faz menos comparações, sendo mais eficiente do que a busca sequencial.
+  - Analisando o comportamento matemático dos processos computacionais (complexidade assintótica) podemos enxergar os
+  algoritmos por meio de gráficos de funções. No eixo X a quantidade n de elementos, no eixo Y o número de comparações.
+  - Costuma-se dizer que a busca sequencial "tem complexidade n" e que a busca binária "tem complexidade log n", fazendo
+  muito menos comparações, torna-se mais eficiente.
+  - Como a função log n cresce significativamente mais devagar do que a busca linear em função do tamanho da entrada,
+  dizemos que faz menos comparações, sendo mais eficiente do que a busca sequencial.
     Plot:                                   Plot:
     ┌                                       ┌
-   ₉├                     ╭───         ¹⁰⁰⁰⁰├          ╱
-   ₈├              ╭──────╯                 ├         ╱
-   ₇├       ╭──────╯                    ⁸⁰⁰⁰├        ╱
-   ₆├      /                                ├       ╱
-   ₅├     /               ↖ Log N       ⁶⁰⁰⁰├      ╱                  ↖ N
-   ₄├    /                                  ├     ╱
-   ₃├   /                               ⁴⁰⁰⁰├    ╱
-   ₂├  /                                    ├   ╱
-   ₁├ ⎛                                 ²⁰⁰⁰├  ╱
+   9├                     ╭───         10000├          ╱
+   8├              ╭──────╯                 ├         ╱
+   7├       ╭──────╯                    8000├        ╱
+   6├      /                                ├       ╱
+   5├     /               ↖ Log N       6000├      ╱                  ↖ N
+   4├    /                                  ├     ╱
+   3├   /                               4000├    ╱
+   2├  /                                    ├   ╱
+   1├ ⎛                                 2000├  ╱
     └─┴──┴──┴──┴──┴──┴──┴──┴──┴──┘          └─┴──┴──┴──┴──┴──┴──┴──┴──┴──┘
-    ⁰   ²⁰⁰⁰  ⁴⁰⁰⁰  ⁶⁰⁰⁰  ⁸⁰⁰⁰  ¹⁰⁰⁰⁰       ⁰   ²⁰⁰⁰  ⁴⁰⁰⁰  ⁶⁰⁰⁰  ⁸⁰⁰⁰  ¹⁰⁰⁰⁰
+    0   2000  4000  6000  8000  10000       0   2000  4000  6000  8000  10000
 </code></pre>
