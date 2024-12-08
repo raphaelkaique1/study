@@ -101,13 +101,12 @@ podem ser implementados no computador. De forma geral, é uma formulação e res
 
  Dividir um problema complexo em subproblemas.
 
- Ação/ato de dividir um problema em partes menores, a ideia é resolver as partes do problema para então 
-obter a resposta do problema maior. Na computação, quando escrevemos algum software ou código, geralmente 
-dividimos a escrita em partes menores que vão sendo construídas aos poucos.
+ Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta
+do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores
+que vão sendo construídas aos poucos.
 
- É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o primeiro
-passo da resolução de problemas: dividir um problema complexo em problemas menores, portanto, problemas mais fáceis
-de resolver.
+ É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o 1º passo da
+resolução de problemas: dividir um problema complexo em problemas menores = problemas mais fáceis de se resolver.
 
 Estratégia:
                                         _          _/         __   ___
@@ -160,16 +159,16 @@ MOVIMENTOS DE UM AVATAR
 
 >PADRÕES
 
- Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas
-de repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
+ Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de
+repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
 
 >>RECONHECIMENTO DE PADRÕES:
 - Modelo base
 - Estrutura variante
 - Repetição
 
- Roteiro / Referência / Repetição: um modelo de referência que determina uma estrutura invariante e que pode determinar
-repetição. A partir de um modelo podemos determinar objetos diferentes em que uma estrutura se repete.
+ Roteiro: um modelo de referência que determina uma estrutura invariante e que pode determinar repetição. A partir
+de um modelo podemos determinar objetos diferentes em que uma estrutura se repete.
 
 Exemplo: Cadeiras -> h H A n d b
 
@@ -185,7 +184,7 @@ Exemplo: Fotos de redes sociais (técnica de compressão e armazenamento):
  - Foto > Compressão > Salvo no BD = Processo de Armazenamento Padrão Utilizado por Diferentes Redes Sociais
 
 Compressão de Dados:
-_______ _______ _______ _______ _______ _______ _______ _______ _______ _______  \ 
+ _____   _____   _____   _____   _____   _____   _____   _____   _____   _____   \ 
 |     | |     | |_____| |_____| |+++++| |+++++| |     | |     | |     | |     |   \ Compressão por
 |*****| |*****| |_____| |_____| |+++++| |+++++| |/////| |*****| |     | |/////|   / Reconhecimento de Padrões
 |_____| |_____| |_____| |_____| |±±±±±| |±±±±±| |_____| |_____| |_____| |_____|  /
@@ -210,7 +209,7 @@ Por Que Determinar Padrões?
 |_______________________________________________________________|
 *Objetos = Instâncias de uma Classe
 
-Categoria: Agrupa elementos com base em características ou propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
+Categoria: Agrupa elementos com base em características/propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
 
 Classe: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdivida
 em: "aquáticas", "terrestres" e "voadoras".
@@ -297,13 +296,13 @@ Representação dos Dados:
 
 >ALGORITMO
 
- Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo
-a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua
-de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema ou permitem
-realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência
-finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve
-fazer. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar
-alguma tarefa, ou seja, resolver um problema. Programa = Algoritmo = Sistema.
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo,
+levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções
+computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa
+tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos.
+Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Um programa é
+basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja,
+resolver um problema. Programa = Algoritmo = Sistema.
 
  Automatizar: Definir passo-a-passo da execução da tarefa.
  
@@ -315,10 +314,11 @@ alguma tarefa, ou seja, resolver um problema. Programa = Algoritmo = Sistema.
              Input ➝ Processamento ➝ Output
                            ⤻
 
- *O processamento são os passos lógicos necessários para que os elementos de entrada se transformem em dados/informaões
-de saída. Ex. - Receita de Bolo: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída
-(bolo). Observe que o modo de preparo - processamento (instruções para realizar a tarefa = algoritmo) - precisa ser
-apresentado de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
+ *O processamento é a execução dos passos lógicos necessários para que os elementos de entrada se transformem em
+dados/informações na saída.
+  Ex.: Receita de Bolo: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).
+Observe que o modo de preparo - processamento (instruções para realizar a tarefa = algoritmo) - deve ser apresentado
+de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
 
  Design de Algoritmos:
  
@@ -481,10 +481,10 @@ Primeiros passos para começar a programar:
 
 >>>TIPOS DE DADOS
 
- Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o tipo de comportamento que o dado
-deve ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos
-de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memóri.
-Assim, ao declararmos uma variável além do identificador, precisamos informar o tipo de dado que aquele endereço pode
+ Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá
+ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de
+dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória.
+Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode
 armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo
 armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar
 um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros.
@@ -557,8 +557,8 @@ identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de 
 dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa
 que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja,
 cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e
-também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação hexadecimal
-ou binária, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de
+também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária
+ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de
 programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso
 ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do
 computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa,
@@ -567,10 +567,10 @@ determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser 
 de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um
 "apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar),
 cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para
-armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, cada uma ocupando
-uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo
-idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento.
-Lembrando que uma variável só pode assumir 1 valor por vez.
+armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma
+ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26",
+sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual
+momento. Lembrando que uma variável só pode assumir 1 valor por vez.
 
 Características de variáveis:
 
@@ -579,9 +579,8 @@ Características de variáveis:
 - Incertas
 - Instáveis
 
- Uma variável é uma estrutura que irá receber um tipo de dado. Podendo assumir qualquer
-um dos valores de um determinado conjunto de valores, contudo, ela está restrita ao seu
-tipo, ou seja, ela só pode assumir um tipo de valor por vez.
+ Uma variável é uma estrutura de armazenamento de dado. Podendo assumir qualquer um dos valores de um determinado
+conjunto de valores, contudo, ela está restrita ao seu tipo, ou seja, ela só pode assumir um tipo de valor por vez.
 
            /   AÇÃO    -> modificação/alteração/manipulação de estado
 Pápeis da ❮      ou
@@ -664,7 +663,6 @@ abreviações de código, ele não é recomendado para substituição de tipos c
 Para isso, normalmente são usados tipos de dados constantes ou funções inline.
  - Escopo Global: As macros definidas por #define têm um escopo global, o que significa que elas são válidas em todo
 o código após a definição, até o final do arquivo ou até que sejam substituídas por outra diretiva #undef.
-
  _________________________________________________________
 | // EXEMPLO C++                                          |
 | #include &lt;iostream&gt;                               |
@@ -708,9 +706,8 @@ características, são elas: nome (identificador), tamanho (define o número de 
 
 >>>>>>MATRIZ
 
- Uma Matriz é um vetor bidimensional utilizado para armazenar valores do mesmo tipo, ou seja, é uma
-tabela organizada em linhas e colunas no fomarto [m] x [n], onde [m] representa o número de LINHAS
-(horizontal) e [n] o número de COLUNAS (vertical).
+ Uma Matriz é um vetor bidimensional utilizado para armazenar valores do mesmo tipo, ou seja, é uma tabela organizada
+em linhas e colunas no fomarto M x N, onde M representa o nº de LINHAS (horizontal) e N o nº de COLUNAS (vertical).
            __
  VARIÁVEL |__|
            ________
@@ -764,9 +761,9 @@ string tabela[3][3];
 
 >>INSTRUÇÕES
 
- A instrução irá executar um pré-determinado tipo de ação para manipular o dado. Aprofundando, instruções são
-palavras-chave (vocabulário) de uma determinada linguagem de programação que tem por finalidade comandar um
-computador que irá executar ações/tarefas manipulando e tratando dados.
+ A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como
+palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos
+do computador que irá executar ações/tarefas manipulando e tratando dados.
 
  ____________________________↱________   operadores:
 |         cálculos matemáticos        |   - binários
@@ -934,7 +931,7 @@ Exemplo de estrutura condicional:
                                           |            |                   resultado = condicao * 5
                                      [R = X * 5]  [R = X + 5]              escreva("CONDIÇÃO COMPOSTA: ", resultado)
                                           |            |                  }
-                                          └----⟶○⟵--┘                }
+                                          └----⟶○⟵--┘                   }
                                                 ↓                     }
                                               ❮ R )
                                                 ↓

@@ -43,7 +43,7 @@
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao">1. Fundamentos de Computação</a>
 ### <a href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.1-conceitos_basicos">1.1 Conceitos Básicos</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/logica_de_programacao.py">Lógica de Programação</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/logica_de_programacao.md">Lógica de Programação</a>**
   - Estruturas condicionais e de repetição.
   - Construção de algoritmos simples e complexos.
   - Manipulação de variáveis, tipos e estruturas de dados.
