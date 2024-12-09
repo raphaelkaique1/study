@@ -665,30 +665,32 @@ abreviações de código, ele não é recomendado para substituição de tipos c
 Para isso, normalmente são usados tipos de dados constantes ou funções inline.
  - Escopo Global: As macros definidas por #define têm um escopo global, o que significa que elas são válidas em todo
 o código após a definição, até o final do arquivo ou até que sejam substituídas por outra diretiva #undef.
- _________________________________________________________
-| // EXEMPLO C++                                          |
-| #include &lt;iostream&gt;                               |
-| #include &lt;locale.h&gt;                               |
-| using namespace std;                                    |
-|                                                         |
-| // constantes                                           |
-| #define apresentacao cout << "Primeiro nome: " << nome; |
-| #define nome "Raphael";                                 |
-|                                                         |
-| #define sobrenome "K. Dias Santos";                     |
-| const int anoNascimento = 2000;                         |
-|                                                         |
-| int main(){                                             |
-|   setlocale(LC_ALL, "Portuguese");                      |
-|                                                         |
-|   const string sexo = "Masculino";                      |
-|                                                         |
-|   apresentacao;                                         |
-|   cout << "\nSobrenome: " << sobrenome;                 |
-|   cout << "\nAno de nascimento: " << anoNascimento;     |
-|   cout << "\nSexo: " << sexo;                           |
-| }                                                       |
-|_________________________________________________________|
+
+</code></pre>
+```C++
+#include <iostream>
+#include <locale.h>
+using namespace std;
+
+// constantes
+#define apresentacao cout << "Primeiro nome: " << nome;
+#define nome "Raphael";
+
+#define sobrenome "K. Dias Santos";
+const int anoNascimento = 2000;
+
+int main(){|
+  setlocale(LC_ALL, "Portuguese");
+
+  const string sexo = "Masculino";
+
+  apresentacao;
+  cout << "\nSobrenome: " << sobrenome;
+  cout << "\nAno de nascimento: " << anoNascimento;
+  cout << "\nSexo: " << sexo;
+}
+```
+<pre><code>
 
 >>>>>VETORES E MATRIZES
 
@@ -1399,7 +1401,7 @@ Exemplos de construção de algoritmos:
 Narrativa  ❮   Passo 2 - Multiplica
             \  Passo 3 - Imprime o resultado
 
-            ____
+            ___ 
            |    (START)  ➝  /N1, N2/
            |                   ↓
 Fluxograma-|              [M = N1 * N2]
@@ -1407,7 +1409,7 @@ Fluxograma-|              [M = N1 * N2]
            |                  |M|
            |                   ~
            |                   ↓
-           |_____            (END)
+           |___              (END)
 
 Pseudo-Código ❮ N1 * N2 = M
 
@@ -1543,6 +1545,7 @@ Exemplo prático:
 
  Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com
 algoritmo?
+
 </code></pre>
 ```Python
 # algoritmo
@@ -1552,12 +1555,12 @@ decisao = ''
 
 while decisao != 'N' and decisao != 'n':
 
-    valor = float(input("\nValor do item: "))
-    qntd = int(input("\nQntd do item: "))
-    
-    total_gasto += valor * qntd
-    
-    decisao = input("\nOutro item (S/N): ")
+  valor = float(input("\nValor do item: "))
+  qntd = int(input("\nQntd do item: "))
+
+  total_gasto += valor * qntd
+
+  decisao = input("\nOutro item (S/N): ")
 
 if total_gasto > orcamento:
   print("\n\nSALDO INSUFICIENTE\norçamento: ", orcamento, "\ntotal: ", total_gasto, "\nfaltam: ", total_gasto - orcamento)
@@ -1565,6 +1568,7 @@ elif total_gasto <= orcamento:
   print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
 ```
 <pre><code>
+
 Exemplo criação de programa:
 
 Média Escolar
@@ -1597,30 +1601,30 @@ Fluxograma-|          [M = (N1 * N2) / 2]
 Protótipo:
 
 algoritmo "media"
-   var
-      recuperacao, soma, media, nota, qntd, armazenamento: real
-      calcular, aluno: caractere
-   inicio
-   escreva("Digite o nome do Aluno: ")
-   leia(aluno)
-   escreva("Quantas notas serão? ")
-   leia(qntd)
-   escreval()
+  var
+    recuperacao, soma, media, nota, qntd, armazenamento: real
+    calcular, aluno: caractere
+  inicio
+    escreva("Digite o nome do Aluno: ")
+    leia(aluno)
+    escreva("Quantas notas serão? ")
+    leia(qntd)
+    escreval()
       enquanto armazenamento < qntd faca
         escreva("Digite uma nota: ")
         leia(nota)
         soma <- nota + soma
         armazenamento <- armazenamento + 1
       fimenquanto
-   media <- soma/qntd
-   escreval()
-   escreva("Média do aluno :", media)
-   escreval()
-   se(media >= 7)entao
+    media <- soma/qntd
+    escreval()
+    escreva("Média do aluno :", media)
+    escreval()
+    se(media >= 7)entao
       escreva("ALUNO APROVADO!")
       escreval()
       escreval()
-   senao
+    senao
       armazenamento <- armazenamento + 1
       escreval()
       escreva("ALUNO DE RECUPERAÇÃO!")
@@ -1629,22 +1633,23 @@ algoritmo "media"
       leia(recuperacao)
       media <- (soma+recuperacao)/armazenamento
       se(media >= 7)entao
-         escreval()
-         escreva("ALUNO APROVADO!")
-         escreval()
-         escreva("Média do aluno: ", media)
-         escreval()
-         escreval()
+        escreval()
+        escreva("ALUNO APROVADO!")
+        escreval()
+        escreva("Média do aluno: ", media)
+        escreval()
+        escreval()
       senao
-         escreval()
-         escreva("ALUNO REPROVADO!")
-         escreval()
-         escreva("Média do aluno: ", media)
-         escreval()
-         escreval()
+        escreval()
+        escreva("ALUNO REPROVADO!")
+        escreval()
+        escreva("Média do aluno: ", media)
+        escreval()
+        escreval()
       fimse
-   fimse
+    fimse
 fimalgoritmo
+
 </code></pre>
 ```Python
 # teste protótipo
@@ -1659,6 +1664,7 @@ else:
     print('Reprovado') # Aprovado
 ```
 <pre><code>
+
 Refatoração:
 
 programa{
@@ -1688,6 +1694,7 @@ programa{
       retorne media
     }
 }
+
 </code></pre>
 ```Python
 # programa
@@ -1709,6 +1716,7 @@ if __name__ == "__main__":
     main()
 ```
 <pre><code>
+
 >>LINGUAGENS DE PROGRAMAÇÃO
 
  A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de
@@ -1748,11 +1756,13 @@ fazem sentido.
  - SINTAXE: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao
 conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação.
 É como a "gramática" de uma linguagem. Exemplo em Python:
+
 </code></pre>
 ```Python
       print("Hello world!")
 ```
 <pre><code>
+
  O código acima segue a sintaxe correta do Python para imprimir uma mensagem no console, visto que a mensagem está dentro de aspas e parênteses,
 ou seja, a simbologia para que a impressão da mensagem na tela aconteça está coerente com o que se espera nessa linguagem. No entanto, se
 escrevermos algo como:
