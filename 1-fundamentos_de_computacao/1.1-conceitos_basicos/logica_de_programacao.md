@@ -498,36 +498,38 @@ Cadeia     ❮ palavras
 Booleano   ❮ Lógico: VERDADEIRO (1) | FALSO (0)
 
 >>>>TIPAGEM DE DADOS
- ____________________________________________________________
-| // EXEMPLO C++                                             |
-| #include &lt;iostream&gt;                                  |
-| #include &lt;locale.h&gt;                                  |
-| using namespace std;                                       |
-|                                                            |
-| int main(){                                                |
-|     setlocale(LC_ALL, "");                                 |
-|                                                            |
-|     // tipos de dados & variáveis                          |
-|     int inteiros = 3;                                      |
-|     float pontoFlutuante = 0.99;                           |
-|     double decimais = 9.99;                                |
-|     char letra = 'a';                                      |
-|     const char* letras = "abcde";                          |
-|     string texto = "Dev C++";                              |
-|     bool condicao = true;                                  |
-|                                                            |
-|     // imprimindo                                          |
-|     cout << "Inteiros: " << inteiros << "\n";              |
-|     cout << "Decimais: " << decimais << "\n";              |
-|     cout << "Ponto Flutuante: " << pontoFlutuante << "\n"; |
-|     cout << "Caractere: " << letra << "\n";                |
-|     cout << "Caracteres: " << letras << "\n";              |
-|     cout << "String: " << texto << "\n";                   |
-|     cout << "Booleana: " << condicao << "\n";              |
-|                                                            |
-|     return 0;                                              |
-| }                                                          |
-|____________________________________________________________|
+
+</code></pre>
+```C++
+#include <iostream>
+#include <locale.h>
+using namespace std;
+
+int main(){
+    setlocale(LC_ALL, "");
+
+    // tipos de dados & variáveis
+    int inteiros = 3;
+    float pontoFlutuante = 0.99;
+    double decimais = 9.99;
+    char letra = 'a';
+    const char* letras = "abcde";
+    string texto = "Dev C++";
+    bool condicao = true;
+
+    // imprimindo
+    cout << "Inteiros: " << inteiros << "\n";
+    cout << "Decimais: " << decimais << "\n";
+    cout << "Ponto Flutuante: " << pontoFlutuante << "\n";
+    cout << "Caractere: " << letra << "\n";
+    cout << "Caracteres: " << letras << "\n";
+    cout << "String: " << texto << "\n";
+    cout << "Booleana: " << condicao << "\n";
+
+    return 0;
+}
+```
+<pre><code>
 
 >>>MANIPULAÇÃO DE DADOS
 
@@ -590,35 +592,37 @@ variável   \  CONTROLE -> monitorada/vigiada
  - Tem escopo de função, o que significa que a variável é visível apenas dentro da função onde foi declarada.
  - Pode ser reatribuída e redeclarada dentro do mesmo escopo.
  - Não respeita o escopo de bloco (por exemplo, dentro de uma instrução `if` ou `for`).
- ____________________________________________________________________
-| // EXEMPLO JS                                                      |
-|                                                                    |
-| var x = 10;                                                        |
-|                                                                    |
-| if(true){                                                          |
-|     var x = 20; // A variável 'x' é a mesma dentro e fora do bloco |
-|     console.log(x) // 20                                           |
-| }                                                                  |
-|                                                                    |
-| console.log(x); // 20                                              |
-|____________________________________________________________________|
+
+</code></pre>
+```JS
+var x = 10;
+
+if(true){
+    var x = 20; // A variável 'x' é a mesma dentro e fora do bloco
+    console.log(x) // 20
+}
+
+console.log(x); // 20
+```
+<pre><code>
 
 > let:
  - Introduz o escopo de bloco, o que significa que a variável é visível apenas dentro do bloco onde foi declarada
 (por exemplo, dentro de um `if`, `for` ou {}).
  - Pode ser reatribuída, mas não declarada no mesmo escopo.
- ____________________________________________________________________
-| // EXEMPLO JS                                                      |
-|                                                                    |
-| let y = 10;                                                        |
-|                                                                    |
-| if(true){                                                          |
-|     let y = 20; // A variável 'y' possui um valor dentro do bloco  |
-|     console.log(y) // 20                                           |
-| }                                                                  |
-| // e outro valor fora do bloco                                     |
-| console.log(y); // 10                                              |
-|____________________________________________________________________|
+
+</code></pre>
+```JS
+let y = 10;
+
+if(true){
+    let y = 20; // A variável 'y' possui um valor dentro do bloco
+    console.log(y) // 20
+}
+// e outro valor fora do bloco
+console.log(y); // 10
+```
+<pre><code>
 
 >>>>>CONSTANTE
 
@@ -632,16 +636,16 @@ Exemplo: π = 3.14, Φ = 1.618, dobro (valor * 2 = dobro), metade (valor / 2 = m
 > const:
  - Similar ao `let` em relação ao escopo de bloco.
  - No entanto, uma vez atribuída, o valor não pode ser substituído/reatribuído.
- ______________________________________________________________________
-| // EXEMPLO JS                                                        |
-|                                                                      |
-| const z = 10;                                                        |
-|                                                                      |
-| z = 20;                                                              |
-|                                                                      |
-| console.log(z); /* Isso resultaria em erro, pois `const` não permite |
-| reatribuição */                                                      |
-|______________________________________________________________________|
+
+</code></pre>
+```JS
+const z = 10;
+
+z = 20;
+
+console.log(z); // Isso resultaria em erro, pois `const` não permite reatribuição
+```
+<pre><code>
 
 > define*:
  - O #define em C++ é uma diretiva de pré-processador que é usada para definir macros, que são substituições de
@@ -1612,7 +1616,7 @@ algoritmo "media"
    escreval()
    escreva("Média do aluno :", media)
    escreval()
-   se (media >= 7) entao
+   se(media >= 7)entao
       escreva("ALUNO APROVADO!")
       escreval()
       escreval()
@@ -1624,7 +1628,7 @@ algoritmo "media"
       escreva("Digite a nota da recuperação: ")
       leia(recuperacao)
       media <- (soma+recuperacao)/armazenamento
-      se (media >= 7) entao
+      se(media >= 7)entao
          escreval()
          escreva("ALUNO APROVADO!")
          escreval()
@@ -1641,7 +1645,8 @@ algoritmo "media"
       fimse
    fimse
 fimalgoritmo
-'''
+</code></pre>
+```Python
 # teste protótipo
 notas = int(input("Quantas notas voce vai digitar? ")) # 2
 notas_aluno = [float(input(f"Digite a {i+1}ª nota: ")) for i in range(notas)]
@@ -1652,39 +1657,39 @@ if media >= 6.0:
     print('Aprovado')
 else:
     print('Reprovado') # Aprovado
-'''
+```
+<pre><code>
 Refatoração:
 
-programa {
-    funcao inicio() {
+programa{
+    funcao inicio(){
         real notas[5]
         inteiro parada
 
         escreva("Quantas notas serão? ")
         leia(parada)
 
-        para (inteiro i = 0; i < parada; i++) {
-            inteiro nota
-            escreva("Digite a ", i + 1, "ª nota: ")
-            leia(nota)
-            notas[i] = nota
+        para(inteiro i = 0; i < parada; i++){
+          inteiro nota
+          escreva("Digite a ", i + 1, "ª nota: ")
+          leia(nota)
+          notas[i] = nota
         }
-
-        escreva("Média do aluno: ", media(notas, parada))
+      escreva("Média do aluno: ", media(notas, parada))
     }
 
-    funcao real media(real notas[], inteiro parada) {
+    funcao real media(real notas[], inteiro parada){
         real soma = 0
 
-        para (inteiro i = 0; i < parada; i++) {
-            soma = soma + notas[i]
+        para(inteiro i = 0; i < parada; i++){
+          soma = soma + notas[i]
         }
-
-        real media = soma / parada
-        retorne media
+      real media = soma / parada
+      retorne media
     }
 }
-'''
+</code></pre>
+```Python
 # programa
 def calcular_media(notas):
     return sum(notas) / len(notas)
@@ -1702,7 +1707,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
+```
+<pre><code>
 >>LINGUAGENS DE PROGRAMAÇÃO
 
  A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de
