@@ -116,8 +116,8 @@ partes menores e gerenciáveis    //   /   \ | \| /   \ |__ |  __| |___
 (RE)Combinar os elementos        \\   |___  | |\ |  |   |___  |___  |___
 recompondo o problema original   //    ___| | | \|  |   |____  ___| |____
 
-Ordem de execução de   \\    > Sequencial -> Dependência entre tarefas executadas em fila
-tarefas menores        //    > Paralelo -> Tarefas podem ser executadas concomitentemente (+ eficiencia - tempo).
+Ordem de execução de \\ > Sequencial -> Dependência entre tarefas executadas em fila
+tarefas menores      // > Paralelo   -> Tarefas podem ser executadas concomitentemente (+ eficiencia - tempo).
 
 Como Decompor?
 
@@ -153,9 +153,9 @@ MOVIMENTOS DE UM AVATAR
                          ↓                                            ↓
                    ____PADRÃO_____                         ________MOVIMENTO______
                   ↙               ↘                       ↙       ↓      ↓        ↘
-            __VIRAR__          __MOVER__                ANDAR  CORRER  SENTAR  LEVANTAR
+            __VIRAR__          __MOVER__               ANDAR   CORRER  SENTAR  LEVANTAR
            ↙         ↘        ↙         ↘                     ↙      ↘ 
-        DIREITA  ESQUERDA   CIMA     BAIXO            MOVER PERNA   IMPULSIONAR
+        DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
 
 >PADRÕES
 
@@ -227,11 +227,11 @@ Comparação: Se ele não possui a informação não será capaz de realizar a c
 Como Simular o Comportamento de Machine Learning?
 
 Representação de Atributos
-             ⤷  Aprendizado ➝ Conceito Aassociado  
-                                    ao Objeto
+             ⤷  Aprendizado ➝ Conceito Associado  
+                                   ao Objeto
                             Armazenar  ⤶
                             os Dados
-                               '⇢   Para consutas posteriores, poder determinar p/
+                               '-⇢ Para consutas posteriores, poder determinar p/
                                      um novo objeto qual categoria ele se encaixa
                                                         |
                                     Regras de          ⤎
@@ -324,9 +324,9 @@ de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
  
                         Análise
                   (definir a solução)
-              /                         \
-        Refinamento                    Teste
- (Aperfeiçoamento da solução)  -  (testar a solução)
+                 /                   \
+           Refinamento              Teste
+ (Aperfeiçoamento da solução) ー (testar a solução)
 
  Processo Contínuo:
  
@@ -334,9 +334,8 @@ de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
                   /                 \ 
             Refinamento         Decomposição
                  |                   |
-             Algoritmos            Padrões
-                   \                /
-                        Abstração
+             Algoritmos           Padrões
+                   \   Abstração  /
 
 Aplicações:
 1. CS + Math: Desenvolvimento e Abstração, Reconhecimento de Padrões
@@ -366,7 +365,6 @@ Exemplo de Raciocínio Lógico:
  Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres
 Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda, o filho está à esquerda e a mãe está ao lado
 de Sérgio.
-
                                     Fernanda
                                     (FILHA)
                                ___________________
@@ -419,7 +417,7 @@ implantação de um programa.
 Modelos de Desenvolvimento e solução
 
 Técnica Linear:
-A -----o---o---o----- B
+Ⓐ-----o---o---o-----Ⓑ
 
 - Modelo tradicional
 - Não tem vínculo
@@ -431,7 +429,7 @@ A -----o---o---o----- B
 
 Técnica Estruturada:
      ⌐----o---¬
-A ---o----o--- B
+Ⓐ---o----o----Ⓑ
 
  Organização, disposição e ordem dos elementos essenciais que compõem um corpo (concreto ou abstrato).
 
@@ -472,11 +470,11 @@ Primeiros passos para começar a programar:
 
 >>TIPOLOGIA DE DADOS E VARIÁVEIS
 
-           ⬐          INFORMAÇÃO           ↰
-       input de                          que geram
-        DADOS                              DADOS
-     inicializam                     processam e tratam
-           ↳           INSTRUÇÕES
+                   ⬐  INFORMAÇÃO     ↰
+           input de                   que geram
+            DADOS                       DADOS
+         inicializam              processam e tratam
+               ↳       INSTRUÇÕES
                  realiza operações que ⬏
 
 >>>TIPOS DE DADOS
@@ -676,7 +674,7 @@ o código após a definição, até o final do arquivo ou até que sejam substit
 | #define sobrenome "K. Dias Santos";                     |
 | const int anoNascimento = 2000;                         |
 |                                                         |
-| int main() {                                            |
+| int main(){                                             |
 |   setlocale(LC_ALL, "Portuguese");                      |
 |                                                         |
 |   const string sexo = "Masculino";                      |
@@ -685,7 +683,6 @@ o código após a definição, até o final do arquivo ou até que sejam substit
 |   cout << "\nSobrenome: " << sobrenome;                 |
 |   cout << "\nAno de nascimento: " << anoNascimento;     |
 |   cout << "\nSexo: " << sexo;                           |
-|                                                         |
 | }                                                       |
 |_________________________________________________________|
 
@@ -749,7 +746,7 @@ Dados das notas dos alunos:
    /  RAPHAEL       9.5            9.9            9.3        9.5
 M ❮   DÉBORAH       9.5            9.5            9.9        9.6
    \   DIEGO        9.3            9.3             9         9.2
-    \  FÁTIMA        9              9              9          9
+    \ FÁTIMA         9              9              9          9
 
 >>>>>>DEFININDO VETORES/MATRIZES
 
@@ -823,12 +820,12 @@ VERDADEIRA      VERDADEIRA      VERDADEIRA
 
 Exemplo:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     inteiro A = 5, B = 5
-    se(A < 10 e B < 10){
+    se((A < 10) e (B < 10)){
       escreva("verdadeiro, são menores que 10")
-    } senao {
+    }senao{
       escreva("falso, um ou todos os números é maior que 10")
     }
   }
@@ -838,8 +835,8 @@ programa {
 
  Apenas uma das condições precisa atender ao requisito.
  
-✔ - A == true || B == true
-✔ - A == true || B == false
+✔ - A == true  || B == true
+✔ - A == true  || B == false
 ✗ - A == false || B == false
 
 CONDIÇÃO 1      CONDIÇÃO 2      RESULTADO
@@ -850,12 +847,12 @@ VERDADEIRA      VERDADEIRA      VERDADEIRA
 
 Exemplo:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     inteiro A = 15, B = 5
-    se(A < 10 ou B < 10){
+    se((A < 10) ou (B < 10)){
       escreva("verdadeiro, condição OU satisfeita")
-    } senao {
+    }senao{
       escreva("falso, condição OU não satisfeita")
     }
   }
@@ -873,8 +870,8 @@ VERDADEIRA        FALSA
 
 Exemplo:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     logico a = falso
     escreva(!a)
   }
@@ -906,56 +903,56 @@ Exemplo de estrutura condicional:
 
 >>>>>CONDICIONAL SIMPLES
 
-[CONDIÇÃO]                                  (START)                  programa {
-    ↓                                          ↓                       funcao inicio() {
+[CONDIÇÃO]                                   (START)                 programa{
+    ↓                                           ↓                      funcao inicio(){
 [OPERAÇÃO]                                   /A, B/                      logico condicao = verdadeiro
-                                               ↓                         se (condicao == verdadeiro) {
+                                                ↓                        se(condicao == verdadeiro){
                                           [X <- A + B]                     escreva("CONCIONAL SIMPLES")
-                                               ↓                         }
-                                        N ⌐ ❮X > 10❯--¬ S              }
+                                                ↓                        }
+                                        N ┌-❮X  > 10❯-┐ S              }
                                           |           |              }
                                           |         ❮ X )
-                                          └----⟶○⟵-┘
+                                          └----⟶○⟵----┘
                                                 ↓
                                               (END)
 
 >>>>>CONDICIONAL COMPOSTA
 
-[CONDIÇÃO] ➝ [EXCEÇÃO]                      (START)                  programa {
-    ↓                                          ↓                       funcao inicio() {
-[OPERAÇÃO]                                   /A, B/                      inteiro resultado, condicao = 5
-                                               ↓                         se(condicao >= 10){
-                                          [X <- A + B]                     resultado = condicao + 5
-                                               ↓                           escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                        N ⌐ ❮X >= 10❯--¬ S                } senao {
-                                          |            |                   resultado = condicao * 5
-                                     [R = X * 5]  [R = X + 5]              escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                          |            |                  }
-                                          └----⟶○⟵--┘                   }
-                                                ↓                     }
+[CONDIÇÃO] ➝ [EXCEÇÃO]                       (START)                 programa{
+    ↓                                           ↓                      funcao inicio(){
+[OPERAÇÃO]                                   /A, B/                      inteiro decisao = 0, condicao = 1
+                                                ↓                        se(condicao == decisao){
+                                          [X <- A + B]                     escreva("CONDIÇÃO COMPOSTA: ", decisao)
+                                                ↓                          }senao{
+                                        N ┌--❮X = 10❯--┐ S                   escreva("CONDIÇÃO COMPOSTA: ", decisao)
+                                          |            |                   }
+                                     [R = X - 5]  [R = X + 5]           }
+                                          |            |             }
+                                          └----⟶○⟵-----┘
+                                                ↓
                                               ❮ R )
                                                 ↓
                                               (END)
 
 >>>>>CONDICIONAL ENCADEADA
 
-[CONDIÇÃO] ⬎                                 (START)                 programa {
- ↓         [CONDIÇÃO] ⬎                         ↓                      funcao inicio() {
-[OPERAÇÃO]  |       [OPERAÇÃO]                /A, B/                     inteiro resultado, condicao = 15
-            ↓                                   ↓                        se(condicao <= 10){
-          [EXCEÇÃO]                        [X <- A + B]                    resultado = condicao + 5
-                                                ↓                          escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                         N ⌐ ❮X <= 10❯-----¬ S           } senao {
-                                     N     |     S         |               se(condicao >= 20){
-                                     ⌐ ❮X >= 20❯ ¬    [R = X + 5]            resultado = condicao - 5
-                                     |           |         |                 escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                [R = X * 2]   [R = X - 5]  |               } senao {
-                                    |          ↓           |                 resultado = condicao * 2
-                                    └--------⟶○⟵--------┘                    escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                               ↓                           }
-                                             ❮ R )                       }
-                                               ↓                       }
-                                             (END)                   }
+[CONDIÇÃO] ⬎                                 (START)                 programa{
+ ↓         [CONDIÇÃO] ⬎                         ↓                      funcao inicio(){
+[OPERAÇÃO]  |       [OPERAÇÃO]                /A, B/                      inteiro resultado, condicao = 15
+            ↓                                    ↓                        se(condicao <= 10){
+          [EXCEÇÃO]                        [X <- A + B]                     resultado = condicao + 5
+                                                 ↓                          escreva("CONDIÇÃO COMPOSTA: ", resultado)
+                                         N ┌-❮X <= 10❯-----┐ S            }senao{
+                                     N     |     S         |                  se(condicao >= 20){
+                                     ┌-❮X >= 20❯-┐    [R = X + 5]               resultado = condicao - 5
+                                     |           |         |                    escreva("CONDIÇÃO COMPOSTA: ", resultado)
+                                [R = X * 2]   [R = X - 5]  |                  }senao{
+                                     |           ↓         |                      resultado = condicao * 2
+                                     └----------⟶○⟵--------┘                      escreva("CONDIÇÃO COMPOSTA: ", resultado)
+                                                 ↓                            }
+                                               ❮ R )                       }
+                                                 ↓                      }
+                                               (END)                 }
 
 >>>ESTRUTURAS DE REPETIÇÃO
 
@@ -976,12 +973,12 @@ CONDIÇÃO DE PARADA ❮              ou
 1. CONDIÇÃO DA REPETIÇÃO NO INÍCIO
 ENQUANTO(CONDIÇÃO NÃO FOR SATISFEITA){
   FAÇA INSTRUÇÕES
-  }
+}
 
 2. CONDIÇÃO DA REPETIÇÃO NO FINAL
 FAÇA{
   REPITA INSTRUÇÕES
-  }ATÉ(CONDIÇÃO SER SATISFEITA)
+}ATÉ(CONDIÇÃO SER SATISFEITA)
 
 3. ESTRUTURA DE REPETIÇÃO COM NÚMERO DE REPETIÇÃO PRÉ-FIXADA
 PARA(VALOR INICIAL; CONDIÇÃO DE PARADA/FAÇA ATÉ; ITERAÇÃO/ALTERAÇÃO DO VALOR INICIAL ATÉ ATENDER A CONDIÇÃO DE PARADA){
@@ -996,7 +993,7 @@ EXEMPLOS:
 
 TESTE LÓGICO  / ENQUANTO(GRAMA ALTA)FAÇA{
               \   ↱   APARAR A GRAMA  ⬎
-REPETIÇÃO     /  REPITA (INDEFINIDO)  ATÉ 
+REPETIÇÃO     /   REPITA(INDEFINIDO)ATÉ 
               \       GRAMA APARADA}
 
 VAMOS VER O PSEUDOCÓDIGO:
@@ -1005,14 +1002,14 @@ VAMOS VER O PSEUDOCÓDIGO:
 grama    =    falso
  ↱ strutura while
 enquanto(grama == falso)faça{
-  <instrução para cortar a grama>
-  <atualiza status da altura da grama>
+  &lt;instrução para cortar a grama&gt;
+  &lt;atualiza status da altura da grama&gt;
 }
 
 VAMOS VER O PROGRAMA:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     logico grama = falso
     inteiro altura_da_grama = 10, status_altura_da_grama = 0
     enquanto(grama == falso){
