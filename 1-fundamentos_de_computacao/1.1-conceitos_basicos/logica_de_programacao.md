@@ -57,6 +57,7 @@
         >>>>>DERIVAÇÕES PD
       >>>>FUNCIONAL
         >>>>>LAMBDA (TERNÁRIO)
+        >>>>>ARROW (TERNÁRIO)
       >>>>IMPERATIVO
         >>>>>DERIVAÇÕES PI
       >>>>ESTRUTURADO
@@ -679,7 +680,7 @@ using namespace std;
 #define sobrenome "K. Dias Santos";
 const int anoNascimento = 2000;
 
-int main(){|
+int main(){
   setlocale(LC_ALL, "Portuguese");
 
   const string sexo = "Masculino";
@@ -1720,36 +1721,37 @@ if __name__ == "__main__":
 >>LINGUAGENS DE PROGRAMAÇÃO
 
  A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de
-programação, paracriar um algoritmo, que através de uma linguagem de programação - que possui seu próprio conjunto de
-símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para
-linguagem de máquina para ser executada por algum equipamento e realizar a tarefa a qual foi designada. Resumindo, uma
-linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas de implementação de um
-código fonte.
+programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto
+de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido
+para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. Ou seja,
+uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação
+de um código fonte.
 
- Exemplo de programa em C:
- ______________________________________________
- | #include <stdio.h>                         |
- |                                            |
- | int main() {                               |
- |   int x, y;                                |
- |                                            |
- |   printf("Digite um número inteiro: ");    |
- |   scanf("%d", &x);                         |
- |   printf("Digite outro número inteiro: "); |
- |   scanf("%d", &y);                         |
- |   if (x > y) {                             |
- |     printf("O maior valor é %d.\n", x);    |
- |   } else {                                 |
- |     printf("O maior valor é %d.\n", y);    |
- |   }                                        |
- |   return 0;                                |
- | }                                          |
- ----------------------------------------------
+</code></pre>
+```C
+#include <stdio.h>
+
+int main(){
+  int x, y;
+
+  printf("Digite um número inteiro: ");
+  scanf("%d", &x);
+  printf("Digite outro número inteiro: ");
+  scanf("%d", &y);
+  if(x > y){
+    printf("O maior valor é %d.\n", x);
+  }else{
+    printf("O maior valor é %d.\n", y);
+  }
+  return 0;
+}
+```
+<pre><code>
 
 >>>SINTAXE E SEMÂNTICA
 
- As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, essas regras são
-chamadas de sintaxe e semântica, (assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever
+ As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, são chamadas essas
+regras de: sintaxe e semântica, (assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever
 palavras corretamente em uma língua, enquanto a semântica trata de como usar essas palavras para formar frases que
 fazem sentido.
 
@@ -1759,63 +1761,81 @@ conjunto de regras que define a estrutura e o formato válido para escrever cód
 
 </code></pre>
 ```Python
-      print("Hello world!")
+  print("Hello world!")
 ```
 <pre><code>
 
- O código acima segue a sintaxe correta do Python para imprimir uma mensagem no console, visto que a mensagem está dentro de aspas e parênteses,
-ou seja, a simbologia para que a impressão da mensagem na tela aconteça está coerente com o que se espera nessa linguagem. No entanto, se
-escrevermos algo como:
-'''
-print "Hello world!"
-'''
- Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print", iremos receber uma mensagem
-de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os erros mais comuns de sintaxe são relacionados à escrita: a falta de 
-símbolos obrigatórios (como parênteses, vírgulas, ponto-e-vírgula, endentação e etc), palavras reservadas escritas incorretamente, estruturas
-de código mal formatadas, entre outros.
+ O código acima segue a sintaxe correta do Python para imprimir uma mensagem no console, visto que a mensagem está
+dentro de aspas e parênteses, ou seja, a simbologia para que a impressão da mensagem na tela aconteça está coerente
+com o que se espera nessa linguagem. No entanto, se escrevermos algo como:
 
- - SEMÂNTICA: É a "organização" do código, ou seja, o que o código faz; Complementar à sintaxe, corresponde à descrição do significado das
-instruções válida de uma linguagem. Refere-se ao significado ou comportamento do código, é o que garante que o código faça o que se espera
-dele, ou seja, que ele tenha lógica e funcione corretamente. Exemplo em Python:
-'''
-resultado = 10 / 2 # divisão válida
-'''
- Esse código tem uma semântica correta, já que a operação de divisão é válida. No entanto, considerando que vimos algo assim:
-'''
+</code></pre>
+```Python
+  print "Hello world!"
+```
+<pre><code>
+
+ Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print"),
+iremos receber uma mensagem de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os mais comuns
+erros de sintaxe são relacionados à escrita: a falta de símbolos obrigatórios (como parênteses, ponto-e-vírgula,
+vírgulas, endentação e etc), palavras reservadas escritas incorretamente, estruturas de código mal formatadas, entre
+outros.
+
+ - SEMÂNTICA: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à
+descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código,
+é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
+
+</code></pre>
+```Python
+  resultado = 10 / 2 # divisão válida
+```
+<pre><code>
+
+ Esse código tem uma semântica correta, já que a operação de divisão é válida. No entanto, considerando se vissemos
+algo assim:
+
+</code></pre>
+```Python
 resultado = 10 / 0 # divisão inválida
-'''
- Apesar de a sintaxe estar correta, a semântica está errada, porque dividir por zero não é permitido, gerando um erro lógico durante a execução.
+```
+<pre><code>
+
+ Apesar de a sintaxe estar correta, a semântica está errada, porque dividir por zero não é permitido, gerando um erro
+lógico durante a execução.
  
-     	                   SINTAXE                                  SEMÂNTICA
- Pergunta-chave	 "Está escrito corretamente?"	                "Faz sentido?"
- Erro	         O programa não será executado	    O programa é executado, mas pode falhar
-                     (erro de compilação).              ou produzir resultados errados.
- Foco	         Estrutura e formato do código.         Significado e lógica do código.
+     	                        SINTAXE                                  SEMÂNTICA
+ Pergunta-chave     	 "Está escrito corretamente?"	                "Faz sentido?"
+ Erro	              O programa não será executado	    O programa é executado, mas pode falhar
+                          (erro de compilação).              ou produzir resultados errados.
+ Foco	              Estrutura e formato do código.         Significado e lógica do código.
 
 >>>ESTRUTURA DE TIPOS
 
- Refere-se ao sistema que uma linguagem de programação utiliza para definir, manipular e verificar os tipos de dados. Ela estabelece como 
-os tipos são tratados e como as conversões entre tipos são realizadas. A estrutura de tipos pode influenciar diretamente a flexibilidade,
-a segurança e a facilidade de uso da linguagem.
+ Refere-se ao sistema que uma linguagem de programação utiliza para definir, manipular e verificar os tipos de dados.
+Ela estabelece como os tipos são tratados e como as conversões entre tipos são realizadas. A estrutura de tipos pode
+influenciar diretamente a flexibilidade, a segurança e a facilidade de uso da linguagem.
 
 >>>>SISTEMAS DE TIPOS
 
  O sistema de tipos define como diferentes tipos de dados são representados e como podem ser combinados. Ele inclui:
  
  - Definição de Tipos: Como os tipos de dados são declarados e definidos (por exemplo, inteiros, strings, listas).
- - Verificação de Tipos: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas com tipos compatíveis.
+ - Verificação de Tipos: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas
+ com tipos compatíveis.
  - Conversão de Tipos: Como e quando os tipos podem ser convertidos entre si (conversões implícitas ou explícitas).
 
  Classificações dos Sistemas de Tipos
 
  A estrutura de tipos pode ser classificada de várias maneiras, incluindo:
 
- - Tipagem Fraca: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a comportamentos inesperados devido a conversões automáticas.
- - Tipagem Forte: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar erros de tipo.
- - Tipagem Dinâmica: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade, mas pode resultar em erros de tipo que
-    só são detectados quando o código é executado.
- - Tipagem Estática: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a execução. Isso ajuda a detectar erros de
-    tipo mais cedo, geralmente durante a compilação.
+ - Tipagem Fraca: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a ter comportamentos
+ inesperados devido a conversões automáticas.
+ - Tipagem Forte: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar
+ erros de tipo.
+ - Tipagem Dinâmica: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade,
+ mas pode resultar em erros de tipo que só são detectados quando o código é executado.
+ - Tipagem Estática: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a
+ execução. Isso ajuda a detectar erros de tipo mais cedo, geralmente durante a compilação.
 
  Estruturas de Tipos Específicas
 
@@ -1823,38 +1843,44 @@ a segurança e a facilidade de uso da linguagem.
 
  - Tipos Primitivos: Tipos básicos fornecidos pela linguagem, como inteiros, caracteres e booleanos.
  - Tipos Compostos: Tipos formados por combinação de tipos primitivos, como arrays, listas, ou structs.
- - Tipos Abstratos: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces em linguagens orientadas a objetos.
- - Polimorfismo: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme, muitas vezes implementada através de
- generics ou templates.
+ - Tipos Abstratos: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces
+ em linguagens orientadas a objetos.
+ - Polimorfismo: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme,
+ muitas vezes implementada através de generics ou templates.
 
  >>>>GRAU DE ABSTRAÇÃO
 
- Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de
-programação não é diferente, é preciso que exista um termo (comando) para solicitar a entrada de dados, outro para solicitar a saída de dados e assim por
-diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem
-escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem
-compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o
-computador entende), linguagens de baixo nível dão maior controle sobre o hardware, e por isso e também pela sua sintáxe complexa e de difícil leitura,
-torna-se muito complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais
-próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de
-programas mais rápido. Cada linguagem é mais indicada para categorias de problemas específicos, e definimos qual linguagem usar para a resolução do problema
-em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina,
-e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
+ Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem
+seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite
+a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se
+diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida
+para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário
+traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma
+linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior
+controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo
+o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma
+sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente
+em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para
+cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão
+através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais
+próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau
+de abstração:
 
  1. Baixo Nível: Possui símbolos que representam o código de máquina propriamente.
- 2. Médio Nível: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador.
- 3. Alto Nível: Possui símbolos complexos que necessitam de interpretação de um compilador antes de serem transformados em linguagem de máquina.
+ 2. Médio Nível: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui
+ símbolos que precisam ser processados por um compilador.
+ 3. Alto Nível: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam
+ transformados em linguagem de máquina.
 
-                                                    LINGUAGEM QUE O
-                     --------------              COMPUTADOR ENTENDE
-  PROGRAMA           | COMPILAÇÃO |            E EXECUTA AS INSTRUÇÕES
-     ||              --------------                      ||
- LINGUAGEM DE  =>     TRADUÇÃO PARA       =>         [ASSEMBLY]
-  ALTO NÍVEL      LINGUAGEM DE MÁQUINA                   ||
-     ||             -----------------              PROGRAMA OBJETO
- CÓDIGO FONTE       | INTERPRETAÇÃO |                 EXECUÇÃO
-                    -----------------
-
+                                              LINGUAGEM QUE O
+                    --------------         COMPUTADOR ENTENDE
+  PROGRAMA          | COMPILAÇÃO |       E EXECUTA AS INSTRUÇÕES
+     ||             --------------                 ||
+ LINGUAGEM DE =>     TRADUÇÃO PARA    =>       [ASSEMBLY]
+  ALTO NÍVEL     LINGUAGEM DE MÁQUINA              ||
+     ||            -----------------         PROGRAMA OBJETO
+ CÓDIGO FONTE      | INTERPRETAÇÃO |            EXECUÇÃO
+                   -----------------
 
 >>>IMPLEMENTAÇÕES DE LINGUAGEM
 
@@ -1903,9 +1929,10 @@ __________                  | __________     __________     __________     _____
 
 >>>>>>LEXICAL ANALYZER
 
- Análise lexica, também conhecida como scaner ou leitura, é a primeira fase do processo de compilação, e sua função é realizar
-a leitura do programa fonte caractere por caractere e agrupar os caracteres em "lexemas" (produzir uma sequência de símbolos 
-léxicos conhecidos como *tokens*). Neste processo, a análise léxica *particiona*, *classifica* e *elimina*.
+ Análise lexica, também conhecida como scaner ou leitura, é a primeira fase do processo de compilação, e sua função
+é realizar a leitura do programa fonte caractere por caractere e agrupar os caracteres em "lexemas" (produzir uma
+sequência de símbolos léxicos conhecidos como *tokens*). Neste processo, a análise léxica *particiona*, *classifica*
+e *elimina*.
 
              PARTICIONA                            CLASSIFICA                                  ELIMINA
                  |                                      |                                         |
@@ -1917,15 +1944,16 @@ léxicos conhecidos como *tokens*). Neste processo, a análise léxica *particio
 
 >>>>>>SYNTAX ANALYZER
 
- A sintáxe de um programa é a forma como ele define (através de palavras reservadas, de indexação e de símbolos especiais) qual a
-estrutura relacionada para a codificação dentro daquela linguagem específica (ou seja, define a corretude do programa).
+ A sintáxe de um programa é a forma como ele define (através de palavras reservadas, de indexação e de símbolos
+especiais) qual a estrutura relacionada para a codificação dentro daquela linguagem específica (ou seja, define a
+corretude do programa).
 
 PADRÃO/GRAMÁTICA = Depende da linguagem usada.
 
 >>>>>>SEMANTIC ANALYZER
 
- Semântica é o estudo do significado. Incide sobre a relação entre significantes, como: palavras, frases, sinais e símbolos (ou seja,
-é a lógica do programa).
+ Semântica é o estudo do significado. Incide sobre a relação entre significantes, como: palavras, frases, sinais e
+símbolos (ou seja, é a lógica do programa).
 
 Exemplo de erro de semântica:
 
@@ -1938,8 +1966,9 @@ if(x = 0):                     X
 if(x == 0):                   \ /
   print("o valor é nulo")      V 
 
- Por causa da lógica errada (uso de operador de atribuição no lugar do operador de comparação) o programa não fez aquilo que é esperado,
-não sendo possível seguir com a compilação, obrigando o desenvolvedor a debugar antes de seguir com o deploy do projeto.
+ Por causa da lógica errada (uso de operador de atribuição no lugar do operador de comparação) o programa não fez
+aquilo que é esperado, não sendo possível seguir com a compilação, obrigando o desenvolvedor a debugar antes de
+seguir com o deploy do projeto.
 
 >>>>INTERPRETAÇÃO
 
@@ -1948,14 +1977,14 @@ __________________        ______
 | PROGRAMA FONTE |   ->   | LÊ |   =   EXECUTA O PROGRAMA
 ------------------        ------
 
- Executa diretamente o código fonte, ou seja, ele lê, traduz e executa o script ao invés de analisar e gerar o programa objeto
-primeiro, como é feito na compilação.
+ Executa diretamente o código fonte conforme a sua estrutura, ou seja, ele lê, traduz e executa o script ao invés de
+analisar e gerar o programa objeto primeiro, como é feito na compilação.
 
 >>>>>INTERPRETADOR
 
- O processo de interpretação é mais direto do que o processo de compilação, pois não há necessidade de gerar um código intermediário
-antes da execução, a interpretação e a execução do programa acontecem em tempo real e independente do sistema operacional utilizado.
-Em vez disso, o código-fonte é interpretado e executado diretamente pelo interpretador.
+ O processo de interpretação é mais direto do que o processo de compilação, pois não há necessidade de gerar um código
+intermediário antes da execução, a interpretação e a execução do programa acontecem em tempo real e independente do
+sistema operacional utilizado. Em vez disso, o código-fonte é interpretado e executado diretamente pelo interpretador.
 
            ANÁLISE LÉXICA E SINTÁTICA                                        EXECUÇÃO
                       |                                                         |
@@ -1968,77 +1997,86 @@ Em vez disso, o código-fonte é interpretado e executado diretamente pelo inter
 
 >>>>JIT
 
- Teoricamente, qualquer linguagem pode ser compilada ou interpretada e, por isso, há algumas linguagens que possuem ambas implementações mescladas,
-processo chamado de "Just in time" (JIT), que veio aperfeiçoar a produção.
+ Teoricamente, qualquer linguagem pode ser compilada ou interpretada e, por isso, há algumas linguagens que possuem
+ambas implementações mescladas, processo chamado de "Just in time" (JIT), que veio aperfeiçoar a produção.
 
- Com o JIT nós continuamos a interpretar os códigos. Entretanto, nós também iremos compilá-los, mas apenas a parte do código que iremos usar no momento
-da execução. Isso representa um aumento muito grande de performance. Pois iremos usar o processo de compilação, que já é rápido, e ele será executado em
-partes isoladas do código, apenas na hora certa (“just in time”).
+ Com o JIT nós continuamos a interpretar os códigos. Entretanto, nós também iremos compilá-los, mas apenas a parte
+do código que iremos usar no momento da execução. Isso representa um aumento muito grande de performance. Pois iremos
+usar o processo de compilação, que já é rápido, e ele será executado em partes isoladas do código, apenas na hora
+certa (“just in time”).
 
- Assim, nós temos à nossa disposição “o melhor dos dois mundos”. Temos a velocidade da compilação junto com a simplicidade de debugar nosso código.
+ Assim, temos à disposição “o melhor dos dois mundos”: a velocidade da compilação junto da simplicidade de depuração.
 
 >>>>TRANSPILAÇÃO
 
- Linguagem de mais alto nível convertida para uma lingaguem mais baixa e então segue o fluxo, por exemplo, o TypeScript, é
-convertido para JavaScript, então lido pelo Node.JS e executado pelo computador.
+ Linguagem de mais alto nível convertida para uma lingaguem mais baixa e então segue o fluxo, temos como exemplo, o
+TypeScript, que é convertido para JavaScript e então lido pelo Node.JS para ser executado pelo computador.
 
- Transpilação ou "Transpiling", converte o código fonte de uma linguagem de programação em um código fonte equivalente da mesma
-ou de uma linguagem de programação diferente.
+ Transpilação ou "Transpiling", converte o código fonte de uma linguagem de programação em um código fonte equivalente
+da mesma ou de uma linguagem de programação diferente.
 
- Por exemplo o Babel, um transpilador de código JavaScript. Babel converte o código JavaScript da moderna versão ECMAScript 2015+
-em uma versão antiga e compatível com os navegadores inferior.
+ Por exemplo o Babel, um transpilador de código JavaScript. Babel converte o código JavaScript da moderna versão
+ECMAScript 2015+ em uma versão antiga e compatível com os navegadores inferior.
 
 Dada uma função arrow ES2015 por exemplo:
-________________________________
-| [2, 4, 6].map((n) => n * 2); |
---------------------------------
+
+</code></pre>
+```JS
+  [2, 4, 6].map((n) => n * 2);
+```
+<pre><code>
 
 …Babel irá convertê-lo em sua versão ES5:
-_______________________________
-| [2, 4, 6].map(function(n) { |
-|   return n * 2;             |
-| });                         |
--------------------------------
+
+</code></pre>
+```JS
+  [2, 4, 6].map(function(n){
+    return n * 2;
+  });
+```
+<pre><code>
 
 >>>PARADIGMAS DE PROGRAMAÇÃO
 
- Toda linguagem é baseada em um paradigma, e há também linguagens baseadas em vários, sendo consideradas nestes casos multiparadigmas.
-Quase todas línguas modernas são multiparadigmáticas. Combinam facilmente as capacidades das abordagens imperativa e declarativa.
+ Toda linguagem é baseada em um paradigma. Há também linguagens baseadas em vários, sendo consideradas nestes casos
+multiparadigmas. Quase todas as línguas modernas são multiparadigmáticas. Combinam facilmente as capacidades das
+abordagens imperativa e declarativa.
 
- Os paradigmas são modelagens de escrita de código que podem ser aplicados a várias linguagens, desde que estas permitam. É possível
-ainda aplicar mais de um paradigma a uma mesma solução em uma linguagem previamente escolhida.
+ Os paradigmas são modelagens de escrita de código que podem ser aplicados a várias linguagens, desde que estas
+permitam. É possível ainda aplicar mais de um paradigma a uma mesma solução em uma linguagem previamente escolhida.
 
- Um paradigma pode ser entendido como um tipo de estruturação ao qual a linguagem deverá respeitar. A depender do objetivo proposto,
-a solução que a linguagem oferecerá obedece a um tipo de paradigma. Portanto, o que vai definir o paradigma utilizado será a tratavida
-dada ao problema.
+ Um paradigma pode ser entendido como um tipo de estruturação ao qual a linguagem deverá respeitar. A depender do
+objetivo proposto, a solução que a linguagem oferecerá obedece a um tipo de paradigma. Portanto, o que vai definir o
+paradigma utilizado será a tratativa dada ao problema.
 
- Diferentes tarefas de programação podem ser resolvidas de maneiras diferentes: você pode precisar escrever uma função ou criar uma
-classe separa com métodos e assim por diante. Todas essas variantes são combinadas em diferentes abordagens de programação, também
-chamadas de paradigmas.
+ Diferentes tarefas de programação podem ser resolvidas de diferentes maneiras: talvez você possa precisar escrever
+uma função, ou criar uma classe separada com métodos, e assim por diante. Todas essas variantes são combinadas em
+diferentes abordagens de programação, também chamadas de paradigmas.
 
- É como se você tivesse que resolver um simples problema durante a execução de uma mudança doméstica. Imagine se você tivesse que
-levar um piano do primeiro ao terceiro andar de sua residência. O problema, já se sabe qual é. Mas de qual forma (paradigma) resolver
-essa questão?
+ É como se você tivesse que resolver um simples problema durante a execução de uma mudança doméstica. Imaginemos que
+você tenha que levar um piano do primeiro ao terceiro andar de sua residência. O problema, já se sabe qual é. Mas de
+qual forma (paradigma) resolver essa questão?
 
- Pode-se optar por carregá-lo manualmente dois andares acima. Esse seria um paradigma bastante trabalhoso, pois exigiria o esforço
-de várias pessoas. No entanto, outro paradigma para esse problema poderia ser o de elevá-lo por meio de um carrinho. Menos pessoas
-seriam necessárias e um menor esforço seria aplicado. Por fim, surge a ideia de usar um paradigma mais prático: elevar o piano pelo
-lado de fora da edificação utilizando um motor fixado no terceiro andar e acionado por controle remoto. Esforço quase zero e problema
-resolvido com mais inteligência.
+ Pode-se optar por carregá-lo manualmente pelos andares acima. Esse seria um paradigma bastante trabalhoso, por exigir
+do esforço de várias pessoas. No entanto, outro paradigma para esse problema poderia ser o de elevá-lo por meio de
+um carrinho. Menos pessoas seriam necessárias e um menor esforço seria aplicado. Por fim, surge a ideia de usar um
+paradigma mais prático: elevar o piano pelo lado de fora da edificação utilizando um motor fixado no terceiro andar
+e acionado por controle remoto. Esforço quase zero e problema resolvido com mais inteligência.
 
- Na comparação com a programação, esse seria um paradigma bem elegante (em termos de código). Para escolher bem, é preciso conhecer
-antes as alternativas.
+ Na comparação com a programação, esse seria um paradigma bem elegante (em termos de código). Para escolher bem, é
+preciso conhecer antes as alternativas.
 
- Então, por definição, um paradigma é apresentado como: um exemplo que serve como modelo a ser seguido. Sendo assim, um paradigma é
-um padrão ao qual linguagens de programação podem seguir. Eles indicam a forma como a linguagem deve operar para possilibitar a resolução
-de problemas.
+ Então, por definição, um paradigma é apresentado como: um exemplo que serve como modelo a ser seguido. Sendo assim,
+um paradigma é um padrão ao qual linguagens de programação podem seguir. Eles indicam a forma como a linguagem deve
+operar para possilibitar a resolução de problemas.
 
- Cada paradigma foi criado para atender uma necessidade, cada um apresneta maiores vantagens sobre os outros dentro do desenvolvimento
-de determinado sistema, alguns propõe evoluções a outros e todos têm aplicabilidade possibilitando que desenvolvedores(as) codifiquem
-programas que resolvam algum problema. Cada paradigma pode oferecer técnicas apropriadas para uma aplicação específica.
+ Cada paradigma foi criado para atender uma necessidade, cada um apresneta maiores vantagens sobre os outros dentro
+do desenvolvimento de determinado sistema, alguns propõe evoluções a outros e todos têm aplicabilidade possibilitando
+que desenvolvedores(as) codifiquem programas que resolvam algum problema. Cada paradigma oferece técnicas apropriadas
+para uma aplicação específica.
 
- É uma forma de resolução de problemas com diretrizes e limitações específicas de cada paradigma utilizando linguagem de programação.
-São eles:
+ É uma forma de resolução de problemas com diretrizes e limitações específicas de cada paradigma utilizando linguagem
+de programação. São eles:
 
    - DECLARATIVO   |   - LÓGICO                   |   - COMPUTAÇÃO CONCORRENTE
    - FUNCIONAL     |   - MATEMÁTICO               |   - PROGRAMAÇÃO DE BANCO DE DADOS
@@ -2046,22 +2084,25 @@ São eles:
    - ESTRUTURADO   |   - COMPUTAÇÃO PARALELA      |   - PROGRAMAÇÃO ORIENTADA A EVENTOS
    - PROCEDURAL    |   - COMPUTAÇÃO DISTRIBUÍDA   |   - PROGRAMAÇÃO ORIENTADA A OBJETOS
 
- Escolhido o(s) paradigma(s) de desenvolvimento adequado(s) ao projeto, isso permitirá que sejam desenvolvidas aplicações com grande
-produtividade. Haverá unicidade na orientação de escrita do código entre a equipe, tornando-o mais legível e promovento facilidade
-na manutação e melhoria(s) ao longo da sua existência. Além disso, manter o mesmo paradigma determinará o objetivo dos desenvolvedores
-sobre a composição da estrutura e execução do sistema. Isso permite que as técnicas adequadas sejam utilizadas no projeto em questão.
-É essencial manter essa metodologia durante todo o trabalho para que funcione adequadamente, seja de fácil leitura/entendimento e manuntenção.
+ Escolhido(s) o(s) paradigma(s) de desenvolvimento adequado(s) ao projeto, isso permitirá que sejam desenvolvidas
+aplicações com grande produtividade. Haverá unicidade na orientação de escrita do código entre a equipe, tornando-o
+mais legível e promovento facilidade na manutação e melhoria(s) ao longo da sua existência. Além disso, manter o mesmo
+paradigma determinará o objetivo dos desenvolvedores sobre a composição da estrutura e execução do sistema. Isso
+permite que as técnicas adequadas sejam utilizadas no projeto em questão. É essencial manter essa metodologia durante
+todo o trabalho para que funcione adequadamente, seja de fácil leitura/entendimento e manuntenção.
 
  Para exemplificar os paradigmas, é utilizado no decorrer do tema um exemplo bastante simples.
 
 A necessidade é selecionar os números pares em um intervalo de 1 a 10, e apresentar o resultado.
-'''
+
+</code></pre>
+```Python
 # IMPERATIVO (ESTRUTURADO)
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_numbers = []
 
 for number in numbers:
-  if (number % 2 == 0):
+  if(number % 2 == 0):
     even_numbers.append(number)
 
 print(even_numbers)
@@ -2071,56 +2112,65 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_numbers = list(filter(lambda number: number % 2 ==0, numbers))
 
 print(even_numbers)
-'''
- No script acima o código IMPERATIVO está ESTRUTURADO e o DECLARATIVO é FUNCIONAL. A diferença entre eles não está apenas na quantidade
-de código escrito, mas nas intenções expressadas em cada instrução.
+```
+<pre><code>
 
- Programar está associado a conhecer as possíveis formas de enviar instruções ao computador, logo compreender os paradigmas facilita o
-aprendizado de qualquer linguagem, a ponto de torná-las menos importantes.
+ No script acima o código IMPERATIVO está ESTRUTURADO e o DECLARATIVO é FUNCIONAL. A diferença entre eles não está
+apenas na quantidade de código escrito, mas nas intenções expressadas em cada instrução.
+
+ Programar está associado a conhecer as possíveis formas de enviar instruções ao computador, logo compreender cada
+paradigma facilita o aprendizado de qualquer linguagem, a ponto de torná-las menos importantes.
 
 >>>>DECLARATIVO
 
- O paradigma declarativo determina que as instruções passadas ao computador devem especificar a sequência lógica e o resultado esperado,
-sem determinar o fluxo de controle. O foco da resolução está em determinar "o quê" deve ser resolvido, o que é um contraste a programação
-imperativa que determina "o como".
+ O paradigma declarativo determina que as instruções passadas ao computador devem especificar a sequência lógica e
+o resultado esperado, sem determinar o fluxo de controle. O foco está em determinar "o quê" precisa ser resolvido,
+o que é um contraste a programação imperativa que determina "o como".
 
- Historicamente o paradigma declarativo tem menos destaque do que o imperativo, porém ainda assim possui algumas linguagens famosas baseadas
-no seu conceito, cita-se algumas como: SQL, HTML, JavaScript, Erlang e LISP.
+ Historicamente o paradigma declarativo tem menos destaque do que o imperativo, porém ainda assim, possui algumas
+linguagens famosas baseadas no seu conceito, cita-se algumas como: SQL, HTML, JavaScript, Erlang e LISP.
 
- Em continuidade aos exemplos anteriores, mas transportando o cenário para uma modelagem de dados relacional, considere uma tabela NUMBERS
-a qual contém registros de 1 a 100.
+ Continuando com os exemplos anteriores, mas transportando o cenário para uma modelagem de dados relacional, vamos
+considerar uma tabela NUMBERS a qual contém registros de 1 a 100.
 
  A necessidade é obter a soma dos números pares entre 1 e 10.
 
 No exemplo, um código declarativo em SQL:
 
- ---------------------------------------------------------------------------
-| select sum(number) from numbers where mod(number, 2) = 0 and number <= 10 |
- ---------------------------------------------------------------------------
+</code></pre>
+```SQL
+  select sum(number) from numbers where mod(number, 2) = 0 and number <= 10
+```
+<pre><code>
 
- Um código reduzido, onde as instruções estão focadas no resultado esperado e não em como o computador chegará a esse resultado.
+ Um código reduzido, onde as instruções estão focadas no resultado esperado e não em como o computador chegará ao
+resultado.
 
- Muitas linguagens e frameworks dão suporte a uma "mistura" de código relacionado ao paradigma imperativo e declarativo, o que tem
-uma aplicabilidade e pode auxiliar desenvolvedores na resolução de problemas, mas que precisa ser utilizado de forma consciente. O
-uso inadequado pode gerar códigos de difícil manutenção e evolução, como em cenários abaixo:
+ Muitas linguagens e frameworks dão suporte a uma "mistura" de códigos relacionados ao paradigmas imperativo e
+declarativo, o que tem uma aplicabilidade e pode auxiliar desenvolvedores na resolução de problemas, mas que precisa
+ser utilizado de forma consciente. O uso inadequado pode gerar códigos de difícil manutenção e evolução, como em
+cenários abaixo:
 
-- Código declarativo com código imperativo "embutido", com uso de condicionais ou outras estruturas de características imperativas.
+- Código declarativo com código imperativo "embutido", com uso de condicionais e outras estruturas de características
+imperativas.
 - Composição de código declarativo através do uso de strings, que são montadas a partir de código imperativo.
-- Códigos declarativos mistrurados a imperativo cuja lógica busca indicar ao computador o "como fazer", o que contraria o propósito
-do paradigma.
+- Códigos declarativos mistrurados a imperativos, cuja lógica busca indicar ao computador o "como fazer", o que
+contraria o propósito do paradigma.
 
- Em linguagens como SQL e HTML, são comuns as situações apresentadas. Para estes casos, o indicado é ter atenção a como o paradigma
-declarativo trabalha. Normalmente uma linguagem declarativa possibilitará o recebimento de parâmetros, os quais podem ser utilizados,
-mas sem que haja lógica imperativa na resolução. Toda lógica imperativa deve ser executada antes da execução do código declarativo,
-e este deve apenas saber trabalhar com os parâmetros recebidos.
+ Em linguagens como SQL e HTML, são comuns as situações apresentadas. Para estes casos, o indicado é ter atenção a
+como o paradigma declarativo trabalha. Normalmente uma linguagem declarativa possibilitará o recebimento de parâmetros,
+os quais podem ser utilizados, mas sem que haja lógica imperativa na resolução. Toda lógica imperativa deve ser
+executada antes da execução do código declarativo, e este deve apenas saber trabalhar com os parâmetros recebidos.
 
- Atualmente o paradigma declarativo tem ganho destaque através do uso de um outro paradigma que deriva dele, o funcional, o qual dá
-mais poder para desenvolvedores, inclusive evitando a inadequada mistura de declarativo e imperativo.
+ Atualmente o paradigma declarativo tem ganho destaque através do uso de um outro paradigma que deriva dele, o
+funcional, o qual dá mais poder para desenvolvedores, inclusive evitando a inadequada mistura de declarativo e
+imperativo.
 
- Como vimos, a programação declarativa é um paradigma de programação no qual é importante especificar o problema e o resultado esperado
-de sua solução. Ou seja, em contraste com o paradigma imperativo, onde é necessário responder à pergunta "COMO FAZER ISSO?", você precisa
-fazer as perguntas "O QUE PRECISA SER FEITO?" e "QUAL SERÁ O RESULTADO DO TRABALHO?". Portanto, em vez de fornecer instruções passo a passo,
-você diz ao sistema o que precisa no resultado e deixa que ele encontre uma solução.
+ Como vimos, a programação declarativa é um paradigma de programação no qual é importante especificar o problema e
+o resultado esperado de sua solução. Ou seja, em contraste com o paradigma imperativo, onde é necessário responder à
+pergunta "COMO FAZER ISSO?", você precisa fazer as perguntas "O QUE PRECISA SER FEITO?" e "QUAL SERÁ O RESULTADO DO
+TRABALHO?". Portanto, em vez de fornecer instruções passo a passo, você diz ao sistema o que precisa no resultado e
+deixa que ele encontre uma solução.
 
 >>>>>DERIVAÇÕES PD
 
@@ -2131,24 +2181,27 @@ você diz ao sistema o que precisa no resultado e deixa que ele encontre uma sol
 
 >>>>FUNCIONAL
 
- O paradigma funcional é um dos poucos derivados da programação declarativa, onde suas instruções baseadas em funções tem como objetivo
-declarar ao computador o resultado esperado, e não o passo a passo para a construção deste resultado como nos demais paradigmas derivados
-da programação imperativa. Essa forma de compor o código traz duas características que a tornam bastante diferente das demais, que são a
-imutabilidade e por consequência a não mudança de estado do software.
+ O paradigma funcional é um dos poucos derivados da programação declarativa, onde suas instruções baseadas em funções
+tem como objetivo declarar ao computador o resultado esperado, e não o passo a passo para a construção deste
+resultado como nos demais paradigmas derivados da programação imperativa. Essa forma de compor o código traz duas
+características que a tornam bastante diferente das demais, que são a imutabilidade e por consequência a não mudança
+de estado do software.
 
  Uma função é um bloco de código que realiza uma tarefa específica e pode ser invocado várias vezes.
 
- Este é um paradigma de programação no qual o processo de computação é interpretado como a computação dos valores das funções. A função
-neste caso é semelhante a uma função matemática, ou seja, uma função na qual a entrada é um array que não é alterado e a saída é um novo
-array com novos dados. Isso torna uma função matemática diferente de uma função na programação procedural, onde a função é uma sequência
-de ações que alteram os dados originais.
+ Este é um paradigma de programação no qual o processo de computação é interpretado como a computação dos valores das
+funções. A função neste caso é semelhante a uma função matemática, ou seja, uma função na qual a entrada é um array
+que não é alterado e a saída é um novo array com novos dados. Isso torna uma função matemática diferente de uma função
+na programação procedural, onde a função é uma sequência de ações que alteram os dados originais.
 
- Aqui está um exemplos simples: você pode ter uma função que recebe uma lista de números como entrada e retorna uma nova lista com os
-quadrados desses números. Isso não altera a lista original de números.
+ Aqui está um exemplos simples: você pode ter uma função que recebe uma lista de números como entrada e retorna uma
+nova lista com os quadrados desses números. Isso não altera a lista original de números.
 
-Vejamos outro exemplo, onde a necessidade se faz em obter a soma dos números pares, ímpares e primos de um determinado intervalo e
-apresentar o resultado.
-'''
+ Vejamos outro exemplo, onde a necessidade é obter a soma dos números pares, ímpares e primos de um determinado
+intervalo e apresentar o resultado.
+
+</code></pre>
+```Python
 import sympy
 
 def string_to_numbers(string_numbers):
@@ -2168,78 +2221,94 @@ numbers = string_to_numbers(input)
 print("Soma números pares: ", sum(filter_even_numbers(numbers)))
 print("Soma números ímpares: ", sum(filter_odd_numbers(numbers)))
 print("Soma números primos: ", sum(filter_prime_numbers(numbers)))
+```
+<pre><code>
 
-'''
- A programação funcional permite um código reduzido, focado em instruções relacionadas ao resultado esperado. Não há modificação
-sobre qualquer variável, seguindo a linha da imutabilidade. Todas as instruções são através da invocação de funções passando um
-valor de entrada e esperando um valor de saída, que pode ser o valor de entrada da função seguinte.
+ A programação funcional permite um código reduzido, focado em instruções relacionadas ao resultado esperado. Não há
+modificação sobre qualquer variável, seguindo a linha da imutabilidade. Todas as instruções são através da invocação
+de funções passando um valor de entrada e esperando um valor de saída, que pode ser o valor de entrada de outra função.
 
- Para viabilizar essa estrutura, a programação funcional apoia-se sobre o uso de funções, as quais ao serem executadas mapeiam os
-valores de entrada para valores de saída, sem atualizar o estado do software, e quando usadas de forma combinada explicitam o poder
-do paradigma declarativo. As funções são na programação funcional "cidadãs de primeira classe", assim como as Classes são em POO.
+ Para viabilizar essa estrutura, a programação funcional apoia-se sobre o uso de funções, as quais ao serem executadas
+mapeiam os valores de entrada para valores de saída, sem atualizar o estado do software, e quando usadas de forma
+combinada explicitam o poder do paradigma declarativo. As funções são na programação funcional "cidadãs de primeira
+classe", assim como as Classes são em POO.
 
- O uso de funções tem como base o uso do cálculo lambda, conceito desenvolvido ainda na década de 30, por Alonzo Church. Mas foi no
-final da década de 50 com o surgimento da linguagem LISP que o paradigma funcional foi aplicado pela primeira vez. Historicamente
-esse paradigma tem sido menos popular, mas atualmente ganhou força entre times de desenvolvimento, e o suporte já presente em linguagens
-como ML, Lisp, Miranda, Haskell, Scala, Erlang, Clojure, OCaml, F# e Elixir, também se estende a linguagens como JavaScript, Python,
-Ruby, dentre outras.
+ O uso de funções tem como base o uso do cálculo lambda, conceito desenvolvido ainda na década de 30, por Alonzo
+Church. Mas foi no final da década de 50 com o surgimento da linguagem LISP que o paradigma funcional foi aplicado
+pela primeira vez. Historicamente esse paradigma tem sido menos popular, mas atualmente ganhou força entre times de
+desenvolvimento, e o suporte já presente em linguagens como ML, Lisp, Miranda, Haskell, Scala, Erlang, Clojure, OCaml,
+F# e Elixir, também se estende a linguagens como JavaScript, Python, Ruby, dentre outras.
 
- Assim como os demais paradigmas, qualquer problema pode ser resolvido com o paradigma funcional. O desafio para aqueles que desejam
-trabalhar com funcional puro, está em compreendê-lo a ponto de utilizar os mecanismos adequados para lidar com a composição de lógicas
-e estruturas de dados, de forma que não contenham códigos amarrados ao modelo imperativo e estruturado de programar.
+ Assim como os demais paradigmas, qualquer problema pode ser resolvido com o paradigma funcional. O desafio para
+aqueles que desejam trabalhar com funcional puro, está em compreendê-lo a ponto de utilizar os mecanismos adequados
+para lidar com a composição de lógicas e estruturas de dados, de forma que não contenham códigos amarrados ao modelo
+imperativo e estruturado de programar.
 
 >>>>>LAMBDA (TERNÁRIO)
 
- Os seguintes termos são usados de forma intercambiável, dependendo da linguagem de programação usada: função anônima, funções anônimas,
-funções lambda, notações lambda, expressão lambda, expressões lambda, abstração lambda, abstrações lambda, forma lambda e literais de função.
+ Os seguintes termos são usados de forma intercambiável, dependendo da linguagem de programação usada: função anônima,
+funções anônimas, funções lambda, notações lambda, expressão lambda, expressões lambda, abstração lambda, abstrações
+lambda, forma lambda e literais de função.
 
- Expressões lambda diferem das funções comuns por serem declaradas de maneira diferente, sem definirmos nome para criarmos elas,
-utilizamos a palavra-chave lambda para definí-las. Uma função anônima é uma função sem um nome associado, em vez de definir uma
-função usando a palavra-chave `def` (em Python, por exemplo), você pode criar uma função inline usando a sintaxe lambda: `lambda argumentos: expressão`
+ Expressões lambda diferem das funções comuns por serem declaradas de maneira diferente, sem definirmos nome para
+criarmos elas, utilizamos a palavra-chave lambda para definí-las. Uma função anônima é uma função sem um nome
+associado, em vez de definir uma função usando a palavra-chave `def` (em Python, por exemplo), você pode criar uma
+função inline usando a sintaxe lambda: `lambda argumentos: expressão`
 
- O cálculo lambda trata funções como cidadãos de primeira classe. Isto significa que as funções podem ser utilizadas como argumentos e
-retornadas como valores de outras funções.
+ O cálculo lambda trata funções como cidadãos de primeira classe. Isto significa que as funções podem ser utilizadas
+como argumentos e retornadas como valores de outras funções.
 
- Python e outras linguagens como Java, C# e até mesmo C++ tiveram as funções lambda adicionadas a sua sintaxe, já linguagens como LISP,
-ou linguagens da família ML (Meta Language: é uma linguagem de programação funcional conhecida por usar o sistema de tipo polimórfico
-Hindley-Milner, que atribui automaticamente os tipos de dados da maioria das expressões sem exigir anotações de tipos explícitas
-(inferência de tipo) e garante a segurança de tipo.): Haskell, OCaml e F# usam lambdas como um conceito central.
+ Python e outras linguagens como Java, C# e até mesmo C++ tiveram as funções lambda adicionadas a sua sintaxe, já
+linguagens como LISP, ou linguagens da família ML (Meta Language: é uma linguagem de programação funcional conhecida
+por usar o sistema de tipo polimórfico Hindley-Milner, que atribui automaticamente os tipos de dados da maioria das
+expressões sem exigir anotações de tipos explícitas (inferência de tipo) e garante a segurança de tipo.): Haskell,
+OCaml e F# usam lambdas como um conceito central.
 
- Expressões Lambda em Python e em outras linguagens de programação possuem suas raízes no cálculo lambda, um modelo de computação
-criado por Alonzo Church. O cálculo lambda pode codificar qualquer cálculo, é Turing completo, mas ao contrário do conceito de máquina
-de Turing, é puro e não guarda nenhum estado.
+ Expressões Lambda em Python e em outras linguagens de programação possuem suas raízes no cálculo lambda, um modelo
+de computação criado por Alonzo Church. O cálculo lambda pode codificar qualquer cálculo, é Turing completo, mas ao
+contrário do conceito de máquina de Turing, é puro e não guarda nenhum estado.
 
- As linguagens de programação funcionais têm sua origem na lógica matemática e no cálculo lambda, enquanto as linguagens de programação
-imperativas adotam o modelo de computação baseado em estado inventado por Alan Turing. Os dois modelos de computação, cálculo lambda e
-máquinas de Turing, podem ser traduzidos um no outro. Essa equivalência é conhecida como hipótese de Church-Turing. As linguagens funcionais
-herdam diretamente a filosofia do cálculo lambda, adotando uma abordagem declarativa de programação que enfatiza a abstração, a transformação
-de dados, a composição e a puzera (sem estado e sem efeitos colaterais).
+ As linguagens de programação funcionais têm sua origem na lógica matemática e no cálculo lambda, enquanto as
+linguagens de programação imperativas adotam o modelo de computação baseado em estado inventado por Alan Turing. Os
+dois modelos de computação, cálculo lambda e máquinas de Turing, podem ser traduzidos um no outro. Essa equivalência
+é conhecida como hipótese de Church-Turing. As linguagens funcionais herdam diretamente a filosofia do cálculo lambda,
+adotando uma abordagem declarativa de programação que enfatiza a abstração, a transformação de dados, a composição e
+a puzera (sem estado e sem efeitos colaterais).
 
-- Expressões lambda podem receber qualquer número de argumentos, porém retornam apenas um valor na forma de expressão, elas não podem
-ter comandos ou multiplas expressões.
+- Expressões lambda podem receber qualquer número de argumentos, porém retornam apenas um valor na forma de expressão,
+elas não podem ter comandos ou multiplas expressões.
 - Uma função anônima não pode ser chamada diretamente pela função `print()`, pois ela requer uma expressão.
 
- Uma função lambda (ou anônima) é uma pequena função que você pode definir inline e usar onde for necessário sem atribuir um nome
-a ela. É como uma receita de bolo que você
-pode usar uma única vez, sem precisar guardá-la na sua coleção de receitas.
+ Uma função lambda (ou anônima) é uma pequena função que você pode definir inline e usar onde for necessário sem
+atribuir um nome a ela. É como uma receita de bolo que você pode usar uma única vez, sem precisar guardá-la na sua
+coleção de receitas.
 
-Exemplo prático: voltando ao exemplo dos quadrados, queremos uma função para dobrar um número. Normalmente, você escreveria algo
-assim em Python:
-'''
+Exemplo prático: voltando ao exemplo dos quadrados, queremos uma função para dobrar um número. Normalmente, você
+escreveria algo assim em Python:
+
+</code></pre>
+```Python
 def dobrar(numero):
     return numero * 2
 
 resultado = dobrar(5)
 print(resultado)
-'''
-Mas com uma função lambda, você pode fazer o mesmo em uma linha, sem atribuir um nome à função e sem alterar o estado/valor da variável
-que contem o valor a ser manipulado:
-'''
-resultado = (lambda numero: numero * 2)(5)
-print(resultado)
-'''
- A função lambda `(lambda numero: numero * 2)` toma um argumento chamado `numero` e retorna `numero * 2`, não alterando o estado/valor
-da variável `numero`. Então, (5) é o argumento passado para essa função lambda, resultando em 5 * 2, que é 10.
+```
+<pre><code>
+
+Mas com uma função lambda, você pode fazer o mesmo em uma linha, sem atribuir um nome à função e sem alterar o estado
+da variável que contem o valor a ser manipulado:
+
+</code></pre>
+```Python
+  resultado = (lambda numero: numero * 2)(5)
+  print(resultado)
+```
+<pre><code>
+
+ A função lambda `(lambda numero: numero * 2)` toma um argumento chamado `numero` e retorna `numero * 2`, não tendo
+alteração no estado/valor da variável `numero`. Então, (5) é o argumento passado para essa função lambda, resultando
+em 5 * 2, que é 10.
 
  Podemos observar o quão simples é a estrutura da função lambda:
 
@@ -2248,148 +2317,180 @@ da variável `numero`. Então, (5) é o argumento passado para essa função lam
  ------------------------------------------------------
 
 Vejamos outro exemplo, vamos multiplicar o argumento por 3:
-'''
-triplo = lambda x: x * 3
-print(type(triplo)) # <class 'function'>
-print(triplo(3)) # 9
-'''
+
+</code></pre>
+```Python
+  triplo = lambda x: x * 3
+  print(type(triplo)) # <class 'function'>
+  print(triplo(3)) # 9
+```
+<pre><code>
+
 Agora vamos elevar o número ao quadrado:
-'''
-quadrado = lambda x: x * x
-print(quadrado(5)) # 25
-'''
+
+</code></pre>
+```Python
+  quadrado = lambda x: x * x
+  print(quadrado(5)) # 25
+```
+<pre><code>
+
 As expressões lambda também nos permitem trabalharmos com strings, por exemplo:
-'''
-#               ↱func  ↱arg1 ↱agr2       ↱expressão
-nome_completo = lambda nome, sobrenome : f'Nome: {nome.title()}\nSobrenome: {sobrenome.title()}'
-print(nome_completo('Satoshi', 'Nakamoto'))
+
+</code></pre>
+```Python
+#                 ↱func  ↱arg1 ↱agr2       ↱expressão
+  nome_completo = lambda nome, sobrenome: f'Nome: {nome.title()}\nSobrenome: {sobrenome.title()}'
+  print(nome_completo('Satoshi', 'Nakamoto'))
 # Nome: Satoshi
 # Sobrenome: Nakamoto
-'''
+```
+<pre><code>
+
 Podemos também usar condicionais com funções lambda:
-'''
-#          argumento ⬎    ⬐ expressão condicional ----------⬎
-comeca_com_D = lambda x : True if x.startswith('D') else False
-print(comeca_com_D('Déborah')) # True
-print(comeca_com_D('Raphael')) # False
-'''
+
+</code></pre>
+```Python
+#            argumento ⬎    ⬐ expressão condicional ----------⬎
+  comeca_com_D = lambda x: True if x.startswith('D') else False
+  print(comeca_com_D('Déborah')) # True
+  print(comeca_com_D('Raphael')) # False
+```
+<pre><code>
+
 Se quisermos verificar se um número é impar:
-'''
-impar = lambda x: True if x % 2 == 1 else False
-print(impar(1)) # True
-print(impar(2)) # False
-'''
-Até mesmo compor funções mais complexas, neste caso, imprimir a palavra que vem antes da palavra passada via argumento:
-'''
+
+</code></pre>
+```Python
+  impar = lambda x: True if x % 2 == 1 else False
+  print(impar(1)) # True
+  print(impar(2)) # False
+```
+<pre><code>
+
+ Até mesmo compor funções mais complexas, como imprimir a palavra que vem antes da palavra passada via argumento:
+
+</code></pre>
+```Python
 palavra_anterior = lambda s, w: s.split()[s.split().index(w)-1] if w in s else None
-sentensa = 'Rato Roeu Roupa Rei Roma'
-print(palavra_anterior(sentensa, 'Roma')) # Rei
-'''
- Funções lambda normalmente são usadas quando precisamos de uma função por um curto período de tempo, podemos também usá-las como argumentos
-para funções high-order (funções que recebem outras funções como argumento).
+sentenca = 'Rato Roeu Roupa Rei Roma'
+print(palavra_anterior(sentenca, 'Roma')) # Rei
+```
+<pre><code>
 
- Funções lambda também podem ser usadas com outras funções pré-construídas, como alguns exemplos de Python: `filter()`, `map()` e etc.
+ Funções lambda normalmente são usadas quando precisamos de uma função por um curto período de tempo, podemos também
+usá-las como argumentos para funções high-order (funções que recebem outras funções como argumento).
 
- Na computação Funções de Alta Ordem também são conhecidas como Funções de Primeira Classe. São funções que suportam a passagem de
-outras funções como argumentos retornando como valor para outras funções. Em outras palavras, são funções que operam em outras funções,
-seja levando-os como argumentos ou devolvendo-os. A ideia das funções como entidades de primeira classe é que as funções também sejam
-tratadas como valores e usadas como dados.
+ Funções lambda também podem ser usadas com outras funções pré-construídas, como alguns exemplos de Python:
+`filter()`, `map()` e etc.
+
+ Na computação Funções de Alta Ordem também são conhecidas como Funções de Primeira Classe. São funções que suportam
+a passagem de outras funções como argumentos retornando como valor para outras funções. Ou seja, são funções que
+operam em outras funções, seja levando-os como argumentos ou devolvendo-os. A ideia de funções como entidades de
+primeira classe é que as funções também sejam tratadas como valores e usadas como dados.
 
  Funções como entidades de primeira classe podem:
  - Ser consultadas a partir de constantes de variáveis
  - Passadas como parâmetros para outras funções
  - Ser retornadas como resultados de outras funções
 
- A ideia de tratar funções como valores e passar funções como dados nos permite combinar funções com outras funções para criar novas
-funções com novos comportamentos. Essas funções possuem lógica semelhante, mas a diferença são as funções dos operadores. Se pudermos
-tratar funções como valores e passá-los como argumentos, podemos construir uma função que receba a função do operador e usá-la dentro
-da nossa função.
+ A ideia de tratar funções como valores e passar funções como dados nos permite combinar funções com outras funções
+para criar novas funções com novos comportamentos. Essas funções possuem lógica semelhante, mas a diferença são as
+funções dos operadores. Se pudermos tratar funções como valores e passá-los como argumentos, podemos construir uma
+função que receba a função do operador e usá-la dentro da nossa função.
 
- O JavaScript por exemplo, tem a habilidade HOF que dá suporte para uso da programação funcional. De certa forma podemos dizer que
-o Self-Invoking Function é uma Higher-Order Function; Higher-Order Functions são funções que recebem ou retornam outras: uma HOF é
-uma função que pode receber outras funções como argumentos e/ou retornar uma função como resultado. Em resumo, as HOFs tratam as funções
-como valores de primeira classe.
+>>>>>ARROW (TERNÁRIO)
 
- Não é comum vermos HOF em linguagens tradicionais. O programador imperativo certamente usará um loop para iterar um array, porém,
-o funcional adotará uma abordagem completamente diferente. Podemos trabalhar o array com uma HOF, aplicando-a em cada item para criar
-um novo array. Essa é a ideia central do paradigma funcional. Uma HOF permite-nos passar sua lógica a outras funções, bem como objetos.
+ O JavaScript por exemplo, tem a habilidade HOF que dá suporte para uso da programação funcional. De certa forma
+podemos dizer que o Self-Invoking Function é uma Higher-Order Function; Higher-Order Functions são funções que recebem
+ou retornam outras: uma HOF é uma função que pode receber outras funções como argumentos e/ou retornar uma função como
+resultado. Em resumo, as HOFs tratam as funções como valores de primeira classe.
 
- Exemplos comuns de HOFs em JavaScript incluem `map`, `filter`, `reduce`, `forEach`, `sort`, entre outros métodos de arrays que recebem
-funções como argumentos para manipular os elementos do array.
+ Não é comum vermos HOF em linguagens tradicionais. O programador imperativo certamente usará um loop para iterar um
+array, porém, o funcional adotará uma abordagem completamente diferente. Podemos trabalhar o array com uma HOF,
+aplicando-a em cada item para criar um novo array. Essa é a ideia central do paradigma funcional. Uma HOF permite-nos
+passar sua lógica a outras funções, bem como objetos.
 
-Aqui está um exemplo simples usando `map`, uma HOF, que recebe uma função como argumento para dobrar todos os elementos de um array:
+ Exemplos comuns de HOFs em JavaScript incluem `map`, `filter`, `reduce`, `forEach`, `sort`, entre outros métodos de
+arrays que recebem funções como argumentos para manipular os elementos do array.
 
- __________________________________________________________
-| // JavaScript                                            |
-|                                                          |
-| const numeros = [1, 2, 3, 4, 5];                         |
-|                                                          |
-| const numerosDobrados = numeros.map(function(numero) {   |
-|   return numero * 2;                                     |
-| });                                                      |
-|                                                          |
-| console.log(numerosDobrados); // Saída: [2, 4, 6, 8, 10] |
- ----------------------------------------------------------
+ Aqui temos um exemplo simples usando `map`, uma HOF, que recebe uma função como argumento para dobrar todos os
+elementos de um array:
 
- Neste exemplo, a função passada para `map` é uma função anônima que dobra cada elemento do array `numeros`. Essa função anônima é
-um exemplo de uma HOF.
+</code></pre>
+```JS
+const numeros = [1, 2, 3, 4, 5];
 
- Funções em JavaScript são tratadas com "cidadãs de primeira classe", tal comportamento pode ser encontrado no Haskell, Scheme ou
-em linguagens funcionais clássicas. Esse termo pode soar bizarro - cidadãs de primeira classe -, mas isso simplesmente quer dizer
-que funções são tratadas da mesma maneira que tipos primitivos: números e objetos. Se números e objetos tem "passe livre", funções
-também têm. Valores de primeira classe (ou first-class values) referem-se à capacidade de uma linguagem de programação tratar
-entidades (como funções) como qualquer outro tipo de valor. Em resumo, isso significa que essas entidades podem ser atribuídas a
-variáveis, passadas como argumentos para outras funções, retornadas como resultados de funções e armazenadas em estruturas de dados.
-Em uma linguagem com suporte a valores de primeira classe,
-as funções são tratadas da mesma maneira que strings, números ou qualquer outro tipo de dado. Isso traz flexibilidade ao código,
-permitindo que as funções sejam manipuladas dinamicamente, o que é fundamental em paradigmas de programação como programação funcional.
+const numerosDobrados = numeros.map(function(numero) {
+  return numero * 2;
+});
+
+console.log(numerosDobrados); // Saída: [2, 4, 6, 8, 10]
+```
+<pre><code>
+
+ Neste exemplo, a função passada para `map` é uma função anônima que dobra cada elemento do array `numeros`. Essa
+função anônima é um exemplo de uma HOF.
+
+ Funções em JavaScript são tratadas com "cidadãs de primeira classe", tal comportamento pode ser encontrado no Haskell,
+Scheme ou em linguagens funcionais clássicas. Esse termo pode soar bizarro - cidadãs de primeira classe -, mas isso
+simplesmente quer dizer que funções são tratadas da mesma maneira que tipos primitivos: números e objetos. Se números
+e objetos tem "passe livre", funções também têm. Valores de primeira classe (ou first-class values) referem-se à
+capacidade de uma linguagem de programação tratar entidades (como funções) como qualquer outro tipo de valor. Em
+resumo, isso significa que essas entidades podem ser atribuídas a variáveis, passadas como argumentos para outras
+funções, retornadas como resultados de funções e armazenadas em estruturas de dados. Em uma linguagem com suporte a
+valores de primeira classe, as funções são tratadas da mesma maneira que strings, números ou qualquer outro tipo de
+dado. Isso traz flexibilidade ao código, permitindo que as funções sejam manipuladas dinamicamente, o que é
+fundamental em paradigmas de programação como programação funcional.
 
  É possível atribuir essas funções a variáveis `var` ou `let` ou ainda a constantes `const`.
- ______________________________________________
-| // JavaScript                                |
-|                                              |
-| var soma = (x, y) => x + y;                  |
-| let subtracao = (x, y) => x - y;             |
-| const calcular = (fn, x, y) => fn(x, y);     |
-|                                              |
-| console.log(calcular(soma, 2, 1)); // 3      |
-| console.log(calcular(subtracao, 2, 1)); // 1 |
- ----------------------------------------------
 
- Podemos atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função,
-como demonstrado neste código:
- _________________________________________________________
-| // JavaScript                                           |
-|                                                         |
-| // Atribuindo uma função a uma variável                 |
-| const saudar = saudacaoFactory('Olá');                  |
-|                                                         |
-| // Função que retorna outra função                      |
-| function saudacaoFactory(saudacao) {                    |
-|   return function(nome) {                               |
-|     console.log(`${saudacao}, ${nome}!`);               |
-|   };                                                    |
-| }                                                       |
-|                                                         |
-| // Chamando a função armazenada na variável             |
-| saudar('João'); // Saída: Olá, João!                    |
-|                                                         |
-|---------------------------------------------------------|
-|                                                         |
-| // Passando uma função como argumento para outra função |
-| function executaOperacao(operacao, a, b) {              |
-|   return operacao(a, b);                                |
-| }                                                       |
-|                                                         |
-| function soma(a, b) {                                   |
-|   return a + b;                                         |
-| }                                                       |
-|                                                         |
-| console.log(executaOperacao(soma, 2, 3)); // Saída: 5   |
- ---------------------------------------------------------
+</code></pre>
+```JS
+var soma = (x, y) => x + y;
+let subtracao = (x, y) => x - y;
+const calcular = (fn, x, y) => fn(x, y);
 
- Neste exemplo, as funções são tratadas como valores de primeira classe, Isso demonstra a flexibilidade proporcionada por valores
-de primeira classe. 
+console.log(calcular(soma, 2, 1)); // 3
+console.log(calcular(subtracao, 2, 1)); // 1
+```
+<pre><code>
+
+ Podemos atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado
+de uma função, como demonstrado neste código:
+
+</code></pre>
+```JS
+// Atribuindo uma função a uma variável
+const saudar = saudacaoFactory('Olá');
+
+// Função que retorna outra função
+function saudacaoFactory(saudacao) {
+  return function(nome) {
+    console.log(`${saudacao}, ${nome}!`);
+  };
+}
+
+// Chamando a função armazenada na variável
+saudar('João'); // Saída: Olá, João!
+
+// ----------------------------------------------------
+
+// Passando uma função como argumento para outra função
+function executaOperacao(operacao, a, b) {
+  return operacao(a, b);
+}
+
+function soma(a, b) {
+  return a + b;
+}
+
+console.log(executaOperacao(soma, 2, 3)); // Saída: 5
+ ```
+<pre><code>
+
+ Neste exemplo, as funções são tratadas como valores de primeira classe, Isso demonstra a flexibilidade proporcionada
+por valores de primeira classe. 
 
 >>>>IMPERATIVO
 
