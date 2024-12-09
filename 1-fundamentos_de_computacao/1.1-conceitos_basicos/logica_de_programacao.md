@@ -903,56 +903,56 @@ Exemplo de estrutura condicional:
 
 >>>>>CONDICIONAL SIMPLES
 
-[CONDIÇÃO]                                   (START)                 programa{
-    ↓                                           ↓                      funcao inicio(){
-[OPERAÇÃO]                                   /A, B/                      logico condicao = verdadeiro
-                                                ↓                        se(condicao == verdadeiro){
-                                          [X <- A + B]                     escreva("CONCIONAL SIMPLES")
-                                                ↓                        }
-                                        N ┌-❮X  > 10❯-┐ S              }
-                                          |           |              }
-                                          |         ❮ X )
-                                          └----⟶○⟵----┘
-                                                ↓
-                                              (END)
+[CONDIÇÃO]                            (START)                 programa{
+    ↓                                    ↓                      funcao inicio(){
+[OPERAÇÃO]                            /A, B/                      logico condicao = verdadeiro
+                                         ↓                        se(condicao == verdadeiro){
+                                   [X <- A + B]                     escreva("CONCIONAL SIMPLES")
+                                         ↓                        }
+                                 N ┌-❮X  > 10❯-┐ S              }
+                                   |           |              }
+                                   |         ❮ X )
+                                   └----⟶○⟵----┘
+                                         ↓
+                                       (END)
 
 >>>>>CONDICIONAL COMPOSTA
 
-[CONDIÇÃO] ➝ [EXCEÇÃO]                       (START)                 programa{
-    ↓                                           ↓                      funcao inicio(){
-[OPERAÇÃO]                                   /A, B/                      inteiro decisao = 0, condicao = 1
-                                                ↓                        se(condicao == decisao){
-                                          [X <- A + B]                     escreva("CONDIÇÃO COMPOSTA: ", decisao)
-                                                ↓                          }senao{
-                                        N ┌--❮X = 10❯--┐ S                   escreva("CONDIÇÃO COMPOSTA: ", decisao)
-                                          |            |                   }
-                                     [R = X - 5]  [R = X + 5]           }
-                                          |            |             }
-                                          └----⟶○⟵-----┘
-                                                ↓
-                                              ❮ R )
-                                                ↓
-                                              (END)
+[CONDIÇÃO] ➝ [EXCEÇÃO]                (START)                 programa{
+    ↓                                    ↓                      funcao inicio(){
+[OPERAÇÃO]                            /A, B/                      inteiro decisao = 0, condicao = 1
+                                         ↓                        se(condicao == decisao){
+                                   [X <- A + B]                     escreva("CONDIÇÃO COMPOSTA: ", decisao)
+                                         ↓                          }senao{
+                                 N ┌--❮X = 10❯--┐ S                   escreva("CONDIÇÃO COMPOSTA: ", decisao)
+                                   |            |                   }
+                              [R = X - 5]  [R = X + 5]           }
+                                   |            |             }
+                                   └----⟶○⟵-----┘
+                                         ↓
+                                       ❮ R )
+                                         ↓
+                                       (END)
 
 >>>>>CONDICIONAL ENCADEADA
 
-[CONDIÇÃO] ⬎                                 (START)                 programa{
- ↓         [CONDIÇÃO] ⬎                         ↓                      funcao inicio(){
-[OPERAÇÃO]  |       [OPERAÇÃO]                /A, B/                      inteiro resultado, condicao = 15
-            ↓                                    ↓                        se(condicao <= 10){
-          [EXCEÇÃO]                        [X <- A + B]                     resultado = condicao + 5
-                                                 ↓                          escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                         N ┌-❮X <= 10❯-----┐ S            }senao{
-                                     N     |     S         |                  se(condicao >= 20){
-                                     ┌-❮X >= 20❯-┐    [R = X + 5]               resultado = condicao - 5
-                                     |           |         |                    escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                [R = X * 2]   [R = X - 5]  |                  }senao{
-                                     |           ↓         |                      resultado = condicao * 2
-                                     └----------⟶○⟵--------┘                      escreva("CONDIÇÃO COMPOSTA: ", resultado)
-                                                 ↓                            }
-                                               ❮ R )                       }
-                                                 ↓                      }
-                                               (END)                 }
+[CONDIÇÃO] ⬎                          (START)                 programa{
+ ↓         [CONDIÇÃO] ⬎                  ↓                      funcao inicio(){
+[OPERAÇÃO]  |       [OPERAÇÃO]         /A, B/                      inteiro resultado, condicao = 15
+            ↓                             ↓                        se(condicao <= 10){
+          [EXCEÇÃO]                 [X <- A + B]                     resultado = condicao + 5
+                                          ↓                          escreva("CONDIÇÃO COMPOSTA: ", resultado)
+                                  N ┌-❮X <= 10❯-----┐ S            }senao{
+                              N     |     S         |                  se(condicao >= 20){
+                              ┌-❮X >= 20❯-┐    [R = X + 5]               resultado = condicao - 5
+                              |           |         |                    escreva("CONDIÇÃO COMPOSTA: ", resultado)
+                         [R = X * 2]   [R = X - 5]  |                  }senao{
+                              |           ↓         |                      resultado = condicao * 2
+                              └----------⟶○⟵--------┘                      escreva("CONDIÇÃO COMPOSTA: ", resultado)
+                                          ↓                            }
+                                        ❮ R )                       }
+                                          ↓                      }
+                                        (END)                 }
 
 >>>ESTRUTURAS DE REPETIÇÃO
 
@@ -961,8 +961,8 @@ Exemplo de estrutura condicional:
      programa   \  - Laço/Malha/Loop de repetição
         ⤻
 
- Uma estrutura de repetição irá executar um determinado trecho de um programa a partir
-dos parâmetros/regras estabelecidos/determinados dentro dessa estrutura.
+ Uma estrutura de repetição irá executar um determinado trecho de um programa a partir dos parâmetros determinados
+dentro dessa estrutura.
 
                     / Nº de repetições pré-fixadas
 CONDIÇÃO DE PARADA ❮              ou
@@ -1046,17 +1046,17 @@ VAMOS VER O PSEUDOCÓDIGO:
 grama    =    falso
  ↱ strutura while
 enquanto(grama == falso)faça{
-  <instrução para cortar a grama>
-  <atualiza status da altura da grama>
+  &lt;instrução para cortar a grama&gt;
+  &lt;atualiza status da altura da grama&gt;
 }
 
 VAMOS VER O PROGRAMA:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     logico artigo = falso
     inteiro revista = 10, virar_pagina = 1, artigo_encontrado = 5
-    faca {
+    faca{
       revista = revista - virar_pagina
       escreva("VIRAR A PÁGINA\nANALISANDO CONTEÚDO: página ", revista, "\n")
       se(revista == artigo_encontrado){
@@ -1074,8 +1074,8 @@ Nº DE REPETIÇÕES -> DEFINIDAS/FIXAS
 
 VAMOS VER O PSEUDOCÓDIGO:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
 //        ↱ variáveis             ↱ nº inteiro
   inteiro contador, somatorio  =  0
 //*index: é a variável que armazena o novo valor de "contador" após cada iteração
@@ -1087,8 +1087,8 @@ programa {
   }
 }
 
- A estrutura do for adiciona o valor atual de "contador" (=1) ao valor atual de "somatorio" (=0), fazendo isso 
-até "contador" atingir o valor de parada definido (=10).
+ A estrutura do for adiciona o valor atual de "contador" (=1) ao valor atual de "somatorio" (=0), fazendo isso até
+"contador" atingir o valor de parada definido (=10).
 
 1ª iteração: (contador = 1) + (somatorio = 0) = (somatorio = 1)
 2ª iteração: (contador = 2) + (somatorio = 1) = (somatorio = 3)
@@ -1116,8 +1116,8 @@ for(i = 1;              i <= 5;                i++){                            
    i = 3 + 1 -> i = 4
 - 4º incremento (repetição da condição i++ -> i = i + 1):
    i = 4 + 1 -> i = 5
-- Assim suscetivamente até satisfazer a condição, ou seja, irá repetir o passo da instrução até que o valor de "i" seja igual
-ao valor de parada (=5).
+- Assim suscetivamente até satisfazer a condição, ou seja, irá repetir o passo da instrução até que o valor de "i"
+seja igual ao valor de parada (=5).
 
 1ª iteração: i = 1
               ↱ var     ↱ nº de passos
@@ -1128,8 +1128,8 @@ ao valor de parada (=5).
 
 >>>COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     caracter rodar
 
     enquanto(rodar != 'n'){
@@ -1253,8 +1253,8 @@ Bloco de instruções (códigos), identificado por *nome* e *parâmetros* ("assi
 
 Exemplo função média escolar:
 
-programa {
-  funcao inicio() {
+programa{
+  funcao inicio(){
     real nota1, nota2
 
     escreva("Digite a 1ª nota do aluno: ")
@@ -1280,8 +1280,8 @@ programa {
  dados de entrada e saída                                         -> Codificação
            ↓                                                  ⬐   - O algoritmo é codificado de acordo com
   ------------------------       -----------     ------------      a linguagem de programação escolhida
- | Instruções  Detalhadas | ->  | Algoritmo | -> | Programa |     
-  ------------------------       -----------     ------------       
+ | Instruções  Detalhadas | ->  | Algoritmo | -> | Programa |
+  ------------------------       -----------     ------------
                         -> Algoritmo ⤴
                         - Descreve o problema por meio de ferramentas
                           narrativas, fluxogramas ou pseudo-códigos
@@ -1373,7 +1373,7 @@ Estrutura e símbolos:
 Pseudo-Código        ❮  - Passos a serem seguidos
                       \ - Pseudo-linguagem de programação
 
-programa {
+programa{
   funcao inicio(){
     var dados
     escreva("INSIRA OS DADOS\n")
@@ -1487,8 +1487,8 @@ programa{
 
 2. Adivinhe o número
 
- O problema consiste em determinar o número escolhido por uma pessoa
-dentro de um intervalo, usando perguntas com resposta de "sim" e "não".
+ O problema consiste em determinar o número escolhido por uma pessoa dentro de um intervalo, usando perguntas com
+respostas de "sim" e "não".
 
 > Busca por varredura:
 
@@ -1523,12 +1523,12 @@ programa{
     escreva("Digite um número: ")
     cin >> adivinha;
 
-    se (adivinha == 9 || adivinha == 10) {
+    se(adivinha == 9 || adivinha == 10){
       escreva("Parabéns! Você acertou!")
-    } senao (adivinha >=5 && adivinha < 9 || adivinha > 10 && adivinha < 13) {
+    }senao(adivinha >=5 && adivinha < 9 || adivinha > 10 && adivinha < 13){
       escreva("Está perto, tente novamente!")
       vapara recomecar;
-    } outro {
+    }outro{
       escreva("Tente denovo!\n")
       vapara recomecar;
     }
@@ -1539,8 +1539,8 @@ Exemplo prático:
 
  Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com
 algoritmo?
-
-'''
+</code></pre>
+'''Python
 # algoritmo
 orcamento = float(input("ORÇAMENTO: "))
 total_gasto = 0
@@ -1556,10 +1556,11 @@ while decisao != 'N' and decisao != 'n':
     decisao = input("\nOutro item (S/N): ")
 
 if total_gasto > orcamento:
-    print("\n\nSALDO INSUFICIENTE\norçamento: ", orcamento, "\ntotal: ", total_gasto, "\nfaltam: ", total_gasto - orcamento)
+  print("\n\nSALDO INSUFICIENTE\norçamento: ", orcamento, "\ntotal: ", total_gasto, "\nfaltam: ", total_gasto - orcamento)
 elif total_gasto <= orcamento:
-    print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
+  print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
 '''
+<pre><code>
 Exemplo criação de programa:
 
 Média Escolar
@@ -1568,8 +1569,8 @@ Uma diretora decide fazer um programa para saber qual a média dos alunos da esc
 
 -> O método de avaliação utilizado por cada professor pode ser diferente, mas todos os métodos resultam em uma nota
 final.
--> A nota dos alunos é uma abstração. Podemos não saber exatamente qual o médoto utilizado para gerar a nota
-de cada aluno diferente, mas astraimos isso e extraimos a informação mais importante que é comum a todos: a nota.
+-> A nota dos alunos é uma abstração. Podemos não saber exatamente qual o médoto utilizado para gerar a nota de cada
+aluno diferente, mas astraimos isso e extraimos a informação mais importante que é comum a todos: a nota.
 
              / Passo 1 - Recebe os valores
             /  Passo 2 - Calcula a média
@@ -1578,7 +1579,7 @@ Narrativa  ❮   Passo 3 - Imprime o resultado
              \ Passo 5 - Imprime o resultado
 
             ____
-           |    (START) ➝ /N1, N2/
+           |     (START) ➝ /N1, N2/
            |                   ↓
 Fluxograma-|          [M = (N1 * N2) / 2]
            |                   ↓
