@@ -1540,7 +1540,7 @@ Exemplo prático:
  Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com
 algoritmo?
 </code></pre>
-'''Python
+```Python
 # algoritmo
 orcamento = float(input("ORÇAMENTO: "))
 total_gasto = 0
@@ -1559,7 +1559,7 @@ if total_gasto > orcamento:
   print("\n\nSALDO INSUFICIENTE\norçamento: ", orcamento, "\ntotal: ", total_gasto, "\nfaltam: ", total_gasto - orcamento)
 elif total_gasto <= orcamento:
   print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
-'''
+```
 <pre><code>
 Exemplo criação de programa:
 
@@ -1743,7 +1743,7 @@ fazem sentido.
 conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação.
 É como a "gramática" de uma linguagem. Exemplo em Python:
 </code></pre>
-```
+```Python
       print("Hello world!")
 ```
 <pre><code>
