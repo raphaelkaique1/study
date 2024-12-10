@@ -1,9 +1,9 @@
 # Arquitetura de Computadores
 
- 1. **Conceito de Arquitetura de Computadores**
+ 1. **Conceito de Arquitetura de Computadores**<br/>
   Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
 
- 2. **Principais Partes de um Computador: Modelo de Von Neumann**
+ 2. **Principais Partes de um Computador: Modelo de Von Neumann**<br/>
   Os componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
     - **Unidade de Controle - UC:** Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
     - **Unidade Lógica e Aritmética - ULA:** Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
@@ -40,10 +40,10 @@
   - deslocamento de um operando para a esquerda ou para a direita
   - rotação de um operando para a esquerda ou para a direita
 
- **Memória**
+ **Memória**<br/>
   A memória de um sistema de computador tem a função de armazenar dados e instruções; é organizada em posições, que podem ser visualizadas como elementos em uma matriz. Cada elemento da memória tem um endereço, assim, pode-se falar de uma memória que tenha "x" posições: cada posição pode ser referenciada diretamente de acordo com a sua colocação na sequência. Por exemplo, se uma memória tem 4.096 posições, existem então posições de memória em 0, 1, 2, 3, ..., 4.094 e 4.095. Quando um endereço de memória aparece nos circuitos de controles conectados à memória, dependendo do trabalho associado com aquele endereço o conteúdo (o valor que está na posição) será trazido da memória para os circuitos da unidade de processamento ou a informação na unidade de processamento será armazada na memória. As instruções em um computador são executadas em uma sequência determinada por suas posições de memória. Na maioria dos computadores, instruções e dados são distribuídos em posições de memória.
 
- **Entrada e Saída (I/O)**
+ **Entrada e Saída (I/O)**<br/>
   Dispositivos em que o usuário interage com a máquina inputando e manipulando dados para processamento e recebendo informação como resultado. Teclado e mouse são exemplos de dispositivos de entrada enquanto tela e impressora são exemplos de dispositivos de saída. Para que o computador possa processar as entradas e saídas existem os barramentos, que são circutos elétricos que carregam as energias através de pulsos elétricos equivalentes à cada informação.
 <pre><code>
   Barramentos para dispositivos de entrada e saída:
@@ -59,9 +59,9 @@
                   | ENTRADA E SAÍDA (I/O) |
                   └───────────────────────┘
 </code></pre>
- **Ciclos de Execução da CPU**
-  Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.
- **Processos na CPU:**
+ **Ciclos de Execução da CPU**<br/>
+  Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.<br/>
+ **Processos na CPU:**<br/>
   - Novo: Um novo processo foi adicionado à fila de execuções, então a CPU deverá buscar os dados necessários para executar o processo;
   - Pronto: O processo encontra-se pronto para ser executado, nesse ponto ele pode ser enviado para a CPU pois os dados básicos para sua execução já foram selecionados;
   - Em Execução: O processo está na CPU sendo executado;
@@ -103,11 +103,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 
  1. **Sistemas de Numeração: Sistemas Numéricos Computacionais.**
   ### Bits e Bytes
-    * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 ou 1.
-          Aberto Fechado
-    *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.
-	* **Byte** = 8 x Bit - Um byte corresponde a 8 bits, mas um byte consegue armazenar um código que corresponde somente a um único número, letra ou símbolo. A combinação de cadeias de bits é que permite representar diferentes números agrupando-se na forma de bytes.
-    Exemplos:
+  * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 ou 1.<br/>
+            Aberto Fechado<br/>
+  *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.<br/>
+  * **Byte** = 8 x Bit - Um byte corresponde a 8 bits, mas um byte consegue armazenar um código que corresponde somente a um único número, letra ou símbolo. A combinação de cadeias de bits é que permite representar diferentes números agrupando-se na forma de bytes.<br/>
+  Exemplos:
 <pre><code>
   ┌────────────┬────────────┐
   │    BYTE    │  DECIMAL   │
@@ -133,23 +133,23 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 
  #### Número de Bits:
   Se você tem um número de bytes, multiplicar o número de bytes por 8 dá o número de bits.
-  * Número de bits = Número de bytes × 8
-      Exemplo: Se você tem 4 bytes, o número de bits é:
-          4 × 8 = 32 bits
+  * Número de bits = Número de bytes × 8<br/>
+    Exemplo: Se você tem 4 bytes, o número de bits é:<br/>
+    4 × 8 = 32 bits
 
  #### Número de Bytes:
   Se você tem um número de bits, dividir o número de bits por 8 dá o número de bytes.
-  * Número de bytes = 8 / Número de bits​
-    Exemplo: Se você tem 32 bits, o número de bytes é:
-        32 / 8 = 4 bytes
+  * Número de bytes = 8 / Número de bits​<br/>
+    Exemplo: Se você tem 32 bits, o número de bytes é:<br/>
+    32 / 8 = 4 bytes
 
 <pre><code>
       ESPAÇO      UNIDADE DE MEDIDA   NÚMERO DE CARACTERES
-      8 Bits            1 BYTE                  1
-      1.024 Bytes       1 KILOBYTE              1.024
-  1.024 Kilobytes     1 MEGABYTE            1.048.576
-  1.024 Megabytes     1 GIGABYTE          1.073.741.824
-  1.024 Gigabytes     1 TERABYTE          1.099511628¹²
+      8 Bits           1 BYTE                  1
+    1.024 Bytes      1 KILOBYTE              1.024
+  1.024 Kilobytes    1 MEGABYTE            1.048.576
+  1.024 Megabytes    1 GIGABYTE          1.073.741.824
+  1.024 Gigabytes    1 TERABYTE          1.099511628¹²
 </code></pre>
 
  ### Sistemas Numéricos
@@ -163,21 +163,22 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  #### Sistema Binário
   É o sistema mais utilizado por máquinas, uma vez que os sistemas digitais trabalham internamente com 2 estados (ligado/desligado, verdadeiro/falso, aberto/fechado). O sistema binário utiliza os símbolos: 0, 1, sendo cada símbolo designado por bit (binary digit), que é a menor unidade possível de dados.
   - 0: Representa o valor lógico Falso.
-  - 1: Representa o valor lógico Verdadeiro.
+  - 1: Representa o valor lógico Verdadeiro.<br/>
   *Essa associação é amplamente utilizada em lógica digital e programação, onde 0 e 1 são usados para representar condições booleanas em expressões e operações lógicas. Por exemplo:
   * Em lógica digital, um circuito pode estar "ligado" ou "desligado", correspondendo a 1 e 0, respectivamente.
   * Em programação, muitas linguagens utilizam 0 para representar um valor booleano falso (false) e 1 para representar verdadeiro (true).
 
  **Conversões de Base Binária**
- - **Binário -> Decimal**
-  Basta calcular a soma de cada um dos dígitos do número binário multiplicado por 2 (que é a sua base) elevado à posição colunar do número, que, da direita para a esquerda começa em 0. Exemplo:
+ - **Binário -> Decimal**<br/>
+  Basta calcular a soma de cada um dos dígitos do número binário multiplicado por 2 (que é a sua base) elevado à posição colunar do número, que, da direita para a esquerda começa em 0.<br/>
+  Exemplo:
 <pre><code>
     1          1         0          0          1
   1 x 2⁴     1 x 2³    0 x 2²     0 x 2¹     1 x 2⁰
     16    +    8    +    0     +    0     +    1    = 25
 </code></pre>
- - **Binário -> Octal**
-  Separa-se os dígitos do número binário em grupos de 3 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 3 bits em octal e ao final une-se os resultados. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0).
+ - **Binário -> Octal**<br/>
+  Separa-se os dígitos do número binário em grupos de 3 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 3 bits em octal e ao final une-se os resultados. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
 <pre><code>
 	┌─────────────────────────────────────────────────────┐  ┌────────────────────────────────────────────────────┐
@@ -194,8 +195,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 	|                          65                         |  |                          37                        |
 	└─────────────────────────────────────────────────────┘  └────────────────────────────────────────────────────┘
 </code></pre>
- - **Binário -> Hexadecimal**
-  Separa-se o número binário em grupos de 4 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 4 bits em hexadecimal e ao final une-se os resultados em um só. Caso o número de dígitos do número binário não possua 4 colunas, completa-se os dígitos à esquerda com zeros (0).
+ - **Binário -> Hexadecimal**<br/>
+  Separa-se o número binário em grupos de 4 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 4 bits em hexadecimal e ao final une-se os resultados em um só. Caso o número de dígitos do número binário não possua 4 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
 <pre><code>
 	┌───────────────────────────────────────────────────────────────────────────────────┐
@@ -229,16 +230,17 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   É um sistema de numeração de base 8, ou seja, recorre a 8 símbolos (0, 1, 2, 3, 4, 5, 6, 7) para representação de um determinado valor. Cada dígito no sistema octal representa uma potência de 8. É menos comum do que os sistemas binário e decimal, mas ainda é utilizado em algumas áreas, especialmente em computação e sistemas digitais.
 
  **Conversões de Base Octal**
- - **Octal -> Decimal**
-  Obtida através da soma dos dígitos do número octal multiplicados pela base 8 elevada à posição colunar do dígito, começando em 0 da direita para a esquerda.
+ - **Octal -> Decimal**<br/>
+  Obtida através da soma dos dígitos do número octal multiplicados pela base 8 elevada à posição colunar do dígito, começando em 0 da direita para a esquerda.<br/>
   Exemplo:
 <pre><code>
     3          3          1          |   4          5
   3 x 8²     3 x 8¹     1 x 8⁰       | 4 x 8¹     5 x 8⁰
    192    +   24     +    1    = 217 |   32         5    = 37
 </code></pre>
- - **Octal -> Binário**
-  Decompõe-se o número octal diretamente em binários em grupos de 3 dígitos. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0). Exemplos:
+ - **Octal -> Binário**<br/>
+  Decompõe-se o número octal diretamente em binários em grupos de 3 dígitos. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
+  Exemplos:
 <pre><code>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐
   |           1           |           2           |           3           |
@@ -252,8 +254,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   |   0   |   0   |   1   |   0   |   1   |   0   |   0   |   1   |   1   |
   └───────┴───────┴───────┴───────┴───────┴───────┴───────┴───────┴───────┘
 </code></pre>
- - **Octal -> Hexadecimal**
-  Transforma-se primeiro o octal em binário e em seguida o binário em hexadecimal.
+ - **Octal -> Hexadecimal**<br/>
+  Transforma-se primeiro o octal em binário e em seguida o binário em hexadecimal.<br/>
   Exemplo:
 <pre><code>
   ┌─────────────┬─────────────┬─────────────┐
@@ -296,8 +298,9 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
      1x10²  3x10¹ 5x10⁰ = 237
 </code></pre>
  **Conversões de Base Decimal**
- - **Decimal -> Binário**
-  Dividir sucessivamente por 2 o número decimal e os quocientes que vão sendo obtidos, até que o quociente de uma das divisões seja 0. O resultado é a sequência de baixo para cima de todos os restos obtidos. Exemplo:
+ - **Decimal -> Binário**<br/>
+  Dividir sucessivamente por 2 o número decimal e os quocientes que vão sendo obtidos, até que o quociente de uma das divisões seja 0. O resultado é a sequência de baixo para cima de todos os restos obtidos.<br/>
+  Exemplo:
 <pre><code>
            25 |⎯2⎯
             1  12 |⎯2⎯
@@ -313,8 +316,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   | └───────────────────────┘   |
   └─────────────────────────────┘
 </code></pre>
- - **Decimal -> Octal**
-  Divisões sucessivas por 8. O resulado é a sequência de baixo para cima de todos os restos obtidos.
+ - **Decimal -> Octal**<br/>
+  Divisões sucessivas por 8. O resulado é a sequência de baixo para cima de todos os restos obtidos.<br/>
   Exemplos:
 <pre><code>
       217 |⎯8⎯          |  37 |⎯8⎯
@@ -328,8 +331,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   | └──────┘    |       |
   └─────────────┘       |
 </code></pre>
- - **Decimal -> Hexadecimal**
-  Divisões sucessivas por 16. O resulado é a sequência de baixo para cima de todos os restos obtidos.
+ - **Decimal -> Hexadecimal**<br/>
+  Divisões sucessivas por 16. O resulado é a sequência de baixo para cima de todos os restos obtidos.<br/>
   Exemplos:
 <pre><code>
   223 |⎯16⎯        76 |⎯16⎯
@@ -347,9 +350,9 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 
   Exemplo: 10101100 em binário é AC em hexadecimal.
   
-  **Conversões de Base Hexadecimal**
- - **Hexadecimal -> Decimal**
-  Realizada através da soma dos dígitos hexadecimais multiplicados pela base 16 elevada à posição colunar contando da direita para a esquerda, começando em 0, de forma semelhante à conversão de binários em decimais.
+ **Conversões de Base Hexadecimal**
+ - **Hexadecimal -> Decimal**<br/>
+  Realizada através da soma dos dígitos hexadecimais multiplicados pela base 16 elevada à posição colunar contando da direita para a esquerda, começando em 0, de forma semelhante à conversão de binários em decimais.<br/>
   Exemplos:
 <pre><code>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐  ┌───────────────────────┬───────────────────────┐
@@ -360,8 +363,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   |          256          +           0           +        10       = 266 |  |          192          +        11       = 203 |
   └───────────────────────────────────────────────────────────────────────┘  └───────────────────────────────────────────────┘
 </code></pre>
- - **Hexadecimal -> Binário**
-  Decompõe-se o número hexadecimal diretamente em binários de 4 dígitos. Sempre que o quociente da divisão for maior que 0, em binário ele representa 1.
+ - **Hexadecimal -> Binário**<br/>
+  Decompõe-se o número hexadecimal diretamente em binários de 4 dígitos. Sempre que o quociente da divisão for maior que 0, em binário ele representa 1.<br/>
   Exemplo:
 <pre><code>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐
@@ -376,8 +379,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   |  0  |  0  |  0  |  1  |  0  |  0  |  1  |  0  |  1  |  1  |  1  |  1  |
   └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 </code></pre>
- - **Hexadecimal -> Octal**
-  Transforma-se primeiro o hexadecimal em binário e em seguida o binário em octal.
+ - **Hexadecimal -> Octal**<br/>
+  Transforma-se primeiro o hexadecimal em binário e em seguida o binário em octal.<br/>
   Exemplo:
 <pre><code>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐
@@ -406,5 +409,5 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   └──────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 
- 2. Tabela ASCII e Conversores.
+ 2. Tabela ASCII e Conversores.<br/>
 	A tabela ASCII (American Standard Code for Information Interchange - https://www.ascii-code.com/pt) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
