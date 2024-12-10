@@ -212,7 +212,7 @@ Por Que Determinar Padrões?
 
 Categoria: Agrupa elementos com base em características/propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
 
-Classe: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdivida
+Classe: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida
 em: "aquáticas", "terrestres" e "voadoras".
 
 Como Detectar e Determinar Padrões?
@@ -2406,6 +2406,20 @@ podemos dizer que o Self-Invoking Function é uma Higher-Order Function; Higher-
 ou retornam outras: uma HOF é uma função que pode receber outras funções como argumentos e/ou retornar uma função como
 resultado. Em resumo, as HOFs tratam as funções como valores de primeira classe.
 
+ Arrow functions no JavaScript são uma forma concisa de escrever funções, introduzidas no ES6 (ECMAScript). Elas são
+uma alternativa mais simples e mais curta às funções tradicionais, além de comportarem-se de maneira diferente em
+relação ao `this`.
+
+A sintaxe básica de uma arrow function é a seguinte:
+
+</code></pre>
+```JS
+const nomeDaFuncao = (param1, param2) => {
+    // corpo da função
+}
+```
+<pre><code>
+
  Não é comum vermos HOF em linguagens tradicionais. O programador imperativo certamente usará um loop para iterar um
 array, porém, o funcional adotará uma abordagem completamente diferente. Podemos trabalhar o array com uma HOF,
 aplicando-a em cada item para criar um novo array. Essa é a ideia central do paradigma funcional. Uma HOF permite-nos
@@ -2456,6 +2470,98 @@ console.log(calcular(subtracao, 2, 1)); // 1
 ```
 <pre><code>
 
+ Se a função tiver apenas uma expressão, você pode omitir as chaves `{}` e o `return` (se a expressão for retornada
+diretamente).
+
+</code></pre>
+```JS
+const soma = (a, b) => a + b;
+```
+<pre><code>
+
+ Função tradicional vs. Arrow Function
+
+ Função Tradicional:
+
+</code></pre>
+```JS
+function saudacao(nome) {
+    return 'Olá, ' + nome;
+}
+```
+<pre><code>
+
+Arrow Function:
+
+</code></pre>
+```JS
+const saudacao = (nome) => 'Olá, ' + nome;
+```
+<pre><code>
+
+ Funções sem parâmetros
+
+ Se a função não tiver parâmetros, você pode usar um parêntese vazio:
+
+</code></pre>
+```JS
+const dizerOla = () => 'Olá!';
+```
+<pre><code>
+
+ Função com apenas um parâmetro
+
+Se a função tiver apenas um parâmetro, você pode omitir os parênteses:
+
+</code></pre>
+```JS
+const dobro = x => x * 2;
+```
+<pre><code>
+
+ Funções com múltiplos parâmetros
+
+ Com múltiplos parâmetros, os parênteses são necessários:
+
+</code></pre>
+```JS
+const soma = (a, b) => a + b;
+```
+<pre><code>
+
+ Usando arrow functions com `this`: Uma das características importantes das arrow functions é que elas não têm o
+próprio `this`. Isso significa que o valor de `this` dentro de uma arrow function é herdado do contexto onde a função
+foi criada, ao invés de ser determinado pela maneira como a função é chamada. Com uma função tradicional, `this` se
+refere ao objeto que chamou a função. Já com arrow functions, `this` mantém o valor de onde a função foi criada.
+
+ Função tradicional:
+
+</code></pre>
+```JS
+function Contador() {
+    this.valor = 0;
+    setInterval(function() {
+        this.valor++;  // 'this' se refere ao contexto global ou ao objeto window
+        console.log(this.valor);
+    }, 1000);
+}
+```
+<pre><code>
+
+ Arrow Function:
+
+</code></pre>
+```JS
+function Contador() {
+    this.valor = 0;
+    setInterval(() => {
+        this.valor++;  // 'this' refere-se ao contexto de Contador
+        console.log(this.valor);
+    }, 1000);
+}
+```
+<pre><code>
+
  Podemos atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado
 de uma função, como demonstrado neste código:
 
@@ -2490,40 +2596,45 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 <pre><code>
 
  Neste exemplo, as funções são tratadas como valores de primeira classe, Isso demonstra a flexibilidade proporcionada
-por valores de primeira classe. 
+por valores de primeira classe. As arrow functions oferecem uma maneira mais compacta e expressiva de escrever
+funções em JavaScript, além de modificar o comportamento do`this`, o que pode ser útil para evitar problemas em certos
+contextos, como dentro de callbacks e funções assíncronas.
 
 >>>>IMPERATIVO
 
- O paradigma imperativo é um dos mais antigos paradigmas da programação. Está intimamente relacionado com a arquitetura da máquina.
-Um programa imperativo é semelhante às ordens expressas pelo modo imperativo nas línguas naturais. É uma sequência de instruções
-que o processador deve executar passo a passo. O foco principal desse paradigma é em "como" atingir um objetivo.
+ O paradigma imperativo é um dos mais antigos paradigmas da programação. Está intimamente relacionado com a
+arquitetura da máquina. Um programa imperativo é semelhante às ordens expressas pelo modo imperativo nas línguas
+naturais. É uma sequência de instruções que o processador deve executar passo a passo. O foco principal desse
+paradigma é em "como" atingir um objetivo.
 
- O paradigma imperativo determina que as intruções passadas ao computador devem especificar o passo a passo das ações que serão
-executadas. Tais ações mudam o estado do programa através do uso de variáveis que ficam armazenadas em memória, até chegar a um
-resultado esperado. O foco do paradigma está em determinar o "como" deve ser feito.
+ O paradigma imperativo determina que as intruções passadas ao computador devem especificar o passo a passo das ações
+que serão executadas. Tais ações mudam o estado do programa através do uso de variáveis que ficam armazenadas em
+memória, até chegar a um resultado esperado. O foco do paradigma está em determinar o "como" deve ser feito.
 
- A programação imperativa permitiu uma codificação menos focada no código de máquina, o que também abriu as portas para a implementação
-de programas mais elaborados e menos dependentes do hardware.
+ A programação imperativa permitiu uma codificação menos focada no código de máquina, o que também abriu as portas
+para a implementação de programas mais elaborados e menos dependentes do hardware.
 
- Nesse tipo de construção, as instruções devem ser passadas ao computador na sequência em que devem ser executadas. Ou seja, o desenvolvedor
-deve passar passo a passo dos procedimentos que a máquina irá executar. Nesse caso a solução do problema depende de alguma metodologia
-que descreva a experiência e o passo a passo a ser seguido pelo usuário ao executar o programa.
+ Nesse tipo de construção, as instruções devem ser passadas ao computador na sequência em que devem ser executadas.
+Ou seja, o desenvolvedor deve passar passo a passo dos procedimentos que a máquina irá executar. Nesse caso a solução
+do problema depende de alguma metodologia que descreva a experiência e o passo a passo a ser seguido pelo usuário ao
+executar o programa.
 
- Esse tipo de programação é recomendada em projetos nos quais não se espera que haja mudanças significativas ao longo do tempo (programa
-estático), quando se tratar de uma operação complexa - em que os diferentes estados da aplicação necessitem de visualização explícita -,
-ou quando não existirem muitos elementos compartilhados.
+ Esse tipo de programação é recomendada em projetos nos quais não se espera que haja mudanças significativas ao longo
+do tempo (programa estático), quando se tratar de uma operação complexa - em que os diferentes estados da aplicação
+necessitem de visualização explícita, ou quando não existirem muitos elementos compartilhados.
 
- Esse paradigma tem a vantagem de ser eficiente e de permitir uma modelagem tal qual o mundo real, além de ser bem estabelecido e
-bastante flexível. Por outro lado, o código fonte é de difícil legibilidade.
+ Esse paradigma tem a vantagem de ser eficiente e de permitir uma modelagem tal qual o mundo real, além de ser bem
+estabelecido e bastante flexível. Por outro lado, o código fonte é de difícil legibilidade.
 
- Muitas linguagens famosas baseiam-se no paradigma imperativo, destacando-se algumas como: Cobol, Fortran, Pascal, C#, C, C++, Java,
-PHP, Python e Ruby.
+ Muitas linguagens famosas baseiam-se no paradigma imperativo, destacando-se algumas como: Cobol, Fortran, Pascal,
+C#, C, C++, Java, PHP, Python e Ruby.
 
- O paradigma consiste em várias instruções e, após a execução de todas, o resultado é armazenado ou exibido. Por exemplo, se você
-deseja exibir a frase "Olá, <nome do usuário>!" na tela, como o programa deve fazer isso? Através das seguintes etapas:
+ O paradigma consiste em várias instruções e, após a execução de todas, o resultado é armazenado ou exibido. Por
+exemplo, se você deseja exibir a frase "Olá, &lt;nome do usuário&gt;!" na tela, como o programa deve fazer isso?
+Através das seguintes etapas:
  - solicitar o nome do usuário
  - guardar o nome do usuário
- - exibir o resultado esperado, isto é, a frase: "Olá, <nome do usuário>!"
+ - exibir o resultado esperado, isto é, a frase: "Olá, &lt;nome do usuário&gt;!"
 
 >>>>>DERIVAÇÕES PI
 
@@ -2537,15 +2648,18 @@ deseja exibir a frase "Olá, <nome do usuário>!" na tela, como o programa deve 
 
 >>>>>TIPOS
 
- Simplificadamente, este paradigma é a construção de uma estrutura de blocos aninhados. O paradigma estruturado determina que as
-instruções passadas ao computador podem ser formadas por 3 estruturas, sendo:
+ Simplificadamente, este paradigma é a construção de uma estrutura de blocos aninhados. O paradigma estruturado
+determina que as instruções passadas ao computador podem ser formadas por 3 estruturas, sendo:
  1. SEQUÊNCIA: as instruções são codificadas na sequência a serem executadas.
  2. CONDIÇÃO: um bloco de código só é executado se uma condição for verdadeira (`if`-`else`, `switch case`).
  3. REPETIÇÃO: um trecho de código pode ser executado repetidas vezes (`for`, `while`, recursividade).
 
- Vamos ao exemplo da necessidade de somar números pares de um determinado intervalo e apresentar o resultado. A programação estruturada
-permite maior dinamismo ao software, desta forma é possível coletar os dados e não ficar preso a um conjunto estático.
-'''
+ Vamos ao exemplo da necessidade de somar números pares de um determinado intervalo e apresentar o resultado. A
+programação estruturada permite maior dinamismo ao software, desta forma é possível coletar os dados e não ficar
+preso a um conjunto estático.
+
+</code></pre>
+```Python
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 summation_even_numbers = 0
 
@@ -2554,12 +2668,17 @@ for number in numbers:
     summation_even_numbers += number
 
 print(summation_even_numbers) # 30
-'''
+```
+<pre><code>
+
  O código acima ainda atua sobre um conjunto estático de dados, o que fixa a execução para o intervalo de 1 a 10.
 
- Já o código abaixo amplia a capacidade do software e permite que agora ele seja aplicado a qualquer conjunto de números informados
-na execução. O que mostra a importância do paradigma estruturado para a evolução no desenvolvimento de software.
-'''
+ Já o código abaixo amplia a capacidade do software e permite que agora ele seja aplicado a qualquer conjunto de
+números informados na execução. O que mostra a importância do paradigma estruturado para a evolução no desenvolvimento
+de software.
+
+</code></pre>
+```Python
 input = input("Digite os números no formato: 1,2,3...\n> ")
 
 numbers = [int(numeric) for numeric in input.split(",")]
@@ -2570,45 +2689,53 @@ for number in numbers:
     summation_even_numbers += number
 
 print("\n", summation_even_numbers)
-'''
- Destaca-se também neste paradigma a capacidade de modularização ou criação de subrotinas. Tal paradigma se popularizou por propor
-uma forma de raciocínio intuitivo, onde há legibilidade e compreensão de cada bloco de código e também por de certa forma, em época,
-se opor ao uso de GOTO. A programação estruturada dominou a forma de programar até a década de 90, sendo desbancada com a popularização
-da POO, porém ela ainda é bastante indicada para pessoas que estão aprendendo programação por ser uma forma simples de programar.
+```
+<pre><code>
 
- Muitos softwares ainda possuem sua codificação seguindo o paradigma estruturado, o que não caracteriza ser uma boa ou má codificação,
-porém normalmente não condizem com as intenções dos desenvolvedores. Isso porque muitas vezes estes creem estar usando paradigmas
-como PROCEDURAL ou POO, mas o código continua seguindo o modelo ESTRUTURADO. Exemplos:
+ Destaca-se também neste paradigma a capacidade de modularização ou criação de subrotinas. Este paradigma se
+popularizou por propor uma forma de raciocínio intuitivo, onde há legibilidade e compreensão de cada bloco de código
+e também por de certa forma, em época, se opor ao uso de GOTO. A programação estruturada dominou a forma de programar
+até a década de 90, sendo desbancada com a popularização da POO, porém ela ainda é bastante indicada para pessoas que
+estão aprendendo programação por ser uma forma simples de programar.
+
+ Muitos softwares ainda possuem sua codificação seguindo o paradigma estruturado, o que não caracteriza ser uma boa
+ou má codificação, porém normalmente não condizem com as intenções dos desenvolvedores. Isso porque muitas vezes
+estes creem estar usando paradigmas como PROCEDURAL ou POO, mas o código continua seguindo o modelo ESTRUTURADO.
+Exemplos:
  - grandes blocos de código estruturado fazendo muitas coisas distintas em um único método.
  - rotinas completas encapsuladas em classes mas que não representam um objeto de fato.
- - classes/métodos com múltiplas responsabilidades, onde o que determina o código a ser executado ainda são as condicionais e repetições,
-muitas vezes utilizadas em excesso.
+ - classes/métodos com múltiplas responsabilidades, onde o que determina o código a ser executado ainda são as
+condicionais e repetições, muitas vezes utilizadas em excesso.
 
- O problema com relação aos pontos citados está em que muitos times de desenvolvimento não conseguem distinguir a diferença entre o
-uso ESTRUTURADO, PROCEDURAL e POO, o que na prática leva a implementação de baixa qualidade com códigos confusos e de alto custo de
-manutenção.
+ O problema com relação aos pontos citados está em que muitos times de desenvolvimento não conseguem distinguir a
+diferença entre o uso ESTRUTURADO, PROCEDURAL e POO, o que na prática leva a implementação de baixa qualidade com
+códigos confusos e de alto custo de manutenção.
 
- A programação estruturada é útil e aplicável, porém, seu uso sem considerar paradigmas complementares pode contribuir para códigos
-de baixa legibilidade.
+ A programação estruturada é útil e aplicável, porém, seu uso sem considerar paradigmas complementares pode
+contribuir para códigos de baixa legibilidade.
 
 >>>>PROCEDURAL
 
- O paradigma procedural, por vezes usado como sinônimo para o paradigma imperativo, determina que as instruções a serem passadas ao
-computador podem ser agrupadas em procedimentos (equiparável a métodos, funções e rotinas). Os procedimentos podem ser invocados durante
-a execução do software e visam a reutilização do código em pontos diferentes do mesmo, já que eles devem suportar a especificação de
-argumentos, variáveis locais, chamadas recursivas, dentre outros.
+ O paradigma procedural, por vezes usado como sinônimo para o paradigma imperativo, determina que as instruções a
+serem passadas ao computador podem ser agrupadas em procedimentos (equiparável a métodos, funções e rotinas). Os
+procedimentos podem ser invocados durante a execução do software e visam a reutilização do código em pontos
+diferentes do mesmo, já que eles devem suportar a especificação de argumentos, variáveis locais, chamadas recursivas,
+dentre outros.
 
- Este paradigma é baseado no conceito de chamadas de procedimento, as instruções são estruturadas em procedimentos também conhecidos
-como sub-rotinas ou funções. Estes procedimentos são uma lista de instruções para dizer ao computador o que fazer passo a passo. Em
-outras palavras, o computador pega os dados de entrada e os processa sequencialmente em chamadas sucessivas e procedimentos separados
-(ideia de sequência), lembrando-se de cada nova alteração. O paradigma procedural é excelente para programação de uso geral. Neste
-paradigma, o programador descreve um passo-a-passo detalhado do que deve ser cumprido pela máquina. Vários tipos de linguagem de
-programação suportam este tipo de paradigma, como Cobol, Fortran, Pascal, C, Java, C++, Kotlin, Python, PHP, JavaScript e ColdFusion.
+ Este paradigma é baseado no conceito de chamadas de procedimento, as instruções são estruturadas em procedimentos
+também conhecidos como sub-rotinas ou funções. Estes procedimentos são uma lista de instruções para dizer ao
+computador o que fazer passo a passo. Em outras palavras, o computador pega os dados de entrada e os processa
+sequencialmente em chamadas sucessivas e procedimentos separados (ideia de sequência), lembrando-se de cada nova
+alteração. O paradigma procedural é excelente para programação de uso geral. Neste paradigma, o programador descreve
+um passo-a-passo detalhado do que deve ser cumprido pela máquina. Vários tipos de linguagem de programação suportam
+este tipo de paradigma, como Cobol, Fortran, Pascal, C, Java, C++, Kotlin, Python, PHP, JavaScript e ColdFusion.
 
- Em continuidade ao exemplo de código estruturado, a necessidade agora é fazer a soma dos números pares e ímpares de um determinado
-intervalo, e apresentar o resultado. A programação estrutural permite o uso de procedimentos, desta forma fica mais fácil reaproveitar
-lógica e código.
-'''
+ Em continuidade ao exemplo de código estruturado, a necessidade agora é fazer a soma dos números pares e ímpares de
+um determinado intervalo, e apresentar o resultado. A programação estrutural permite o uso de procedimentos, desta
+forma fica mais fácil reaproveitar lógica e código.
+
+</code></pre>
+```Python
 def convert_to_numbers(string_numbers):
   numbers = [int(numeric) for numeric in string_numbers.split(",")]
   return numbers
@@ -2644,23 +2771,27 @@ numbers_list = convert_to_numbers(input_str)
 
 print("\nSoma números pares: ", sum_even_numbers(numbers_list))
 print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
-'''
- Com mais requisitos a serem atendidos, o código começa a ficar extenso, o que mostra a importância do paradigma procedural para
-possibilitar o reaproveitamento e organização do código.
+```
+<pre><code>
 
- Com o surgimento da POO, muitos times de desenvolvimento marginalizam de certa forma o uso puro de procedimentos, porém esse paradigma
-ainda é bastante aplicável mediante necessidades mais simples que não requerem uma modelagem mais complexa no código. Em soluções
-corporativas, as quais normalmente possuem times de desenvolvimento grandes, o uso massivo de programação procedural geralmente
-leva a códigos de difícil manutenção e evolução, o que não é necessariamente exclusividade ou culpa deste paradigma, e sim o pouco
-cuidado ou conhecimento de desenvolvedores. O fato é que para cenários mais complexos, outros paradigmas oferecem mais recursos para
-contribuir com a organização e qualidade do código.
+ Com mais requisitos a serem atendidos, o código começa a ficar extenso, o que mostra a importância do paradigma
+procedural para possibilitar o reaproveitamento e organização do código.
+
+ Com o surgimento da POO, muitos times de desenvolvimento marginalizam de certa forma o uso puro de procedimentos,
+porém esse paradigma ainda é bastante aplicável mediante necessidades mais simples que não requerem uma modelagem
+mais complexa no código. Em soluções corporativas, as quais normalmente possuem times de desenvolvimento grandes,
+o uso massivo de programação procedural geralmente leva a códigos de difícil manutenção e evolução, o que não é
+necessariamente exclusividade ou culpa deste paradigma, e sim o pouco cuidado ou conhecimento de desenvolvedores.
+O fato é que para cenários mais complexos, outros paradigmas oferecem mais recursos para contribuir com a organização
+e qualidade do código.
 
 >>>>LÓGICO
 
- O paradigma lógico é um tanto distinto dos demais paradigmas e deriva do declarativo. Fundamentalmente, utiliza formas de lógica
-simbólica como padrões de entrada e saída. A partir daí realiza inferências para produzir os resultados. A programação lógica é um
-paradigma de programação fortemente baseado na lógica formal. Qualquer paradigma escrito em uma linguagem de programação lógica é
-um conjunto de sentenças em uma forma lógica que expressa fatos e regras sobre uma determinada área do problema.
+ O paradigma lógico é um tanto distinto dos demais paradigmas e deriva do declarativo. Fundamentalmente, utiliza
+formas de lógica simbólica como padrões de entrada e saída. A partir daí realiza inferências para produzir os
+resultados. A programação lógica é um paradigma de programação fortemente baseado na lógica formal. Qualquer paradigma
+escrito em uma linguagem de programação lógica é um conjunto de sentenças em uma forma lógica que expressa fatos e
+regras sobre uma determinada área do problema.
 
 >>>>>PRINCÍPIOS
 
@@ -2669,28 +2800,30 @@ um conjunto de sentenças em uma forma lógica que expressa fatos e regras sobre
  - REGRAS: permitem fazer inferências sobre os fatos do domínio ("Todos os homens são mortais.").
  - CONSULTAS: são questões sobre esse domínio ("Alan Turing é mortal?").
 
- Em geral, a tarefa aqui é encontrar a resposta para a consulta com base em fatos e regras. As principais famílias de linguagens de
-programação lógica incluem QLISP, Mercury, Prolog, Answer Set Programming (ASP) e Datalog. São utilizadas na solução de problemas que
-envolvem inteligência artificial, criação de programas especializados e comprovação de teoremas.
+ Em geral, a tarefa aqui é encontrar a resposta para a consulta com base em fatos e regras. As principais famílias
+de linguagens de programação lógica incluem QLISP, Mercury, Prolog, Answer Set Programming (ASP) e Datalog. São
+utilizadas na solução de problemas que envolvem inteligência artificial, criação de programas especializados e
+comprovação de teoremas.
 
- Para exemplificar bem seu uso, podemos imaginar a tentativa de prova de um dado teorema, na qual são explicitadas algumas premissas
-e, sendo elas verdadeiras, a conclusão de tal teorema torna-se verdade também.
+ Para exemplificar bem seu uso, podemos imaginar a tentativa de prova de um dado teorema, na qual são explicitadas
+algumas premissas e, sendo elas verdadeiras, a conclusão de tal teorema torna-se verdade também.
 
- A estrutura consiste em descrever as relações e regras que governam um problema e deixa o computador descobrir a solução usando lógica.
+ A estrutura consiste em descrever as relações e regras que governam um problema e deixa o computador descobrir a
+solução usando lógica.
 
 >>>>MATEMÁTICO
 
- Derivado do paradigma de programação declarativa, o paradigma de programação matemático é uma abordagem na qual os problemas são
-formulados e resolvidos usando conceitos e técnicas da matemática. Em outras palavras, é como resolver problemas usando equações e
-fórmulas matemáticas.
+ Derivado do paradigma de programação declarativa, o paradigma de programação matemático é uma abordagem na qual os
+problemas são formulados e resolvidos usando conceitos e técnicas da matemática. Em outras palavras, é como resolver
+problemas usando equações e fórmulas matemáticas.
 
  Vamos considerar um problema de planejamento de produção em uma fábrica, onde queremos maximizar os lucros sujeitos
-a certas restrições, como limitações de recursos e demanda do mercado. Em vez de tentar resolver esse problema manualmente, podemos
-usar programação matemática.
+a certas restrições, como limitações de recursos e demanda do mercado. Em vez de tentar resolver esse problema
+manualmente, podemos usar programação matemática.
 
- Digamos que temos três produtos A, B e C, e queremos decidir quantos de cada produto produzir para maximizar os lucros. Podemos
-formular este problema como um problema de programação linear, com uma função objetivo para maximizar os lucros e um conjunto de
-restrições que representam as limitações de recursos e demanda.
+ Digamos que temos três produtos A, B e C, e queremos decidir quantos de cada produto produzir para maximizar os
+lucros. Podemos formular este problema como um problema de programação linear, com uma função objetivo para maximizar
+os lucros e um conjunto de restrições que representam as limitações de recursos e demanda.
 
  Uma possível formulação matemática poderia ser:
  _____________________________________________________________
@@ -2703,12 +2836,14 @@ restrições que representam as limitações de recursos e demanda.
 | A, B, C >= 0 (Quantidade de produtos não pode ser negativa) |
  -------------------------------------------------------------
 
- Aqui, A, B e C representam as quantidades dos produtos A, B e C a serem produzidos, respectivamente. O objetivo é maximizar o lucro
-total, sujeito às restrições de recursos disponíveis.
+ Aqui, A, B e C representam as quantidades dos produtos A, B e C a serem produzidos, respectivamente. O objetivo é
+maximizar o lucro total, sujeito às restrições de recursos disponíveis.
 
-Em Python, você pode resolver este problema de programação matemática utilizando bibliotecas específicas para otimização, como a
-biblioteca PuLP:
-'''
+ Em Python, você pode resolver este problema de programação matemática utilizando bibliotecas específicas para
+otimização, como a biblioteca PuLP:
+
+</code></pre>
+```Python
 from pulp import LpMaximize, LpProblem, LpVariable
 
 # Cria o problema de maximização
@@ -2739,94 +2874,103 @@ print("Quantidade de C:", C.varValue)
 
 # Imprime o valor ótimo da função objetivo (lucro total)
 print("Lucro Total:", problem.objective.value())
-'''
- Este é apenas um exemplo simples, mas mostra como a programação matemática pode ser usada para resolver problemas do mundo real de
-forma eficiente e sistemática, usando conceitos e técnicas da matemática.
+```
+<pre><code>
+
+ Este é apenas um exemplo simples, mas mostra como a programação matemática pode ser usada para resolver problemas
+do mundo real de forma eficiente e sistemática, usando conceitos e técnicas da matemática.
 
 >>>>>CONCEITOS E TÉCNICAS
 
- O paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos usando conceitos e técnicas
-da matemática. Ele se baseia em modelos matemáticos precisos para representar problemas do mundo real e usar algoritmos de otimização
-para encontrar soluções eficientes para esses problemas.
+ O paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos usando
+conceitos e técnicas da matemática. Ele se baseia em modelos matemáticos precisos para representar problemas do mundo
+real e usar algoritmos de otimização para encontrar soluções eficientes para esses problemas.
 
 - Relação com lógica matemática:
 
- A lógica matemática fornece as bases teóricas para a construção de modelos formais e a análise rigorosa de argumentos e proposições.
-Ela ajuda a estabelecer a validade de teoremas e métodos de prova que são fundamentais para a formulação e resolução de problemas em
-programação matemática, estuda os princípios do raciocínio válido e da inferência. Ela se preocupa com a análise formal das proposições
-e argumentos, usando ferramentas matemáticas para investigar suas propriedades e estruturas.
+ A lógica matemática fornece as bases teóricas para a construção de modelos formais e a análise rigorosa de
+argumentos e proposições. Ela ajuda a estabelecer a validade de teoremas e métodos de prova que são fundamentais para
+a formulação e resolução de problemas em programação matemática, estuda os princípios do raciocínio válido e da
+inferência. Ela se preocupa com a análise formal das proposições e argumentos, usando ferramentas matemáticas para
+investigar suas propriedades e estruturas.
 
 - Principais conceitos da lógica matemática:
 
- 1. Lógica proposicional: Trata da análise de proposições simples e da construção de argumentos usando conectivos lógicos, como "e"
- "ou" e "não". Na programação matemática, proposições lógicas podem ser usadas para representar restrições e condições nos modelos
- matemáticos.
+ 1. Lógica proposicional: Trata da análise de proposições simples e da construção de argumentos usando conectivos
+ lógicos, como "e"  "ou" e "não". Na programação matemática, proposições lógicas podem ser usadas para representar
+ restrições e condições nos modelos matemáticos.
 
- 2. Lógica de predicados: Estende a lógica proposicional para lidar com proposições que contêm variáveis e quantificadores, permitindo
- a representação de conceitos mais complexos. Na programação matemática, a lógica de predicados pode ser usada para expressar relações
- entre variáveis e restrições em modelos matemáticos.
+ 2. Lógica de predicados: Estende a lógica proposicional para lidar com proposições que contêm variáveis e
+ quantificadores, permitindo a representação de conceitos mais complexos. Na programação matemática, a lógica de
+ predicados pode ser usada para expressar relações  entre variáveis e restrições em modelos matemáticos.
 
- 3. Teoria dos modelos: Investigação de modelos matemáticos que representam sistemas formais e a validade de certas proposições e
- argumentos dentro desses modelos. Na programação matemática, a teoria dos modelos pode ser usada para validar soluções obtidas
- por meio de algoritmos de otimização.
+ 3. Teoria dos modelos: Investigação de modelos matemáticos que representam sistemas formais e a validade de certas
+ proposições e  argumentos dentro desses modelos. Na programação matemática, a teoria dos modelos pode ser usada para
+ validar soluções obtidas  por meio de algoritmos de otimização.
 
- 4. Teoria dos conjuntos: Estuda conjuntos e suas propriedades, bem como as operações que podem ser realizadas neles, como união,
- interseção e complemento.
+ 4. Teoria dos conjuntos: Estuda conjuntos e suas propriedades, bem como as operações que podem ser realizadas neles,
+ como união, interseção e complemento.
 
- 5. Teoria da computabilidade: Estuda os limites e as capacidades dos sistemas de computação, investigando questões de decidibilidade
- e complexidade computacional.
+ 5. Teoria da computabilidade: Estuda os limites e as capacidades dos sistemas de computação, investigando questões
+ de decidibilidade e complexidade computacional.
 
- 6. Teoria da prova: Explora métodos formais para demonstrar a validade de teoremas matemáticos, incluindo o uso de axiomas, regras
- de inferência e técnicas de dedução.
+ 6. Teoria da prova: Explora métodos formais para demonstrar a validade de teoremas matemáticos, incluindo o uso de
+ axiomas, regras de inferência e técnicas de dedução.
 
 - Relação com lógica combinatória:
 
- A lógica combinatória está preocupada com a análise e a enumeração de diferentes possibilidades de arranjos, combinações e permutações
-de elementos em conjuntos finitos. Ela fornece técnicas para contar e enumerar possibilidades, o que é útil na análise de problemas
-de programação matemática que envolvem escolhas discretas e estruturas combinatórias. Ela lida com a análise e o estudo de arranjos,
-combinações e permutações de elementos em conjuntos finitos. Ela está preocupada principalmente com a contagem e a enumeração de
-diferentes possibilidades de agrupamentos ou arranjos de elementos, levando em consideração diversas restrições e condições.
+ A lógica combinatória está preocupada com a análise e a enumeração de diferentes possibilidades de arranjos,
+combinações e permutações de elementos em conjuntos finitos. Ela fornece técnicas para contar e enumerar
+possibilidades, o que é útil na análise de problemas de programação matemática que envolvem escolhas discretas e
+estruturas combinatórias. Ela lida com a análise e o estudo de arranjos, combinações e permutações de elementos em
+conjuntos finitos. Ela está preocupada principalmente com a contagem e a enumeração de diferentes possibilidades de
+agrupamentos ou arranjos de elementos, levando em consideração diversas restrições e condições.
 
-A lógica combinatória é amplamente aplicada em várias áreas, incluindo matemática discreta, teoria dos grafos, ciência da computação,
-criptografia, teoria da probabilidade e muito mais. Alguns tópicos comuns abordados na lógica combinatória incluem os conceitos abaixo.
+ A lógica combinatória é amplamente aplicada em várias áreas, incluindo matemática discreta, teoria dos grafos,
+ciência da computação, criptografia, teoria da probabilidade e muito mais. Alguns tópicos comuns abordados na lógica
+combinatória incluem os conceitos abaixo.
 
 - Principais conceitos da lógica combinatória:
 
- 1. Permutações: Arranjos ordenados de elementos, onde a ordem dos elementos é importante. Na programação matemática, permutações
- podem  ser usadas para representar arranjos de variáveis ou decisões em um modelo.
+ 1. Permutações: Arranjos ordenados de elementos, onde a ordem dos elementos é importante. Na programação matemática,
+ permutações podem  ser usadas para representar arranjos de variáveis ou decisões em um modelo.
 
- 2. Combinações: Arranjos não ordenados de elementos, onde apenas os elementos selecionados importam, não a ordem em que são selecionados.
- Na programação matemática, combinações podem ser usadas para representar escolhas de subconjuntos de variáveis ou recursos.
+ 2. Combinações: Arranjos não ordenados de elementos, onde apenas os elementos selecionados importam, não a ordem em
+ que são selecionados. Na programação matemática, combinações podem ser usadas para representar escolhas de
+ subconjuntos de variáveis ou recursos.
 
- 3. Princípio da multiplicação e princípio da adição: Princípios fundamentais usados para contar o número de maneiras de realizar
- uma série de eventos. Na programação matemática, esses princípios podem ser aplicados para calcular o número total de soluções
- possíveis para um problema.
+ 3. Princípio da multiplicação e princípio da adição: Princípios fundamentais usados para contar o número de maneiras
+ de realizar uma série de eventos. Na programação matemática, esses princípios podem ser aplicados para calcular o
+ número total de soluções possíveis para um problema.
 
- 4. Princípio da inclusão-exclusão: Um método para contar elementos que estão em diferentes conjuntos ou categorias, levando em
- consideração a sobreposição entre eles.
+ 4. Princípio da inclusão-exclusão: Um método para contar elementos que estão em diferentes conjuntos ou categorias,
+ levando em consideração a sobreposição entre eles.
 
  5. Teorema do binômio: Uma fórmula para expandir expressões de binômios e calcular coeficientes binomiais.
 
- 6. Teoria dos grafos: Uma área da matemática que lida com a representação e análise de relações entre objetos usando diagramas
- conhecidos como grafos.
+ 6. Teoria dos grafos: Uma área da matemática que lida com a representação e análise de relações entre objetos usando
+ diagramas conhecidos como grafos.
 
- 7. Problemas de contagem: Uma variedade de problemas que envolvem contar o número de soluções possíveis para uma determinada situação,
- muitas vezes usando técnicas de permutação, combinação e princípios de contagem. Esses problemas são comuns na formulação e resolução
- de problemas de programação matemática.
+ 7. Problemas de contagem: Uma variedade de problemas que envolvem contar o número de soluções possíveis para uma
+ determinada situação, muitas vezes usando técnicas de permutação, combinação e princípios de contagem. Esses
+ problemas são comuns na formulação e resolução de problemas de programação matemática.
  
- Em resumo, o paradigma de programação matemática usa conceitos e técnicas da lógica matemática e da lógica combinatória para formular
-e resolver problemas usando modelos matemáticos precisos e algoritmos de otimização eficientes.
+ Em resumo, o paradigma de programação matemática usa conceitos e técnicas da lógica matemática e da lógica
+ combinatória para formular e resolver problemas usando modelos matemáticos precisos e algoritmos de otimização
+ eficientes.
 
  1. Modelagem Matemática:
- Modelagem matemática é o processo de traduzir um problema do mundo real em termos matemáticos, representando suas características,
- variáveis e relações usando equações, inequações ou outras estruturas matemáticas.
+ Modelagem matemática é o processo de traduzir um problema do mundo real em termos matemáticos, representando suas
+ características, variáveis e relações usando equações, inequações ou outras estruturas matemáticas.
 
- Exemplo simples: Considere um problema onde você deseja calcular a área de um terreno retangular. Você pode modelar esse problema
-usando a fórmula matemática para calcular a área de um retângulo: Área = Comprimento x Largura. Aqui, você está traduzindo um problema
-do mundo real (calcular a área do terreno) em uma equação matemática.
+ Exemplo simples: Considere um problema onde você deseja calcular a área de um terreno retangular. Você pode modelar
+esse problema usando a fórmula matemática para calcular a área de um retângulo: Área = Comprimento x Largura. Aqui,
+você está traduzindo um problema do mundo real (calcular a área do terreno) em uma equação matemática.
 
 Exemplo prático:
-'''
+
+</code></pre>
+```Python
 # Exemplo de modelagem matemática para calcular a área de um terreno retangular
 
 # Definição das variáveis (comprimento e largura)
@@ -2838,17 +2982,21 @@ area = comprimento * largura
 
 # Impressão do resultado
 print("Área do terreno: ", area, " metros quadrados")
-'''
+```
+<pre><code>
 
  2. Otimização:
- É o processo de encontrar a melhor solução possível para um problema, sujeito a um conjunto de restrições. Em outras palavras, é
- encontrar o valor máximo ou mínimo de uma função objetivo dentro de um espaço de busca.
+ É o processo de encontrar a melhor solução possível para um problema, sujeito a um conjunto de restrições. Em outras
+ palavras, é encontrar o valor máximo ou mínimo de uma função objetivo dentro de um espaço de busca.
 
- Exemplo simples: Suponha que você tenha uma quantidade fixa de dinheiro e queira comprar a maior quantidade possível de frutas com
-esse dinheiro. Aqui, o objetivo é maximizar a quantidade de frutas compradas, sujeito ao orçamento disponível.
+ Exemplo simples: Suponha que você tenha uma quantidade fixa de dinheiro e queira comprar a maior quantidade possível
+ de frutas com esse dinheiro. Aqui, o objetivo é maximizar a quantidade de frutas compradas, sujeito ao orçamento
+ disponível.
 
 Exemplo prático:
-'''
+
+</code></pre>
+```Python
 # Exemplo de otimização para comprar frutas com um orçamento fixo
 
 frutas = ["maçã", "banana", "laranja", "uva"]
@@ -2873,18 +3021,24 @@ for fruta in frutas:
 
 # Imprimindo o resultado
 print("Quantidade total de frutas compradas: ", value(problem.objective))
-'''
+```
+<pre><code>
+
 
  3. Álgebra Linear:
- linear É um ramo da matemática que estuda vetores, espaços vetoriais e transformações lineares entre esses espaços. Envolve operações
- como adição de vetores, multiplicação por escala, multiplicação de matrizes e resolução de sistemas de equações lineares.
+ linear É um ramo da matemática que estuda vetores, espaços vetoriais e transformações lineares entre esses espaços.
+ Envolve operações como adição de vetores, multiplicação por escala, multiplicação de matrizes e resolução de sistemas
+ de equações lineares.
 
- Exemplo simples: Imagine que você está em uma viagem de carro e quer calcular a distância total percorrida. Você pode dividir a
-viagem em várias etapas e calcular a distância percorrida em cada etapa. Em seguida, você pode somar todas essas distâncias para
-obter a distância total percorrida. Aqui, você está realizando operações de adição, que são conceitos fundamentais em álgebra linear.
+ Exemplo simples: Imagine que você está em uma viagem de carro e quer calcular a distância total percorrida. Você pode
+dividir a viagem em várias etapas e calcular a distância percorrida em cada etapa. Em seguida, você pode somar todas
+essas distâncias para obter a distância total percorrida. Aqui, você está realizando operações de adição, que são
+conceitos fundamentais em álgebra linear.
 
 Exemplo prático:
-'''
+
+</code></pre>
+```Python
 # Exemplo de álgebra linear para calcular a distância total percorrida em uma viagem
 
 # Distâncias percorridas em cada etapa da viagem (em quilômetros)
@@ -2895,20 +3049,23 @@ distancia_total = sum(distancias)
 
 # Imprimindo o resultado
 print("Distância total percorrida: ", distancia_total, " quilômetros")
-'''
+```
+<pre><code>
 
  4. Cálculo diferencial e integral:
- É um ramo da matemática que estuda as taxas de mudança de funções (cálculo diferencial) e a acumulação de quantidades (cálculo
- integral). Envolve conceitos como derivadas, integrais, limites e séries infinitas.
+ É um ramo da matemática que estuda as taxas de mudança de funções (cálculo diferencial) e a acumulação de quantidades
+(cálculo integral). Envolve conceitos como derivadas, integrais, limites e séries infinitas.
 
- Exemplo simples: Considere um carro viajando em linha reta. A velocidade do carro pode ser representada como uma função do tempo.
-O cálculo diferencial permite calcular a taxa de variação da velocidade em relação ao tempo, ou seja, a aceleração do carro. Por
-outro lado, o cálculo integral permite calcular a distância total percorrida pelo carro ao longo do tempo, integrando a função da
-velocidade.
+ Exemplo simples: Considere um carro viajando em linha reta. A velocidade do carro pode ser representada como uma
+função do tempo. O cálculo diferencial permite calcular a taxa de variação da velocidade em relação ao tempo, ou seja,
+a aceleração do carro. Por outro lado, o cálculo integral permite calcular a distância total percorrida pelo carro
+ao longo do tempo, integrando a função da velocidade.
 
- Para ilustrar o cálculo diferencial, podemos usar bibliotecas como SymPy ou scipy para calcular derivadas de funções. Por exemplo,
-vamos calcular a derivada da função f(x) = x². Exemplo prático:
-'''
+ Para ilustrar o cálculo diferencial, podemos usar bibliotecas como SymPy ou scipy para calcular derivadas de funções.
+Por exemplo, vamos calcular a derivada da função f(x) = x². Exemplo prático:
+
+</code></pre>
+```Python
 from sympy import symbols, diff
 
 # Definição da variável e da função
@@ -2920,10 +3077,14 @@ derivada = diff(f, x)
 
 # Impressão do resultado
 print("Derivada de f(x) = ", derivada)
-'''
- Para ilustrar o cálculo integral, também podemos usar as mesmas bibliotecas. Vamos calcular a integral definida da função g(x) = x
-de 0 a 1:
-'''
+```
+<pre><code>
+
+ Para ilustrar o cálculo integral, também podemos usar as mesmas bibliotecas. Vamos calcular a integral definida da
+função g(x) = x de 0 a 1:
+
+</code></pre>
+```Python
 from scipy import integrate
 
 # Definição da função
@@ -2935,19 +3096,23 @@ integral, erro = integrate.quad(g, 0, 1)
 
 # Impressão do resultado
 print("Integral definida de g(x) de 0 a 1 = ", integral)
-'''
+```
+<pre><code>
 
  5. Teoria dos Grafos:
- Ramo da matemática que estuda as propriedades dos grafos, que são estruturas compostas por vértices (ou nós) conectados por arestas
- (ou arcos). Ela investiga problemas como caminhos, circuitos, conectividade e coloração de grafos.
+ Ramo da matemática que estuda as propriedades dos grafos, que são estruturas compostas por vértices (ou nós)
+ conectados por arestas (ou arcos). Ela investiga problemas como caminhos, circuitos, conectividade e coloração de
+ grafos.
 
- Exemplo simples: Imagine uma rede de computadores, onde os computadores são representados como vértices e as conexões entre eles
-são representadas como arestas. A teoria dos grafos pode ser usada para encontrar o caminho mais curto entre dois computadores,
-determinar se a rede está conectada ou encontrar a maneira mais eficiente de transmitir dados.
+ Exemplo: Imagine uma rede de computadores, onde os computadores são representados como vértices e as conexões entre
+eles são representadas como arestas. A teoria dos grafos pode ser usada para encontrar o caminho mais curto entre dois
+computadores, determinar se a rede está conectada ou encontrar a maneira mais eficiente de transmitir dados.
 
- Podemos usar bibliotecas como NetworkX para trabalhar com grafos em Python. Por exemplo, vamos criar um grafo simples e calcular o
-caminho mais curto entre dois vértices. Exemplo prático:
-'''
+ Podemos usar bibliotecas como NetworkX para trabalhar com grafos em Python. Por exemplo, vamos criar um grafo simples
+e calcular o caminho mais curto entre dois vértices. Exemplo prático:
+
+</code></pre>
+```Python
 import networkx as nx
 
 # Criando um grafo
@@ -2959,19 +3124,23 @@ caminho_curto = nx.shortest_path(grafo, source=1, target=5)
 
 # Impressão do resultado
 print("Caminho mais curto entre os vértices 1 e 5: ", caminho_curto)
-'''
+```
+<pre><code>
 
  6. Algoritmos de Otimização:
- São métodos computacionais utilizados para encontrar a melhor solução possível para um problema, sujeito a um conjunto de restrições.
- Eles podem ser usados para maximizar ou minimizar uma função objetivo, explorando diferentes combinações de variáveis de decisão
- para encontrar a solução ótima.
+ São métodos computacionais utilizados para encontrar a melhor solução possível para um problema, sujeito a um
+ conjunto de restrições. Eles podem ser usados para maximizar ou minimizar uma função objetivo, explorando diferentes
+ combinações de variáveis de decisão para encontrar a solução ótima.
 
- Exemplo simples: Considere o problema de encontrar o caminho mais curto entre dois pontos em um mapa. Algoritmos de otimização podem
-ser usados para encontrar o caminho mais curto, levando em consideração fatores como distância, tempo e custo.
+ Exemplo: Considere o problema de encontrar o caminho mais curto entre dois pontos em um mapa. Algoritmos de
+ otimização podem ser usados para encontrar o caminho mais curto, levando em consideração fatores como distância,
+ tempo e custo.
 
- Um exemplo comum de algoritmo de otimização é o algoritmo genético, que é uma técnica de busca inspirada na evolução biológica.
-Vamos usar a biblioteca DEAP para resolver um problema de minimização simples. Exemplo prático:
-'''
+ Um exemplo comum de algoritmo de otimização é o algoritmo genético, que é a técnica de busca inspirada na evolução
+biológica. Vamos usar a biblioteca DEAP para resolver um problema de minimização simples. Exemplo prático:
+
+</code></pre>
+```Python
 from deap import base, creator, tools, algorithms
 
 # Define o tipo de problema (minimização)
@@ -2999,24 +3168,29 @@ algorithms.eaSimple(population, toolbox, cxpb=0.5, mutpb=0.2, ngen=50, verbose=F
 # Imprime a melhor solução encontrada
 best_individual = tools.selBest(population, k=1)[0]
 print("Melhor solução: ", best_individual)
-'''
+```
+<pre><code>
+
  Este exemplo usa o algoritmo genético para encontrar a melhor combinação de bits que minimiza a soma dos valores.
 
  7. Ferramentas de Modelagem e Solução:
- São softwares e bibliotecas específicas projetadas para facilitar a modelagem e a resolução de problemas de otimização. Elas oferecem
- uma interface conveniente para definir variáveis, restrições e funções objetivo, além de implementar algoritmos de solução eficientes.
+ São softwares e bibliotecas específicas, projetadas para facilitar a modelagem e a resolução de problemas de
+ otimização. Elas oferecem uma interface conveniente para definir variáveis, restrições e funções objetivo, além de
+ implementar algoritmos de solução eficientes.
 
- Exemplo simples: Imagine que você tem um problema de programação linear e deseja resolver utilizando uma ferramenta de modelagem e
-solução. Você pode usar uma linguagem de modelagem, como AMPL ou GAMS, para definir o problema de forma clara e concisa, e então
-usar um solucionador, como CPLEX ou Gurobi, para encontrar a solução ótima.
+ Exemplo simples: Imagine que você tem um problema de programação linear e deseja resolver utilizando uma ferramenta
+de modelagem e solução. Você pode usar uma linguagem de modelagem, como AMPL ou GAMS, para definir o problema de forma
+clara e concisa, e então usar um solucionador, como CPLEX ou Gurobi, para encontrar a solução ótima.
 
- Usando a biblioteca Pyomo para modelar, vamos resolver um problema de otimização linear em Python. Suponha que queremos maximizar o
-lucro de uma fazenda que produz dois tipos de culturas: trigo e milho. Cada hectare de trigo gera um lucro de $200, enquanto cada
-hectare de milho gera um lucro de $300. No entanto, a fazenda tem uma limitação de 500 horas de trabalho disponíveis e 1000 unidades
-de fertilizante. Além disso, sabemos que o trigo precisa de 2 horas de trabalho e 3 unidades de fertilizante por hectare, enquanto
-o milho precisa de 4 horas de trabalho e 2 unidades de fertilizante por hectare. Exemplo prático:
+ Usando a biblioteca Pyomo para modelar, vamos resolver um problema de otimização linear em Python. Suponha que
+queremos maximizar o lucro de uma fazenda que produz dois tipos de culturas: trigo e milho. Cada hectare de trigo
+gera um lucro de $200, enquanto cada hectare de milho gera um lucro de $300. No entanto, a fazenda tem uma limitação
+de 500 horas de trabalho disponíveis e 1000 unidades de fertilizante. Além disso, sabemos que o trigo precisa de 2h
+de trabalho e 3 unidades de fertilizante por hectare, enquanto o milho precisa de 4 horas de trabalho e 2 unidades de
+fertilizante por hectare. Exemplo prático:
 
-'''
+</code></pre>
+```Python
 from pyomo.environ import *
 
 # Criando o modelo de otimização
@@ -3041,93 +3215,108 @@ print("Status da solução: ", resultados.solver.status)
 print("Valor ótimo da função objetivo (lucro): ", value(modelo.objetivo))
 print("Quantidade ótima de trigo (hectares): ", value(modelo.x['Trigo']))
 print("Quantidade ótima de milho (hectares): ", value(modelo.x['Milho']))
-'''
- Neste exemplo, usamos a biblioteca Pyomo para definir o modelo de otimização, incluindo variáveis de decisão, função objetivo e
-restrições. Em seguida, resolvemos o problema de otimização usando o solver GLPK (GNU Linear Programming Kit). Os resultados incluem
-o status da solução, o valor ótimo da função objetivo (lucro) e as quantidades ótimas de trigo e milho a serem plantadas.
+```
+<pre><code>
 
- Em resumo, o paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos usando conceitos
-e técnicas da matemática. Ele se baseia em modelos matemáticos precisos para representar problemas do mundo real e usar algoritmos
-de otimização para encontrar soluções eficientes para esses problemas. Este paradigma está intimamente relacionado à lógica matemática
-e à lógica combinatória.
+ Neste exemplo, usamos a biblioteca Pyomo para definir o modelo de otimização, incluindo variáveis de decisão, função
+objetivo e restrições. Em seguida, resolvemos o problema de otimização usando o solver GLPK (GNU Linear Programming
+Kit). Os resultados incluem o status da solução, o valor ótimo da função objetivo (lucro) e as quantidades ótimas de
+trigo e milho a serem plantadas.
 
- Na lógica matemática, estudamos princípios de raciocínio válido e inferência, além de conceitos como lógica proposicional, lógica
-de predicados, teoria dos modelos e teoria dos conjuntos. Esses conceitos são fundamentais para a formulação e a validação de modelos
-matemáticos utilizados na programação matemática.
+ Em resumo, o paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos
+usando conceitos e técnicas da matemática. Ele se baseia em modelos matemáticos precisos para representar problemas
+do mundo real e usar algoritmos de otimização para encontrar soluções eficientes para esses problemas. Este paradigma
+está intimamente relacionado à lógica matemática e à lógica combinatória.
 
- Por outro lado, a lógica combinatória se preocupa com a análise e a enumeração de diferentes possibilidades de arranjos, combinações
- e permutações de elementos em conjuntos finitos. Ela fornece técnicas para contar e enumerar possibilidades, o que é útil na análise
- de problemas de programação matemática que envolvem escolhas discretas e estruturas combinatórias.
+ Na lógica matemática, estudamos princípios de raciocínio válido e inferência, além de conceitos como lógica de
+predicados, lógica proposicional, teoria dos modelos e teoria dos conjuntos. Esses conceitos são fundamentais para a
+formulação e a validação de modelos matemáticos utilizados na programação matemática.
 
- O paradigma de programação matemático não é uma categoria de paradigma de programação como a programação reativa, mas sim uma abordagem
-para resolver problemas computacionais usando conceitos e técnicas da matemática. Portanto, todas as linguagens de programação podem
-ser usadas para implementar algoritmos e soluções baseadas em matemática. No entanto, algumas linguagens de programação têm recursos
-embutidos ou bibliotecas especializadas que tornam mais fácil expressar e resolver problemas matemáticos. Aqui estão algumas linguagens
-de programação comuns que são frequentemente usadas para implementar soluções baseadas em matemática: Matlab (linguagem de programação
-e ambiente de desenvolvimento voltado para cálculos numéricos e computação técnica. Ele é frequentemente usado em engenharia, matemática
-aplicada e ciências naturais), GNU Octave (é um ambiente de computação numérica de código aberto, semelhante ao MATLAB. Ele é usado
-para resolver problemas matemáticos e realizar análises numéricas, modelagem e simulações), Mathematica (é um sistema de álgebra
-computacional usado em muitas áreas da ciência, engenharia e matemática. Ele fornece uma ampla gama de funcionalidades matemáticas
-e é frequentemente usado para simulações, visualizações e análises simbólicas), Maple (é outro sistema de álgebra computacional que
-é usado para uma variedade de tarefas matemáticas, incluindo cálculos simbólicos, numéricos e visualizações. Ele é popular entre os
-pesquisadores e profissionais que trabalham em matemática, engenharia e ciências aplicadas), SageMath (linguagem de programação e
-ambiente de software matemático que integra várias bibliotecas e ferramentas de código aberto. Ele fornece uma ampla gama de
-funcionalidades matemáticas, incluindo álgebra, cálculo, estatística, visualização e muito mais), Maxima (é um sistema de álgebra
-computacional de código aberto baseado em Lisp. Ele é usado para realizar cálculos simbólicos e numéricos, resolver equações,
-integrar e diferenciar funções, entre outras operações matemáticas), Scilab (linguagem de programação e ambiente de computação
-numérica usado para análise de dados, modelagem matemática, simulações e visualizações. Ele oferece uma ampla variedade de funções
-matemáticas e é frequentemente usado em engenharia e ciências aplicadas), Python, R, Julia, Fortran e C/C++.
+ Por outro lado, a lógica combinatória se preocupa com a análise e a enumeração de diferentes possibilidades de
+ arranjos, combinações  e permutações de elementos em conjuntos finitos. Ela fornece técnicas para contar e enumerar
+ possibilidades, o que é útil na análise de problemas de programação matemática que envolvem escolhas discretas e
+ estruturas combinatórias.
 
- Portanto, para se tornar proficiente no paradigma de programação matemático, é essencial entender e dominar os conceitos fundamentais
-da lógica matemática, como lógica proposicional, lógica de predicados e teoria dos modelos, bem como os princípios básicos da lógica
-combinatória, como permutações, combinações e princípios de contagem. Além disso, é importante familiarizar-se com ferramentas de
-modelagem e solução, algoritmos de otimização e técnicas de álgebra linear e cálculo diferencial e integral, que são amplamente
-utilizados na resolução de problemas de programação matemática.
+ O paradigma de programação matemático não é uma categoria de paradigma de programação como a programação reativa,
+mas sim uma abordagem para resolver problemas computacionais usando conceitos e técnicas da matemática. Portanto,
+todas as linguagens de programação podem ser usadas para implementar algoritmos e soluções baseadas em matemática.
+No entanto, algumas linguagens de programação têm recursos embutidos ou bibliotecas especializadas que tornam mais
+fácil expressar e resolver problemas matemáticos. Aqui estão algumas linguagens de programação comuns que são
+frequentemente usadas para implementar soluções baseadas em matemática: Matlab (linguagem de programação e ambiente
+de desenvolvimento voltado para cálculos numéricos e computação técnica. Ele é frequentemente usado em engenharia,
+matemática aplicada e ciências naturais), GNU Octave (é um ambiente de computação numérica de código aberto,
+semelhante ao MATLAB. Ele é usado para resolver problemas matemáticos e realizar análises numéricas, modelagem e
+simulações), Mathematica (é um sistema de álgebra computacional usado em muitas áreas da ciência, engenharia e
+matemática. Ele fornece uma ampla gama de funcionalidades matemáticas e é frequentemente usado para simulações,
+visualizações e análises simbólicas), Maple (é outro sistema de álgebra computacional que é usado para uma variedade
+de tarefas matemáticas, incluindo cálculos simbólicos, numéricos e visualizações. Ele é popular entre os pesquisadores
+e profissionais que trabalham em matemática, engenharia e ciências aplicadas), SageMath (linguagem de programação e
+ambiente de software matemático que integra várias bibliotecas e ferramentas de código aberto. Ele fornece uma ampla
+gama de funcionalidades matemáticas, incluindo álgebra, cálculo, estatística, visualização e muito mais), Maxima (é
+um sistema de álgebra computacional de código aberto baseado em Lisp. Ele é usado para realizar cálculos simbólicos
+e numéricos, resolver equações, integrar e diferenciar funções, entre outras operações matemáticas), Scilab (linguagem
+de programação e ambiente de computação numérica usado para análise de dados, modelagem matemática, simulações e
+visualizações. Ele oferece uma ampla variedade de funções matemáticas e é frequentemente usado em engenharia e
+ciências aplicadas), Python, R, Julia, Fortran e C/C++.
+
+ Portanto, para se tornar proficiente no paradigma de programação matemático, é essencial entender e dominar os
+conceitos fundamentais da lógica matemática, como lógica proposicional, lógica de predicados e teoria dos modelos,
+bem como os princípios básicos da lógica combinatória, como permutações, combinações e princípios de contagem. Além
+disso, é importante familiarizar-se com ferramentas de modelagem e solução, algoritmos de otimização e técnicas de
+álgebra linear e cálculo diferencial e integral, que são amplamente utilizados na resolução de problemas de
+programação matemática.
 
 >>>>REATIVO
 
- O paradigma de programação reativo é uma abordagem na qual os sistemas são construídos em torno da ideia de fluxos de dados que
-podem ser observados e reagidos. Em outras palavras, em vez de lidar apenas com eventos isolados, o foco está na criação de programas
-que respondem a mudanças de maneira contínua e automática.
+ O paradigma de programação reativo é uma abordagem na qual os sistemas são construídos em torno da ideia de fluxos
+de dados que podem ser observados e reagidos. Em outras palavras, em vez de lidar apenas com eventos isolados, o foco
+está na criação de programas que respondem a mudanças de maneira contínua e automática.
 
- A programação reativa é derivada principalmente do paradigma declarativo. No paradigma declarativo, os programas são estruturados
-em torno da declaração do que deve ser feito, em vez de especificar exatamente como alcançar o resultado desejado. Isso está alinhado
-com os princípios da programação reativa, onde os desenvolvedores declaram como os componentes do sistema devem reagir a eventos e
-mudanças de estado, em vez de controlar manualmente o fluxo de execução.
+ A programação reativa é derivada principalmente do paradigma declarativo. No paradigma declarativo, os programas são
+estruturados em torno da declaração do que deve ser feito, em vez de especificar exatamente como alcançar o resultado
+desejado. Isso está alinhado com os princípios da programação reativa, onde os desenvolvedores declaram como os
+componentes do sistema devem reagir a eventos e mudanças de estado, em vez de controlar manualmente o fluxo de
+execução.
 
- Na programação reativa, os fluxos de dados são declarados e os desenvolvedores definem como reagir a esses fluxos, permitindo uma
-abordagem mais declarativa para lidar com a comunicação assíncrona e eventos em tempo real. Portanto, embora a programação reativa
-possa incorporar elementos de outros paradigmas, como o paradigma funcional ou o paradigma orientado a objetos, sua base principal
-está enraizada no paradigma declarativo.
+ Na programação reativa, os fluxos de dados são declarados e os desenvolvedores definem como reagir a esses fluxos,
+permitindo uma abordagem mais declarativa para lidar com a comunicação assíncrona e eventos em tempo real. Portanto,
+embora a programação reativa possa incorporar elementos de outros paradigmas, como o paradigma funcional ou o
+paradigma orientado a objetos, sua base principal está enraizada no paradigma declarativo.
 
- A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte nativo para programação
-reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos. Algumas das linguagens comumente usadas
-que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#, Python, Elm (linguagem de programação funcional pura projetada
-para criar interfaces de usuário reativas na web. Ele segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update)
-e enfatiza a imutabilidade e a ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação,
-incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando observáveis
-(observables) e operadores (operators) para manipular fluxos de dados)).
+ A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte
+nativo para programação reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos.
+Algumas das linguagens comumente usadas que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#,
+Python, Elm (linguagem de programação funcional pura projetada para criar interfaces de usuário reativas na web. Ele
+segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update) e enfatiza a imutabilidade e a
+ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação,
+incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando
+observáveis (observables) e operadores (operators) para manipular fluxos de dados).
 
 >>>>>PRINCIPAIS ASPECTOS
 
- - Fluxos de Dados (Streams): São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
+ - Fluxos de Dados (Streams): São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por
+   partes do programa.
 
- - Reatividade: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente
-   sua saída conforme novos eventos ocorrem.
+ - Reatividade: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados,
+   atualizando automaticamente sua saída conforme novos eventos ocorrem.
 
- - Assincronicidade: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída
-   antes de prosseguir.
+ - Assincronicidade: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma
+   operação seja concluída antes de prosseguir.
 
- - Composição Declarativa: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores
-   definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
+ - Composição Declarativa: Os programas reativos são frequentemente expressos de forma declarativa, o que significa
+   que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
 
- Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados. Neste aplicativo,
-os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem observar esses fluxos e reagir a
-eles, atualizando a interface do usuário sempre que novas informações estiverem disponíveis.
+ Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados.
+Neste aplicativo, os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem
+observar esses fluxos e reagir a eles, atualizando a interface do usuário sempre que novas informações estiverem
+disponíveis.
 
- Neste exemplo, vamos simular um sistema simples de monitoramento de temperatura, onde os dados de temperatura são gerados aleatoriamente
-e atualizados continuamente. Vamos observar esses dados e imprimir as atualizações conforme elas ocorrem:
-'''
+ Neste exemplo, vamos simular um sistema simples de monitoramento de temperatura, onde os dados de temperatura são
+gerados aleatoriamente e atualizados continuamente. Vamos observar esses dados e imprimir as atualizações conforme
+elas ocorrem:
+
+</code></pre>
+```Python
 from rx import from_iterable
 import random
 import time
@@ -3146,191 +3335,208 @@ subscription = temperature_stream.subscribe(lambda temperature: print("Nova temp
 
 # Mantém o programa em execução para observar as atualizações de temperatura
 input("Pressione Enter para encerrar o programa...\n")
-'''
+```
+<pre><code>
 
- Neste exemplo, estamos usando a função `generate_temperature()` para gerar dados de temperatura aleatórios continuamente. Em seguida,
-criamos um fluxo de dados reativo a partir desses dados usando `from_iterable()`. Finalmente, observamos esse fluxo de dados e imprimimos
-as atualizações de temperatura à medida que elas ocorrem. Execute este código e você verá as atualizações de temperatura sendo impressas
-no console a cada segundo. Isso demonstra a capacidade de lidar com fluxos de dados em tempo real de forma reativa.
+ Neste exemplo, estamos usando a função `generate_temperature()` para gerar dados de temperatura aleatórios
+continuamente. Em seguida, criamos um fluxo de dados reativo a partir desses dados usando `from_iterable()`.
+Finalmente, observamos esse fluxo de dados e imprimimos as atualizações de temperatura à medida que elas ocorrem.
+Execute este código e você verá as atualizações de temperatura sendo impressas no console a cada segundo. Isso
+demonstra a capacidade de lidar com fluxos de dados em tempo real de forma reativa.
 
- Ao entender esses conceitos fundamentais, os desenvolvedores podem criar aplicativos que sejam mais responsivos, dinâmicos e capazes
-de lidar eficientemente com fluxos de dados em tempo real.
+ Ao entender esses conceitos fundamentais, os desenvolvedores podem criar aplicativos que sejam mais responsivos,
+dinâmicos e capazes de lidar eficientemente com fluxos de dados em tempo real.
 
 >>>>COMPUTAÇÃO PARALELA
 
- O processamento paralelo é uma técnica que envolve a execução simultânea de múltiplas tarefas computacionais e ajuda a reduzir o
-tempo de execução da instrução com o objetivo de reduzir o tempo de execução e melhorar o desempenho do sistema. Ele faz isso dividindo
-um problema em partes menores, compartilhando ou paralelizando instruções entre vários processadores, que são processadas independentemente
-por diferentes processadores ou núcleos de processamento. O significado da abordagem pode ser resumido em uma frase: "dividir e conquistar"
-onde um problema é dividido em partes menores, que são então resolvidas independentemente e combinadas para produzir a solução final.
+ O processamento paralelo é uma técnica que envolve a execução simultânea de múltiplas tarefas computacionais e ajuda
+a reduzir o tempo de execução da instrução com o objetivo de reduzir o tempo de execução e melhorar o desempenho do
+sistema. Ele faz isso dividindo um problema em partes menores, compartilhando ou paralelizando instruções entre vários
+processadores, que são processadas independentemente por diferentes processadores ou núcleos de processamento. O
+significado da abordagem pode ser resumido em uma frase: "dividir e conquistar" onde um problema é dividido em partes
+menores, que são então resolvidas independentemente e combinadas para produzir a solução final.
 
- Ao contrário da computação concorrente, onde as tarefas são alternadas ao longo do tempo, na computação paralela, as tarefas são
-realmente executadas ao mesmo tempo, semelhante ao paradigma de computação distribuída, com a diferença que a execução simultânea
-de múltiplas tarefas acontece na mesma máquina usando diferentes processadores ou núcleos de processamento.
+ Ao contrário da computação concorrente, onde as tarefas são alternadas ao longo do tempo, na computação paralela,
+as tarefas são realmente executadas ao mesmo tempo, semelhante ao paradigma de computação distribuída, com a diferença
+que a execução simultânea de múltiplas tarefas acontece na mesma máquina usando diferentes processadores ou núcleos de
+processamento.
 
  o que pode levar a um aumento significativo no desempenho e na capacidade de processamento.
 
- Exemplos de linguagens de programação que suportam processamento paralelo são NESL (uma das mais antigas) e C/C++ (também suportada devido a algumas funções
-de biblioteca).
+ Exemplos de linguagens de programação que suportam processamento paralelo são NESL (uma das mais antigas) e C/C++
+(também suportada devido a algumas funções de biblioteca).
 
- Imagine que você tenha uma lista grande de números e queira calcular a soma de todos eles. Em vez de calcular a soma sequencialmente,
-você pode dividir a lista em partes menores e distribuir essas partes para diferentes processadores. Cada processador calculará a
-soma de sua parte e, em seguida, os resultados parciais serão combinados para obter a soma total.
+ Imagine que você tenha uma lista grande de números e queira calcular a soma de todos eles. Em vez de calcular a soma
+sequencialmente, você pode dividir a lista em partes menores e distribuir essas partes para diferentes processadores.
+Cada processador calculará a soma de sua parte e, em seguida, os resultados parciais serão combinados para obter a
+soma total.
 
- Aqui está um exemplo em C++ usando a biblioteca `<thread>` para demonstrar processamento paralelo:
+ Aqui está um exemplo em C++ usando a biblioteca `&lt;thread&gt;` para demonstrar processamento paralelo:
 
-  ______________________________________________________________________________________________________
- | #include <iostream>                                                                                  |
- | #include <vector>                                                                                    |
- | #include <thread>                                                                                    |
- |                                                                                                      |
- | // Função para calcular a soma de uma parte da lista                                                 |
- | int calcularSoma(const std::vector<int>& nums, int inicio, int fim) {                                |
- |     int soma = 0;                                                                                    |
- |     for (int i = inicio; i < fim; ++i) {                                                             |
- |         soma += nums[i];                                                                             |
- |     }                                                                                                |
- |     return soma;                                                                                     |
- | }                                                                                                    |
- |                                                                                                      |
- | int main() {                                                                                         |
- |     std::vector<int> numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};                                      |
- |     int tamanho_parte = numeros.size() / 2;                                                          |
- |                                                                                                      |
- |     // Criar threads para calcular a soma de partes diferentes da lista                              |
- |     int soma_parcial1 = 0;                                                                           |
- |     int soma_parcial2 = 0;                                                                           |
- |     std::thread t1([&]() { soma_parcial1 = calcularSoma(numeros, 0, tamanho_parte); });              |
- |     std::thread t2([&]() { soma_parcial2 = calcularSoma(numeros, tamanho_parte, numeros.size()); }); |
- |                                                                                                      |
- |     // Esperar pelas threads terminarem                                                              |
- |     t1.join();                                                                                       |
- |     t2.join();                                                                                       |
- |                                                                                                      |
- |     // Calcular a soma total combinando as somas parciais                                            |
- |     int soma_total = soma_parcial1 + soma_parcial2;                                                  |
- |                                                                                                      |
- |     std::cout << "Soma total: " << soma_total << std::endl;                                          |
- |                                                                                                      |
- |     return 0;                                                                                        |
- | }                                                                                                    |
-  ------------------------------------------------------------------------------------------------------
+</code></pre>
+```C++
+#include <iostream>
+#include <vector>
+#include <thread>
 
- Neste exemplo, a lista de números é dividida em duas partes, e cada parte é processada em uma thread separada usando a função
-`calcularSoma()`. As somas parciais são então combinadas para obter a soma total. Este é um exemplo básico de processamento paralelo
-em C++.
+// Função para calcular a soma de uma parte da lista
+int calcularSoma(const std::vector<int>& nums, int inicio, int fim) {
+    int soma = 0;
+    for (int i = inicio; i < fim; ++i) {
+        soma += nums[i];
+    }
+    return soma;
+}
+
+int main() {
+    std::vector<int> numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int tamanho_parte = numeros.size() / 2;
+
+    // Criar threads para calcular a soma de partes diferentes da lista
+    int soma_parcial1 = 0;
+    int soma_parcial2 = 0;
+    std::thread t1([&]() { soma_parcial1 = calcularSoma(numeros, 0, tamanho_parte); });
+    std::thread t2([&]() { soma_parcial2 = calcularSoma(numeros, tamanho_parte, numeros.size()); });
+
+    // Esperar pelas threads terminarem
+    t1.join();
+    t2.join();
+
+    // Calcular a soma total combinando as somas parciais
+    int soma_total = soma_parcial1 + soma_parcial2;
+
+    std::cout << "Soma total: " << soma_total << std::endl;
+
+    return 0;
+}
+```
+<pre><code>
+
+ Neste exemplo, a lista de números é dividida em duas partes, e cada parte é processada em uma thread separada usando
+a função `calcularSoma()`. As somas parciais são então combinadas para obter a soma total. Este é um exemplo básico de
+processamento paralelo em C++.
 
 >>>>>SUPORTES
 
  Além das linguagens já mencionadas, várias outras linguagens suportam computação paralela. Algumas delas incluem:
 
- 1. Java: Java oferece suporte à programação paralela por meio de APIs como Java Threads, Executor Framework e Fork/Join Framework.
- Além disso, a plataforma Java possui a API Java Parallel Streams, introduzida no Java 8, que facilita a paralelização de operações
- em coleções.
+ 1. Java: Java oferece suporte à programação paralela por meio de APIs como Java Threads, Executor Framework e
+ Fork/Join Framework. Além disso, a plataforma Java possui a API Java Parallel Streams, introduzida no Java 8, que
+ facilita a paralelização de operações em coleções.
 
- 2. Python: Embora Python seja uma linguagem de programação de alto nível, ela oferece suporte à computação paralela por meio de
- bibliotecas como threading, multiprocessing e concurrent.futures. Além disso, bibliotecas como NumPy e pandas são otimizadas para
- operações paralelas em arrays e dataframes, respectivamente.
+ 2. Python: Embora Python seja uma linguagem de programação de alto nível, ela oferece suporte à computação paralela
+ por meio de bibliotecas como threading, multiprocessing e concurrent.futures. Além disso, bibliotecas como NumPy e
+ pandas são otimizadas para operações paralelas em arrays e dataframes, respectivamente.
 
- 3. Rust: Rust é uma linguagem de programação de sistema que oferece segurança de memória e concorrência sem necessidade de coleta
- de lixo. Ela possui um sistema de tipo exclusivo chamado "ownership" que permite a paralelização segura de código.
+ 3. Rust: Rust é uma linguagem de programação de sistema que oferece segurança de memória e concorrência sem
+ necessidade de coleta de lixo. Ela possui um sistema de tipo exclusivo chamado "ownership" que permite a
+ paralelização segura de código.
 
- 4. Go: Go é uma linguagem de programação desenvolvida pelo Google, projetada para facilitar a programação concorrente e paralela.
- Ela possui primitivas de concorrência incorporadas, como goroutines e canais, que facilitam a escrita de código paralelo.
+ 4. Go: Go é uma linguagem de programação desenvolvida pelo Google, projetada para facilitar a programação concorrente
+ e paralela. Ela possui primitivas de concorrência incorporadas, como goroutines e canais, que facilitam a escrita
+ de código paralelo.
 
- 5. CUDA: Embora não seja uma linguagem de programação convencional, CUDA (Compute Unified Device Architecture) é uma arquitetura
- de computação paralela desenvolvida pela NVIDIA. Ela permite que programadores escrevam código em C/C++ para ser executado em GPUs
- NVIDIA, aproveitando o poder de processamento paralelo das GPUs.
+ 5. CUDA: Embora não seja uma linguagem de programação convencional, CUDA (Compute Unified Device Architecture) é uma
+ arquitetura de computação paralela desenvolvida pela NVIDIA. Ela permite que programadores escrevam código em C/C++
+ para ser executado em GPUs NVIDIA, aproveitando o poder de processamento paralelo das GPUs.
 
- 1. MATLAB: MATLAB é uma linguagem de programação amplamente utilizada em computação numérica e engenharia. Ela oferece suporte a
- paralelismo por meio do MATLAB Parallel Computing Toolbox, que permite a execução de código MATLAB em paralelo em clusters de
- computadores e em múltiplos núcleos de CPU.
+ 1. MATLAB: MATLAB é uma linguagem de programação amplamente utilizada em computação numérica e engenharia. Ela
+ oferece suporte a paralelismo por meio do MATLAB Parallel Computing Toolbox, que permite a execução de código MATLAB
+ em paralelo em clusters de computadores e em múltiplos núcleos de CPU.
 
- 2. Julia: Julia é uma linguagem de programação de alto desempenho para computação técnica e científica. Ela é projetada para ser
- rápida e eficiente, com suporte integrado para computação paralela por meio de primitivas de concorrência e pacotes como Threads.jl
- e Distributed.jl.
+ 2. Julia: Julia é uma linguagem de programação de alto desempenho para computação técnica e científica. Ela é
+ projetada para ser rápida e eficiente, com suporte integrado para computação paralela por meio de primitivas de
+ concorrência e pacotes como Threads.jl e Distributed.jl.
 
- 3. OpenMP: OpenMP é uma API de programação de memória compartilhada para C, C++ e Fortran. Ela permite que os programadores criem
- código paralelo por meio de diretivas de compilador, que são interpretadas por compiladores que suportam OpenMP para gerar código
- paralelo.
+ 3. OpenMP: OpenMP é uma API de programação de memória compartilhada para C, C++ e Fortran. Ela permite a criação de
+ códigos paralelos por meio de diretivas de compilador, que são interpretadas por compiladores que suportam OpenMP
+ para gerar código paralelo.
 
- 4. MPI (Message Passing Interface): MPI é uma especificação de comunicação de dados em sistemas paralelos e distribuídos. Embora
- não seja uma linguagem de programação por si só, MPI é comumente usada com linguagens como C, C++, Fortran e Python para criar
- aplicativos paralelos e distribuídos.
+ 4. MPI (Message Passing Interface): MPI é uma especificação de comunicação de dados em sistemas paralelos e
+ distribuídos. Embora não seja uma linguagem de programação por si só, MPI é comumente usada com linguagens como C,
+ C++, Fortran e Python para criar aplicativos paralelos e distribuídos.
 
- 5. Haskell: Haskell é uma linguagem de programação funcional pura que oferece suporte à computação paralela por meio de primitivas
- de concorrência e bibliotecas como Control.Parallel e parMap.
+ 5. Haskell: Haskell é uma linguagem de programação funcional pura que oferece suporte à computação paralela por meio
+ de primitivas de concorrência e bibliotecas como Control.Parallel e parMap.
 
- 6. Scala: Scala é uma linguagem de programação multiparadigma que é executada na JVM (Java Virtual Machine). Ela oferece suporte à
- computação paralela por meio de construções como Futures e Promises, bem como pela biblioteca Akka, que fornece um modelo de ator
- para concorrência.
+ 6. Scala: Scala é uma linguagem de programação multiparadigma que é executada na JVM (Java Virtual Machine). Ela
+ oferece suporte à computação paralela por meio de construções como Futures e Promises, bem como pela biblioteca Akka,
+ que fornece um modelo de ator para concorrência.
 
- 7. Fortran: Fortran é uma linguagem de programação amplamente utilizada em computação científica e de engenharia. Ela oferece suporte
- à computação paralela por meio de bibliotecas como OpenMP e MPI, bem como por meio de primitivas de concorrência nativas.
+ 7. Fortran: Fortran é uma linguagem de programação amplamente utilizada em computação científica e de engenharia.
+ Ela oferece suporte à computação paralela por meio de bibliotecas como OpenMP e MPI, bem como por meio de primitivas
+ de concorrência nativas.
 
- 8. Apache Spark: Um framework de computação em cluster projetado para análise de big data, Spark oferece APIs em várias linguagens,
- incluindo Scala, Java, Python e R, para processamento paralelo distribuído.
+ 8. Apache Spark: Um framework de computação em cluster projetado para análise de big data, Spark oferece APIs em
+ várias linguagens, incluindo Scala, Java, Python e R, para processamento paralelo distribuído.
 
- 9. Hadoop: Um ecossistema de software para computação distribuída em clusters de computadores, Hadoop inclui o Hadoop MapReduce,
- um modelo de programação para processamento paralelo de grandes conjuntos de dados distribuídos em clusters.
+ 9. Hadoop: Um ecossistema de software para computação distribuída em clusters de computadores, Hadoop inclui o
+ Hadoop MapReduce, um modelo de programação para processamento paralelo de grandes conjuntos de dados distribuídos
+ em clusters.
 
- Essas são apenas algumas das linguagens e bibliotecas que oferecem recursos para aproveitar o poder do processamento paralelo. Dependendo
-das necessidades e requisitos do projeto, diferentes linguagens e ferramentas podem ser mais adequadas para implementar soluções
-paralelas e aproveitar ao máximo a capacidade de processamento de hardware moderno.
+ Essas são apenas algumas das linguagens e bibliotecas que oferecem recursos para aproveitar o poder do processamento
+paralelo. Dependendo das necessidades e requisitos do projeto, diferentes linguagens e ferramentas podem ser mais
+adequadas para implementar soluções paralelas e aproveitar ao máximo a capacidade de processamento de hardware
+moderno.
 
 >>>>COMPUTAÇÃO DISTRIBUÍDA
 
- Na computação distribuída, as tarefas são distribuídas entre vários dispositivos ou sistemas de computação em uma rede. Cada dispositivo
-ou sistema pode operar de forma independente e coordenar suas atividades com outros dispositivos por meio de comunicação em rede. A
-computação distribuída é frequentemente usada em sistemas distribuídos, como sistemas de armazenamento em nuvem, redes de sensores
-e processamento de big data.
+ Na computação distribuída, as tarefas são distribuídas entre vários dispositivos ou sistemas de computação em uma
+rede. Cada dispositivo ou sistema pode operar de forma independente e coordenar suas atividades com outros
+dispositivos por meio de comunicação em rede. A computação distribuída é frequentemente usada em sistemas distribuídos,
+como sistemas de armazenamento em nuvem, redes de sensores e processamento de big data.
 
- A computação distribuída é um paradigma de programação que envolve a execução de tarefas em sistemas distribuídos, funções executadas
-de forma independente, compostos por múltiplos dispositivos de computação interconectados, como computadores, servidores,
-dispositivos móveis e sensores. Nesse paradigma, as tarefas são distribuídas entre os diferentes nós do sistema, que trabalham em
-conjunto para alcançar um objetivo comum.
+ A computação distribuída é um paradigma de programação que envolve a execução de tarefas em sistemas distribuídos,
+funções executadas de forma independente, compostos por múltiplos dispositivos de computação interconectados, como
+computadores, servidores, dispositivos móveis e sensores. Nesse paradigma, as tarefas são distribuídas entre os
+diferentes nós do sistema, que trabalham em conjunto para alcançar um objetivo comum.
 
- A programação de sistemas distribuídos envolve o desenvolvimento de software que é projetado para ser executado em um ambiente distribuído.
-Isso pode envolver a escolha de linguagens de programação adequadas, estruturas de programação distribuída (como modelos de ator ou arquiteturas
-baseadas em eventos), e o uso de bibliotecas e ferramentas para facilitar a comunicação e a coordenação entre os nós.
+ A programação de sistemas distribuídos envolve o desenvolvimento de software que é projetado para ser executado em
+um ambiente distribuído. Isso pode envolver a escolha de linguagens de programação adequadas, estruturas de
+programação distribuída (como modelos de ator ou arquiteturas baseadas em eventos), e o uso de bibliotecas e
+ferramentas para facilitar a comunicação e a coordenação entre os nós.
 
- Um exemplo simples de computação distribuída seria um sistema de armazenamento de arquivos distribuído, onde vários servidores armazenam
-partes de um arquivo e os clientes se comunicam com esses servidores para ler ou gravar dados.
+ Um exemplo simples de computação distribuída seria um sistema de armazenamento de arquivos distribuído, onde vários
+servidores armazenam partes de um arquivo e os clientes se comunicam com esses servidores para ler ou gravar dados.
 
- Um exemplo prático de computação distribuída seria o desenvolvimento de um sistema de processamento de big data usando a estrutura
-Apache Hadoop. Nesse sistema, os dados são divididos e processados em paralelo em um cluster de computadores distribuídos, usando o
-modelo de programação MapReduce para processamento distribuído.
+ Um exemplo prático de computação distribuída seria o desenvolvimento de um sistema de processamento de big data
+usando a estrutura Apache Hadoop. Nesse sistema, os dados são divididos e processados em paralelo em um cluster de
+computadores distribuídos, usando o modelo de programação MapReduce para processamento distribuído.
 
 >>>>>PRINCIPAIS PONTOS
 
  Aqui estão alguns dos principais aspectos e conceitos associados à programação de computação distribuída:
 
- 1. Comunicação: Os diferentes nós de um sistema distribuído precisam se comunicar entre si para coordenar suas atividades e trocar
- dados. A comunicação pode ser realizada por meio de redes locais ou de longa distância, usando protocolos de comunicação como TCP/IP,
- UDP e HTTP.
+ 1. Comunicação: Os diferentes nós de um sistema distribuído precisam se comunicar entre si para coordenar suas
+ atividades e trocar dados. A comunicação pode ser realizada por meio de redes locais ou de longa distância, usando
+ protocolos de comunicação como TCP/IP, UDP e HTTP.
 
- 2. Coordenação: A coordenação é essencial para garantir que os diferentes nós de um sistema distribuído trabalhem de forma colaborativa
- e eficiente. Isso envolve a sincronização de tarefas, a resolução de conflitos e a garantia de consistência nos dados compartilhados.
+ 2. Coordenação: A coordenação é essencial para garantir que os diferentes nós de um sistema distribuído trabalhem
+ de forma colaborativa e eficiente. Isso envolve a sincronização de tarefas, a resolução de conflitos e a garantia
+ de consistência nos dados compartilhados.
 
- 3. Tolerância a falhas: Como os sistemas distribuídos são compostos por múltiplos nós, é importante que eles sejam capazes de lidar
- com falhas de forma robusta e resiliente. Isso pode envolver a detecção de falhas, a recuperação automática e a redundância de dados
- e serviços.
+ 3. Tolerância a falhas: Como os sistemas distribuídos são compostos por múltiplos nós, é importante que eles sejam
+ capazes de lidar com falhas de forma robusta e resiliente. Isso pode envolver a detecção de falhas, a recuperação
+ automática e a redundância de dados e serviços.
 
- 4. Escalabilidade: A escalabilidade é a capacidade de um sistema distribuído de lidar com um aumento no número de usuários, dados
- ou carga de trabalho sem comprometer o desempenho ou a disponibilidade. Isso pode ser alcançado por meio da adição de mais nós ao
- sistema ou da distribuição de carga entre os nós existentes.
+ 4. Escalabilidade: A escalabilidade é a capacidade de um sistema distribuído de lidar com um aumento no número de
+ usuários, dados ou carga de trabalho sem comprometer o desempenho ou a disponibilidade. Isso pode ser alcançado por
+ meio da adição de mais nós ao sistema ou da distribuição de carga entre os nós existentes.
 
- 5. Segurança: A segurança é uma preocupação importante na programação de computação distribuída, uma vez que os dados e recursos
- do sistema podem estar sujeitos a ameaças como acesso não autorizado, interceptação de dados e ataques de negação de serviço. Medidas
- de segurança, como autenticação, criptografia e controle de acesso, são essenciais para proteger o sistema contra essas ameaças.
+ 5. Segurança: A segurança é uma preocupação importante na programação de computação distribuída, uma vez que os
+ dados e recursos do sistema podem estar sujeitos a ameaças como acesso não autorizado, interceptação de dados e
+ ataques de negação de serviço. Medidas de segurança, como autenticação, criptografia e controle de acesso, são
+ essenciais para proteger o sistema contra essas ameaças.
 
- Um exemplo simples de computação distribuída seria um sistema de processamento de pedidos em uma loja online, onde diferentes servidores
-lidam com funções específicas, como processamento de pagamentos, gerenciamento de estoque e envio de pedidos.
+ Um exemplo simples de computação distribuída seria um sistema de processamento de pedidos em uma loja online, onde
+diferentes servidores lidam com funções específicas, como processamento de pagamentos, gerenciamento de estoque e
+envio de pedidos.
 
-Aqui está outro exemplo prático em Python usando a biblioteca asyncio para implementar um servidor TCP simples que recebe mensagens
-de clientes e as retransmite para todos os outros clientes conectados:
+ Aqui está outro exemplo prático em Python usando a biblioteca asyncio para implementar um servidor TCP simples que
+recebe mensagensde clientes e as retransmite para todos os outros clientes conectados:
 
-'''
+</code></pre>
+```Python
 import asyncio
 
 clients = set()
@@ -3356,10 +3562,12 @@ async def main():
         await server.serve_forever()
 
 asyncio.run(main())
-'''
+```
+<pre><code>
 
- Este é um servidor de eco muito simples que recebe mensagens de clientes e retransmite essas mensagens para todos os outros clientes
-conectados. Ele usa a biblioteca asyncio para lidar com E/S assíncrona, permitindo que o servidor atenda a múltiplos clientes simultaneamente.
+ Este é um servidor de eco muito simples que recebe mensagens de clientes e retransmite essas mensagens para todos os
+outros clientes conectados. Ele usa a biblioteca asyncio para lidar com E/S assíncrona, permitindo que o servidor
+atenda a múltiplos clientes simultaneamente.
 
  Linguagens que suportam este paradigma:
 
@@ -3373,131 +3581,149 @@ conectados. Ele usa a biblioteca asyncio para lidar com E/S assíncrona, permiti
 - Haskell (com Cloud Haskell)
 - Ruby (com DRb e Rinda)
 
- Essas são apenas algumas das linguagens que suportam o paradigma de programação de computação distribuída. Cada uma oferece suas
-próprias bibliotecas e ferramentas para facilitar o desenvolvimento de sistemas distribuídos.
+ Essas são apenas algumas das linguagens que suportam o paradigma de programação de computação distribuída. Cada uma
+oferece suas próprias bibliotecas e ferramentas para facilitar o desenvolvimento de sistemas distribuídos.
 
 >>>>COMPUTAÇÃO CONCORRENTE
 
- O paradigma de programação de computação concorrente envolve o desenvolvimento de software que executa múltiplas tarefas concorrentemente
-ou seja, executa tarefas de forma intercalada de acordo com: a disponibilidade do sistema, a dependência entre as tarefas, o grau
-de conclusão da tarefa em execução ou o grau das prioridades (dinâmica). A computação concorrente lida com múltiplas tarefas que
-podem ser executadas ao mesmo tempo, mas não necessariamente simultaneamente.
+ O paradigma de programação de computação concorrente envolve o desenvolvimento de software que executa múltiplas
+tarefas concorrentemente ou seja, executa tarefas de forma intercalada de acordo com: a disponibilidade do sistema,
+a dependência entre as tarefas, o grau de conclusão da tarefa em execução ou o grau das prioridades (dinâmica). A
+computação concorrente lida com múltiplas tarefas que podem ser executadas ao mesmo tempo, mas não necessariamente
+simultaneamente.
 
- Na computação concorrente, múltiplas tarefas são executadas de forma intercalada ao longo do tempo. Isso permite que programas
-lidem com diversas operações simultaneamente, mesmo em sistemas de processamento único. A concorrência é frequentemente usada para
-melhorar a capacidade de resposta e a eficiência dos sistemas, especialmente em situações onde várias tarefas precisam ser realizadas
-ao mesmo tempo.
+ Na computação concorrente, múltiplas tarefas são executadas de forma intercalada ao longo do tempo. Isso permite
+que programaslidem com diversas operações simultaneamente, mesmo em sistemas de processamento único. A concorrência
+é frequentemente usada para melhorar a capacidade de resposta e a eficiência dos sistemas, especialmente em situações
+onde várias tarefas precisam ser realizadas ao mesmo tempo.
 
  Aqui estão os principais aspectos e conceitos associados a esse paradigma:
 
- 1. Processos e Threads: Um processo é uma instância em execução de um programa, enquanto um thread é uma unidade de execução dentro
- de um processo. A computação concorrente geralmente envolve a criação de múltiplos threads dentro de um processo para realizar
- tarefas simultaneamente.
+ 1. Processos e Threads: Um processo é uma instância em execução de um programa, enquanto um thread é uma unidade de
+ execução dentro de um processo. A computação concorrente geralmente envolve a criação de múltiplos threads dentro de
+ um processo para realizar tarefas simultaneamente.
 
- 2. Compartilhamento de Recursos: Os threads compartilham recursos, como memória e arquivos, dentro de um processo. O acesso concorrente
- a esses recursos requer sincronização para evitar condições de corrida e garantir a consistência dos dados.
+ 2. Compartilhamento de Recursos: Os threads compartilham recursos, como memória e arquivos, dentro de um processo.
+ O acesso concorrente a esses recursos requer sincronização para evitar condições de corrida e garantir a consistência
+ dos dados.
 
- 3. Sincronização e Coordenação: Mecanismos de sincronização, como semáforos, mutexes e monitores, são usados para coordenar a execução
- concorrente de threads e garantir a consistência dos dados compartilhados.
+ 3. Sincronização e Coordenação: Mecanismos de sincronização, como semáforos, mutexes e monitores, são usados para
+ coordenar a execução concorrente de threads e garantir a consistência dos dados compartilhados.
 
- 4. Concorrência vs. Paralelismo: Concorrência refere-se à capacidade de vários threads progredirem simultaneamente, enquanto paralelismo
- refere-se à execução simultânea real desses threads em múltiplos núcleos de processamento.
+ 4. Concorrência vs. Paralelismo: Concorrência refere-se à capacidade de vários threads progredirem simultaneamente,
+ enquanto paralelismo refere-se à execução simultânea real desses threads em múltiplos núcleos de processamento.
 
- 5. Modelos de Concorrência: Existem vários modelos de concorrência, incluindo programação baseada em eventos, programação orientada
- a tarefas e programação baseada em fluxo de dados. Cada modelo tem suas próprias características e abordagens para lidar com a concorrência.
+ 5. Modelos de Concorrência: Existem vários modelos de concorrência, incluindo programação baseada em eventos,
+ programação orientada a tarefas e programação baseada em fluxo de dados. Cada modelo tem suas próprias
+ características e abordagens para lidar com a concorrência.
 
 >>>>>PRIORIZAÇÃO DE TAREFAS
 
- Na computação concorrente, a priorização e a sequência de execução de tarefas são determinadas por meio de diferentes técnicas de
-agendamento, dependendo do sistema operacional e do modelo de concorrência utilizado:
+ Na computação concorrente, a priorização e a sequência de execução de tarefas são determinadas por meio de
+diferentes técnicas de agendamento, dependendo do sistema operacional e do modelo de concorrência utilizado:
 
- - Preemptivo vs. Cooperativo: Em sistemas concorrentes preemptivos, o sistema operacional pode interromper uma tarefa em andamento
- para permitir a execução de outra tarefa de maior prioridade. Por outro lado, em sistemas cooperativos, as tarefas precisam cooperar
- explicitamente, cedendo o controle ao sistema operacional ou a outras tarefas.
+ - Preemptivo vs. Cooperativo: Em sistemas concorrentes preemptivos, o sistema operacional pode interromper uma
+ tarefa em andamento para permitir a execução de outra tarefa de maior prioridade. Por outro lado, em sistemas
+ cooperativos, as tarefas precisam cooperar explicitamente, cedendo o controle ao sistema operacional ou a outras
+ tarefas.
 
- - Prioridade de Tarefas: As tarefas podem ser atribuídas a diferentes prioridades, e o agendador do sistema operacional decide qual
- tarefa deve ser executada com base nessas prioridades. Tarefas com prioridade mais alta tendem a ser executadas antes das tarefas
- com prioridade mais baixa.
+ - Prioridade de Tarefas: As tarefas podem ser atribuídas a diferentes prioridades, e o agendador do sistema
+ operacional decide qual tarefa deve ser executada com base nessas prioridades. Tarefas com prioridade mais alta
+ tendem a ser executadas antes das tarefas com prioridade mais baixa.
 
- - Round-Robin: Este é um algoritmo de agendamento simples onde as tarefas são executadas em turnos. Cada tarefa recebe um intervalo
- de tempo de CPU chamado de fatia de tempo, e as tarefas são alternadas em execução até que todas sejam concluídas.
+ - Round-Robin: Este é um algoritmo de agendamento simples onde as tarefas são executadas em turnos. Cada tarefa
+ recebe um intervalo de tempo de CPU chamado de fatia de tempo, e as tarefas são alternadas em execução até que todas
+ sejam concluídas.
 
- - Fila de Prontidão: As tarefas são colocadas em uma fila de prontidão e o agendador do sistema operacional escolhe a próxima tarefa
- a ser executada a partir dessa fila.
+ - Fila de Prontidão: As tarefas são colocadas em uma fila de prontidão e o agendador do sistema operacional escolhe
+ a próxima tarefa a ser executada a partir dessa fila.
 
- - Alocação Justa de Recursos: Em sistemas que priorizam a justiça na alocação de recursos, o agendador tenta garantir que todas as
- tarefas recebam uma quantidade justa de tempo de CPU.
+ - Alocação Justa de Recursos: Em sistemas que priorizam a justiça na alocação de recursos, o agendador tenta garantir
+ que todas as tarefas recebam uma quantidade justa de tempo de CPU.
 
- - Algoritmos de Agendamento Personalizados: Em alguns casos, sistemas específicos podem implementar algoritmos de agendamento
- personalizados para atender a requisitos específicos de desempenho ou comportamento do sistema.
+ - Algoritmos de Agendamento Personalizados: Em alguns casos, sistemas específicos podem implementar algoritmos de
+ agendamento  personalizados para atender a requisitos específicos de desempenho ou comportamento do sistema.
 
- Em resumo, a sequência de execução das tarefas na computação concorrente é determinada por uma combinação de prioridades de tarefa,
- políticas de agendamento do sistema operacional e algoritmos de agendamento utilizados.
+ Em resumo, a sequência de execução das tarefas na computação concorrente é determinada por uma combinação de
+ prioridades de tarefa, políticas de agendamento do sistema operacional e algoritmos de agendamento utilizados.
 
 *DIFERENÇAS
 
- - A computação concorrente lida com múltiplas tarefas que podem ser executadas ao mesmo tempo, mas não necessariamente simultaneamente.
+ - A computação concorrente lida com múltiplas tarefas que podem ser executadas ao mesmo tempo, mas não necessariamente
+ simultaneamente.
 
- - A computação paralela envolve a execução simultânea de múltiplas tarefas em diferentes processadores ou núcleos de processamento.
+ - A computação paralela envolve a execução simultânea de múltiplas tarefas em diferentes processadores ou núcleos de
+ processamento.
 
- - A computação distribuída distribui tarefas entre vários dispositivos ou sistemas de computação em uma rede, permitindo a coordenação
- e colaboração entre eles.
+ - A computação distribuída distribui tarefas entre vários dispositivos ou sistemas de computação em uma rede,
+ permitindo a coordenação e colaboração entre eles.
 
 >>>>PROGRAMAÇÃO DE BANCO DE DADOS
 
- Essa metodologia de programação é baseada no trabalho com dados. Os dados são armazenados no banco de dados e as consultas são feitas
-a esse banco de dados em uma linguagem especial, por exemplo, SQL. Com essas linguagens, você pode acessar os dados para filtragem,
-transformações, cálculo de estatísticas e assim por diante. As instruções do programa são definidas por dados, em vez de uma série
-de etapas embutidas em código.
+ Essa metodologia de programação é baseada no trabalho com dados. Os dados são armazenados no banco de dados e as
+consultas são feitas a esse banco de dados em uma linguagem especial, por exemplo, SQL. Com essas linguagens, você
+pode acessar os dados para filtragem, transformações, cálculo de estatísticas e assim por diante. As instruções do
+programa são definidas por dados, em vez de uma série de etapas embutidas em código.
 
- O programa de banco de dados é o coração do sistema de informações de negócios, permitindo a criação de arquivos, entrada de dados,
-atualização, consulta e funções de relatório.
+ O programa de banco de dados é o coração do sistema de informações de negócios, permitindo a criação de arquivos,
+entrada de dados, atualização, consulta e funções de relatório.
 
 >>>>>ASPECTOS IMPORTANTES
 
 Aqui estão alguns aspectos importantes associados a esse paradigma:
 
- - Linguagem SQL: A Linguagem de Consulta Estruturada (SQL) é a linguagem padrão para a interação com bancos de dados relacionais.
- Ela permite realizar operações como inserção, consulta, atualização e exclusão de dados em tabelas de um banco de dados.
+ - Linguagem SQL: A Linguagem de Consulta Estruturada (SQL) é a linguagem padrão para a interação com bancos de dados
+ relacionais. Ela permite realizar operações como inserção, consulta, atualização e exclusão de dados em tabelas de
+ um banco de dados.
 
- - Modelagem de Dados: Antes de implementar um banco de dados, é necessário projetar sua estrutura usando modelos de dados como o
- Modelo Entidade-Relacionamento (ER). Isso envolve identificar entidades, atributos e relacionamentos entre entidades.
+ - Modelagem de Dados: Antes de implementar um banco de dados, é necessário projetar sua estrutura usando modelos de
+ dados como o Modelo Entidade-Relacionamento (ER). Isso envolve identificar entidades, atributos e relacionamentos
+ entre entidades.
 
- - Operações CRUD: As operações básicas em um banco de dados são conhecidas como CRUD, que significa Create (Criar), Read (Ler),
- Update  (Atualizar) e Delete (Excluir). Essas operações permitem manipular os dados armazenados no banco de dados.
+ - Operações CRUD: As operações básicas em um banco de dados são conhecidas como CRUD, que significa Create (Criar),
+ Read (Ler), Update  (Atualizar) e Delete (Excluir). Essas operações permitem manipular os dados armazenados no banco
+ de dados.
 
- - Normalização: A normalização é o processo de organização dos dados em um banco de dados para reduzir a redundância e melhorar a
- integridade dos dados. Isso envolve dividir as tabelas em estruturas mais granulares e estabelecer relações entre elas.
+ - Normalização: A normalização é o processo de organização dos dados em um banco de dados para reduzir a redundância
+ e melhorar a integridade dos dados. Isso envolve dividir as tabelas em estruturas mais granulares e estabelecer
+ relações entre elas.
 
- - Índices e Restrições: Índices são estruturas que melhoram a velocidade de consulta em um banco de dados, enquanto as restrições
- garantem a integridade dos dados, impondo regras sobre os valores que podem ser armazenados em determinadas colunas.
+ - Índices e Restrições: Índices são estruturas que melhoram a velocidade de consulta em um banco de dados, enquanto
+ as restrições garantem a integridade dos dados, impondo regras sobre os valores que podem ser armazenados em
+ determinadas colunas.
 
- - Procedimentos Armazenados e Funções: Procedimentos armazenados e funções são blocos de código SQL que podem ser armazenados no
- banco de dados e reutilizados em várias consultas. Eles ajudam a modularizar a lógica de negócios e melhorar a segurança dos dados.
+ - Procedimentos Armazenados e Funções: Procedimentos armazenados e funções são blocos de código SQL que podem ser
+ armazenados no banco de dados e reutilizados em várias consultas. Eles ajudam a modularizar a lógica de negócios e
+ melhorar a segurança dos dados.
 
- A programação de banco de dados é fundamentalmente baseada na manipulação e gerenciamento de dados armazenados em um banco de dados.
+ A programação de banco de dados é fundamentalmente baseada na manipulação e gerenciamento de dados armazenados em
+um banco de dados.
 
- Um exemplo simples de programação de banco de dados seria a criação de uma tabela de clientes e a inserção de dados nessa tabela
-usando SQL:
+ Um exemplo simples de programação de banco de dados seria a criação de uma tabela de clientes e a inserção de dados
+nessa tabela usando SQL:
 
- ___________________________________________________________________________
-| CREATE TABLE Clientes (                                                   |
-|     id INT AUTO_INCREMENT PRIMARY KEY,                                    |
-|     nome VARCHAR(50),                                                     |
-|     email VARCHAR(50)                                                     |
-| );                                                                        |
-|                                                                           |
-| INSERT INTO Clientes (nome, email) VALUES ('João', 'joao@example.com');   |
-| INSERT INTO Clientes (nome, email) VALUES ('Maria', 'maria@example.com'); |
- ---------------------------------------------------------------------------
+</code></pre>
+```SQL
+CREATE TABLE Clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    email VARCHAR(50)
+);
 
- Vamos criar um banco de dados em SQLite usando Python e realizar algumas operações básicas de CRUD (Criar, Ler, Atualizar, Excluir)
-utilizando SQL.
+INSERT INTO Clientes (nome, email) VALUES ('João', 'joao@example.com');
+INSERT INTO Clientes (nome, email) VALUES ('Maria', 'maria@example.com');
+```
+<pre><code>
 
- Primeiro, vamos criar um banco de dados SQLite chamado `clientes.db` e uma tabela chamada `dadosClientes` com as colunas id, nome
-e email. Em seguida, realizaremos operações para inserir, ler, atualizar e excluir registros nessa tabela.
+ Vamos criar um banco de dados em SQLite usando Python e realizar algumas operações básicas de CRUD (Criar, Ler,
+Atualizar, Excluir) utilizando Python/SQL.
 
-'''
+ Primeiro, vamos criar um banco de dados SQLite chamado `clientes.db` e uma tabela chamada `dadosClientes` com as
+colunas id, nome e email. Em seguida, realizaremos operações para inserir, ler, atualizar e excluir registros nessa
+tabela.
+
+</code></pre>
+```Python
 import sqlite3
 
 # Conectar ao banco de dados (se não existir, será criado)
@@ -3547,56 +3773,63 @@ listar_dadosClientes()
 
 # Fechar a conexão com o banco de dados
 conexao.close()
-'''
+```
+<pre><code>
 
- Este código Python cria um banco de dados SQLite chamado `clientes.db` e uma tabela `dadosClientes`. Em seguida, ele insere dois
-clientes, lista todos os clientes, atualiza o email do primeiro cliente, exclui o segundo cliente e lista novamente os clientes
-para mostrar as alterações.
+ Este código Python cria um banco de dados SQLite chamado `clientes.db` e uma tabela `dadosClientes`. Em seguida, ele
+insere dois clientes, lista todos os clientes, atualiza o email do primeiro cliente, exclui o segundo cliente e lista
+novamente os clientes para mostrar as alterações.
 
- Em conclusão, o paradigma de programação de banco de dados é essencial para o desenvolvimento de sistemas de informação robustos e
-eficientes. Ele se baseia na manipulação e consulta de dados armazenados em bancos de dados utilizando linguagens especializadas como
-SQL. Este paradigma permite a criação de sistemas que podem criar, atualizar, recuperar e manipular grandes volumes de dados de forma
-rápida e eficiente.
+ O paradigma de programação de banco de dados é essencial para o desenvolvimento de sistemas de informação robustos
+e eficientes. Ele se baseia na manipulação e consulta de dados armazenados em bancos de dados utilizando linguagens
+especializadas como SQL. Este paradigma permite a criação de sistemas que podem criar, atualizar, recuperar e
+manipular grandes volumes de dados de forma rápida e eficiente.
 
- A abordagem centrada em dados oferecida pela programação de banco de dados traz uma série de benefícios, incluindo a capacidade de
-criar consultas complexas para filtrar e analisar dados, garantindo a integridade e consistência dos dados armazenados, e permitindo
-a geração de relatórios e análises que fornecem insights valiosos para tomada de decisões.
+ A abordagem centrada em dados oferecida pela programação de banco de dados traz uma série de benefícios, incluindo
+a capacidade de criar consultas complexas para filtrar e analisar dados, garantindo a integridade e consistência dos
+dados armazenados, e permitindo a geração de relatórios e análises que fornecem insights valiosos para tomada de
+decisões.
 
- Além disso, a programação de banco de dados desempenha um papel fundamental no suporte a sistemas de informação de negócios, fornecendo
-a infraestrutura necessária para armazenar e gerenciar dados relacionados a clientes, transações, inventário e muito mais.
+ Além disso, a programação de banco de dados desempenha um papel fundamental no suporte a sistemas de informação de
+negócios, fornecendo a infraestrutura necessária para armazenar e gerenciar dados relacionados a clientes, transações,
+inventário e muito mais.
 
- Em suma, o paradigma de programação de banco de dados é uma ferramenta poderosa para lidar com dados em sistemas de informação,
-oferecendo uma maneira eficiente e estruturada de trabalhar com informações vitais para organizações e aplicativos modernos.
+ Em suma, o paradigma de programação de banco de dados é uma ferramenta poderosa para lidar com dados em sistemas de
+informação, oferecendo uma maneira eficiente e estruturada de trabalhar com informações vitais para organizações e
+aplicativos modernos.
 
 >>>>PROGRAMAÇÃO ORIENTADO A ASPECTOS
 
- O paradigma de programação Orientado a Aspectos (Aspect-Oriented Programming - AOP) é uma abordagem que visa a modularização de
-preocupações transversais em uma aplicação, como logging, segurança, transações, etc., separando essas preocupações do código
-principal da aplicação. Em vez de espalhar o código relacionado a essas preocupações por todo o código base, o AOP permite agrupar
-esse código em "aspectos", que podem ser aplicados seletivamente ao código principal.
+ O paradigma de programação Orientado a Aspectos (Aspect-Oriented Programming - AOP) é uma abordagem que visa a
+modularização de preocupações transversais em uma aplicação, como logging, segurança, transações, etc., separando
+essas preocupações do código principal da aplicação. Em vez de espalhar o código relacionado a essas preocupações por
+todo o código base, o AOP permite agrupar esse código em "aspectos", que podem ser aplicados seletivamente ao código
+principal.
 
 >>>>>ASPECTOS E CONCEITOS
 
 Principais aspectos e conceitos associados ao AOP:
 
- - Aspecto: Um módulo que encapsula comportamentos que afetam várias partes de um programa. Por exemplo, um aspecto de logging pode
- encapsular a lógica para registrar informações de depuração em vários pontos do código.
+ - Aspecto: Um módulo que encapsula comportamentos que afetam várias partes de um programa. Por exemplo, um aspecto
+ de logging pode encapsular a lógica para registrar informações de depuração em vários pontos do código.
 
- - Ponto de junção (Join Point): Pontos específicos no código onde um aspecto pode ser aplicado. Exemplos incluem chamadas de método,
- exceções lançadas ou variáveis sendo acessadas.
+ - Ponto de junção (Join Point): Pontos específicos no código onde um aspecto pode ser aplicado. Exemplos incluem
+ chamadas de método, exceções lançadas ou variáveis sendo acessadas.
 
- - Ponto de corte (Pointcut): Uma expressão que define quais pontos de junção em um programa são afetados por um aspecto. Por exemplo,
- um ponto de corte pode especificar que um aspecto de logging deve ser aplicado a todas as chamadas de métodos em uma determinada classe.
+ - Ponto de corte (Pointcut): Uma expressão que define quais pontos de junção em um programa são afetados por um
+ aspecto. Por exemplo, um ponto de corte pode especificar que um aspecto de logging deve ser aplicado a todas as
+ chamadas de métodos em uma determinada classe.
 
- - Conselho (Advice): O código que é executado em um ponto de junção específico quando um aspecto é aplicado. Pode ser executado
- antes, depois ou em torno do ponto de junção.
+ - Conselho (Advice): O código que é executado em um ponto de junção específico quando um aspecto é aplicado. Pode
+ ser executado antes, depois ou em torno do ponto de junção.
 
- Considere um aspecto de logging que registra o tempo de execução de determinados métodos em uma aplicação. O código principal da
-aplicação não precisa se preocupar com essa lógica de logging; ela é encapsulada no aspecto.
+ Considere um aspecto de logging que registra o tempo de execução de determinados métodos em uma aplicação. O código
+ principal da aplicação não precisa se preocupar com essa lógica de logging; ela é encapsulada no aspecto.
 
 Exemplo prático em Python com uso da biblioteca `aspectlib`:
 
-'''
+</code></pre>
+```Python
 from aspectlib import Aspect
 
 
@@ -3625,64 +3858,69 @@ def example_function():
 
 
 example_function()
-'''
+```
+<pre><code>
 
- Neste exemplo, usamos a biblioteca `aspectlib` para criar um aspecto de logging que mede o tempo de execução de todas as funções
-no módulo.
+ Neste exemplo, usamos a biblioteca `aspectlib` para criar um aspecto de logging que mede o tempo de execução de
+todas as funções no módulo.
 
 >>>>PROGRAMAÇÃO ORIENTADA A EVENTOS
 
- O paradigma de orientação a eventos é usado por toda linguagem de programação que tem uso de recursos gráficos, como jogos e formulários.
-Dessa forma, a execução do programa se dá a medida que determinados eventos são disparados pelo usuário. Portanto, quem usa é responsável
-pelo momento em que o programa é executado.
+ O paradigma de orientação a eventos é usado por toda linguagem de programação que tem uso de recursos gráficos, como
+jogos e formulários. Dessa forma, a execução do programa se dá a medida que determinados eventos são disparados pelo
+usuário. Portanto, quem usa é responsável pelo momento em que o programa é executado.
 
- Imagine uma caixa de formulário que precisa do preenchimento do usuário. Os eventos descritos no código fonte serão executados à
-medida que se realiza o preenchimento dos campos solicitados. Além disso, ocorrem execuções também quando se decide enviar os dados
-clicando no botão de envio. São eventos que disparam outros eventos.
+ Imagine uma caixa de formulário que precisa do preenchimento do usuário. Os eventos descritos no código fonte serão
+executados à medida que se realiza o preenchimento dos campos solicitados. Além disso, ocorrem execuções também quando
+se decide enviar os dados clicando no botão de envio. São eventos que disparam outros eventos.
 
 >>>>>PRINCIPAIS CARACTERÍSTICAS
 
  Principais características e conceitos:
 
- 1. Eventos: Representam a ocorrência de ações ou mudanças de estado que podem ser detectadas e processadas pelo programa. Exemplos
- de eventos incluem cliques de mouse, pressionamentos de tecla, envio de formulários, etc.
+ 1. Eventos: Representam a ocorrência de ações ou mudanças de estado que podem ser detectadas e processadas pelo
+ programa. Exemplos de eventos incluem cliques de mouse, pressionamentos de tecla, envio de formulários, etc.
 
- 2. Listeners (ou tratadores de eventos): São funções ou métodos que são associados a um determinado evento e são acionados quando
- esse evento ocorre. Os ouvintes agem como observadores, aguardando a ocorrência de um evento específico para responder a ele.
+ 2. Listeners (ou tratadores de eventos): São funções ou métodos que são associados a um determinado evento e são
+ acionados quando esse evento ocorre. Os ouvintes agem como observadores, aguardando a ocorrência de um evento
+ específico para responder a ele.
 
- 3. Loop de eventos: É uma estrutura de controle que aguarda a ocorrência de eventos e os despacha para os respectivos ouvintes. O
- loop de eventos é responsável por gerenciar a fila de eventos e garantir que eles sejam processados na ordem correta.
+ 3. Loop de eventos: É uma estrutura de controle que aguarda a ocorrência de eventos e os despacha para os respectivos
+ ouvintes. O loop de eventos é responsável por gerenciar a fila de eventos e garantir que eles sejam processados na
+ ordem correta.
 
- Suponha que você esteja desenvolvendo um aplicativo de calculadora simples em uma interface gráfica. Quando o usuário clica nos
-botões numéricos e operadores, eventos de clique são gerados. Esses eventos são capturados por ouvintes associados a cada botão,
-que atualizam a exibição da calculadora com os números e operadores selecionados.
+ Suponha que você esteja desenvolvendo um aplicativo de calculadora simples em uma interface gráfica. Quando o usuário
+clica nos botões numéricos e operadores, eventos de clique são gerados. Esses eventos são capturados por ouvintes
+associados a cada botão, que atualizam a exibição da calculadora com os números e operadores selecionados.
 
- ____________________________________________________________________________
-| // Definição de função para tratar o evento de clique em um botão numérico |
-| function handleNumericButtonClick(event) {                                 |
-|     const numericValue = event.target.textContent;                         |
-|     updateDisplay(numericValue);                                           |
-| }                                                                          |
-|                                                                            |
-| // Função para atualizar a exibição da calculadora                         |
-| function updateDisplay(value) {                                            |
-|     const displayElement = document.getElementById('calculator-display');  |
-|     displayElement.textContent += value;                                   |
-| }                                                                          |
-|                                                                            |
-| // Adicionando ouvintes de eventos aos botões numéricos                    |
-| const numericButtons = document.querySelectorAll('.numeric-button');       |
-| numericButtons.forEach(button => {                                         |
-|     button.addEventListener('click', handleNumericButtonClick);            |
-| });                                                                        |
- ----------------------------------------------------------------------------
+</code></pre>
+```JS
+// Definição de função para tratar o evento de clique em um botão numérico
+function handleNumericButtonClick(event) {
+    const numericValue = event.target.textContent;
+    updateDisplay(numericValue);
+}
 
- Neste exemplo, cada vez que o usuário clica em um botão numérico na calculadora (representado por elementos HTML com a classe
-`.numeric-button`), o evento de clique é capturado pelo ouvinte `handleNumericButtonClick`, que extrai o valor numérico do botão
-clicado e atualiza a exibição da calculadora.
+// Função para atualizar a exibição da calculadora
+function updateDisplay(value) {
+    const displayElement = document.getElementById('calculator-display');
+    displayElement.textContent += value;
+}
 
- Praticamente todas as linguagens de programação que têm suporte para interfaces gráficas de usuário (GUIs) ou aplicativos baseados
-em eventos suportam o paradigma de programação orientada a eventos. Alguns exemplos incluem:
+// Adicionando ouvintes de eventos aos botões numéricos
+const numericButtons = document.querySelectorAll('.numeric-button');
+numericButtons.forEach(button => {
+    button.addEventListener('click', handleNumericButtonClick);
+});
+ ```
+<pre><code>
+
+ Neste exemplo, cada vez que o usuário clica em um botão numérico na calculadora (representado por elementos HTML com
+a classe `.numeric-button`), o evento de clique é capturado pelo ouvinte `handleNumericButtonClick`, que extrai o
+valor numérico do botão clicado e atualiza a exibição da calculadora.
+
+ Praticamente todas as linguagens de programação que têm suporte para interfaces gráficas de usuário (GUIs) ou
+aplicativos baseados em eventos suportam o paradigma de programação orientada a eventos. Alguns exemplos incluem:
 
  - JavaScript (para desenvolvimento web e aplicativos)
  - Python (com bibliotecas como Tkinter para desenvolvimento de GUIs)
@@ -3690,21 +3928,22 @@ em eventos suportam o paradigma de programação orientada a eventos. Alguns exe
  - C# (para desenvolvimento de aplicativos Windows com o framework .NET)
  - Swift (para desenvolvimento iOS e macOS)
 
-* C++ também suporta o paradigma de programação orientada a eventos, especialmente quando utilizado em conjunto com bibliotecas ou
-frameworks que lidam com interfaces gráficas de usuário (GUIs) e interações do usuário. Embora C++ não tenha recursos nativos para
-lidar diretamente com eventos como em linguagens como JavaScript, ele pode ser utilizado para desenvolver aplicativos que respondam
-a eventos em sistemas desktop, jogos e outras aplicações gráficas. Por exemplo, ao desenvolver um aplicativo utilizando a biblioteca
-Qt, uma popular biblioteca C++ para o desenvolvimento de GUIs, você pode definir sinais e slots para lidar com eventos, onde os sinais
-representam eventos e os slots são as funções que respondem a esses eventos. Assim, embora C++ não seja tão frequentemente associado
-com programação orientada a eventos quanto JavaScript ou Java, ainda é possível utilizar esse paradigma em aplicações C++ modernas,
+* C++ também suporta o paradigma de programação orientada a eventos, especialmente quando utilizado em conjunto com
+bibliotecas ou frameworks que lidam com interfaces gráficas de usuário (GUIs) e interações do usuário. Embora C++ não
+tenha recursos nativos para lidar diretamente com eventos como em linguagens como JavaScript, ele pode ser utilizado
+para desenvolver aplicativos que respondam a eventos em sistemas desktop, jogos e outras aplicações gráficas. Por
+exemplo, ao desenvolver um aplicativo utilizando a biblioteca Qt, uma popular biblioteca C++ para o desenvolvimento
+de GUIs, você pode definir sinais e slots para lidar com eventos, onde os sinais representam eventos e os slots são
+as funções que respondem a esses eventos. Assim, embora C++ não seja tão frequentemente associado com programação
+orientada a eventos quanto JavaScript ou Java, ainda é possível utilizar esse paradigma em aplicações C++ modernas,
 especialmente aquelas que envolvem interfaces gráficas de usuário.
 
 >>>>PROGRAMAÇÃO ORIENTADA A OBJETOS
 
- Paradigma de programação baseado na utilização de objetos e suas iterações (análogo ao mundo real), a OO determina que o código deve
-ser modelado de forma a se aproximar ao mundo real, e que o mesmo em execução no computador tenha tal modelagem representada por uma
-estrutura de objetos, características e ações. Tais objetos podem interagir uns com os outros, modificando o estado do programa até
-que resultem nas saídas esperadas. Vejamos o exemplo da caneta:
+ Paradigma de programação baseado na utilização de objetos e suas iterações (análogo ao mundo real), a OO determina
+que o código deve ser modelado de forma a se aproximar ao mundo real, e que o mesmo em execução no computador tenha
+tal modelagem representada por uma estrutura de objetos, características e ações. Tais objetos podem interagir uns
+com os outros, modificando o estado do programa até que resultem nas saídas esperadas. Vejamos o exemplo da caneta:
 
  ---------------       ----------------------------        -------------
  | O QUE TENHO |       | O QUE SOU CAPAZ DE FAZER |        | COMO FAÇO |
@@ -3721,365 +3960,382 @@ que resultem nas saídas esperadas. Vejamos o exemplo da caneta:
      - PONTA                   - DESTAMPAR
      - TAMPA
 
- Para viabilizar essa estrutura, a OO propõe o uso de Classes, Atributos e Métodos, unidos a características como Abstração, Encapsulamento,
-Herança e Polimorfismo. Os objetos são instâncias das classes e possuem um estado durante a execução do software podendo as mesmas
-serem modificadas, persistidas e recarregadas de acordo com a lógica implementada. Para classificarmos os diferentes modelos de caneta,
-identificamos cada caneta (objeto) agrupando suas características, comportamentos e estados. Os tipos de caneta podem variar, mas a
-base do modelo, ou seja, o padrão de comportamento e uso do objeto é o mesmo, a base para identificar o que é uma caneta é generalizada.
+ Para viabilizar essa estrutura, a OO propõe o uso de Classes, Atributos e Métodos, unidos a características como
+Abstração, Encapsulamento, Herança e Polimorfismo. Os objetos são instâncias das classes e possuem um estado durante
+a execução do software podendo as mesmas serem modificadas, persistidas e recarregadas de acordo com a lógica
+implementada. Para classificarmos os diferentes modelos de caneta, identificamos cada caneta (objeto) agrupando suas
+características, comportamentos e estados. Os tipos de caneta podem variar, mas a base do modelo, ou seja, o padrão
+de comportamento e uso do objeto é o mesmo, a base para identificar o que é uma caneta é generalizada.
 
- ⌐ MODELO (CLASSE) ¬
- |                 |
- |    ATRIBUTOS    |
- |     MÉTODOS     |
- |     ESTADOS     |
- |_________________|
+ ┌─ MODELO (CLASSE) ─┐
+ |     ATRIBUTOS     |
+ |      MÉTODOS      |
+ |      ESTADOS      |
+ └───────────────────┘
 
- Mas então, sobre o ponto de vista da programação, o que é um objeto? O ato de criar um objeto de uma classe é chamado de instanciação.
-Isso ocorre usando o construtor da classe para alocar memória e inicializar o objeto. Resumindo, uma instância é um novo objeto criado
-a partir de uma classe. Um objeto é descrito por características (atributos) específicos, comportamentos (métodos) e estado (condição).
-  __________________________________________________________________________
- | #include <iostream>                                                      |
- | using namespace std;                                                     |
- |                                                                          |
- | // Definição da classe Caneta                                            |
- | class Caneta {                                                           |
- |   public:                                                                |
- |     // Atributos                                                         |
- |     string cor;                                                          |
- |     string carga;                                                        |
- |     bool tampada;                                                        |
- |                                                                          |
- |     // Método (Construtor)                                               |
- |     void escrever() {                                                    |
- |       if(tampada == false){                                              |
- |         cout << "destampar caneta" << endl;                              |
- |       }else{                                                             |
- |         if(carga == "nova"){                                             |
- |           cout << "escrevendo com a caneta " << cor << endl;             |
- |         }else if(carga == "usada"){                                      |
- |           cout << "terminando de escrever com a caneta " << cor << endl; |
- |         }else{                                                           |
- |           cout << "usar outra caneta" << endl;                           |
- |         }                                                                |
- |       }                                                                  |
- |     }                                                                    |
- | };                                                                       |
- |                                                                          |
- | int main() {                                                             |
- |     // Criando um objeto da classe Caneta                                |
- |     Caneta CanetaNova;                                                   |
- |     Caneta CanetaUsada;                                                  |
- |                                                                          |
- |     // Atribuindo valores aos atributos                                  |
- |                                                                          |
- |     // Caneta nova                                                       |
- |     CanetaNova.cor = "preta";                                            |
- |     CanetaNova.carga = "nova";                                           |
- |     CanetaNova.tampada = true;                                           |
- |                                                                          |
- |     // Caneta usada                                                      |
- |     CanetaUsada.cor = "azul";                                            |
- |     CanetaUsada.carga = "usada";                                         |
- |     CanetaUsada.tampada = true;                                          |
- |                                                                          |
- |     // Chamando o método                                                 |
- |     CanetaNova.escrever();                                               |
- |     CanetaUsada.escrever();                                              |
- |                                                                          |
- |     return 0;                                                            |
- | }                                                                        |
- |__________________________________________________________________________|
+ Mas então, sobre o ponto de vista da programação, o que é um objeto? O ato de criar um objeto de uma classe é chamado
+de instanciação. Isso ocorre usando o construtor da classe para alocar memória e inicializar o objeto. Resumindo, uma
+instância é um novo objeto criado a partir de uma classe. Um objeto é descrito por características (atributos)
+específicos, comportamentos (métodos) e estado (condição).
+
+</code></pre>
+```C++
+#include <iostream>
+using namespace std;
+
+// Definição da classe Caneta
+class Caneta {
+  public:
+    // Atributos
+    string cor;
+    string carga;
+    bool tampada;
+
+    // Método (Construtor)
+    void escrever() {
+      if(tampada == false){
+        cout << "destampar caneta" << endl;
+      }else{
+        if(carga == "nova"){
+          cout << "escrevendo com a caneta " << cor << endl;
+        }else if(carga == "usada"){
+          cout << "terminando de escrever com a caneta " << cor << endl;
+        }else{
+          cout << "usar outra caneta" << endl;
+        }
+      }
+    }
+};
+
+int main() {
+    // Criando um objeto da classe Caneta
+    Caneta CanetaNova;
+    Caneta CanetaUsada;
+
+    // Atribuindo valores aos atributos
+
+    // Caneta nova
+    CanetaNova.cor = "preta";
+    CanetaNova.carga = "nova";
+    CanetaNova.tampada = true;
+
+    // Caneta usada
+    CanetaUsada.cor = "azul";
+    CanetaUsada.carga = "usada";
+    CanetaUsada.tampada = true;
+
+    // Chamando o método
+    CanetaNova.escrever();
+    CanetaUsada.escrever();
+
+    return 0;
+}
+```
+<pre><code>
 
 >>>>>PILARES
 
- Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código é organizado
-e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO são:
+ Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código
+é organizado e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO
+são:
 
- 1. ABSTRAÇÃO: é o processo de identificar os aspectos essenciais de um objeto e ignorar os detalhes irrelevantes. Em POO, isso é
- alcançado através da criação de classes, que representam entidades ou conceitos do mundo real, e da definição de métodos que descrevem
- seu comportamento. Os detalhes de implementação são encapsulados dentro das classes, permitindo que os usuários das classes usem
- apenas a interface pública, sem precisar entender como ela funciona internamente. Imagine que queremos representar um carro em um
- programa. Podemos criar uma classe `Carro` que encapsula as características e comportamentos de um carro.
-  ____________________________________________________________________________________
- |  #include <iostream>                                                               |
- | using namespace std;                                                               |
- |                                                                                    |
- | // Classe representando um carro                                                   |
- | class Carro {                                                                      |
- |   private:                                                                         |
- |     string CRLV;                                                                   |
- |     int chassi;                                                                    |
- |                                                                                    |
- |   public:                                                                          |
- |     // Método construtor                                                           |
- |     Carro(string doc, int c) {                                                     |
- |       CRLV = doc;                                                                  |
- |       chassi = c;                                                                  |
- |     }                                                                              |
- |                                                                                    |
- |     // Método para exibir os detalhes do carro                                     |
- |     void exibirDetalhes() {                                                        |
- |       cout << "CRLV: " << CRLV << endl;                                            |
- |       cout << "Número do chassi: " << chassi << endl;                              |
- |     }                                                                              |
- |                                                                                    |
- |     // Método para ligar o carro                                                   |
- |     void ligar() {                                                                 |
- |      cout << "O carro foi ligado." << endl;                                        |
- |     }                                                                              |
- |                                                                                    |
- |     // Método para acelerar o carro                                                |
- |     void acelerar() {                                                              |
- |      cout << "O carro está acelerando." << endl;                                   |
- |     }                                                                              |
- | };                                                                                 |
- |                                                                                    |
- | int main() {                                                                       |
- |                                                                                    |
- |   // Criando um objeto da classe Carro                                             |
- |   Carro meuCarro("ABCDE12345", 543210);                                            |
- |                                                                                    |
- |                                                                                    |
- |   meuCarro.exibirDetalhes(); // Chamando o método para exibir os detalhes do carro |
- |   meuCarro.ligar(); // Usando um método da classe Carro                            |
- |   meuCarro.acelerar(); // Usando outro método da classe Carro                      |
- |                                                                                    |
- |   return 0;                                                                        |
- | }                                                                                  |
- |____________________________________________________________________________________|
+ 1. ABSTRAÇÃO: é o processo de identificar os aspectos essenciais de um objeto e ignorar os detalhes irrelevantes.
+ Em POO, isso é alcançado através da criação de classes, que representam entidades ou conceitos do mundo real, e da
+ definição de métodos que descrevem seu comportamento. Os detalhes de implementação são encapsulados dentro das
+ classes, permitindo que os usuários das classes usem  apenas a interface pública, sem precisar entender como ela
+ funciona internamente. Imagine que queremos representar um carro em um programa. Podemos criar uma classe `Carro`
+ que encapsula as características e comportamentos de um carro.
 
- 2. ENCAPSULAMENTO: é o princípio de ocultar os detalhes de implementação de uma classe e expondo apenas uma interface bem definida
- para interagir com o objeto. Isso é feito usando modificadores de acesso para controlar o acesso aos membros da classe (métodos e variáveis).
- O encapsulamento ajuda a garantir a coesão dentro das classes, reduzindo o acoplamento entre elas e facilitando a manutenção do código.
-  ________________________________________________________
- | #include <iostream>                                    |
- | using namespace std;                                   |
- |                                                        |
- | class ContaBancaria {                                  |
- |                                                        |
- |   private:                                             |
- |     float saldo; // Atributo privado                   |
- |                                                        |
- |   public:                                              |
- |     // Métodos públicos                                |
- |     void depositar(float valor) {                      |
- |       saldo += valor;                                  |
- |     }                                                  |
- |                                                        |
- |     void sacar(float valor) {                          |
- |       saldo -= valor;                                  |
- |     }                                                  |
- |                                                        |
- |     float getSaldo() {                                 |
- |       return saldo;                                    |
- |     }                                                  |
- |                                                        |
- | };                                                     |
- |                                                        |
- | int main() {                                           |
- |                                                        |
- |   // Criando o objeto                                  |
- |   ContaBancaria conta;                                 |
- |                                                        |
- |   // Modificando os valores                            |
- |   conta.depositar(1000);                               |
- |   // Exibindo os valores                               |
- |   cout << "Saldo atual: " << conta.getSaldo() << endl; |
- |                                                        |
- |   // Modificando os valores                            |
- |   conta.sacar(500);                                    |
- |   // Exibindo os valores                               |
- |   cout << "Saldo atual: " << conta.getSaldo() << endl; |
- |                                                        |
- |   return 0;                                            |
- | }                                                      |
- |________________________________________________________|
+</code></pre>
+```C++
+ #include <iostream>
+using namespace std;
 
- Neste exemplo, o saldo da conta bancária é encapsulado dentro da classe `ContaBancaria`, e métodos públicos são fornecidos para
- acessar e modificar esse saldo.
+// Classe representando um carro
+class Carro {
+  private:
+    string CRLV;
+    int chassi;
 
- 3. HERANÇA: é um conceito pelo qual uma classe pode herdar atributos e métodos de outra classe (conhecida como superclasse ou classe
- base). A classe que herda é chamada de subclasse ou classe derivada. A herança permite a reutilização de código, promove a extensibilidade
- do software e ajuda a organizar classes em uma hierarquia, onde as classes mais específicas herdam comportamentos mais gerais das
- classes mais abstratas.
-  ___________________________________________________________________________________
- | #include <iostream>                                                               |
- | using namespace std;                                                              |
- |                                                                                   |
- | class Animal {                                                                    |
- |   public:                                                                         |
- |     void comer() {                                                                |
- |       cout << "O animal está comendo..." << endl;                                 |
- |     }                                                                             |
- | };                                                                                |
- |                                                                                   |
- | class Cachorro : public Animal {                                                  |
- |   public:                                                                         |
- |     void latir() {                                                                |
- |       cout << "O cachorro está latindo..." << endl;                               |
- |     }                                                                             |
- | };                                                                                |
- |                                                                                   |
- | int main() {                                                                      |
- |                                                                                   |
- |   Cachorro meuCachorro;                                                           |
- |                                                                                   |
- |   meuCachorro.comer(); // O método da classe Animal é acessado através da herança |
- |   meuCachorro.latir();                                                            |
- |                                                                                   |
- |   return 0;                                                                       |
- |                                                                                   |
- | }                                                                                 |
- |___________________________________________________________________________________|
+  public:
+    // Método construtor
+    Carro(string doc, int c) {
+      CRLV = doc;
+      chassi = c;
+    }
 
- Neste exemplo, a classe `Cachorro` herda da classe `Animal`, então um objeto da classe `Cachorro` pode usar tanto o método `comer()`
- da classe `Animal` quanto seu próprio método `latir()`.
+    // Método para exibir os detalhes do carro
+    void exibirDetalhes() {
+      cout << "CRLV: " << CRLV << endl;
+      cout << "Número do chassi: " << chassi << endl;
+    }
 
- 4. POLIMORFISMO: significa "muitas formas" e refere-se à capacidade de um objeto se comportar de maneiras diferentes dependendo do
- contexto em que é usado. Uma classe filha (comportamentos e estados específicos) herda as características (atributos e métodos) de
- uma classe mãe (comportamentos e estados gerais).
-  ______________________________________________________________________________________________________
- | #include <iostream>                                                                                  |
- | using namespace std;                                                                                 |
- |                                                                                                      |
- | class Animal {                                                                                       |
- |   public:                                                                                            |
- |     virtual void fazerSom() {                                                                        |
- |       cout << "O animal está fazendo um som genérico..." << endl;                                    |
- |     }                                                                                                |
- | };                                                                                                   |
- |                                                                                                      |
- | class Cachorro : public Animal {                                                                     |
- |   public:                                                                                            |
- |     void fazerSom() override {                                                                       |
- |       cout << "O cachorro está latindo..." << endl;                                                  |
- |     }                                                                                                |
- | };                                                                                                   |
- |                                                                                                      |
- | class Gato : public Animal {                                                                         |
- |   public:                                                                                            |
- |     void fazerSom() override {                                                                       |
- |       cout << "O gato está miando..." << endl;                                                       |
- |     }                                                                                                |
- | };                                                                                                   |
- |                                                                                                      |
- | int main() {                                                                                         |
- |                                                                                                      |
- |   Animal *animal;                                                                                    |
- |                                                                                                      |
- |   Cachorro meuCachorro;                                                                              |
- |   Gato meuGato;                                                                                      |
- |                                                                                                      |
- |   animal = &meuCachorro;                                                                             |
- |   animal->fazerSom(); // Polimorfismo - chama o método correto dependendo do tipo de objeto          |
- |                                                                                                      |
- |   animal = &meuGato;                                                                                 |
- |   animal->fazerSom(); // Polimorfismo novamente, chama o método correto dependendo do tipo de objeto |
- |                                                                                                      |
- |   return 0;                                                                                          |
- |                                                                                                      |
- | }                                                                                                    |
- |______________________________________________________________________________________________________|
+    // Método para ligar o carro
+    void ligar() {
+     cout << "O carro foi ligado." << endl;
+    }
 
- Neste exemplo, o método `fazerSom()` é virtual na classe base `Animal`, e é sobrescrito nas classes derivadas `Cachorro` e `Gato`.
- Quando chamamos `fazerSom()` através de um ponteiro para `Animal`, o método correto é invocado com base no tipo de objeto ao qual
- o ponteiro aponta. Isso é polimorfismo.
+    // Método para acelerar o carro
+    void acelerar() {
+     cout << "O carro está acelerando." << endl;
+    }
+};
+
+int main() {
+
+  // Criando um objeto da classe Carro
+  Carro meuCarro("ABCDE12345", 543210);
+
+  meuCarro.exibirDetalhes(); // Chamando o método para exibir os detalhes do carro
+  meuCarro.ligar(); // Usando um método da classe Carro
+  meuCarro.acelerar(); // Usando outro método da classe Carro
+
+  return 0;
+}
+```
+<pre><code>
+
+ 2. ENCAPSULAMENTO: é o princípio de ocultar os detalhes de implementação de uma classe e expondo apenas uma interface
+ bem definida para interagir com o objeto. Isso é feito usando modificadores de acesso para controlar o acesso aos
+ membros da classe (métodos e variáveis). O encapsulamento ajuda a garantir a coesão dentro das classes, reduzindo o
+ acoplamento entre elas e facilitando a manutenção do código.
+
+</code></pre>
+```C++
+#include <iostream>
+using namespace std;
+
+class ContaBancaria {
+
+  private:
+    float saldo; // Atributo privado
+
+  public:
+    // Métodos públicos
+    void depositar(float valor) {
+      saldo += valor;
+    }
+
+    void sacar(float valor) {
+      saldo -= valor;
+    }
+
+    float getSaldo() {
+      return saldo;
+    }
+
+};
+
+int main() {
+
+  // Criando o objeto
+  ContaBancaria conta;
+
+  // Modificando os valores
+  conta.depositar(1000);
+  // Exibindo os valores
+  cout << "Saldo atual: " << conta.getSaldo() << endl;
+
+  // Modificando os valores
+  conta.sacar(500);
+  // Exibindo os valores
+  cout << "Saldo atual: " << conta.getSaldo() << endl;
+
+  return 0;
+}
+ ```
+<pre><code>
+
+ Neste exemplo, o saldo da conta bancária é encapsulado dentro da classe `ContaBancaria`, e métodos públicos são
+ fornecidos para acessar e modificar esse saldo.
+
+ 3. HERANÇA: é um conceito pelo qual uma classe pode herdar atributos e métodos de outra classe (conhecida como
+ superclasse ou classe base). A classe que herda é chamada de subclasse ou classe derivada. A herança permite a
+ reutilização de código, promove a extensibilidade do software e ajuda a organizar classes em uma hierarquia, onde
+ as classes mais específicas herdam comportamentos mais gerais das classes mais abstratas.
+
+</code></pre>
+```C++
+#include <iostream>
+using namespace std;
+
+class Animal {
+  public:
+    void comer() {
+      cout << "O animal está comendo..." << endl;
+    }
+};
+
+class Cachorro : public Animal {
+  public:
+    void latir() {
+      cout << "O cachorro está latindo..." << endl;
+    }
+};
+
+int main() {
+
+  Cachorro meuCachorro;
+
+  meuCachorro.comer();
+  meuCachorro.latir(); // O método da classe Animal é acessado através da herança
+
+  return 0;
+}
+```
+<pre><code>
+
+ Neste exemplo, a classe `Cachorro` herda da classe `Animal`, então um objeto da classe `Cachorro` pode usar tanto o
+ método `comer()` da classe `Animal` quanto seu próprio método `latir()`.
+
+ 4. POLIMORFISMO: significa "muitas formas" e refere-se à capacidade de um objeto se comportar de maneiras diferentes
+ dependendo do contexto em que é usado. Uma classe filha (comportamentos e estados específicos) herda as
+ características (atributos e métodos) de uma classe mãe (comportamentos e estados gerais).
+
+</code></pre>
+```C++
+#include <iostream>
+using namespace std;
+
+class Animal {
+  public:
+    virtual void fazerSom() {
+      cout << "O animal está fazendo um som genérico..." << endl;
+    }
+};
+
+class Cachorro : public Animal {
+  public:
+    void fazerSom() override {
+      cout << "O cachorro está latindo..." << endl;
+    }
+};
+
+class Gato : public Animal {
+  public:
+    void fazerSom() override {
+      cout << "O gato está miando..." << endl;
+    }
+};
+
+int main() {
+
+  Animal *animal;
+
+  Cachorro meuCachorro;
+  Gato meuGato;
+
+  animal = &meuCachorro;
+  animal->fazerSom(); // Polimorfismo - chama o método correto dependendo do tipo de objeto
+
+  animal = &meuGato;
+  animal->fazerSom(); // Polimorfismo novamente, chama o método correto dependendo do tipo de objeto
+
+  return 0;
+
+}
+```
+<pre><code>
+
+ Neste exemplo, o método `fazerSom()` é virtual na classe base `Animal`, e é sobrescrito nas classes derivadas
+ `Cachorro` e `Gato`. Quando chamamos `fazerSom()` através de um ponteiro para `Animal`, o método correto é invocado
+ com base no tipo de objeto ao qual o ponteiro aponta. Isso é polimorfismo.
 
  Existem dois tipos principais de polimorfismo, polimorfismo de sobrecarga e polimorfismo de sobrescrita:
    
-   4.1. POLIMORFISMO DE SOBRECARGA: ocorre quando duas ou mais funções têm o mesmo nome, mas argumentos diferentes (diferem em seus parâmetros).
-  _____________________________________________________________________
- | #include <iostream>                                                 |
- | using namespace std;                                                |
- |                                                                     |
- | class Operacoes {                                                   |
- |   public:                                                           |
- |     // Função de soma para inteiros                                 |
- |     int soma(int a, int b) {                                        |
- |       return a + b;                                                 |
- |     }                                                               |
- |                                                                     |
- |     // Função de soma para floats                                   |
- |     float soma(float a, float b) {                                  |
- |       return a + b;                                                 |
- |     }                                                               |
- | };                                                                  |
- |                                                                     |
- | int main() {                                                        |
- |                                                                     |
- |   Operacoes operacoes;                                              |
- |                                                                     |
- |   // Chamando a função soma para inteiros                           |
- |   cout << "Soma de inteiros: " << operacoes.soma(5, 3) << endl;     |
- |                                                                     |
- |   // Chamando a função soma para floats                             |
- |   cout << "Soma de floats: " << operacoes.soma(3.5f, 1.9f) << endl; |
- |                                                                     |
- |   return 0;                                                         |
- |                                                                     |
- | }                                                                   |
- |_____________________________________________________________________|
+   4.1. POLIMORFISMO DE SOBRECARGA: ocorre quando duas ou mais funções têm o mesmo nome, mas argumentos diferentes
+   (diferem em seus parâmetros).
 
-   Neste exemplo, temos duas funções chamadas `soma()`, uma para somar inteiros e outra para somar floats. Dependendo dos tipos de
-   argumentos passados, o compilador escolherá a função correta para chamar.
+</code></pre>
+```C++
+#include <iostream>
+using namespace std;
 
-   4.2. POLIMORFISMO DE SOBRESCRISTA: ocorre quando uma subclasse fornece uma implementação específica para um método que já está
-   sendo usado por sua superclasse.
-  ______________________________________________________________________________
- | #include <iostream>                                                          |
- | using namespace std;                                                         |
- | class Animal {                                                               |
- |   public:                                                                    |
- |     // Método fazerSom da classe base                                        |
- |     virtual void fazerSom() {                                                |
- |       cout << "Som genérico de animal" << endl;                              |
- |     }                                                                        |
- | };                                                                           |
- | class Cachorro : public Animal {                                             |
- |   public:                                                                    |
- |     // Sobrescrita do método fazerSom da classe base                         |
- |     void fazerSom() override {                                               |
- |       cout << "Latido: Woof!" << endl;                                       |
- |     }                                                                        |
- | };                                                                           |
- | int main() {                                                                 |
- |   Animal* animal = new Cachorro(); // Criando um objeto Cachorro como Animal |
- |                                                                              |
- |   // Chamando o método fazerSom através de um ponteiro Animal                |
- |   animal->fazerSom(); // Invocará o método fazerSom da classe Cachorro       |
- |                                                                              |
- |   delete animal; // Liberando memória alocada                                |
- |                                                                              |
- |   return 0;                                                                  |
- |                                                                              |
- | }                                                                            |
- |______________________________________________________________________________|
+class Operacoes {
+  public:
+    // Função de soma para inteiros
+    int soma(int a, int b) {
+      return a + b;
+    }
 
- Neste exemplo, a classe `Cachorro` sobrescreve o método `fazerSom()` da classe `Animal`. Quando chamamos `fazerSom()` através do
- ponteiro `Animal` que aponta para um objeto `Cachorro`, o método sobrescrito (`fazerSom()` de `Cachorro`) é invocado. Isso é polimorfismo
- de sobrescrita.
+    // Função de soma para floats
+    float soma(float a, float b) {
+      return a + b;
+    }
+};
 
- !!!ESCREVA AQUI!!!
+int main() {
 
- Esses pilares são fundamentais para a compreensão e implementação eficaz da Programação Orientada a Objetos e são amplamente utilizados
-em muitas linguagens de programação, como Java, C++, Python, entre outras.
+  Operacoes operacoes;
 
-'''
+  // Chamando a função soma para inteiros
+  cout << "Soma de inteiros: " << operacoes.soma(5, 3) << endl;
 
-'''
+  // Chamando a função soma para floats
+  cout << "Soma de floats: " << operacoes.soma(3.5f, 1.9f) << endl;
 
-Qual a diferença de classes públicas e privadas na poo?
+  return 0;
 
-Na Programação Orientada a Objetos (POO), a distinção entre classes públicas e privadas está relacionada à visibilidade dos membros (métodos e variáveis) dentro de uma classe. Aqui está a diferença entre elas:
+}
+```
+<pre><code>
 
-Membros Públicos (public):
-Os membros públicos são acessíveis de fora da classe.
-Eles podem ser acessados e utilizados por qualquer código que tenha uma referência para o objeto da classe.
-Eles são frequentemente usados para definir a interface pública da classe, ou seja, as operações que estão disponíveis para os usuários da classe.
-Em muitas linguagens de programação, os membros públicos são declarados usando o modificador public.
-Exemplo em Java:
+   Neste exemplo, temos duas funções chamadas `soma()`, uma para somar inteiros e outra para somar floats. Dependendo
+   dos tipos de argumentos passados, o compilador escolherá a função correta para chamar.
 
-java
+   4.2. POLIMORFISMO DE SOBRESCRISTA: ocorre quando uma subclasse fornece uma implementação específica para um método
+   que já está sendo usado por sua superclasse.
+
+</code></pre>
+```C++
+#include <iostream>
+using namespace std;
+class Animal {
+  public:
+    // Método fazerSom da classe base
+    virtual void fazerSom() {
+      cout << "Som genérico de animal" << endl;
+    }
+};
+class Cachorro : public Animal {
+  public:
+    // Sobrescrita do método fazerSom da classe base
+    void fazerSom() override {
+      cout << "Latido: Woof!" << endl;
+    }
+};
+int main() {
+  Animal* animal = new Cachorro(); // Criando um objeto Cachorro como Animal
+
+  // Chamando o método fazerSom através de um ponteiro Animal
+  animal->fazerSom(); // Invocará o método fazerSom da classe Cachorro
+
+  delete animal; // Liberando memória alocada
+
+  return 0;
+
+}
+```
+<pre><code>
+
+ Neste exemplo, a classe `Cachorro` sobrescreve o método `fazerSom()` da classe `Animal`. Quando chamamos `fazerSom()`
+ através do ponteiro `Animal` que aponta para um objeto `Cachorro`, o método sobrescrito (`fazerSom()` de `Cachorro`)
+ é invocado. Isso é polimorfismo de sobrescrita.
+
+ Existem diferenças entre as classes públicas e privadas na POO. Esta distinção está relacionada à visibilidade dos
+ membros (métodos e variáveis) dentro de uma classe. 
+
+ Membros Públicos (public):
+  - Os membros públicos são acessíveis de fora da classe.
+  - Eles podem ser acessados e utilizados por qualquer código que tenha uma referência para o objeto da classe.
+  - Eles são frequentemente usados para definir a interface pública da classe, ou seja, as operações que estão
+    disponíveis para os usuários da classe.
+  - Em muitas linguagens de programação, os membros públicos são declarados usando o modificador public.
+
+ Exemplo em Java:
+
+</code></pre>
+```Java
 public class MinhaClasse {
     public int variavelPublica;
     
@@ -4087,16 +4343,21 @@ public class MinhaClasse {
         // Implementação do método
     }
 }
+```
+<pre><code>
 
-Membros Privados (private):
-Os membros privados só são acessíveis dentro da própria classe.
-Eles não podem ser acessados ou modificados diretamente por código fora da classe.
-São usados para esconder a implementação interna da classe e para garantir o encapsulamento.
-A manipulação dos membros privados geralmente é feita por meio de métodos públicos, conhecidos como métodos acessores (getters) e modificadores (setters).
-Em muitas linguagens de programação, os membros privados são declarados usando o modificador private.
+ Membros Privados (private):
+  - Os membros privados só são acessíveis dentro da própria classe.
+  - Eles não podem ser acessados ou modificados diretamente por código fora da classe.
+  - São usados para esconder a implementação interna da classe e para garantir o encapsulamento.
+  - A manipulação dos membros privados geralmente é feita por meio de métodos públicos, conhecidos como métodos
+    acessores (getters) e modificadores (setters).
+  - Em muitas linguagens de programação, os membros privados são declarados usando o modificador private.
+
 Exemplo em Java:
 
-java
+</code></pre>
+```Java
 public class MinhaClasse {
     private int variavelPrivada;
     
@@ -4113,13 +4374,13 @@ public class MinhaClasse {
         this.variavelPrivada = valor;
     }
 }
-A utilização de membros públicos e privados permite controlar o acesso aos dados e funcionalidades de uma classe, promovendo o encapsulamento e a segurança do código. Os membros públicos fornecem uma interface para interação com a classe, enquanto os membros privados ocultam os detalhes de implementação, reduzindo o acoplamento e facilitando a manutenção do código.
+```
+<pre><code>
 
-Me mostre os exemplos em C++
+ Vejamos alguns outros exemplos de como definir membros públicos e privados, desta vez em C++:
 
-Claro! Aqui estão exemplos de como definir membros públicos e privados em C++:
-
-cpp
+</code></pre>
+```C++
 #include <iostream>
 
 class MinhaClasse {
@@ -4165,14 +4426,23 @@ int main() {
 
     // Não é possível acessar membros privados diretamente
     // obj.variavelPrivada = 30;  // Isso geraria um erro de compilação
-    // obj.metodoPrivado();        // Isso geraria um erro de compilação
+    // obj.metodoPrivado();       // Isso geraria um erro de compilação
 
     return 0;
 }
 
-Neste exemplo, a classe MinhaClasse possui membros públicos (variavelPublica e metodoPublico) e membros privados (variavelPrivada e metodoPrivado). Os métodos acessores getVariavelPrivada e setVariavelPrivada permitem o acesso controlado à variável privada variavelPrivada.
+```
+<pre><code>
 
-O código no main() demonstra como acessar membros públicos e privados dentro e fora da classe. Note que tentativas de acessar membros privados diretamente do código principal resultariam em erros de compilação, o que demonstra a encapsulação de membros privados.
+ No exemplo acima, a classe MinhaClasse possui membros públicos (variavelPublica e metodoPublico) e membros privados
+(variavelPrivada e metodoPrivado). Os métodos acessores getVariavelPrivada e setVariavelPrivada permitem o acesso
+controlado à variável privada variavelPrivada. O código no main() demonstra como acessar membros públicos e privados
+dentro e fora da classe. Note que tentativas de acessar membros privados diretamente do código principal resultariam
+em erros de compilação, o que demonstra a encapsulação de membros privados.
 
-'''
+ A utilização de membros públicos e privados permite controlar o acesso aos dados e funcionalidades de uma classe,
+promovendo o encapsulamento e a segurança do código. Os membros públicos fornecem uma interface para interação com a
+classe, enquanto os membros privados ocultam os detalhes de implementação, reduzindo o acoplamento e facilitando a
+manutenção do código. Esses pilares são fundamentais para a compreensão e implementação eficaz da POO e são amplamente
+utilizados em muitas linguagens de programação, como Java, C++, Python, entre outras.
 </code></pre>
