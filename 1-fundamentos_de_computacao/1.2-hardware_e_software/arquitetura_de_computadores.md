@@ -60,8 +60,9 @@
                   └───────────────────────┘
 </code></pre>
  **Ciclos de Execução da CPU**<br/>
-  Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.<br/>
- **Processos na CPU:**<br/>
+  Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.
+
+ **Processos na CPU:**
   - Novo: Um novo processo foi adicionado à fila de execuções, então a CPU deverá buscar os dados necessários para executar o processo;
   - Pronto: O processo encontra-se pronto para ser executado, nesse ponto ele pode ser enviado para a CPU pois os dados básicos para sua execução já foram selecionados;
   - Em Execução: O processo está na CPU sendo executado;
@@ -103,9 +104,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 
  1. **Sistemas de Numeração: Sistemas Numéricos Computacionais.**
   ### Bits e Bytes
+
   * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 ou 1.<br/>
-            Aberto Fechado<br/>
-  *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.<br/>
+<pre>       Aberto Fechado<pre><br/>
+  *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.
+
   * **Byte** = 8 x Bit - Um byte corresponde a 8 bits, mas um byte consegue armazenar um código que corresponde somente a um único número, letra ou símbolo. A combinação de cadeias de bits é que permite representar diferentes números agrupando-se na forma de bytes.<br/>
   Exemplos:
 <pre><code>
@@ -180,21 +183,21 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  - **Binário -> Octal**<br/>
   Separa-se os dígitos do número binário em grupos de 3 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 3 bits em octal e ao final une-se os resultados. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
-<pre><code>
-	┌─────────────────────────────────────────────────────┐  ┌────────────────────────────────────────────────────┐
-	|  1         1         0      1         0         1   |  |            1         1      1         1        1   |
-	├──────────────────────────┬──────────────────────────┤  ├──────────────────────────┬─────────────────────────┤
-	|  1         1         0   |  1         0         1   |  |  0         1         1   |  1         1        1   |
-	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤
-	|1 x 2²    1 x 2¹    0 x 2⁰|1 x 2²    0 x 2¹    1 x 2⁰|  |0 x 2²    1 x 2¹    1 x 2⁰|1 x 2²    1 x 2¹   1 x 2⁰|
-	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤
-	|  4    +    2    +    0   |  4    +    0    +    1   |  |  0    +    2    +    1   |   4    +    2   +   1   |
-	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤
-	|        6₁₀ = 6₈          |        5₁₀ = 5₈          |  |        3₁₀ = 3₈          |         7₁₀ = 7₈        |
-	├──────────────────────────┴──────────────────────────┤  ├──────────────────────────┴─────────────────────────┤
+<pre>
+	┌─────────────────────────────────────────────────────┐  ┌────────────────────────────────────────────────────┐<br/>
+	|  1         1         0      1         0         1   |  |            1         1      1         1        1   |<br/>
+	├──────────────────────────┬──────────────────────────┤  ├──────────────────────────┬─────────────────────────┤<br/>
+	|  1         1         0   |  1         0         1   |  |  0         1         1   |  1         1        1   |<br/>
+	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤<br/>
+	|1 x 2²    1 x 2¹    0 x 2⁰|1 x 2²    0 x 2¹    1 x 2⁰|  |0 x 2²    1 x 2¹    1 x 2⁰|1 x 2²    1 x 2¹   1 x 2⁰|<br/>
+	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤<br/>
+	|  4    +    2    +    0   |  4    +    0    +    1   |  |  0    +    2    +    1   |   4    +    2   +   1   |<br/>
+	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤<br/>
+	|        6₁₀ = 6₈          |        5₁₀ = 5₈          |  |        3₁₀ = 3₈          |         7₁₀ = 7₈        |<br/>
+	├──────────────────────────┴──────────────────────────┤  ├──────────────────────────┴─────────────────────────┤<br/>
 	|                          65                         |  |                          37                        |
 	└─────────────────────────────────────────────────────┘  └────────────────────────────────────────────────────┘
-</code></pre>
+</pre>
  - **Binário -> Hexadecimal**<br/>
   Separa-se o número binário em grupos de 4 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 4 bits em hexadecimal e ao final une-se os resultados em um só. Caso o número de dígitos do número binário não possua 4 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
