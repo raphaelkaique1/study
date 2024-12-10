@@ -12,7 +12,7 @@
  * A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
  * A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. A memória RAM, volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM, não volátil, armazena informações permanentes, como a BIOS.
  * Os dispositivos de entrada e saída permitem a interação do usuário com o computador. Através do teclado e do mouse, inserimos dados e comandos, enquanto o monitor e a impressora nos fornecem a saída das informações processadas. Os dispositivos de entrada e saída (I/O) interagem com o modelo, mas não fazem parte dos componentes principais.
-<pre><code>
+<pre>
   ┌──────────────────────────────────────────────────────────────────────────────┐
   │ SISTEMA CENTRAL                                                              │
   │ ┌────────────────────────────────────────────────────┐                       │
@@ -30,7 +30,7 @@
      │ UNIDADE DE ENTRADA │ │ UNIDADE DE SAÍDA │ │ UNIDADE DE MEMÓRIA AUXILIAR │
      └───────── I ────────┘ └──────── O ───────┘ └─────────── CACHE ───────────┘
   *DrMips: simulador de funcionamento da CPU
-</code></pre>
+</pre>
  A ULA realiza operações lógicas e aritméticas sobre um ou mais operandos, ou seja, realiza ações indicadas nas instruções, executando operações númericas (aritméticas) e não numéricas (lógicas), além da preparação de informações para desvio do programa. As operações da ULA são geralmente muito simples, funções mais complexas, exigidas pelas instruções da máquina são realizadas pela ativação sequencial das várias operações básicas disponíveis. Exemplos de operações realizadas pela ULA:
   - soma de dois operandos
   - negação de um operando
@@ -45,7 +45,7 @@
 
  **Entrada e Saída (I/O)**<br/>
   Dispositivos em que o usuário interage com a máquina inputando e manipulando dados para processamento e recebendo informação como resultado. Teclado e mouse são exemplos de dispositivos de entrada enquanto tela e impressora são exemplos de dispositivos de saída. Para que o computador possa processar as entradas e saídas existem os barramentos, que são circutos elétricos que carregam as energias através de pulsos elétricos equivalentes à cada informação.
-<pre><code>
+<pre>
   Barramentos para dispositivos de entrada e saída:
   ┌─────────────┐        BARRAMENTOS        ┌─────────────┐
   |             ├─────────────────┬─────────┤   MEMÓRIA   |
@@ -58,7 +58,7 @@
                   ┌───────────┴───────────┐
                   | ENTRADA E SAÍDA (I/O) |
                   └───────────────────────┘
-</code></pre>
+</pre>
  **Ciclos de Execução da CPU**<br/>
   Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.
 
@@ -68,7 +68,7 @@
   - Em Execução: O processo está na CPU sendo executado;
   - Em Espera: O processo executou alguma operação de Entrada (I) e Saída (O), ou depende de algum dado que deve ser fornecido por outro processo ou que não foi previamente carregado;
   - Terminado: O processo encerrou seu ciclo de execução.
-<pre><code>
+<pre>
     ┌──────┐                                   ┌───────────┐  |
     | NOVO |                     ┌──────6────> | TERMINADO |  |
     └───┬──┘           ┌─────────┴──┐          └───────────┘  |  1 - Aceito
@@ -94,7 +94,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
         | |             |                                  | ├─────────────┤
         | |             |                                  | |             |
         └─┴─────────────┘                                  └─┴─────────────┘
-</code></pre>
+</pre>
  De forma prática, podemos então imaginar o computador em 3 partes, sendo elas:
  1. **RAM**: Não guarda as informações fisicamente mas sim de forma local, ou seja, de forma virtual, o que significa que é preciso que haja energia no sistema para que ela possa manter a informação na memória, fazendo com que assim ela seja uma memória temporária.
  2. **HD**: Guarda informações de forma física, ou seja, nele é escrito a informação de forma persistente para que ela seja armazenada mesmo que o sistema não esteja energizado. A única forma de se perder uma informação neste tipo de armazenamento é sobrescrevendo a memória no seu endereço físico ou danificando/corrompendo o HD.
@@ -105,13 +105,12 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  1. **Sistemas de Numeração: Sistemas Numéricos Computacionais.**
   ### Bits e Bytes
 
-  * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 ou 1.<br/>
-<pre>       Aberto Fechado<pre><br/>
+  * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 (aberto) ou 1 (fechado).<br/>
   *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.
 
   * **Byte** = 8 x Bit - Um byte corresponde a 8 bits, mas um byte consegue armazenar um código que corresponde somente a um único número, letra ou símbolo. A combinação de cadeias de bits é que permite representar diferentes números agrupando-se na forma de bytes.<br/>
   Exemplos:
-<pre><code>
+<pre>
   ┌────────────┬────────────┐
   │    BYTE    │  DECIMAL   │
   ├────────────┼────────────┤
@@ -131,7 +130,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ├────────────┼────────────┤
   │  11001100  │     B      │
   └────────────┴────────────┘
-</code></pre>
+</pre>
  ### Grandezas de Armazenamento de Informação
 
  #### Número de Bits:
@@ -146,14 +145,14 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
     Exemplo: Se você tem 32 bits, o número de bytes é:<br/>
     32 / 8 = 4 bytes
 
-<pre><code>
+<pre>
       ESPAÇO      UNIDADE DE MEDIDA   NÚMERO DE CARACTERES
       8 Bits           1 BYTE                  1
     1.024 Bytes      1 KILOBYTE              1.024
   1.024 Kilobytes    1 MEGABYTE            1.048.576
   1.024 Megabytes    1 GIGABYTE          1.073.741.824
   1.024 Gigabytes    1 TERABYTE          1.099511628¹²
-</code></pre>
+</pre>
 
  ### Sistemas Numéricos
 
@@ -175,33 +174,33 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  - **Binário -> Decimal**<br/>
   Basta calcular a soma de cada um dos dígitos do número binário multiplicado por 2 (que é a sua base) elevado à posição colunar do número, que, da direita para a esquerda começa em 0.<br/>
   Exemplo:
-<pre><code>
+<pre>
     1          1         0          0          1
   1 x 2⁴     1 x 2³    0 x 2²     0 x 2¹     1 x 2⁰
     16    +    8    +    0     +    0     +    1    = 25
-</code></pre>
+</pre>
  - **Binário -> Octal**<br/>
   Separa-se os dígitos do número binário em grupos de 3 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 3 bits em octal e ao final une-se os resultados. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
 <pre>
-	┌─────────────────────────────────────────────────────┐  ┌────────────────────────────────────────────────────┐<br/>
-	|  1         1         0      1         0         1   |  |            1         1      1         1        1   |<br/>
-	├──────────────────────────┬──────────────────────────┤  ├──────────────────────────┬─────────────────────────┤<br/>
-	|  1         1         0   |  1         0         1   |  |  0         1         1   |  1         1        1   |<br/>
-	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤<br/>
-	|1 x 2²    1 x 2¹    0 x 2⁰|1 x 2²    0 x 2¹    1 x 2⁰|  |0 x 2²    1 x 2¹    1 x 2⁰|1 x 2²    1 x 2¹   1 x 2⁰|<br/>
-	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤<br/>
-	|  4    +    2    +    0   |  4    +    0    +    1   |  |  0    +    2    +    1   |   4    +    2   +   1   |<br/>
-	├──────────────────────────┼──────────────────────────┤  ├──────────────────────────┼─────────────────────────┤<br/>
-	|        6₁₀ = 6₈          |        5₁₀ = 5₈          |  |        3₁₀ = 3₈          |         7₁₀ = 7₈        |<br/>
-	├──────────────────────────┴──────────────────────────┤  ├──────────────────────────┴─────────────────────────┤<br/>
-	|                          65                         |  |                          37                        |
-	└─────────────────────────────────────────────────────┘  └────────────────────────────────────────────────────┘
+	┌─────────────────────────────────────────────────────────┐  ┌─────────────────────────────────────────────────────────┐
+	|    1         1         0       1         0         1    |  |              1         1       1         1         1    |
+	├────────────────────────────┬────────────────────────────┤  ├────────────────────────────┬────────────────────────────┤
+	|    1         1         0   |   1         0         1    |  |    0         1         1   |   1         1         1    |
+	├────────────────────────────┼────────────────────────────┤  ├────────────────────────────┼────────────────────────────┤
+	|1 x 2^2   1 x 2^1   0 x 2^0 |1 x 2^2   0 x 2^1   1 x 2^0 |  |0 x 2^2   1 x 2^1   1 x 2^0 |1 x 2^2   1 x 2^1   1 x 2^0 |
+	├────────────────────────────┼────────────────────────────┤  ├────────────────────────────┼────────────────────────────┤
+	|   4    +    2    +    0    |   4    +    0    +    1    |  |   0    +    2    +    1    |   4    +    2    +    1    |
+	├────────────────────────────┼────────────────────────────┤  ├────────────────────────────┼────────────────────────────┤
+	|         6_10 = 6_8         |       5_10 = 5_8           |  |        3_10 = 3_8          |         7_10 = 7_8         |
+	├────────────────────────────┴────────────────────────────┤  ├────────────────────────────┴────────────────────────────┤
+	|                           65                            |  |                            37                           |
+	└─────────────────────────────────────────────────────────┘  └─────────────────────────────────────────────────────────┘
 </pre>
  - **Binário -> Hexadecimal**<br/>
   Separa-se o número binário em grupos de 4 bits da direita para a esquerda, em seguida transforma-se cada grupo individual de 4 bits em hexadecimal e ao final une-se os resultados em um só. Caso o número de dígitos do número binário não possua 4 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
-<pre><code>
+<pre>
 	┌───────────────────────────────────────────────────────────────────────────────────┐
 	|   0         1         0         1              1         0         1         1    |
 	├─────────────────────────────────────────┬─────────────────────────────────────────┤
@@ -228,7 +227,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 	├─────────────────────────────────────────┴─────────────────────────────────────────┤
 	|                                         3D                                        |
 	└───────────────────────────────────────────────────────────────────────────────────┘
-</code></pre>
+</pre>
  #### Sistema Octal
   É um sistema de numeração de base 8, ou seja, recorre a 8 símbolos (0, 1, 2, 3, 4, 5, 6, 7) para representação de um determinado valor. Cada dígito no sistema octal representa uma potência de 8. É menos comum do que os sistemas binário e decimal, mas ainda é utilizado em algumas áreas, especialmente em computação e sistemas digitais.
 
@@ -236,15 +235,15 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  - **Octal -> Decimal**<br/>
   Obtida através da soma dos dígitos do número octal multiplicados pela base 8 elevada à posição colunar do dígito, começando em 0 da direita para a esquerda.<br/>
   Exemplo:
-<pre><code>
+<pre>
     3          3          1          |   4          5
   3 x 8²     3 x 8¹     1 x 8⁰       | 4 x 8¹     5 x 8⁰
    192    +   24     +    1    = 217 |   32         5    = 37
-</code></pre>
+</pre>
  - **Octal -> Binário**<br/>
   Decompõe-se o número octal diretamente em binários em grupos de 3 dígitos. Caso o número de dígitos do número binário não possua 3 colunas, completa-se os dígitos à esquerda com zeros (0).<br/>
   Exemplos:
-<pre><code>
+<pre>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐
   |           1           |           2           |           3           |
   ├───────────────────────┼───────────────────────┼───────────────────────┤
@@ -256,11 +255,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ├───────┬───────┬───────┼───────┬───────┬───────┼───────┬───────┬───────┤
   |   0   |   0   |   1   |   0   |   1   |   0   |   0   |   1   |   1   |
   └───────┴───────┴───────┴───────┴───────┴───────┴───────┴───────┴───────┘
-</code></pre>
+</pre>
  - **Octal -> Hexadecimal**<br/>
   Transforma-se primeiro o octal em binário e em seguida o binário em hexadecimal.<br/>
   Exemplo:
-<pre><code>
+<pre>
   ┌─────────────┬─────────────┬─────────────┐
   |    octal    >   binário   > hexadecimal |
   ├─────────────┼─────────────┼─────────────┤
@@ -290,21 +289,21 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ├─────────────────────────────────────────┴─────────────────────────────────────────┤
   |                                        CD                                         |
   └───────────────────────────────────────────────────────────────────────────────────┘
-</code></pre>
+</pre>
  #### Sistema Decimal
   O sistema decimal é o sistema mais utilizado pelos seres humanos, normalmente para indicar quantidades, e é constituído por 10 algarismos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9. No sistema decimal, cada algarismo tem um valor posicional, ou seja, cada algarismo tem um peso de acordo com a sua posição na presentação do valor.
-<pre><code>
+<pre>
   Peso  10² 10¹ 10⁰
          │   │   │
          1   3   5
         /    │    \
      1x10²  3x10¹ 5x10⁰ = 237
-</code></pre>
+</pre>
  **Conversões de Base Decimal**
  - **Decimal -> Binário**<br/>
   Dividir sucessivamente por 2 o número decimal e os quocientes que vão sendo obtidos, até que o quociente de uma das divisões seja 0. O resultado é a sequência de baixo para cima de todos os restos obtidos.<br/>
   Exemplo:
-<pre><code>
+<pre>
            25 |⎯2⎯
             1  12 |⎯2⎯
             |  0   6  |⎯2⎯
@@ -318,11 +317,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   | | └─────────────────┘   |   |
   | └───────────────────────┘   |
   └─────────────────────────────┘
-</code></pre>
+</pre>
  - **Decimal -> Octal**<br/>
   Divisões sucessivas por 8. O resulado é a sequência de baixo para cima de todos os restos obtidos.<br/>
   Exemplos:
-<pre><code>
+<pre>
       217 |⎯8⎯          |  37 |⎯8⎯
       1   27  |⎯8⎯      |   5   4 |⎯8⎯
       |    3    3 |⎯8⎯  |   ↓   4   0
@@ -333,11 +332,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ^ ^      |    |       |
   | └──────┘    |       |
   └─────────────┘       |
-</code></pre>
+</pre>
  - **Decimal -> Hexadecimal**<br/>
   Divisões sucessivas por 16. O resulado é a sequência de baixo para cima de todos os restos obtidos.<br/>
   Exemplos:
-<pre><code>
+<pre>
   223 |⎯16⎯        76 |⎯16⎯
     15   13 |⎯16⎯   12   4  |⎯16⎯
     |    13    0     ↓   4     0
@@ -347,7 +346,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   D F    |
   ^      |
   └──────┘
-</code></pre>
+</pre>
  #### Sistema Hexadecimal
   Muito utilizado na programação de microprocessadores, especialmente nos equipamentos de estudo e sistemas de desenvolvimento. Uitliza os símbolos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9 do sistema decimal e as letras A = 10, B = 11, C = 12, D = 13, E = 14 e F = 15. Esse sistema é frequentemente usado em programação para representar endereços de memória e valores de cores em HTML/CSS (como #FF5733, que representa um tom específico de laranja), é útil para representar grandes números binários de uma maneira mais compacta.
 
@@ -357,7 +356,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  - **Hexadecimal -> Decimal**<br/>
   Realizada através da soma dos dígitos hexadecimais multiplicados pela base 16 elevada à posição colunar contando da direita para a esquerda, começando em 0, de forma semelhante à conversão de binários em decimais.<br/>
   Exemplos:
-<pre><code>
+<pre>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐  ┌───────────────────────┬───────────────────────┐
   |           1           |           0           |           A           |  |           C           |           B           |
   ├───────────────────────┼───────────────────────┼───────────────────────┤  ├───────────────────────┼───────────────────────┤
@@ -365,11 +364,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ├───────────────────────┴───────────────────────┴───────────────────────┤  ├───────────────────────┴───────────────────────┤
   |          256          +           0           +        10       = 266 |  |          192          +        11       = 203 |
   └───────────────────────────────────────────────────────────────────────┘  └───────────────────────────────────────────────┘
-</code></pre>
+</pre>
  - **Hexadecimal -> Binário**<br/>
   Decompõe-se o número hexadecimal diretamente em binários de 4 dígitos. Sempre que o quociente da divisão for maior que 0, em binário ele representa 1.<br/>
   Exemplo:
-<pre><code>
+<pre>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐
   |           1           |           2           |           F           |
   ├───────────────────────┼───────────────────────┼───────────────────────┤
@@ -381,11 +380,11 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ├─────┬─────┬─────┬─────┼─────┬─────┬─────┬─────┼─────┬─────┬─────┬─────┤
   |  0  |  0  |  0  |  1  |  0  |  0  |  1  |  0  |  1  |  1  |  1  |  1  |
   └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
-</code></pre>
+</pre>
  - **Hexadecimal -> Octal**<br/>
   Transforma-se primeiro o hexadecimal em binário e em seguida o binário em octal.<br/>
   Exemplo:
-<pre><code>
+<pre>
   ┌───────────────────────┬───────────────────────┬───────────────────────┐
   |           1           |           2           |           F           |
   ├───────────────────────┼───────────────────────┼───────────────────────┤
@@ -410,7 +409,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ├──────────────────────────┴─────────────────────────┴─────────────────────────┤
   |                                       457                                    |
   └──────────────────────────────────────────────────────────────────────────────┘
-</code></pre>
+</pre>
 
  2. Tabela ASCII e Conversores.<br/>
 	A tabela ASCII (American Standard Code for Information Interchange - https://www.ascii-code.com/pt) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
