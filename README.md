@@ -62,7 +62,7 @@
   - Análise de complexidade.
 
 ### <a href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.2-hardware_e_software">1.2 Hardware e Software</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/arquitetura_de_computadores.txt">Arquitetura de Computadores</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/arquitetura_de_computadores.md">Arquitetura de Computadores</a>**
   - Componentes de hardware (CPU, memória, dispositivos de armazenamento).
   - Organização de sistemas computacionais.
   - Arquiteturas de processadores.
