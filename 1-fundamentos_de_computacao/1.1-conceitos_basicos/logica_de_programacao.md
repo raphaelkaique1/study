@@ -114,8 +114,8 @@ Compressão de Dados:
 
 **Classe**: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida em: "aquáticas", "terrestres" e "voadoras".
 
-*Como Detectar e Determinar Padrões?*
-**- Grau de Similaridades**
+*Como Detectar e Determinar Padrões?*<br/>
+**- Grau de Similaridades**<br/>
 **- Grupos Conhecidos e Grupos Desconhecidos**
 
 *Como o Computador Reconhece Padrões?*<br/>
@@ -168,9 +168,9 @@ de um determinado objeto                            mundo das ideias            
 
  Na lógica, é a operação intelectual que consiste em reunir numa classe geral, um conjunto de seres ou fenômenos similares.
 
-*Como Classificar os Dados?*
-**- Características**
-**- Pontos Essenciais**
+*Como Classificar os Dados?*<br/>
+**- Características**<br/>
+**- Pontos Essenciais**<br/>
 **- Generalizar x Detalhar**
 <pre>
 Representação dos Dados:
@@ -405,10 +405,10 @@ int main() {
 > variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
 
 **Regras**:<br/>
-*- Atribuição de 1 ou mais caracteres*
-*- 1º caractere do nome deve ser uma letra*
-*- O `-` e `_` são os únicos carateres especiais permitidos*
-*- Proibido o uso de palavras reservadas*
+- *Atribuição de 1 ou mais caracteres*
+- *1º caractere do nome deve ser uma letra*
+- *O `-` e `_` são os únicos carateres especiais permitidos*
+- *Proibido o uso de palavras reservadas*
 
 **TIPAGEM DE COMPORTAMENTO**
 
@@ -1780,7 +1780,7 @@ print(even_numbers)
  Atualmente o paradigma declarativo tem ganho destaque através do uso de um outro paradigma que deriva dele, o funcional, o qual dá mais poder para desenvolvedores, inclusive evitando a inadequada mistura de declarativo e imperativo.<br/>
  Como vimos, a programação declarativa é um paradigma de programação no qual é importante especificar o problema e o resultado esperado de sua solução. Ou seja, em contraste com o paradigma imperativo, onde é necessário responder à pergunta "COMO FAZER ISSO?", você precisa fazer as perguntas "O QUE PRECISA SER FEITO?" e "QUAL SERÁ O RESULTADO DO TRABALHO?". Portanto, em vez de fornecer instruções passo a passo, você diz ao sistema o que precisa no resultado e deixa que ele encontre uma solução.
 
-**DERIVAÇÕES PD**
+**DERIVAÇÕES PD**<br/>
  A programação declarativa é dividida em 3 grandes tipos de paradigmas:
  1. *FUNCIONAL*
  2. *LÓGICO*
@@ -2459,7 +2459,7 @@ print("Quantidade ótima de milho (hectares): ", value(modelo.x['Milho']))
  A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte nativo para programação reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos. Algumas das linguagens comumente usadas que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#, Python, Elm (linguagem de programação funcional pura projetada para criar interfaces de usuário reativas na web. Ele segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update) e enfatiza a imutabilidade e a ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação, incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando observáveis (observables) e operadores (operators) para manipular fluxos de dados).
 
 **PRINCIPAIS ASPECTOS**
- *- Fluxos de Dados (Streams)*: São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
+ - *Fluxos de Dados (Streams)*: São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
  - *Reatividade*: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente sua saída conforme novos eventos ocorrem.
  - *Assincronicidade*: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída antes de prosseguir.
  - *Composição Declarativa*: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
@@ -2884,7 +2884,7 @@ int main() {
 ```
 
 **PILARES**<br/>
- Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código é organizado e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO são:
+ Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código é organizado e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO são:<br/>
  **1. ABSTRAÇÃO**: é o processo de identificar os aspectos essenciais de um objeto e ignorar os detalhes irrelevantes. Em POO, isso é alcançado através da criação de classes, que representam entidades ou conceitos do mundo real, e da definição de métodos que descrevem seu comportamento. Os detalhes de implementação são encapsulados dentro das classes, permitindo que os usuários das classes usem  apenas a interface pública, sem precisar entender como ela funciona internamente. Imagine que queremos representar um carro em um programa. Podemos criar uma classe `Carro` que encapsula as características e comportamentos de um carro.
 ```C++
  #include <iostream>
