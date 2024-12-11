@@ -1,6 +1,6 @@
 # Algoritmos
 
- 1. **Conceitos**: Compreender o que é um algoritmo e suas aplicações.
+ 1. **Conceitos**<br/>
  Algoritmo é uma série ordenada de passos não ambíguos executáveis; É uma sequência de instruções/comandos realizados de maneira sistemática com o objetivo de resolver um problema ou executar uma tarefa. São como uma receita de bolo:<br/>
  *uma sequência de ações que devem ser executadas até que o objetivo final (o bolo pronto) seja atingido.*
 <pre>
@@ -32,24 +32,25 @@ Exemplo de algoritmo: troca de lâmpada versão 1  |  Ex. algoritmo: cálculo de
                                                  |     fimse;
                                                  |   fim;
 </pre>
- **Como representar os algoritmos?**
- Os algoritmos podem ser representados de 3 maneiras básicas: **narração descritiva**, **fluxograma** e **pseudocódigo**.
- Utilizando essas representações, procura-se aguçar a lógica e inibir possíveis erros, antes da programação em si.
- Quando codificamos em uma linguagem de programação, o algotimo "está por trás".
+ **Como representar os algoritmos?**<br/>
+ Os algoritmos podem ser representados de 3 maneiras básicas: **narração descritiva**, **fluxograma** e **pseudocódigo**.<br/>
+ Utilizando essas representações, procura-se aguçar a lógica e inibir possíveis erros, antes da programação em si.<br/>
+ Quando codificamos em uma linguagem de programação, o algotimo "está por trás".<br/>
 
-- **Narração Descritiva**
+- **Narração Descritiva**<br/>
   A forma mais simples e direta de se representar um algoritmo; Consiste em escrever um texto simples em forma de uma descição narrativa do que deve ser realizado para que o problema proposto seja solucionado. É pouco utilizada, pois, por ser aberta a várias interpretações é bastante suscetível a erros:
     1. Pare o carro (...desligo o motor?)
     2. Abra a porta (...qual?)
     3. Retire o estepe (...onde está o estepe?)
-  Um exemplo de narração descritiva: criar uma rotina para receber login e senha do usuário em um sistema:
+  
+  Exemplo de narração descritiva: criar uma rotina para receber login e senha do usuário em um sistema:
     1. Apresentar a tela de login;
     2. Usuário digita o login;
     3. Usuário digita a senha;
-    4. Se login e senha corretos, usuário acessa o sistema.
+    4. Se login e senha corretos, usuário acessa o sistema.<br/>
   *Aqui o nível de abstração é bastante alto, pois várias situações foram deixadas de lado.*
 
-- **Fluxograma**
+- **Fluxograma**<br/>
   Utiliza-se de gráficos para representar os passos que devem ser executados pelo algoritmo. Hoje são usados para representações específicas ou para modelagens. O problema desta representação é ocultar a estrutura de dados e pode se tornar muito trabalhosa para algoritmos complexos.
 <pre>
         ╭────────╮
@@ -71,7 +72,7 @@ Exemplo de algoritmo: troca de lâmpada versão 1  |  Ex. algoritmo: cálculo de
       | "REPROVADO" ├─> | FIM |
       └~~~~~~~~~~~~~┘   ╰─────╯
 </pre>
-- **Pseudocódigo**
+- **Pseudocódigo**<br/>
   O pseudocódigo utiliza formatação e regras que se assemelham a da maioria das linguagens, mas se utiliza de linguagem natural como na narrativa descritiva, poém dentro de uma norma de escrita próxima a das linguagens de programação, sem realmente ser uma linguagem de programação.
 <pre>
 início
@@ -82,10 +83,10 @@ início
 fim
 </pre>
 
- 2. **Estruturas**: Estruturas para repetição e controle de fluxo.
+ 2. **Estruturas**: Estruturas para repetição e controle de fluxo.<br/>
   Em um algoritmo ou mesmo programa de computador, são várias as estruturas que utilizamos para controlar o fluxo de execução dos comandos e funções. Essas estruturas determinam o que, como e quando será executado.
 
-- **IF: Estrutura de Seleção: SE () ENTÃO {} SENÃO**
+- **IF: Estrutura de Seleção: SE () ENTÃO {} SENÃO**<br/>
   A condição **"se-(então)(-senão)"** é uma estrutura de seleção comum em diversas linguagens de programação. Ela usa de expressões booleanas (originárias do binário - do tipo lógica verdadeiro/falso) para desviar a execução do código para um outro determinado fluxo, dependendo do valor avaliado ser verdadeiro ou falso.
 <pre>
    ↓                    |
@@ -98,7 +99,7 @@ fim
    └──> ◯ <─┘           |
         ↓               |
 </pre>
-- **FOR: Estrutura com Número de Repetições Pré-Definido: PARA**
+- **FOR: Estrutura com Número de Repetições Pré-Definido: PARA**<br/>
   Loop de repetição que realiza a mesma tarefa até atingir o número de vezes determinado.
 <pre>
 PARA J <- valor inicial ATÉ valor final FAÇA  |
@@ -107,7 +108,7 @@ PARA J <- valor inicial ATÉ valor final FAÇA  |
     comando2;                                 |  FIM-PARA
   FIM                                         |
 </pre>
-- **WHILE: Estrutura de Repetição Booleana: ENQUANTO () FAÇA {}**
+- **WHILE: Estrutura de Repetição Booleana: ENQUANTO () FAÇA {}**<br/>
   Esta estrutura repete uma sequência de comandos ENQUANTO uma determinada condição de uma expressão lógica não for satisfeita. A condição dessa expressão lógica é avaliada antes de cada repetição do laço, quando seu resultado for VERDADEIRO, &lt;sequência-de-comandos&gt; é executada. Quando a condição não for mais satisfeita, o fluxo desvia do laço de execução.
 <pre>
         ↓    condição    |  Algoritmo "Números de 1 a 10 (com enquanto...faça)"
@@ -120,7 +121,7 @@ PARA J <- valor inicial ATÉ valor final FAÇA  |
 └─┤ comando(s) |      |  |  fimenquanto
   └────────────┘      ↓  |  fimalgoritmo
 </pre>
-- **DO: Estrutura de Repetição Booleana: REPITA {} ATÉ ()**
+- **DO: Estrutura de Repetição Booleana: REPITA {} ATÉ ()**<br/>
   A estrutura de repetição REPITA-ATÉ é utilizada quando um conjunto de comandos deve ser executado pelo menos 1 vez e então repetidamente até que uma condição de uma expressão lógica seja verdadeira. Aqui a condição é testada ao final do laço.
 <pre>
            ↓             |  Algoritmo "Números de 1 a 10 (com enquanto...faça)"
@@ -133,15 +134,15 @@ PARA J <- valor inicial ATÉ valor final FAÇA  |
 condição╲dição╱ condição |  ate(num > 10)
 falsa      ↓ verdadeira  |  fimalgoritmo
 </pre>
- 3. **Eficiência de algoritmos: resolução de problemas**
+ 3. **Eficiência de algoritmos: resolução de problemas**<br/>
 A análise de algoritmo fornece uma medida objetiva de desempenho proporcional ao tempo de execução do algoritmo. As vantagens são:
 - facilidade na compreensão, codificação e depuração;
 - eficiência na utilização dos recursos do computador e rapidez, através de seu tempo de execução.
 
-  * **Métodos de Busca e Ordenação**
+  * **Métodos de Busca e Ordenação**<br/>
   Seguindo um pensamento objetivo, grande parte do que se faz em termos de computação é busca de elementos em uma lista ou ordenação de elementos em uma lista. Métodos de Busca e Ordenação são a essência de muitos problemas e soluções em computação.
 
-  - **Busca Sequencial (ou Linear)**
+  - **Busca Sequencial (ou Linear)**<br/>
   O método de busca linear faz com que o elemento em cada posição da lista seja comparado ao elemento procurado. A busca sequencial é um algoritmo pouco eficiente para encontrar um item em uma lista grande de elementos, pois se o item estiver entre os últimos, todos os elementos serão visitados, no pior dos casos, aguardaremos muito tempo para se descobrir que o item não está presente na lista.
 <pre>
         ₀    ₁   ₂    ₃    ₄    ₅    ₆
@@ -168,7 +169,7 @@ i = 3 | 23 | 4 | 67 | ╺𝟴 | 54 | 90 | 21 | Valor diferente: continua a busca
 i = 4 | 23 | 4 | 67 | -8 | 𝟱𝟰 | 90 | 21 | Valor igual: termina a busca.
       ───────────────────────────────────
 </pre>
-  - **Busca Binária**
+  - **Busca Binária**<br/>
   A busca binária é um eficiente algoritmo para encontrar um item em uma LISTA ORDENADA de itens. Seu modo de busca funciona dividindo repetidamente pela metade a porção da lista que deve conter o item, até reduzir as localizações possíveis a apenas uma. O valor a ser buscado é comparado com o valor do meio da lista. Se o valor a ser procurado é maior do que o valor do meio da lista, descartamos a metade inferior da lista, pois já sabemos que ele não estará lá com certeza. Concentramos os esforços então na lista que sobrou. Repetimos o processo analisando o elemento que está no meio da lista. Assim, de forma repetida e rápida os elementos vão sendo descartados, chegando cada vez mais perto da resposta, se o número está ou não na lista. Repare que quando consultamos um dicionário, em geral fazemos uma espécie de busca binária. Abaixo o número a ser localizado é o 4 na lista V.
 <pre>
          ₀    ₁   ₂    ₃   ₄    ₅    ₆    ₇    ₈    ₉
