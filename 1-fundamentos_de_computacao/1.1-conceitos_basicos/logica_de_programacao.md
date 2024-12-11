@@ -68,9 +68,9 @@ DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
  Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
 
 **RECONHECIMENTO DE PADRÕES:**<br/>
-- Modelo base
-- Estrutura variante
-- Repetição
+- *Modelo base*
+- *Estrutura variante*
+- *Repetição*
 
  **Roteiro: um modelo de referência que determina uma estrutura invariante e que pode determinar repetição. A partir de um modelo podemos determinar objetos diferentes em que uma estrutura se repete.*
 
@@ -79,7 +79,7 @@ DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
 >Padrão     \ - Pé
 >Referência / - Assento
 ></pre>
-* *Como Reconhecer Padrões Dentro do Contexto?*<br/>
+*Como Reconhecer Padrões Dentro do Contexto?*<br/>
  Através das similaridades e diferenças.
 
 >Exemplo: Fotos de redes sociais (técnica de compressão e armazenamento):
@@ -97,7 +97,7 @@ Compressão de Dados:
 [/] = 2
 [*] = 3
 </pre>
-* *Por Que Determinar Padrões?*<br/>
+*Por Que Determinar Padrões?*<br/>
  Generalizar com objetivo de obter resolução para problemas diferentes.
 <pre>
  _______________________________________________________________
@@ -115,8 +115,8 @@ Compressão de Dados:
 **Classe**: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida em: "aquáticas", "terrestres" e "voadoras".
 
 *Como Detectar e Determinar Padrões?*
-- Grau de Similaridades
-- Grupos Conhecidos e Grupos Desconhecidos
+**- Grau de Similaridades**
+**- Grupos Conhecidos e Grupos Desconhecidos**
 
 *Como o Computador Reconhece Padrões?*<br/>
 **Por comparação**: Se ele não possui a informação não será capaz de realizar a comparação.
@@ -169,9 +169,9 @@ de um determinado objeto                            mundo das ideias            
  Na lógica, é a operação intelectual que consiste em reunir numa classe geral, um conjunto de seres ou fenômenos similares.
 
 *Como Classificar os Dados?*
-- Características
-- Pontos Essenciais
-- Generalizar x Detalhar
+**- Características**
+**- Pontos Essenciais**
+**- Generalizar x Detalhar**
 <pre>
 Representação dos Dados:
 
@@ -224,10 +224,10 @@ Processo Contínuo:
                   \   Abstração  /
 </pre>
 Aplicações:
-1. CS + Math: Desenvolvimento e Abstração, Reconhecimento de Padrões
-2. CS + Sci/Eng: Análise de Dados e Design de Soluções, Deficinação e Uso de Abstrações, Testes e Refinamentos de Algoritmos
-3. Math + Sci/Eng: Desenvolvimento e Abstração, Reconhecimento de Padrões
-4. CS + Math + Sci/Eng: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
+1. *CS + Math*: Desenvolvimento e Abstração, Reconhecimento de Padrões
+2. *CS + Sci/Eng*: Análise de Dados e Design de Soluções, Deficinação e Uso de Abstrações, Testes e Refinamentos de Algoritmos
+3. *Math + Sci/Eng*: Desenvolvimento e Abstração, Reconhecimento de Padrões
+4. *CS + Math + Sci/Eng*: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
 
 **Raciocínio Lógico**: Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a conclusão ou determinar a resolução de um problema.
 <pre>
@@ -337,13 +337,13 @@ Metas ❮  - Decomposição do problema
 ### FUNDAMENTOS DE ALGORITMOS
 
 **Primeiros passos para começar a programar:**
-1. Tipologia de dados e variáveis
-2. Instruções primitivas
-3. Estruturas condicionais e operadores
-4. Estruturas de repetição
-5. Vetores e matrizes
-6. Funções
-7. Instruções de entrada e saída
+1. *Tipologia de dados e variáveis*
+2. *Instruções primitivas*
+3. *Estruturas condicionais e operadores*
+4. *Estruturas de repetição*
+5. *Vetores e matrizes*
+6. *Funções*
+7. *Instruções de entrada e saída*
 
 **TIPOLOGIA DE DADOS E VARIÁVEIS**
 <pre>
@@ -404,11 +404,11 @@ int main() {
 **DECLARAÇÃO**
 > variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
 
-Regras:<br/>
-- Atribuição de 1 ou mais caracteres
-- 1º caractere do nome deve ser uma letra
-- O `-` e `_` são os únicos carateres especiais permitidos
-- Proibido o uso de palavras reservadas
+**Regras**:<br/>
+*- Atribuição de 1 ou mais caracteres*
+*- 1º caractere do nome deve ser uma letra*
+*- O `-` e `_` são os únicos carateres especiais permitidos*
+*- Proibido o uso de palavras reservadas*
 
 **TIPAGEM DE COMPORTAMENTO**
 
@@ -416,11 +416,11 @@ Regras:<br/>
 
  Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a RESERVA DE MEMÓRIA. A reserva de memória se dá através da declaração de variáveis, podemos fazer a analogia da memória do computador com um armário contendo gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta. Sabemos que os espaços dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um "apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
 
-Características de variáveis:
-- Mutáveis
-- Inconstantes
-- Incertas
-- Instáveis
+**Características de variáveis:**
+- *Mutáveis*
+- *Inconstantes*
+- *Incertas*
+- *Instáveis*
 
  Uma variável é uma estrutura de armazenamento de dado. Podendo assumir qualquer um dos valores de um determinado conjunto de valores, contudo, ela está restrita ao seu tipo, ou seja, ela só pode assumir um tipo de valor por vez.
 <pre>
@@ -693,8 +693,8 @@ programa{
 </pre>
 
 * **ESTRUTURAS CONDICIONAIS E SEUS OPERADORES**
-  - **CONDIÇÃO** = ESTADO DE UM OBJETO
-  - **CONDICIONAL** = EXPRESSA UMA CONDIÇÃO
+  - *CONDIÇÃO* = ESTADO DE UM OBJETO
+  - *CONDICIONAL* = EXPRESSA UMA CONDIÇÃO
 <pre>
 Exemplo de estrutura condicional:
 (START)  ➝  /a, b/  ➝  [a == b]
@@ -1084,9 +1084,9 @@ programa{
 </pre>
 
 * **DESENVOLVIMENTO DE PROGRAMAS**
-  - Sequência de passos com o objetivo definido
-  - Execução de tarefas específicas
-  - Conjunto de operações que resultam em uma sucessão de finitas ações
+  - *Sequência de passos com o objetivo definido*
+  - *Execução de tarefas específicas*
+  - *Conjunto de operações que resultam em uma sucessão de finitas ações*
   - **feature = funcionalidades do programa*
 <pre>
 -> Análise
@@ -1531,7 +1531,7 @@ int main() {
 
 **SINTAXE E SEMÂNTICA**<br/>
  As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, são chamadas essas regras de: sintaxe e semântica, (assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever palavras corretamente em uma língua, enquanto a semântica trata de como usar essas palavras para formar frases que fazem sentido.
-- SINTAXE: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação. É como a "gramática" de uma linguagem. Exemplo em Python:
+- *SINTAXE*: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação. É como a "gramática" de uma linguagem. Exemplo em Python:
 
 ```Py
   print("Hello world!")
@@ -1541,7 +1541,7 @@ int main() {
   print "Hello world!"
 ```
  Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print"), iremos receber uma mensagem de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os mais comuns erros de sintaxe são relacionados à escrita: a falta de símbolos obrigatórios (como parênteses, ponto-e-vírgula, vírgulas, endentação e etc), palavras reservadas escritas incorretamente, estruturas de código mal formatadas, entre outros.
-- SEMÂNTICA: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código, é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
+- *SEMÂNTICA*: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código, é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
 ```Py
   resultado = 10 / 2 # divisão válida
 ```
@@ -1563,23 +1563,23 @@ resultado = 10 / 0 # divisão inválida
 
 **SISTEMAS DE TIPOS**<br/>
  O sistema de tipos define como diferentes tipos de dados são representados e como podem ser combinados. Ele inclui:
- - Definição de Tipos: Como os tipos de dados são declarados e definidos (por exemplo, inteiros, strings, listas).
- - Verificação de Tipos: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas com tipos compatíveis.
- - Conversão de Tipos: Como e quando os tipos podem ser convertidos entre si (conversões implícitas ou explícitas).
+ - *Definição de Tipos*: Como os tipos de dados são declarados e definidos (por exemplo, inteiros, strings, listas).
+ - *Verificação de Tipos*: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas com tipos compatíveis.
+ - *Conversão de Tipos*: Como e quando os tipos podem ser convertidos entre si (conversões implícitas ou explícitas).
 
  **CLASSIFICAÇÕES DOS SISTEMAS DE TIPOS**<br/>
  A estrutura de tipos pode ser classificada de várias maneiras, incluindo:
- - Tipagem Fraca: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a ter comportamentos inesperados devido a conversões automáticas.
- - Tipagem Forte: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar erros de tipo.
- - Tipagem Dinâmica: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade, mas pode resultar em erros de tipo que só são detectados quando o código é executado.
- - Tipagem Estática: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a execução. Isso ajuda a detectar erros de tipo mais cedo, geralmente durante a compilação.
+ - *Tipagem Fraca*: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a ter comportamentos inesperados devido a conversões automáticas.
+ - *Tipagem Forte*: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar erros de tipo.
+ - *Tipagem Dinâmica*: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade, mas pode resultar em erros de tipo que só são detectados quando o código é executado.
+ - *Tipagem Estática*: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a execução. Isso ajuda a detectar erros de tipo mais cedo, geralmente durante a compilação.
 
  **ESTRUTURAS DE TIPOS ESPECÍFICAS**<br/>
  Além da tipagem geral, existem estruturas e conceitos específicos associados a tipos:
- - Tipos Primitivos: Tipos básicos fornecidos pela linguagem, como inteiros, caracteres e booleanos.
- - Tipos Compostos: Tipos formados por combinação de tipos primitivos, como arrays, listas, ou structs.
- - Tipos Abstratos: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces em linguagens orientadas a objetos.
- - Polimorfismo: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme, muitas vezes implementada através de generics ou templates.
+ - *Tipos Primitivos*: Tipos básicos fornecidos pela linguagem, como inteiros, caracteres e booleanos.
+ - *Tipos Compostos*: Tipos formados por combinação de tipos primitivos, como arrays, listas, ou structs.
+ - *Tipos Abstratos*: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces em linguagens orientadas a objetos.
+ - *Polimorfismo*: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme, muitas vezes implementada através de generics ou templates.
 
  **GRAU DE ABSTRAÇÃO**<br/>
  Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
@@ -1638,9 +1638,9 @@ __________                  | __________     __________     __________     _____
 </pre>
 **ANÁLISES DE CÓDIGO**<br/>
 Na fase em que o código fonte está sendo compilado, são feitos 3 tipos de análises:
-1. Lexical analyzer
-2. Syntax analyzer
-3. Semantic analyzer
+1. *Lexical analyzer*
+2. *Syntax analyzer*
+3. *Semantic analyzer*
 
 **LEXICAL ANALYZER**
 
@@ -2067,16 +2067,16 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 
 **DERIVAÇÕES PI**<br/>
  A programação imperativa é dividida em 4 grandes categorias:
- 1. ESTRUTURADO
- 2. PROCEDURAL
- 3. COMPUTAÇÃO PARALELA
- 4. PROGRAMAÇÃO ORIENTADA A OBJETOS
+ 1. *ESTRUTURADO*
+ 2. *PROCEDURAL*
+ 3. *COMPUTAÇÃO PARALELA*
+ 4. *PROGRAMAÇÃO ORIENTADA A OBJETOS*
 
 **ESTRUTURADO**<br/>
  Simplificadamente, este paradigma é a construção de uma estrutura de blocos aninhados. O paradigma estruturado determina que as instruções passadas ao computador podem ser formadas por 3 estruturas, sendo:
- 1. SEQUÊNCIA: as instruções são codificadas na sequência a serem executadas.
- 2. CONDIÇÃO: um bloco de código só é executado se uma condição for verdadeira (`if`-`else`, `switch case`).
- 3. REPETIÇÃO: um trecho de código pode ser executado repetidas vezes (`for`, `while`, recursividade).
+ 1. *SEQUÊNCIA*: as instruções são codificadas na sequência a serem executadas.
+ 2. *CONDIÇÃO*: um bloco de código só é executado se uma condição for verdadeira (`if`-`else`, `switch case`).
+ 3. *REPETIÇÃO*: um trecho de código pode ser executado repetidas vezes (`for`, `while`, recursividade).
 
  Vamos ao exemplo da necessidade de somar números pares de um determinado intervalo e apresentar o resultado. A programação estruturada permite maior dinamismo ao software, desta forma é possível coletar os dados e não ficar preso a um conjunto estático.
 
@@ -2166,9 +2166,9 @@ print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
 
 **PRINCÍPIOS**<br/>
  Portanto, as declarações básicas da programação lógica são as seguintes:
- - FATOS: são afirmações fundamentais sobre o domínio do problema, como "Alan Turing é um homem".
- - REGRAS: permitem fazer inferências sobre os fatos do domínio ("Todos os homens são mortais.").
- - CONSULTAS: são questões sobre esse domínio ("Alan Turing é mortal?").
+ - *FATOS*: são afirmações fundamentais sobre o domínio do problema, como "Alan Turing é um homem".
+ - *REGRAS*: permitem fazer inferências sobre os fatos do domínio ("Todos os homens são mortais.").
+ - *CONSULTAS*: são questões sobre esse domínio ("Alan Turing é mortal?").
 
  Em geral, a tarefa aqui é encontrar a resposta para a consulta com base em fatos e regras. As principais famílias de linguagens de programação lógica incluem QLISP, Mercury, Prolog, Answer Set Programming (ASP) e Datalog. São utilizadas na solução de problemas que envolvem inteligência artificial, criação de programas especializados e comprovação de teoremas.<br/>
  Para exemplificar bem seu uso, podemos imaginar a tentativa de prova de um dado teorema, na qual são explicitadas algumas premissas e, sendo elas verdadeiras, a conclusão de tal teorema torna-se verdade também.<br/>
@@ -2246,13 +2246,13 @@ print("Lucro Total:", problem.objective.value())
  A lógica combinatória é amplamente aplicada em várias áreas, incluindo matemática discreta, teoria dos grafos, ciência da computação, criptografia, teoria da probabilidade e muito mais. Alguns tópicos comuns abordados na lógica combinatória incluem os conceitos abaixo.
 
 - **Principais conceitos da lógica combinatória:**
- 1. Permutações: Arranjos ordenados de elementos, onde a ordem dos elementos é importante. Na programação matemática, permutações podem  ser usadas para representar arranjos de variáveis ou decisões em um modelo.
- 2. Combinações: Arranjos não ordenados de elementos, onde apenas os elementos selecionados importam, não a ordem em que são selecionados. Na programação matemática, combinações podem ser usadas para representar escolhas de subconjuntos de variáveis ou recursos.
- 3. Princípio da multiplicação e princípio da adição: Princípios fundamentais usados para contar o número de maneiras de realizar uma série de eventos. Na programação matemática, esses princípios podem ser aplicados para calcular o número total de soluções possíveis para um problema.
- 4. Princípio da inclusão-exclusão: Um método para contar elementos que estão em diferentes conjuntos ou categorias, levando em consideração a sobreposição entre eles.
- 5. Teorema do binômio: Uma fórmula para expandir expressões de binômios e calcular coeficientes binomiais.
- 6. Teoria dos grafos: Uma área da matemática que lida com a representação e análise de relações entre objetos usando diagramas conhecidos como grafos.
- 7. Problemas de contagem: Uma variedade de problemas que envolvem contar o número de soluções possíveis para uma determinada situação, muitas vezes usando técnicas de permutação, combinação e princípios de contagem. Esses problemas são comuns na formulação e resolução de problemas de programação matemática.
+ 1. *Permutações*: Arranjos ordenados de elementos, onde a ordem dos elementos é importante. Na programação matemática, permutações podem  ser usadas para representar arranjos de variáveis ou decisões em um modelo.
+ 2. *Combinações*: Arranjos não ordenados de elementos, onde apenas os elementos selecionados importam, não a ordem em que são selecionados. Na programação matemática, combinações podem ser usadas para representar escolhas de subconjuntos de variáveis ou recursos.
+ 3. *Princípio da multiplicação/adição*: Princípios fundamentais usados para contar o número de maneiras de realizar uma série de eventos. Na programação matemática, esses princípios podem ser aplicados para calcular o número total de soluções possíveis para um problema.
+ 4. *Princípio da inclusão/exclusão*: Um método para contar elementos que estão em diferentes conjuntos ou categorias, levando em consideração a sobreposição entre eles.
+ 5. *Teorema do binômio*: Uma fórmula para expandir expressões de binômios e calcular coeficientes binomiais.
+ 6. *Teoria dos grafos*: Uma área da matemática que lida com a representação e análise de relações entre objetos usando diagramas conhecidos como grafos.
+ 7. *Problemas de contagem*: Uma variedade de problemas que envolvem contar o número de soluções possíveis para uma determinada situação, muitas vezes usando técnicas de permutação, combinação e princípios de contagem. Esses problemas são comuns na formulação e resolução de problemas de programação matemática.
  
  Em resumo, o paradigma de programação matemática usa conceitos e técnicas da lógica matemática e da lógica combinatória para formular e resolver problemas usando modelos matemáticos precisos e algoritmos de otimização eficientes.
 
@@ -2459,10 +2459,10 @@ print("Quantidade ótima de milho (hectares): ", value(modelo.x['Milho']))
  A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte nativo para programação reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos. Algumas das linguagens comumente usadas que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#, Python, Elm (linguagem de programação funcional pura projetada para criar interfaces de usuário reativas na web. Ele segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update) e enfatiza a imutabilidade e a ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação, incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando observáveis (observables) e operadores (operators) para manipular fluxos de dados).
 
 **PRINCIPAIS ASPECTOS**
- - Fluxos de Dados (Streams): São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
- - Reatividade: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente sua saída conforme novos eventos ocorrem.
- - Assincronicidade: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída antes de prosseguir.
- - Composição Declarativa: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
+ *- Fluxos de Dados (Streams)*: São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
+ - *Reatividade*: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente sua saída conforme novos eventos ocorrem.
+ - *Assincronicidade*: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída antes de prosseguir.
+ - *Composição Declarativa*: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
 
  Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados. Neste aplicativo, os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem observar esses fluxos e reagir a eles, atualizando a interface do usuário sempre que novas informações estiverem
 disponíveis.<br/>
@@ -2540,15 +2540,15 @@ int main() {
  3. Rust: Rust é uma linguagem de programação de sistema que oferece segurança de memória e concorrência sem necessidade de coleta de lixo. Ela possui um sistema de tipo exclusivo chamado "ownership" que permite a paralelização segura de código.
  4. Go: Go é uma linguagem de programação desenvolvida pelo Google, projetada para facilitar a programação concorrente e paralela. Ela possui primitivas de concorrência incorporadas, como goroutines e canais, que facilitam a escrita de código paralelo.
  5. CUDA: Embora não seja uma linguagem de programação convencional, CUDA (Compute Unified Device Architecture) é uma arquitetura de computação paralela desenvolvida pela NVIDIA. Ela permite que programadores escrevam código em C/C++ para ser executado em GPUs NVIDIA, aproveitando o poder de processamento paralelo das GPUs.
- 1. MATLAB: MATLAB é uma linguagem de programação amplamente utilizada em computação numérica e engenharia. Ela oferece suporte a paralelismo por meio do MATLAB Parallel Computing Toolbox, que permite a execução de código MATLAB em paralelo em clusters de computadores e em múltiplos núcleos de CPU.
- 2. Julia: Julia é uma linguagem de programação de alto desempenho para computação técnica e científica. Ela é projetada para ser rápida e eficiente, com suporte integrado para computação paralela por meio de primitivas de concorrência e pacotes como Threads.jl e Distributed.jl.
- 3. OpenMP: OpenMP é uma API de programação de memória compartilhada para C, C++ e Fortran. Ela permite a criação de códigos paralelos por meio de diretivas de compilador, que são interpretadas por compiladores que suportam OpenMP para gerar código paralelo.
- 4. MPI (Message Passing Interface): MPI é uma especificação de comunicação de dados em sistemas paralelos e distribuídos. Embora não seja uma linguagem de programação por si só, MPI é comumente usada com linguagens como C, C++, Fortran e Python para criar aplicativos paralelos e distribuídos.
- 5. Haskell: Haskell é uma linguagem de programação funcional pura que oferece suporte à computação paralela por meio de primitivas de concorrência e bibliotecas como Control.Parallel e parMap.
- 6. Scala: Scala é uma linguagem de programação multiparadigma que é executada na JVM (Java Virtual Machine). Ela oferece suporte à computação paralela por meio de construções como Futures e Promises, bem como pela biblioteca Akka, que fornece um modelo de ator para concorrência.
- 7. Fortran: Fortran é uma linguagem de programação amplamente utilizada em computação científica e de engenharia. Ela oferece suporte à computação paralela por meio de bibliotecas como OpenMP e MPI, bem como por meio de primitivas de concorrência nativas.
- 8. Apache Spark: Um framework de computação em cluster projetado para análise de big data, Spark oferece APIs em várias linguagens, incluindo Scala, Java, Python e R, para processamento paralelo distribuído.
- 9. Hadoop: Um ecossistema de software para computação distribuída em clusters de computadores, Hadoop inclui o Hadoop MapReduce, um modelo de programação para processamento paralelo de grandes conjuntos de dados distribuídos em clusters.
+ 6. MATLAB: MATLAB é uma linguagem de programação amplamente utilizada em computação numérica e engenharia. Ela oferece suporte a paralelismo por meio do MATLAB Parallel Computing Toolbox, que permite a execução de código MATLAB em paralelo em clusters de computadores e em múltiplos núcleos de CPU.
+ 7. Julia: Julia é uma linguagem de programação de alto desempenho para computação técnica e científica. Ela é projetada para ser rápida e eficiente, com suporte integrado para computação paralela por meio de primitivas de concorrência e pacotes como Threads.jl e Distributed.jl.
+ 8. OpenMP: OpenMP é uma API de programação de memória compartilhada para C, C++ e Fortran. Ela permite a criação de códigos paralelos por meio de diretivas de compilador, que são interpretadas por compiladores que suportam OpenMP para gerar código paralelo.
+ 9. MPI (Message Passing Interface): MPI é uma especificação de comunicação de dados em sistemas paralelos e distribuídos. Embora não seja uma linguagem de programação por si só, MPI é comumente usada com linguagens como C, C++, Fortran e Python para criar aplicativos paralelos e distribuídos.
+ 10. Haskell: Haskell é uma linguagem de programação funcional pura que oferece suporte à computação paralela por meio de primitivas de concorrência e bibliotecas como Control.Parallel e parMap.
+ 11. Scala: Scala é uma linguagem de programação multiparadigma que é executada na JVM (Java Virtual Machine). Ela oferece suporte à computação paralela por meio de construções como Futures e Promises, bem como pela biblioteca Akka, que fornece um modelo de ator para concorrência.
+ 12. Fortran: Fortran é uma linguagem de programação amplamente utilizada em computação científica e de engenharia. Ela oferece suporte à computação paralela por meio de bibliotecas como OpenMP e MPI, bem como por meio de primitivas de concorrência nativas.
+ 13. Apache Spark: Um framework de computação em cluster projetado para análise de big data, Spark oferece APIs em várias linguagens, incluindo Scala, Java, Python e R, para processamento paralelo distribuído.
+ 14. Hadoop: Um ecossistema de software para computação distribuída em clusters de computadores, Hadoop inclui o Hadoop MapReduce, um modelo de programação para processamento paralelo de grandes conjuntos de dados distribuídos em clusters.
 
  Essas são apenas algumas das linguagens e bibliotecas que oferecem recursos para aproveitar o poder do processamento paralelo. Dependendo das necessidades e requisitos do projeto, diferentes linguagens e ferramentas podem ser mais adequadas para implementar soluções paralelas e aproveitar ao máximo a capacidade de processamento de hardware moderno.
 
@@ -2561,11 +2561,11 @@ int main() {
 
 **PRINCIPAIS PONTOS**<br/>
  Aqui estão alguns dos principais aspectos e conceitos associados à programação de computação distribuída:
- 1. Comunicação: Os diferentes nós de um sistema distribuído precisam se comunicar entre si para coordenar suas atividades e trocar dados. A comunicação pode ser realizada por meio de redes locais ou de longa distância, usando protocolos de comunicação como TCP/IP, UDP e HTTP.
+ 1. *Comunicação*: Os diferentes nós de um sistema distribuído precisam se comunicar entre si para coordenar suas atividades e trocar dados. A comunicação pode ser realizada por meio de redes locais ou de longa distância, usando protocolos de comunicação como TCP/IP, UDP e HTTP.
  2. Coordenação: A coordenação é essencial para garantir que os diferentes nós de um sistema distribuído trabalhem de forma colaborativa e eficiente. Isso envolve a sincronização de tarefas, a resolução de conflitos e a garantia de consistência nos dados compartilhados.
- 3. Tolerância a falhas: Como os sistemas distribuídos são compostos por múltiplos nós, é importante que eles sejam capazes de lidar com falhas de forma robusta e resiliente. Isso pode envolver a detecção de falhas, a recuperação automática e a redundância de dados e serviços.
- 4. Escalabilidade: A escalabilidade é a capacidade de um sistema distribuído de lidar com um aumento no número de usuários, dados ou carga de trabalho sem comprometer o desempenho ou a disponibilidade. Isso pode ser alcançado por meio da adição de mais nós ao sistema ou da distribuição de carga entre os nós existentes.
- 5. Segurança: A segurança é uma preocupação importante na programação de computação distribuída, uma vez que os dados e recursos do sistema podem estar sujeitos a ameaças como acesso não autorizado, interceptação de dados e ataques de negação de serviço. Medidas de segurança, como autenticação, criptografia e controle de acesso, são essenciais para proteger o sistema contra essas ameaças.
+ 3. *Tolerância a falhas*: Como os sistemas distribuídos são compostos por múltiplos nós, é importante que eles sejam capazes de lidar com falhas de forma robusta e resiliente. Isso pode envolver a detecção de falhas, a recuperação automática e a redundância de dados e serviços.
+ 4. *Escalabilidade*: A escalabilidade é a capacidade de um sistema distribuído de lidar com um aumento no número de usuários, dados ou carga de trabalho sem comprometer o desempenho ou a disponibilidade. Isso pode ser alcançado por meio da adição de mais nós ao sistema ou da distribuição de carga entre os nós existentes.
+ 5. *Segurança*: A segurança é uma preocupação importante na programação de computação distribuída, uma vez que os dados e recursos do sistema podem estar sujeitos a ameaças como acesso não autorizado, interceptação de dados e ataques de negação de serviço. Medidas de segurança, como autenticação, criptografia e controle de acesso, são essenciais para proteger o sistema contra essas ameaças.
 
  Um exemplo simples de computação distribuída seria um sistema de processamento de pedidos em uma loja online, onde diferentes servidores lidam com funções específicas, como processamento de pagamentos, gerenciamento de estoque e envio de pedidos.<br/>
  Outro exemplo prático em Python usando a biblioteca asyncio para implementar um servidor TCP simples que recebe mensagensde clientes e as retransmite para todos os outros clientes conectados:
@@ -2616,24 +2616,24 @@ Linguagens que suportam este paradigma:
  Na computação concorrente, múltiplas tarefas são executadas de forma intercalada ao longo do tempo. Isso permite que programaslidem com diversas operações simultaneamente, mesmo em sistemas de processamento único. A concorrência é frequentemente usada para melhorar a capacidade de resposta e a eficiência dos sistemas, especialmente em situações onde várias tarefas precisam ser realizadas ao mesmo tempo.<br/>
 
  Aqui estão os principais aspectos e conceitos associados a esse paradigma:
- 1. Processos e Threads: Um processo é uma instância em execução de um programa, enquanto um thread é uma unidade de execução dentro de um processo. A computação concorrente geralmente envolve a criação de múltiplos threads dentro de um processo para realizar tarefas simultaneamente.
- 2. Compartilhamento de Recursos: Os threads compartilham recursos, como memória e arquivos, dentro de um processo. O acesso concorrente a esses recursos requer sincronização para evitar condições de corrida e garantir a consistência dos dados.
+ 1. **Processos e Threads**: Um processo é uma instância em execução de um programa, enquanto um thread é uma unidade de execução dentro de um processo. A computação concorrente geralmente envolve a criação de múltiplos threads dentro de um processo para realizar tarefas simultaneamente.
+ 2. **Compartilhamento de Recursos**: Os threads compartilham recursos, como memória e arquivos, dentro de um processo. O acesso concorrente a esses recursos requer sincronização para evitar condições de corrida e garantir a consistência dos dados.
  3. Sincronização e Coordenação: Mecanismos de sincronização, como semáforos, mutexes e monitores, são usados para coordenar a execução concorrente de threads e garantir a consistência dos dados compartilhados.
- 4. Concorrência vs. Paralelismo: Concorrência refere-se à capacidade de vários threads progredirem simultaneamente, enquanto paralelismo refere-se à execução simultânea real desses threads em múltiplos núcleos de processamento.
- 5. Modelos de Concorrência: Existem vários modelos de concorrência, incluindo programação baseada em eventos, programação orientada a tarefas e programação baseada em fluxo de dados. Cada modelo tem suas próprias características e abordagens para lidar com a concorrência.
+ 4. **Concorrência vs. Paralelismo**: Concorrência refere-se à capacidade de vários threads progredirem simultaneamente, enquanto paralelismo refere-se à execução simultânea real desses threads em múltiplos núcleos de processamento.
+ 5. **Modelos de Concorrência**: Existem vários modelos de concorrência, incluindo programação baseada em eventos, programação orientada a tarefas e programação baseada em fluxo de dados. Cada modelo tem suas próprias características e abordagens para lidar com a concorrência.
 
 **PRIORIZAÇÃO DE TAREFAS**<br/>
  Na computação concorrente, a priorização e a sequência de execução de tarefas são determinadas por meio de diferentes técnicas de agendamento, dependendo do sistema operacional e do modelo de concorrência utilizado:
- - Preemptivo vs. Cooperativo: Em sistemas concorrentes preemptivos, o sistema operacional pode interromper uma tarefa em andamento para permitir a execução de outra tarefa de maior prioridade. Por outro lado, em sistemas cooperativos, as tarefas precisam cooperar explicitamente, cedendo o controle ao sistema operacional ou a outras tarefas.
- - Prioridade de Tarefas: As tarefas podem ser atribuídas a diferentes prioridades, e o agendador do sistema operacional decide qual tarefa deve ser executada com base nessas prioridades. Tarefas com prioridade mais alta tendem a ser executadas antes das tarefas com prioridade mais baixa.
- - Round-Robin: Este é um algoritmo de agendamento simples onde as tarefas são executadas em turnos. Cada tarefa recebe um intervalo de tempo de CPU chamado de fatia de tempo e as tarefas são alternadas em execução até que todas sejam concluídas.
- - Fila de Prontidão: As tarefas são colocadas em uma fila de prontidão e o agendador do sistema operacional escolhe a próxima tarefa a ser executada a partir dessa fila.
- - Alocação Justa de Recursos: Em sistemas que priorizam a justiça na alocação de recursos, o agendador tenta garantir que todas as tarefas recebam uma quantidade justa de tempo de CPU.
- - Algoritmos de Agendamento Personalizados: Em alguns casos, sistemas específicos podem implementar algoritmos de agendamento  personalizados para atender a requisitos específicos de desempenho ou comportamento do sistema.
+ - *Preemptivo vs. Cooperativo*: Em sistemas concorrentes preemptivos, o sistema operacional pode interromper uma tarefa em andamento para permitir a execução de outra tarefa de maior prioridade. Por outro lado, em sistemas cooperativos, as tarefas precisam cooperar explicitamente, cedendo o controle ao sistema operacional ou a outras tarefas.
+ - *Prioridade de Tarefas*: As tarefas podem ser atribuídas a diferentes prioridades, e o agendador do sistema operacional decide qual tarefa deve ser executada com base nessas prioridades. Tarefas com prioridade mais alta tendem a ser executadas antes das tarefas com prioridade mais baixa.
+ - *Round-Robin*: Este é um algoritmo de agendamento simples onde as tarefas são executadas em turnos. Cada tarefa recebe um intervalo de tempo de CPU chamado de fatia de tempo e as tarefas são alternadas em execução até que todas sejam concluídas.
+ - *Fila de Prontidão*: As tarefas são colocadas em uma fila de prontidão e o agendador do sistema operacional escolhe a próxima tarefa a ser executada a partir dessa fila.
+ - *Alocação Justa de Recursos*: Em sistemas que priorizam a justiça na alocação de recursos, o agendador tenta garantir que todas as tarefas recebam uma quantidade justa de tempo de CPU.
+ - *Algoritmos de Agendamento Personalizados*: Em alguns casos, sistemas específicos podem implementar algoritmos de agendamento  personalizados para atender a requisitos específicos de desempenho ou comportamento do sistema.
 
  Em resumo, a sequência de execução das tarefas na computação concorrente é determinada por uma combinação de prioridades de tarefa, políticas de agendamento do sistema operacional e algoritmos de agendamento utilizados.
 
-*DIFERENÇAS
+***DIFERENÇAS**
  - A computação concorrente lida com múltiplas tarefas que podem ser executadas ao mesmo tempo, mas não necessariamente simultaneamente.
  - A computação paralela envolve a execução simultânea de múltiplas tarefas em diferentes processadores ou núcleos de processamento.
  - A computação distribuída distribui tarefas entre vários dispositivos ou sistemas de computação em uma rede, permitindo a coordenação e colaboração entre eles.
@@ -2645,12 +2645,12 @@ Linguagens que suportam este paradigma:
 
 **ASPECTOS IMPORTANTES**<br/>
 Aqui estão alguns aspectos importantes associados a esse paradigma:
- - Linguagem SQL: A Linguagem de Consulta Estruturada (SQL) é a linguagem padrão para a interação com bancos de dados relacionais. Ela permite realizar operações como inserção, consulta, atualização e exclusão de dados em tabelas de um banco de dados.
- - Modelagem de Dados: Antes de implementar um banco de dados, é necessário projetar sua estrutura usando modelos de dados como o Modelo Entidade-Relacionamento (ER). Isso envolve identificar entidades, atributos e relacionamentos entre entidades.
- - Operações CRUD: As operações básicas em um banco de dados são conhecidas como CRUD, que significa Create (Criar), Read (Ler), Update  (Atualizar) e Delete (Excluir). Essas operações permitem manipular os dados armazenados no banco de dados.
- - Normalização: A normalização é o processo de organização dos dados em um banco de dados para reduzir a redundância e melhorar a integridade dos dados. Isso envolve dividir as tabelas em estruturas mais granulares e estabelecer relações entre elas.
- - Índices e Restrições: Índices são estruturas que melhoram a velocidade de consulta em um banco de dados, enquanto as restrições garantem a integridade dos dados, impondo regras sobre os valores que podem ser armazenados em determinadas colunas.
- - Procedimentos Armazenados e Funções: Procedimentos armazenados e funções são blocos de código SQL que podem ser armazenados no banco de dados e reutilizados em várias consultas. Eles ajudam a modularizar a lógica de negócios e melhorar a segurança dos dados.
+ - *Linguagem SQL*: A Linguagem de Consulta Estruturada (SQL) é a linguagem padrão para a interação com bancos de dados relacionais. Ela permite realizar operações como inserção, consulta, atualização e exclusão de dados em tabelas de um banco de dados.
+ - *Modelagem de Dados*: Antes de implementar um banco de dados, é necessário projetar sua estrutura usando modelos de dados como o Modelo Entidade-Relacionamento (ER). Isso envolve identificar entidades, atributos e relacionamentos entre entidades.
+ - *Operações CRUD*: As operações básicas em um banco de dados são conhecidas como CRUD, que significa Create (Criar), Read (Ler), Update  (Atualizar) e Delete (Excluir). Essas operações permitem manipular os dados armazenados no banco de dados.
+ - *Normalização*: A normalização é o processo de organização dos dados em um banco de dados para reduzir a redundância e melhorar a integridade dos dados. Isso envolve dividir as tabelas em estruturas mais granulares e estabelecer relações entre elas.
+ - *Índices e Restrições*: Índices são estruturas que melhoram a velocidade de consulta em um banco de dados, enquanto as restrições garantem a integridade dos dados, impondo regras sobre os valores que podem ser armazenados em determinadas colunas.
+ - *Procedimentos Armazenados e Funções*: Procedimentos armazenados e funções são blocos de código SQL que podem ser armazenados no banco de dados e reutilizados em várias consultas. Eles ajudam a modularizar a lógica de negócios e melhorar a segurança dos dados.
 
  Um exemplo simples de programação de banco de dados seria a criação de uma tabela de clientes e a inserção de dados nessa tabela usando SQL:
 ```SQL
@@ -2728,10 +2728,10 @@ conexao.close()
 
 **ASPECTOS E CONCEITOS**
 Principais aspectos e conceitos associados ao AOP:
- - Aspecto: Um módulo que encapsula comportamentos que afetam várias partes de um programa. Por exemplo, um aspecto de logging pode encapsular a lógica para registrar informações de depuração em vários pontos do código.
- - Ponto de junção (Join Point): Pontos específicos no código onde um aspecto pode ser aplicado. Exemplos incluem chamadas de método, exceções lançadas ou variáveis sendo acessadas.
- - Ponto de corte (Pointcut): Uma expressão que define quais pontos de junção em um programa são afetados por um aspecto. Por exemplo, um ponto de corte pode especificar que um aspecto de logging deve ser aplicado a todas as chamadas de métodos em uma determinada classe.
- - Conselho (Advice): O código que é executado em um ponto de junção específico quando um aspecto é aplicado. Pode ser executado antes, depois ou em torno do ponto de junção.
+ - *Aspecto*: Um módulo que encapsula comportamentos que afetam várias partes de um programa. Por exemplo, um aspecto de logging pode encapsular a lógica para registrar informações de depuração em vários pontos do código.
+ - *Ponto de junção (Join Point)*: Pontos específicos no código onde um aspecto pode ser aplicado. Exemplos incluem chamadas de método, exceções lançadas ou variáveis sendo acessadas.
+ - *Ponto de corte (Pointcut)*: Uma expressão que define quais pontos de junção em um programa são afetados por um aspecto. Por exemplo, um ponto de corte pode especificar que um aspecto de logging deve ser aplicado a todas as chamadas de métodos em uma determinada classe.
+ - *Conselho (Advice)*: O código que é executado em um ponto de junção específico quando um aspecto é aplicado. Pode ser executado antes, depois ou em torno do ponto de junção.
 
  Considere um aspecto de logging que registra o tempo de execução de determinados métodos em uma aplicação. O código principal da aplicação não precisa se preocupar com essa lógica de logging; ela é encapsulada no aspecto.<br/>
  Exemplo prático em Python com uso da biblioteca `aspectlib`:
@@ -2769,9 +2769,9 @@ example_function()
 
 **PRINCIPAIS CARACTERÍSTICAS**<br/>
  Principais características e conceitos:
- 1. Eventos: Representam a ocorrência de ações ou mudanças de estado que podem ser detectadas e processadas pelo programa. Exemplos de eventos incluem cliques de mouse, pressionamentos de tecla, envio de formulários, etc.
- 2. Listeners (ou tratadores de eventos): São funções ou métodos que são associados a um determinado evento e são acionados quando esse evento ocorre. Os ouvintes agem como observadores, aguardando a ocorrência de um evento específico para responder a ele.
- 3. Loop de eventos: É uma estrutura de controle que aguarda a ocorrência de eventos e os despacha para os respectivos ouvintes. O loop de eventos é responsável por gerenciar a fila de eventos e garantir que eles sejam processados na ordem correta.
+ 1. *Eventos*: Representam a ocorrência de ações ou mudanças de estado que podem ser detectadas e processadas pelo programa. Exemplos de eventos incluem cliques de mouse, pressionamentos de tecla, envio de formulários, etc.
+ 2. *Listeners (ou tratadores de eventos)*: São funções ou métodos que são associados a um determinado evento e são acionados quando esse evento ocorre. Os ouvintes agem como observadores, aguardando a ocorrência de um evento específico para responder a ele.
+ 3. *Loop de eventos*: É uma estrutura de controle que aguarda a ocorrência de eventos e os despacha para os respectivos ouvintes. O loop de eventos é responsável por gerenciar a fila de eventos e garantir que eles sejam processados na ordem correta.
 
  Suponha que você esteja desenvolvendo um aplicativo de calculadora simples em uma interface gráfica. Quando o usuário clica nos botões numéricos e operadores, eventos de clique são gerados. Esses eventos são capturados por ouvintes associados a cada botão, que atualizam a exibição da calculadora com os números e operadores selecionados.
 ```JS
