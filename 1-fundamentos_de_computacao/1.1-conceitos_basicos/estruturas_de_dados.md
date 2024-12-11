@@ -3,7 +3,7 @@
  **Abstração de Dados**<br/>
   A forma como o usuário e o programador lidam com os dados não corresponde à forma verdadeira como os dados estão armazenados na memória do computador, ou como eles são realmente. Chamamos de abstração de dados, estruturas muito úteis que "mascaram" os dados para visualizar e manipulá-los de forma à tornar as soluções de uso mais intuitiva.
 
- 1. **Vetores / Arrays e Matrizes: Abstraindo os dados; Conhecer a estrutura de lista em memória contígua.**
+ 1. **Vetores / Arrays e Matrizes: Abstraindo os dados; Conhecer a estrutura de lista em memória contígua.**<br/>
   Uma lista é uma coleção de elementos que aparecem sequencialmente. São exemplos: listas de convidados de uma festa, lista de compras. Nomes também podem ser vistos como listas de letras. Um vetor (ou array) permite acesso direto a qualquer elemento da lista, isto é, você não precisa percorrer todos os elementos de uma lista até encontrar o que você precisa, basta usar o índice da estrutura. Observe a figura abaixo uma parte da memória do computador, as informações estão uma “ao lado” da outra. Um **vetor / array** *é uma lista linear na qual a ordem lógica dos elementos (a ordem "vista" pelo usuário) é a mesma ordem física (em memória principal) dos elementos.* Isto é, elementos vizinhos na lista estarão em posições vizinhas na memória. Vejamos por exemplo como seria armazenado na memória uma lista de nomes de pessoas armazenadas de forma contígua:
 <pre>
                       ┌─────────────────────────────────────┐
@@ -79,7 +79,7 @@ NOTAS[9] = 3                                      ─>
 └────┴────┴────┴────┴────┼────┴────┴────┴────┴────┼────┴────┴────┴────┴────┘
                                            └> elemento da segunda linha, terceira coluna
 </pre>
- 2. **Listas Ligadas: Estrutura de lista em memória não contígua.**
+ 2. **Listas Ligadas: Estrutura de lista em memória não contígua.**<br/>
   *Lista Ligada é uma estrutura que corresponde a uma sequência lógica de entradas ou nós.* Em uma lista ligada há 1 ou 2 pontos conhecidos de acesso - normalmente o topo da lista (seu 1º elemento) e, eventualmente, o fim da lista (seu último elemento). Cada nó armazena também a localização do próximo elemento na sequência, ou seja, de seu nó sucessor. Desse modo, o armazenamento de uma lista não requer uma área contígua de memória.
 <pre>
 ───────────────────────┬─/ /─┬───────────────────────┬─/ /─┬───────────────────────┬─
@@ -147,16 +147,18 @@ NOTAS[9] = 3                                      ─>
 </pre>
  *Havendo ponteiros, é lista ligada, havendo índice, é vetor.*
 
- 3. **Árvores: Conceito e aplicações.**
-  Na computação, o uso das estruturas em árvores são comuns. Um exemplo de árvore seria uma lista com subitens:
-  1. Item
-    1.1 Sub-Item
-    1.2 Sub-Item
-    1.3 Sub-Item
-  2. Item
-    2.1 Sub-Item
-    2.2 Sub-Item
-  3. Item
+ 3. **Árvores: Conceito e aplicações.**<br/>
+  Na computação, o uso das estruturas em árvores são comuns. Um exemplo de árvore seria uma lista com subitens:<br/>
+<pre>
+1. Item
+  1.1 Sub-Item
+  1.2 Sub-Item
+  1.3 Sub-Item
+2. Item
+  2.1 Sub-Item
+  2.2 Sub-Item
+3. Item
+</pre>
   Em uma árvore, a organização dos elementos se dá de forma hierárquica, existindo um elemento que fica no topo da árvore, chamado de raiz e os elementos subordinados a ele, os nós filhos. Cada nó filho pode conter zero, 1 ou mais de 1 nó filho. Estruturas em árvore possibilitam algoritmos mais eficientes.
 <pre>
                        ┌─────────┐

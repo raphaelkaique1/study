@@ -412,4 +412,4 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 </pre>
 
  2. Tabela ASCII e Conversores.<br/>
-	A tabela ASCII (American Standard Code for Information Interchange - https://www.ascii-code.com/pt) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
+	A tabela ASCII ((American Standard Code for Information Interchange)[https://www.ascii-code.com/pt]) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
