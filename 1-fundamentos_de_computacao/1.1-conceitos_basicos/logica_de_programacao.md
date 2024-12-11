@@ -1,115 +1,22 @@
-<pre><code>
--PENSAMENTO COMPUTACIONAL
->DECOMPOSIÇÃO
->PADRÕES
->ABSTRAÇÃO
->ALGORITMO
-  >>TIPOLOGIA DE DADOS E VARIÁVEIS
-    >>>TIPOS DE DADOS
-      >>>>TIPAGEM DE DADOS
-    >>>MANIPULAÇÃO DE DADOS
-      >>>>DECLARAÇÃO
-      >>>>TIPAGEM DE COMPORTAMENTO
-        >>>>>VARIÁVEL
-          >>>>>>TIPOS DE VARIÁVEIS
-        >>>>>CONSTANTE
-          >>>>>>TIPOS DE CONSTANTES
-        >>>>>VETORES E MATRIZES
-          >>>>>>VETOR
-          >>>>>>MATRIZ
-          >>>>>>DEFININDO VETORES/MATRIZES
-  >>INSTRUÇÕES
-    >>>OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO
-    >>>OPERADORES LÓGICOS/COMPARAÇÃO/RELACIONAIS
-      >>>>AND
-      >>>>OR
-      >>>>NOT
-    >>>ESTRUTURAS CONDICIONAIS E SEUS OPERADORES
-      >>>>TIPOS DE ESTRUTURAS CONDICIONAIS
-      >>>>>CONDICIONAL SIMPLES
-      >>>>>CONDICIONAL COMPOSTA
-      >>>>>CONDICIONAL ENCADEADA
-    >>>ESTRUTURAS DE REPETIÇÃO
-      >>>>TIPOS DE ESTRUTURAS DE REPETIÇÃO
-        >>>>>ENQUANTO (WHILE)
-        >>>>>REPITA ATÉ/ENQUANTO (DO...WHILE)
-        >>>>>PARA(INÍCIO; ENQUANTO ATÉ; DE N EM N){FAÇA INSTRUÇÕES} (FOR(){})
-    >>>COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
-    >>>FUNÇÕES
-  >>DESENVOLVIMENTO DE PROGRAMAS
-    >>LINGUAGENS DE PROGRAMAÇÃO
-    >>>SINTAXE E SEMÂNTICA
-    >>>ESTRUTURA DE TIPOS
-      >>>>SISTEMAS DE TIPOS
-      >>>>GRAU DE ABSTRAÇÃO
-    >>>IMPLEMENTAÇÕES DE LINGUAGEM
-      >>>>COMPILAÇÃO
-        >>>>>ANÁLISES DE CÓDIGO
-          >>>>>>LEXICAL ANALYZER
-          >>>>>>SYNTAX ANALYZER
-          >>>>>>SEMANTIC ANALYZER
-      >>>>INTERPRETAÇÃO
-       >>>>>INTERPRETADOR
-      >>>>JIT
-      >>>>TRANSPILAÇÃO
-    >>>PARADIGMAS DE PROGRAMAÇÃO
-      >>>>DECLARATIVO
-        >>>>>DERIVAÇÕES PD
-      >>>>FUNCIONAL
-        >>>>>LAMBDA (TERNÁRIO)
-        >>>>>ARROW (TERNÁRIO)
-      >>>>IMPERATIVO
-        >>>>>DERIVAÇÕES PI
-      >>>>ESTRUTURADO
-        >>>>>TIPOS
-      >>>>PROCEDURAL
-      >>>>LÓGICO
-        >>>>>PRINCÍPIOS
-      >>>>MATEMÁTICO
-        >>>>>CONCEITOS E TÉCNICAS
-      >>>>REATIVO
-        >>>>>PRINCIPAIS ASPECTOS
-      >>>>COMPUTAÇÃO PARALELA
-        >>>>>SUPORTES
-      >>>>COMPUTAÇÃO DISTRIBUÍDA
-        >>>>>PRINCIPAIS PONTOS
-      >>>>COMPUTAÇÃO CONCORRENTE
-        >>>>>PRIORIZAÇÃO DE TAREFAS
-      *DIFERENÇAS
-      >>>>PROGRAMAÇÃO DE BANCO DE DADOS
-        >>>>>ASPECTOS IMPORTANTES
-      >>>>PROGRAMAÇÃO ORIENTADO A ASPECTOS
-        >>>>>ASPECTOS E CONCEITOS
-      >>>>PROGRAMAÇÃO ORIENTADA A EVENTOS
-        >>>>>PRINCIPAIS CARACTERÍSTICAS
-      >>>>PROGRAMAÇÃO ORIENTADA A OBJETOS
-        >>>>>PILARES
----------------------------------------------------------------------------------------------------------------------
--PENSAMENTO COMPUTACIONAL
+# PENSAMENTO COMPUTACIONAL
 
- Refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que
-podem ser implementados no computador. De forma geral, é uma formulação e resolução de problemas computacionais
-(sistemático e eficiente).
+ Refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que podem ser implementados no computador. De forma geral, é uma formulação e resolução de problemas computacionais (sistemático e eficiente).
 
 É baseado em 4 pilares:
 
-> Decomposição
-> Padrões
-> Abstração
-> Algoritmos
+1. Decomposição
+2. Padrões
+3. Abstração
+4. Algoritmos
 
->DECOMPOSIÇÃO
+**1. DECOMPOSIÇÃO**: Dividir um problema complexo em subproblemas.
 
- Dividir um problema complexo em subproblemas.
+ Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores que vão sendo construídas aos poucos.
 
- Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta
-do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores
-que vão sendo construídas aos poucos.
-
- É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o 1º passo da
-resolução de problemas: dividir um problema complexo em problemas menores = problemas mais fáceis de se resolver.
+ É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o 1º passo da resolução de problemas: dividir um problema complexo em problemas menores = problemas mais fáceis de se resolver.
 
 Estratégia:
+<pre>
                                         _          _/         __   ___
 Processo de quebrar e determinar \\    /_\  |\ |  /_\  |   | |__  |__
 partes menores e gerenciáveis    //   /   \ | \| /   \ |__ |  __| |___
@@ -119,11 +26,10 @@ recompondo o problema original   //    ___| | | \|  |   |____  ___| |____
 
 Ordem de execução de \\ > Sequencial -> Dependência entre tarefas executadas em fila
 tarefas menores      // > Paralelo   -> Tarefas podem ser executadas concomitentemente (+ eficiencia - tempo).
-
-Como Decompor?
-
-Identificar/coletar os dados    =>    Agregar os dados    =>    Funcionalidade    =>    Decomposição
-
+</pre>
+*Como Decompor?*
+> Identificar/coletar os dados    =>    Agregar os dados    =>    Funcionalidade    =>    Decomposição
+<pre>
 Exemplos de Decomposição:
 
 COZINHAR
@@ -150,40 +56,35 @@ ARTIGO
 - Textos de conexão       /
 
 MOVIMENTOS DE UM AVATAR
-                          ___________________AÇÕES____________________
-                         ↓                                            ↓
-                   ____PADRÃO_____                         ________MOVIMENTO______
-                  ↙               ↘                       ↙       ↓      ↓        ↘
-            __VIRAR__          __MOVER__               ANDAR   CORRER  SENTAR  LEVANTAR
-           ↙         ↘        ↙         ↘                     ↙      ↘ 
-        DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
+                  ___________________AÇÕES____________________
+                 ↓                                            ↓
+           ____PADRÃO_____                         ________MOVIMENTO______
+          ↙               ↘                       ↙       ↓      ↓        ↘
+    __VIRAR__          __MOVER__               ANDAR   CORRER  SENTAR  LEVANTAR
+   ↙         ↘        ↙         ↘                     ↙      ↘ 
+DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
+</pre>
+**2. PADRÕES**<br/>
+ Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
 
->PADRÕES
-
- Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de
-repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
-
->>RECONHECIMENTO DE PADRÕES:
+**RECONHECIMENTO DE PADRÕES:**<br/>
 - Modelo base
 - Estrutura variante
 - Repetição
 
- Roteiro: um modelo de referência que determina uma estrutura invariante e que pode determinar repetição. A partir
-de um modelo podemos determinar objetos diferentes em que uma estrutura se repete.
+ **Roteiro: um modelo de referência que determina uma estrutura invariante e que pode determinar repetição. A partir de um modelo podemos determinar objetos diferentes em que uma estrutura se repete.*
 
-Exemplo: Cadeiras -> h H A n d b
-
-         Padrão     \ - Pé
-         Referência / - Assento
-
-Como Reconhecer Padrões Dentro do Contexto?
-
+> Exemplo: Cadeiras -> 🦽🦼💺🪑🛋️
+><pre>
+>Padrão     \ - Pé
+>Referência / - Assento
+></pre>
+* *Como Reconhecer Padrões Dentro do Contexto?*<br/>
  Através das similaridades e diferenças.
 
-Exemplo: Fotos de redes sociais (técnica de compressão e armazenamento):
-
- - Foto > Compressão > Salvo no BD = Processo de Armazenamento Padrão Utilizado por Diferentes Redes Sociais
-
+>Exemplo: Fotos de redes sociais (técnica de compressão e armazenamento):
+> - Foto > Compressão > Salvo no BD = Processo de Armazenamento Padrão Utilizado por Diferentes Redes Sociais
+<pre>
 Compressão de Dados:
  _____   _____   _____   _____   _____   _____   _____   _____   _____   _____   \ 
 |     | |     | |_____| |_____| |+++++| |+++++| |     | |     | |     | |     |   \ Compressão por
@@ -195,11 +96,10 @@ Compressão de Dados:
 [-] = 2
 [/] = 2
 [*] = 3
-
-Por Que Determinar Padrões?
-
+</pre>
+* *Por Que Determinar Padrões?*<br/>
  Generalizar com objetivo de obter resolução para problemas diferentes.
-
+<pre>
  _______________________________________________________________
 |                                                               |
 | Classificar -> Categorias -> Grupos de Objetos Semelhantes    |
@@ -209,21 +109,18 @@ Por Que Determinar Padrões?
 |                      Comportametos   /            Semelhantes |
 |_______________________________________________________________|
 *Objetos = Instâncias de uma Classe
+</pre>
+**Categoria**: Agrupa elementos com base em características/propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
 
-Categoria: Agrupa elementos com base em características/propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
+**Classe**: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida em: "aquáticas", "terrestres" e "voadoras".
 
-Classe: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida
-em: "aquáticas", "terrestres" e "voadoras".
-
-Como Detectar e Determinar Padrões?
-
+*Como Detectar e Determinar Padrões?*
 - Grau de Similaridades
 - Grupos Conhecidos e Grupos Desconhecidos
 
-Como o Computador Reconhece Padrões?
-
-Comparação: Se ele não possui a informação não será capaz de realizar a comparação.
-
+* *Como o Computador Reconhece Padrões?*<br/>
+**Por comparação**: Se ele não possui a informação não será capaz de realizar a comparação.
+<pre>
                                 ⬐subjetividade⬎
 Como Simular o Comportamento de Machine Learning?
 
@@ -251,35 +148,31 @@ Extração de Características  \
    Classificação de Dados    /
 
 Diferentes Métodos e Aplicações
+</pre>
+**3. ABSTRAÇÃO**
 
->ABSTRAÇÃO
+ "Abstrair o que é mais importante e ordenar as relevancias, extrapolando o conceito do problema para uma forma generalista."
 
- "Abstrair o que é mais importante e ordenar as relevancias, extrapolando o conceito do problema para uma forma
- generalista."
+ - Ação de ignorar os detalhes de uma solução de modo que ela possa ser válida para diversos problemas (generalista).
+ - Isolar aspectos relevantes do problema para tratá-los de forma individual (linkando -> decomposição).
+ - Na computação, quando pensamos em criar um software, pensamos primeiro no que ele deve ser, deixando os detalhes para depois.
 
-Ação de ignorar os detalhes de uma solução de modo que ela possa ser válida para diversos problemas (generalista).
-Isolar aspectos relevantes do problema para tratá-los de forma individual (linkando -> decomposição).
-Na computação, quando pensamos em criar um software, pensamos primeiro no que ele deve ser, deixando os detalhes 
-para depois.
-
->>ABSTRAIR: Observar, um ou mais elementos, avaliando características e propriedades separadas.
->>ABSTRAÇÃO: É um processo intelectual de isolamento de um objeto da realidade.
->>GENERALIZAR: A partir de um objeto, criar novos objetos relacionados. Tornar geral, mais amplo, mais extenso.
-
+>ABSTRAIR: Observar, um ou mais elementos, avaliando características e propriedades separadas.<br/>
+>ABSTRAÇÃO: É um processo intelectual de isolamento de um objeto da realidade.<br/>
+>GENERALIZAR: A partir de um objeto, criar novos objetos relacionados. Tornar geral, mais amplo, mais extenso.
+<pre>
 Pegar os elementos principais           =>          Extrapolá-lo para o          =>            Tornar
 de um determinado objeto                            mundo das ideias                           geral
+</pre>
+**GENERALIZAÇÃO x ABSTRAÇÃO**
 
->>GENERALIZAÇÃO x ABSTRAÇÃO
+ Na lógica, é a operação intelectual que consiste em reunir numa classe geral, um conjunto de seres ou fenômenos similares.
 
- Na lógica, é a operação intelectual que consiste em reunir numa classe geral, um conjunto de seres ou fenômenos
-similares.
-
-Como Classificar os Dados?
-
+*Como Classificar os Dados?*
 - Características
 - Pontos Essenciais
 - Generalizar x Detalhar
-
+<pre>
 Representação dos Dados:
 
 -- Estudantes ------------------------> Características: -----------------------
@@ -294,60 +187,50 @@ Representação dos Dados:
 |                                       -Curso                                 |
 |                                       -Contato                               |
 --------------------------------------------------------------------------------
+</pre>
+**4. ALGORITMO**
 
->ALGORITMO
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.
 
- Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo,
-levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções
-computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa
-tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos.
-Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Um programa é
-basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja,
-resolver um problema. Programa = Algoritmo = Sistema.
+ **Automatizar: Definir passo-a-passo da execução da tarefa.*
+ <pre>
+Ciclo de Processamento:
 
- Automatizar: Definir passo-a-passo da execução da tarefa.
- 
- Ciclo de Processamento:
+          ALGORITMO
+              ⤺
+Input ➝ Processamento ➝ Output
+              ⤻
+</pre>
+ **O processamento é a execução dos passos lógicos necessários para que os elementos de entrada se transformem em dados/informações na saída.*
 
-                       ALGORITMO
+  **Ex.: Receita de Bolo**: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).<br/>
+Observe que o modo de preparo *- processamento (instruções para realizar a tarefa = algoritmo) -* deve ser apresentado de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
+<pre>
+Design de Algoritmos:
 
-                           ⤺
-             Input ➝ Processamento ➝ Output
-                           ⤻
+                       Análise
+                 (definir a solução)
+                /                   \
+          Refinamento              Teste
+(Aperfeiçoamento da solução) ー (testar a solução)
 
- *O processamento é a execução dos passos lógicos necessários para que os elementos de entrada se transformem em
-dados/informações na saída.
-  Ex.: Receita de Bolo: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).
-Observe que o modo de preparo - processamento (instruções para realizar a tarefa = algoritmo) - deve ser apresentado
-de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
+Processo Contínuo:
 
- Design de Algoritmos:
- 
-                        Análise
-                  (definir a solução)
-                 /                   \
-           Refinamento              Teste
- (Aperfeiçoamento da solução) ー (testar a solução)
-
- Processo Contínuo:
- 
-                   Raciocínio Lógico
-                  /                 \ 
-            Refinamento         Decomposição
-                 |                   |
-             Algoritmos           Padrões
-                   \   Abstração  /
-
+                  Raciocínio Lógico
+                 /                 \ 
+           Refinamento         Decomposição
+                |                   |
+            Algoritmos           Padrões
+                  \   Abstração  /
+</pre>
 Aplicações:
 1. CS + Math: Desenvolvimento e Abstração, Reconhecimento de Padrões
-2. CS + Sci/Eng: Análise de Dados e Design de Soluções, Deficinação e Uso de Abstrações, Testes e Refinamentos de
-Algoritmos
+2. CS + Sci/Eng: Análise de Dados e Design de Soluções, Deficinação e Uso de Abstrações, Testes e Refinamentos de Algoritmos
 3. Math + Sci/Eng: Desenvolvimento e Abstração, Reconhecimento de Padrões
 4. CS + Math + Sci/Eng: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
 
->>Raciocínio Lógico: Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a
-conclusão ou determinar a resolução de um problema.
-
+**Raciocínio Lógico**: Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a conclusão ou determinar a resolução de um problema.
+<pre>
                  /               Indução
                 / Indução -> Fenômeno Observado -> Leis e Teorias
 Classificação  /                 Dedução
@@ -360,24 +243,30 @@ Tipos:
                            Sintética      Analítica
                            ↙       ↘          ↓
                        Abdução   Indução   Dedução
+</pre>
+Exemplo de Raciocínio Lógico:<br/>
+ Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda, o filho está à esquerda e a mãe está ao lado de Sérgio.
+<pre>
+                 Fernanda
+                 (FILHA)
+            ___________________
+  Filho    |                   |    (MÃE)
+(ROBERTO)  |                   |   (TEREZA)
+           |___________________|   
+                    Pai
+                  (SÉRGIO)
+</pre>
 
-Exemplo de Raciocínio Lógico:
+**Processo de resolução de problemas "step-by-step" utilizando instruções:**
+><pre>
+>O que precisa ser feito?    ⤵
+>                          Instruções
+>Qual a ordem de execução?   ⤴
+></pre>
+>Dados -> Manipulação / Processamento dos Dados -> Armazenamento dos Dados
 
- Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres
-Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda, o filho está à esquerda e a mãe está ao lado
-de Sérgio.
-                                    Fernanda
-                                    (FILHA)
-                               ___________________
-                     Filho    |                   |    (MÃE)
-                   (ROBERTO)  |                   |   (TEREZA)
-                              |___________________|   
-                                       Pai
-                                     (SÉRGIO)
-
-Aperfeiçoamento = Melhoria = Aprimoramento = Refinamento: A partir de uma solução, determinar pontos de melhoria
-e refinamento.
-
+**Aperfeiçoamento = Melhoria = Aprimoramento = Refinamento**: *A partir de uma solução, determinar pontos de melhoria e refinamento.*
+<pre>
 Ato de Aperfeiçoar:
 
 Encontrar Solução Eficiente    \ Melhor Uso de Recursos
@@ -388,36 +277,22 @@ Funções Bem Definidas          /
          ➦ Eficiência \                      Programas:
 Computador             ❯        Precisam ser determinadas as instruções 
          ➥ Velocidade / detalhadas p/ a execução da tarefa e processamento dos dados
+</pre>
+## LÓGICA DE PROGRAMAÇÃO
 
-Dados -> Manipulação / Processamento dos Dados -> Armazenamento dos Dados
+* *O que é lógica?*<br/>
+ Forma de Pensamento estruturada que visa a determinação do que é verdadeiro ou não; Sequência "óbvia" a se seguir/executar para atingir um objetivo ou solucionar um problema.
 
-Processo de resolução de problemas "step-by-step" utilizando instruções:
+* *O que é problema?*<br/>
+ É uma questão que foge a uma determinada regra, é um desvio de percurso o qual impede de atingir um objetivo com eficiência e eficácia e/ou finalizar uma tarefa.
 
-O que precisa ser feito?    ⤵
-                          Instruções
-Qual a ordem de execução?   ⤴
+* *O que é lógica de programação?*<br/>
+ Organização e planejamento das instruções assertivas em um algoritmo a fim de viabilizar a implantação de um programa.
 
->>LÓGICA DE PROGRAMAÇÃO
+### TÉCNICAS DE LÓGICA DE PROGRAMAÇÃO
+**Modelos de Desenvolvimento e solução**
 
->>>O que é lógica?
-
- Forma de Pensamento estruturada que visa a determinação do que é verdadeiro ou não.
-Sequência "óbvia" a se seguir/executar para atingir um objetivo ou solucionar um problema.
-
->>>O que é problema?
-
- É uma questão que foge a uma determinada regra, é um desvio de percurso o qual impede
-de atingir um objetivo com eficiência e eficácia e/ou finalizar uma tarefa.
-
->>>O que é lógica de programação?
-
- Organização e planejamento das instruções assertivas em um algoritmo a fim de viabilizar a
-implantação de um programa.
-
->>>TÉCNICAS DE LÓGICA DE PROGRAMAÇÃO
-Modelos de Desenvolvimento e solução
-
-Técnica Linear:
+**Técnica Linear:**<br/>
 Ⓐ-----o---o---o-----Ⓑ
 
 - Modelo tradicional
@@ -428,20 +303,22 @@ Técnica Linear:
 - Única dimensão
 - Ordenação de elementos por uma única propriedade
 
-Técnica Estruturada:
+**Técnica Estruturada:**<br/>
      ⌐----o---¬
 Ⓐ---o----o----Ⓑ
 
  Organização, disposição e ordem dos elementos essenciais que compõem um corpo (concreto ou abstrato).
-
+<pre>
            /    ➦ Programas
           /  Escrita
 Objetivo ❮   Entendimento
           \  Validação
            \ Manutenção
                 ➥ Facilitada
+</pre>
 
-Técnica Modular:
+**Técnica Modular:**
+<pre>
  ________________________ 
 | [MÓDULO 1]             |      ->      Partes independentes
 |              [MÓDULO 3]|                       ↓
@@ -449,18 +326,17 @@ Técnica Modular:
 |            [MÓDULO 4]  |
 |________________________|    *Cada módulo possui suas próprias regras
 
-Modelo padrão da técnica modular:
-
-Entrada de dados   ->   Processo de transformação   ->   Dados de saída
+>*Modelo padrão da técnica modular:*
+>
+>Entrada de dados   ->   Processo de transformação   ->   Dados de saída
 
        / - Simplificação
 Metas ❮  - Decomposição do problema
        \ - Verificação do módulo
+</pre>
+### FUNDAMENTOS DE ALGORITMOS
 
->>FUNDAMENTOS DE ALGORITMOS
-
-Primeiros passos para começar a programar:
-
+**Primeiros passos para começar a programar:**
 1. Tipologia de dados e variáveis
 2. Instruções primitivas
 3. Estruturas condicionais e operadores
@@ -469,25 +345,18 @@ Primeiros passos para começar a programar:
 6. Funções
 7. Instruções de entrada e saída
 
->>TIPOLOGIA DE DADOS E VARIÁVEIS
-
-                   ⬐  INFORMAÇÃO     ↰
-           input de                   que geram
-            DADOS                       DADOS
-         inicializam              processam e tratam
-               ↳       INSTRUÇÕES
-                 realiza operações que ⬏
-
->>>TIPOS DE DADOS
-
- Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá
-ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de
-dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória.
-Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode
-armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo
-armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar
-um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros.
-
+**TIPOLOGIA DE DADOS E VARIÁVEIS**
+<pre>
+          ⬐  INFORMAÇÃO     ↰
+  input de                   que geram
+   DADOS                       DADOS
+inicializam              processam e tratam
+      ↳       INSTRUÇÕES
+        realiza operações que ⬏
+</pre>
+**TIPOS DE DADOS**<br/>
+ Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros.
+<pre>
             / Inteiros: -3, -2, -1, 0, 1, 2, 3...
 Numéricos  ❮
             \ Reais: -5.5, -1.5, -0.555, 1.3, 5.9...
@@ -497,16 +366,15 @@ Caracteres ❮ ? A # b + C ! / *
 Cadeia     ❮ palavras
 
 Booleano   ❮ Lógico: VERDADEIRO (1) | FALSO (0)
+</pre>
+**TIPAGEM DE DADOS**
 
->>>>TIPAGEM DE DADOS
-
-</code></pre>
 ```C++
 #include <iostream>
 #include <locale.h>
 using namespace std;
 
-int main(){
+int main() {
     setlocale(LC_ALL, "");
 
     // tipos de dados & variáveis
@@ -530,115 +398,82 @@ int main(){
     return 0;
 }
 ```
-<pre><code>
 
->>>MANIPULAÇÃO DE DADOS
+**MANIPULAÇÃO DE DADOS**
 
->>>>DECLARAÇÃO
+**DECLARAÇÃO**
+> variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
 
-variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
-
-Regras:
-
+Regras:<br/>
 - Atribuição de 1 ou mais caracteres
 - 1º caractere do nome deve ser uma letra
-- O - e _ são os únicos carateres especiais permitidos
+- O `-` e `_` são os únicos carateres especiais permitidos
 - Proibido o uso de palavras reservadas
 
->>>>TIPAGEM DE COMPORTAMENTO
+**TIPAGEM DE COMPORTAMENTO**
 
->>>>>VARIÁVEL
+* **VARIÁVEL**
 
- Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos
-armazenar este dado, é necessário realizar a RESERVA DE MEMÓRIA. A reserva de memória se dá através da declaração
-de variáveis, podemos fazer a analogia da memória do computador com um armário contendo gavetas, utilizadas para
-guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra
-para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de
-identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta. Sabemos que os espaços
-dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa
-que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja,
-cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e
-também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária
-ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de
-programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso
-ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do
-computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa,
-eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num
-determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é
-de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um
-"apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar),
-cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para
-armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma
-ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26",
-sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual
-momento. Lembrando que uma variável só pode assumir 1 valor por vez.
+ Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a RESERVA DE MEMÓRIA. A reserva de memória se dá através da declaração de variáveis, podemos fazer a analogia da memória do computador com um armário contendo gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta. Sabemos que os espaços dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um "apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
 
 Características de variáveis:
-
 - Mutáveis
 - Inconstantes
 - Incertas
 - Instáveis
 
- Uma variável é uma estrutura de armazenamento de dado. Podendo assumir qualquer um dos valores de um determinado
-conjunto de valores, contudo, ela está restrita ao seu tipo, ou seja, ela só pode assumir um tipo de valor por vez.
-
-           /   AÇÃO    -> modificação/alteração/manipulação de estado
+ Uma variável é uma estrutura de armazenamento de dado. Podendo assumir qualquer um dos valores de um determinado conjunto de valores, contudo, ela está restrita ao seu tipo, ou seja, ela só pode assumir um tipo de valor por vez.
+<pre>
+           /    AÇÃO   -> modificação/alteração/manipulação de estado
 Pápeis da ❮      ou
 variável   \  CONTROLE -> monitorada/vigiada
+</pre>
+**TIPOS DE VARIÁVEIS**
 
->>>>>>TIPOS DE VARIÁVEIS
+* **var:**
+  - Tem escopo de função, o que significa que a variável é visível apenas dentro da função onde foi declarada.
+  - Pode ser reatribuída e redeclarada dentro do mesmo escopo.
+  - Não respeita o escopo de bloco (por exemplo, dentro de uma instrução `if` ou `for`).
 
-> var:
- - Tem escopo de função, o que significa que a variável é visível apenas dentro da função onde foi declarada.
- - Pode ser reatribuída e redeclarada dentro do mesmo escopo.
- - Não respeita o escopo de bloco (por exemplo, dentro de uma instrução `if` ou `for`).
 
-</code></pre>
 ```JS
 var x = 10;
 
-if(true){
+if(true) {
     var x = 20; // A variável 'x' é a mesma dentro e fora do bloco
     console.log(x) // 20
 }
 
 console.log(x); // 20
 ```
-<pre><code>
 
-> let:
- - Introduz o escopo de bloco, o que significa que a variável é visível apenas dentro do bloco onde foi declarada
-(por exemplo, dentro de um `if`, `for` ou {}).
- - Pode ser reatribuída, mas não declarada no mesmo escopo.
+- **let:**
+  - Introduz o escopo de bloco, o que significa que a variável é visível apenas dentro do bloco onde foi declarada (por exemplo, dentro de um `if`, `for` ou {}).
+  - Pode ser reatribuída, mas não declarada no mesmo escopo.
 
-</code></pre>
 ```JS
 let y = 10;
 
-if(true){
+if(true) {
     let y = 20; // A variável 'y' possui um valor dentro do bloco
     console.log(y) // 20
 }
 // e outro valor fora do bloco
 console.log(y); // 10
 ```
-<pre><code>
 
->>>>>CONSTANTE
+* **TIPOS DE CONSTANTES**
 
- Tudo aquilo que é fixo e/ou estável.
+>**CONSTANTE**: Tudo aquilo que é fixo e/ou estável.
+><pre>
+>Exemplo: π = 3.14, Φ = 1.618, dobro (valor * 2 = dobro), metade (valor / 2 = metade)
+>                                      var  const  var             var  const  var
+><pre>
 
-Exemplo: π = 3.14, Φ = 1.618, dobro (valor * 2 = dobro), metade (valor / 2 = metade)
-                                      var  const  var             var  const  var
+* **const:**
+  - Similar ao `let` em relação ao escopo de bloco.
+  - No entanto, uma vez atribuída, o valor não pode ser substituído/reatribuído.
 
->>>>>>TIPOS DE CONSTANTES
-
-> const:
- - Similar ao `let` em relação ao escopo de bloco.
- - No entanto, uma vez atribuída, o valor não pode ser substituído/reatribuído.
-
-</code></pre>
 ```JS
 const z = 10;
 
@@ -646,28 +481,16 @@ z = 20;
 
 console.log(z); // Isso resultaria em erro, pois `const` não permite reatribuição
 ```
-<pre><code>
 
-> define*:
- - O #define em C++ é uma diretiva de pré-processador que é usada para definir macros, que são substituições de
-texto.
- - Processamento Prévio: O #define é uma diretiva de pré-processador. Isso significa que ele é processado pelo
-compilador
-antes de qualquer compilação real do código.
- - Sem Verificação de Sintaxe: Quando você usa #define, o pré-processador simplesmente substitui cada ocorrência do
-token definido pelo texto correspondente, sem verificar a sintaxe. Portanto, é importante garantir que a substituição
-seja feita corretamente para evitar erros de compilação difíceis de depurar.
- - Substituição de Texto: O #define é usado para substituir um token por outro em todo o código. Não há tipo de dados
-associado à macro definida por #define, é apenas uma substituição de texto.
- - Substituição Direta de Texto: O #define não é afetado por escopos de bloco ou por escopo de função. Isso significa
-que a substituição ocorrerá em todo o código, independentemente do escopo.
- - Não é recomendado para tipos complexos: Enquanto o #define é útil para definir constantes simples ou para criar
-abreviações de código, ele não é recomendado para substituição de tipos complexos, estruturas de controle ou funções.
-Para isso, normalmente são usados tipos de dados constantes ou funções inline.
- - Escopo Global: As macros definidas por #define têm um escopo global, o que significa que elas são válidas em todo
-o código após a definição, até o final do arquivo ou até que sejam substituídas por outra diretiva #undef.
+* **define**:
+  - O `#define` em C++ é uma diretiva de pré-processador que é usada para definir macros, que são substituições de texto.
+  - Processamento Prévio: O `#define` é uma diretiva de pré-processador. Isso significa que ele é processado pelo compilador antes de qualquer compilação real do código.
+  - Sem Verificação de Sintaxe: Quando você usa `#define`, o pré-processador simplesmente substitui cada ocorrência do token definido pelo texto correspondente, sem verificar a sintaxe. Portanto, é importante garantir que a substituição seja feita corretamente para evitar erros de compilação difíceis de depurar.
+  - Substituição de Texto: O `#define` é usado para substituir um token por outro em todo o código. Não há tipo de dados associado à macro definida por `#define`, é apenas uma substituição de texto.
+  - Substituição Direta de Texto: O `#define` não é afetado por escopos de bloco ou por escopo de função. Isso significa que a substituição ocorrerá em todo o código, independentemente do escopo.
+  - Não é recomendado para tipos complexos: Enquanto o `#define` é útil para definir constantes simples ou para criar abreviações de código, ele não é recomendado para substituição de tipos complexos, estruturas de controle ou funções. Para isso, normalmente são usados tipos de dados constantes ou funções inline.
+  - Escopo Global: As macros definidas por `#define` têm um escopo global, o que significa que elas são válidas em todo o código após a definição, até o final do arquivo ou até que sejam substituídas por outra diretiva #undef.
 
-</code></pre>
 ```C++
 #include <iostream>
 #include <locale.h>
@@ -680,7 +503,7 @@ using namespace std;
 #define sobrenome "K. Dias Santos";
 const int anoNascimento = 2000;
 
-int main(){
+int main() {
   setlocale(LC_ALL, "Portuguese");
 
   const string sexo = "Masculino";
@@ -691,27 +514,20 @@ int main(){
   cout << "\nSexo: " << sexo;
 }
 ```
-<pre><code>
 
->>>>>VETORES E MATRIZES
+**VETORES E MATRIZES**
 
->>>>>>VETOR
-
- Container ou Matriz Unidimensional, um vetor é caracterizado por uma variável dimensionada com tamanho pré-fixado,
-ou seja, é uma variável com tamanho fixo que irá receber "n" valores. Diferente da variável que armazena apenas 1
-valor por vez, um vetor pode armazenar "n" valores indexados nas respectivas posições quais foram armazenados. Ou
-seja, vetor é um agrupamento contíguo de variáveis que armazenam valores do mesmo tipo. Um vetor possui 4 importantes
-características, são elas: nome (identificador), tamanho (define o número de dados que podem ser armazenados), tipo
-(tipo dos dados armazenados) e índices (indica a posição de cada dado no vetor).
+* **VETOR**<br/>
+ Container ou Matriz Unidimensional, um vetor é caracterizado por uma variável dimensionada com tamanho pré-fixado, ou seja, é uma variável com tamanho fixo que irá receber "n" valores. Diferente da variável que armazena apenas 1 valor por vez, um vetor pode armazenar "n" valores indexados nas respectivas posições quais foram armazenados. Ou seja, vetor é um agrupamento contíguo de variáveis que armazenam valores do mesmo tipo. Um vetor possui 4 importantes características, são elas: nome (identificador), tamanho (define o número de dados que podem ser armazenados), tipo (tipo dos dados armazenados) e índices (indica a posição de cada dado no vetor).
+<pre>
            __
  VARIÁVEL |__|
            ___________
  VETOR    |__|__|__|__|
-
->>>>>>MATRIZ
-
- Uma Matriz é um vetor bidimensional utilizado para armazenar valores do mesmo tipo, ou seja, é uma tabela organizada
-em linhas e colunas no fomarto M x N, onde M representa o nº de LINHAS (horizontal) e N o nº de COLUNAS (vertical).
+</pre>
+* **MATRIZ**<br/>
+ Uma Matriz é um vetor bidimensional utilizado para armazenar valores do mesmo tipo, ou seja, é uma tabela organizada em linhas e colunas no fomarto M x N, onde M representa o nº de LINHAS (horizontal) e N o nº de COLUNAS (vertical).
+<pre>
            __
  VARIÁVEL |__|
            ________
@@ -731,44 +547,42 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
        • • • | • • •     /   - índices (serve para pesquisar/consultar as informações dentro da matriz)
        • • • | • • •    /
              ↓
+</pre>
+>Exemplo:<br/>
+> Armazenar as notas dos alunos para calcular posteriormente a média.
+><pre>
+>Aluno_1       Aluno_2    \  vetores:                           1    2
+>nota_A = 10   nota_A = 9  ❯        nota_aluno1 = [A, B]  \  1 [10 | 05] ← m
+>nota_B = 5    nota_B = 3 /         nota_aluno2 = [A, B]  /  2 [09 | 03] ← m
+>                                                               n↑   n↑
+>
+>indice:
+>         /               m   n                           m   n
+>vetores ❮  notas_aluno1 [1 | 1] = 10   |   notas_aluno2 [2 | 1] = 9
+>         \ notas_aluno1 [1 | 2] =  5   |   notas_aluno2 [2 | 2] = 3
+>
+>Dados das notas dos alunos:
+>
+>     ⌐---------------------------- N ----------------------------¬
+>    /  ALUNO   1º TRIMESTRE   2º TRIMESTRE   3º TRIMESTRE   MÉDIA
+>   /  RAPHAEL       9.5            9.9            9.3        9.5
+>M ❮   DÉBORAH       9.5            9.5            9.9        9.6
+>   \   DIEGO        9.3            9.3             9         9.2
+>    \ FÁTIMA         9              9              9          9
+></pre>
 
-Exemplo:
-
- Armazenar as notas dos alunos para calcular posteriormente a média.
-
-Aluno_1       Aluno_2    \  vetores:                           1    2
-nota_A = 10   nota_A = 9  ❯        nota_aluno1 = [A, B]  \  1 [10 | 05] ← m
-nota_B = 5    nota_B = 3 /         nota_aluno2 = [A, B]  /  2 [09 | 03] ← m
-                                                               n↑   n↑
-
-indice:
-         /               m   n                           m   n
-vetores ❮  notas_aluno1 [1 | 1] = 10   |   notas_aluno2 [2 | 1] = 9
-         \ notas_aluno1 [1 | 2] =  5   |   notas_aluno2 [2 | 2] = 3
-
-Dados das notas dos alunos:
-
-     ⌐---------------------------- N ----------------------------¬
-    /  ALUNO   1º TRIMESTRE   2º TRIMESTRE   3º TRIMESTRE   MÉDIA
-   /  RAPHAEL       9.5            9.9            9.3        9.5
-M ❮   DÉBORAH       9.5            9.5            9.9        9.6
-   \   DIEGO        9.3            9.3             9         9.2
-    \ FÁTIMA         9              9              9          9
-
->>>>>>DEFININDO VETORES/MATRIZES
-
+* **DEFININDO VETORES/MATRIZES**
+```C
 int vetor[5];
 string alfabeto[] = {"A", "B", "C", "D", "E"};
 
 int matriz[3][3];
 string tabela[3][3];
+```
 
->>INSTRUÇÕES
-
- A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como
-palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos
-do computador que irá executar ações/tarefas manipulando e tratando dados.
-
+* **INSTRUÇÕES**<br/>
+ A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados.
+<pre>
  ____________________________↱________   operadores:
 |         cálculos matemáticos        |   - binários
 |                                     |   - unários
@@ -776,9 +590,10 @@ do computador que irá executar ações/tarefas manipulando e tratando dados.
 | inputs ❮ >>operações>> ❯ informação |   -> Instruções refere-se a quantidade de operandos (valores ou 
 |         \ constantes  /             |      expressões) com os quais um operador trabalha em um cálculo
 |_____________________________________|
+</pre>
 
->>>OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO
-
+* **OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO**
+<pre>
 OPERADORES BINÁRIOS                      OPERADORES UNÁRIOS
 
 - adição..........(+): a + b             - positivo.........(+): +a
@@ -795,11 +610,10 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
    *           MULTIPLICAÇÃO          BINÁRIO               3                       INTEIRO OU REAL
    +               ADIÇÃO             BINÁRIO               4                       INTEIRO OU REAL
    -              SUBTRAÇÃO           BINÁRIO               4                       INTEIRO OU REAL
-
+</pre>
 Exemplo: π * r² = area
 
->>>OPERADORES LÓGICOS/COMPARAÇÃO/RELACIONAIS
-
+* **OPERADORES LÓGICOS/COMPARAÇÃO/RELACIONAIS**
 - AND.......................(&&): true && true
 - OR........................(||): true || false
 - NOT/negação lógica.........(!): !true
@@ -811,14 +625,12 @@ Exemplo: π * r² = area
 - valor e tipo iguais......(===): A === A
 - diferente............(!= | <>): a != b | a <> b
 
->>>>AND
-
- Verifica se/Precisa que todas as entradas atendem/satisfazem o requisito da condição.
-
+* **AND**<br/>
+ Verifica se/Precisa que todas as entradas atendem/satisfazem o requisito da condição.<br/>
 ✔ - A == true && B == true
 ✗ - A == true && B == false
 ✗ - A == false && B == false
-
+<pre>
 CONDIÇÃO 1      CONDIÇÃO 2      RESULTADO
   FALSA           FALSA           FALSO
 VERDADEIRA        FALSA           FALSO
@@ -826,7 +638,6 @@ VERDADEIRA        FALSA           FALSO
 VERDADEIRA      VERDADEIRA      VERDADEIRA
 
 Exemplo:
-
 programa{
   funcao inicio(){
     inteiro A = 5, B = 5
@@ -837,15 +648,14 @@ programa{
     }
   }
 }
+</pre>
 
->>>>OR
-
- Apenas uma das condições precisa atender ao requisito.
- 
+* **OR**<br/>
+ Apenas uma das condições precisa atender ao requisito.<br/>
 ✔ - A == true  || B == true
 ✔ - A == true  || B == false
 ✗ - A == false || B == false
-
+<pre>
 CONDIÇÃO 1      CONDIÇÃO 2      RESULTADO
   FALSA           FALSA           FALSO
 VERDADEIRA        FALSA         VERDADEIRA
@@ -853,7 +663,6 @@ VERDADEIRA        FALSA         VERDADEIRA
 VERDADEIRA      VERDADEIRA      VERDADEIRA
 
 Exemplo:
-
 programa{
   funcao inicio(){
     inteiro A = 15, B = 5
@@ -864,33 +673,29 @@ programa{
     }
   }
 }
+</pre>
 
->>>>NOT
-
+* **NOT**<br/>
  Operador de negação, inverte o resultado lógico.
-
-- A == true -> !A == false
-
+- A == true -> !A == false<br/>
 CONDIÇÃO        RESULTADO
   FALSA         VERDADEIRA
 VERDADEIRA        FALSA
-
+<pre>
 Exemplo:
-
 programa{
   funcao inicio(){
     logico a = falso
     escreva(!a)
   }
 }
+</pre>
 
->>>ESTRUTURAS CONDICIONAIS E SEUS OPERADORES
-
-- CONDIÇÃO = ESTADO DE UM OBJETO
-- CONDICIONAL = EXPRESSA UMA CONDIÇÃO
-
+* **ESTRUTURAS CONDICIONAIS E SEUS OPERADORES**
+  - **CONDIÇÃO** = ESTADO DE UM OBJETO
+  - **CONDICIONAL** = EXPRESSA UMA CONDIÇÃO
+<pre>
 Exemplo de estrutura condicional:
-
 (START)  ➝  /a, b/  ➝  [a == b]
                           ↓
           condição -> ❮ V || F ❯  ➝  |F|  ➝  [EXCEÇÃO]
@@ -899,16 +704,16 @@ Exemplo de estrutura condicional:
                         ~
                         ↓
                       (END)
-
->>>>TIPOS DE ESTRUTURAS CONDICIONAIS
-
+</pre>
+* **TIPOS DE ESTRUTURAS CONDICIONAIS**
+<pre>
  SIMPLES                COMPOSTA                      ENCADEADA
 [CONDIÇÃO]             [CONDIÇÃO] ➝ [EXCEÇÃO]        [CONDIÇÃO] ⬎
     ↓                      ↓                          ↓        [CONDIÇÃO] ⬎
 [OPERAÇÃO]             [OPERAÇÃO]                 [OPERAÇÃO]       ↓       [OPERAÇÃO]
                                                                 [EXCEÇÃO]
 
->>>>>CONDICIONAL SIMPLES
+> CONDICIONAL SIMPLES
 
 [CONDIÇÃO]                            (START)                 programa{
     ↓                                    ↓                      funcao inicio(){
@@ -923,7 +728,7 @@ Exemplo de estrutura condicional:
                                          ↓
                                        (END)
 
->>>>>CONDICIONAL COMPOSTA
+> CONDICIONAL COMPOSTA
 
 [CONDIÇÃO] ➝ [EXCEÇÃO]                (START)                 programa{
     ↓                                    ↓                      funcao inicio(){
@@ -941,7 +746,7 @@ Exemplo de estrutura condicional:
                                          ↓
                                        (END)
 
->>>>>CONDICIONAL ENCADEADA
+> CONDICIONAL ENCADEADA
 
 [CONDIÇÃO] ⬎                          (START)                 programa{
  ↓         [CONDIÇÃO] ⬎                  ↓                      funcao inicio(){
@@ -960,23 +765,23 @@ Exemplo de estrutura condicional:
                                         ❮ R )                       }
                                           ↓                      }
                                         (END)                 }
+</pre>
 
->>>ESTRUTURAS DE REPETIÇÃO
-
-        ⤺
-   trecho de um /  - Controle de fluxo
-     programa   \  - Laço/Malha/Loop de repetição
-        ⤻
-
- Uma estrutura de repetição irá executar um determinado trecho de um programa a partir dos parâmetros determinados
-dentro dessa estrutura.
+* **ESTRUTURAS DE REPETIÇÃO**<br/>
+ Uma estrutura de repetição irá executar um determinado trecho de um programa a partir dos parâmetros determinados dentro dessa estrutura.
+<pre>
+     ⤺
+trecho de um /  - Controle de fluxo
+  programa   \  - Laço/Malha/Loop de repetição
+     ⤻
 
                     / Nº de repetições pré-fixadas
 CONDIÇÃO DE PARADA ❮              ou
                     \ Até a condição ser satisfeita
+</pre>
 
->>>>TIPOS DE ESTRUTURAS DE REPETIÇÃO
-
+* **TIPOS DE ESTRUTURAS DE REPETIÇÃO**
+<pre>
 1. CONDIÇÃO DA REPETIÇÃO NO INÍCIO
 ENQUANTO(CONDIÇÃO NÃO FOR SATISFEITA){
   FAÇA INSTRUÇÕES
@@ -991,11 +796,11 @@ FAÇA{
 PARA(VALOR INICIAL; CONDIÇÃO DE PARADA/FAÇA ATÉ; ITERAÇÃO/ALTERAÇÃO DO VALOR INICIAL ATÉ ATENDER A CONDIÇÃO DE PARADA){
   FAÇA INSTRUÇÕES
 }
+</pre>
 
-EXEMPLOS:
-
->>>>>ENQUANTO (WHILE)
-
+**EXEMPLOS:**
+<pre>
+> ENQUANTO (WHILE)
  Pense numa pessoa indo cortar a grama, a estrutura de repetição lógica a ser aplicada seria:
 
 TESTE LÓGICO  / ENQUANTO(GRAMA ALTA)FAÇA{
@@ -1030,8 +835,7 @@ programa{
   }
 }
 
->>>>>REPITA ATÉ/ENQUANTO (DO...WHILE)
-
+> REPITA ATÉ/ENQUANTO (DO...WHILE)
  Assemelha-se ao ENQUANTO (WHILE), porém a ordem do teste lógico e da repetição é:
 
   FAÇA{
@@ -1074,10 +878,10 @@ programa{
   }
 }
 
->>>>>PARA(INÍCIO; ENQUANTO ATÉ; DE N EM N){FAÇA INSTRUÇÕES} (FOR(){})
+> PARA(INÍCIO; ENQUANTO ATÉ; DE N EM N){FAÇA INSTRUÇÕES} (FOR(){})
 
-TESTE LÓGICO -> FEITO NO INÍCIO
-Nº DE REPETIÇÕES -> DEFINIDAS/FIXAS
+  TESTE LÓGICO -> FEITO NO INÍCIO
+  Nº DE REPETIÇÕES -> DEFINIDAS/FIXAS
 
 VAMOS VER O PSEUDOCÓDIGO:
 
@@ -1094,8 +898,8 @@ programa{
   }
 }
 
- A estrutura do for adiciona o valor atual de "contador" (=1) ao valor atual de "somatorio" (=0), fazendo isso até
-"contador" atingir o valor de parada definido (=10).
+A estrutura do for adiciona o valor atual de "contador" (=1) ao valor atual de "somatorio" (=0),
+fazendo isso até "contador" atingir o valor de parada definido (=10).
 
 1ª iteração: (contador = 1) + (somatorio = 0) = (somatorio = 1)
 2ª iteração: (contador = 2) + (somatorio = 1) = (somatorio = 3)
@@ -1104,7 +908,7 @@ programa{
 5ª iteração: (contador = 5) + (somatorio = 10) = (somatorio = 15)
 6ª iteração: ...
 
-EXPLICANDO O FOR
+>>> EXPLICANDO O FOR
 
 Exemplo:
 //  ↱ valor de início   ↱ condição de parada   ↱ iteração até atender a condição de parada (i = i + i)
@@ -1112,7 +916,7 @@ for(i = 1;              i <= 5;                i++){                            
     console.log("i: ", i)
 }
 
- A cada iteração, "i" recebe um novo valor:
+ *A cada iteração, "i" recebe um novo valor:
 
 - Inicialização -> i = 1 (i++ -> i = i + 1)
 - 1º incremento:
@@ -1133,7 +937,7 @@ seja igual ao valor de parada (=5).
 4ª iteração: (i = 3) + (i = 1) -> i = 4
 5ª iteração: (i = 4) + (i = 1) -> i = 5
 
->>>COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
+> COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
 
 programa{
   funcao inicio(){
@@ -1244,22 +1048,19 @@ programa{
   }
 
 }
+</pre>
 
->>>FUNÇÕES
+* **FUNÇÕES**<br/>
+ "Subalgoritmo", "bloco", "método", "função", "subprograma", "subrotina"... São instruções que realizam tarefas específicas, são trechos de códigos com instruções/objetivos específicos que podem ser chamadas dentro do código principal. Ajudam na decomposição e modularização do algoritmo para torná-lo mais legível.
 
- "Subalgoritmo", "bloco", "método", "função", "subprograma", "subrotina"... São instruções que realizam tarefas
-específicas, são trechos de códigos com instruções/objetivos específicos que podem ser chamadas dentro do código
-principal. Ajudam na decomposição e modularização do algoritmo para torná-lo mais legível.
-
-Bloco de instruções (códigos), identificado por *nome* e *parâmetros* ("assinatura"):
- - Definição: Objetivo da função
- - Nome: Essencial para chama-la no código principal
- - Invocação: Quais objetos e bibliotecas está invocando
- - Variável Local: É destruída após encerrar a função
- - Variável global: É acessa dentro e fora da função
-
+* **Bloco de instruções (códigos), identificado por *nome* e *parâmetros* ("assinatura"):**
+  - *Definição*: Objetivo da função
+  - *Nome*: Essencial para chama-la no código principal
+  - *Invocação*: Quais objetos e bibliotecas está invocando
+  - *Variável Local*: É destruída após encerrar a função
+  - *Variável Global*: É acessada dentro e fora da função
+<pre>
 Exemplo função média escolar:
-
 programa{
   funcao inicio(){
     real nota1, nota2
@@ -1279,9 +1080,14 @@ programa{
     escreva("Média do aluno: ", media)
   }
 }
+</pre>
 
->>DESENVOLVIMENTO DE PROGRAMAS
-
+* **DESENVOLVIMENTO DE PROGRAMAS**
+  - Sequência de passos com o objetivo definido
+  - Execução de tarefas específicas
+  - Conjunto de operações que resultam em uma sucessão de finitas ações
+  - **feature = funcionalidades do programa*
+<pre>
 -> Análise
 - Estudo e definição dos
  dados de entrada e saída                                         -> Codificação
@@ -1292,32 +1098,26 @@ programa{
                         -> Algoritmo ⤴
                         - Descreve o problema por meio de ferramentas
                           narrativas, fluxogramas ou pseudo-códigos
+</pre>
 
-- Sequência de passos com o objetivo definido
-- Execução de tarefas específicas
-- Conjunto de operações que resultam em uma sucessão de finitas ações
+**Como Construir um Algoritmo:**
+  - *Compreensão do problema* -> Pontos mais importantes
+  - *Definição dos dados de entrada* -> Dados fornecidos e cenário
+  - *Definir processamento* -> Cálculos e restrições
+  - *Definir dados de saída* -> Resultados pós processamento
+  - *Utilizar um método de construção* -> Design de construção de algoritmo
+  - *Teste e diagnóstico* -> Refinamento de algoritmo
 
-Como Construir um Algoritmo:
+**ESTRUTURA DE UM SOFTWARE E SEU AMBIENTE DE DESENVOLVIMENTO**<br/>
 
-- Compreensão do problema -> Pontos mais importantes
-- Definição dos dados de entrada -> Dados fornecidos e cenário
-- Definir processamento -> Cálculos e restrições
-- Definir dados de saída -> Resultados pós processamento
-- Utilizar um método de construção -> Design de construção de algoritmo
-- Teste e diagnóstico -> Refinamento de algoritmo
-
-ESTRUTURA DE UM SOFTWARE E SEU AMBIENTE DE DESENVOLVIMENTO
-
-feature = funcionalidades do programa
-
-Exemplo:
-
+Exemplo:<br/>
 APP DE VIAGENS
 
 features:
  1. solicitar veículo
  2. cadastrar usuário
  3. cadastrar motorista
+ <pre>
   __________________________________________________________________________________________
  |       FEATURE       |        INPUT         |        PROCESS       |        OUTPUT        |
  |---------------------|----------------------|----------------------|----------------------|
@@ -1344,17 +1144,18 @@ features:
  |                     |INFORMAÇÕES PESSOAIS  |                      |                      |
  |                     | E DO VEÍCULO         |                      |                      |
  |_____________________|______________________|______________________|______________________|
+</pre>
 
-Construção de Algoritmos:
+**CONSTRUÇÃO DE ALGORITMOS:**
+  1. receba os dados
+  2. trate os dados
+  3. decida com base nos dados
+  4. exiba o resultado/dados
 
-                      / - Sem conceitos novos
-Narrativa            ❮  - Utilização de linguagem natural
-                      \ - Diversas interpretações possíves (ambiguidade)
-
-1. receba os dados
-2. trate os dados
-3. decida com base nos dados
-4. exiba o resultado/dados
+<pre>
+           / - Sem conceitos novos
+Narrativa ❮  - Utilização de linguagem natural
+           \ - Diversas interpretações possíves (ambiguidade)
 
                       / - Simples entendimento
 Fluxograma           ❮  - Utilização de símbolos pré-definidos
@@ -1393,9 +1194,10 @@ programa{
     escreva("dados tratados")
   }
 }
+</pre>
 
-Exemplos de construção de algoritmos:
-
+**Exemplos de construção de algoritmos:**
+<pre>
 1. Multiplicação de 2 nºs
 
             /  Passo 1 - Recebe os valores
@@ -1414,11 +1216,9 @@ Fluxograma-|              [M = N1 * N2]
 
 Pseudo-Código ❮ N1 * N2 = M
 
-Exercícios:
+2. Contagem de Intervalos de Números entre 1 e 200
 
-1. Contagem de Intervalos de Números entre 1 e 200
-
-1.1. Como analisar os padrões?
+2.1. Como analisar os padrões?
 
 1 + 2 \                |   200 + 1 \  Decrementar o maior
 1 + 3  \ Ineficiênte   |   199 + 2  \         +
@@ -1428,7 +1228,7 @@ Exercícios:
                       Qual o benefício?   -> Gera um PADRÃO ❮  199 + 2 = *201*
                        (Decomposição)                        \ 198 + 3 = *201*
 
-1.2. Como expressar de forma generalista?
+2.2. Como expressar de forma generalista?
 
 | 200 + 1 = 201 |         /  Valor  \   SIM
 | 199 + 2 = 201 |   ->   ❮    se     ❯   ->    ❮ Qnts vzs? ❯
@@ -1438,7 +1238,7 @@ Exercícios:
                                             |     resultado      |
                                             | 201 x 100 = 20.100 |
                                                       ~
-1.3. Como expressar em variáveis?
+2.3. Como expressar em variáveis?
 ((y / 2) * ((y - 1) + (x + 1)))
 
 > [x = 1, y = 200] -> intervalo (1 e 200)
@@ -1492,10 +1292,9 @@ programa{
   }
 }
 
-2. Adivinhe o número
-
- O problema consiste em determinar o número escolhido por uma pessoa dentro de um intervalo, usando perguntas com
-respostas de "sim" e "não".
+3. Adivinhe o número
+ O problema consiste em determinar o número escolhido por uma pessoa dentro de um intervalo,
+usando perguntas com respostas de "sim" e "não".
 
 > Busca por varredura:
 
@@ -1541,14 +1340,11 @@ programa{
     }
   }
 }
+</pre>
+Exemplo prático:<br/>
+ Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com algoritmo?
 
-Exemplo prático:
-
- Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com
-algoritmo?
-
-</code></pre>
-```Python
+```Py
 # algoritmo
 orcamento = float(input("ORÇAMENTO: "))
 total_gasto = 0
@@ -1568,19 +1364,14 @@ if total_gasto > orcamento:
 elif total_gasto <= orcamento:
   print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
 ```
-<pre><code>
 
-Exemplo criação de programa:
+**Exemplo criação de programa:**
 
-Média Escolar
-
+**Média Escolar**<br/>
 Uma diretora decide fazer um programa para saber qual a média dos alunos da escola:
-
--> O método de avaliação utilizado por cada professor pode ser diferente, mas todos os métodos resultam em uma nota
-final.
--> A nota dos alunos é uma abstração. Podemos não saber exatamente qual o médoto utilizado para gerar a nota de cada
-aluno diferente, mas astraimos isso e extraimos a informação mais importante que é comum a todos: a nota.
-
+- O método de avaliação utilizado por cada professor pode ser diferente, mas todos os métodos resultam em uma nota final.
+- A nota dos alunos é uma abstração. Podemos não saber exatamente qual o médoto utilizado para gerar a nota de cada aluno diferente, mas astraimos isso e extraimos a informação mais importante que é comum a todos: a nota.
+<pre>
              / Passo 1 - Recebe os valores
             /  Passo 2 - Calcula a média
 Narrativa  ❮   Passo 3 - Imprime o resultado
@@ -1621,7 +1412,7 @@ algoritmo "media"
     escreval()
     escreva("Média do aluno :", media)
     escreval()
-    se(media >= 7)entao
+    se(media >= 7) entao
       escreva("ALUNO APROVADO!")
       escreval()
       escreval()
@@ -1633,7 +1424,7 @@ algoritmo "media"
       escreva("Digite a nota da recuperação: ")
       leia(recuperacao)
       media <- (soma+recuperacao)/armazenamento
-      se(media >= 7)entao
+      se(media >= 7) entao
         escreval()
         escreva("ALUNO APROVADO!")
         escreval()
@@ -1650,8 +1441,8 @@ algoritmo "media"
       fimse
     fimse
 fimalgoritmo
+</pre>
 
-</code></pre>
 ```Python
 # teste protótipo
 notas = int(input("Quantas notas voce vai digitar? ")) # 2
@@ -1664,19 +1455,18 @@ if media >= 6.0:
 else:
     print('Reprovado') # Aprovado
 ```
-<pre><code>
 
-Refatoração:
-
+**Refatoração:**
+<pre>
 programa{
-    funcao inicio(){
+    funcao inicio() {
         real notas[5]
         inteiro parada
 
         escreva("Quantas notas serão? ")
         leia(parada)
 
-        para(inteiro i = 0; i < parada; i++){
+        para(inteiro i = 0; i < parada; i++) {
           inteiro nota
           escreva("Digite a ", i + 1, "ª nota: ")
           leia(nota)
@@ -1685,20 +1475,19 @@ programa{
       escreva("Média do aluno: ", media(notas, parada))
     }
 
-    funcao real media(real notas[], inteiro parada){
+    funcao real media(real notas[], inteiro parada) {
         real soma = 0
 
-        para(inteiro i = 0; i < parada; i++){
+        para(inteiro i = 0; i < parada; i++) {
           soma = soma + notas[i]
         }
       real media = soma / parada
       retorne media
     }
 }
+</pre>
 
-</code></pre>
 ```Python
-# programa
 def calcular_media(notas):
     return sum(notas) / len(notas)
 
@@ -1716,22 +1505,14 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-<pre><code>
 
->>LINGUAGENS DE PROGRAMAÇÃO
+* **LINGUAGENS DE PROGRAMAÇÃO**<br/>
+ A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. Ou seja, uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação de um código fonte.
 
- A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de
-programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto
-de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido
-para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. Ou seja,
-uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação
-de um código fonte.
-
-</code></pre>
 ```C
 #include <stdio.h>
 
-int main(){
+int main() {
   int x, y;
 
   printf("Digite um número inteiro: ");
@@ -1746,132 +1527,65 @@ int main(){
   return 0;
 }
 ```
-<pre><code>
 
->>>SINTAXE E SEMÂNTICA
+**SINTAXE E SEMÂNTICA**<br/>
+ As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, são chamadas essas regras de: sintaxe e semântica, (assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever palavras corretamente em uma língua, enquanto a semântica trata de como usar essas palavras para formar frases que fazem sentido.
+- SINTAXE: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação. É como a "gramática" de uma linguagem. Exemplo em Python:
 
- As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, são chamadas essas
-regras de: sintaxe e semântica, (assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever
-palavras corretamente em uma língua, enquanto a semântica trata de como usar essas palavras para formar frases que
-fazem sentido.
-
- - SINTAXE: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao
-conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação.
-É como a "gramática" de uma linguagem. Exemplo em Python:
-
-</code></pre>
-```Python
+```Py
   print("Hello world!")
 ```
-<pre><code>
-
- O código acima segue a sintaxe correta do Python para imprimir uma mensagem no console, visto que a mensagem está
-dentro de aspas e parênteses, ou seja, a simbologia para que a impressão da mensagem na tela aconteça está coerente
-com o que se espera nessa linguagem. No entanto, se escrevermos algo como:
-
-</code></pre>
-```Python
+ O código acima segue a sintaxe correta do Python para imprimir uma mensagem no console, visto que a mensagem está dentro de aspas e parênteses, ou seja, a simbologia para que a impressão da mensagem na tela aconteça está coerente com o que se espera nessa linguagem. No entanto, se escrevermos algo como:
+```Py
   print "Hello world!"
 ```
-<pre><code>
-
- Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print"),
-iremos receber uma mensagem de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os mais comuns
-erros de sintaxe são relacionados à escrita: a falta de símbolos obrigatórios (como parênteses, ponto-e-vírgula,
-vírgulas, endentação e etc), palavras reservadas escritas incorretamente, estruturas de código mal formatadas, entre
-outros.
-
- - SEMÂNTICA: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à
-descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código,
-é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
-
-</code></pre>
-```Python
+ Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print"), iremos receber uma mensagem de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os mais comuns erros de sintaxe são relacionados à escrita: a falta de símbolos obrigatórios (como parênteses, ponto-e-vírgula, vírgulas, endentação e etc), palavras reservadas escritas incorretamente, estruturas de código mal formatadas, entre outros.
+- SEMÂNTICA: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código, é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
+```Py
   resultado = 10 / 2 # divisão válida
 ```
-<pre><code>
-
- Esse código tem uma semântica correta, já que a operação de divisão é válida. No entanto, considerando se vissemos
-algo assim:
-
-</code></pre>
-```Python
+ Esse código tem uma semântica correta, já que a operação de divisão é válida. No entanto, considerando se vissemos algo assim:
+```Py
 resultado = 10 / 0 # divisão inválida
 ```
-<pre><code>
-
- Apesar de a sintaxe estar correta, a semântica está errada, porque dividir por zero não é permitido, gerando um erro
-lógico durante a execução.
- 
+ Apesar de a sintaxe estar correta, a semântica está errada, porque dividir por zero não é permitido, gerando um erro lógico durante a execução.
+ <pre>
      	                        SINTAXE                                  SEMÂNTICA
  Pergunta-chave     	 "Está escrito corretamente?"	                "Faz sentido?"
  Erro	              O programa não será executado	    O programa é executado, mas pode falhar
                           (erro de compilação).              ou produzir resultados errados.
  Foco	              Estrutura e formato do código.         Significado e lógica do código.
+</pre>
 
->>>ESTRUTURA DE TIPOS
+**ESTRUTURA DE TIPOS**<br/>
+ Refere-se ao sistema que uma linguagem de programação utiliza para definir, manipular e verificar os tipos de dados. Ela estabelece como os tipos são tratados e como as conversões entre tipos são realizadas. A estrutura de tipos pode influenciar diretamente a flexibilidade, a segurança e a facilidade de uso da linguagem.
 
- Refere-se ao sistema que uma linguagem de programação utiliza para definir, manipular e verificar os tipos de dados.
-Ela estabelece como os tipos são tratados e como as conversões entre tipos são realizadas. A estrutura de tipos pode
-influenciar diretamente a flexibilidade, a segurança e a facilidade de uso da linguagem.
-
->>>>SISTEMAS DE TIPOS
-
+**SISTEMAS DE TIPOS**<br/>
  O sistema de tipos define como diferentes tipos de dados são representados e como podem ser combinados. Ele inclui:
- 
  - Definição de Tipos: Como os tipos de dados são declarados e definidos (por exemplo, inteiros, strings, listas).
- - Verificação de Tipos: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas
- com tipos compatíveis.
+ - Verificação de Tipos: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas com tipos compatíveis.
  - Conversão de Tipos: Como e quando os tipos podem ser convertidos entre si (conversões implícitas ou explícitas).
 
- Classificações dos Sistemas de Tipos
-
+ **CLASSIFICAÇÕES DOS SISTEMAS DE TIPOS**<br/>
  A estrutura de tipos pode ser classificada de várias maneiras, incluindo:
+ - Tipagem Fraca: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a ter comportamentos inesperados devido a conversões automáticas.
+ - Tipagem Forte: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar erros de tipo.
+ - Tipagem Dinâmica: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade, mas pode resultar em erros de tipo que só são detectados quando o código é executado.
+ - Tipagem Estática: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a execução. Isso ajuda a detectar erros de tipo mais cedo, geralmente durante a compilação.
 
- - Tipagem Fraca: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a ter comportamentos
- inesperados devido a conversões automáticas.
- - Tipagem Forte: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar
- erros de tipo.
- - Tipagem Dinâmica: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade,
- mas pode resultar em erros de tipo que só são detectados quando o código é executado.
- - Tipagem Estática: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a
- execução. Isso ajuda a detectar erros de tipo mais cedo, geralmente durante a compilação.
-
- Estruturas de Tipos Específicas
-
+ **ESTRUTURAS DE TIPOS ESPECÍFICAS**<br/>
  Além da tipagem geral, existem estruturas e conceitos específicos associados a tipos:
-
  - Tipos Primitivos: Tipos básicos fornecidos pela linguagem, como inteiros, caracteres e booleanos.
  - Tipos Compostos: Tipos formados por combinação de tipos primitivos, como arrays, listas, ou structs.
- - Tipos Abstratos: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces
- em linguagens orientadas a objetos.
- - Polimorfismo: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme,
- muitas vezes implementada através de generics ou templates.
+ - Tipos Abstratos: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces em linguagens orientadas a objetos.
+ - Polimorfismo: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme, muitas vezes implementada através de generics ou templates.
 
- >>>>GRAU DE ABSTRAÇÃO
-
- Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem
-seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite
-a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se
-diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida
-para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário
-traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma
-linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior
-controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo
-o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma
-sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente
-em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para
-cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão
-através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais
-próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau
-de abstração:
-
- 1. Baixo Nível: Possui símbolos que representam o código de máquina propriamente.
- 2. Médio Nível: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui
- símbolos que precisam ser processados por um compilador.
- 3. Alto Nível: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam
- transformados em linguagem de máquina.
-
+ **GRAU DE ABSTRAÇÃO**<br/>
+ Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
+ 1. **Baixo Nível**: Possui símbolos que representam o código de máquina propriamente.
+ 2. **Médio Nível**: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador.
+ 3. **Alto Nível**: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam transformados em linguagem de máquina.
+<pre>
                                               LINGUAGEM QUE O
                     --------------         COMPUTADOR ENTENDE
   PROGRAMA          | COMPILAÇÃO |       E EXECUTA AS INSTRUÇÕES
@@ -1881,9 +1595,10 @@ de abstração:
      ||            -----------------         PROGRAMA OBJETO
  CÓDIGO FONTE      | INTERPRETAÇÃO |            EXECUÇÃO
                    -----------------
+</pre>
 
->>>IMPLEMENTAÇÕES DE LINGUAGEM
-
+**IMPLEMENTAÇÕES DE LINGUAGEM**
+<pre>
 COMPILAÇÃO   -\   1. Geração do programa objeto
 (TRADUÇÃO)   -/   2. Execução do programa objeto
 
@@ -1891,10 +1606,11 @@ COMPILAÇÃO   -\   1. Geração do programa objeto
               --/---
 
 INTERPRETAÇÃO => Programa fonte executado "diretamente": lê a linha -> traduz -> executa
+</pre>
 
->>>>COMPILAÇÃO
-
-C++, JAVA:
+**COMPILAÇÃO**
+<pre>
+C/C++, JAVA:
 ________________        _________        _________________
 |PROGRAMA FONTE|   ->   |COMPILA|   =>   |PROGRAMA OBJETO|   =   EXECUTA O PROGRAMA OBJETO
 ----------------        ---------        -----------------
@@ -1918,22 +1634,17 @@ __________                  | __________     __________     __________     _____
                                       EXTERNAL                         ||
                                      LIBRARIES                         \/
                                                               > EXECUTION RESULTS <
+</pre>
+**ANÁLISES DE CÓDIGO**<br/>
+Na fase em que o código fonte está sendo compilado, são feitos 3 tipos de análises:
+1. Lexical analyzer
+2. Syntax analyzer
+3. Semantic analyzer
 
->>>>>ANÁLISES DE CÓDIGO
+**LEXICAL ANALYZER**
 
- Na fase em que o código fonte está sendo compilado, são feitos 3 tipos de análises:
-
-1ª Lexical analyzer
-2ª Syntax analyzer
-3ª Semantic analyzer
-
->>>>>>LEXICAL ANALYZER
-
- Análise lexica, também conhecida como scaner ou leitura, é a primeira fase do processo de compilação, e sua função
-é realizar a leitura do programa fonte caractere por caractere e agrupar os caracteres em "lexemas" (produzir uma
-sequência de símbolos léxicos conhecidos como *tokens*). Neste processo, a análise léxica *particiona*, *classifica*
-e *elimina*.
-
+ Análise lexica, também conhecida como scaner ou leitura, é a primeira fase do processo de compilação, e sua função é realizar a leitura do programa fonte caractere por caractere e agrupar os caracteres em "lexemas" (produzir uma sequência de símbolos léxicos conhecidos como *tokens*). Neste processo, a análise léxica *particiona*, *classifica* e *elimina*.
+<pre>
              PARTICIONA                            CLASSIFICA                                  ELIMINA
                  |                                      |                                         |
   identifica os elementos léxicos    -\        esses elementos são:             -\        durante esse processo,
@@ -1941,16 +1652,14 @@ e *elimina*.
                                             reservadas, números, strings,             espaço em branco, comentários...
                                             etc (ou seja, todo o conteúdo                 
                                         relevante no código para que funcione)            
+</pre>
 
->>>>>>SYNTAX ANALYZER
+**SYNTAX ANALYZER**<br/>
+ A sintáxe de um programa é a forma como ele define (através de palavras reservadas, de indexação e de símbolos especiais) qual a estrutura relacionada para a codificação dentro daquela linguagem específica (ou seja, define a corretude do programa).
 
- A sintáxe de um programa é a forma como ele define (através de palavras reservadas, de indexação e de símbolos
-especiais) qual a estrutura relacionada para a codificação dentro daquela linguagem específica (ou seja, define a
-corretude do programa).
+>PADRÃO/GRAMÁTICA = Depende da linguagem usada.
 
-PADRÃO/GRAMÁTICA = Depende da linguagem usada.
-
->>>>>>SEMANTIC ANALYZER
+**SEMANTIC ANALYZER**
 
  Semântica é o estudo do significado. Incide sobre a relação entre significantes, como: palavras, frases, sinais e
 símbolos (ou seja, é a lógica do programa).
@@ -2020,21 +1729,21 @@ ECMAScript 2015+ em uma versão antiga e compatível com os navegadores inferior
 
 Dada uma função arrow ES2015 por exemplo:
 
-</code></pre>
+
 ```JS
   [2, 4, 6].map((n) => n * 2);
 ```
-<pre><code>
+
 
 …Babel irá convertê-lo em sua versão ES5:
 
-</code></pre>
+
 ```JS
   [2, 4, 6].map(function(n){
     return n * 2;
   });
 ```
-<pre><code>
+
 
 >>>PARADIGMAS DE PROGRAMAÇÃO
 
@@ -2095,7 +1804,7 @@ todo o trabalho para que funcione adequadamente, seja de fácil leitura/entendim
 
 A necessidade é selecionar os números pares em um intervalo de 1 a 10, e apresentar o resultado.
 
-</code></pre>
+
 ```Python
 # IMPERATIVO (ESTRUTURADO)
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -2113,7 +1822,7 @@ even_numbers = list(filter(lambda number: number % 2 ==0, numbers))
 
 print(even_numbers)
 ```
-<pre><code>
+
 
  No script acima o código IMPERATIVO está ESTRUTURADO e o DECLARATIVO é FUNCIONAL. A diferença entre eles não está
 apenas na quantidade de código escrito, mas nas intenções expressadas em cada instrução.
@@ -2137,11 +1846,11 @@ considerar uma tabela NUMBERS a qual contém registros de 1 a 100.
 
 No exemplo, um código declarativo em SQL:
 
-</code></pre>
+
 ```SQL
   select sum(number) from numbers where mod(number, 2) = 0 and number <= 10
 ```
-<pre><code>
+
 
  Um código reduzido, onde as instruções estão focadas no resultado esperado e não em como o computador chegará ao
 resultado.
@@ -2200,7 +1909,7 @@ nova lista com os quadrados desses números. Isso não altera a lista original d
  Vejamos outro exemplo, onde a necessidade é obter a soma dos números pares, ímpares e primos de um determinado
 intervalo e apresentar o resultado.
 
-</code></pre>
+
 ```Python
 import sympy
 
@@ -2222,7 +1931,7 @@ print("Soma números pares: ", sum(filter_even_numbers(numbers)))
 print("Soma números ímpares: ", sum(filter_odd_numbers(numbers)))
 print("Soma números primos: ", sum(filter_prime_numbers(numbers)))
 ```
-<pre><code>
+
 
  A programação funcional permite um código reduzido, focado em instruções relacionadas ao resultado esperado. Não há
 modificação sobre qualquer variável, seguindo a linha da imutabilidade. Todas as instruções são através da invocação
@@ -2286,7 +1995,7 @@ coleção de receitas.
 Exemplo prático: voltando ao exemplo dos quadrados, queremos uma função para dobrar um número. Normalmente, você
 escreveria algo assim em Python:
 
-</code></pre>
+
 ```Python
 def dobrar(numero):
     return numero * 2
@@ -2294,17 +2003,17 @@ def dobrar(numero):
 resultado = dobrar(5)
 print(resultado)
 ```
-<pre><code>
+
 
 Mas com uma função lambda, você pode fazer o mesmo em uma linha, sem atribuir um nome à função e sem alterar o estado
 da variável que contem o valor a ser manipulado:
 
-</code></pre>
+
 ```Python
   resultado = (lambda numero: numero * 2)(5)
   print(resultado)
 ```
-<pre><code>
+
 
  A função lambda `(lambda numero: numero * 2)` toma um argumento chamado `numero` e retorna `numero * 2`, não tendo
 alteração no estado/valor da variável `numero`. Então, (5) é o argumento passado para essa função lambda, resultando
@@ -2318,26 +2027,26 @@ em 5 * 2, que é 10.
 
 Vejamos outro exemplo, vamos multiplicar o argumento por 3:
 
-</code></pre>
+
 ```Python
   triplo = lambda x: x * 3
   print(type(triplo)) # <class 'function'>
   print(triplo(3)) # 9
 ```
-<pre><code>
+
 
 Agora vamos elevar o número ao quadrado:
 
-</code></pre>
+
 ```Python
   quadrado = lambda x: x * x
   print(quadrado(5)) # 25
 ```
-<pre><code>
+
 
 As expressões lambda também nos permitem trabalharmos com strings, por exemplo:
 
-</code></pre>
+
 ```Python
 #                 ↱func  ↱arg1 ↱agr2       ↱expressão
   nome_completo = lambda nome, sobrenome: f'Nome: {nome.title()}\nSobrenome: {sobrenome.title()}'
@@ -2345,38 +2054,38 @@ As expressões lambda também nos permitem trabalharmos com strings, por exemplo
 # Nome: Satoshi
 # Sobrenome: Nakamoto
 ```
-<pre><code>
+
 
 Podemos também usar condicionais com funções lambda:
 
-</code></pre>
+
 ```Python
 #            argumento ⬎    ⬐ expressão condicional ----------⬎
   comeca_com_D = lambda x: True if x.startswith('D') else False
   print(comeca_com_D('Déborah')) # True
   print(comeca_com_D('Raphael')) # False
 ```
-<pre><code>
+
 
 Se quisermos verificar se um número é impar:
 
-</code></pre>
+
 ```Python
   impar = lambda x: True if x % 2 == 1 else False
   print(impar(1)) # True
   print(impar(2)) # False
 ```
-<pre><code>
+
 
  Até mesmo compor funções mais complexas, como imprimir a palavra que vem antes da palavra passada via argumento:
 
-</code></pre>
+
 ```Python
 palavra_anterior = lambda s, w: s.split()[s.split().index(w)-1] if w in s else None
 sentenca = 'Rato Roeu Roupa Rei Roma'
 print(palavra_anterior(sentenca, 'Roma')) # Rei
 ```
-<pre><code>
+
 
  Funções lambda normalmente são usadas quando precisamos de uma função por um curto período de tempo, podemos também
 usá-las como argumentos para funções high-order (funções que recebem outras funções como argumento).
@@ -2412,13 +2121,13 @@ relação ao `this`.
 
 A sintaxe básica de uma arrow function é a seguinte:
 
-</code></pre>
+
 ```JS
 const nomeDaFuncao = (param1, param2) => {
     // corpo da função
 }
 ```
-<pre><code>
+
 
  Não é comum vermos HOF em linguagens tradicionais. O programador imperativo certamente usará um loop para iterar um
 array, porém, o funcional adotará uma abordagem completamente diferente. Podemos trabalhar o array com uma HOF,
@@ -2431,7 +2140,7 @@ arrays que recebem funções como argumentos para manipular os elementos do arra
  Aqui temos um exemplo simples usando `map`, uma HOF, que recebe uma função como argumento para dobrar todos os
 elementos de um array:
 
-</code></pre>
+
 ```JS
 const numeros = [1, 2, 3, 4, 5];
 
@@ -2441,7 +2150,7 @@ const numerosDobrados = numeros.map(function(numero) {
 
 console.log(numerosDobrados); // Saída: [2, 4, 6, 8, 10]
 ```
-<pre><code>
+
 
  Neste exemplo, a função passada para `map` é uma função anônima que dobra cada elemento do array `numeros`. Essa
 função anônima é um exemplo de uma HOF.
@@ -2459,7 +2168,7 @@ fundamental em paradigmas de programação como programação funcional.
 
  É possível atribuir essas funções a variáveis `var` ou `let` ou ainda a constantes `const`.
 
-</code></pre>
+
 ```JS
 var soma = (x, y) => x + y;
 let subtracao = (x, y) => x - y;
@@ -2468,66 +2177,66 @@ const calcular = (fn, x, y) => fn(x, y);
 console.log(calcular(soma, 2, 1)); // 3
 console.log(calcular(subtracao, 2, 1)); // 1
 ```
-<pre><code>
+
 
  Se a função tiver apenas uma expressão, você pode omitir as chaves `{}` e o `return` (se a expressão for retornada
 diretamente).
 
-</code></pre>
+
 ```JS
 const soma = (a, b) => a + b;
 ```
-<pre><code>
+
 
  Função tradicional vs. Arrow Function
 
  Função Tradicional:
 
-</code></pre>
+
 ```JS
 function saudacao(nome) {
     return 'Olá, ' + nome;
 }
 ```
-<pre><code>
+
 
 Arrow Function:
 
-</code></pre>
+
 ```JS
 const saudacao = (nome) => 'Olá, ' + nome;
 ```
-<pre><code>
+
 
  Funções sem parâmetros
 
  Se a função não tiver parâmetros, você pode usar um parêntese vazio:
 
-</code></pre>
+
 ```JS
 const dizerOla = () => 'Olá!';
 ```
-<pre><code>
+
 
  Função com apenas um parâmetro
 
 Se a função tiver apenas um parâmetro, você pode omitir os parênteses:
 
-</code></pre>
+
 ```JS
 const dobro = x => x * 2;
 ```
-<pre><code>
+
 
  Funções com múltiplos parâmetros
 
  Com múltiplos parâmetros, os parênteses são necessários:
 
-</code></pre>
+
 ```JS
 const soma = (a, b) => a + b;
 ```
-<pre><code>
+
 
  Usando arrow functions com `this`: Uma das características importantes das arrow functions é que elas não têm o
 próprio `this`. Isso significa que o valor de `this` dentro de uma arrow function é herdado do contexto onde a função
@@ -2536,7 +2245,7 @@ refere ao objeto que chamou a função. Já com arrow functions, `this` mantém 
 
  Função tradicional:
 
-</code></pre>
+
 ```JS
 function Contador() {
     this.valor = 0;
@@ -2546,11 +2255,11 @@ function Contador() {
     }, 1000);
 }
 ```
-<pre><code>
+
 
  Arrow Function:
 
-</code></pre>
+
 ```JS
 function Contador() {
     this.valor = 0;
@@ -2560,12 +2269,12 @@ function Contador() {
     }, 1000);
 }
 ```
-<pre><code>
+
 
  Podemos atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado
 de uma função, como demonstrado neste código:
 
-</code></pre>
+
 ```JS
 // Atribuindo uma função a uma variável
 const saudar = saudacaoFactory('Olá');
@@ -2593,7 +2302,7 @@ function soma(a, b) {
 
 console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  ```
-<pre><code>
+
 
  Neste exemplo, as funções são tratadas como valores de primeira classe, Isso demonstra a flexibilidade proporcionada
 por valores de primeira classe. As arrow functions oferecem uma maneira mais compacta e expressiva de escrever
@@ -2658,7 +2367,7 @@ determina que as instruções passadas ao computador podem ser formadas por 3 es
 programação estruturada permite maior dinamismo ao software, desta forma é possível coletar os dados e não ficar
 preso a um conjunto estático.
 
-</code></pre>
+
 ```Python
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 summation_even_numbers = 0
@@ -2669,7 +2378,7 @@ for number in numbers:
 
 print(summation_even_numbers) # 30
 ```
-<pre><code>
+
 
  O código acima ainda atua sobre um conjunto estático de dados, o que fixa a execução para o intervalo de 1 a 10.
 
@@ -2677,7 +2386,7 @@ print(summation_even_numbers) # 30
 números informados na execução. O que mostra a importância do paradigma estruturado para a evolução no desenvolvimento
 de software.
 
-</code></pre>
+
 ```Python
 input = input("Digite os números no formato: 1,2,3...\n> ")
 
@@ -2690,7 +2399,7 @@ for number in numbers:
 
 print("\n", summation_even_numbers)
 ```
-<pre><code>
+
 
  Destaca-se também neste paradigma a capacidade de modularização ou criação de subrotinas. Este paradigma se
 popularizou por propor uma forma de raciocínio intuitivo, onde há legibilidade e compreensão de cada bloco de código
@@ -2734,7 +2443,7 @@ este tipo de paradigma, como Cobol, Fortran, Pascal, C, Java, C++, Kotlin, Pytho
 um determinado intervalo, e apresentar o resultado. A programação estrutural permite o uso de procedimentos, desta
 forma fica mais fácil reaproveitar lógica e código.
 
-</code></pre>
+
 ```Python
 def convert_to_numbers(string_numbers):
   numbers = [int(numeric) for numeric in string_numbers.split(",")]
@@ -2772,7 +2481,7 @@ numbers_list = convert_to_numbers(input_str)
 print("\nSoma números pares: ", sum_even_numbers(numbers_list))
 print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
 ```
-<pre><code>
+
 
  Com mais requisitos a serem atendidos, o código começa a ficar extenso, o que mostra a importância do paradigma
 procedural para possibilitar o reaproveitamento e organização do código.
@@ -2842,7 +2551,7 @@ maximizar o lucro total, sujeito às restrições de recursos disponíveis.
  Em Python, você pode resolver este problema de programação matemática utilizando bibliotecas específicas para
 otimização, como a biblioteca PuLP:
 
-</code></pre>
+
 ```Python
 from pulp import LpMaximize, LpProblem, LpVariable
 
@@ -2875,7 +2584,7 @@ print("Quantidade de C:", C.varValue)
 # Imprime o valor ótimo da função objetivo (lucro total)
 print("Lucro Total:", problem.objective.value())
 ```
-<pre><code>
+
 
  Este é apenas um exemplo simples, mas mostra como a programação matemática pode ser usada para resolver problemas
 do mundo real de forma eficiente e sistemática, usando conceitos e técnicas da matemática.
@@ -2969,7 +2678,7 @@ você está traduzindo um problema do mundo real (calcular a área do terreno) e
 
 Exemplo prático:
 
-</code></pre>
+
 ```Python
 # Exemplo de modelagem matemática para calcular a área de um terreno retangular
 
@@ -2983,7 +2692,7 @@ area = comprimento * largura
 # Impressão do resultado
 print("Área do terreno: ", area, " metros quadrados")
 ```
-<pre><code>
+
 
  2. Otimização:
  É o processo de encontrar a melhor solução possível para um problema, sujeito a um conjunto de restrições. Em outras
@@ -2995,7 +2704,7 @@ print("Área do terreno: ", area, " metros quadrados")
 
 Exemplo prático:
 
-</code></pre>
+
 ```Python
 # Exemplo de otimização para comprar frutas com um orçamento fixo
 
@@ -3022,7 +2731,7 @@ for fruta in frutas:
 # Imprimindo o resultado
 print("Quantidade total de frutas compradas: ", value(problem.objective))
 ```
-<pre><code>
+
 
 
  3. Álgebra Linear:
@@ -3037,7 +2746,7 @@ conceitos fundamentais em álgebra linear.
 
 Exemplo prático:
 
-</code></pre>
+
 ```Python
 # Exemplo de álgebra linear para calcular a distância total percorrida em uma viagem
 
@@ -3050,7 +2759,7 @@ distancia_total = sum(distancias)
 # Imprimindo o resultado
 print("Distância total percorrida: ", distancia_total, " quilômetros")
 ```
-<pre><code>
+
 
  4. Cálculo diferencial e integral:
  É um ramo da matemática que estuda as taxas de mudança de funções (cálculo diferencial) e a acumulação de quantidades
@@ -3064,7 +2773,7 @@ ao longo do tempo, integrando a função da velocidade.
  Para ilustrar o cálculo diferencial, podemos usar bibliotecas como SymPy ou scipy para calcular derivadas de funções.
 Por exemplo, vamos calcular a derivada da função f(x) = x². Exemplo prático:
 
-</code></pre>
+
 ```Python
 from sympy import symbols, diff
 
@@ -3078,12 +2787,12 @@ derivada = diff(f, x)
 # Impressão do resultado
 print("Derivada de f(x) = ", derivada)
 ```
-<pre><code>
+
 
  Para ilustrar o cálculo integral, também podemos usar as mesmas bibliotecas. Vamos calcular a integral definida da
 função g(x) = x de 0 a 1:
 
-</code></pre>
+
 ```Python
 from scipy import integrate
 
@@ -3097,7 +2806,7 @@ integral, erro = integrate.quad(g, 0, 1)
 # Impressão do resultado
 print("Integral definida de g(x) de 0 a 1 = ", integral)
 ```
-<pre><code>
+
 
  5. Teoria dos Grafos:
  Ramo da matemática que estuda as propriedades dos grafos, que são estruturas compostas por vértices (ou nós)
@@ -3111,7 +2820,7 @@ computadores, determinar se a rede está conectada ou encontrar a maneira mais e
  Podemos usar bibliotecas como NetworkX para trabalhar com grafos em Python. Por exemplo, vamos criar um grafo simples
 e calcular o caminho mais curto entre dois vértices. Exemplo prático:
 
-</code></pre>
+
 ```Python
 import networkx as nx
 
@@ -3125,7 +2834,7 @@ caminho_curto = nx.shortest_path(grafo, source=1, target=5)
 # Impressão do resultado
 print("Caminho mais curto entre os vértices 1 e 5: ", caminho_curto)
 ```
-<pre><code>
+
 
  6. Algoritmos de Otimização:
  São métodos computacionais utilizados para encontrar a melhor solução possível para um problema, sujeito a um
@@ -3139,7 +2848,7 @@ print("Caminho mais curto entre os vértices 1 e 5: ", caminho_curto)
  Um exemplo comum de algoritmo de otimização é o algoritmo genético, que é a técnica de busca inspirada na evolução
 biológica. Vamos usar a biblioteca DEAP para resolver um problema de minimização simples. Exemplo prático:
 
-</code></pre>
+
 ```Python
 from deap import base, creator, tools, algorithms
 
@@ -3169,7 +2878,7 @@ algorithms.eaSimple(population, toolbox, cxpb=0.5, mutpb=0.2, ngen=50, verbose=F
 best_individual = tools.selBest(population, k=1)[0]
 print("Melhor solução: ", best_individual)
 ```
-<pre><code>
+
 
  Este exemplo usa o algoritmo genético para encontrar a melhor combinação de bits que minimiza a soma dos valores.
 
@@ -3189,7 +2898,7 @@ de 500 horas de trabalho disponíveis e 1000 unidades de fertilizante. Além dis
 de trabalho e 3 unidades de fertilizante por hectare, enquanto o milho precisa de 4 horas de trabalho e 2 unidades de
 fertilizante por hectare. Exemplo prático:
 
-</code></pre>
+
 ```Python
 from pyomo.environ import *
 
@@ -3216,7 +2925,7 @@ print("Valor ótimo da função objetivo (lucro): ", value(modelo.objetivo))
 print("Quantidade ótima de trigo (hectares): ", value(modelo.x['Trigo']))
 print("Quantidade ótima de milho (hectares): ", value(modelo.x['Milho']))
 ```
-<pre><code>
+
 
  Neste exemplo, usamos a biblioteca Pyomo para definir o modelo de otimização, incluindo variáveis de decisão, função
 objetivo e restrições. Em seguida, resolvemos o problema de otimização usando o solver GLPK (GNU Linear Programming
@@ -3315,7 +3024,7 @@ disponíveis.
 gerados aleatoriamente e atualizados continuamente. Vamos observar esses dados e imprimir as atualizações conforme
 elas ocorrem:
 
-</code></pre>
+
 ```Python
 from rx import from_iterable
 import random
@@ -3336,7 +3045,7 @@ subscription = temperature_stream.subscribe(lambda temperature: print("Nova temp
 # Mantém o programa em execução para observar as atualizações de temperatura
 input("Pressione Enter para encerrar o programa...\n")
 ```
-<pre><code>
+
 
  Neste exemplo, estamos usando a função `generate_temperature()` para gerar dados de temperatura aleatórios
 continuamente. Em seguida, criamos um fluxo de dados reativo a partir desses dados usando `from_iterable()`.
@@ -3373,7 +3082,7 @@ soma total.
 
  Aqui está um exemplo em C++ usando a biblioteca `&lt;thread&gt;` para demonstrar processamento paralelo:
 
-</code></pre>
+
 ```C++
 #include <iostream>
 #include <vector>
@@ -3410,7 +3119,7 @@ int main() {
     return 0;
 }
 ```
-<pre><code>
+
 
  Neste exemplo, a lista de números é dividida em duas partes, e cada parte é processada em uma thread separada usando
 a função `calcularSoma()`. As somas parciais são então combinadas para obter a soma total. Este é um exemplo básico de
@@ -3535,7 +3244,7 @@ envio de pedidos.
  Aqui está outro exemplo prático em Python usando a biblioteca asyncio para implementar um servidor TCP simples que
 recebe mensagensde clientes e as retransmite para todos os outros clientes conectados:
 
-</code></pre>
+
 ```Python
 import asyncio
 
@@ -3563,7 +3272,7 @@ async def main():
 
 asyncio.run(main())
 ```
-<pre><code>
+
 
  Este é um servidor de eco muito simples que recebe mensagens de clientes e retransmite essas mensagens para todos os
 outros clientes conectados. Ele usa a biblioteca asyncio para lidar com E/S assíncrona, permitindo que o servidor
@@ -3702,7 +3411,7 @@ um banco de dados.
  Um exemplo simples de programação de banco de dados seria a criação de uma tabela de clientes e a inserção de dados
 nessa tabela usando SQL:
 
-</code></pre>
+
 ```SQL
 CREATE TABLE Clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -3713,7 +3422,7 @@ CREATE TABLE Clientes (
 INSERT INTO Clientes (nome, email) VALUES ('João', 'joao@example.com');
 INSERT INTO Clientes (nome, email) VALUES ('Maria', 'maria@example.com');
 ```
-<pre><code>
+
 
  Vamos criar um banco de dados em SQLite usando Python e realizar algumas operações básicas de CRUD (Criar, Ler,
 Atualizar, Excluir) utilizando Python/SQL.
@@ -3722,7 +3431,7 @@ Atualizar, Excluir) utilizando Python/SQL.
 colunas id, nome e email. Em seguida, realizaremos operações para inserir, ler, atualizar e excluir registros nessa
 tabela.
 
-</code></pre>
+
 ```Python
 import sqlite3
 
@@ -3774,7 +3483,7 @@ listar_dadosClientes()
 # Fechar a conexão com o banco de dados
 conexao.close()
 ```
-<pre><code>
+
 
  Este código Python cria um banco de dados SQLite chamado `clientes.db` e uma tabela `dadosClientes`. Em seguida, ele
 insere dois clientes, lista todos os clientes, atualiza o email do primeiro cliente, exclui o segundo cliente e lista
@@ -3828,7 +3537,7 @@ Principais aspectos e conceitos associados ao AOP:
 
 Exemplo prático em Python com uso da biblioteca `aspectlib`:
 
-</code></pre>
+
 ```Python
 from aspectlib import Aspect
 
@@ -3859,7 +3568,7 @@ def example_function():
 
 example_function()
 ```
-<pre><code>
+
 
  Neste exemplo, usamos a biblioteca `aspectlib` para criar um aspecto de logging que mede o tempo de execução de
 todas as funções no módulo.
@@ -3893,7 +3602,7 @@ se decide enviar os dados clicando no botão de envio. São eventos que disparam
 clica nos botões numéricos e operadores, eventos de clique são gerados. Esses eventos são capturados por ouvintes
 associados a cada botão, que atualizam a exibição da calculadora com os números e operadores selecionados.
 
-</code></pre>
+
 ```JS
 // Definição de função para tratar o evento de clique em um botão numérico
 function handleNumericButtonClick(event) {
@@ -3913,7 +3622,7 @@ numericButtons.forEach(button => {
     button.addEventListener('click', handleNumericButtonClick);
 });
  ```
-<pre><code>
+
 
  Neste exemplo, cada vez que o usuário clica em um botão numérico na calculadora (representado por elementos HTML com
 a classe `.numeric-button`), o evento de clique é capturado pelo ouvinte `handleNumericButtonClick`, que extrai o
@@ -3978,7 +3687,7 @@ de instanciação. Isso ocorre usando o construtor da classe para alocar memóri
 instância é um novo objeto criado a partir de uma classe. Um objeto é descrito por características (atributos)
 específicos, comportamentos (métodos) e estado (condição).
 
-</code></pre>
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -4031,7 +3740,7 @@ int main() {
     return 0;
 }
 ```
-<pre><code>
+
 
 >>>>>PILARES
 
@@ -4046,7 +3755,7 @@ são:
  funciona internamente. Imagine que queremos representar um carro em um programa. Podemos criar uma classe `Carro`
  que encapsula as características e comportamentos de um carro.
 
-</code></pre>
+
 ```C++
  #include <iostream>
 using namespace std;
@@ -4093,14 +3802,14 @@ int main() {
   return 0;
 }
 ```
-<pre><code>
+
 
  2. ENCAPSULAMENTO: é o princípio de ocultar os detalhes de implementação de uma classe e expondo apenas uma interface
  bem definida para interagir com o objeto. Isso é feito usando modificadores de acesso para controlar o acesso aos
  membros da classe (métodos e variáveis). O encapsulamento ajuda a garantir a coesão dentro das classes, reduzindo o
  acoplamento entre elas e facilitando a manutenção do código.
 
-</code></pre>
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -4144,7 +3853,7 @@ int main() {
   return 0;
 }
  ```
-<pre><code>
+
 
  Neste exemplo, o saldo da conta bancária é encapsulado dentro da classe `ContaBancaria`, e métodos públicos são
  fornecidos para acessar e modificar esse saldo.
@@ -4154,7 +3863,7 @@ int main() {
  reutilização de código, promove a extensibilidade do software e ajuda a organizar classes em uma hierarquia, onde
  as classes mais específicas herdam comportamentos mais gerais das classes mais abstratas.
 
-</code></pre>
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -4183,7 +3892,7 @@ int main() {
   return 0;
 }
 ```
-<pre><code>
+
 
  Neste exemplo, a classe `Cachorro` herda da classe `Animal`, então um objeto da classe `Cachorro` pode usar tanto o
  método `comer()` da classe `Animal` quanto seu próprio método `latir()`.
@@ -4192,7 +3901,7 @@ int main() {
  dependendo do contexto em que é usado. Uma classe filha (comportamentos e estados específicos) herda as
  características (atributos e métodos) de uma classe mãe (comportamentos e estados gerais).
 
-</code></pre>
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -4235,7 +3944,7 @@ int main() {
 
 }
 ```
-<pre><code>
+
 
  Neste exemplo, o método `fazerSom()` é virtual na classe base `Animal`, e é sobrescrito nas classes derivadas
  `Cachorro` e `Gato`. Quando chamamos `fazerSom()` através de um ponteiro para `Animal`, o método correto é invocado
@@ -4246,7 +3955,7 @@ int main() {
    4.1. POLIMORFISMO DE SOBRECARGA: ocorre quando duas ou mais funções têm o mesmo nome, mas argumentos diferentes
    (diferem em seus parâmetros).
 
-</code></pre>
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -4278,7 +3987,7 @@ int main() {
 
 }
 ```
-<pre><code>
+
 
    Neste exemplo, temos duas funções chamadas `soma()`, uma para somar inteiros e outra para somar floats. Dependendo
    dos tipos de argumentos passados, o compilador escolherá a função correta para chamar.
@@ -4286,7 +3995,7 @@ int main() {
    4.2. POLIMORFISMO DE SOBRESCRISTA: ocorre quando uma subclasse fornece uma implementação específica para um método
    que já está sendo usado por sua superclasse.
 
-</code></pre>
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -4316,7 +4025,7 @@ int main() {
 
 }
 ```
-<pre><code>
+
 
  Neste exemplo, a classe `Cachorro` sobrescreve o método `fazerSom()` da classe `Animal`. Quando chamamos `fazerSom()`
  através do ponteiro `Animal` que aponta para um objeto `Cachorro`, o método sobrescrito (`fazerSom()` de `Cachorro`)
@@ -4334,7 +4043,7 @@ int main() {
 
  Exemplo em Java:
 
-</code></pre>
+
 ```Java
 public class MinhaClasse {
     public int variavelPublica;
@@ -4344,7 +4053,7 @@ public class MinhaClasse {
     }
 }
 ```
-<pre><code>
+
 
  Membros Privados (private):
   - Os membros privados só são acessíveis dentro da própria classe.
@@ -4356,7 +4065,7 @@ public class MinhaClasse {
 
 Exemplo em Java:
 
-</code></pre>
+
 ```Java
 public class MinhaClasse {
     private int variavelPrivada;
@@ -4375,11 +4084,11 @@ public class MinhaClasse {
     }
 }
 ```
-<pre><code>
+
 
  Vejamos alguns outros exemplos de como definir membros públicos e privados, desta vez em C++:
 
-</code></pre>
+
 ```C++
 #include <iostream>
 
@@ -4432,7 +4141,7 @@ int main() {
 }
 
 ```
-<pre><code>
+
 
  No exemplo acima, a classe MinhaClasse possui membros públicos (variavelPublica e metodoPublico) e membros privados
 (variavelPrivada e metodoPrivado). Os métodos acessores getVariavelPrivada e setVariavelPrivada permitem o acesso
@@ -4445,4 +4154,3 @@ promovendo o encapsulamento e a segurança do código. Os membros públicos forn
 classe, enquanto os membros privados ocultam os detalhes de implementação, reduzindo o acoplamento e facilitando a
 manutenção do código. Esses pilares são fundamentais para a compreensão e implementação eficaz da POO e são amplamente
 utilizados em muitas linguagens de programação, como Java, C++, Python, entre outras.
-</code></pre>
