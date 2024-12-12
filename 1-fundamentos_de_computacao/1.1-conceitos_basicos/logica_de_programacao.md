@@ -1,21 +1,16 @@
 # PENSAMENTO COMPUTACIONAL
-
  Refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que podem ser implementados no computador. De forma geral, é uma formulação e resolução de problemas computacionais (sistemático e eficiente).
 
 É baseado em 4 pilares:
+1. **Decomposição**
+2. **Padrões**
+3. **Abstração**
+4. **Algoritmos**
 
-1. Decomposição
-2. Padrões
-3. Abstração
-4. Algoritmos
-
-**1. DECOMPOSIÇÃO**: Dividir um problema complexo em subproblemas.
-
- Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores que vão sendo construídas aos poucos.
-
- É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o 1º passo da resolução de problemas: dividir um problema complexo em problemas menores = problemas mais fáceis de se resolver.
-
-Estratégia:
+## 1. DECOMPOSIÇÃO:<br/>Dividir um problema complexo em subproblemas.
+ Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores que vão sendo construídas aos poucos.<br/>
+ É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o 1º passo da resolução de problemas: dividir um problema complexo em problemas menores = problemas mais fáceis de se resolver.<br/>
+**Estratégia:**
 <pre>
                                         _          _/         __   ___
 Processo de quebrar e determinar \\    /_\  |\ |  /_\  |   | |__  |__
@@ -27,8 +22,8 @@ recompondo o problema original   //    ___| | | \|  |   |____  ___| |____
 Ordem de execução de \\ > Sequencial -> Dependência entre tarefas executadas em fila
 tarefas menores      // > Paralelo   -> Tarefas podem ser executadas concomitentemente (+ eficiencia - tempo).
 </pre>
-*Como Decompor?*
-> Identificar/coletar os dados    =>    Agregar os dados    =>    Funcionalidade    =>    Decomposição
+### *Como Decompor?*
+Identificar/coletar os dados    =>    Agregar os dados    =>    Funcionalidade    =>    Decomposição
 <pre>
 Exemplos de Decomposição:
 
@@ -64,10 +59,10 @@ MOVIMENTOS DE UM AVATAR
    ↙         ↘        ↙         ↘                     ↙      ↘ 
 DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
 </pre>
-**2. PADRÕES**<br/>
+## 2. PADRÕES
  Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
 
-**RECONHECIMENTO DE PADRÕES:**<br/>
+### RECONHECIMENTO DE PADRÕES
 - *Modelo base*
 - *Estrutura variante*
 - *Repetição*
@@ -79,7 +74,7 @@ DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
 >Padrão     \ - Pé
 >Referência / - Assento
 ></pre>
-*Como Reconhecer Padrões Dentro do Contexto?*<br/>
+### *Como Reconhecer Padrões Dentro do Contexto?*
  Através das similaridades e diferenças.
 
 >Exemplo: Fotos de redes sociais (técnica de compressão e armazenamento):
@@ -110,15 +105,14 @@ Compressão de Dados:
 |_______________________________________________________________|
 *Objetos = Instâncias de uma Classe
 </pre>
-**Categoria**: Agrupa elementos com base em características/propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
+- **Categoria**<br/>Agrupa elementos com base em características/propriedades semelhantes, exemplo: "mamíferos", "aves", etc.
+- **Classe**<br/>É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida em: "aquáticas", "terrestres" e "voadoras".
 
-**Classe**: É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida em: "aquáticas", "terrestres" e "voadoras".
-
-*Como Detectar e Determinar Padrões?*<br/>
+### *Como Detectar e Determinar Padrões?*
 **- Grau de Similaridades**<br/>
 **- Grupos Conhecidos e Grupos Desconhecidos**
 
-*Como o Computador Reconhece Padrões?*<br/>
+### *Como o Computador Reconhece Padrões?*
 **Por comparação**: Se ele não possui a informação não será capaz de realizar a comparação.
 <pre>
                                 ⬐subjetividade⬎
@@ -149,26 +143,22 @@ Extração de Características  \
 
 Diferentes Métodos e Aplicações
 </pre>
-**3. ABSTRAÇÃO**
-
- "Abstrair o que é mais importante e ordenar as relevancias, extrapolando o conceito do problema para uma forma generalista."
-
- - Ação de ignorar os detalhes de uma solução de modo que ela possa ser válida para diversos problemas (generalista).
- - Isolar aspectos relevantes do problema para tratá-los de forma individual (linkando -> decomposição).
- - Na computação, quando pensamos em criar um software, pensamos primeiro no que ele deve ser, deixando os detalhes para depois.
-
->ABSTRAIR: Observar, um ou mais elementos, avaliando características e propriedades separadas.<br/>
->ABSTRAÇÃO: É um processo intelectual de isolamento de um objeto da realidade.<br/>
->GENERALIZAR: A partir de um objeto, criar novos objetos relacionados. Tornar geral, mais amplo, mais extenso.
+## 3. ABSTRAÇÃO
+"Abstrair o que é mais importante e ordenar as relevancias, extrapolando o conceito do problema para uma forma generalista."
+- Ação de ignorar os detalhes de uma solução de modo que ela possa ser válida para diversos problemas (generalista).
+- Isolar aspectos relevantes do problema para tratá-los de forma individual (linkando -> decomposição).
+- Na computação, quando pensamos em criar um software, pensamos primeiro no que ele deve ser, deixando os detalhes para depois.
+  - *ABSTRAIR*: Observar, um ou mais elementos, avaliando características e propriedades separadas.
+  - *ABSTRAÇÃO*: É um processo intelectual de isolamento de um objeto da realidade.
+  - *GENERALIZAR*: A partir de um objeto, criar novos objetos relacionados. Tornar geral, mais amplo, mais extenso.
 <pre>
 Pegar os elementos principais           =>          Extrapolá-lo para o          =>            Tornar
 de um determinado objeto                            mundo das ideias                           geral
 </pre>
-**GENERALIZAÇÃO x ABSTRAÇÃO**
-
+### GENERALIZAÇÃO x ABSTRAÇÃO
  Na lógica, é a operação intelectual que consiste em reunir numa classe geral, um conjunto de seres ou fenômenos similares.
 
-*Como Classificar os Dados?*<br/>
+### *Como Classificar os Dados?*
 **- Características**<br/>
 **- Pontos Essenciais**<br/>
 **- Generalizar x Detalhar**
@@ -188,12 +178,10 @@ Representação dos Dados:
 |                                       -Contato                               |
 --------------------------------------------------------------------------------
 </pre>
-**4. ALGORITMO**
-
- Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.
-
+## 4. ALGORITMO
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
  **Automatizar: Definir passo-a-passo da execução da tarefa.*
- <pre>
+<pre>
 Ciclo de Processamento:
 
           ALGORITMO
@@ -203,7 +191,7 @@ Input ➝ Processamento ➝ Output
 </pre>
  **O processamento é a execução dos passos lógicos necessários para que os elementos de entrada se transformem em dados/informações na saída.*
 
-  **Ex.: Receita de Bolo**: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).<br/>
+ **Ex.: Receita de Bolo**: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).<br/>
 Observe que o modo de preparo *- processamento (instruções para realizar a tarefa = algoritmo) -* deve ser apresentado de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
 <pre>
 Design de Algoritmos:
@@ -223,13 +211,14 @@ Processo Contínuo:
             Algoritmos           Padrões
                   \   Abstração  /
 </pre>
-Aplicações:
+**Aplicações:**
 1. *CS + Math*: Desenvolvimento e Abstração, Reconhecimento de Padrões
 2. *CS + Sci/Eng*: Análise de Dados e Design de Soluções, Deficinação e Uso de Abstrações, Testes e Refinamentos de Algoritmos
 3. *Math + Sci/Eng*: Desenvolvimento e Abstração, Reconhecimento de Padrões
 4. *CS + Math + Sci/Eng*: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
 
-**Raciocínio Lógico**: Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a conclusão ou determinar a resolução de um problema.
+### Raciocínio Lógico
+ Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a conclusão ou determinar a resolução de um problema.
 <pre>
                  /               Indução
                 / Indução -> Fenômeno Observado -> Leis e Teorias
@@ -244,7 +233,7 @@ Tipos:
                            ↙       ↘          ↓
                        Abdução   Indução   Dedução
 </pre>
-Exemplo de Raciocínio Lógico:<br/>
+ Exemplo de Raciocínio Lógico:<br/>
  Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda, o filho está à esquerda e a mãe está ao lado de Sérgio.
 <pre>
                  Fernanda
@@ -278,7 +267,7 @@ Funções Bem Definidas          /
 Computador             ❯        Precisam ser determinadas as instruções 
          ➥ Velocidade / detalhadas p/ a execução da tarefa e processamento dos dados
 </pre>
-## LÓGICA DE PROGRAMAÇÃO
+# LÓGICA DE PROGRAMAÇÃO
 
 * *O que é lógica?*<br/>
  Forma de Pensamento estruturada que visa a determinação do que é verdadeiro ou não; Sequência "óbvia" a se seguir/executar para atingir um objetivo ou solucionar um problema.
@@ -289,10 +278,9 @@ Computador             ❯        Precisam ser determinadas as instruções
 * *O que é lógica de programação?*<br/>
  Organização e planejamento das instruções assertivas em um algoritmo a fim de viabilizar a implantação de um programa.
 
-### TÉCNICAS DE LÓGICA DE PROGRAMAÇÃO
-**Modelos de Desenvolvimento e solução**
+## TÉCNICAS DE LÓGICA DE PROGRAMAÇÃO<br/>Modelos de Desenvolvimento e solução
 
-**Técnica Linear:**<br/>
+### Técnica Linear
 Ⓐ-----o---o---o-----Ⓑ
 
 - Modelo tradicional
@@ -303,7 +291,7 @@ Computador             ❯        Precisam ser determinadas as instruções
 - Única dimensão
 - Ordenação de elementos por uma única propriedade
 
-**Técnica Estruturada:**<br/>
+### Técnica Estruturada
 ⠀⠀  ┌----o----┐<br/>
 Ⓐ---o----o----Ⓑ
 
@@ -317,7 +305,7 @@ Objetivo ❮   Entendimento
                 ➥ Facilitada
 </pre>
 
-**Técnica Modular:**
+### Técnica Modular
 <pre>
  ________________________ 
 | [MÓDULO 1]             |      ->      Partes independentes
@@ -334,7 +322,7 @@ Objetivo ❮   Entendimento
 Metas ❮  - Decomposição do problema
        \ - Verificação do módulo
 </pre>
-### FUNDAMENTOS DE ALGORITMOS
+## FUNDAMENTOS DE ALGORITMOS
 
 **Primeiros passos para começar a programar:**
 1. *Tipologia de dados e variáveis*
@@ -345,7 +333,7 @@ Metas ❮  - Decomposição do problema
 6. *Funções*
 7. *Instruções de entrada e saída*
 
-**TIPOLOGIA DE DADOS E VARIÁVEIS**
+### TIPOLOGIA DE DADOS E VARIÁVEIS
 <pre>
           ⬐  INFORMAÇÃO     ↰
   input de                   que geram
@@ -354,7 +342,7 @@ inicializam              processam e tratam
       ↳       INSTRUÇÕES
         realiza operações que ⬏
 </pre>
-**TIPOS DE DADOS**<br/>
+#### TIPOS DE DADOS
  Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros.
 <pre>
             / Inteiros: -3, -2, -1, 0, 1, 2, 3...
@@ -367,7 +355,7 @@ Cadeia     ❮ palavras
 
 Booleano   ❮ Lógico: VERDADEIRO (1) | FALSO (0)
 </pre>
-**TIPAGEM DE DADOS**
+##### TIPAGEM DE DADOS
 
 ```C++
 #include <iostream>
@@ -399,28 +387,27 @@ int main() {
 }
 ```
 
-**MANIPULAÇÃO DE DADOS**
+#### MANIPULAÇÃO DE DADOS
 
-**DECLARAÇÃO**
-> variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
+##### DECLARAÇÃO
+variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
 
-**Regras**:<br/>
+##### Regras
 - *Atribuição de 1 ou mais caracteres*
 - *1º caractere do nome deve ser uma letra*
 - *O `-` e `_` são os únicos carateres especiais permitidos*
 - *Proibido o uso de palavras reservadas*
 
-**TIPAGEM DE COMPORTAMENTO**
+##### TIPAGEM DE COMPORTAMENTO
 
-* **VARIÁVEL**
-
+###### VARIÁVEL
  Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a RESERVA DE MEMÓRIA. A reserva de memória se dá através da declaração de variáveis, podemos fazer a analogia da memória do computador com um armário contendo gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta. Sabemos que os espaços dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um "apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
 
-**Características de variáveis:**
-- *Mutáveis*
-- *Inconstantes*
-- *Incertas*
-- *Instáveis*
+- **Características de variáveis**
+  - *Mutáveis*
+  - *Inconstantes*
+  - *Incertas*
+  - *Instáveis*
 
  Uma variável é uma estrutura de armazenamento de dado. Podendo assumir qualquer um dos valores de um determinado conjunto de valores, contudo, ela está restrita ao seu tipo, ou seja, ela só pode assumir um tipo de valor por vez.
 <pre>
@@ -428,7 +415,8 @@ int main() {
 Pápeis da ❮      ou
 variável   \  CONTROLE -> monitorada/vigiada
 </pre>
-**TIPOS DE VARIÁVEIS**
+
+###### TIPOS DE VARIÁVEIS
 
 * **var:**
   - Tem escopo de função, o que significa que a variável é visível apenas dentro da função onde foi declarada.
@@ -462,13 +450,14 @@ if(true) {
 console.log(y); // 10
 ```
 
-* **TIPOS DE CONSTANTES**
-
->**CONSTANTE**: Tudo aquilo que é fixo e/ou estável.
+###### CONSTANTE
+Tudo aquilo que é fixo e/ou estável.
 ><pre>
 >Exemplo: π = 3.14, Φ = 1.618, dobro (valor * 2 = dobro), metade (valor / 2 = metade)
 >                                      var  const  var             var  const  var
 ><pre>
+
+###### TIPOS DE CONSTANTES**
 
 * **const:**
   - Similar ao `let` em relação ao escopo de bloco.
@@ -515,7 +504,7 @@ int main() {
 }
 ```
 
-**VETORES E MATRIZES**
+###### VETORES E MATRIZES
 
 <pre>
          ┌──┐
@@ -530,10 +519,10 @@ MATRIZ   ├──┼──┼──┤
          └──┴──┴──┘
 </pre>
 
-* **VETOR**<br/>
+###### VETOR
  Container ou Matriz Unidimensional, um vetor é caracterizado por uma variável dimensionada com tamanho pré-fixado, ou seja, é uma variável com tamanho fixo que irá receber "n" valores. Diferente da variável que armazena apenas 1 valor por vez, um vetor pode armazenar "n" valores indexados nas respectivas posições quais foram armazenados. Ou seja, vetor é um agrupamento contíguo de variáveis que armazenam valores do mesmo tipo. Um vetor possui 4 importantes características, são elas: nome (identificador), tamanho (define o número de dados que podem ser armazenados), tipo (tipo dos dados armazenados) e índices (indica a posição de cada dado no vetor).
 
-* **MATRIZ**<br/>
+###### MATRIZ
  Uma Matriz é um vetor bidimensional utilizado para armazenar valores do mesmo tipo, ou seja, é uma tabela organizada em linhas e colunas no fomarto M x N, onde M representa o nº de LINHAS (horizontal) e N o nº de COLUNAS (vertical).
 <pre>
           colunas
@@ -570,7 +559,7 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
 >     \ FÁTIMA         9              9              9          9
 ></pre>
 
-* **DEFININDO VETORES/MATRIZES**
+###### DEFININDO VETORES/MATRIZES**
 ```C
 int vetor[5];
 string alfabeto[] = {"A", "B", "C", "D", "E"};
@@ -579,7 +568,7 @@ int matriz[3][3];
 string tabela[3][3];
 ```
 
-* **INSTRUÇÕES**<br/>
+## INSTRUÇÕES
  A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados.
 <pre>
  ____________________________↱________   operadores:
@@ -591,7 +580,7 @@ string tabela[3][3];
 |_____________________________________|
 </pre>
 
-* **OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO**
+### OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO
 <pre>
 OPERADORES BINÁRIOS                      OPERADORES UNÁRIOS
 
@@ -612,7 +601,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
 </pre>
 Exemplo: π * r² = area
 
-* **OPERADORES LÓGICOS/COMPARAÇÃO/RELACIONAIS**
+### OPERADORES LÓGICOS/COMPARAÇÃO/RELACIONAIS
 <pre>
 - AND.......................(&&): true && true
 - OR........................(||): true || false
@@ -625,7 +614,8 @@ Exemplo: π * r² = area
 - valor e tipo iguais......(===): A === A
 - diferente............(!= | <>): a != b | a <> b
 </pre>
-* **AND**<br/>
+
+#### AND
  Verifica se/Precisa que todas as entradas atendem/satisfazem o requisito da condição.<br/>
 ✔ - A == true && B == true<br/>
 ✗ - A == true && B == false<br/>
@@ -650,7 +640,7 @@ programa{
 }
 </pre>
 
-* **OR**<br/>
+#### OR
  Apenas uma das condições precisa atender ao requisito.<br/>
 ✔ - A == true  || B == true<br/>
 ✔ - A == true  || B == false<br/>
@@ -675,7 +665,7 @@ programa{
 }
 </pre>
 
-* **NOT**<br/>
+#### NOT
  Operador de negação, inverte o resultado lógico.
 - A == true -> !A == false<br/>
 <pre>
@@ -692,7 +682,7 @@ programa{
 }
 </pre>
 
-* **ESTRUTURAS CONDICIONAIS E SEUS OPERADORES**
+### ESTRUTURAS CONDICIONAIS E SEUS OPERADORES
   - *CONDIÇÃO* = ESTADO DE UM OBJETO
   - *CONDICIONAL* = EXPRESSA UMA CONDIÇÃO
 <pre>
@@ -706,7 +696,7 @@ Exemplo de estrutura condicional:
                         ↓
                       (END)
 </pre>
-* **TIPOS DE ESTRUTURAS CONDICIONAIS**
+#### TIPOS DE ESTRUTURAS CONDICIONAIS
 <pre>
  SIMPLES                COMPOSTA                      ENCADEADA
 [CONDIÇÃO]             [CONDIÇÃO] ➝ [EXCEÇÃO]        [CONDIÇÃO] ⬎
@@ -714,8 +704,7 @@ Exemplo de estrutura condicional:
 [OPERAÇÃO]             [OPERAÇÃO]                 [OPERAÇÃO]       ↓       [OPERAÇÃO]
                                                                 [EXCEÇÃO]
 
-> CONDICIONAL SIMPLES
-
+>>>>> CONDICIONAL SIMPLES
 [CONDIÇÃO]                            (START)                 programa{
     ↓                                    ↓                      funcao inicio(){
 [OPERAÇÃO]                            /A, B/                      logico condicao = verdadeiro
@@ -729,8 +718,7 @@ Exemplo de estrutura condicional:
                                          ↓
                                        (END)
 
-> CONDICIONAL COMPOSTA
-
+>>>>> CONDICIONAL COMPOSTA
 [CONDIÇÃO] ➝ [EXCEÇÃO]                (START)                 programa{
     ↓                                    ↓                      funcao inicio(){
 [OPERAÇÃO]                            /A, B/                      inteiro decisao = 0, condicao = 1
@@ -747,8 +735,7 @@ Exemplo de estrutura condicional:
                                          ↓
                                        (END)
 
-> CONDICIONAL ENCADEADA
-
+>>>>> CONDICIONAL ENCADEADA
 [CONDIÇÃO] ⬎                          (START)                 programa{
  ↓         [CONDIÇÃO] ⬎                  ↓                      funcao inicio(){
 [OPERAÇÃO]  |       [OPERAÇÃO]         /A, B/                      inteiro resultado, condicao = 15
@@ -768,7 +755,7 @@ Exemplo de estrutura condicional:
                                         (END)                 }
 </pre>
 
-* **ESTRUTURAS DE REPETIÇÃO**<br/>
+### ESTRUTURAS DE REPETIÇÃO
  Uma estrutura de repetição irá executar um determinado trecho de um programa a partir dos parâmetros determinados dentro dessa estrutura.
 <pre>
      ⤺
@@ -781,7 +768,7 @@ CONDIÇÃO DE PARADA ❮              ou
                     \ Até a condição ser satisfeita
 </pre>
 
-* **TIPOS DE ESTRUTURAS DE REPETIÇÃO**
+#### TIPOS DE ESTRUTURAS DE REPETIÇÃO
 <pre>
 1. CONDIÇÃO DA REPETIÇÃO NO INÍCIO
 ENQUANTO(CONDIÇÃO NÃO FOR SATISFEITA){
@@ -801,7 +788,7 @@ PARA(VALOR INICIAL; CONDIÇÃO DE PARADA/FAÇA ATÉ; ITERAÇÃO/ALTERAÇÃO DO V
 
 **EXEMPLOS:**
 <pre>
-> ENQUANTO (WHILE)
+>>>>> ENQUANTO (WHILE)
  Pense numa pessoa indo cortar a grama, a estrutura de repetição lógica a ser aplicada seria:
 
 TESTE LÓGICO  / ENQUANTO(GRAMA ALTA)FAÇA{
@@ -810,7 +797,6 @@ REPETIÇÃO     /   REPITA(INDEFINIDO)ATÉ
               \       GRAMA APARADA}
 
 VAMOS VER O PSEUDOCÓDIGO:
-
  ↱ variável   ↱ dado booleano
 grama    =    falso
  ↱ strutura while
@@ -820,7 +806,6 @@ enquanto(grama == falso)faça{
 }
 
 VAMOS VER O PROGRAMA:
-
 programa{
   funcao inicio(){
     logico grama = falso
@@ -836,7 +821,7 @@ programa{
   }
 }
 
-> REPITA ATÉ/ENQUANTO (DO...WHILE)
+>>>>>  REPITA ATÉ/ENQUANTO (DO...WHILE)
  Assemelha-se ao ENQUANTO (WHILE), porém a ordem do teste lógico e da repetição é:
 
   FAÇA{
@@ -853,7 +838,6 @@ REPETIÇÃO    ❮    ↱ ANALISAR CONTEÚDO ¬
 TESTE LÓGICO ❮ }ATÉ(ARTIGO ENCONTRADO)
 
 VAMOS VER O PSEUDOCÓDIGO:
-
  ↱ variável   ↱ dado booleano
 grama    =    falso
  ↱ strutura while
@@ -863,7 +847,6 @@ enquanto(grama == falso)faça{
 }
 
 VAMOS VER O PROGRAMA:
-
 programa{
   funcao inicio(){
     logico artigo = falso
@@ -879,13 +862,12 @@ programa{
   }
 }
 
-> PARA(INÍCIO; ENQUANTO ATÉ; DE N EM N){FAÇA INSTRUÇÕES} (FOR(){})
+>>>>>  PARA(INÍCIO; ENQUANTO ATÉ; DE N EM N){FAÇA INSTRUÇÕES} (FOR(){})
 
   TESTE LÓGICO -> FEITO NO INÍCIO
   Nº DE REPETIÇÕES -> DEFINIDAS/FIXAS
 
 VAMOS VER O PSEUDOCÓDIGO:
-
 programa{
   funcao inicio(){
 //        ↱ variáveis             ↱ nº inteiro
@@ -909,7 +891,7 @@ fazendo isso até "contador" atingir o valor de parada definido (=10).
 5ª iteração: (contador = 5) + (somatorio = 10) = (somatorio = 15)
 6ª iteração: ...
 
->>> EXPLICANDO O FOR
+>>>>>> EXPLICANDO O FOR
 
 Exemplo:
 //  ↱ valor de início   ↱ condição de parada   ↱ iteração até atender a condição de parada (i = i + i)
@@ -938,7 +920,7 @@ seja igual ao valor de parada (=5).
 4ª iteração: (i = 3) + (i = 1) -> i = 4
 5ª iteração: (i = 4) + (i = 1) -> i = 5
 
-> COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
+>>>> COMBINANDO ESTRUTURAS: CONDICIONAIS + REPETIÇÃO
 
 programa{
   funcao inicio(){
@@ -1051,10 +1033,10 @@ programa{
 }
 </pre>
 
-* **FUNÇÕES**<br/>
+### FUNÇÕES
  "Subalgoritmo", "bloco", "método", "função", "subprograma", "subrotina"... São instruções que realizam tarefas específicas, são trechos de códigos com instruções/objetivos específicos que podem ser chamadas dentro do código principal. Ajudam na decomposição e modularização do algoritmo para torná-lo mais legível.
 
-* **Bloco de instruções (códigos), identificado por *nome* e *parâmetros* ("assinatura"):**
+#### Bloco de instruções (códigos), identificado por *nome* e *parâmetros* ("assinatura")
   - *Definição*: Objetivo da função
   - *Nome*: Essencial para chama-la no código principal
   - *Invocação*: Quais objetos e bibliotecas está invocando
@@ -1083,11 +1065,11 @@ programa{
 }
 </pre>
 
-* **DESENVOLVIMENTO DE PROGRAMAS**
-  - *Sequência de passos com o objetivo definido*
-  - *Execução de tarefas específicas*
-  - *Conjunto de operações que resultam em uma sucessão de finitas ações*
-  - **feature = funcionalidades do programa*
+## DESENVOLVIMENTO DE PROGRAMAS
+- *Sequência de passos com o objetivo definido*
+- *Execução de tarefas específicas*
+- *Conjunto de operações que resultam em uma sucessão de finitas ações*
+- **feature = funcionalidades do programa*
 <pre>
 -> Análise
 - Estudo e definição dos
@@ -1101,7 +1083,7 @@ programa{
                           narrativas, fluxogramas ou pseudo-códigos
 </pre>
 
-**Como Construir um Algoritmo:**
+### Como Construir um Algoritmo
   - *Compreensão do problema* -> Pontos mais importantes
   - *Definição dos dados de entrada* -> Dados fornecidos e cenário
   - *Definir processamento* -> Cálculos e restrições
@@ -1109,7 +1091,7 @@ programa{
   - *Utilizar um método de construção* -> Design de construção de algoritmo
   - *Teste e diagnóstico* -> Refinamento de algoritmo
 
-**ESTRUTURA DE UM SOFTWARE E SEU AMBIENTE DE DESENVOLVIMENTO**<br/>
+### ESTRUTURA DE UM SOFTWARE E SEU AMBIENTE DE DESENVOLVIMENTO
 
 Exemplo:<br/>
 APP DE VIAGENS
@@ -1147,7 +1129,7 @@ features:
  |_____________________|______________________|______________________|______________________|
 </pre>
 
-**CONSTRUÇÃO DE ALGORITMOS:**
+### CONSTRUÇÃO DE ALGORITMOS
   1. receba os dados
   2. trate os dados
   3. decida com base nos dados
@@ -1342,7 +1324,7 @@ programa{
   }
 }
 </pre>
-Exemplo prático:<br/>
+ Exemplo prático:<br/>
  Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com algoritmo?
 
 ```Py
@@ -1457,7 +1439,7 @@ else:
     print('Reprovado') # Aprovado
 ```
 
-**Refatoração:**
+#### Refatoração
 <pre>
 programa{
     funcao inicio() {
@@ -1507,7 +1489,7 @@ if __name__ == "__main__":
     main()
 ```
 
-* **LINGUAGENS DE PROGRAMAÇÃO**<br/>
+### LINGUAGENS DE PROGRAMAÇÃO
  A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. Ou seja, uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação de um código fonte.
 
 ```C
@@ -1529,9 +1511,9 @@ int main() {
 }
 ```
 
-**SINTAXE E SEMÂNTICA**<br/>
+### SINTAXE E SEMÂNTICA
  As instruções de uma linguagem de programação devem obedecer as regras de escrita definidas, são chamadas essas regras de: sintaxe e semântica, (assim como ocorre também na linguagem natural). Sintaxe é como aprender a escrever palavras corretamente em uma língua, enquanto a semântica trata de como usar essas palavras para formar frases que fazem sentido.
-- *SINTAXE*: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação. É como a "gramática" de uma linguagem. Exemplo em Python:
+- **SINTAXE**: É o "como" escrever o código; É a forma como as instruções de uma linguagem são escritas. Refere-se ao conjunto de regras que define a estrutura e o formato válido para escrever código em uma linguagem de programação. É como a "gramática" de uma linguagem. Exemplo em Python:
 
 ```Py
   print("Hello world!")
@@ -1541,7 +1523,7 @@ int main() {
   print "Hello world!"
 ```
  Apesar da semântica estar correta (que tem como finalidade realizar a saída dos dados usando a instrução "print"), iremos receber uma mensagem de erro de sintaxe porque faltam os parênteses ao redor da mensagem. Os mais comuns erros de sintaxe são relacionados à escrita: a falta de símbolos obrigatórios (como parênteses, ponto-e-vírgula, vírgulas, endentação e etc), palavras reservadas escritas incorretamente, estruturas de código mal formatadas, entre outros.
-- *SEMÂNTICA*: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código, é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
+- **SEMÂNTICA**: É a "organização" do código, ou seja, O QUE o código faz; Complementar à sintaxe, corresponde à descrição do significado das instruções válida de uma linguagem. Refere-se ao significado/comportamento do código, é o que garante que o código faça o que se espera dele, ou seja, que ele tenha lógica e funcione corretamente. Como:
 ```Py
   resultado = 10 / 2 # divisão válida
 ```
@@ -1558,30 +1540,30 @@ resultado = 10 / 0 # divisão inválida
  Foco	              Estrutura e formato do código.         Significado e lógica do código.
 </pre>
 
-**ESTRUTURA DE TIPOS**<br/>
+### ESTRUTURA DE TIPOS
  Refere-se ao sistema que uma linguagem de programação utiliza para definir, manipular e verificar os tipos de dados. Ela estabelece como os tipos são tratados e como as conversões entre tipos são realizadas. A estrutura de tipos pode influenciar diretamente a flexibilidade, a segurança e a facilidade de uso da linguagem.
 
-**SISTEMAS DE TIPOS**<br/>
+#### SISTEMAS DE TIPOS
  O sistema de tipos define como diferentes tipos de dados são representados e como podem ser combinados. Ele inclui:
  - *Definição de Tipos*: Como os tipos de dados são declarados e definidos (por exemplo, inteiros, strings, listas).
  - *Verificação de Tipos*: Como a linguagem garante que as operações sobre variáveis e expressões sejam realizadas com tipos compatíveis.
  - *Conversão de Tipos*: Como e quando os tipos podem ser convertidos entre si (conversões implícitas ou explícitas).
 
- **CLASSIFICAÇÕES DOS SISTEMAS DE TIPOS**<br/>
+##### CLASSIFICAÇÕES DOS SISTEMAS DE TIPOS
  A estrutura de tipos pode ser classificada de várias maneiras, incluindo:
  - *Tipagem Fraca*: A linguagem permite conversões implícitas entre tipos diferentes. Pode levar a ter comportamentos inesperados devido a conversões automáticas.
  - *Tipagem Forte*: A linguagem exige que as conversões entre tipos sejam feitas explicitamente, o que ajuda a evitar erros de tipo.
  - *Tipagem Dinâmica*: O tipo de uma variável é determinado em tempo de execução. Isso permite maior flexibilidade, mas pode resultar em erros de tipo que só são detectados quando o código é executado.
  - *Tipagem Estática*: O tipo de uma variável é definido em tempo de compilação e não pode ser alterado durante a execução. Isso ajuda a detectar erros de tipo mais cedo, geralmente durante a compilação.
 
- **ESTRUTURAS DE TIPOS ESPECÍFICAS**<br/>
+##### ESTRUTURAS DE TIPOS ESPECÍFICAS
  Além da tipagem geral, existem estruturas e conceitos específicos associados a tipos:
  - *Tipos Primitivos*: Tipos básicos fornecidos pela linguagem, como inteiros, caracteres e booleanos.
  - *Tipos Compostos*: Tipos formados por combinação de tipos primitivos, como arrays, listas, ou structs.
  - *Tipos Abstratos*: Tipos definidos pelo usuário que podem encapsular dados e operações, como classes e interfaces em linguagens orientadas a objetos.
  - *Polimorfismo*: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme, muitas vezes implementada através de generics ou templates.
 
- **GRAU DE ABSTRAÇÃO**<br/>
+#### GRAU DE ABSTRAÇÃO
  Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
  1. **Baixo Nível**: Possui símbolos que representam o código de máquina propriamente.
  2. **Médio Nível**: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador.
@@ -1598,7 +1580,7 @@ resultado = 10 / 0 # divisão inválida
                    -----------------
 </pre>
 
-**IMPLEMENTAÇÕES DE LINGUAGEM**
+### IMPLEMENTAÇÕES DE LINGUAGEM
 <pre>
 COMPILAÇÃO   -\   1. Geração do programa objeto
 (TRADUÇÃO)   -/   2. Execução do programa objeto
@@ -1609,7 +1591,7 @@ COMPILAÇÃO   -\   1. Geração do programa objeto
 INTERPRETAÇÃO => Programa fonte executado "diretamente": lê a linha -> traduz -> executa
 </pre>
 
-**COMPILAÇÃO**
+#### COMPILAÇÃO
 <pre>
 C/C++, JAVA:
 ________________        _________        _________________
@@ -1636,14 +1618,13 @@ __________                  | __________     __________     __________     _____
                                      LIBRARIES                         \/
                                                               > EXECUTION RESULTS <
 </pre>
-**ANÁLISES DE CÓDIGO**<br/>
+##### ANÁLISES DE CÓDIGO
 Na fase em que o código fonte está sendo compilado, são feitos 3 tipos de análises:
 1. *Lexical analyzer*
 2. *Syntax analyzer*
 3. *Semantic analyzer*
 
-**LEXICAL ANALYZER**
-
+###### LEXICAL ANALYZER
  Análise lexica, também conhecida como scaner ou leitura, é a primeira fase do processo de compilação, e sua função é realizar a leitura do programa fonte caractere por caractere e agrupar os caracteres em "lexemas" (produzir uma sequência de símbolos léxicos conhecidos como *tokens*). Neste processo, a análise léxica *particiona*, *classifica* e *elimina*.
 <pre>
              PARTICIONA                            CLASSIFICA                                  ELIMINA
@@ -1655,12 +1636,12 @@ Na fase em que o código fonte está sendo compilado, são feitos 3 tipos de an�
                                         relevante no código para que funcione)            
 </pre>
 
-**SYNTAX ANALYZER**<br/>
+###### SYNTAX ANALYZER
  A sintáxe de um programa é a forma como ele define (através de palavras reservadas, de indexação e de símbolos especiais) qual a estrutura relacionada para a codificação dentro daquela linguagem específica (ou seja, define a corretude do programa).
 
 >PADRÃO/GRAMÁTICA = Depende da linguagem usada.
 
-**SEMANTIC ANALYZER**<br/>
+###### SEMANTIC ANALYZER
  Semântica é o estudo do significado. Incide sobre a relação entre significantes, como: palavras, frases, sinais e símbolos (ou seja, é a lógica do programa).
 <pre>
 Exemplo de erro de semântica:
@@ -1676,7 +1657,7 @@ if(x == 0):                   \ /
 </pre>
  Por causa da lógica errada (uso de operador de atribuição no lugar do operador de comparação) o programa não fez aquilo que é esperado, não sendo possível seguir com a compilação, obrigando o desenvolvedor a debugar antes de seguir com o deploy do projeto.
 
-**INTERPRETAÇÃO**<br/>
+#### INTERPRETAÇÃO
  Executa diretamente o código fonte conforme a sua estrutura, ou seja, ele lê, traduz e executa o script ao invés de analisar e gerar o programa objeto primeiro, como é feito na compilação.
 <pre>
 JAVASCRIPT, PYTHON:
@@ -1685,7 +1666,7 @@ __________________        ______
 ------------------        ------
 </pre>
 
-**INTERPRETADOR**<br/>
+##### INTERPRETADOR
  O processo de interpretação é mais direto do que o processo de compilação, pois não há necessidade de gerar um código intermediário antes da execução, a interpretação e a execução do programa acontecem em tempo real e independente do sistema operacional utilizado. Em vez disso, o código-fonte é interpretado e executado diretamente pelo interpretador.
 <pre>
            ANÁLISE LÉXICA E SINTÁTICA                                        EXECUÇÃO
@@ -1698,12 +1679,12 @@ __________________        ______
                                                                       diretamente as instruções.
 </pre>
 
-**JIT**<br/>
+#### JIT
  Teoricamente, qualquer linguagem pode ser compilada ou interpretada e, por isso, há algumas linguagens que possuem ambas implementações mescladas, processo chamado de "Just in time" (JIT), que veio aperfeiçoar a produção.<br/>
  Com o JIT nós continuamos a interpretar os códigos. Entretanto, nós também iremos compilá-los, mas apenas a parte do código que iremos usar no momento da execução. Isso representa um aumento muito grande de performance. Pois iremos usar o processo de compilação, que já é rápido, e ele será executado em partes isoladas do código, apenas na hora certa (“just in time”).<br/>
  Assim, temos à disposição “o melhor dos dois mundos”: a velocidade da compilação junto da simplicidade de depuração.
 
-**TRANSPILAÇÃO**<br/>
+#### TRANSPILAÇÃO
  Linguagem de mais alto nível convertida para uma lingaguem mais baixa e então segue o fluxo, temos como exemplo, o TypeScript, que é convertido para JavaScript e então lido pelo Node.JS para ser executado pelo computador.<br/>
  Transpilação ou "Transpiling", converte o código fonte de uma linguagem de programação em um código fonte equivalente da mesma ou de uma linguagem de programação diferente.<br/>
  Por exemplo o Babel, um transpilador de código JavaScript. Babel converte o código JavaScript da moderna versão ECMAScript 2015+ em uma versão antiga e compatível com os navegadores inferior.<br/>
@@ -1718,7 +1699,7 @@ Dada uma função arrow ES2015 por exemplo:
     return n * 2;
   });
 ```
-**PARADIGMAS DE PROGRAMAÇÃO**<br/>
+### PARADIGMAS DE PROGRAMAÇÃO
  Toda linguagem é baseada em um paradigma. Há também linguagens baseadas em vários, sendo consideradas nestes casos multiparadigmas. Quase todas as línguas modernas são multiparadigmáticas. Combinam facilmente as capacidades das abordagens imperativa e declarativa.<br/>
  Os paradigmas são modelagens de escrita de código que podem ser aplicados a várias linguagens, desde que estas permitam. É possível ainda aplicar mais de um paradigma a uma mesma solução em uma linguagem previamente escolhida.<br/>
  Um paradigma pode ser entendido como um tipo de estruturação ao qual a linguagem deverá respeitar. A depender do objetivo proposto, a solução que a linguagem oferecerá obedece a um tipo de paradigma. Portanto, o que vai definir o paradigma utilizado será a tratativa dada ao problema.<br/>
@@ -1759,7 +1740,7 @@ print(even_numbers)
  No script acima o código IMPERATIVO está ESTRUTURADO e o DECLARATIVO é FUNCIONAL. A diferença entre eles não está apenas na quantidade de código escrito, mas nas intenções expressadas em cada instrução.<br/>
  Programar está associado a conhecer as possíveis formas de enviar instruções ao computador, logo compreender cada paradigma facilita o aprendizado de qualquer linguagem, a ponto de torná-las menos importantes.
 
-**DECLARATIVO**<br/>
+#### DECLARATIVO
  O paradigma declarativo determina que as instruções passadas ao computador devem especificar a sequência lógica e o resultado esperado, sem determinar o fluxo de controle. O foco está em determinar "o quê" precisa ser resolvido, o que é um contraste a programação imperativa que determina "o como".<br/>
  Historicamente o paradigma declarativo tem menos destaque do que o imperativo, porém ainda assim, possui algumas linguagens famosas baseadas no seu conceito, cita-se algumas como: SQL, HTML, JavaScript, Erlang e LISP.<br/>
  Continuando com os exemplos anteriores, mas transportando o cenário para uma modelagem de dados relacional, vamos considerar uma tabela NUMBERS a qual contém registros de 1 a 100.<br/>
@@ -1780,13 +1761,13 @@ print(even_numbers)
  Atualmente o paradigma declarativo tem ganho destaque através do uso de um outro paradigma que deriva dele, o funcional, o qual dá mais poder para desenvolvedores, inclusive evitando a inadequada mistura de declarativo e imperativo.<br/>
  Como vimos, a programação declarativa é um paradigma de programação no qual é importante especificar o problema e o resultado esperado de sua solução. Ou seja, em contraste com o paradigma imperativo, onde é necessário responder à pergunta "COMO FAZER ISSO?", você precisa fazer as perguntas "O QUE PRECISA SER FEITO?" e "QUAL SERÁ O RESULTADO DO TRABALHO?". Portanto, em vez de fornecer instruções passo a passo, você diz ao sistema o que precisa no resultado e deixa que ele encontre uma solução.
 
-**DERIVAÇÕES PD**<br/>
+##### DERIVAÇÕES PD
  A programação declarativa é dividida em 3 grandes tipos de paradigmas:
  1. *FUNCIONAL*
  2. *LÓGICO*
  3. *PROGRAMAÇÃO DE BANCO DE DADOS*
 
-**FUNCIONAL**<br/>
+#### FUNCIONAL
  O paradigma funcional é um dos poucos derivados da programação declarativa, onde suas instruções baseadas em funções tem como objetivo declarar ao computador o resultado esperado, e não o passo a passo para a construção deste resultado como nos demais paradigmas derivados da programação imperativa. Essa forma de compor o código traz duas características que a tornam bastante diferente das demais, que são a imutabilidade e por consequência a não mudança de estado do software.<br/>
  Uma função é um bloco de código que realiza uma tarefa específica e pode ser invocado várias vezes.<br/>
  Este é um paradigma de programação no qual o processo de computação é interpretado como a computação dos valores das funções. A função neste caso é semelhante a uma função matemática, ou seja, uma função na qual a entrada é um array que não é alterado e a saída é um novo array com novos dados. Isso torna uma função matemática diferente de uma função na programação procedural, onde a função é uma sequência de ações que alteram os dados originais.<br/>
@@ -1820,11 +1801,10 @@ print("Soma números primos: ", sum(filter_prime_numbers(numbers)))
  O uso de funções tem como base o uso do cálculo lambda, conceito desenvolvido ainda na década de 30, por Alonzo Church. Mas foi no final da década de 50 com o surgimento da linguagem LISP que o paradigma funcional foi aplicado pela primeira vez. Historicamente esse paradigma tem sido menos popular, mas atualmente ganhou força entre times de desenvolvimento, e o suporte já presente em linguagens como ML, Lisp, Miranda, Haskell, Scala, Erlang, Clojure, OCaml, F# e Elixir, também se estende a linguagens como JavaScript, Python, Ruby, dentre outras.<br/>
  Assim como os demais paradigmas, qualquer problema pode ser resolvido com o paradigma funcional. O desafio para aqueles que desejam trabalhar com funcional puro, está em compreendê-lo a ponto de utilizar os mecanismos adequados para lidar com a composição de lógicas e estruturas de dados, de forma que não contenham códigos amarrados ao modelo imperativo e estruturado de programar.
 
-**LAMBDA (TERNÁRIO)**
+##### LAMBDA (TERNÁRIO)
 
  Os seguintes termos são usados de forma intercambiável, dependendo da linguagem de programação usada: função anônima, funções anônimas, funções lambda, notações lambda, expressão lambda, expressões lambda, abstração lambda, abstrações lambda, forma lambda e literais de função.<br/>
- Expressões lambda diferem das funções comuns por serem declaradas de maneira diferente, sem definirmos nome para criarmos elas, utilizamos a palavra-chave lambda para definí-las. Uma função anônima é uma função sem um nome associado, em vez de definir uma função usando a palavra-chave `def` (em Python, por exemplo), você pode criar uma
-função inline usando a sintaxe lambda: `lambda argumentos: expressão`<br/>
+ Expressões lambda diferem das funções comuns por serem declaradas de maneira diferente, sem definirmos nome para criarmos elas, utilizamos a palavra-chave lambda para definí-las. Uma função anônima é uma função sem um nome associado, em vez de definir uma função usando a palavra-chave `def` (em Python, por exemplo), você pode criar uma função inline usando a sintaxe lambda: `lambda argumentos: expressão`<br/>
  O cálculo lambda trata funções como cidadãos de primeira classe. Isto significa que as funções podem ser utilizadas como argumentos e retornadas como valores de outras funções.<br/>
  Python e outras linguagens como Java, C# e até mesmo C++ tiveram as funções lambda adicionadas a sua sintaxe, já linguagens como LISP, ou linguagens da família ML (Meta Language: é uma linguagem de programação funcional conhecida por usar o sistema de tipo polimórfico Hindley-Milner, que atribui automaticamente os tipos de dados da maioria das expressões sem exigir anotações de tipos explícitas (inferência de tipo) e garante a segurança de tipo.): Haskell, OCaml e F# usam lambdas como um conceito central.<br/>
  Expressões Lambda em Python e em outras linguagens de programação possuem suas raízes no cálculo lambda, um modelo de computação criado por Alonzo Church. O cálculo lambda pode codificar qualquer cálculo, é Turing completo, mas ao contrário do conceito de máquina de Turing, é puro e não guarda nenhum estado.<br/>
@@ -1835,7 +1815,7 @@ função inline usando a sintaxe lambda: `lambda argumentos: expressão`<br/>
 
  Uma função lambda (ou anônima) é uma pequena função que você pode definir inline e usar onde for necessário sem atribuir um nome a ela. É como uma receita de bolo que você pode usar uma única vez, sem precisar guardá-la na sua coleção de receitas.
 
-Exemplo prático: voltando ao exemplo dos quadrados, queremos uma função para dobrar um número. Normalmente, você escreveria algo assim em Python:
+ Exemplo prático: voltando ao exemplo dos quadrados, queremos uma função para dobrar um número. Normalmente, você escreveria algo assim em Python:
 ```Python
 def dobrar(numero):
     return numero * 2
@@ -1844,7 +1824,7 @@ resultado = dobrar(5)
 print(resultado)
 ```
 
-Mas com uma função lambda, você pode fazer o mesmo em uma linha, sem atribuir um nome à função e sem alterar o estado da variável que contem o valor a ser manipulado:
+ Mas com uma função lambda, você pode fazer o mesmo em uma linha, sem atribuir um nome à função e sem alterar o estado da variável que contem o valor a ser manipulado:
 
 ```Python
   resultado = (lambda numero: numero * 2)(5)
@@ -1868,14 +1848,14 @@ Vejamos outro exemplo, vamos multiplicar o argumento por 3:
   print(triplo(3)) # 9
 ```
 
-Agora vamos elevar o número ao quadrado:
+ Agora vamos elevar o número ao quadrado:
 
 ```Python
   quadrado = lambda x: x * x
   print(quadrado(5)) # 25
 ```
 
-As expressões lambda também nos permitem trabalharmos com strings, por exemplo:
+ As expressões lambda também nos permitem trabalharmos com strings, por exemplo:
 
 ```Python
 #                 ↱func  ↱arg1 ↱agr2       ↱expressão
@@ -1885,7 +1865,7 @@ As expressões lambda também nos permitem trabalharmos com strings, por exemplo
 # Sobrenome: Nakamoto
 ```
 
-Podemos também usar condicionais com funções lambda:
+ Podemos também usar condicionais com funções lambda:
 
 ```Python
 #            argumento ⬎    ⬐ expressão condicional ----------⬎
@@ -1894,7 +1874,7 @@ Podemos também usar condicionais com funções lambda:
   print(comeca_com_D('Raphael')) # False
 ```
 
-Se quisermos verificar se um número é impar:
+ Se quisermos verificar se um número é impar:
 
 ```Python
   impar = lambda x: True if x % 2 == 1 else False
@@ -1920,7 +1900,7 @@ print(palavra_anterior(sentenca, 'Roma')) # Rei
 
  A ideia de tratar funções como valores e passar funções como dados nos permite combinar funções com outras funções para criar novas funções com novos comportamentos. Essas funções possuem lógica semelhante, mas a diferença são as funções dos operadores. Se pudermos tratar funções como valores e passá-los como argumentos, podemos construir uma função que receba a função do operador e usá-la dentro da nossa função.
 
-**ARROW (TERNÁRIO)**
+##### ARROW (TERNÁRIO)
 
  O JavaScript por exemplo, tem a habilidade HOF que dá suporte para uso da programação funcional. De certa forma podemos dizer que o Self-Invoking Function é uma Higher-Order Function; Higher-Order Functions são funções que recebem ou retornam outras: uma HOF é uma função que pode receber outras funções como argumentos e/ou retornar uma função como resultado. Em resumo, as HOFs tratam as funções como valores de primeira classe.<br/>
  Arrow functions no JavaScript são uma forma concisa de escrever funções, introduzidas no ES6 (ECMAScript). Elas são uma alternativa mais simples e mais curta às funções tradicionais, além de comportarem-se de maneira diferente em relação ao `this`.<br/>
@@ -1986,7 +1966,7 @@ const dizerOla = () => 'Olá!';
 ```
 
 **Função com apenas um parâmetro**<br/>
-Se a função tiver apenas um parâmetro, você pode omitir os parênteses:
+ Se a função tiver apenas um parâmetro, você pode omitir os parênteses:
 ```JS
 const dobro = x => x * 2;
 ```
@@ -2051,7 +2031,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  ```
  Neste exemplo, as funções são tratadas como valores de primeira classe, Isso demonstra a flexibilidade proporcionada por valores de primeira classe. As arrow functions oferecem uma maneira mais compacta e expressiva de escrever funções em JavaScript, além de modificar o comportamento do`this`, o que pode ser útil para evitar problemas em certos contextos, como dentro de callbacks e funções assíncronas.
 
-**IMPERATIVO**<br/>
+#### IMPERATIVO
  O paradigma imperativo é um dos mais antigos paradigmas da programação. Está intimamente relacionado com a arquitetura da máquina. Um programa imperativo é semelhante às ordens expressas pelo modo imperativo nas línguas naturais. É uma sequência de instruções que o processador deve executar passo a passo. O foco principal desse paradigma é em "como" atingir um objetivo.<br/>
  O paradigma imperativo determina que as intruções passadas ao computador devem especificar o passo a passo das ações que serão executadas. Tais ações mudam o estado do programa através do uso de variáveis que ficam armazenadas em memória, até chegar a um resultado esperado. O foco do paradigma está em determinar o "como" deve ser feito.<br/>
  A programação imperativa permitiu uma codificação menos focada no código de máquina, o que também abriu as portas para a implementação de programas mais elaborados e menos dependentes do hardware.<br/>
@@ -2065,14 +2045,14 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - guardar o nome do usuário
 - exibir o resultado esperado, isto é, a frase: "Olá, &lt;nome do usuário&gt;!"
 
-**DERIVAÇÕES PI**<br/>
+##### DERIVAÇÕES PI
  A programação imperativa é dividida em 4 grandes categorias:
  1. *ESTRUTURADO*
  2. *PROCEDURAL*
  3. *COMPUTAÇÃO PARALELA*
  4. *PROGRAMAÇÃO ORIENTADA A OBJETOS*
 
-**ESTRUTURADO**<br/>
+#### ESTRUTURADO
  Simplificadamente, este paradigma é a construção de uma estrutura de blocos aninhados. O paradigma estruturado determina que as instruções passadas ao computador podem ser formadas por 3 estruturas, sendo:
  1. *SEQUÊNCIA*: as instruções são codificadas na sequência a serem executadas.
  2. *CONDIÇÃO*: um bloco de código só é executado se uma condição for verdadeira (`if`-`else`, `switch case`).
@@ -2115,7 +2095,7 @@ print("\n", summation_even_numbers)
 
  O problema com relação aos pontos citados está em que muitos times de desenvolvimento não conseguem distinguir a diferença entre o uso ESTRUTURADO, PROCEDURAL e POO, o que na prática leva a implementação de baixa qualidade com códigos confusos e de alto custo de manutenção. A programação estruturada é útil e aplicável, porém, seu uso sem considerar paradigmas complementares pode contribuir para códigos de baixa legibilidade.
 
-**PROCEDURAL**<br/>
+#### PROCEDURAL
  O paradigma procedural, por vezes usado como sinônimo para o paradigma imperativo, determina que as instruções a serem passadas ao computador podem ser agrupadas em procedimentos (equiparável a métodos, funções e rotinas). Os procedimentos podem ser invocados durante a execução do software e visam a reutilização do código em pontos diferentes do mesmo, já que eles devem suportar a especificação de argumentos, variáveis locais, chamadas recursivas, dentre outros.<br/>
  Este paradigma é baseado no conceito de chamadas de procedimento, as instruções são estruturadas em procedimentos também conhecidos como sub-rotinas ou funções. Estes procedimentos são uma lista de instruções para dizer ao computador o que fazer passo a passo. Em outras palavras, o computador pega os dados de entrada e os processa sequencialmente em chamadas sucessivas e procedimentos separados (ideia de sequência), lembrando-se de cada nova alteração. O paradigma procedural é excelente para programação de uso geral. Neste paradigma, o programador descreve um passo-a-passo detalhado do que deve ser cumprido pela máquina. Vários tipos de linguagem de programação suportam este tipo de paradigma, como Cobol, Fortran, Pascal, C, Java, C++, Kotlin, Python, PHP, JavaScript e ColdFusion.<br/>
  Em continuidade ao exemplo de código estruturado, a necessidade agora é fazer a soma dos números pares e ímpares de um determinado intervalo, e apresentar o resultado. A programação estrutural permite o uso de procedimentos, desta forma fica mais fácil reaproveitar lógica e código.
@@ -2161,10 +2141,10 @@ print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
  Com mais requisitos a serem atendidos, o código começa a ficar extenso, o que mostra a importância do paradigma procedural para possibilitar o reaproveitamento e organização do código.<br/>
  Com o surgimento da POO, muitos times de desenvolvimento marginalizam de certa forma o uso puro de procedimentos, porém esse paradigma ainda é bastante aplicável mediante necessidades mais simples que não requerem uma modelagem mais complexa no código. Em soluções corporativas, as quais normalmente possuem times de desenvolvimento grandes, o uso massivo de programação procedural geralmente leva a códigos de difícil manutenção e evolução, o que não é necessariamente exclusividade ou culpa deste paradigma, e sim o pouco cuidado ou conhecimento de desenvolvedores. O fato é que para cenários mais complexos, outros paradigmas oferecem mais recursos para contribuir com a organização e qualidade do código.
 
-**LÓGICO**<br/>
+#### LÓGICO
  O paradigma lógico é um tanto distinto dos demais paradigmas e deriva do declarativo. Fundamentalmente, utiliza formas de lógica simbólica como padrões de entrada e saída. A partir daí realiza inferências para produzir os resultados. A programação lógica é um paradigma de programação fortemente baseado na lógica formal. Qualquer paradigma escrito em uma linguagem de programação lógica é um conjunto de sentenças em uma forma lógica que expressa fatos e regras sobre uma determinada área do problema.
 
-**PRINCÍPIOS**<br/>
+##### PRINCÍPIOS
  Portanto, as declarações básicas da programação lógica são as seguintes:
  - *FATOS*: são afirmações fundamentais sobre o domínio do problema, como "Alan Turing é um homem".
  - *REGRAS*: permitem fazer inferências sobre os fatos do domínio ("Todos os homens são mortais.").
@@ -2174,7 +2154,7 @@ print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
  Para exemplificar bem seu uso, podemos imaginar a tentativa de prova de um dado teorema, na qual são explicitadas algumas premissas e, sendo elas verdadeiras, a conclusão de tal teorema torna-se verdade também.<br/>
  A estrutura consiste em descrever as relações e regras que governam um problema e deixa o computador descobrir a solução usando lógica.
 
-**MATEMÁTICO**<br/>
+#### MATEMÁTICO
  Derivado do paradigma de programação declarativa, o paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos usando conceitos e técnicas da matemática. Em outras palavras, é como resolver problemas usando equações e fórmulas matemáticas.<br/>
  Vamos considerar um problema de planejamento de produção em uma fábrica, onde queremos maximizar os lucros sujeitos a certas restrições, como limitações de recursos e demanda do mercado. Em vez de tentar resolver esse problema manualmente, podemos usar programação matemática.<br/>
  Digamos que temos três produtos A, B e C, e queremos decidir quantos de cada produto produzir para maximizar os lucros. Podemos formular este problema como um problema de programação linear, com uma função objetivo para maximizar os lucros e um conjunto de restrições que representam as limitações de recursos e demanda.<br/>
@@ -2227,7 +2207,7 @@ print("Lucro Total:", problem.objective.value())
 ```
  Este é apenas um exemplo simples, mas mostra como a programação matemática pode ser usada para resolver problemas do mundo real de forma eficiente e sistemática, usando conceitos e técnicas da matemática.
 
-**CONCEITOS E TÉCNICAS**<br/>
+##### CONCEITOS E TÉCNICAS
  O paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos usando conceitos e técnicas da matemática. Ele se baseia em modelos matemáticos precisos para representar problemas do mundo real e usar algoritmos de otimização para encontrar soluções eficientes para esses problemas.
 
 - **Relação com lógica matemática:**<br/>
@@ -2452,20 +2432,19 @@ print("Quantidade ótima de milho (hectares): ", value(modelo.x['Milho']))
  No entanto, algumas linguagens de programação têm recursos embutidos ou bibliotecas especializadas que tornam mais fácil expressar e resolver problemas matemáticos. Aqui estão algumas linguagens de programação comuns que são frequentemente usadas para implementar soluções baseadas em matemática: Matlab (linguagem de programação e ambiente de desenvolvimento voltado para cálculos numéricos e computação técnica. Ele é frequentemente usado em engenharia, matemática aplicada e ciências naturais), GNU Octave (é um ambiente de computação numérica de código aberto, semelhante ao MATLAB. Ele é usado para resolver problemas matemáticos e realizar análises numéricas, modelagem e simulações), Mathematica (é um sistema de álgebra computacional usado em muitas áreas da ciência, engenharia e matemática. Ele fornece uma ampla gama de funcionalidades matemáticas e é frequentemente usado para simulações, visualizações e análises simbólicas), Maple (é outro sistema de álgebra computacional que é usado para uma variedade de tarefas matemáticas, incluindo cálculos simbólicos, numéricos e visualizações. Ele é popular entre os pesquisadores e profissionais que trabalham em matemática, engenharia e ciências aplicadas), SageMath (linguagem de programação e ambiente de software matemático que integra várias bibliotecas e ferramentas de código aberto. Ele fornece uma ampla gama de funcionalidades matemáticas, incluindo álgebra, cálculo, estatística, visualização e muito mais), Maxima (é um sistema de álgebra computacional de código aberto baseado em Lisp. Ele é usado para realizar cálculos simbólicos e numéricos, resolver equações, integrar e diferenciar funções, entre outras operações matemáticas), Scilab (linguagem de programação e ambiente de computação numérica usado para análise de dados, modelagem matemática, simulações e visualizações. Ele oferece uma ampla variedade de funções matemáticas e é frequentemente usado em engenharia e ciências aplicadas), Python, R, Julia, Fortran e C/C++.<br/>
  Portanto, para se tornar proficiente no paradigma de programação matemático, é essencial entender e dominar os conceitos fundamentais da lógica matemática, como lógica proposicional, lógica de predicados e teoria dos modelos, bem como os princípios básicos da lógica combinatória, como permutações, combinações e princípios de contagem. Além disso, é importante familiarizar-se com ferramentas de modelagem e solução, algoritmos de otimização e técnicas de álgebra linear e cálculo diferencial e integral, que são amplamente utilizados na resolução de problemas de programação matemática.
 
-**REATIVO**<br/>
+#### REATIVO
  O paradigma de programação reativo é uma abordagem na qual os sistemas são construídos em torno da ideia de fluxos de dados que podem ser observados e reagidos. Em outras palavras, em vez de lidar apenas com eventos isolados, o foco está na criação de programas que respondem a mudanças de maneira contínua e automática.<br/>
  A programação reativa é derivada principalmente do paradigma declarativo. No paradigma declarativo, os programas são estruturados em torno da declaração do que deve ser feito, em vez de especificar exatamente como alcançar o resultado desejado. Isso está alinhado com os princípios da programação reativa, onde os desenvolvedores declaram como os componentes do sistema devem reagir a eventos e mudanças de estado, em vez de controlar manualmente o fluxo de execução.<br/>
  Na programação reativa, os fluxos de dados são declarados e os desenvolvedores definem como reagir a esses fluxos, permitindo uma abordagem mais declarativa para lidar com a comunicação assíncrona e eventos em tempo real. Portanto, embora a programação reativa possa incorporar elementos de outros paradigmas, como o paradigma funcional ou o paradigma orientado a objetos, sua base principal está enraizada no paradigma declarativo.<br/>
  A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte nativo para programação reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos. Algumas das linguagens comumente usadas que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#, Python, Elm (linguagem de programação funcional pura projetada para criar interfaces de usuário reativas na web. Ele segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update) e enfatiza a imutabilidade e a ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação, incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando observáveis (observables) e operadores (operators) para manipular fluxos de dados).
 
-**PRINCIPAIS ASPECTOS**
+##### PRINCIPAIS ASPECTOS
  - *Fluxos de Dados (Streams)*: São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
  - *Reatividade*: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente sua saída conforme novos eventos ocorrem.
  - *Assincronicidade*: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída antes de prosseguir.
  - *Composição Declarativa*: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
 
- Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados. Neste aplicativo, os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem observar esses fluxos e reagir a eles, atualizando a interface do usuário sempre que novas informações estiverem
-disponíveis.<br/>
+ Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados. Neste aplicativo, os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem observar esses fluxos e reagir a eles, atualizando a interface do usuário sempre que novas informações estiverem disponíveis.<br/>
  Neste exemplo, vamos simular um sistema simples de monitoramento de temperatura, onde os dados de temperatura são gerados aleatoriamente e atualizados continuamente. Vamos observar esses dados e imprimir as atualizações conforme elas ocorrem:
 ```Python
 from rx import from_iterable
@@ -2489,7 +2468,7 @@ input("Pressione Enter para encerrar o programa...\n")
 ```
  Neste exemplo, estamos usando a função `generate_temperature()` para gerar dados de temperatura aleatórios continuamente. Em seguida, criamos um fluxo de dados reativo a partir desses dados usando `from_iterable()`. Finalmente, observamos esse fluxo de dados e imprimimos as atualizações de temperatura à medida que elas ocorrem. Execute este código e você verá as atualizações de temperatura sendo impressas no console a cada segundo. Isso demonstra a capacidade de lidar com fluxos de dados em tempo real de forma reativa. Ao entender esses conceitos fundamentais, os desenvolvedores podem criar aplicativos que sejam mais responsivos, dinâmicos e capazes de lidar eficientemente com fluxos de dados em tempo real.
 
-**COMPUTAÇÃO PARALELA**<br/>
+#### COMPUTAÇÃO PARALELA
  O processamento paralelo é uma técnica que envolve a execução simultânea de múltiplas tarefas computacionais e ajuda a reduzir o tempo de execução da instrução com o objetivo de reduzir o tempo de execução e melhorar o desempenho do sistema. Ele faz isso dividindo um problema em partes menores, compartilhando ou paralelizando instruções entre vários processadores, que são processadas independentemente por diferentes processadores ou núcleos de processamento. O significado da abordagem pode ser resumido em uma frase: "dividir e conquistar" onde um problema é dividido em partes menores, que são então resolvidas independentemente e combinadas para produzir a solução final.<br/>
  Ao contrário da computação concorrente, onde as tarefas são alternadas ao longo do tempo, na computação paralela, as tarefas são realmente executadas ao mesmo tempo, semelhante ao paradigma de computação distribuída, com a diferença que a execução simultânea de múltiplas tarefas acontece na mesma máquina usando diferentes processadores ou núcleos de processamento, o que pode levar a um aumento significativo no desempenho e na capacidade de processamento.<br/>
  Exemplos de linguagens de programação que suportam processamento paralelo são NESL (uma das mais antigas) e C/C++ (também suportada devido a algumas funções de biblioteca).<br/>
@@ -2533,7 +2512,7 @@ int main() {
 ```
  Neste exemplo, a lista de números é dividida em duas partes, e cada parte é processada em uma thread separada usando a função `calcularSoma()`. As somas parciais são então combinadas para obter a soma total. Este é um exemplo básico de processamento paralelo em C++.
 
-**SUPORTES**<br/>
+##### SUPORTES
  Além das linguagens já mencionadas, várias outras linguagens suportam computação paralela. Algumas delas incluem:
  1. Java: Java oferece suporte à programação paralela por meio de APIs como Java Threads, Executor Framework e Fork/Join Framework. Além disso, a plataforma Java possui a API Java Parallel Streams, introduzida no Java 8, que facilita a paralelização de operações em coleções.
  2. Python: Embora Python seja uma linguagem de programação de alto nível, ela oferece suporte à computação paralela por meio de bibliotecas como threading, multiprocessing e concurrent.futures. Além disso, bibliotecas como NumPy e pandas são otimizadas para operações paralelas em arrays e dataframes, respectivamente.
@@ -2552,14 +2531,14 @@ int main() {
 
  Essas são apenas algumas das linguagens e bibliotecas que oferecem recursos para aproveitar o poder do processamento paralelo. Dependendo das necessidades e requisitos do projeto, diferentes linguagens e ferramentas podem ser mais adequadas para implementar soluções paralelas e aproveitar ao máximo a capacidade de processamento de hardware moderno.
 
-**COMPUTAÇÃO DISTRIBUÍDA**<br/>
+#### COMPUTAÇÃO DISTRIBUÍDA
  Na computação distribuída, as tarefas são distribuídas entre vários dispositivos ou sistemas de computação em uma rede. Cada dispositivo ou sistema pode operar de forma independente e coordenar suas atividades com outros dispositivos por meio de comunicação em rede. A computação distribuída é frequentemente usada em sistemas distribuídos, como sistemas de armazenamento em nuvem, redes de sensores e processamento de big data.<br/>
  A computação distribuída é um paradigma de programação que envolve a execução de tarefas em sistemas distribuídos, funções executadas de forma independente, compostos por múltiplos dispositivos de computação interconectados, como computadores, servidores, dispositivos móveis e sensores. Nesse paradigma, as tarefas são distribuídas entre os diferentes nós do sistema, que trabalham em conjunto para alcançar um objetivo comum.<br/>
  A programação de sistemas distribuídos envolve o desenvolvimento de software que é projetado para ser executado em um ambiente distribuído. Isso pode envolver a escolha de linguagens de programação adequadas, estruturas de programação distribuída (como modelos de ator ou arquiteturas baseadas em eventos), e o uso de bibliotecas e ferramentas para facilitar a comunicação e a coordenação entre os nós.<br/>
  Um exemplo simples de computação distribuída seria um sistema de armazenamento de arquivos distribuído, onde vários servidores armazenam partes de um arquivo e os clientes se comunicam com esses servidores para ler ou gravar dados.<br/>
  Um exemplo prático de computação distribuída seria o desenvolvimento de um sistema de processamento de big data usando a estrutura Apache Hadoop. Nesse sistema, os dados são divididos e processados em paralelo em um cluster de computadores distribuídos, usando o modelo de programação MapReduce para processamento distribuído.
 
-**PRINCIPAIS PONTOS**<br/>
+##### PRINCIPAIS PONTOS
  Aqui estão alguns dos principais aspectos e conceitos associados à programação de computação distribuída:
  1. *Comunicação*: Os diferentes nós de um sistema distribuído precisam se comunicar entre si para coordenar suas atividades e trocar dados. A comunicação pode ser realizada por meio de redes locais ou de longa distância, usando protocolos de comunicação como TCP/IP, UDP e HTTP.
  2. Coordenação: A coordenação é essencial para garantir que os diferentes nós de um sistema distribuído trabalhem de forma colaborativa e eficiente. Isso envolve a sincronização de tarefas, a resolução de conflitos e a garantia de consistência nos dados compartilhados.
@@ -2611,7 +2590,7 @@ Linguagens que suportam este paradigma:
 
  Essas são apenas algumas das linguagens que suportam o paradigma de programação de computação distribuída. Cada uma oferece suas próprias bibliotecas e ferramentas para facilitar o desenvolvimento de sistemas distribuídos.
 
-**COMPUTAÇÃO CONCORRENTE**<br/>
+#### COMPUTAÇÃO CONCORRENTE
  O paradigma de programação de computação concorrente envolve o desenvolvimento de software que executa múltiplas tarefas concorrentemente ou seja, executa tarefas de forma intercalada de acordo com: a disponibilidade do sistema, a dependência entre as tarefas, o grau de conclusão da tarefa em execução ou o grau das prioridades (dinâmica). A computação concorrente lida com múltiplas tarefas que podem ser executadas ao mesmo tempo, mas não necessariamente simultaneamente.<br/>
  Na computação concorrente, múltiplas tarefas são executadas de forma intercalada ao longo do tempo. Isso permite que programaslidem com diversas operações simultaneamente, mesmo em sistemas de processamento único. A concorrência é frequentemente usada para melhorar a capacidade de resposta e a eficiência dos sistemas, especialmente em situações onde várias tarefas precisam ser realizadas ao mesmo tempo.<br/>
 
@@ -2622,7 +2601,7 @@ Linguagens que suportam este paradigma:
  4. **Concorrência vs. Paralelismo**: Concorrência refere-se à capacidade de vários threads progredirem simultaneamente, enquanto paralelismo refere-se à execução simultânea real desses threads em múltiplos núcleos de processamento.
  5. **Modelos de Concorrência**: Existem vários modelos de concorrência, incluindo programação baseada em eventos, programação orientada a tarefas e programação baseada em fluxo de dados. Cada modelo tem suas próprias características e abordagens para lidar com a concorrência.
 
-**PRIORIZAÇÃO DE TAREFAS**<br/>
+##### PRIORIZAÇÃO DE TAREFAS
  Na computação concorrente, a priorização e a sequência de execução de tarefas são determinadas por meio de diferentes técnicas de agendamento, dependendo do sistema operacional e do modelo de concorrência utilizado:
  - *Preemptivo vs. Cooperativo*: Em sistemas concorrentes preemptivos, o sistema operacional pode interromper uma tarefa em andamento para permitir a execução de outra tarefa de maior prioridade. Por outro lado, em sistemas cooperativos, as tarefas precisam cooperar explicitamente, cedendo o controle ao sistema operacional ou a outras tarefas.
  - *Prioridade de Tarefas*: As tarefas podem ser atribuídas a diferentes prioridades, e o agendador do sistema operacional decide qual tarefa deve ser executada com base nessas prioridades. Tarefas com prioridade mais alta tendem a ser executadas antes das tarefas com prioridade mais baixa.
@@ -2633,17 +2612,17 @@ Linguagens que suportam este paradigma:
 
  Em resumo, a sequência de execução das tarefas na computação concorrente é determinada por uma combinação de prioridades de tarefa, políticas de agendamento do sistema operacional e algoritmos de agendamento utilizados.
 
-***DIFERENÇAS**
+###### DIFERENÇAS
  - A computação concorrente lida com múltiplas tarefas que podem ser executadas ao mesmo tempo, mas não necessariamente simultaneamente.
  - A computação paralela envolve a execução simultânea de múltiplas tarefas em diferentes processadores ou núcleos de processamento.
  - A computação distribuída distribui tarefas entre vários dispositivos ou sistemas de computação em uma rede, permitindo a coordenação e colaboração entre eles.
 
-**PROGRAMAÇÃO DE BANCO DE DADOS**<br/>
+#### PROGRAMAÇÃO DE BANCO DE DADOS
  A programação de banco de dados é fundamentalmente baseada na manipulação e gerenciamento de dados armazenados em um banco de dados.<br/>
  Essa metodologia de programação é baseada no trabalho com dados. Os dados são armazenados no banco de dados e as consultas são feitas a esse banco de dados em uma linguagem especial, por exemplo, SQL. Com essas linguagens, você pode acessar os dados para filtragem, transformações, cálculo de estatísticas e assim por diante. As instruções do programa são definidas por dados, em vez de uma série de etapas embutidas em código.<br/>
  O programa de banco de dados é o coração do sistema de informações de negócios, permitindo a criação de arquivos, entrada de dados, atualização, consulta e funções de relatório.
 
-**ASPECTOS IMPORTANTES**<br/>
+##### ASPECTOS IMPORTANTES
 Aqui estão alguns aspectos importantes associados a esse paradigma:
  - *Linguagem SQL*: A Linguagem de Consulta Estruturada (SQL) é a linguagem padrão para a interação com bancos de dados relacionais. Ela permite realizar operações como inserção, consulta, atualização e exclusão de dados em tabelas de um banco de dados.
  - *Modelagem de Dados*: Antes de implementar um banco de dados, é necessário projetar sua estrutura usando modelos de dados como o Modelo Entidade-Relacionamento (ER). Isso envolve identificar entidades, atributos e relacionamentos entre entidades.
@@ -2723,10 +2702,10 @@ conexao.close()
  Além disso, a programação de banco de dados desempenha um papel fundamental no suporte a sistemas de informação de negócios, fornecendo a infraestrutura necessária para armazenar e gerenciar dados relacionados a clientes, transações, inventário e muito mais.<br/>
  Em suma, o paradigma de programação de banco de dados é uma ferramenta poderosa para lidar com dados em sistemas de informação, oferecendo uma maneira eficiente e estruturada de trabalhar com informações vitais para organizações e aplicativos modernos.
 
-**PROGRAMAÇÃO ORIENTADO A ASPECTOS**<br/>
+#### PROGRAMAÇÃO ORIENTADO A ASPECTOS
  O paradigma de programação Orientado a Aspectos (Aspect-Oriented Programming - AOP) é uma abordagem que visa a modularização de preocupações transversais em uma aplicação, como logging, segurança, transações, etc, separando essas preocupações do código principal da aplicação. Em vez de espalhar o código relacionado a essas preocupações por todo o código base, o AOP permite agrupar esse código em "aspectos", que podem ser aplicados seletivamente ao código principal.
 
-**ASPECTOS E CONCEITOS**
+##### ASPECTOS E CONCEITOS
 Principais aspectos e conceitos associados ao AOP:
  - *Aspecto*: Um módulo que encapsula comportamentos que afetam várias partes de um programa. Por exemplo, um aspecto de logging pode encapsular a lógica para registrar informações de depuração em vários pontos do código.
  - *Ponto de junção (Join Point)*: Pontos específicos no código onde um aspecto pode ser aplicado. Exemplos incluem chamadas de método, exceções lançadas ou variáveis sendo acessadas.
@@ -2763,11 +2742,11 @@ example_function()
 ```
  Neste exemplo, usamos a biblioteca `aspectlib` para criar um aspecto de logging que mede o tempo de execução de todas as funções no módulo.
 
-**PROGRAMAÇÃO ORIENTADA A EVENTOS**<br/>
+#### PROGRAMAÇÃO ORIENTADA A EVENTOS
  O paradigma de orientação a eventos é usado por toda linguagem de programação que tem uso de recursos gráficos, como jogos e formulários. Dessa forma, a execução do programa se dá a medida que determinados eventos são disparados pelo usuário. Portanto, quem usa é responsável pelo momento em que o programa é executado.<br/>
  Imagine uma caixa de formulário que precisa do preenchimento do usuário. Os eventos descritos no código fonte serão executados à medida que se realiza o preenchimento dos campos solicitados. Além disso, ocorrem execuções também quando se decide enviar os dados clicando no botão de envio. São eventos que disparam outros eventos.
 
-**PRINCIPAIS CARACTERÍSTICAS**<br/>
+##### PRINCIPAIS CARACTERÍSTICAS
  Principais características e conceitos:
  1. *Eventos*: Representam a ocorrência de ações ou mudanças de estado que podem ser detectadas e processadas pelo programa. Exemplos de eventos incluem cliques de mouse, pressionamentos de tecla, envio de formulários, etc.
  2. *Listeners (ou tratadores de eventos)*: São funções ou métodos que são associados a um determinado evento e são acionados quando esse evento ocorre. Os ouvintes agem como observadores, aguardando a ocorrência de um evento específico para responder a ele.
@@ -2803,7 +2782,7 @@ numericButtons.forEach(button => {
 
  *C++ também suporta o paradigma de programação orientada a eventos, especialmente quando utilizado em conjunto com bibliotecas ou frameworks que lidam com interfaces gráficas de usuário (GUIs) e interações do usuário. Embora C++ não tenha recursos nativos para lidar diretamente com eventos como em linguagens como JavaScript, ele pode ser utilizado para desenvolver aplicativos que respondam a eventos em sistemas desktop, jogos e outras aplicações gráficas. Por exemplo, ao desenvolver um aplicativo utilizando a biblioteca Qt, uma popular biblioteca C++ para o desenvolvimento de GUIs, você pode definir sinais e slots para lidar com eventos, onde os sinais representam eventos e os slots são as funções que respondem a esses eventos. Assim, embora C++ não seja tão frequentemente associado com programação orientada a eventos quanto JavaScript ou Java, ainda é possível utilizar esse paradigma em aplicações C++ modernas, especialmente aquelas que envolvem interfaces gráficas de usuário.
 
-**PROGRAMAÇÃO ORIENTADA A OBJETOS**<br/>
+#### PROGRAMAÇÃO ORIENTADA A OBJETOS
  Paradigma de programação baseado na utilização de objetos e suas iterações (análogo ao mundo real), a OO determina que o código deve ser modelado de forma a se aproximar ao mundo real, e que o mesmo em execução no computador tenha tal modelagem representada por uma estrutura de objetos, características e ações. Tais objetos podem interagir uns com os outros, modificando o estado do programa até que resultem nas saídas esperadas. Vejamos o exemplo da caneta:
 <pre>
  ---------------       ----------------------------        -------------
@@ -2883,8 +2862,9 @@ int main() {
 }
 ```
 
-**PILARES**<br/>
- Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código é organizado e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO são:<br/>
+##### PILARES
+ Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código é organizado e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO são:
+
  **1. ABSTRAÇÃO**: é o processo de identificar os aspectos essenciais de um objeto e ignorar os detalhes irrelevantes. Em POO, isso é alcançado através da criação de classes, que representam entidades ou conceitos do mundo real, e da definição de métodos que descrevem seu comportamento. Os detalhes de implementação são encapsulados dentro das classes, permitindo que os usuários das classes usem  apenas a interface pública, sem precisar entender como ela funciona internamente. Imagine que queremos representar um carro em um programa. Podemos criar uma classe `Carro` que encapsula as características e comportamentos de um carro.
 ```C++
  #include <iostream>
@@ -3125,7 +3105,7 @@ int main() {
 
  Existem diferenças entre as classes públicas e privadas na POO. Esta distinção está relacionada à visibilidade dos membros (métodos e variáveis) dentro de uma classe. 
 
- **Membros Públicos (public):**
+ **5.1 Membros Públicos (public):**
   - Os membros públicos são acessíveis de fora da classe.
   - Eles podem ser acessados e utilizados por qualquer código que tenha uma referência para o objeto da classe.
   - Eles são frequentemente usados para definir a interface pública da classe, ou seja, as operações que estão disponíveis para os usuários da classe.
@@ -3141,7 +3121,7 @@ public class MinhaClasse {
     }
 }
 ```
- **Membros Privados (private):**
+ **5.2 Membros Privados (private):**
   - Os membros privados só são acessíveis dentro da própria classe.
   - Eles não podem ser acessados ou modificados diretamente por código fora da classe.
   - São usados para esconder a implementação interna da classe e para garantir o encapsulamento.

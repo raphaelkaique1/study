@@ -1,9 +1,9 @@
 # Arquitetura de Computadores
 
- 1. **Conceito de Arquitetura de Computadores**<br/>
-  Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
+ ## 1. Conceito de Arquitetura de Computadores
+ Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
 
- 2. **Principais Partes de um Computador: Modelo de Von Neumann**<br/>
+ ## 2. Principais Partes de um Computador: Modelo de Von Neumann
   Os componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
     - **Unidade de Controle - UC:** Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
     - **Unidade Lógica e Aritmética - ULA:** Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
@@ -59,10 +59,10 @@ Barramentos para dispositivos de entrada e saída:
                 | ENTRADA E SAÍDA (I/O) |
                 └───────────────────────┘
 </pre>
- **Ciclos de Execução da CPU**<br/>
+ ### Ciclos de Execução da CPU
   Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.
 
- **Processos na CPU:**
+ #### Processos na CPU
   - Novo: Um novo processo foi adicionado à fila de execuções, então a CPU deverá buscar os dados necessários para executar o processo;
   - Pronto: O processo encontra-se pronto para ser executado, nesse ponto ele pode ser enviado para a CPU pois os dados básicos para sua execução já foram selecionados;
   - Em Execução: O processo está na CPU sendo executado;
@@ -100,10 +100,10 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  2. **HD**: Guarda informações de forma física, ou seja, nele é escrito a informação de forma persistente para que ela seja armazenada mesmo que o sistema não esteja energizado. A única forma de se perder uma informação neste tipo de armazenamento é sobrescrevendo a memória no seu endereço físico ou danificando/corrompendo o HD.
  3. **PROCESSADOR**: Por que não usar somente o HD para que não haja risco de perder as informações? Pelo fato de que a memória RAM é muito mais rápida que o HD. As informações guardadas na memória (RAM ou HD) precisam ser processadas para serem manipuladas, e quem processa essas informações é a CPU. Vamos imaginar que queremos somar os valores 5 e 6, ambos os valores estão guardados em posições de memória aleatórias dentro da memória RAM. Para realizar a soma destes valores, os 2 números são levados até a CPU onde serão somados (processados) e devolvidos para a memória juntamente com o resultado (saída) que é alocado em outra nova posição de memória. Ou seja, nenhuma das memórias não server para processamento, apenas armazenar dados, e este tipo de transição entre a memória e a CPU acontece milhares de vezes dentro de um computador, daí a necessidade de se ter uma memória rápida para enviar e receber informações para a CPU. Visto que o HD precisa de um maior tempo de processamento já que seu processo de armazenamento de memória consome mais recursos, sua utilidade como memória auxiliar da CPU não é viável, tornando seu melhor uso como banco de dados.
 
- ## Sistemas de Numeração
+ ### Sistemas de Numeração
 
- 1. **Sistemas de Numeração: Sistemas Numéricos Computacionais.**
-  ### Bits e Bytes
+ #### 1. Sistemas de Numeração<br/>Sistemas Numéricos Computacionais.
+  ##### Bits e Bytes
 
   * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 (aberto) ou 1 (fechado).<br/>
   *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.
@@ -131,15 +131,15 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 │  11001100  │     B      │
 └────────────┴────────────┘
 </pre>
- ### Grandezas de Armazenamento de Informação
+ #### Grandezas de Armazenamento de Informação
 
- #### Número de Bits:
+ ##### Número de Bits:
   Se você tem um número de bytes, multiplicar o número de bytes por 8 dá o número de bits.
   * Número de bits = Número de bytes × 8<br/>
     Exemplo: Se você tem 4 bytes, o número de bits é:<br/>
     4 × 8 = 32 bits
 
- #### Número de Bytes:
+ ##### Número de Bytes:
   Se você tem um número de bits, dividir o número de bits por 8 dá o número de bytes.
   * Número de bytes = 8 / Número de bits​<br/>
     Exemplo: Se você tem 32 bits, o número de bytes é:<br/>
@@ -154,7 +154,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   1.024 Gigabytes    1 TERABYTE          1.099511628¹²
 </pre>
 
- ### Sistemas Numéricos
+ #### Sistemas Numéricos
 
  A quantidade de algarismos disponíveis num sistema de numeração designa-se de BASE, que significa que cada dígito representa uma potência:
   - **Binário (base 2)**: 0, 1
@@ -162,7 +162,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   - **Decimal (base 10)**: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
   - **Hexadecimal (base 16)**: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
- #### Sistema Binário
+ ##### Sistema Binário
   É o sistema mais utilizado por máquinas, uma vez que os sistemas digitais trabalham internamente com 2 estados (ligado/desligado, verdadeiro/falso, aberto/fechado). O sistema binário utiliza os símbolos: 0, 1, sendo cada símbolo designado por bit (binary digit), que é a menor unidade possível de dados.
   - 0: Representa o valor lógico Falso.
   - 1: Representa o valor lógico Verdadeiro.<br/>
@@ -228,7 +228,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 |                                             3D                                            |
 └───────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
- #### Sistema Octal
+ ##### Sistema Octal
   É um sistema de numeração de base 8, ou seja, recorre a 8 símbolos (0, 1, 2, 3, 4, 5, 6, 7) para representação de um determinado valor. Cada dígito no sistema octal representa uma potência de 8. É menos comum do que os sistemas binário e decimal, mas ainda é utilizado em algumas áreas, especialmente em computação e sistemas digitais.
 
  **Conversões de Base Octal**
@@ -290,7 +290,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 |                                             CD                                            |
 └───────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
- #### Sistema Decimal
+ ##### Sistema Decimal
   O sistema decimal é o sistema mais utilizado pelos seres humanos, normalmente para indicar quantidades, e é constituído por 10 algarismos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9. No sistema decimal, cada algarismo tem um valor posicional, ou seja, cada algarismo tem um peso de acordo com a sua posição na presentação do valor.
 <pre>
   Peso  10² 10¹ 10⁰
@@ -347,7 +347,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
   ^      |
   └──────┘
 </pre>
- #### Sistema Hexadecimal
+ ##### Sistema Hexadecimal
   Muito utilizado na programação de microprocessadores, especialmente nos equipamentos de estudo e sistemas de desenvolvimento. Uitliza os símbolos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9 do sistema decimal e as letras A = 10, B = 11, C = 12, D = 13, E = 14 e F = 15. Esse sistema é frequentemente usado em programação para representar endereços de memória e valores de cores em HTML/CSS (como #FF5733, que representa um tom específico de laranja), é útil para representar grandes números binários de uma maneira mais compacta.
 
   Exemplo: 10101100 em binário é AC em hexadecimal.
@@ -411,5 +411,5 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 └─────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 
- 2. Tabela ASCII e Conversores.<br/>
+ ## 3. Tabela ASCII e Conversores.<br/>
 	A tabela ASCII ((American Standard Code for Information Interchange)[https://www.ascii-code.com/pt]) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
