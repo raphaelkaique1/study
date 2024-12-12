@@ -134,7 +134,7 @@ PARA J <- valor inicial ATÉ valor final FAÇA  |
 condição╲dição╱ condição |  ate(num > 10)
 falsa      ↓ verdadeira  |  fimalgoritmo
 </pre>
- ## 3. Eficiência de algoritmos<br/>resolução de problemas
+ ## 3. Eficiência de algoritmos<br/> resolução de problemas
 A análise de algoritmo fornece uma medida objetiva de desempenho proporcional ao tempo de execução do algoritmo. As vantagens são:
 - facilidade na compreensão, codificação e depuração;
 - eficiência na utilização dos recursos do computador e rapidez, através de seu tempo de execução.
@@ -196,7 +196,7 @@ meio=2 | -8 | -5 | 𝟭 | 4 | 14 | 21 | 23 | 54 | 67 | 90 | Valor é maior: busc
 meio=3 | -8 | -5 | 1 | 𝟰 | 14 | 21 | 23 | 54 | 67 | 90 | Valor é igual: termina a busca.
        ─────────────────────────────────────────────────
 </pre>
-### Busca Sequencial x Busca Binária**
+### Busca Sequencial x Busca Binária
   - Se a lista não está ordenada, a busca binária não se aplica.
   - A busca sequencial é muito ineficiente para conjuntos grandes de valores.
   - Analisando o comportamento matemático dos processos computacionais (complexidade assintótica) podemos enxergar os algoritmos por meio de gráficos de funções. No eixo X, está representado a quantidade n de elementos, no eixo Y o número de comparações.

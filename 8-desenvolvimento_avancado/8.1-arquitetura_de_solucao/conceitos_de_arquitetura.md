@@ -500,7 +500,7 @@ v   v  v  v   v  v                        └───────────�
   - Fazer um planejamento no momento de montar o cronograma de ações para reservar o tempo necessário de execução da técnica.
   - Escolher o usuário que será observado e realizar o devido agendamento com o mesmo.
 
- 3. **Documentação de Requisitos**<br/>
+ **3. Documentação de Requisitos**<br/>
  Uma documentação bem feita durante o processo de desenvolvimento ajuda e facilita no desenvolvimento e garante a continuidade do sistema para colaboradores vindos posteriormente. A documentação é uma garantia de contrato pois garante o escopo do que será desenvolvido.
  	
 #### Objetivos
@@ -1069,12 +1069,13 @@ Os softwares de BPM controlam: processos, atividades e recursos registrando para
 É uma metodologia aplicada à representação de processos de negócios utilizando como notação o BPD (Business Process Diagram). Os elementos gráficos no BPD permitem desenvolvimento fácil e familiar para a maioria dos analistas de negócio (por exemplo, um fluxograma). Os elementos são diferentes entre si e utilizam formas parecidas com as da maioria dos modelos, o que torna a construção de fácil aprendizado. É uma modelagem rica em recursos para a representação de uma maneira mais completa de como as atividades são realizados numa única visualização. Com as ferramentas disponíveis na tecnologia podemos realizar a construção destes modelos.
 
  ### 3. BPMN - Notação: Conhecendo a simbologia para o BPMN.
-A Notação é a simbologia proposta no BPM para a construção dos modelos de processo. Um BPD é constituído de objetos gráficos da BPMN e seus relacionamentos. Ou seja, é a Notação para construção de diagramas BPD na representação de processos de negócio.<br/>
-**Objetivo:**
-- Fornecer uma notação para representar os processos para:
-  - Analistas que irão estudar os processos;
-  - Desenvolvedores técnicos responsáveis pela aplicação da tecnologia que irão realizar os processos;
-  - Empresários que vão gerir e acompanhar os processos;
+A Notação é a simbologia proposta no BPM para a construção dos modelos de processo. Um BPD é constituído de objetos gráficos da BPMN e seus relacionamentos. Ou seja, é a Notação para construção de diagramas BPD na representação de processos de negócio.
+
+- **Objetivo:**
+  - Fornecer uma notação para representar os processos para:
+    - Analistas que irão estudar os processos;
+    - Desenvolvedores técnicos responsáveis pela aplicação da tecnologia que irão realizar os processos;
+    - Empresários que vão gerir e acompanhar os processos;
 **Notação:**
 - **Objetos de Fluxo**: É o recurso que descreve quais são as atividades e quais os seus relacionamentos. Definem o início do fluxo, os pontos intermediários, onde serão necessários paradas em aguardo de alguma informação ou tempo e fim de fluxo para encerramento.
 
@@ -1100,9 +1101,9 @@ A Notação é a simbologia proposta no BPM para a construção dos modelos de p
 
   O─ ─ > **Fluxo de Mensagem**: Representa a ligação dos artefatos, relacionamento entre 2 entidades que podem enviar ou receber mensagens. Os "pools", que serão descritos mais adiante, podem ser entidades, por exemplo.
 
-  - **Raias**: Representam cada setor. São 2 tipos:
+- **Raias**: Representam cada setor. São 2 tipos:
 
- **Pool**: Raia designada para o responsável por realizar a atividade. Representa um participante no processo, pode ser uma entidade, como uma empresa, ou uma função do negócio.
+  - **Pool**: Raia designada para o responsável por realizar a atividade. Representa um participante no processo, pode ser uma entidade, como uma empresa, ou uma função do negócio.
 <pre>
 ┌───┬──────────────────────┐
 │   │                      │
@@ -1110,7 +1111,7 @@ A Notação é a simbologia proposta no BPM para a construção dos modelos de p
 └───┴──────────────────────┘
 </pre>
 
- **Lane**: Raia sub-dividida para diferentes responsáveis pela a atividade. Subpartição dentro de um pool. Estende o pool vertical e horizontalmente, organiza e categoriza as atividades.
+  - **Lane**: Raia sub-dividida para diferentes responsáveis pela a atividade. Subpartição dentro de um pool. Estende o pool vertical e horizontalmente, organiza e categoriza as atividades.
 <pre>
 ┌───┬──────────────────────┐
 │   │                      │
@@ -1120,9 +1121,9 @@ A Notação é a simbologia proposta no BPM para a construção dos modelos de p
 </pre>
 
   - **Artefatos**: É a representação dos produtos/resultados gerados.
-    - 📄 - **Objeto de dados**: Resultado.
-    - [] - **Grupo**: Agrupamento de conjuntos.
-    - 💬 - **Anotação**: Complementar com informações que não são possíveis de representar com simbologia.
+    - 📄  - **Objeto de dados**: Resultado.
+    - [ ] - **Grupo**: Agrupamento de conjuntos.
+    - 💬  - **Anotação**: Complementar com informações que não são possíveis de representar com simbologia.
 
 **Passos para construção:**
 1. Identificar as atividades/requisitos do processo do negócio e seus responsáveis/ator;
@@ -1211,7 +1212,7 @@ Desta forma, demonstra-se que é interessante a adoção dos 2 modelos para o co
 
 ## Garantia e Qualidade de Software
 
-### 1. O que é Qualidade de Software? Definindo qualidade
+### 1. O que é Qualidade de Software?<br/>Definindo qualidade
 Existe algum padrão para o que é qualidade? A resposta é NÃO! Porque a qualidade é sempre em relação ao atendimento da expectativa de quem recebe um produto ou serviço. Então, pensando de forma generalista, não existe uma regra para o que é qualidade, mas sim princípios e práticas que funcionam para gerar qualidade. Então, podemos concluir que qualidade é tudo aquilo que provemos que atende à expectativa do receptor.<br/>
 Desta forma, quando falamos em qualidade de software, a preocupação está centrada em 2 pontos: produto e processo. Sendo que para o PRODUTO, a entrega ao stakeholder atenda às suas espectativas, tenha facilidade de uso e não apresente erros na execução. Enquanto que em relação ao PROCESSO, este tenha um bom aproveitamento dos recursos utilizados na construção, padronização, boa modularização, estruturas alinhadas com facilidade de compreensão e documentação, garantindo assim a continuidade dos sistemas entregues. A qualidade do processo afeta diretamente a qualidade do produto, pois produto e processo estão fortemente relacionados e não podem ser separados. Procedimentos e padrões de qualidade bem definidos, quando seguidos, produzirão um produto de qualidade.<br/>
 Segundo a NBR ISO 9000:2005, "qualidade é o grau no qual um conjunto de características inerentes satisfaz aos requisitos". Se algum produto ou serviço atende aos requisitos especificados, este mesmo produto ou serviço possui a qualidade desejada.<br/>
@@ -1264,7 +1265,7 @@ Portanto, o gerenciamento de qualidade de processo envolve, segundo Sommerville:
 		              ( Aprimorar o processo ) <- < Qualidade OK? > -> ( Padronizar o processo )
 </pre>
 
-### 2. O que considerar como Qualidade? Requisitos de qualidade
+### 2. O que considerar como Qualidade?<br/>Requisitos de qualidade
 A busca pela excelência implica em considerar uma frequente validação e verificação dos procedimentos e padrões utilizados no desenvolvimento de sistemas, gerando a qualidade necessária tanto para o processo, quanto para o produto. Sommerville diz que a garantia de qualidade é o processo que define como a qualidade de software pode ser atingida e como a organização de desenvolvimento sabe que o software possui o nível de qualidade necessário. Existem 3 quesitos básicos que ajudam a definir o que incluir dentro do processo para obter qualidade no produto gerado.
 <pre>
                                                                      ┌───────────────────────────────────────────────────────────────────────────────┐
@@ -1281,7 +1282,7 @@ A busca pela excelência implica em considerar uma frequente validação e verif
   > Colaboram com a continuidade do sistema, facilitando para a equipe que assumirá manutenção do sistema.
 </pre>
 
-### 3. Técnicas e Tipos de Validação: Conhecendo as técnicas de qualidade
+### 3. Técnicas e Tipos de Validação<br/>Conhecendo as técnicas de qualidade
 O planejamento da qualidade adota técnicas estabelecidas por processos de certificação definidos por instituições nacionais e internacionais, como: US DoD (Uniter States Department of Defense), ANSI (American National Standards Institute), BSI (British Standards Instituitions) e IEE (Institute of Electrical and Electronic Engineers). Um processo de certificação estabelece padrões que devem ser seguidos para obtenção de qualidade e são definidos para os diversos segmentos de produção, seja produto ou serviço.<bre/>
 São definidos 2 tipos de avaliação no processo de análise de certificação de qualidade: avaliação ao longo do processo de desenvolvimento e avaliação de pacotes. Sommerville define alguns atributos de qualidade de software que precisam ser considerados no planejamento de qualidade:
 
@@ -1404,7 +1405,7 @@ Tipos:
 ├──────────────────────────────┬──────────────────────────────┤
 | Modelo de avaliação da matu- │ Objetivo: Dar suporte às or- |
 | ridade de processo de teste. | ganizações na melhoria do    |
-|			                   | processo de testes.          |
+|                              | processo de testes.          |
 ├──────────────────────────────┴──────────────────────────────┤
 |                     PARADIGMAS ADOTADOS                     |
 ├──────────────────────────────┬──────────────────────────────┤
@@ -1504,7 +1505,7 @@ Todas as equipes deverão ter representação.<br/>
   - Os stakeholders podem não entender a proposta da técnica e considerar que a qualidade está comprometida, visto que o ambiente não corresponde ao do usuário.
   - Estar atento com a equipe de desenvolvedores para não produzir componentes de baixa qualidade.
   - Construção de protótipos requer tempo que pode comprometer a previsão do projeto.
-- **Geração de Casos de Teste**: Realizar testes dos requisitos; Documentar os testes anotando: descrição, problemas, comentários e recomendações.<br/>
+- **Geração de Casos de Testes**: Realizar testes dos requisitos; Documentar os testes anotando: descrição, problemas, comentários e recomendações.<br/>
 Uma propriedade importante para cada requisito é o de ser testável. Um requisito não testável pode ser um indício de geradores de problemas.<br/>
 Para cada requisito funcional deve ser possível definir um ou mais testes a serem realizados no sistema final para ser possível verificar se o sistema cumpre o requisito na íntegra. Caso tal propriedade não esteja presente, ou até mesmo se for muito difícil testá-lo; tal circunstância indica a necessidade de uma retificação. Na realização dos testes, deve-se tomar nota das características observadas quanto aos requisitos em si (identificador, requisitos relacionados), e como daquelas relacionadas aos testes (descrição, problemas, comentários, recomendações, etc.).
   - Desenvolver testes para os requisitos a fim de verificar a testabilidade.
