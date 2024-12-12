@@ -67,7 +67,7 @@
   - Organização de sistemas computacionais.
   - Arquiteturas de processadores.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/sistemas_operacionais.txt">Sistemas Operacionais (Windows, Linux)</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/sistemas_operacionais.md">Sistemas Operacionais (Windows, Linux)</a>**
   - Funcionamento e gerenciamento de sistemas operacionais e de recursos.
   - Configuração e administração de ambientes Windows e Linux.
   - Virtualização e máquinas virtuais.
@@ -78,7 +78,7 @@
   - Automação de tarefas por linha de comando.
   - Scripting em ambientes de linha de comando.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/redes_de_computadores.txt">Redes de Computadores</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/redes_de_computadores.md">Redes de Computadores</a>**
   - Fundamentos de redes (TCP/IP, DNS, DHCP).
   - Tipos de redes (LAN, WAN, MAN).
   - Protocolos de comunicação.
@@ -376,7 +376,7 @@ sores e atuadores.
   - Estratégias para escalabilidade e otimização de desempenho.
   - Implementação de cache para melhoria de performance.
 
-* **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/conceitos_de_arquitetura.txt">Conceitos de Arquitetura</a>**
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/conceitos_de_arquitetura.md">Conceitos de Arquitetura</a>**
   - Escolha adequada da arquitetura de acordo com requisitos do projeto.
   - Entendimento e aplicação de arquiteturas como Model-View-Controller (MVC), Model-View-View-Model (MVVM), entre outras.
 
