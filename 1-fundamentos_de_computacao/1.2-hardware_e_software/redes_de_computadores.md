@@ -286,3 +286,4 @@ Alguns dos mais comuns códigos de Status HTTP:
  3. Segurança: Redes quanto ao seu alcance geográfico.
  4. Redes de computadores: Evolução.
 -->
+<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#hardware_e_software">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.1-cpp/sintaxe_e_semantica.md">next</a>

@@ -218,4 +218,4 @@ meio=3 | -8 | -5 | 1 | 𝟰 | 14 | 21 | 23 | 54 | 67 | 90 | Valor é igual: term
     0   2000  4000  6000  8000  10000       0   2000  4000  6000  8000  10000
 </pre>
 
-<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/estruturas_de_dados.md">previous</a> <a href="https://github.com/raphaelkaique1/study#algoritmos">study</a> <a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/arquitetura_de_computadores.md">next</a>
+<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/estruturas_de_dados.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#conceitos_basicos">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/arquitetura_de_computadores.md">next</a>

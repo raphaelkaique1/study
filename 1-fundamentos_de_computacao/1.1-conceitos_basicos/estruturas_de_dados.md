@@ -231,3 +231,5 @@ SUB         |  └────┴────┴────┴────┴�
 | A |   |   |   |  |  ─>| B | A |   |   |  |  ─>| C | B | A |   |  |  ─>| D | C | B | A |  |  ─>| E | D | C | B | A
 └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘  |    └───┴───┴───┴───┘ ─>
 </pre>
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/logica_de_programacao.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#conceitos_basicos">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/algoritmos.md">next</a>
