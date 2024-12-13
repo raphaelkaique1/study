@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.6-seguranca_em_aplicacoes_desktop/autenticacao_e_autorizacao_em_aplicacoes_desktop.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#testes_e_depuracao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.7-testes_e_depuracao/ferramentas_de_depuracao.md">next</a>

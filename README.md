@@ -227,7 +227,7 @@
   - Configuração e escalabilidade em ambientes de nuvem.
 
 ### <a id="ferramentas_de_monitoramento" href="https://github.com/raphaelkaique1/study/tree/main/4-devops/4.3-ferramentas_de_monitoramento">4.3 Ferramentas de Monitoramento</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.3 Ferramentas de Monitoramento/prometheus_grafana.md">Prometheus, Grafana</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.3-ferramentas_de_monitoramento/prometheus_grafana.md">Prometheus, Grafana</a>**
   - Configuração e utilização do Prometheus para monitoramento.
   - Visualização de métricas e dados com Grafana.
 
@@ -315,18 +315,18 @@
   - Compreensão do ciclo de vida de desenvolvimento de software para desktop.
   - Diferenças entre aplicações desktop e aplicações web.
 
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/c_sharp.md">C# (Windows Forms, WPF)</a>**
+  - Windows Forms: Desenvolvimento de interfaces com Windows Forms.
+  - WPF (Windows Presentation Foundation): Utilização de recursos avançados para criação de interfaces.
+
 ### <a id="linguagens_de_programacao_para_desktop" href="https://github.com/raphaelkaique1/study/tree/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop">6.2 Linguagens de Programação para Desktop</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/python.md">C</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/c.md">C</a>**
   - Conhecer a sintaxe e semântica da linguagem
   - Uso e configuração de framework
 
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/java.md">Java (JavaFX, Swing)</a>**
   - JavaFX: Desenvolvimento de interfaces modernas e responsivas.
   - Swing: Criação de interfaces gráficas tradicionais em Java.
-
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/c_sharp.md">C# (Windows Forms, WPF)</a>**
-  - Windows Forms: Desenvolvimento de interfaces com Windows Forms.
-  - WPF (Windows Presentation Foundation): Utilização de recursos avançados para criação de interfaces.
 
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/electron.md">Electron (para desenvolvimento multiplataforma)</a>**
   - Utilização do Electron para criar aplicações desktop multiplataforma usando tecnologias web.
@@ -400,26 +400,26 @@
   - Adaptação de interfaces e funcionalidades para diferentes plataformas.
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/7-desenvolvimento_iot">7. Desenvolvimento IoT</a>
-### <a id="introducao_ao_desenvolvimento_para_iot_internet_of_things" href="https://github.com/raphaelkaique1/study/tree/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things">7.1 Introdução ao Desenvolvimento para IoT (Internet of Things)</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things/conceitos_basicos_de_iot.md">Conceitos Básicos de IoT</a>**
+### <a id="desenvolvimento_para_iot_internet_of_things" href="https://github.com/raphaelkaique1/study/tree/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things">7.1 Desenvolvimento para IoT (Internet of Things)</a>
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/conceitos_basicos_de_iot.md">Conceitos Básicos de IoT</a>**
   - Definição e características da Internet das Coisas.
   - Exemplos práticos de aplicações IoT.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things/sensores_e_atuadores.md">Sensores e Atuadores</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/sensores_e_atuadores.md">Sensores e Atuadores</a>**
   - Tipos de sensores e atuadores utilizados em aplicações IoT.
   - Configuração e leitura de dados.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things/comunicacao_com_dispositivos_iot.md">Comunicação com Dispositivos IoT</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/comunicacao_com_dispositivos_iot.md">Comunicação com Dispositivos IoT</a>**
   - Protocolos de comunicação com dispositivos IoT.
   - Integração de sensores e atuadores.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things/protocolos_de_comunicacao_iot_mqtt_coap.md">Protocolos de Comunicação IoT (MQTT, CoAP)</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/protocolos_de_comunicacao_iot_mqtt_coap.md">Protocolos de Comunicação IoT (MQTT, CoAP)</a>**
   - Utilização de protocolos específicos para comunicação em dispositivos IoT.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things/desenvolvimento_de_aplicacoes_para_iot.md">Desenvolvimento de Aplicações para IoT</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/desenvolvimento_de_aplicacoes_para_iot.md">Desenvolvimento de Aplicações para IoT</a>**
   - Desenvolvimento de software para controle e monitoramento de dispositivos IoT.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-introducao_ao_desenvolvimento_para_iot_internet_of_things/plataformas_iot_arduino_raspberry_pi.md">Plataformas IoT (Arduino, Raspberry Pi)</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/plataformas_iot_arduino_raspberry_pi.md">Plataformas IoT (Arduino, Raspberry Pi)</a>**
   - Desenvolvimento de projetos práticos utilizando Arduino e Raspberry Pi.
   - Integração com plataformas populares.
 

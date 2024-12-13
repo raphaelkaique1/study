@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.7-testes_e_depuracao/estrategias_de_teste_para_aplicacoes_desktop.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#testes_e_depuracao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.8-desenvolvimento_multiplataforma/abordagens_para_desenvolvimento_multiplataforma.md">next</a>

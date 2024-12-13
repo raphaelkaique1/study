@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.2-linguagens_de_programacao_para_desktop/electron.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#sdk_software_development_kit_e_ferramentas">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.3-sdk_software_development_kit_e_ferramentas/ferramentas_de_desenvolvimento_integradas_ides_para_desktop.md">next</a>
