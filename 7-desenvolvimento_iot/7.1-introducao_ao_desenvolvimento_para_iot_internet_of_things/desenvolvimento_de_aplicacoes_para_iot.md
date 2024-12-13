@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/protocolos_de_comunicacao_iot_mqtt_coap.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#desenvolvimento_para_iot_internet_of_things">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/plataformas_iot_arduino_raspberry_pi.md">next</a>

@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.2-arquitetura_de_software/escalabilidade_e_desempenho_estrategias_de_otimizacao_e_caching.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#arquitetura_de_software">study</a>

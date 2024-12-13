@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.7-testes_e_depuracao/ferramentas_de_depuracao.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#desenvolvimento_multiplataforma">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.8-desenvolvimento_multiplataforma/consideracoes_sobre_compatibilidade.md">next</a>

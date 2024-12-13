@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/conceitos_basicos_de_iot.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#desenvolvimento_para_iot_internet_of_things">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/comunicacao_com_dispositivos_iot.md">next</a>

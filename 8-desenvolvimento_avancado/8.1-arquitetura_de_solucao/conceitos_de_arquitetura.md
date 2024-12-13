@@ -1591,3 +1591,5 @@ Existem vários tipos de testes a serem feitos para validar a qualidade do softw
 ⠀• Regressão⠀⠀⠀  • Instalação<br/>
 ⠀• Usabilidade⠀⠀⠀• Manutenção<br/>
 ⠀• Segurança⠀⠀⠀  • Funcional<br/>
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/plataformas_iot_arduino_raspberry_pi.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#arquitetura_de_solucao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/padroes_de_projeto_design_patterns.md">next</a>
