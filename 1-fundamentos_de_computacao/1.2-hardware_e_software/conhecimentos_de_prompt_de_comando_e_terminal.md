@@ -1,3 +1,4 @@
+```Shell
 # Linux
 
 user@localhost:~$ # user is logged in to localhost
@@ -417,3 +418,5 @@ nano file_name.sh
 [ctrl] + [o]
 'enter'
 [ctrl] + [x]
+```
+<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/sistemas_operacionais.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#hardware_e_software">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/redes_de_computadores.md">next</a>

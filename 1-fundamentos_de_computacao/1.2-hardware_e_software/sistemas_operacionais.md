@@ -251,3 +251,5 @@ Existem diferentes tipos de shells, e eles podem ser classificados principalment
  2. **Máquina Virtual/Nuvem**
      - Acesso ssh cliente Windows x Linux Server: puttygen: pem -> ppk > putty Auth
      - Acesso ssh cliente Linux x Linux Server: sudo chmod 600 file.pem && ssh -i file.pem user_name@0.0.0.0 -y
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/arquitetura_de_computadores.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#hardware_e_software">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">next</a>
