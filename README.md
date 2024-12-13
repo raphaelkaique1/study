@@ -55,7 +55,7 @@
   - Algoritmos de ordenação e busca.
   - Operações e manipulações em estruturas de dados.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/algoritmos.md">Algoritmos</a>**
+* **<a id="algoritmos" href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/algoritmos.md">Algoritmos</a>**
   - Desenvolvimento e análise de algoritmos.
   - Otimização de algoritmos.
   - Algoritmos de busca, classificação, ordenação e recursividade.
