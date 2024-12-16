@@ -1,4 +1,4 @@
-# Repositório de Scripts de Estudo em Diferentes Linguagens de Programação
+# Scripts de Estudo em Diferentes Linguagens de Programação
 
 Este repositório contém uma coleção de scripts e programas simples para estudo e prática de várias linguagens de programação. As pastas estão organizadas por linguagem, e cada uma delas contém exemplos e exercícios criados com o objetivo de ajudar no aprendizado de conceitos fundamentais e avançados em cada linguagem.
 
