@@ -8,11 +8,11 @@ O repositório está organizado da seguinte forma:
 
 - **`Visualg/`**: Exemplos de algoritmos escritos na linguagem Visualg, que é usada para o ensino de algoritmos e lógica de programação. Os scripts aqui focam em estruturas de controle e organização básica de programas.
 
-- **`C++/`**: Scripts e exemplos em C++, cobrindo desde conceitos básicos como variáveis e operadores até tópicos mais avançados, como orientação a objetos e manipulação de arquivos.
+<!-- - **`C++/`**: Scripts e exemplos em C++, cobrindo desde conceitos básicos como variáveis e operadores até tópicos mais avançados, como orientação a objetos e manipulação de arquivos. -->
 
 - **`JavaScript/`**: Scripts e exercícios em JavaScript. Esta pasta contém exemplos de manipulação de arrays, objetos, funções, além de exercícios para práticas de lógica de programação e controle de fluxo.
 
-- **`Python/`**: Exemplos de código em Python, com foco em sintaxe, estruturas de dados (listas, tuplas, dicionários) e temas mais avançados como tratamento de exceções, módulos e manipulação de arquivos.
+<!-- - **`Python/`**: Exemplos de código em Python, com foco em sintaxe, estruturas de dados (listas, tuplas, dicionários) e temas mais avançados como tratamento de exceções, módulos e manipulação de arquivos. -->
 
 ## Objetivo
 
