@@ -343,17 +343,17 @@ inicializam              processam e tratam
         realiza operações que ⬏
 </pre>
 #### TIPOS DE DADOS
- Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros.
+ Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os Tipos de Dados, para criar um padrão de tamanho de variáveis:
 <pre>
             / Inteiros: -3, -2, -1, 0, 1, 2, 3...
 Numéricos  ❮
-            \ Reais: -5.5, -1.5, -0.555, 1.3, 5.9...
+            \ Reais: -5.5, -1.5, -0.555, 1.3, 5 (5.0), 5.9...
 
-Caracteres ❮ ? A # b + C ! / *
+Caracteres ❮ ? A # b + C ! d $
 
 Cadeia     ❮ palavras
 
-Booleano   ❮ Lógico: VERDADEIRO (1) | FALSO (0)
+Booleano   ❮ Lógico: FALSO (0) | VERDADEIRO (1)
 </pre>
 ##### TIPAGEM DE DADOS
 
@@ -401,7 +401,7 @@ variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
 ##### TIPAGEM DE COMPORTAMENTO
 
 ###### VARIÁVEL
- Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a RESERVA DE MEMÓRIA. A reserva de memória se dá através da declaração de variáveis, podemos fazer a analogia da memória do computador com um armário contendo gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de identificadores, ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta. Sabemos que os espaços dentro das gavetas não são ilimitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de declaração de variáveis. Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. Em outras palavras, para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um "apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
+ Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a **RESERVA DE MEMÓRIA**. *A reserva de memória se dá através da declaração de variáveis*, podemos fazer a analogia da memória do computador com um armário de gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de **IDENTIFICADORES**, *ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta*. Sabemos que os espaços dentro das gavetas são limitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de **DECLARAÇÃO DE VARIÁVEIS**. *Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. São como ponteiros (ou "apelidos" que damos) para o caminho até a posição de memória onde nosso valor está guardado.* Em outras palavras, para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um "apelido" que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a "29" e idade2 tem o conteúdo igual a "26", sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
 
 - **Características de variáveis**
   - *Mutáveis*
@@ -422,7 +422,6 @@ variável   \  CONTROLE -> monitorada/vigiada
   - Tem escopo de função, o que significa que a variável é visível apenas dentro da função onde foi declarada.
   - Pode ser reatribuída e redeclarada dentro do mesmo escopo.
   - Não respeita o escopo de bloco (por exemplo, dentro de uma instrução `if` ou `for`).
-
 
 ```JS
 var x = 10;
@@ -569,7 +568,7 @@ string tabela[3][3];
 ```
 
 ## INSTRUÇÕES
- A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados.
+ A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados. Para invocarmos e executar as propriedades de uma instrução, usamos seu nome, o nome de cada instrução é único, e para manter isso, cada linguagem tem sua **PALAVRA RESERVADA**. *Palavra reservada é toda palavra que é feita especialmente para o compilador daquela linguagem e o programador não pode usar ela para outro fim que não o definido pelo compilador (a não ser que seja uma String).*
 <pre>
  ____________________________↱________   operadores:
 |         cálculos matemáticos        |   - binários

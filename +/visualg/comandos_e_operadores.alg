@@ -1,7 +1,14 @@
 algoritmo "ComandosEOperadores"
 // Exercícios
 // 1 - Faça um algoritmo que receba dois números e ao final mostre a soma, subtração, multiplicação e a divisão dos números lidos.
-// 2 - Escrever um algoritmo para determinar o consumo médio de um automóvel sendo fornecida a distância total percorrida pelo automóvel e o total de combustível gasto.
+// 2 - Escreva um algoritmo para determinar o consumo médio de um automóvel sendo fornecida a distância total percorrida pelo automóvel e o total de combustível gasto.
+// 3 - Desenvolva um algoritmo que peça um valor ao usuário e só feche quando o usuário digitar o valor 0.
+// 4 - Desenvolva um algoritmo que peça valores ao usuário (quantos ele quiser) e quando ele digitar o valor 999 o programa deverá exibir a média desses valores.
+// 5 - Crie um algoritmo que verifique se o copo está vazio e caso sim encha-o com a jarra.
+// 6 - Escreva um algoritmo que leia 2 valores inteiros distintos e informe qual é o maior.
+// 7 - Faça um algoritmo que receba um número e diga se este número está no intervalo entre 100 e 200.
+// 8 - Escreva um algoritmo que leia o nome e as três notas obtidas de 3 alunos durante o semestre. Calcular a sua média (aritmética), informar o nome e sua menção.
+// 9 - Faça um algoritmo para entrar com um valor inteiro e dizer a qual mês do ano ele corresponde. Se o valor for maior que doze ou menor que um, diga que o valor não corresponde a nenhum mês.
 
 // Funções
 // Quando usar cada tipo?
@@ -247,9 +254,9 @@ fimprocedimento
 procedimento consumo_medio
 var
 distancia_combustivel: vetor[1..2] de real;
-repete, invalido: caractere;
+novamente, incorreto: caractere;
 inicio
-    invalido <- "Digite um número válido: ";
+    incorreto := "Digite um número válido: ";
     repita
         escreva("\nDistância Total Percorrida (km): ");
         leia(distancia_combustivel[1]);
@@ -257,13 +264,13 @@ inicio
             verdadeiro;
         senao
             repita
-                escreva(invalido);
+                escreva(incorreto);
                 leia(distancia_combustivel[1]);
             ate (distancia_combustivel[1] <= 0) ou (distancia_combustivel[1] > 0)
         fimse
         se distancia_combustivel[1] <= 0 entao
             repita
-                escreva(invalido)
+                escreva(incorreto)
                 leia(distancia_combustivel[1]);
             ate distancia_combustivel[1] > 0
         fimse
@@ -273,26 +280,262 @@ inicio
             verdadeiro;
         senao
             repita
-                escreva(invalido);
+                escreva(incorreto);
                 leia(distancia_combustivel[2]);
             ate (distancia_combustivel[2] <= 0) ou (distancia_combustivel[2] > 0)
         fimse
         se distancia_combustivel[2] <= 0 entao
         repita
-            escreva(invalido)
+            escreva(incorreto)
             leia(distancia_combustivel[2]);
         ate distancia_combustivel[2] > 0
         fimse
         escreval("Consumo médio (km/l): ", distancia_combustivel[1] / distancia_combustivel[2]);
-        escreva("Deseja realizar novo cálculo? [s/n]: ");
-        leia(repete);
-        se (repete <> "n") e (repete <> "s") entao
+        escreva("\nDeseja realizar novo cálculo? [s/n]: ");
+        leia(novamente);
+        se (novamente <> "n") e (novamente <> "s") entao
             repita
                 escreva("Escolha uma das opções válidas [s/n]: ");
-                leia(repete);
-            ate repete = "n" ou repete = "s"
+                leia(novamente);
+            ate (novamente = "n") ou (novamente = "s")
         fimse
-    ate repete = "n"
+    ate novamente = "n"
+fimprocedimento
+
+// Exercício 3
+procedimento ate_zero
+var valor: real;
+inicio
+    repita
+        escreva("Digite um valor: ");
+        leia(valor)
+    ate valor = 0
+fimprocedimento
+
+// Exercício 4
+procedimento media
+var
+valor, soma: real;
+contador: inteiro;
+inicio
+    contador := 1
+    repita
+        escreva("Digite um valor: ");
+        leia(valor);
+        contador <- contador + 1;
+        se valor = 999 entao
+            contador = 999
+        senao
+            soma <- soma + valor
+        fimse
+    ate (valor = 999) ou (contador = 999)
+    escreva("Média: ", soma / contador, "\nContador: ", contador)
+fimprocedimento
+
+// Exercício 5
+procedimento bebida
+var
+copo, jarra: inteiro;
+sede: caractere;
+inicio
+    jarra := 2000;
+    repita
+        escreva("Digite capacidade do copo (ml): ");
+        leia(copo)
+    ate (copo > 100) e (copo <= 1000)
+    repita
+        escreva("Estado do copo? [c = cheio] [v = vazio]: ");
+        leia(sede);
+        se sede = "v" entao
+            repita
+                escreva("Deseja mais bebida? [s/n]: ");
+                leia(sede);
+            ate (sede = "s") ou (sede = "n")
+            jarra <- jarra - copo
+        fimse
+    ate jarra = 0
+fimprocedimento
+
+// Exercício 6
+procedimento maior
+var
+nmrs: vetor[1..2] de inteiro;
+I: inteiro;
+inicio
+    para I de 1 ate 2 faca
+        repita
+            escreva("Digite um valor inteiro: ");
+            leia(nmrs[I]);
+        ate (nmrs[I] <= 0) ou (nmrs[I] > 0)
+    fimpara
+    enquanto nmrs[1] = nmrs[2] faca
+        escreva("Valores iguais! Digite um valor diferente: ");
+        leia(nmrs[2]);
+    fimenquanto
+    se nmrs[1] > nmrs[2] entao
+        escreva("Número ", nmrs[1], " é maior que ", nmrs[2]);
+    senao
+        escreva(nmrs[2], " é maior que ", nmrs[1]);
+    fimse
+fimprocedimento
+
+// Exercício 7
+procedimento intervalo
+var nmbr: inteiro;
+inicio
+    repita
+        escreva("Digite um número: ");
+        leia(nmbr);
+        se (nmbr >= 100) e (nmbr < 200) entao
+            escreval("100 ... ", nmbr, " ... 200");
+        senao
+            escreval(nmbr);
+        fimse
+    ate nmbr = 0
+fimprocedimento
+
+// Exercício 8
+procedimento media_aluno
+var
+turma: vetor[1..3, 1..4] de caractere;
+lnh, cln: inteiro;
+c, rsltds: caractere;
+nt, md: real;
+inicio
+    escreva("\n");
+    para lnh de 1 ate 3 faca
+        para cln de 1 ate 4 faca
+            se cln = 1 entao
+                escreva("Nome aluno: ");
+            senao
+                escreva(cln - 1, "ª nota: ");
+            fimse
+            leia(c);
+            turma[lnh, cln] <- c;
+        fimpara
+    fimpara
+    escreva("\nAluno [1] [2] [3] [4 = todos]: ");
+    leia(c);
+    escreva("\n");
+    se caracpnum(c) = 4 entao
+        para lnh de 1 ate 3 faca
+            para cln de 1 ate 4 faca
+                se cln = 1 entao
+                    escreva("Média ", turma[lnh, cln], ": ");
+                senao
+                    nt <- nt + caracpnum(turma[lnh, cln]);
+                fimse
+            fimpara
+            md <- nt / 3;
+            se md >= 7 entao
+                rsltds <- "Aprovado";
+            senao
+                se (md >= 5.1) e (md <= 6.9) entao
+                    rsltds <- "Recuperação";
+                senao
+                    rsltds <- "Reprovado";
+                fimse
+            fimse
+            escreval(md, " - ", rsltds);
+            md <- 0;
+            nt <- 0;
+        fimpara
+        c <- " "
+    senao
+        para cln de 1 ate 4 faca
+            se cln = 1 entao
+                escreva("Média ", turma[caracpnum(c), cln], ": ");
+            senao
+                nt <- nt + caracpnum(turma[caracpnum(c), cln]);
+            fimse
+        fimpara
+        md <- nt / 3;
+        se md >= 7 entao
+            rsltds <- "Aprovado";
+        senao
+            se (md >= 5.1) e (md <= 6.9) entao
+                rsltds <- "Recuperação";
+            senao
+                rsltds <- "Reprovado";
+            fimse
+        fimse
+        escreval(md, " - ", rsltds);
+    fimse
+fimprocedimento
+
+// Exercício 9
+procedimento calendario
+var
+agenda: vetor[1..12] de caractere;
+mes: inteiro;
+inicio
+    agenda[1] <- "janeiro";
+    agenda[2] <- "fevereiro";
+    agenda[3] <- "março";
+    agenda[4] <- "abril";
+    agenda[5] <- "maio";
+    agenda[6] <- "junho";
+    agenda[7] <- "julho";
+    agenda[8] <- "agosto";
+    agenda[9] <- "setembro";
+    agenda[10] <- "outrubro";
+    agenda[11] <- "novembro";
+    agenda[12] <- "dezembro";
+
+    repita
+        escreva("Digite o número de um mês: ");
+        leia(mes);
+    ate (mes >= 1) e (mes <= 12)
+
+    escreval(mes, " - ", agenda[mes]);
+
+fimprocedimento
+
+procedimento start
+var
+    o: caractere
+    option: inteiro
+inicio
+    repita
+        repita
+            escreva("Escolha um exercício [1] [2] [3] [4] [5] [6] [7] [8] [9]: ");
+            leia(option);
+        ate (option >= 0) e (option <= 9)
+        escolha option
+        caso 1
+            // Resolução Exercício 1
+            calcular();
+        caso 2
+            // Resolução Exercício 2
+            consumo_medio();
+        caso 3
+            // Resolução Exercício 3
+            ate_zero();
+        caso 4
+            // Resolução Exercício 4
+            media();
+        caso 5
+            // Resolução Exercício 5
+            bebida();
+        caso 6
+            // Resolução Exercício 6
+            maior();
+        caso 7
+            // Resolução Exercício 7
+            intervalo();
+        caso 8
+            // Resolução Exercício 8
+            media_aluno();
+        caso 9
+            // Resolução Exercício 9
+            calendario();
+        fimescolha
+        repita
+            escreva("\nDeseja escolher outro exercício? [s/n]: ");
+            leia(o);
+        ate (o = "s") ou (o = "n")
+        escreva("\n");
+    ate (o = "n")
 fimprocedimento
 
 var
@@ -301,11 +544,7 @@ var
     input: inteiro;
     //vetor
     numeros: vetor[1..2] de real
+
 inicio
-    // Resolução Exercício 1
-    calcular();
-
-    // Resolução Exercício 2
-    consumo_medio();
-
+    start();
 fimalgoritmo
