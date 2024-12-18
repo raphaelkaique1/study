@@ -25,6 +25,7 @@ algoritmo "ComandosEOperadores"
 // 23 - Ler uma matriz 4X3 real e imprimir a soma dos elementos de uma linha L fornecida pelo usuário.
 // 24 - Crie uma matriz 7X8 onde cada elemento é a soma dos índices de sua posição dentro da matriz.
 // 25 - Faça um jogo da velha usando matrizes.
+// 26 - Faça um algoritmo que leia 10 valores informados pelo usuário e os imprima em ordem crescente.
 
 // Funções
 // Quando usar cada tipo?
@@ -912,6 +913,34 @@ inicio
     ate jogoFim = 9
 fimprocedimento
 
+// Exercício 26
+procedimento ordena
+var
+vetor_ordem: vetor[1..10] de inteiro;
+voF, voD, x: inteiro;
+inicio
+    para x de 1 ate 10 faca
+        repita
+            escreva("Digite um valor: ");
+            leia(vetor_ordem[x]);
+        ate (vetor_ordem[x] <= 0 ) ou (vetor_ordem[x] > 0)
+    fimpara
+
+    para voF de 1 ate 9 faca
+        para voD de (voF + 1) ate 10 faca
+            se vetor_ordem[voF] > vetor_ordem[voD] entao
+                x <- vetor_ordem[voF];
+                vetor_ordem[voF] <- vetor_ordem[voD];
+                vetor_ordem[voD] <- x;
+            fimse
+        fimpara
+    fimpara
+    
+    para x de 1 ate 10 faca
+        escreva(vetor_ordem[x], " ");
+    fimpara
+fimprocedimento
+
 procedimento start
 var
     o: caractere
@@ -919,9 +948,9 @@ var
 inicio
     repita
         repita
-            escreva("Escolha um exercício\n[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]: ");
+            escreva("Escolha um exercício\n[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]: ");
             leia(option);
-        ate (option >= 0) e (option <= 25)
+        ate (option >= 0) e (option <= 26)
         escolha option
         caso 1
             // Resolução Exercício 1
@@ -1001,6 +1030,9 @@ inicio
         caso 25
             // Resolução Exercício 25
             jogoDaVelha();
+        caso 26
+            // Resolução Exercício 26
+            ordena();
         fimescolha
         repita
             escreva("\nDeseja escolher outro exercício? [s/n]: ");
