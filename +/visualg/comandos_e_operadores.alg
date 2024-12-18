@@ -13,7 +13,18 @@ algoritmo "ComandosEOperadores"
 // 11 - Dado um número inteiro, imprima sua tabuada.
 // 12 - Faça um algoritmo que receba a idade de 5 pessoas e mostre mensagem informando "maior de idade" e "menor de idade" para cada pessoa. Considere a idade a partir de 18 anos como maior de idade.
 // 13 - Elabore um programa que receba 5 números e imprima somente os positivos.
-// 14 - Crie um algoritmo que imprima dados um capital, uma taxa de juros (em porcentagem) mensal e um período em meses, informe o montante ao final de cada mês
+// 14 - Crie um algoritmo que imprima dados um capital, uma taxa de juros (em porcentagem) mensal e um período em meses, informe o montante ao final de cada mês.
+// 15 - Desenvolva um algoritmo que peça um valor ao usuário e só feche quando o usuário digitar o valor 0.
+// 16 - Desenvolva um algoritmo que peça ao usuário valores entre 100 e 200, caso o usuário digite um valor fora deste limite, o sistema deve fechar e exibir a mensagem (“valor fora do alcance”).
+// 17 - Ler 5 números inteiros e depois imprimi-los em ordem inversa a que foram digitados.
+// 18 - Ler 10 números reais em vetor e depois exibir os números localizados nas posições impares.
+// 19 - Faça um algoritmo para gerar um vetor de 10 posições, onde cada elemento corresponde ao quadrado de sua posição. Imprima depois o vetor resultante.
+// 20 - Faça um algoritmo que possua 2 vetores de 5 posições, peça para os usuários popularem eles e depois some as posições equivalentes em um terceiro vetor.
+// 21 - Faça um jogo da forca utilizando vetores. A palavra poderá ser definida pelo próprio programador dentro do programa e não é necessário existir um número limite de tentativas. Porém, é necessário que se exiba a palavra em cada etapa com as letras descobertas e as letras não descobertas sendo representadas com _.
+// 22 - Faça um algoritmo para ler uma matriz 2X3 real e depois gerar e imprimir sua transposta (matriz 3X2 equivalente).
+// 23 - Ler uma matriz 4X3 real e imprimir a soma dos elementos de uma linha L fornecida pelo usuário.
+// 24 - Crie uma matriz 7X8 onde cada elemento é a soma dos índices de sua posição dentro da matriz.
+// 25 - Faça um jogo da velha usando matrizes.
 
 // Funções
 // Quando usar cada tipo?
@@ -613,6 +624,294 @@ inicio
 
 fimprocedimento
 
+// Exercício 15
+procedimento ate_fechar
+var valor_final: inteiro;
+inicio
+    escreva("\nDigite um valor: ");
+    leia(valor_final);
+    enquanto valor_final <> 0 faca
+        escreva("Digite 0 para fechar: ");
+        leia(valor_final);
+    fimenquanto
+fimprocedimento
+
+// Exercício 16
+procedimento range
+var valor_range: real;
+inicio
+    valor_range <- 100;
+    escreva("\n");
+    enquanto (valor_range >= 100) e (valor_range <= 200) faca
+        escreva("Digite um valor entre 100 e 200: ");
+        leia(valor_range);
+    fimenquanto
+    escreval("Valor fora de alcance.");
+fimprocedimento
+
+// Exercício 17
+procedimento inverso
+var
+inverso: vetor[0..4] de inteiro;
+inverso_i: inteiro
+inicio
+    escreva("\n");
+    para inverso_i de 0 ate 4 faca
+        escreva("Digite um valor: ");
+        leia(inverso[inverso_i]);
+    fimpara
+    para inverso_i de 4 ate 0 faca
+        escreva(inverso[inverso_i], " ");
+    fimpara
+fimprocedimento
+
+// Exercício 18
+procedimento realImpar
+var
+impar_real: vetor[0..9] de real;
+ir: inteiro;
+inicio
+    escreva("\n");
+    para ir de 0 ate 9 faca
+        escreva(ir + 1, " Digite um valor: ");
+        leia(impar_real[ir]);
+    fimpara
+    para ir de 0 ate 9 passo 2 faca
+        escreva(impar_real[ir], " ");
+    fimpara
+fimprocedimento
+
+// Exercício 19
+procedimento vetorDobro
+var
+vDobro: vetor[0..9] de inteiro;
+vD: inteiro;
+inicio
+    escreva("\n");
+    para vD de 0 ate 9 faca
+        vDobro[vD] <- vD ^ 2;
+    fimpara
+    para vD de 0 ate 9 faca
+        escreva(vDobro[vD], " ");
+    fimpara
+fimprocedimento
+
+// Exercício 20
+procedimento vTres
+var
+v1, v2, v3: vetor[0..4] de inteiro;
+v: inteiro;
+inicio
+    para v de 0 ate 4 faca
+        escreva("\nVetor A: ");
+        leia(v1[v]);
+        escreva("Vetor B: ");
+        leia(v2[v]);
+        v3[v] <- v1[v] + v2[v];
+    fimpara
+    escreva("\n");
+    para v de 0 ate 4 faca
+        escreval("Vetor C: ", v3[v]);
+    fimpara
+fimprocedimento
+
+// Exercício 21
+procedimento forca
+var
+palavra, palavra_certa: vetor[0..4] de caractere;
+letra: caractere;
+lp: inteiro;
+inicio
+    palavra[0] <- "_";
+    palavra[1] <- "_";
+    palavra[2] <- "_";
+    palavra[3] <- "_";
+    palavra[4] <- "_";
+    escreva("\n");
+    para lp de 0 ate 4 faca
+        escreva(lp + 1, " Digite cada letra da palavra da forca: ");
+        leia(letra);
+        palavra_certa[lp] <- letra;
+    fimpara
+    repita
+        escreva("\nDigite uma letra: ");
+        leia(letra);
+
+        para lp de 0 ate 4 faca
+            se palavra_certa[lp] = letra entao
+                palavra[lp] <- letra;
+            fimse
+        fimpara
+        para lp de 0 ate 4 faca
+            escreva(palavra[lp], " ");
+        fimpara
+        para lp de 0 ate 4 faca
+            se palavra[lp] <> "_" entao
+                letra <- "verdadeiro";
+            senao
+                letra <- "falso";
+            fimse
+        fimpara
+    ate letra = "verdadeiro"
+fimprocedimento
+
+// Exercício 22
+procedimento transposta
+var
+mTransposta: vetor[0..1, 0..2] de real;
+lT, cT: inteiro;
+inicio
+    para lT de 0 ate 1 faca
+        para cT de 0 ate 2 faca
+            escreva("Digite um valor: ");
+            leia(mTransposta[lT, cT]);
+        fimpara
+    fimpara
+    para Ct de 0 ate 2 faca
+        para lT de 0 ate 1 faca
+            escreva(mTransposta[lT, cT], " ");
+        fimpara
+        escreva("\n");
+    fimpara
+fimprocedimento
+
+// Exercício 23
+procedimento linhaL
+var
+MlinhaL: vetor[0..3, 0..2] de real;
+mlL, mcL: inteiro;
+ms: real;
+inicio
+    escreva("\n");
+    para mlL de 0 ate 3 faca
+        para mcL de 0 ate 2 faca
+            escreva("Linha ", mlL, " - Coluna ", mcL, " | Digite um valor: ");
+            leia(MlinhaL[mlL, mcL]);
+        fimpara
+    fimpara
+    repita
+        escreva("\nEscolha uma linha: ");
+        leia(mlL);
+    ate (mlL > 0) e (mlL <= 3)
+    para mcL de 0 ate 2 faca
+        ms <- ms + MlinhaL[mlL, mcL];
+    fimpara
+    escreva("Somatório linha ", mlL, ": ", ms);
+fimprocedimento
+
+// Exercício 24
+procedimento somaIndiceMatriz
+var
+indiceMatriz: vetor[1..7, 1..8] de inteiro;
+slm, scm: inteiro
+inicio
+    para slm de 1 ate 7 faca
+        para scm de 1 ate 8 faca
+            indiceMatriz[slm, scm] <- slm + scm;
+        fimpara
+    fimpara
+    para slm de 1 ate 7 faca
+        para scm de 1 ate 8 faca
+            escreva(indiceMatriz[slm, scm], " ");
+        fimpara
+        escreva("\n");
+    fimpara
+fimprocedimento
+
+// Exercício 25
+procedimento jogoDaVelha
+var
+Velha: vetor[1..3, 1..3] de caractere;
+vL, vC, jogoFim: inteiro;
+inicio
+    Velha[1, 1] <- "_";
+    Velha[1, 2] <- "_";
+    Velha[1, 3] <- "_";
+    Velha[2, 1] <- "_";
+    Velha[2, 2] <- "_";
+    Velha[2, 3] <- "_";
+    Velha[3, 1] <- "_";
+    Velha[3, 2] <- "_";
+    Velha[3, 3] <- "_";
+    escreva("\nJogo da Velha\n");
+    repita
+        para vL de 1 ate 3 faca
+            para vC de 1 ate 3 faca
+                se vC <> 3 entao
+                    escreva(Velha[vL, vC], "|");
+                senao
+                    escreva(Velha[vL, vC]);
+                fimse
+            fimpara
+            escreva("\n");
+        fimpara
+        escreva("\n");
+        repita
+            escreva("X - escolha linha: ");
+            leia(vL);
+        ate (vL >= 1) e (vL <= 3)
+        repita
+            escreva("X - escolha coluna: ");
+            leia(vC);
+        ate (vC >= 1) e (vC <= 3)
+        enquanto Velha[vL, vC] <> "_" entao
+            repita
+                escreva("X - escolha outra linha: ");
+                leia(vL);
+            ate (vL >= 1) e (vL <= 3)
+            repita
+                escreva("X - escolha outra coluna: ");
+                leia(vC);
+            ate (vC >= 1) e (vC <= 3)
+        fimenquanto
+        Velha[vL, vC] <- "x";
+        para vL de 1 ate 3 faca
+            para vC de 1 ate 3 faca
+                se vC <> 3 entao
+                    escreva(Velha[vL, vC], "|");
+                senao
+                    escreva(Velha[vL, vC]);
+                fimse
+            fimpara
+            escreva("\n");
+        fimpara
+        para vL de 1 ate 3 faca
+            para vC de 1 ate 3 faca
+                se Velha[vL, vC] != "_" entao
+                    fimJogo <- fimJogo + 1
+                fimse
+            fimpara
+        fimpara
+        escreva("\n");
+        repita
+            escreva("O - escolha linha: ");
+            leia(vL);
+        ate (vL >= 1) e (vL <= 3)
+        repita
+            escreva("O - escolha coluna: ");
+            leia(vC);
+        ate (vC >= 1) e (vC <= 3)
+        enquanto Velha[vL, vC] <> "_" entao
+        repita
+            escreva("O - escolha outra linha: ");
+            leia(vL);
+        ate (vL >= 1) e (vL <= 3)
+        repita
+            escreva("O - escolha outra coluna: ");
+            leia(vC);
+        ate (vC >= 1) e (vC <= 3)
+        fimenquanto
+        Velha[vL, vC] <- "o";
+        para vL de 1 ate 3 faca
+            para vC de 1 ate 3 faca
+                se Velha[vL, vC] != "_" entao
+                    fimJogo <- fimJogo + 1
+                fimse
+            fimpara
+        fimpara
+    ate jogoFim = 9
+fimprocedimento
+
 procedimento start
 var
     o: caractere
@@ -620,9 +919,9 @@ var
 inicio
     repita
         repita
-            escreva("Escolha um exercício\n[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]: ");
+            escreva("Escolha um exercício\n[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]: ");
             leia(option);
-        ate (option >= 0) e (option <= 14)
+        ate (option >= 0) e (option <= 25)
         escolha option
         caso 1
             // Resolução Exercício 1
@@ -666,6 +965,42 @@ inicio
         caso 14
             // Resolução Exercício 14
             contabil();
+        caso 15
+            // Resolução Exercício 15
+            ate_fechar();
+        caso 16
+            // Resolução Exercício 16
+            range();
+        caso 17
+            // Resolução Exercício 17
+            inverso();
+        caso 18
+            // Resolução Exercício 18
+            realImpar();
+        caso 19
+            // Resolução Exercício 19
+            vetorDobro();
+        caso 19
+            // Resolução Exercício 19
+            vetorDobro();
+        caso 20
+            // Resolução Exercício 20
+            vTres();
+        caso 21
+            // Resolução Exercício 21
+            forca();
+        caso 22
+            // Resolução Exercício 22
+            transposta();
+        caso 23
+            // Resolução Exercício 23
+            linhaL();
+        caso 24
+            // Resolução Exercício 24
+            somaIndiceMatriz();
+        caso 25
+            // Resolução Exercício 25
+            jogoDaVelha();
         fimescolha
         repita
             escreva("\nDeseja escolher outro exercício? [s/n]: ");
