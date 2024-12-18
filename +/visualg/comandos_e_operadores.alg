@@ -9,6 +9,11 @@ algoritmo "ComandosEOperadores"
 // 7 - Faça um algoritmo que receba um número e diga se este número está no intervalo entre 100 e 200.
 // 8 - Escreva um algoritmo que leia o nome e as três notas obtidas de 3 alunos durante o semestre. Calcular a sua média (aritmética), informar o nome e sua menção.
 // 9 - Faça um algoritmo para entrar com um valor inteiro e dizer a qual mês do ano ele corresponde. Se o valor for maior que doze ou menor que um, diga que o valor não corresponde a nenhum mês.
+// 10 - Dado um número inteiro positivo, imprima na tela os números de 0 até n em ordem decrescente.
+// 11 - Dado um número inteiro, imprima sua tabuada.
+// 12 - Faça um algoritmo que receba a idade de 5 pessoas e mostre mensagem informando "maior de idade" e "menor de idade" para cada pessoa. Considere a idade a partir de 18 anos como maior de idade.
+// 13 - Elabore um programa que receba 5 números e imprima somente os positivos.
+// 14 - Crie um algoritmo que imprima dados um capital, uma taxa de juros (em porcentagem) mensal e um período em meses, informe o montante ao final de cada mês
 
 // Funções
 // Quando usar cada tipo?
@@ -322,11 +327,11 @@ inicio
     repita
         escreva("Digite um valor: ");
         leia(valor);
-        contador <- contador + 1;
         se valor = 999 entao
             contador = 999
         senao
             soma <- soma + valor
+            contador <- contador + 1;
         fimse
     ate (valor = 999) ou (contador = 999)
     escreva("Média: ", soma / contador, "\nContador: ", contador)
@@ -335,14 +340,15 @@ fimprocedimento
 // Exercício 5
 procedimento bebida
 var
-copo, jarra: inteiro;
+copo, jarra, capacidade: inteiro;
 sede: caractere;
 inicio
     jarra := 2000;
     repita
         escreva("Digite capacidade do copo (ml): ");
-        leia(copo)
-    ate (copo > 100) e (copo <= 1000)
+        leia(capacidade);
+        copo <- capacidade;
+    ate (capacidade > 100) e (capacidade <= 1000)
     repita
         escreva("Estado do copo? [c = cheio] [v = vazio]: ");
         leia(sede);
@@ -351,9 +357,21 @@ inicio
                 escreva("Deseja mais bebida? [s/n]: ");
                 leia(sede);
             ate (sede = "s") ou (sede = "n")
-            jarra <- jarra - copo
+            se sede = "s" entao
+                se copo < capacidade entao
+                    copo <- capacidade - copo;
+                fimse
+                jarra <- jarra - copo;
+                copo <- capacidade;
+                escreval("Jarra: ", jarra, " - Copo: ", copo);
+            fimse
+        senao
+            se sede = "c" entao
+                copo <- copo / 2;
+                escreval("Jarra: ", jarra, " - Copo: ", copo);
+            fimse
         fimse
-    ate jarra = 0
+    ate (jarra = 0)
 fimprocedimento
 
 // Exercício 6
@@ -373,7 +391,7 @@ inicio
         leia(nmrs[2]);
     fimenquanto
     se nmrs[1] > nmrs[2] entao
-        escreva("Número ", nmrs[1], " é maior que ", nmrs[2]);
+        escreva(nmrs[1], " é maior que ", nmrs[2]);
     senao
         escreva(nmrs[2], " é maior que ", nmrs[1]);
     fimse
@@ -387,7 +405,7 @@ inicio
         escreva("Digite um número: ");
         leia(nmbr);
         se (nmbr >= 100) e (nmbr < 200) entao
-            escreval("100 ... ", nmbr, " ... 200");
+            escreval("100 <= ", nmbr, " <= 200");
         senao
             escreval(nmbr);
         fimse
@@ -491,6 +509,110 @@ inicio
 
 fimprocedimento
 
+// Exercício 10
+procedimento decrescente
+var positivo: inteiro;
+inicio
+    repita
+        escreva("Digite um número inteiro: ");
+        leia(positivo);
+    ate positivo > 0
+    para positivo de positivo ate 0 faca
+        escreval(positivo);
+    fimpara
+fimprocedimento
+
+// Exercício 11
+procedimento tabuada
+var tabuada, x: inteiro;
+inicio
+    repita
+        escreva("Digite um número inteiro: ");
+        leia(tabuada);
+    ate (tabuada <= 0) ou (tabuada > 0)
+    para x de 1 ate 10 faca
+        escreval(tabuada, " x ", x, " = ", tabuada * x);
+    fimpara
+fimprocedimento
+
+// Exercício 12
+procedimento idade
+var
+pessoa: vetor[1..5, 1..3] de caractere;
+util: caractere;
+LIN, COL, IDD: inteiro;
+inicio
+    para LIN de 1 ate 5 faca
+        para COL de 1 ate 3 faca
+            se COL = 1 faca
+                escreva("Nome: ");
+                leia(util);
+                pessoa[LIN, COL] <- util;
+            senao
+                se COL = 2 faca
+                    escreva("Idade: ");
+                    leia(util);
+                    pessoa[LIN, COL] <- util;
+                    IDD <- caracpnum(util);
+                senao
+                    se IDD >= 18 entao
+                        util <- "Maior de idade";
+                        pessoa[LIN, COL] <- util;
+                    senao
+                        util <- "Menor de idade";
+                        pessoa[LIN, COL] <- util;
+                    fimse
+                fimse
+            fimse
+        fimpara
+    fimpara
+    escreva("\n");
+    para LIN de 1 ate 5 faca
+        para COL de 1 ate 3 faca
+            escreva(pessoa[LIN, COL], " ");
+        fimpara
+        escreva("\n");
+    fimpara
+fimprocedimento
+
+// Exercício 13
+procedimento pstv
+var
+m: vetor[1..5] de real;
+n: inteiro;
+inicio
+    para n de 5 ate 1 faca
+        escreva(n, " Digite um número: ");
+        leia(m[n]);
+    fimpara
+    para n de 5 ate 1 faca
+        se m[n] > 0 entao
+            escreval(m[n]);
+        fimse
+    fimpara
+fimprocedimento
+
+// Exercício 14
+procedimento contabil
+var
+capital: real;
+periodo, u: inteiro;
+inicio
+    repita
+        escreva("\nInsira o capital: R$ ");
+        leia(capital);
+    ate capital > 0
+    repita
+        escreva("Digite o período: ");
+        leia(periodo);
+    ate (periodo > 0) e (periodo < 1000)
+    para u de 1 ate periodo faca
+        capital <- capital + (capital * 0.1)
+        escreval(u, "º mês: R$ ", capital);
+    fimpara
+
+fimprocedimento
+
 procedimento start
 var
     o: caractere
@@ -498,9 +620,9 @@ var
 inicio
     repita
         repita
-            escreva("Escolha um exercício [1] [2] [3] [4] [5] [6] [7] [8] [9]: ");
+            escreva("Escolha um exercício\n[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]: ");
             leia(option);
-        ate (option >= 0) e (option <= 9)
+        ate (option >= 0) e (option <= 14)
         escolha option
         caso 1
             // Resolução Exercício 1
@@ -529,6 +651,21 @@ inicio
         caso 9
             // Resolução Exercício 9
             calendario();
+        caso 10
+            // Resolução Exercício 10
+            decrescente();
+        caso 11
+            // Resolução Exercício 11
+            tabuada();
+        caso 12
+            // Resolução Exercício 12
+            idade();
+        caso 13
+            // Resolução Exercício 13
+            pstv();
+        caso 14
+            // Resolução Exercício 14
+            contabil();
         fimescolha
         repita
             escreva("\nDeseja escolher outro exercício? [s/n]: ");
