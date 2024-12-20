@@ -5,40 +5,8 @@
 
 ## STUDY
 
-+ [english 🇺🇸](https://github.com/raphaelkaique1/study/blob/3847660bfc29053b15c2ac09118ab6f104d25f47/languages/0-english/README.md)
-<!--1. https://anhanguera.com/eja
++ [english 🇺🇸](https://github.com/raphaelkaique1/study/blob/main/0-languages/english/README.md)
 
-2.1. https://www.cpetech.com.br/dev-full-stack<br>2.2. https://matriculas.ampli.com.br/curso-tecnico/tecnico-em-desenvolvimento-de-sistemas
-
-3. ★-->
-- https://skills.github.com/
-- https://comunidade.ada.tech/
-- https://origamid.com/curso/
-- https://coursera.org/professional-certificates/ibm-full-stack-cloud-developer
-- https://curso.fullcycle.com.br/curso-fullcycle
-- https://kenzie.com.br/curriculo
-- https://xpeducacao.com.br/bootcamp/gerente-de-projetos
-- https://escoladnc.com.br/formacao-em-tecnologia
-- https://fullture.com/dev-full-stack/
-- https://coderhouse.com.br/online/desenvolvedor-full-stack
-- https://ebaconline.com.br/full-stack-python
-- https://onebitcode.com
-- https://tripleten.com/pt-bra/web
-- https://on.fiap.com.br/index.php
-- https://dio.me
-- https://alura.com.br
-- https://udemy.com/pt
-- https://lp.trainning.com.br/mastertech
-- https://hashtagtreinamentos.com/
-<!--
-4. https://estacio.br/cursos/graduacao/desenvolvimento-full-stack
-
-5. https://mba.fullcycle.com.br/mba
-
-6.1. https://cruzeirodosulvirtual.com.br/graduacao/ciencia-da-computacao<br>6.2. https://www.coursera.org/degrees/bach-information-technology-illinois-tech
-
-7.1. https://pucminas.br/PucVirtual/Pos-Graduacao/Paginas/Desenvolvimento-Full-Stack.aspx<br>7.2. https://www.fiaonline.com.br/pos/engenharia-e-arquitetura-de-software
--->
 ## CS/FS/FC
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao">1. Fundamentos de Computação</a>
