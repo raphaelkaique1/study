@@ -412,3 +412,11 @@
   - Implementação de testes automatizados.
   - Adoção de Test-Driven Development (TDD) como prática de desenvolvimento.
   - Uso de frameworks de teste como Jasmine, Mocha, Jest.
+
+### <a id="future_of_web" href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.3-future_of_web">8.3 Future of Web</a>
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.3-future_of_web/web3_blockchain_tokenization_smart_contracts_metaverse.md">web3, Blockchain, Tokenization, Smart Contracts & Metaverse</a>**
+  - Web3 Development
+  - Funcionamento da Blockhain
+  - Criação de Smart Contracts
+  - Tokenização de ativos
+  - Desenvolvimento no Metaverso (SandBox)
