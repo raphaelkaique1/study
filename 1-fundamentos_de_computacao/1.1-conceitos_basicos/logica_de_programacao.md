@@ -345,13 +345,13 @@ inicializam              processam e tratam
 #### TIPOS DE DADOS
  Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os Tipos de Dados, para criar um padrão de tamanho de variáveis:
 <pre>
-            / Inteiros: -3, -2, -1, 0, 1, 2, 3...
-Numéricos  ❮
-            \ Reais: -5.5, -1.5, -0.555, 1.3, 5 (5.0), 5.9...
+                 / Inteiros: -3, -2, -1, 0, 1, 2, 3...
+Numéricos       ❮
+                 \ Reais: -5.5, -1.5, -0.555, 1.3, 5 (5.0), 5.9...
 
-Caracteres ❮ ? A # b + C ! d $
+Caracteres      ❮ ? A # b + C ! d $
 
-Cadeia     ❮ palavras
+Alfanuméricos   ❮ palavras e frases
 
 Booleano   ❮ Lógico: FALSO (0) | VERDADEIRO (1)
 </pre>
@@ -1135,13 +1135,13 @@ features:
   4. exiba o resultado/dados
 
 <pre>
-           / - Sem conceitos novos
-Narrativa ❮  - Utilização de linguagem natural
-           \ - Diversas interpretações possíves (ambiguidade)
+                     / - Sem conceitos novos
+Narrativa           ❮  - Utilização de linguagem natural
+(Descritiva)         \ - Diversas interpretações possíves (ambiguidade)
 
-                      / - Simples entendimento
-Fluxograma           ❮  - Utilização de símbolos pré-definidos
-(estrutura gráfica)   \ - Conhecimento prévio da estrutura e símbolos
+                     / - Simples entendimento
+Fluxograma          ❮  - Utilização de símbolos pré-definidos
+(estrutura gráfica)  \ - Conhecimento prévio da estrutura e símbolos
 
 Estrutura e símbolos:
     _____
