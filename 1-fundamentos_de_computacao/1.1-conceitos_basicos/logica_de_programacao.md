@@ -179,7 +179,7 @@ Representação dos Dados:
 --------------------------------------------------------------------------------
 </pre>
 ## 4. ALGORITMO
- Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo o que o computador deve fazer. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo lógico que o computador deve fazer para realizar uma tarefa ou atividade. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
  **Automatizar: Definir passo-a-passo da execução da tarefa.*
 <pre>
 Ciclo de Processamento:
@@ -1128,19 +1128,19 @@ features:
 </pre>
 
 ### CONSTRUÇÃO DE ALGORITMOS
-  1. receba os dados
-  2. trate os dados
-  3. decida com base nos dados
-  4. exiba o resultado/dados
-
 <pre>
-                     / - Sem conceitos novos
-Narrativa           ❮  - Utilização de linguagem natural
-(Descritiva)         \ - Diversas interpretações possíves (ambiguidade)
+                       / - Sem conceitos novos
+Narrativa             ❮  - Utilização de linguagem natural em forma de texto estruturado
+(Descritiva)           \ - Podem haver diversas interpretações possíves (ambiguidade)
 
-                     / - Simples entendimento
-Fluxograma          ❮  - Utilização de símbolos pré-definidos
-(estrutura gráfica)  \ - Conhecimento prévio da estrutura e símbolos
+1. receba os dados
+2. trate os dados
+3. decida com base nos dados
+4. exiba o resultado/dados
+
+                       / - Fácil entendimento
+Fluxograma            ❮  - Utilização de símbolos pré-definidos para representação visual de uma sequẽncia de ações lógicas
+(estrutura gráfica)    \ - Necessário conhecimento prévio da estrutura e símbolos
 
 Estrutura e símbolos:
     _____
@@ -1162,15 +1162,15 @@ Estrutura e símbolos:
 Pseudo-Código        ❮  - Passos a serem seguidos
                       \ - Pseudo-linguagem de programação
 
-programa{
-  funcao inicio(){
+programa {
+  funcao inicio() {
     var dados
     escreva("INSIRA OS DADOS\n")
     leia(dados)
     escreva("resultado:", tratamento_de_dados(dados))
   }
 
-  tratamento_de_dados(var dados){
+  tratamento_de_dados(var dados) {
     var dados
     escreva("dados tratados")
   }
