@@ -234,7 +234,7 @@ Tipos:
                        Abdução   Indução   Dedução
 </pre>
  Exemplo de Raciocínio Lógico:<br/>
- Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda, o filho está à esquerda e a mãe está ao lado de Sérgio.
+ Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda e o filho à sua esquerda, enquanto a mãe está ao lado de Sérgio.
 <pre>
                  Fernanda
                  (FILHA)
@@ -314,9 +314,8 @@ Objetivo ❮   Entendimento
 |            [MÓDULO 4]  |
 |________________________|    *Cada módulo possui suas próprias regras
 
->*Modelo padrão da técnica modular:*
->
->Entrada de dados   ->   Processo de transformação   ->   Dados de saída
+*Modelo padrão da técnica modular:*
+Entrada de dados   ->   Processo de transformação   ->   Dados de saída
 
        / - Simplificação
 Metas ❮  - Decomposição do problema
@@ -345,15 +344,15 @@ inicializam              processam e tratam
 #### TIPOS DE DADOS
  Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os Tipos de Dados, para criar um padrão de tamanho de variáveis:
 <pre>
-                 / Inteiros: -3, -2, -1, 0, 1, 2, 3...
-Numéricos       ❮
-                 \ Reais: -5.5, -1.5, -0.555, 1.3, 5 (5.0), 5.9...
+           / Int: -3, -2, -1, 0, 1, 2, 3...
+Numéricos ❮
+           \ Double¹ (+ precisão / + gasto de memória) / Float² (- precisão / - gasto de memória): -5.5, -1.5, -0.555, 1.3, 5 (5.0), 5.9...
 
-Caracteres      ❮ ? A # b + C ! d $
+Char      ❮ ? A # b + C ! d $
 
-Alfanuméricos   ❮ palavras e frases
+String    ❮ palavras e frases
 
-Booleano   ❮ Lógico: FALSO (0) | VERDADEIRO (1)
+Bool      ❮ Lógico: FALSO (0) | VERDADEIRO (1)
 </pre>
 ##### TIPAGEM DE DADOS
 
@@ -456,7 +455,7 @@ Tudo aquilo que é fixo e/ou estável.
 >                                      var  const  var             var  const  var
 ><pre>
 
-###### TIPOS DE CONSTANTES**
+###### TIPOS DE CONSTANTES
 
 * **const:**
   - Similar ao `let` em relação ao escopo de bloco.
@@ -558,7 +557,7 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
 >     \ FÁTIMA         9              9              9          9
 ></pre>
 
-###### DEFININDO VETORES/MATRIZES**
+###### DEFININDO VETORES/MATRIZES
 ```C
 int vetor[5];
 string alfabeto[] = {"A", "B", "C", "D", "E"};
