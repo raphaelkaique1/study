@@ -184,10 +184,10 @@ Representação dos Dados:
 <pre>
 Ciclo de Processamento:
 
-          ALGORITMO
-              ⤺
-Input ➝ Processamento ➝ Output
-              ⤻
+         ALGORITMO
+             ⤺
+Input  ➝  Process  ➝  Output
+             ⤻
 </pre>
  **O processamento é a execução dos passos lógicos necessários para que os elementos de entrada se transformem em dados/informações na saída.*
 
@@ -1151,12 +1151,12 @@ Estrutura e símbolos:
      / \   -> ESTRUTURA DE DECISÃO
      \ /
     __↓__
-   |_____|  -> RESULTADO DA DECISÃO / OPERAÇÃO
+   |_____|  -> AÇÃO / RESULTADO DA DECISÃO / OPERAÇÃO
       ↓  ___
 ❮...) ~ |...| -> RESULTADO OPERAÇÃO
          ~~~
     __↓__
-   /_____\  -> SAÍDA DE DADOS 
+   /_____\  -> SAÍDA DE DADOS
 
                       / - Regras pré-definidas
 Pseudo-Código        ❮  - Passos a serem seguidos
