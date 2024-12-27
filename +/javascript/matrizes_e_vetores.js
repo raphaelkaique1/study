@@ -1,16 +1,23 @@
+// var, let
 var a = 0, b = 1
 
+// LISTAS & COLEÇÕES
+
+// Objetos
 var object = {a, b}
 // coleção de pares chave-valor, seus elementos são acessados por chave (não por índice)
-// usado para representar entidades com características (valores) e ações (métodos)
+// usado para representar entidades com características (priopriedades = valores) e ações (métodos = manipulação)
 // a sintaxe para criar um objeto é usando chaves {}
 console.log(`objeto: ${object.a} ${object.b}`)
 
-var e = (a, b) => {return (a > b ? a : b)}
+// Expressões
+var expression = (a, b) => {return (a > b ? a : b)}
 // qualquer pedaço de código que realiza algum processamento e retorna um valor
 // pode ser uma operação aritmética, uma chamada de função, uma comparação, etc
 // podem ser usadas em diversos contextos, e a sintaxe para representa-las é com parênteses ()
-console.log(`expressão: ${expression = e(a, b)}`)
+console.log(`expressão: ${expression(a, b)}`)
+
+// Vetores e Matrizes
 
 // estrutura de dados que armazena uma coleção de elementos, que podem ser de qualquer tipo (números, strings, objetos, etc)
 // seus elementos são ordenados, ou seja, os itens têm índices e podem ser acessados por esses índices
@@ -19,10 +26,9 @@ const vector = [a, b]
 console.log(`vetor: ${vector} | ${vector[1]}`)
 
 const matrix = [["a", "b"], [a, b], ["2", "3"]]
-console.log(`matriz: ${matrix} | ${matrix[1][0]}`)
+console.log(`matriz: ${matrix} | ${matrix[0]} | ${matrix[1][0]}`)
 // exibindo formato literal (representação em tabela)
-var j = 0
-for(var i = 0; i < matrix.length; i++){
+for(i in matrix) {
     console.log(matrix[i])
 }
 
