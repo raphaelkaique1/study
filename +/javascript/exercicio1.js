@@ -25,3 +25,10 @@ console.log(doces[1]) // pudim
 vs()
 
 // pudim morango { sabor: 'maracuja' }
+
+// EXEMPLOS MUNDO REAL
+let lampada = "ligada"
+lampada === "ligada" ? console.log("luz acessa") : console.log("luz apagada")
+
+let ovos = false, lista_de_compras = ["ovos", "leite"]
+ovos === true ? console.log(lista_de_compras) : console.log((lista_de_compras.pop() && lista_de_compras.fill("nenhum")))
