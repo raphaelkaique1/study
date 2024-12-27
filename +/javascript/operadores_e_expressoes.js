@@ -31,10 +31,10 @@ console.log(`    ATRIBUIÇÃO -> VARIÁVEIS
     a -= 3 -> {${a -= 3}}a = a{20} - 3
 
     EXPONENCIAÇÃO                MULTIPLICAÇÃO
-    a:${a} ** 2 = ${a = a**2}            a:${a} * 2 = ${a = a*2}
+    a{${a}} ** c{${c}} = ${a = a**2}            a{${a}} * c{${c}} = ${a = a*2}
 
     DIVISÃO                           MÓDULO
-    a:${a}  / 2 = ${a = a/2}           a:${a} % 2 = ${a = a%2}
+    a{${a}}  / c{${c}} = ${a = a/2}           a{${a}} % c{${c}} = ${a = a%2}
 
     
     d = true
