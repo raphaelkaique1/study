@@ -1,4 +1,4 @@
-let a = 10, b = 15, c, d = true, e = true, f = false, g = 1, h = '1'
+let a = 10, b = 15, c, d = true, e = true, f = d !== e, g = 1, h = '1'
 
 console.log(`    ATRIBUIÇÃO -> VARIÁVEIS
     a = ${a}
