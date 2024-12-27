@@ -579,18 +579,18 @@ string tabela[3][3];
 </pre>
 
 ### OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO
+>atribuição...(=): a = 10
 <pre>
 OPERADORES BINÁRIOS                      OPERADORES UNÁRIOS
-
-- adição..........(+): a + b             - positivo.........(+): +a
-- subtração.......(-): a - b             - negativo.........(-): -a
-- multiplicação...(*): a * b             - incremento......(++): ++a | a++
-- divisão.........(/): a / b             - decremento......(--): --a | a--
+- adição..........(+): a + b             - positivo.........(+): +a          - adição e atribuição..................(+=): a += 15
+- subtração.......(-): a - b             - negativo.........(-): -a          - subtração e atribuição...............(-=): a -= 5
+- multiplicação...(*): a * b             - incremento......(++): ++a | a++   - multiplicação e atribuição...........(*=): a *= 5
+- divisão.........(/): a / b             - decremento......(--): --a | a--   - divisão/módulo e atribuição.....(/= | %=): a /= 2 | a %= 2
 
 OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     TIPO DE RETORNO DE RESULTADO
    +         MANUTENÇÃO DE SINAL      UNÁRIO                1                          POSITIVO
    -          INVERSÃO DE SINAL       UNÁRIO                1                          NEGATIVO
-   ^            EXPONENCIAÇÃO         BINÁRIO               2                       INTEIRO OU REAL
+ ^ / **         EXPONENCIAÇÃO         BINÁRIO               2                       INTEIRO OU REAL
    /              DIVISÃO             BINÁRIO               3                            REAL
    /              DIVISÃO             BINÁRIO               4                          INTEIRO
    *           MULTIPLICAÇÃO          BINÁRIO               3                       INTEIRO OU REAL
