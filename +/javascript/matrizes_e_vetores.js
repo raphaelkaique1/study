@@ -11,11 +11,11 @@ var object = {a, b}
 console.log(`objeto: ${object.a} ${object.b}`)
 
 // Expressões
-var expression = (a, b) => {return (a > b ? a : b)}
+var expression = (a === b)
 // qualquer pedaço de código que realiza algum processamento e retorna um valor
 // pode ser uma operação aritmética, uma chamada de função, uma comparação, etc
 // podem ser usadas em diversos contextos, e a sintaxe para representa-las é com parênteses ()
-console.log(`expressão: ${expression(a, b)}`)
+console.log(`expressão: ${expression}`)
 
 // Vetores e Matrizes
 
