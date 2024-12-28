@@ -32,3 +32,20 @@ lampada === "ligada" ? console.log("luz acessa") : console.log("luz apagada")
 
 let ovos = false, lista_de_compras = ["ovos", "leite"]
 ovos === true ? console.log(lista_de_compras) : console.log((lista_de_compras.pop() && lista_de_compras.fill("nenhum")))
+
+// VIAGEM
+let idade = 18, visto = true, viagem = (idade >= 18) && (visto === true)
+// let idade = 18, visto = true, viagem = () => {return ((idade >= 18) && (visto === true))}
+console.log(viagem)
+
+// AND ( && ): 100 moedas && 1 item full
+let moedas = 100, item = "full", xp = (moedas >= 100 && item ==="full") ? 5 : 0
+console.log(xp)
+
+// OR ( || ): fome
+let guloseima = "arroz", estado = "fome", comer = () => {console.log(`Comer? ${(guloseima === "bolo" || estado === "fome") ? "sim" : "não"}`)}
+comer();
+
+// NOT ( !, !! ): clima e tempo
+let clima = "chuva", guarda_chuva = (clima !== "sol" ? "sim" : "não")
+console.log(`Levar guarda chuva? ${guarda_chuva}`)
