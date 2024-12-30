@@ -8,6 +8,10 @@ let car = [
     {brand: "FIAT", model: "Uno", hp: 85, status: true}
 ]
 
+for(position of car) {
+    console.log(position)
+}
+
 for (i in car) {
     car[i].status == 'l' || car[i].status == true ?  console.log(`${car[i].brand} ${car[i].model}`) : ""
 }
