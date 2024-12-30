@@ -28,8 +28,8 @@ console.log(`vetor: ${vector} | ${vector[1]}`)
 const matrix = [["a", "b"], [a, b], ["2", "3"]]
 console.log(`matriz: ${matrix} | ${matrix[0]} | ${matrix[1][0]}`)
 // exibindo formato literal (representação em tabela)
-for(i in matrix) {
-    console.log(matrix[i])
+for(const [linha, coluna] of matrix) {
+    console.log(linha, coluna)
 }
 
 // funções de Arrays em JS: https://www.w3schools.com/js/js_array_methods.asp || https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
