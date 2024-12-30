@@ -1,9 +1,6 @@
 // função com parâmetro e retorno
-let Name = (person) => {person == undefined ? console.log(`Olá ${person = "convidado"}, seja bem-vindo!`) : console.log(`Olá ${person}, seja bem-vindo!`); return person;}
-
-Name("Raphael")
-// ou
-console.log(`Olá ${Name()}, seja bem-vindo!`)
+let Name = (person = "Convidado") => {/*console.log(`Olá ${person}, seja bem-vindo!`);*/ return person;}
+console.log(`Olá ${Name("Raphael")}, seja bem-vindo!`);
 
 // torradeira
 function torrar(ciclo, tipo_de_pao) {
@@ -18,7 +15,9 @@ function ejetar() {
 
 function torradeira(entrada, tempo) {
     torrar(tempo, entrada)
-    if(tempo <= 3) {
+    if(tempo <= 0) {
+        console.log(`informe um tempo`)
+    } else if(tempo <= 3) {
         console.log(`${entrada} não virou torrada, ${ejetar()}.`)
     } else if (tempo > 10) {
         console.log(`${entrada} tostou, ${ejetar()}.`)
@@ -28,3 +27,32 @@ function torradeira(entrada, tempo) {
 }
 
 torradeira("pão de forma", 10)
+
+// boas práticas
+let user_key, db_key;
+function enviar_dados(user_key, db_key) {
+    let data_base = "banco-de-dados";
+    console.log(`${Name()} salvando dados em ${data_base}`);
+
+    if(user_key === db_key) {
+        console.log("dados gravados com sucesso");
+    }
+}
+enviar_dados("123", "123");
+
+// exemplo prático 1
+function createStringConnection(databaseName, user, pass) {
+    console.log(`connect:DBCONNECT;user=${user};pass=${pass};initial_database=${databaseName}`);
+}
+createStringConnection("db_users", "Raphael", "FullStackDev");
+
+// exemplo prático 2
+// function getFirstName(fullName) {
+//     let firtsName = fullName.split(" ")[0];
+//     return firtsName;
+// }
+// let userName = getFirstName("Raphael Kaíque Dias Santos");
+// console.log(`Olá ${userName}.`);
+// ou
+const userName = (fullName, splitChar = " ") => {return firtsName = fullName.split(splitChar)[0]}
+console.log(`Olá ${userName("Raphael-Kaíque", "-")}.`);
