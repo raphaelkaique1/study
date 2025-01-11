@@ -21,7 +21,7 @@ Se vitórias for maior ou igual a 101 = Imortal
 Saída:
 Ao final deve se exibir uma mensagem: "O Herói tem de saldo de **{saldoVitorias}** está no nível de **{nivel}**" */
 
-let defeats, victories, Balance = (defeats = 0, victories = 0) => {return balance = [((victories + defeats) - defeats), (victories + defeats)];}, info = Balance(1, 10), level = Ranking(info);
+let defeats, victories, Balance = (defeats = 0, victories = 0) => {return [((victories + defeats) - defeats), (victories + defeats)];}, info = Balance(1, 1), level = Ranking(info);
 
 function Ranking(battles) {
     let position;
@@ -43,4 +43,5 @@ function Ranking(battles) {
     return position
 }
 
-console.log(`The Hero has a total of ${info[1]} battle(s), with a balance of ${info[0]} victory(ies), and is at the ${level} level.`);
+let battle = info[1] > 1 ? `battles` : `battle`, victory = info[0] > 1 ? `victories` : `victory`;
+console.log(`The Hero has a total of ${info[1]} ${battle}, with a balance of ${info[0]} ${victory}, and is at the ${level} level.`);
