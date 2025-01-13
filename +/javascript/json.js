@@ -14,9 +14,9 @@ let showProducts = (invoice) => {
     let productsOutput = ""
     for(let i in invoice.products){
         let [Product, Price, Qnt] = invoice.products[i]
-        productsOutput += `item ${Number(i) + 1} -> ${Product} (${Qnt}): R$ ${Price} (Unit)\n`
+        productsOutput += `[item ${Number(i) + 1}] ${Product} (${Qnt}): R$ ${Price} (Unit)\n`
     }
-    return productsOutput;
+    return productsOutput
 }
 
 let generateInvoce = (invoice) => {
