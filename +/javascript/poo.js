@@ -23,7 +23,6 @@ class formaDeBolo {
 
     // método: função que trabalha no contexto da classe
     pedido() {
-    
     let sabor = this.Cobertura == "n" ? this.SaborCobertura = "" : '| Sabor:';
 console.log(`Bolo: ${this.Bolo}
 Massa: ${this.SaborMassa}
@@ -39,12 +38,11 @@ let boloChocolate = {
     SaborMassa: "chocolate",
     SaborRecheio: "brigadeiro"
 }
-
-console.log(boloChocolate)
-console.log(`boloChocolate = ${boloChocolate}
-Massa: ${boloChocolate.SaborMassa}
-Recheio: ${boloChocolate.SaborRecheio}`)
 */
+console.log(boloChocolate)
+console.log(`\nboloChocolate = ${boloChocolate}
+Massa: ${boloChocolate.SaborMassa}
+Recheio: ${boloChocolate.SaborRecheio}\n`)
 
 // ----------
 boloChocolate.pedido()
