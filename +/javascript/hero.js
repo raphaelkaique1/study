@@ -56,9 +56,9 @@ class Hero {
                     return "combo";
             }
         }
-        console.log(`the ${this.type} ${this.name} attacked using ${attack(this.type)}`)
+        console.log(`the ${this.type} ${this.name} attacked using ${attack(this.type)}`);
     }
 }
 
 const hero = new Hero("PK", "demon", 666);
-hero.Attack()
+hero.Attack();
