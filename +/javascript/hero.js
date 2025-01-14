@@ -33,6 +33,7 @@ Ao final deve se exibir uma mensagem:
 */
 
 class Hero {
+
     constructor(name, type = "hero", xp) {
         this.name = name,
         this.type = type,
@@ -58,6 +59,7 @@ class Hero {
         }
         console.log(`the ${this.type} ${this.name} attacked using ${attack(this.type)}`);
     }
+
 }
 
 const hero = new Hero("PK", "demon", 666);
