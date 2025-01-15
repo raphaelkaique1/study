@@ -40,7 +40,8 @@ cd ~/<file_directory>
 git init
 
 # shorthand:
-git checkout -b '<user_name>/<branch_name>' # get out of main branch and goes to the new branch
+git checkout -b <branch_name> # get out of main branch and goes to the new branch
+git checkout <branch_name> # goes to the branch especified
 
 # repository status
 cd ~/<file_directory>
@@ -59,10 +60,13 @@ git commit -am "Commit changes"
 git push -u origin <branch_name>
 
 # update branch changes
-git pull origin <branch_name>
+git pull origin <branch_name> # git pull = git fetch (download the remote/main branch) {+ git diff = shows old and new changes} + git merge (includes downloaded changes in local files)
 
-# file version
-git diff
+# branches
+git branch --help
+git branch -v
+git branch -M main
+git branch -d <branch_name> # deletes especified branch
 
 # commit history
 git log # git shortlog
