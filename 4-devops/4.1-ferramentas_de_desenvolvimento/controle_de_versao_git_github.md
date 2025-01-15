@@ -2,25 +2,23 @@
 git --version # git version x.xx.x
 
 # install git
-sudo apt update
-sudo apt upgrade
-sudo apt install git
-sudo apt install curl
+sudo apt update upgrade -y
+sudo apt install git curl -y
 
 # git config
-git config --global user.name "name"
-git config --global user.email "address@email.com"
-git config --global credential.helper cache
-git config --list # git config --global user.name/email
+git config --global user.name "<name>"
+git config --global user.email "<address@email.com>"
+git config --global credential.helper cache-store # cache: stores credentials in memory for a default period of 15 minutes. To configure the cache duration, you must use the --timeout flag and assign the desired time in seconds, example: cache --timeout=3600 || store: permanently stores credentials in a plain text file on disk. Because the file is plain, the credentials are visible in clear text, so caution should be taken when using this method on shared systems or in less secure environments.
+git config --list # git config --global user=name/email & +
 nano ~/.gitconfig # user info edit
 
 # new repository
 cd ~/<file_directory>
-echo "#" >> README.md
+echo > .gitkeep
 git init
-git add . # git add README.md
+# touch .gitignore
+git add .
 git commit -m "Commit changes"
-# sudo snap install curl
 curl -u <user_name>:<personal_token> https://api.github.com/user/repos -d '{"name":"<repository_name>"}' # [https://github.com/settings/tokens/new](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#como-criar-um-personal-access-token-classic)
 git branch -M main
 git remote add origin https://github.com/<user_name>/<repository_name>.git
@@ -33,7 +31,7 @@ git push -u origin main
 
 # clone repository
 git clone https://github.com/<user_name>/<repository_name>.git
-Username: OWN_USERNAME
+Username: OWNER_USERNAME
 Password: PERSONAL_ACCESS_TOKEN
 git config --global credential.helper cache
 
