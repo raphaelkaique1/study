@@ -1,5 +1,5 @@
 # PENSAMENTO COMPUTACIONAL
- Refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que podem ser implementados no computador. De forma geral, é uma formulação e resolução de problemas computacionais (sistemático e eficiente).
+ Refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que podem ser implementados no computador. De forma geral, é a formulação de passos lógicos para a solução e resolução de problemas computacionais (sistemático e eficiente).
 
 É baseado em 4 pilares:
 1. **Decomposição**
@@ -44,7 +44,7 @@ CRIAR UM APP
 - Funcionalidades   /
 - Pré-requisitos   /
 
-ARTIGO
+DOCUMENTAÇÃO
 - O que será abordado     \ 
 - Estrutura                \  Definição de componentes e etapas
 - Conteúdo de cada tópico  /
@@ -218,7 +218,7 @@ Processo Contínuo:
 4. *CS + Math + Sci/Eng*: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
 
 ### Raciocínio Lógico
- Raciocínio lógico é uma forma de pensamento estruturado/organizado, que permite encontrar a conclusão ou determinar a resolução de um problema.
+ Raciocínio lógico é uma forma de pensamento estruturado (organizado em passos lógicos), que permite determinar a resolução de um problema para se encontrar a conclusão.
 <pre>
                  /               Indução
                 / Indução -> Fenômeno Observado -> Leis e Teorias
