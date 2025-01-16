@@ -1261,23 +1261,20 @@ Código:
 programa{
 
   funcao inicio(){
-    inteiro x, y
-    
-    escreva("Digite os números para soma dos intervalos\n> ")
-    leia(x)
-    escreva("> ")
-    leia(y)
-    
+    inteiro x = 1, y = 200
     escreva(soma_intervalo(x, y))
   }
 
   funcao soma_intervalo(inteiro x, inteiro y){
-    inteiro total, resultado_parcial
+    inteiro total_intervalo, resultado_parcial, resultadoParcial
     
-    total = y/2
-    resultado_parcial = y + x
+    total_intervalo = y / 2
+    para(resultado_parcial = 1; resultado_parcial <= y; resultado_parcial++) {
+      resultadoParcial = ((y - 1) + (x + 1))
+      escreva(resultadoParcial, " - ", resultadoParcial, "\n")
+    }
 
-    inteiro resultado = total * resultado_parcial
+    inteiro resultado = total_intervalo * resultadoParcial
 
     retorne resultado
   }
