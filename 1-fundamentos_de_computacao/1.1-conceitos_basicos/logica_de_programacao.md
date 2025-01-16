@@ -1206,16 +1206,26 @@ Pseudo-Código ❮ N1 * N2 = M
 1 + 4  /               |   198 + 3  / Encrementar o menor
 1 + 5 /                |   197 + 4 /
                               ↙                              / 200 + 1 = *201*
-                      Qual o benefício?   -> Gera um PADRÃO ❮  199 + 2 = *201*
-                       (Decomposição)                        \ 198 + 3 = *201*
+                      Qual o benefício?  ->  Gera um PADRÃO ❮  199 + 2 = *201*
+                        DECOMPOSIÇÃO                         \ 198 + 3 = *201*
 
 2.2. Como expressar de forma generalista?
-
-| 200 + 1 = 201 |         /  Valor  \   SIM
-| 199 + 2 = 201 |   ->   ❮    se     ❯   ->    ❮ Qnts vzs? ❯
-| 198 + 3 = 201 |         \ Repete? /                ↓
+  ⬐ dcmps ⬎ ⬐ padrão
+| 200 + 1 = 201 |         /  Valor  \   SIM      ABSTRAÇÃO     Podemos expressar através de variáveis,
+| 199 + 2 = 201 |   ->   ❮    se     ❯   ->    ❮ Qnts vzs? ❯ = para tornar uma soma de intervalos específico
+| 198 + 3 = 201 |         \ Repete? /                          para algo mais generalista, onde essa mesma
+                                                     ↓         solução pode ser aplicada em outros cenários
+                                                               similares a este.
+                                      Em um intervalo de *200* números
+                                      onde usamos sempre *2* números a
+                                      cada soma, podemos dividir um nº
+                                       pelo outro para encontrarmos o
+                                        valor da quantidade de vezes
+                                        em que este processo ocorre:
                                               | 200 / 2 = 100 |
-
+                              Então, sabemos que encontraremos o resultado *201*
+                              todas as *100* vezes que realizarmos este processo
+                                resultando em 20.100 intervalos entre 1 e 200:
                                             |     resultado      |
                                             | 201 x 100 = 20.100 |
                                                       ~
