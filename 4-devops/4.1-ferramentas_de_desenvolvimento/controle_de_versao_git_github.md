@@ -46,6 +46,7 @@ git checkout <branch_name> # goes to the branch especified
 # repository status
 cd ~/<file_directory>
 git status
+git remote add upstream <original_repository_url> # keeps the local repository up to date with changes from the original remote repository
 
 # add file working tree
 ## git add <file_name>.<type_file>
@@ -60,6 +61,7 @@ git commit -am "Commit changes"
 git push -u origin <branch_name>
 
 # update branch changes
+git pull <remote_branch> <actual_local_branch>
 git pull origin <branch_name> # git pull = git fetch (download the remote/main branch) {+ git diff = shows old and new changes} + git merge (includes downloaded changes in local files)
 
 # branches
