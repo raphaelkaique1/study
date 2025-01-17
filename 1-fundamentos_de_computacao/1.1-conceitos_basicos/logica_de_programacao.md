@@ -270,7 +270,7 @@ Computador             ❯        Precisam ser determinadas as instruções
 # LÓGICA DE PROGRAMAÇÃO
 
 * *O que é lógica?*<br/>
- Forma de Pensamento estruturada que visa a determinação do que é verdadeiro ou não; Sequência "óbvia" a se seguir/executar para atingir um objetivo ou solucionar um problema.
+ Forma de Pensamento estruturada que visa a determinação do que é verdadeiro ou não; Sequência "óbvia" a se seguir e executar para atingir um objetivo ou solucionar um problema.
 
 * *O que é problema?*<br/>
  É uma questão que foge a uma determinada regra, é um desvio de percurso o qual impede de atingir um objetivo com eficiência e eficácia e/ou finalizar uma tarefa.
@@ -544,7 +544,7 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
 >
 >indice:
 >          /               m   n                           m   n
->vetores ❮  notas_aluno1 [1 | 1] = 10   |   notas_aluno2 [2 | 1] = 9
+>vetores  ❮  notas_aluno1 [1 | 1] = 10   |   notas_aluno2 [2 | 1] = 9
 >          \ notas_aluno1 [1 | 2] =  5   |   notas_aluno2 [2 | 2] = 3
 >
 >Dados das notas dos alunos:
