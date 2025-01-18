@@ -2,7 +2,7 @@
  O pensamento computacional é uma estratégia que permite resolver problemas de forma eficiente, criando soluções genéricas para problemas variados pertencentes a uma mesma classe. Ele refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais (algoritmos) que podem ser implementados no computador. De forma geral, é a formulação de passos lógicos para a solução e resolução de problemas computacionais (sistemático e eficiente).
 <pre>
 É baseado em 4 pilares:
-1. Decomposição > Dividisão          ⤵
+1. Decomposição > Dividisão ─────────⤵
 2. Padrões      > Repetição ┬─> GENERALIZAÇÃO
 3. Abstração    > Foco      ┘        ↓
 4. Algoritmos   > Execução  ->  ESTRUTURAÇÃO
