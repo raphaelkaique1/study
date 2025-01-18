@@ -1,11 +1,11 @@
 # PENSAMENTO COMPUTACIONAL
- Refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais ou algoritmos que podem ser implementados no computador. De forma geral, é a formulação de passos lógicos para a solução e resolução de problemas computacionais (sistemático e eficiente).
+ O pensamento computacional é uma estratégia que permite resolver problemas de forma eficiente, criando soluções genéricas para problemas variados pertencentes a uma mesma classe. Ele refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais (algoritmos) que podem ser implementados no computador. De forma geral, é a formulação de passos lógicos para a solução e resolução de problemas computacionais (sistemático e eficiente).
 
 É baseado em 4 pilares:
-1. **Decomposição**
-2. **Padrões**
-3. **Abstração**
-4. **Algoritmos**
+1. **Decomposição** > Dividisão⤵
+2. **Padrões**      > Repetição ┬─> GENERALIZAÇÃO
+3. **Abstração**    > Foco      ┘        ↓
+4. **Algoritmos**   > Execução  ->  ESTRUTURAÇÃO
 
 ## 1. DECOMPOSIÇÃO:<br/>Dividir um problema complexo em subproblemas.
  Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores que vão sendo construídas aos poucos.<br/>
@@ -60,7 +60,7 @@ MOVIMENTOS DE UM AVATAR
 DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
 </pre>
 ## 2. PADRÕES
- Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma.
+ Observação e identificação de similaridades, recorrências e tendências em dados ou ações. Ação de descrever o que vai acontecer com base em evento anteriores. Na computação, é comum utilizar estruturas de repetição, por exemplo, para blocos de códigos semelhantes que se repetem de alguma forma ou agrupar e reutilizar dados que são usados repetidamente.
 
 ### RECONHECIMENTO DE PADRÕES
 - *Modelo base*
@@ -144,7 +144,7 @@ Extração de Características  \
 Diferentes Métodos e Aplicações
 </pre>
 ## 3. ABSTRAÇÃO
-"Abstrair o que é mais importante e ordenar as relevancias, extrapolando o conceito do problema para uma forma generalista."
+Identificação dos princípios gerais que criam padrões, mantendo o foco nos aspectos essenciais e ignorando os detalhes menos importantes, de modo que a solução possa ser válida para outros problemas da mesma natureza. "Abstrair o que é mais importante e ordenar as relevancias, extrapolando o conceito do problema para uma forma generalista."
 - Ação de ignorar os detalhes de uma solução de modo que ela possa ser válida para diversos problemas (generalista).
 - Isolar aspectos relevantes do problema para tratá-los de forma individual (linkando -> decomposição).
 - Na computação, quando pensamos em criar um software, pensamos primeiro no que ele deve ser, deixando os detalhes para depois.
