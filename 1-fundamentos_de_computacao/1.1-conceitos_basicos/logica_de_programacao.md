@@ -179,7 +179,7 @@ Representação dos Dados:
 --------------------------------------------------------------------------------
 </pre>
 ## 4. ALGORITMO
- Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Na computação, quando escrevemos um código, descrevemos passo-a-passo lógico que o computador deve fazer para realizar uma tarefa ou atividade. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Então podemos dizer que, um algoritmo é um conjunto de regras e procedimento lógicos perfeitamente definidos, que levam a solução de um problema em um número finito de etapas. Na computação, quando escrevemos um código, descrevemos o passo-a-passo lógico que o computador deve fazer para realizar uma tarefa ou atividade. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
  **Automatizar: Definir passo-a-passo da execução da tarefa.*
 <pre>
 Ciclo de Processamento:
@@ -194,6 +194,21 @@ Input  ➝  Process  ➝  Output
  **Ex.: Receita de Bolo**: ingredientes (entrada) -> misturar e assar os ingredientes (processamento) -> saída (bolo).<br/>
 Observe que o modo de preparo *- processamento (instruções para realizar a tarefa = algoritmo) -* deve ser apresentado de forma lógica, imperativa/infinitiva e não deve apresentar ambiguidades.
 <pre>
+Método Lógico:
+
+                 /               Indução
+                / Indução -> Fenômeno Observado -> Leis e Teorias
+Classificação  /                 Dedução
+               \ Fenômeno Observado -> Leis e Teorias -> Previsões e Explicações
+                \                Abdução
+                 \  Conclusão -> Abdução -> Premissa
+Tipos:
+                                 Inferência
+                                ↙          ↘ 
+                           Sintética      Analítica
+                           ↙       ↘          ↓
+                       Abdução   Indução   Dedução
+
 Design de Algoritmos:
 
                        Análise
@@ -218,21 +233,7 @@ Processo Contínuo:
 4. *CS + Math + Sci/Eng*: Modelagem, Definição de Problemas, Definição e Uso de Abstrações, Reconhecimento de Padrões
 
 ### Raciocínio Lógico
- Raciocínio lógico é uma forma de pensamento estruturado (organizado em passos lógicos), que permite determinar a resolução de um problema para se encontrar a conclusão.
-<pre>
-                 /               Indução
-                / Indução -> Fenômeno Observado -> Leis e Teorias
-Classificação  /                 Dedução
-               \ Fenômeno Observado -> Leis e Teorias -> Previsões e Explicações
-                \                Abdução
-                 \  Conclusão -> Abdução -> Premissa
-Tipos:
-                                 Inferência
-                                ↙          ↘ 
-                           Sintética      Analítica
-                           ↙       ↘          ↓
-                       Abdução   Indução   Dedução
-</pre>
+ Para escrevermos algoritmos usamos a lógica, que é a maneira de organizar nosso raciocínio de forma rigorosa e coerente, em forma de pensamento estruturado (organizado em passos lógicos), para permitir encontrar a conclusão que determina a resolução de um problema.<br/>
  Exemplo de Raciocínio Lógico:<br/>
  Um pai, uma mãe e seu casal de filhos estão sentados em uma mesa. Os homens são Roberto e Sérgio, as mulheres Tereza e Fernanda. Sabe-se que o pai está à frente de Fernanda e o filho à sua esquerda, enquanto a mãe está ao lado de Sérgio.
 <pre>
@@ -267,6 +268,7 @@ Funções Bem Definidas          /
 Computador             ❯        Precisam ser determinadas as instruções 
          ➥ Velocidade / detalhadas p/ a execução da tarefa e processamento dos dados
 </pre>
+
 # LÓGICA DE PROGRAMAÇÃO
 
 * *O que é lógica?*<br/>
