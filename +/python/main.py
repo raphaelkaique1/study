@@ -13,7 +13,6 @@ def school_grades():
     for iterable in range(size):
         grade = float(input(f"Digite a {counter}ª nota: "))
         grades[iterable] = grade
-        iterable += 1
         counter += 1
 
     return grades
