@@ -557,7 +557,7 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
 >     /  ALUNO   1º TRIMESTRE   2º TRIMESTRE   3º TRIMESTRE   MÉDIA
 >    /  RAPHAEL       9.5            9.9            9.3        9.5
 >M ❮   DÉBORAH       9.5            9.5            9.9        9.6
->    \  DIEGO        9.3            9.3             9         9.2
+>    \  DIEGO         9.3            9.3             9         9.2
 >     \ FÁTIMA         9              9              9          9
 ></pre>
 
