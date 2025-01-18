@@ -2,6 +2,8 @@
 > https://github.com/Universidade-Livre
 > 
 > https://roadmap.sh/roadmaps
+>
+> https://quickref.me/
 
 ## STUDY
 
