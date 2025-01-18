@@ -2,7 +2,7 @@
  O pensamento computacional é uma estratégia que permite resolver problemas de forma eficiente, criando soluções genéricas para problemas variados pertencentes a uma mesma classe. Ele refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais (algoritmos) que podem ser implementados no computador. De forma geral, é a formulação de passos lógicos para a solução e resolução de problemas computacionais (sistemático e eficiente).
 <pre>
 É baseado em 4 pilares:
-1. Decomposição > Dividisão ─────────⤵
+1. Decomposição > Dividisão ──────↴
 2. Padrões      > Repetição ┬─> GENERALIZAÇÃO
 3. Abstração    > Foco      ┘        ↓
 4. Algoritmos   > Execução  ->  ESTRUTURAÇÃO
@@ -23,7 +23,7 @@ Ordem de execução de \\ > Sequencial -> Dependência entre tarefas executadas 
 tarefas menores      // > Paralelo   -> Tarefas podem ser executadas concomitentemente (+ eficiencia - tempo).
 </pre>
 ### *Como Decompor?*
-Identificar/coletar os dados    =>    Agregar os dados    =>    Funcionalidade    =>    Decomposição
+**Identificar/coletar os dados    =>    Agregar os dados    =>    Funcionalidade    =>    Decomposição**
 <pre>
 Exemplos de Decomposição:
 
@@ -75,7 +75,7 @@ DIREITA  ESQUERDA   CIMA       BAIXO           MOVER PERNA  IMPULSIONAR
 >Referência / - Assento
 ></pre>
 ### *Como Reconhecer Padrões Dentro do Contexto?*
- Através das similaridades e diferenças.
+ *Através das similaridades e diferenças.*
 
 >Exemplo: Fotos de redes sociais (técnica de compressão e armazenamento):
 > - Foto > Compressão > Salvo no BD = Processo de Armazenamento Padrão Utilizado por Diferentes Redes Sociais
@@ -92,8 +92,8 @@ Compressão de Dados:
 [/] = 2
 [*] = 3
 </pre>
-*Por Que Determinar Padrões?*<br/>
- Generalizar com objetivo de obter resolução para problemas diferentes.
+### *Por Que Determinar Padrões?*
+ *Generalizar com objetivo de obter resolução para problemas diferentes.*
 <pre>
  _______________________________________________________________
 |                                                               |
@@ -109,8 +109,8 @@ Compressão de Dados:
 - **Classe**<br/>É uma subdivisão mais específica de uma categoria. No exemplo anterior, a categoria "aves" pode ser subdividida em: "aquáticas", "terrestres" e "voadoras".
 
 ### *Como Detectar e Determinar Padrões?*
-**- Grau de Similaridades**<br/>
-**- Grupos Conhecidos e Grupos Desconhecidos**
+*- Grau de Similaridades*<br/>
+*- Grupos Conhecidos e Grupos Desconhecidos*
 
 ### *Como o Computador Reconhece Padrões?*
 **Por comparação**: Se ele não possui a informação não será capaz de realizar a comparação.
@@ -159,9 +159,9 @@ de um determinado objeto                            mundo das ideias            
  Na lógica, é a operação intelectual que consiste em reunir numa classe geral, um conjunto de seres ou fenômenos similares.
 
 ### *Como Classificar os Dados?*
-**- Características**<br/>
-**- Pontos Essenciais**<br/>
-**- Generalizar x Detalhar**
+*- Características*<br/>
+*- Pontos Essenciais*<br/>
+*- Generalizar x Detalhar*
 <pre>
 Representação dos Dados:
 
@@ -548,7 +548,7 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
 >
 >indice:
 >          /               m   n                           m   n
->vetores  ❮  notas_aluno1 [1 | 1] = 10   |   notas_aluno2 [2 | 1] = 9
+>vetores ❮  notas_aluno1 [1 | 1] = 10   |   notas_aluno2 [2 | 1] = 9
 >          \ notas_aluno1 [1 | 2] =  5   |   notas_aluno2 [2 | 2] = 3
 >
 >Dados das notas dos alunos:
@@ -556,8 +556,8 @@ linhas • • • | • • •     \   - coleção de variáveis/vetores
 >      ⌐---------------------------- N ----------------------------¬
 >     /  ALUNO   1º TRIMESTRE   2º TRIMESTRE   3º TRIMESTRE   MÉDIA
 >    /  RAPHAEL       9.5            9.9            9.3        9.5
->M ❮    DÉBORAH       9.5            9.5            9.9        9.6
->    \   DIEGO        9.3            9.3             9         9.2
+>M ❮   DÉBORAH       9.5            9.5            9.9        9.6
+>    \  DIEGO        9.3            9.3             9         9.2
 >     \ FÁTIMA         9              9              9          9
 ></pre>
 
@@ -1036,7 +1036,7 @@ programa{
 </pre>
 
 ### FUNÇÕES
- "Subalgoritmo", "bloco", "método", "função", "subprograma", "subrotina"... São instruções que realizam tarefas específicas, são trechos de códigos com instruções/objetivos específicos que podem ser chamadas dentro do código principal. Ajudam na decomposição e modularização do algoritmo para torná-lo mais legível.
+ *"Subalgoritmo", "bloco", "método", "função", "subprograma", "subrotina"*... São instruções que realizam tarefas específicas, são trechos de códigos com instruções/objetivos específicos que podem ser chamadas dentro do código principal. Ajudam na decomposição e modularização do algoritmo para torná-lo mais legível.
 
 #### Bloco de instruções (códigos), identificado por *nome* e *parâmetros* ("assinatura")
   - *Definição*: Objetivo da função
@@ -1343,7 +1343,7 @@ programa{
   }
 }
 </pre>
- Exemplo prático:<br/>
+ *Exemplo prático:<br/>*
  Uma pessoa tem um orçamento limitado para gastar no mercado, como isso pode ser resolvido de forma simples com algoritmo?
 
 ```Py
