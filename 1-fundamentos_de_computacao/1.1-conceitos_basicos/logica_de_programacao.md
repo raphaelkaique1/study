@@ -280,6 +280,8 @@ Computador             ❯        Precisam ser determinadas as instruções
 * *O que é lógica de programação?*<br/>
  Organização e planejamento das instruções assertivas em um algoritmo a fim de viabilizar a implantação de um programa.
 
+ A lógica é o conhecimento básico necessário para escrever um algoritmo. Ela é a maneira como organizamos nosso raciocínio de forma coerente e eficiente. Por meio da lógica, raciocinamos sobre o problema e pensamos na sequência de passos necessários para resolvê-lo.
+
 ## TÉCNICAS DE LÓGICA DE PROGRAMAÇÃO<br/>Modelos de Desenvolvimento e solução
 
 ### Técnica Linear
@@ -344,7 +346,7 @@ inicializam              processam e tratam
         realiza operações que ⬏
 </pre>
 #### TIPOS DE DADOS
- Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os Tipos de Dados, para criar um padrão de tamanho de variáveis:
+ Um dado pode ser um número, uma letra ou uma palavra que se transforma em informação utilizável quando contextualizadas. Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os Tipos de Dados, para criar um padrão de tamanho de variáveis:
 <pre>
            / Int: -3, -2, -1, 0, 1, 2, 3...
 Numéricos ❮
@@ -1070,6 +1072,11 @@ programa{
 - *Execução de tarefas específicas*
 - *Conjunto de operações que resultam em uma sucessão de finitas ações*
 - **feature = funcionalidades do programa*
+
+São necessárias 3 etapas principais para o desenvolvimento de um programa:
+1. **ANÁLISE**: Primeiramente é necessário estudar o problema, definindo-se bem quais são so dados a serem informados na entrada, como esses dados serão processados e quais são os dados de saída esperados. Depois de processados, os dados de entrada processados são apresentados ao usuário por meio dos dispositivos de saída. Essas informações são importantes para que o objetivo do programa seja bem definido.
+2. **ALGORITMO**: Após a análise e a identificação dos dados de entrada e saída, escreve-se o algoritmo, que, basicamente, é o passo-a-passo da resolução do problema em questão. Na construção do algoritmo, utilizamos a lógica.
+3. **CODIFICAÇÃO**: Nessa fase, o algoritmo criado deve ser codificado em uma linguagem de programação. A escolha da linguagem de programação depende do conhecimento do desenvolvedor, do tipo de aplicativo que vai ser desenvolvido ou até mesmo do local em que o aplicativo vai ser executado (na internet sem necessidade de download, ou instalado).
 <pre>
 -> Análise
 - Estudo e definição dos
@@ -1130,6 +1137,11 @@ features:
 </pre>
 
 ### CONSTRUÇÃO DE ALGORITMOS
+Para criar um algoritmo, podemos utilizar diferentes representações, sejam elas textuais ou gráficas. A escolha pela forma de representação depende do nível de detalhamento que se quer dar ao algoritmo.
+1. **DESCRIÇÃO NARRATIVA**: É a forma mais simples de representar um algoritmo. Os passos executados são descritos em linguagem natural. Essa representação, no entanto, não é muito utilizada porque a linguagem natural pode dar oportunidade a interpretações incorretas, ambiguidades e imprecisão. Por não se ter regras, limites e nem um padrão bem definido, algumas pessoas são capazes de detalhar bem os passos, outras pessoas não.
+2. **FLUXOGRAMA**: Utiliza símbolos de formas geométricas padronizadas com significados bem definidos para representar os diferentes passos a serem executados, também chamados de *comandos*. O fluxograma possibilita uma representação mais precisa, detalhada e menos abstrata que a descrição narrativa.
+3. **PSEUDOCÓDIGO**: Aqui se tem a padronização do fluxograma e a facilidade de texto da descrição narrativa, criando algoritmos estruturados. Consiste em uma representação textual simplificada de um algoritmo, utilizando uma linguagem intermediária entre a linguagem natural e uma linguagem de programação. No pseudocódigo, são utilizados comandos e estruturas lógicas semelhantes às encontradas em linguagens de programação, mas sem a necessidade de respeitar a sintaxe rigorosa dessas linguagens. Essa abordagem permite que o algoritmo seja entendido de forma clara e padronizada, facilitando sua implementação posterior em uma linguagem de programação.
+
 <pre>
                        / - Sem conceitos novos
 Narrativa             ❮  - Utilização de linguagem natural em forma de texto estruturado
@@ -1153,7 +1165,7 @@ Estrutura e símbolos:
      / \   -> ESTRUTURA DE DECISÃO
      \ /
     __↓__
-   |_____|  -> AÇÃO / RESULTADO DA DECISÃO / OPERAÇÃO
+   |_____|  -> ATRIBUIÇÃO / AÇÃO / RESULTADO DA DECISÃO / OPERAÇÃO
       ↓  ___
 ❮...) ~ |...| -> RESULTADO OPERAÇÃO
          ~~~
