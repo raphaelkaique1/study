@@ -1,12 +1,12 @@
 # PENSAMENTO COMPUTACIONAL
  O pensamento computacional é uma estratégia que permite resolver problemas de forma eficiente, criando soluções genéricas para problemas variados pertencentes a uma mesma classe. Ele refere-se ao processo de pensamento envolvido na expressão de soluções em passos computacionais (algoritmos) que podem ser implementados no computador. De forma geral, é a formulação de passos lógicos para a solução e resolução de problemas computacionais (sistemático e eficiente).
-
+<pre>
 É baseado em 4 pilares:
 1. **Decomposição** > Dividisão⤵
 2. **Padrões**      > Repetição ┬─> GENERALIZAÇÃO
 3. **Abstração**    > Foco      ┘        ↓
 4. **Algoritmos**   > Execução  ->  ESTRUTURAÇÃO
-
+</pre>
 ## 1. DECOMPOSIÇÃO:<br/>Dividir um problema complexo em subproblemas.
  Ação de dividir um problema em partes menores; a ideia é resolver as partes do problema para então obter a resposta do todo. Na computação, quando escrevemos algum software ou código, geralmente dividimos a escrita em partes menores que vão sendo construídas aos poucos.<br/>
  É preciso compreender como executar cada etapa de um pensamento computacional. "Quebrar" o problema é o 1º passo da resolução de problemas: dividir um problema complexo em problemas menores = problemas mais fáceis de se resolver.<br/>
@@ -148,9 +148,9 @@ Identificação dos princípios gerais que criam padrões, mantendo o foco nos a
 - Ação de ignorar os detalhes de uma solução de modo que ela possa ser válida para diversos problemas (generalista).
 - Isolar aspectos relevantes do problema para tratá-los de forma individual (linkando -> decomposição).
 - Na computação, quando pensamos em criar um software, pensamos primeiro no que ele deve ser, deixando os detalhes para depois.
-  - *ABSTRAIR*: Observar, um ou mais elementos, avaliando características e propriedades separadas.
-  - *ABSTRAÇÃO*: É um processo intelectual de isolamento de um objeto da realidade.
-  - *GENERALIZAR*: A partir de um objeto, criar novos objetos relacionados. Tornar geral, mais amplo, mais extenso.
+  - **ABSTRAIR**: Observar, um ou mais elementos, avaliando características e propriedades separadas.
+  - **ABSTRAÇÃO**: É um processo intelectual de isolamento de um objeto da realidade.
+  - **GENERALIZAR**: A partir de um objeto, criar novos objetos relacionados. Tornar geral, mais amplo, mais extenso.
 <pre>
 Pegar os elementos principais           =>          Extrapolá-lo para o          =>            Tornar
 de um determinado objeto                            mundo das ideias                           geral
