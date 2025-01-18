@@ -7,10 +7,10 @@ print("Hello world!\n")
 """
 
 def school_grades():
-    range = int(input(f"Total de notas: "))
-    iterable = 0; counter = 1; grades = [None] * range
+    size = int(input(f"Total de notas: "))
+    iterable = 0; counter = 1; grades = [None] * size
 
-    while iterable < range:
+    for iterable in range(size):
         grade = float(input(f"Digite a {counter}ª nota: "))
         grades[iterable] = grade
         iterable += 1
