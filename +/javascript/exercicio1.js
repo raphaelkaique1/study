@@ -43,7 +43,7 @@ let moedas = 100, item = "full", xp = (moedas >= 100 && item ==="full") ? 5 : 0
 console.log(xp)
 
 // OR ( || ): fome
-let guloseima = "arroz", estado = "fome", comer = () => {console.log(`Comer? ${(guloseima === "bolo" || estado === "fome") ? "sim" : "não"}`)}
+let guloseima = "arroz", estado = "fome", comer = () => console.log(`Comer? ${(guloseima === "bolo" || estado === "fome") ? "sim" : "não"}`)
 comer();
 
 // NOT ( !, !! ): clima e tempo

@@ -1,28 +1,29 @@
 // função com parâmetro e retorno
-let Name = (person = "Convidado") => {/*console.log(`Olá ${person}, seja bem-vindo!`);*/ return person;}
+//let Name = (person = "Convidado") => {/*console.log(`Olá ${person}, seja bem-vindo!`);*/ return person;}
+let Name = (person = "Convidado") => person
 console.log(`Olá ${Name("Raphael")}, seja bem-vindo!`);
 
 // torradeira
 function torrar(ciclo, tipo_de_pao) {
     for(let i = 1; i <= ciclo; i++) {
-        console.log(`torrando ${tipo_de_pao}`)
+        console.log(`torrando ${tipo_de_pao}`);
     }
 }
 
 function ejetar() {
-    return "pão ejetado"
+    return "pão ejetado";
 }
 
 function torradeira(entrada, tempo) {
-    torrar(tempo, entrada)
+    torrar(tempo, entrada);
     if(tempo <= 0) {
         console.log(`informe um tempo`)
     } else if(tempo <= 3) {
-        console.log(`${entrada} não virou torrada, ${ejetar()}.`)
+        console.log(`${entrada} não virou torrada, ${ejetar()}.`);
     } else if (tempo > 10) {
-        console.log(`${entrada} tostou, ${ejetar()}.`)
+        console.log(`${entrada} tostou, ${ejetar()}.`);
     } else {
-        console.log(`torrada de ${entrada} pronta, ${ejetar()}.`)
+        console.log(`torrada de ${entrada} pronta, ${ejetar()}.`);
     }
 }
 
@@ -54,5 +55,5 @@ createStringConnection("db_users", "Raphael", "FullStackDev");
 // let userName = getFirstName("Raphael Kaíque Dias Santos");
 // console.log(`Olá ${userName}.`);
 // ou
-const userName = (fullName, splitChar = " ") => {return firtsName = fullName.split(splitChar)[0]}
+const userName = (fullName, splitChar = " ") => firtsName = fullName.split(splitChar)[0];
 console.log(`Olá ${userName("Raphael-Kaíque", "-")}.`);
