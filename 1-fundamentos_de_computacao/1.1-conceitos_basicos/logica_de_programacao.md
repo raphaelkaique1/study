@@ -350,7 +350,7 @@ inicializam              processam e tratam
         realiza operações que ⬏
 </pre>
 #### TIPOS DE DADOS
- Um dado pode ser um número, uma letra ou uma palavra que se transforma em informação utilizável quando contextualizadas. Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador precisamos informar o tipo de dado que aquele endereço pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os Tipos de Dados, para criar um padrão de tamanho de variáveis:
+ Dados são qualquer objeto que possa ser manipulado pelo computador, um dado pode ser um número, uma letra ou uma palavra que se transforma em informação utilizável quando contextualizadas. Diferentes tipos de dados de dados são representados de diferentes maneiras pelo computador, por xemplo, um número inteiro não é armazenado internamente da mesma forma que um caracter (embora algumas linguagens de alto nível permitam até certo ponto ignorar a representação interna dos dados). Para algumas linguagens tipadas, é necessário declarar qual o tipo de dado e qual o comportamento que o dado deverá ter (em alguns casos como em sistemas embarcados, deve-se especificar também o tamanho do dado a ser aceito pela variável). Então, em tipos de dados devemos especificar o formato do dado que será armazenado em uma variável, ou seja, numa posição de memória. Assim, ao declararmos uma variável, além do identificador, precisamos informar o tipo de dado que aquele endereço (variável) pode armazenar. O tipo de dado implica também no espaço de memória a ser reservado e ajuda a verificar se o que está sendo armazenado naquela posição é coerente com o que o programador pretendia, pois, em nível de máquina, todos os dados são representados usando uma sequência finita de *bits*. Já se deduz deste fato que nem todos os dados são representáveis em um computador. A definição de um tipo de dado inclui a definição do conjunto de valores permitidos e as operações que podem ser realizadas sobre esses valores. Quando um dado é usado em um programa, seu tipo deve ser determinado para que o tradutor saiba como manuseá-lo e armazená-lo. Dependendo da linguagem, pode ou não ser necessário declarar expressamente o tipo de cada dado no programa. Ou seja, se o programador pretendia armazenar um número mas o usuário digita uma letra, isso é uma incoerência e pode causar erros. Os espaços na memória são diferentes para cada valor, e por isso foram criados os *"Tipos de Dados"*, para criar um padrão de tamanho de variáveis, a *tipagem de dados* refere-se à forma como declaramos os tipos de variáveis. Por exemplo, alguns declaramos como *inteiros*, outros como *strings*, ou *pontos flutuantes*, e assim por diante, e algumas linguagens nem é necessário declarar o tipo por ser de *tipagem dinâmica*, isso quer dizer que diferente da *tipagem forte* presente nas linguagens de *tipagem estática* onde precisamos definir qual o tipo da variável (fazendo com que aquela variável aceite apenas aquele tipo de dado durante toda a execução do programa, não permitindo assim operações entre objetos de diferentes tipos), linguagens com *tipagem fraca* mudam os tipos de dados aceitos pelas variáveis durante a execução do código, dando maior flexibilidade, mas também maior chance de problemas durante a execução do programa. Vejamos quais são os principais *tipos básicos* (ou *primitivos*) de dados presentes nas linguagens:
 <pre>
            / Int: -3, -2, -1, 0, 1, 2, 3...
 Numéricos ❮
@@ -408,7 +408,7 @@ variável = nomeDaVariavel / nome_da_variavel / nome-da-variavel
 ##### TIPAGEM DE COMPORTAMENTO
 
 ###### VARIÁVEL
- Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a **RESERVA DE MEMÓRIA**. *A reserva de memória se dá através da declaração de variáveis*, podemos fazer a analogia da memória do computador com um armário de gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de **IDENTIFICADORES**, *ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta*. Sabemos que os espaços dentro das gavetas são limitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres e/ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de **DECLARAÇÃO DE VARIÁVEIS**. *Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. São como ponteiros (ou "apelidos" que damos) para o caminho até a posição de memória onde nosso valor está guardado.* Em outras palavras, para utilizar/manipular os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,75, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um *"apelido"* que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como idade1 e idade2, em que cada uma ocupa uma posição na memória. No exemplo, idade1 tem o conteúdo igual a *29* e idade2 tem o conteúdo igual a *26*, sendo idade1 e idade2 os identificadores (ou seja, o nome das variáveis) 29 e 26 os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
+ Para utilizar qualquer dado inputado, este precisa ser armazenado na memória do computador, e, para que possamos armazenar este dado, é necessário realizar a **RESERVA DE MEMÓRIA**. *A reserva de memória se dá através da declaração de variáveis*, podemos fazer a analogia da memória do computador com um armário de gavetas, utilizadas para guardar coisas de maneira organizada, por exemplo, podemos utilizar uma gaveta para armazenar roupas íntimas, outra para blusas, outras para calças e assim por diante. Para facilitar a localizaçao, normalmente fazemos uso de **IDENTIFICADORES**, *ou seja, colocamos "etiquetas" para identificar o conteúdo de cada gaveta*. Sabemos que os espaços dentro das gavetas são limitados, portanto, é preciso saber quando a gaveta está cheia. De fato, cada programa que está armazenado na memória do computador ocupa um espaço, a memória do computador é toda endereçada, ou seja, cada byte de memória possui um endereço de modo que se possa controlar quais posições estão livres ou ocupadas, e também para saber o que está armazenado em cada endereço. Esses endereços obedecem à referências em notação binária ou hexadecimal, e seria muito complicado para os programadores utilizarem essas referências, assim, as linguagens de programação permitem que se atribua um nome (ou seja, identificadores), para as posições de memória da máquina. Isso ocorre através do que chamamos de **DECLARAÇÃO DE VARIÁVEIS**. *Em programação, uma variável é um local da memória do computador cujo o conteúdo pode ser modificado. São como ponteiros (ou "apelidos" que damos) para o caminho até a posição de memória onde nosso valor está guardado.* Em outras palavras, para manipular e utilizar os dados em um programa, eles devem ser alocados em variáveis. Por exemplo, se reservarmos memória para armazenar o preço de um produto, num determinado momento o conteúdio pode ser R$ 3,15, em outro momento poderá ser R$ 3,95 e etc. Esse local de memória é de fato o endereço da memória RAM, e é reprentada por um identificador, que é o nome da variável criada (ou seja, um *"apelido"* que daremos para um endereço de memória de acordo com o conteúdo que o nosso programa precisa armazenar), cujo o conteúdo pode-se alterar no decorrer da execução do programa. Por exemplo, se precisamos reservar memória para armazenar a idade de 2 pessoas, podemos por exemplo identificar essas posições como `idade1` e `idade2`, em que cada uma ocupa uma posição na memória. No exemplo, `idade1` tem o conteúdo igual a *29* e `idade2` tem o conteúdo igual a *26*, sendo `idade1` e `idade2` os identificadores (ou seja, o nome das variáveis) *29* e *26* os respectivos conteúdos no atual momento. Lembrando que uma variável só pode assumir 1 valor por vez.
 
 - **Características de variáveis**
   - *Mutáveis*
@@ -424,10 +424,15 @@ variável   \  CONTROLE -> monitorada/vigiada
 </pre>
 
 ###### TIPOS DE VARIÁVEIS
+ O **escopo** (*scope*) de uma variável é o contexto (a área do programa) no qual a variável é visível/acessível (declarada), e portanto pode ser usada. O escopo determina a acessibilidade de nosso código, ou seja, de onde podemos acessar nossas variáveis. Temos dois escopos para as variáveis:
+ - **Global**: Podemos acessá-los de qualquer lugar em nosso código.
+ - **Local**: Podemos acessá-los apenas dentro do escopo em que foram definidos. Normalmente funciona. Eles serão acessíveis de dentro da própria função ou de funções aninhadas em níveis mais altos do que a função anterior. Ou seja, variáveis locais podem ser vistas de dentro para fora, mas nunca de fora para dentro da função.
+
+ A recomendação geral é definir como variáveis locais todas as variáveis que são usadas exclusivamente para executar as tarefas atribuídas a cada função. As variáveis globais são usadas para compartilhar variáveis entre funções de uma maneira simples.
 
 * **var:**
-  - Tem escopo de função, o que significa que a variável é visível apenas dentro da função onde foi declarada.
-  - Pode ser reatribuída e redeclarada dentro do mesmo escopo.
+  - Tipo global, ou seja, é acessada em *"qualquer lugar"* do código.
+  - Pode ser reatribuída e redeclarada.
   - Não respeita o escopo de bloco (por exemplo, dentro de uma instrução `if` ou `for`).
 
 ```JS
@@ -457,7 +462,7 @@ console.log(y); // 10
 ```
 
 ###### CONSTANTE
-Tudo aquilo que é fixo e/ou estável.
+Tudo aquilo que é fixo e estável.
 ><pre>
 >Exemplo: π = 3.14, Φ = 1.618, dobro (valor * 2 = dobro), metade (valor / 2 = metade)
 >                                      var  const  var             var  const  var
@@ -470,11 +475,11 @@ Tudo aquilo que é fixo e/ou estável.
   - No entanto, uma vez atribuída, o valor não pode ser substituído/reatribuído.
 
 ```JS
-const z = 10;
+const Z = 10;
 
-z = 20;
+Z = 20;
 
-console.log(z); // Isso resultaria em erro, pois `const` não permite reatribuição
+console.log(Z); // Isso resultaria em erro, pois `const` não permite reatribuição
 ```
 
 * **define**:
@@ -492,10 +497,10 @@ console.log(z); // Isso resultaria em erro, pois `const` não permite reatribui�
 using namespace std;
 
 // constantes
-#define apresentacao cout << "Primeiro nome: " << nome;
-#define nome "Raphael";
+#define APRESENTACAO cout << "Primeiro nome: " << NOME;
+#define NOME "Raphael";
 
-#define sobrenome "K. Dias Santos";
+#define SOBRENOME "K. Dias Santos";
 const int anoNascimento = 2000;
 
 int main() {
@@ -503,15 +508,14 @@ int main() {
 
   const string sexo = "Masculino";
 
-  apresentacao;
-  cout << "\nSobrenome: " << sobrenome;
+  APRESENTACAO;
+  cout << "\nSobrenome: " << SOBRENOME;
   cout << "\nAno de nascimento: " << anoNascimento;
   cout << "\nSexo: " << sexo;
 }
 ```
 
 ###### VETORES E MATRIZES
-
 <pre>
          ┌──┐
 VARIÁVEL |  |
@@ -573,6 +577,36 @@ string alfabeto[] = {"A", "B", "C", "D", "E"};
 int matriz[3][3];
 string tabela[3][3];
 ```
+
+###### PILHAS (FIRST-IN-LAST-OUT)
+ As pilhas são um tipo abstrato de dados, cujo os elementos vão se agrupando uns sobre os outros:
+<pre>
+┌───┐
+| ↓ |
+├───┤
+| ↓ |
+├───┤
+| 1 |
+└───┘
+</pre>
+ Quando é necessário obter um elemento que esteja na zona central, é necessário desempilhar os elementos acima dele. Sua implementação pode ser realizada por meio de um vetor (ou *array*). Para isso, são utilizados dosi métodos: `push()`, que insere um elemento na posição livre seguinte da pilha, e `pop()` que extrai o último elemento do vetor.
+
+###### FILAS (FIRST-IN-FIRST-OUT)
+ São caracterizadas por permitir a inserção e remoção de elementos livres de maneiras opostas. Os elementos entram na fila pelo "final" e saem da fila pelo "início". Sua implementação também pode ser feita através de um array, usando o método `shift()`, que *retira* o elemento mais ao "final" da fila e "empurra" os demais para "a frente".
+<pre>
+ ┌───┬───┬───┐
+ | → | → | 1 |
+ └───┴───┴───┘
+</pre>
+
+###### LISTAS
+ Podem ser definidas como uma sequência de elementos que tem a particularidade de, um elemento apontar para o próximo elemento, e este para o seguinte, e assim por diante. De tal maneira que percorrer uma lista, é simplesmente ir passando do primeiro elemento, um a um, até o último elemento.<br/>
+ A implementação das listas pode ser feita usando objetos que se conectam uns aos outros, e também podem ser utilizados arrays.
+<pre>→
+ ┌───┐  ┌───┐  ┌───┐  ┌───┐
+ | 1 ├─>| 2 ├─>| 3 ├─>| 4 |
+ └───┘  └───┘  └───┘  └───┘  
+</pre>
 
 ## INSTRUÇÕES
  A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados. Para invocarmos e executar as propriedades de uma instrução, usamos seu nome, o nome de cada instrução é único, e para manter isso, cada linguagem tem sua **PALAVRA RESERVADA**. *Palavra reservada é toda palavra que é feita especialmente para o compilador daquela linguagem e o programador não pode usar ela para outro fim que não o definido pelo compilador (a não ser que seja uma String).*
@@ -1618,11 +1652,25 @@ INTERPRETAÇÃO => Programa fonte executado *"diretamente"*: lê a linha -> trad
 </pre>
 
 #### COMPILAÇÃO
-O script de uma linguagem de programação é traduzido em sua linguagem de máquina equivalente e então um programa executável é obtido. Os tradutores do tipo compilador conertem o código fonte de um programa em código de máquina, gerando um recurso adicional, um arquivo contendo o progama traduzido, que será usado para executar o programa.<br/>
-O programa fonte será convertido, frase por frase, em código de máquina, criando um *programa objeto* ou *código objeto*.<br/>
-Entretanto, para criar o programa final autoexecutável, será necessário um processo adicional: *a ligação (ou montagem) realizado pelo programa assembler, ou "linker"*.<br/>
-O linker é um programa que leva os objetos gerados nas primeiras etapas do processo de compilação e os recursos necessários da biblioteca, remove esses processos e dados que não são necessários e liga o código à biblioteca para aumentar seu tamanho e comprimento.<br/>
-O resultado final será um programa auto-executador que não precisará de nenhuma ferramenta adicional para fazê-lo. Simplesmente solicitamos para *"rodar"* e ele o fará.
+ O script de uma linguagem de programação é traduzido em sua linguagem de máquina equivalente e então um programa executável é obtido. Os tradutores do tipo compilador convertem o código fonte de um programa em código de máquina, gerando um recurso adicional, um arquivo contendo o progama traduzido, que será usado para executar o programa.<br/>
+ O programa fonte será convertido, frase por frase, em código de máquina, criando um *programa objeto* ou *código objeto*. Quem realiza este processo é o *"pré-processador"*, ele se encarrega de incluir arquivos, expandir macros, remover comentários e outras tarefas similares.<br/>
+ Entretanto, para criar o programa final autoexecutável, será necessário um processo adicional: *a ligação (ou montagem) realizado pelo programa assembler, ou "linker"*.<br/>
+ O linker é um programa que constrói o *arquivo executável*; adicionando ao *programa objeto* os cabeçalhos necessários e as funções de biblioteca utilizadas pelo programa, ele leva os *arquivos objetos* gerados nas primeiras etapas do processo de compilação (pelo pré-processador) e os recursos necessários da(s) biblioteca(s), remove os processos e dados que não são necessários e liga o código à biblioteca para aumentar seu tamanho e comprimento. O resultado final será um programa auto-executador que não precisará de nenhuma ferramenta adicional para fazê-lo. Simplesmente solicitamos para *"rodar"* e ele o fará.<br/>
+ *Muitos compiladores, ao invés de gerar código objeto, geram um programa de linguagem assembly que deve então ser convertido em um executável por um programa assembly, executável por meio de um programa de montagem.<br/>
+ **Vantagens**
+ - Rápida execução.
+ - Não há necessidade de transmitir o código fonte.
+ - O código compilado não pode ser "aberto" por outros.
+ - O código compilado é compactado em um único arquivo.
+ - O processo de criação do executável é feito apenas uma vez, tendo um arquivo pronto sempre a disposição para executar o programa.
+ - Linguagens com maior eficiência e poder de controle.
+ **Desvantagens**
+ - O código compilado normalmente ocupa muito espaço em disco, pois incorpora algumas bibliotecas do sistema no próprio código.
+ - O compilador trabalha em todo o programa uma única vez e o leva inteiro como entrada.
+ - A depuração de um programa envolve a recompilação após as mudanças.
+ - O compilador não permite a execução de um programa até que ele esteja completamente livre de erros.
+ - Os erros são relatados depois que o programa inteiro é verificado quanto à sintáctica e outros erros.
+ - Linguagens mais difíceis de depurar.
 <pre>
 C/C++, JAVA:
 ________________        _________        _________________
@@ -1630,7 +1678,7 @@ ________________        _________        _________________
 ----------------        ---------        -----------------
 
 Processo de compilação:
-                                                                                 ANÁLISES
+                                                                                 ANÁLISES - PRÉ-PROCESSADOR
                             ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─┐⤸
 ┌────────┐                  | ┌────────┐     ┌────────┐     ┌────────┐     ┌─────────┐ |
 |PROGRAMA|  -\  [file1.cpp] | |lexycal |  \  | syntax |  \  |semantic|  \  |  code   | |
@@ -1651,7 +1699,7 @@ Processo de compilação:
                                      LIBRARIES                        \/
                                                              > EXECUTION RESULTS <
 </pre>
-##### ANÁLISES DE CÓDIGO
+##### ANÁLISES DE CÓDIGO<br/>PRÉ-PROCESSADOR
 Na fase em que o código fonte está sendo compilado, são feitos 3 tipos de análises:
 1. *Lexical analyzer*
 2. *Syntax analyzer*
@@ -1701,6 +1749,16 @@ __________________        ______
 
 ##### INTERPRETADOR
  O processo de interpretação é mais direto do que o processo de compilação, pois não há necessidade de gerar um código intermediário antes da execução, a interpretação e a execução do programa acontecem em tempo real e independente do sistema operacional utilizado. Em vez disso, o código-fonte é interpretado e executado diretamente pelo interpretador. O código da máquina gerado no momento da tradução não é armazenado para posterior execução mediante solicitação. Portanto, o programa produzido com uma linguagem de programação traduzida por um intérprete sempre precisará do intérprete para poder ser executado. Não há independência entre as fases de tradução e execução. Toda vez que o programa precisar ser executado, o tradutor terá que converter o código fonte em código de máquina (interpretar). Esta característica significa que, como regra geral, os idiomas que utilizam este tipo de tradutor oferecem um desempenho inferior. Por outro lado, eles oferecem um melhor ambiente de programação, depuração e manutenção do que o outro conjunto de tradutores: os compiladores.
+ **Vantagens**
+ - Depuração rápida do código, já que não há  necessidade de recompilar após uma mudança.
+ - Manutenção fácil e rápida do código fonte.
+ - O intérprete executa o programa desde a primeira linha e para a execução somente se encontrar um erro.
+ - O intérprete não gera código de memória intermediário, sendo mais eficientes em termos de memória.
+ **Desvantagens**
+ - O usuário tem acesso ao código e pode copiá-lo ou modificá-lo.
+ - A execução é desacelerada, é necessário uma declaração de cada vez como entrada, já que a interpretação linha por linha é necessária cada vez que o programa é executado.
+ - Um intérprete não gera um código intermediário conhecido como código de máquina.
+ - O erro é relatado quando o primeiro erro é encontrado. O resto do programa permanece sem controle até que o erro seja resolvido.
 <pre>
            ANÁLISE LÉXICA E SINTÁTICA                                        EXECUÇÃO
                       |                                                         |
