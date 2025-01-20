@@ -183,7 +183,7 @@ Representação dos Dados:
 --------------------------------------------------------------------------------
 </pre>
 ## 4. ALGORITMO
- Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo a passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Então podemos dizer que, um algoritmo é um conjunto de regras e procedimento lógicos perfeitamente definidos, que levam a solução de um problema em um número finito de etapas. Na computação, quando escrevemos um código, descrevemos o passo-a-passo lógico que o computador deve fazer para realizar uma tarefa ou atividade. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
+ Segundo o dicionário, algoritmos são uma série fixa de tarefas, ações ou raciocínios que, realizados passo-a-passo, levam a determinado resultado pretendido. Tecnicamente falando, é uma sequência finita e não ambígua de instruções computáveis que, aplicadas a um conjunto de dados, conduzem à solução de um problema e/ou permitem realizar certa tarefa. De forma prática, é a ação de pensar na solução de um problema a partir de uma sequência finita de passos. Então podemos dizer que, um algoritmo é um conjunto de regras e procedimento lógicos perfeitamente definidos, que levam a solução de um problema em um número finito de etapas. Na computação, quando escrevemos um código, descrevemos o passo-a-passo lógico que o computador deve fazer para realizar uma tarefa ou atividade. Um programa é basicamente uma sequência de instruções/comandos que são dadas ao computador para efetuar alguma tarefa, ou seja resolver um problema. Programa = Algoritmo = Sistema.<br/>
  **Automatizar: Definir passo-a-passo da execução da tarefa.*
 <pre>
 Ciclo de Processamento:
@@ -1588,9 +1588,9 @@ resultado = 10 / 0 # divisão inválida
 
 #### GRAU DE ABSTRAÇÃO
  Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
- 1. **Baixo Nível**: Possui símbolos que representam o código de máquina propriamente.
- 2. **Médio Nível**: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador.
- 3. **Alto Nível**: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam transformados em linguagem de máquina.
+ 1. **Baixo Nível**: Possui símbolos que representam o código de máquina propriamente. Sua concepção é menos flexível, ou seja, a torna mais específica ao tipo de arquitetura para que foi escrita para tirar o máximo de proveito dos componentes do hardware, não sendo possível (ou tão facilmente) migrada e executada em outros sistemas além do qual foi criada.
+ 2. **Médio Nível**: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador. Ou seja, são linguagens muito próximas da linguagem natural, mas com um poder de acesso ao kernel maior do que linguagens propriamente de nível mais alto, por serem "interpretadas" para linguagens de baixo nível. Permitindo operações de alto nível enquanto fazem a gestão local da arquitetura do hardware do sistema.
+ 3. **Alto Nível**: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam transformados em linguagem de máquina. Tratam-se de linguagens com propósitos universais, são executadas em plataformas (não diretamente pelo hardware do sistema) o que permite maior flexibilidade de uso pois seus comandos são intepretados para que possam ser executados por qualquer sistema.
 <pre>
                                               LINGUAGEM QUE O
                     --------------         COMPUTADOR ENTENDE
@@ -1736,11 +1736,11 @@ Dada uma função arrow ES2015 por exemplo:
  Cada paradigma foi criado para atender uma necessidade, cada um apresneta maiores vantagens sobre os outros dentro do desenvolvimento de determinado sistema, alguns propõe evoluções a outros e todos têm aplicabilidade possibilitando que desenvolvedores(as) codifiquem programas que resolvam algum problema. Cada paradigma oferece técnicas apropriadas para uma aplicação específica.<br/>
  É uma forma de resolução de problemas com diretrizes e limitações específicas de cada paradigma utilizando linguagem de programação. São eles:
 <pre>
-- DECLARATIVO   |   - LÓGICO                   |   - COMPUTAÇÃO CONCORRENTE
-- FUNCIONAL     |   - MATEMÁTICO               |   - PROGRAMAÇÃO DE BANCO DE DADOS
-- IMPERATIVO    |   - REATIVO                  |   - PROGRAMAÇÃO ORIENTADO A ASPECTOS
-- ESTRUTURADO   |   - COMPUTAÇÃO PARALELA      |   - PROGRAMAÇÃO ORIENTADA A EVENTOS
-- PROCEDURAL    |   - COMPUTAÇÃO DISTRIBUÍDA   |   - PROGRAMAÇÃO ORIENTADA A OBJETOS
+- IMPERATIVO    |   - LÓGICO                   |   - COMPUTAÇÃO CONCORRENTE
+- DECLARATIVO   |   - REATIVO                  |   - PROGRAMAÇÃO DE BANCO DE DADOS
+- ESTRUTURADO   |   - MATEMÁTICO               |   - PROGRAMAÇÃO ORIENTADO A ASPECTOS
+- PROCEDURAL    |   - COMPUTAÇÃO PARALELA      |   - PROGRAMAÇÃO ORIENTADA A EVENTOS
+- FUNCIONAL     |   - COMPUTAÇÃO DISTRIBUÍDA   |   - PROGRAMAÇÃO ORIENTADA A OBJETOS
 </pre>
  Escolhido(s) o(s) paradigma(s) de desenvolvimento adequado(s) ao projeto, isso permitirá que sejam desenvolvidas aplicações com grande produtividade. Haverá unicidade na orientação de escrita do código entre a equipe, tornando-o mais legível e promovento facilidade na manutação e melhoria(s) ao longo da sua existência. Além disso, manter o mesmo paradigma determinará o objetivo dos desenvolvedores sobre a composição da estrutura e execução do sistema. Isso permite que as técnicas adequadas sejam utilizadas no projeto em questão. É essencial manter essa metodologia durante todo o trabalho para que funcione adequadamente, seja de fácil leitura/entendimento e manuntenção.<br/>
  Para exemplificar os paradigmas, é utilizado no decorrer do tema um exemplo bastante simples.<br/>
@@ -1765,8 +1765,27 @@ print(even_numbers)
  No script acima o código IMPERATIVO está ESTRUTURADO e o DECLARATIVO é FUNCIONAL. A diferença entre eles não está apenas na quantidade de código escrito, mas nas intenções expressadas em cada instrução.<br/>
  Programar está associado a conhecer as possíveis formas de enviar instruções ao computador, logo compreender cada paradigma facilita o aprendizado de qualquer linguagem, a ponto de torná-las menos importantes.
 
+#### IMPERATIVO
+ O paradigma imperativo é um dos mais antigos paradigmas da programação. É um paradigma menos flexível, por conta da sequencialidade em que são construídas suas instruções. Softwares que seguem este paradigma são programados por meio de ordens condionais e blocos de comandos (para os quais as respostas das condições devem voltar uma vez que a instrução tenha sido realizada). Está intimamente relacionado com a arquitetura da máquina. O foco principal desse paradigma é em *"como"* atingir um objetivo.<br/>
+ Um programa imperativo é semelhante às ordens expressas pelo modo imperativo nas línguas naturais. O paradigma imperativo determina que as intruções passadas ao computador devem especificar o passo-a-passo das ações que serão executadas. Tais ações mudam o estado do programa através do uso de variáveis que ficam armazenadas em memória, até chegar a um resultado esperado. O foco do paradigma está em determinar o *"como"* deve ser feito.<br/>
+ A programação imperativa permitiu uma codificação menos focada no código de máquina, o que também abriu as portas para a implementação de programas mais elaborados e menos dependentes do hardware.<br/>
+ Nesse tipo de construção, as instruções devem ser passadas ao computador na sequência em que devem ser executadas. Ou seja, o desenvolvedor deve passar o roteiro dos procedimentos que a máquina irá executar. Nesse caso a solução do problema depende de alguma metodologia que descreva a experiência e a ordem a ser seguida pelo usuário ao executar o programa.<br/>
+ Esse tipo de programação é recomendada em projetos nos quais não se espera que haja mudanças significativas ao longo do tempo (programa estático), quando se tratar de uma operação complexa *- em que os diferentes estados da aplicação necessitem de visualização explícita*, ou quando não existirem muitos elementos compartilhados.<br/>
+ O paradigma consiste em várias instruções e, após a execução de todas, o resultado é armazenado ou exibido. Por exemplo, se você deseja exibir a frase `Olá, <nome do usuário>!` na tela, como o programa deve fazer isso?<br/>
+ Através das seguintes etapas:
+- solicitar o nome do usuário
+- guardar o nome do usuário
+- exibir o resultado esperado, isto é, a frase: "Olá, &lt;nome do usuário&gt;!"
+
+##### DERIVAÇÕES PI
+ A programação imperativa é dividida em 4 grandes categorias:
+ 1. *ESTRUTURADO*
+ 2. *PROCEDURAL*
+ 3. *COMPUTAÇÃO PARALELA*
+ 4. *PROGRAMAÇÃO ORIENTADA A OBJETOS*
+
 #### DECLARATIVO
- O paradigma declarativo determina que as instruções passadas ao computador devem especificar a sequência lógica e o resultado esperado, sem determinar o fluxo de controle. O foco está em determinar *"o quê"* precisa ser resolvido, o que é um contraste a programação imperativa que determina *"o como"*.<br/>
+ O paradigma declarativo surgiu como uma abstração para simplificar a programação e permitir que os desenvolvedores se concentrem no problema, delegando a implementação de baixo nível para o sistema. Ele determina que as instruções passadas ao computador devem especificar a sequência lógica e o resultado esperado, sem determinar o fluxo de controle. O foco está em determinar *"o quê"* precisa ser resolvido, o que é um contraste a programação imperativa que determina *"o como"*.<br/>
  Historicamente o paradigma declarativo tem menos destaque do que o imperativo, porém ainda assim, possui algumas linguagens famosas baseadas no seu conceito, cita-se algumas como: SQL, HTML, JavaScript, Erlang e LISP.<br/>
  Continuando com os exemplos anteriores, mas transportando o cenário para uma modelagem de dados relacional, vamos considerar uma tabela NUMBERS a qual contém registros de 1 a 100.<br/>
  A necessidade é obter a soma dos números pares entre 1 e 10.<br/>
@@ -1784,16 +1803,106 @@ print(even_numbers)
 
  Em linguagens como SQL e HTML, são comuns as situações apresentadas. Para estes casos, o indicado é ter atenção a como o paradigma declarativo trabalha. Normalmente uma linguagem declarativa possibilitará o recebimento de parâmetros, os quais podem ser utilizados, mas sem que haja lógica imperativa na resolução. Toda lógica imperativa deve ser executada antes da execução do código declarativo, e este deve apenas saber trabalhar com os parâmetros recebidos.<br/>
  Atualmente o paradigma declarativo tem ganho destaque através do uso de um outro paradigma que deriva dele, o funcional, o qual dá mais poder para desenvolvedores, inclusive evitando a inadequada mistura de declarativo e imperativo.<br/>
- Como vimos, a programação declarativa é um paradigma de programação no qual é importante especificar o problema e o resultado esperado de sua solução. Ou seja, em contraste com o paradigma imperativo, onde é necessário responder à pergunta **"COMO FAZER ISSO?"**, você precisa fazer as perguntas **"O QUE PRECISA SER FEITO?"** e **"QUAL SERÁ O RESULTADO DO TRABALHO?"**. Portanto, em vez de fornecer instruções passo a passo, você diz ao sistema o que precisa no resultado e deixa que ele encontre uma solução.
+ Como vimos, a programação declarativa é um paradigma de programação no qual é importante especificar o problema e o resultado esperado de sua solução. Ou seja, em contraste com o paradigma imperativo, onde é necessário responder à pergunta **"COMO FAZER ISSO?"**, você precisa fazer as perguntas **"O QUE PRECISA SER FEITO?"** e **"QUAL SERÁ O RESULTADO DO TRABALHO?"**. Portanto, em vez de fornecer instruções passo-a-passo, você diz ao sistema o que precisa no resultado e deixa que ele encontre uma solução.
 
 ##### DERIVAÇÕES PD
  A programação declarativa é dividida em 3 grandes tipos de paradigmas:
  1. *FUNCIONAL*
  2. *LÓGICO*
- 3. *PROGRAMAÇÃO DE BANCO DE DADOS*
+ 3. *REATIVO*
+ 4. *PROGRAMAÇÃO DE BANCO DE DADOS*
+
+#### ESTRUTURADO
+ Simplificadamente, este paradigma é a construção de uma estrutura de blocos aninhados. O paradigma estruturado determina que as instruções passadas ao computador podem ser formadas por 3 estruturas, sendo:
+ 1. *SEQUÊNCIA*: as instruções são codificadas na sequência a serem executadas.
+ 2. *CONDIÇÃO*: um bloco de código só é executado se uma condição for verdadeira (`if`-`else`, `switch case`).
+ 3. *REPETIÇÃO*: um trecho de código pode ser executado repetidas vezes (`for`, `while`, recursividade).
+
+ Vamos ao exemplo da necessidade de somar números pares de um determinado intervalo e apresentar o resultado. A programação estruturada permite maior dinamismo ao software, desta forma é possível coletar os dados e não ficar preso a um conjunto estático.
+
+```Python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+summation_even_numbers = 0
+
+for number in numbers:
+  if (number % 2 == 0):
+    summation_even_numbers += number
+
+print(summation_even_numbers) # 30
+```
+ O código acima ainda atua sobre um conjunto estático de dados, o que fixa a execução para o intervalo de 1 a 10.
+
+ Já o código abaixo amplia a capacidade do software e permite que agora ele seja aplicado a qualquer conjunto de números informados na execução. O que mostra a importância do paradigma estruturado para a evolução no desenvolvimento de software.
+```Python
+input = input("Digite os números no formato: 1,2,3...\n> ")
+
+numbers = [int(numeric) for numeric in input.split(",")]
+summation_even_numbers = 0
+
+for number in numbers:
+  if (number % 2 == 0):
+    summation_even_numbers += number
+
+print("\n", summation_even_numbers)
+```
+
+ Destaca-se também neste paradigma a capacidade de modularização ou criação de subrotinas. Este paradigma se popularizou por propor uma forma de raciocínio intuitivo, onde há legibilidade e compreensão de cada bloco de código e também por de certa forma, em época, se opor ao uso de GOTO. A programação estruturada dominou a forma de programar até a década de 90, sendo desbancada com a popularização da POO, porém ela ainda é bastante indicada para pessoas que estão aprendendo programação por ser uma forma simples de programar.<br/>
+ Muitos softwares ainda possuem sua codificação seguindo o paradigma estruturado, o que não caracteriza ser uma boa ou má codificação, porém normalmente não condizem com as intenções dos desenvolvedores. Isso porque muitas vezes estes creem estar usando paradigmas como PROCEDURAL ou POO, mas o código continua seguindo o modelo ESTRUTURADO.<br/>
+ Exemplos:
+ - grandes blocos de código estruturado fazendo muitas coisas distintas em um único método.
+ - rotinas completas encapsuladas em classes mas que não representam um objeto de fato.
+ - classes/métodos com múltiplas responsabilidades, onde o que determina o código a ser executado ainda são as condicionais e repetições, muitas vezes utilizadas em excesso.
+
+ O problema com relação aos pontos citados está em que muitos times de desenvolvimento não conseguem distinguir a diferença entre o uso ESTRUTURADO, PROCEDURAL e POO, o que na prática leva a implementação de baixa qualidade com códigos confusos e de alto custo de manutenção. A programação estruturada é útil e aplicável, porém, seu uso sem considerar paradigmas complementares pode contribuir para códigos de baixa legibilidade.
+
+#### PROCEDURAL
+ O paradigma procedural, determina que as instruções a serem passadas ao computador podem ser agrupadas em procedimentos (equiparável a métodos, funções e rotinas). Os procedimentos podem ser invocados durante a execução do software e visam a reutilização do código em pontos diferentes do mesmo, já que eles devem suportar a especificação de argumentos, variáveis locais, chamadas recursivas, dentre outros.<br/>
+ Este paradigma é baseado no conceito de chamadas de procedimento, as instruções são estruturadas em procedimentos também conhecidos como sub-rotinas ou funções. Estes procedimentos são uma lista de instruções para dizer ao computador o que fazer passo-a-passo. Em outras palavras, o computador pega os dados de entrada e os processa sequencialmente em chamadas sucessivas e procedimentos separados (ideia de sequência), lembrando-se de cada nova alteração. O paradigma procedural é excelente para programação de uso geral. Neste paradigma, o programador descreve um passo-a-passo detalhado do que deve ser cumprido pela máquina. Vários tipos de linguagem de programação suportam este tipo de paradigma, como Cobol, Fortran, Pascal, C, Java, C++, Kotlin, Python, PHP, JavaScript e ColdFusion.<br/>
+ Em continuidade ao exemplo de código estruturado, a necessidade agora é fazer a soma dos números pares e ímpares de um determinado intervalo, e apresentar o resultado. A programação estrutural permite o uso de procedimentos, desta forma fica mais fácil reaproveitar lógica e código.
+
+```Python
+def convert_to_numbers(string_numbers):
+  numbers = [int(numeric) for numeric in string_numbers.split(",")]
+  return numbers
+
+def sum_numbers(numbers):
+  summation_numbers = 0
+
+  for number in numbers:
+    summation_numbers += number
+
+  return summation_numbers
+
+def sum_even_numbers(numbers):
+  even_numbers = []
+
+  for number in numbers:
+    if number % 2 == 0:
+      even_numbers.append(number)
+
+  return sum_numbers(even_numbers)
+
+def sum_odd_numbers(numbers):
+  odd_numbers = []
+
+  for number in numbers:
+    if number % 2 != 0:
+      odd_numbers.append(number)
+
+  return sum_numbers(odd_numbers)
+
+input_str = input("\nDigite os números no formato: 1,2,3...\n> ")
+numbers_list = convert_to_numbers(input_str)
+
+print("\nSoma números pares: ", sum_even_numbers(numbers_list))
+print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
+```
+
+ Com mais requisitos a serem atendidos, o código começa a ficar extenso, o que mostra a importância do paradigma procedural para possibilitar o reaproveitamento e organização do código.<br/>
+ Com o surgimento da POO, muitos times de desenvolvimento marginalizam de certa forma o uso puro de procedimentos, porém esse paradigma ainda é bastante aplicável mediante necessidades mais simples que não requerem uma modelagem mais complexa no código. Em soluções corporativas, as quais normalmente possuem times de desenvolvimento grandes, o uso massivo de programação procedural geralmente leva a códigos de difícil manutenção e evolução, o que não é necessariamente exclusividade ou culpa deste paradigma, e sim o pouco cuidado ou conhecimento de desenvolvedores. O fato é que para cenários mais complexos, outros paradigmas oferecem mais recursos para contribuir com a organização e qualidade do código.
 
 #### FUNCIONAL
- O paradigma funcional é um dos poucos derivados da programação declarativa, onde suas instruções baseadas em funções tem como objetivo declarar ao computador o resultado esperado, e não o passo a passo para a construção deste resultado como nos demais paradigmas derivados da programação imperativa. Essa forma de compor o código traz duas características que a tornam bastante diferente das demais, que são a imutabilidade e por consequência a não mudança de estado do software.<br/>
+ Suas instruções baseadas em funções tem como objetivo declarar ao computador o resultado esperado, e não o passo-a-passo para a construção deste resultado como nos demais paradigmas derivados da programação imperativa. Essa forma de compor o código traz duas características que a tornam bastante diferente das demais, que são a imutabilidade e por consequência a não mudança de estado do software.<br/>
  Uma função é um bloco de código que realiza uma tarefa específica e pode ser invocado várias vezes.<br/>
  Este é um paradigma de programação no qual o processo de computação é interpretado como a computação dos valores das funções. A função neste caso é semelhante a uma função matemática, ou seja, uma função na qual a entrada é um array que não é alterado e a saída é um novo array com novos dados. Isso torna uma função matemática diferente de uma função na programação procedural, onde a função é uma sequência de ações que alteram os dados originais.<br/>
  Aqui está um exemplos simples: você pode ter uma função que recebe uma lista de números como entrada e retorna uma nova lista com os quadrados desses números. Isso não altera a lista original de números.<br/>
@@ -1827,7 +1936,6 @@ print("Soma números primos: ", sum(filter_prime_numbers(numbers)))
  Assim como os demais paradigmas, qualquer problema pode ser resolvido com o paradigma funcional. O desafio para aqueles que desejam trabalhar com funcional puro, está em compreendê-lo a ponto de utilizar os mecanismos adequados para lidar com a composição de lógicas e estruturas de dados, de forma que não contenham códigos amarrados ao modelo imperativo e estruturado de programar.
 
 ##### LAMBDA (TERNÁRIO)
-
  Os seguintes termos são usados de forma intercambiável, dependendo da linguagem de programação usada: função anônima, funções anônimas, funções lambda, notações lambda, expressão lambda, expressões lambda, abstração lambda, abstrações lambda, forma lambda e literais de função.<br/>
  Expressões lambda diferem das funções comuns por serem declaradas de maneira diferente, sem definirmos nome para criarmos elas, utilizamos a palavra-chave lambda para definí-las. Uma função anônima é uma função sem um nome associado, em vez de definir uma função usando a palavra-chave `def` (em Python, por exemplo), você pode criar uma função inline usando a sintaxe lambda: `lambda argumentos: expressão`<br/>
  O cálculo lambda trata funções como cidadãos de primeira classe. Isto significa que as funções podem ser utilizadas como argumentos e retornadas como valores de outras funções.<br/>
@@ -1841,6 +1949,7 @@ print("Soma números primos: ", sum(filter_prime_numbers(numbers)))
  Uma função lambda (ou anônima) é uma pequena função que você pode definir inline e usar onde for necessário sem atribuir um nome a ela. É como uma receita de bolo que você pode usar uma única vez, sem precisar guardá-la na sua coleção de receitas.
 
  Exemplo prático: voltando ao exemplo dos quadrados, queremos uma função para dobrar um número. Normalmente, você escreveria algo assim em Python:
+
 ```Python
 def dobrar(numero):
     return numero * 2
@@ -1926,7 +2035,6 @@ print(palavra_anterior(sentenca, 'Roma')) # Rei
  A ideia de tratar funções como valores e passar funções como dados nos permite combinar funções com outras funções para criar novas funções com novos comportamentos. Essas funções possuem lógica semelhante, mas a diferença são as funções dos operadores. Se pudermos tratar funções como valores e passá-los como argumentos, podemos construir uma função que receba a função do operador e usá-la dentro da nossa função.
 
 ##### ARROW (TERNÁRIO)
-
  O JavaScript por exemplo, tem a habilidade HOF que dá suporte para uso da programação funcional. De certa forma podemos dizer que o Self-Invoking Function é uma Higher-Order Function; Higher-Order Functions são funções que recebem ou retornam outras: uma HOF é uma função que pode receber outras funções como argumentos e/ou retornar uma função como resultado. Em resumo, as HOFs tratam as funções como valores de primeira classe.<br/>
  Arrow functions no JavaScript são uma forma concisa de escrever funções, introduzidas no ES6 (ECMAScript). Elas são uma alternativa mais simples e mais curta às funções tradicionais, além de comportarem-se de maneira diferente em relação ao `this`.<br/>
  A sintaxe básica de uma arrow function é a seguinte:
@@ -2056,116 +2164,6 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  ```
  Neste exemplo, as funções são tratadas como valores de primeira classe, Isso demonstra a flexibilidade proporcionada por valores de primeira classe. As arrow functions oferecem uma maneira mais compacta e expressiva de escrever funções em JavaScript, além de modificar o comportamento do`this`, o que pode ser útil para evitar problemas em certos contextos, como dentro de callbacks e funções assíncronas.
 
-#### IMPERATIVO
- O paradigma imperativo é um dos mais antigos paradigmas da programação. Está intimamente relacionado com a arquitetura da máquina. Um programa imperativo é semelhante às ordens expressas pelo modo imperativo nas línguas naturais. É uma sequência de instruções que o processador deve executar passo a passo. O foco principal desse paradigma é em *"como"* atingir um objetivo.<br/>
- O paradigma imperativo determina que as intruções passadas ao computador devem especificar o passo a passo das ações que serão executadas. Tais ações mudam o estado do programa através do uso de variáveis que ficam armazenadas em memória, até chegar a um resultado esperado. O foco do paradigma está em determinar o *"como"* deve ser feito.<br/>
- A programação imperativa permitiu uma codificação menos focada no código de máquina, o que também abriu as portas para a implementação de programas mais elaborados e menos dependentes do hardware.<br/>
- Nesse tipo de construção, as instruções devem ser passadas ao computador na sequência em que devem ser executadas. Ou seja, o desenvolvedor deve passar passo a passo dos procedimentos que a máquina irá executar. Nesse caso a solução do problema depende de alguma metodologia que descreva a experiência e o passo a passo a ser seguido pelo usuário ao executar o programa.<br/>
- Esse tipo de programação é recomendada em projetos nos quais não se espera que haja mudanças significativas ao longo do tempo (programa estático), quando se tratar de uma operação complexa *- em que os diferentes estados da aplicação necessitem de visualização explícita*, ou quando não existirem muitos elementos compartilhados.<br/>
- Esse paradigma tem a vantagem de ser eficiente e de permitir uma modelagem tal qual o mundo real, além de ser bem estabelecido e bastante flexível. Por outro lado, o código fonte é de difícil legibilidade.<br/>
- Muitas linguagens famosas baseiam-se no paradigma imperativo, destacando-se algumas como: Cobol, Fortran, Pascal, C#, C, C++, Java, PHP, Python e Ruby.<br/>
- O paradigma consiste em várias instruções e, após a execução de todas, o resultado é armazenado ou exibido. Por exemplo, se você deseja exibir a frase `Olá, <nome do usuário>!` na tela, como o programa deve fazer isso?<br/>
- Através das seguintes etapas:
-- solicitar o nome do usuário
-- guardar o nome do usuário
-- exibir o resultado esperado, isto é, a frase: "Olá, &lt;nome do usuário&gt;!"
-
-##### DERIVAÇÕES PI
- A programação imperativa é dividida em 4 grandes categorias:
- 1. *ESTRUTURADO*
- 2. *PROCEDURAL*
- 3. *COMPUTAÇÃO PARALELA*
- 4. *PROGRAMAÇÃO ORIENTADA A OBJETOS*
-
-#### ESTRUTURADO
- Simplificadamente, este paradigma é a construção de uma estrutura de blocos aninhados. O paradigma estruturado determina que as instruções passadas ao computador podem ser formadas por 3 estruturas, sendo:
- 1. *SEQUÊNCIA*: as instruções são codificadas na sequência a serem executadas.
- 2. *CONDIÇÃO*: um bloco de código só é executado se uma condição for verdadeira (`if`-`else`, `switch case`).
- 3. *REPETIÇÃO*: um trecho de código pode ser executado repetidas vezes (`for`, `while`, recursividade).
-
- Vamos ao exemplo da necessidade de somar números pares de um determinado intervalo e apresentar o resultado. A programação estruturada permite maior dinamismo ao software, desta forma é possível coletar os dados e não ficar preso a um conjunto estático.
-
-```Python
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-summation_even_numbers = 0
-
-for number in numbers:
-  if (number % 2 == 0):
-    summation_even_numbers += number
-
-print(summation_even_numbers) # 30
-```
- O código acima ainda atua sobre um conjunto estático de dados, o que fixa a execução para o intervalo de 1 a 10.
-
- Já o código abaixo amplia a capacidade do software e permite que agora ele seja aplicado a qualquer conjunto de números informados na execução. O que mostra a importância do paradigma estruturado para a evolução no desenvolvimento de software.
-```Python
-input = input("Digite os números no formato: 1,2,3...\n> ")
-
-numbers = [int(numeric) for numeric in input.split(",")]
-summation_even_numbers = 0
-
-for number in numbers:
-  if (number % 2 == 0):
-    summation_even_numbers += number
-
-print("\n", summation_even_numbers)
-```
-
- Destaca-se também neste paradigma a capacidade de modularização ou criação de subrotinas. Este paradigma se popularizou por propor uma forma de raciocínio intuitivo, onde há legibilidade e compreensão de cada bloco de código e também por de certa forma, em época, se opor ao uso de GOTO. A programação estruturada dominou a forma de programar até a década de 90, sendo desbancada com a popularização da POO, porém ela ainda é bastante indicada para pessoas que estão aprendendo programação por ser uma forma simples de programar.<br/>
- Muitos softwares ainda possuem sua codificação seguindo o paradigma estruturado, o que não caracteriza ser uma boa ou má codificação, porém normalmente não condizem com as intenções dos desenvolvedores. Isso porque muitas vezes estes creem estar usando paradigmas como PROCEDURAL ou POO, mas o código continua seguindo o modelo ESTRUTURADO.<br/>
- Exemplos:
- - grandes blocos de código estruturado fazendo muitas coisas distintas em um único método.
- - rotinas completas encapsuladas em classes mas que não representam um objeto de fato.
- - classes/métodos com múltiplas responsabilidades, onde o que determina o código a ser executado ainda são as condicionais e repetições, muitas vezes utilizadas em excesso.
-
- O problema com relação aos pontos citados está em que muitos times de desenvolvimento não conseguem distinguir a diferença entre o uso ESTRUTURADO, PROCEDURAL e POO, o que na prática leva a implementação de baixa qualidade com códigos confusos e de alto custo de manutenção. A programação estruturada é útil e aplicável, porém, seu uso sem considerar paradigmas complementares pode contribuir para códigos de baixa legibilidade.
-
-#### PROCEDURAL
- O paradigma procedural, por vezes usado como sinônimo para o paradigma imperativo, determina que as instruções a serem passadas ao computador podem ser agrupadas em procedimentos (equiparável a métodos, funções e rotinas). Os procedimentos podem ser invocados durante a execução do software e visam a reutilização do código em pontos diferentes do mesmo, já que eles devem suportar a especificação de argumentos, variáveis locais, chamadas recursivas, dentre outros.<br/>
- Este paradigma é baseado no conceito de chamadas de procedimento, as instruções são estruturadas em procedimentos também conhecidos como sub-rotinas ou funções. Estes procedimentos são uma lista de instruções para dizer ao computador o que fazer passo a passo. Em outras palavras, o computador pega os dados de entrada e os processa sequencialmente em chamadas sucessivas e procedimentos separados (ideia de sequência), lembrando-se de cada nova alteração. O paradigma procedural é excelente para programação de uso geral. Neste paradigma, o programador descreve um passo-a-passo detalhado do que deve ser cumprido pela máquina. Vários tipos de linguagem de programação suportam este tipo de paradigma, como Cobol, Fortran, Pascal, C, Java, C++, Kotlin, Python, PHP, JavaScript e ColdFusion.<br/>
- Em continuidade ao exemplo de código estruturado, a necessidade agora é fazer a soma dos números pares e ímpares de um determinado intervalo, e apresentar o resultado. A programação estrutural permite o uso de procedimentos, desta forma fica mais fácil reaproveitar lógica e código.
-
-```Python
-def convert_to_numbers(string_numbers):
-  numbers = [int(numeric) for numeric in string_numbers.split(",")]
-  return numbers
-
-def sum_numbers(numbers):
-  summation_numbers = 0
-
-  for number in numbers:
-    summation_numbers += number
-
-  return summation_numbers
-
-def sum_even_numbers(numbers):
-  even_numbers = []
-
-  for number in numbers:
-    if number % 2 == 0:
-      even_numbers.append(number)
-
-  return sum_numbers(even_numbers)
-
-def sum_odd_numbers(numbers):
-  odd_numbers = []
-
-  for number in numbers:
-    if number % 2 != 0:
-      odd_numbers.append(number)
-
-  return sum_numbers(odd_numbers)
-
-input_str = input("\nDigite os números no formato: 1,2,3...\n> ")
-numbers_list = convert_to_numbers(input_str)
-
-print("\nSoma números pares: ", sum_even_numbers(numbers_list))
-print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
-```
-
- Com mais requisitos a serem atendidos, o código começa a ficar extenso, o que mostra a importância do paradigma procedural para possibilitar o reaproveitamento e organização do código.<br/>
- Com o surgimento da POO, muitos times de desenvolvimento marginalizam de certa forma o uso puro de procedimentos, porém esse paradigma ainda é bastante aplicável mediante necessidades mais simples que não requerem uma modelagem mais complexa no código. Em soluções corporativas, as quais normalmente possuem times de desenvolvimento grandes, o uso massivo de programação procedural geralmente leva a códigos de difícil manutenção e evolução, o que não é necessariamente exclusividade ou culpa deste paradigma, e sim o pouco cuidado ou conhecimento de desenvolvedores. O fato é que para cenários mais complexos, outros paradigmas oferecem mais recursos para contribuir com a organização e qualidade do código.
-
 #### LÓGICO
  O paradigma lógico é um tanto distinto dos demais paradigmas e deriva do declarativo. Fundamentalmente, utiliza formas de lógica simbólica como padrões de entrada e saída. A partir daí realiza inferências para produzir os resultados. A programação lógica é um paradigma de programação fortemente baseado na lógica formal. Qualquer paradigma escrito em uma linguagem de programação lógica é um conjunto de sentenças em uma forma lógica que expressa fatos e regras sobre uma determinada área do problema.
 
@@ -2178,6 +2176,42 @@ print("Soma números ímpares: ", sum_odd_numbers(numbers_list))
  Em geral, a tarefa aqui é encontrar a resposta para a consulta com base em fatos e regras. As principais famílias de linguagens de programação lógica incluem QLISP, Mercury, Prolog, Answer Set Programming (ASP) e Datalog. São utilizadas na solução de problemas que envolvem inteligência artificial, criação de programas especializados e comprovação de teoremas.<br/>
  Para exemplificar bem seu uso, podemos imaginar a tentativa de prova de um dado teorema, na qual são explicitadas algumas premissas e, sendo elas verdadeiras, a conclusão de tal teorema torna-se verdade também.<br/>
  A estrutura consiste em descrever as relações e regras que governam um problema e deixa o computador descobrir a solução usando lógica.
+
+#### REATIVO
+ O paradigma de programação reativo é uma abordagem na qual os sistemas são construídos em torno da ideia de fluxos de dados que podem ser observados e reagidos. Em outras palavras, em vez de lidar apenas com eventos isolados, o foco está na criação de programas que respondem a mudanças de maneira contínua e automática.<br/>
+ A programação reativa é derivada principalmente do paradigma declarativo. No paradigma declarativo, os programas são estruturados em torno da declaração do que deve ser feito, em vez de especificar exatamente como alcançar o resultado desejado. Isso está alinhado com os princípios da programação reativa, onde os desenvolvedores declaram como os componentes do sistema devem reagir a eventos e mudanças de estado, em vez de controlar manualmente o fluxo de execução.<br/>
+ Na programação reativa, os fluxos de dados são declarados e os desenvolvedores definem como reagir a esses fluxos, permitindo uma abordagem mais declarativa para lidar com a comunicação assíncrona e eventos em tempo real. Portanto, embora a programação reativa possa incorporar elementos de outros paradigmas, como o paradigma funcional ou o paradigma orientado a objetos, sua base principal está enraizada no paradigma declarativo.<br/>
+ A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte nativo para programação reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos. Algumas das linguagens comumente usadas que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#, Python, Elm (linguagem de programação funcional pura projetada para criar interfaces de usuário reativas na web. Ele segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update) e enfatiza a imutabilidade e a ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação, incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando observáveis (observables) e operadores (operators) para manipular fluxos de dados).
+
+##### PRINCIPAIS ASPECTOS
+ - *Fluxos de Dados (Streams)*: São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
+ - *Reatividade*: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente sua saída conforme novos eventos ocorrem.
+ - *Assincronicidade*: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída antes de prosseguir.
+ - *Composição Declarativa*: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
+
+ Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados. Neste aplicativo, os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem observar esses fluxos e reagir a eles, atualizando a interface do usuário sempre que novas informações estiverem disponíveis.<br/>
+ Neste exemplo, vamos simular um sistema simples de monitoramento de temperatura, onde os dados de temperatura são gerados aleatoriamente e atualizados continuamente. Vamos observar esses dados e imprimir as atualizações conforme elas ocorrem:
+```Python
+from rx import from_iterable
+import random
+import time
+
+# Função para gerar dados de temperatura aleatórios
+def generate_temperature():
+    while True:
+        yield random.randint(0, 100)
+        time.sleep(1)  # Aguarda 1 segundo antes de gerar o próximo dado
+
+# Cria um fluxo de dados de temperatura
+temperature_stream = from_iterable(generate_temperature())
+
+# Observa o fluxo de dados e imprime as atualizações de temperatura
+subscription = temperature_stream.subscribe(lambda temperature: print("Nova temperatura:", temperature))
+
+# Mantém o programa em execução para observar as atualizações de temperatura
+input("Pressione Enter para encerrar o programa...\n")
+```
+ Neste exemplo, estamos usando a função `generate_temperature()` para gerar dados de temperatura aleatórios continuamente. Em seguida, criamos um fluxo de dados reativo a partir desses dados usando `from_iterable()`. Finalmente, observamos esse fluxo de dados e imprimimos as atualizações de temperatura à medida que elas ocorrem. Execute este código e você verá as atualizações de temperatura sendo impressas no console a cada segundo. Isso demonstra a capacidade de lidar com fluxos de dados em tempo real de forma reativa. Ao entender esses conceitos fundamentais, os desenvolvedores podem criar aplicativos que sejam mais responsivos, dinâmicos e capazes de lidar eficientemente com fluxos de dados em tempo real.
 
 #### MATEMÁTICO
  Derivado do paradigma de programação declarativa, o paradigma de programação matemático é uma abordagem na qual os problemas são formulados e resolvidos usando conceitos e técnicas da matemática. Em outras palavras, é como resolver problemas usando equações e fórmulas matemáticas.<br/>
@@ -2457,42 +2491,6 @@ print("Quantidade ótima de milho (hectares): ", value(modelo.x['Milho']))
  No entanto, algumas linguagens de programação têm recursos embutidos ou bibliotecas especializadas que tornam mais fácil expressar e resolver problemas matemáticos. Aqui estão algumas linguagens de programação comuns que são frequentemente usadas para implementar soluções baseadas em matemática: Matlab (linguagem de programação e ambiente de desenvolvimento voltado para cálculos numéricos e computação técnica. Ele é frequentemente usado em engenharia, matemática aplicada e ciências naturais), GNU Octave (é um ambiente de computação numérica de código aberto, semelhante ao MATLAB. Ele é usado para resolver problemas matemáticos e realizar análises numéricas, modelagem e simulações), Mathematica (é um sistema de álgebra computacional usado em muitas áreas da ciência, engenharia e matemática. Ele fornece uma ampla gama de funcionalidades matemáticas e é frequentemente usado para simulações, visualizações e análises simbólicas), Maple (é outro sistema de álgebra computacional que é usado para uma variedade de tarefas matemáticas, incluindo cálculos simbólicos, numéricos e visualizações. Ele é popular entre os pesquisadores e profissionais que trabalham em matemática, engenharia e ciências aplicadas), SageMath (linguagem de programação e ambiente de software matemático que integra várias bibliotecas e ferramentas de código aberto. Ele fornece uma ampla gama de funcionalidades matemáticas, incluindo álgebra, cálculo, estatística, visualização e muito mais), Maxima (é um sistema de álgebra computacional de código aberto baseado em Lisp. Ele é usado para realizar cálculos simbólicos e numéricos, resolver equações, integrar e diferenciar funções, entre outras operações matemáticas), Scilab (linguagem de programação e ambiente de computação numérica usado para análise de dados, modelagem matemática, simulações e visualizações. Ele oferece uma ampla variedade de funções matemáticas e é frequentemente usado em engenharia e ciências aplicadas), Python, R, Julia, Fortran e C/C++.<br/>
  Portanto, para se tornar proficiente no paradigma de programação matemático, é essencial entender e dominar os conceitos fundamentais da lógica matemática, como lógica proposicional, lógica de predicados e teoria dos modelos, bem como os princípios básicos da lógica combinatória, como permutações, combinações e princípios de contagem. Além disso, é importante familiarizar-se com ferramentas de modelagem e solução, algoritmos de otimização e técnicas de álgebra linear e cálculo diferencial e integral, que são amplamente utilizados na resolução de problemas de programação matemática.
 
-#### REATIVO
- O paradigma de programação reativo é uma abordagem na qual os sistemas são construídos em torno da ideia de fluxos de dados que podem ser observados e reagidos. Em outras palavras, em vez de lidar apenas com eventos isolados, o foco está na criação de programas que respondem a mudanças de maneira contínua e automática.<br/>
- A programação reativa é derivada principalmente do paradigma declarativo. No paradigma declarativo, os programas são estruturados em torno da declaração do que deve ser feito, em vez de especificar exatamente como alcançar o resultado desejado. Isso está alinhado com os princípios da programação reativa, onde os desenvolvedores declaram como os componentes do sistema devem reagir a eventos e mudanças de estado, em vez de controlar manualmente o fluxo de execução.<br/>
- Na programação reativa, os fluxos de dados são declarados e os desenvolvedores definem como reagir a esses fluxos, permitindo uma abordagem mais declarativa para lidar com a comunicação assíncrona e eventos em tempo real. Portanto, embora a programação reativa possa incorporar elementos de outros paradigmas, como o paradigma funcional ou o paradigma orientado a objetos, sua base principal está enraizada no paradigma declarativo.<br/>
- A programação reativa pode ser implementada em várias linguagens de programação. Algumas linguagens têm suporte nativo para programação reativa, enquanto outras podem usar bibliotecas de terceiros para adicionar recursos reativos. Algumas das linguagens comumente usadas que suportam programação reativa são JavaScript, Java, Kotlin, Swift, C#, Python, Elm (linguagem de programação funcional pura projetada para criar interfaces de usuário reativas na web. Ele segue o modelo de arquitetura de atualização de modelo de visão (Model-View-Update) e enfatiza a imutabilidade e a ausência de efeitos colaterais), Elixir, Scala e ReactiveX (API disponível em várias linguagens de programação, incluindo JavaScript, Java, Kotlin, Swift, C#, Python e muitas outras. Permite programação reativa assíncrona usando observáveis (observables) e operadores (operators) para manipular fluxos de dados).
-
-##### PRINCIPAIS ASPECTOS
- - *Fluxos de Dados (Streams)*: São sequências de eventos que ocorrem ao longo do tempo e podem ser observadas por partes do programa.
- - *Reatividade*: Refere-se à capacidade do programa de responder dinamicamente a mudanças nos fluxos de dados, atualizando automaticamente sua saída conforme novos eventos ocorrem.
- - *Assincronicidade*: Permite que o programa execute várias tarefas simultaneamente, sem precisar esperar que uma operação seja concluída antes de prosseguir.
- - *Composição Declarativa*: Os programas reativos são frequentemente expressos de forma declarativa, o que significa que os desenvolvedores definem o que desejam alcançar, em vez de especificar explicitamente como fazê-lo.
-
- Imagine um aplicativo de previsão do tempo que exibe automaticamente atualizações quando os dados são alterados. Neste aplicativo, os dados do clima são transmitidos continuamente como fluxos de dados. Os desenvolvedores podem observar esses fluxos e reagir a eles, atualizando a interface do usuário sempre que novas informações estiverem disponíveis.<br/>
- Neste exemplo, vamos simular um sistema simples de monitoramento de temperatura, onde os dados de temperatura são gerados aleatoriamente e atualizados continuamente. Vamos observar esses dados e imprimir as atualizações conforme elas ocorrem:
-```Python
-from rx import from_iterable
-import random
-import time
-
-# Função para gerar dados de temperatura aleatórios
-def generate_temperature():
-    while True:
-        yield random.randint(0, 100)
-        time.sleep(1)  # Aguarda 1 segundo antes de gerar o próximo dado
-
-# Cria um fluxo de dados de temperatura
-temperature_stream = from_iterable(generate_temperature())
-
-# Observa o fluxo de dados e imprime as atualizações de temperatura
-subscription = temperature_stream.subscribe(lambda temperature: print("Nova temperatura:", temperature))
-
-# Mantém o programa em execução para observar as atualizações de temperatura
-input("Pressione Enter para encerrar o programa...\n")
-```
- Neste exemplo, estamos usando a função `generate_temperature()` para gerar dados de temperatura aleatórios continuamente. Em seguida, criamos um fluxo de dados reativo a partir desses dados usando `from_iterable()`. Finalmente, observamos esse fluxo de dados e imprimimos as atualizações de temperatura à medida que elas ocorrem. Execute este código e você verá as atualizações de temperatura sendo impressas no console a cada segundo. Isso demonstra a capacidade de lidar com fluxos de dados em tempo real de forma reativa. Ao entender esses conceitos fundamentais, os desenvolvedores podem criar aplicativos que sejam mais responsivos, dinâmicos e capazes de lidar eficientemente com fluxos de dados em tempo real.
-
 #### COMPUTAÇÃO PARALELA
  O processamento paralelo é uma técnica que envolve a execução simultânea de múltiplas tarefas computacionais e ajuda a reduzir o tempo de execução da instrução com o objetivo de reduzir o tempo de execução e melhorar o desempenho do sistema. Ele faz isso dividindo um problema em partes menores, compartilhando ou paralelizando instruções entre vários processadores, que são processadas independentemente por diferentes processadores ou núcleos de processamento. O significado da abordagem pode ser resumido em uma frase: *"dividir e conquistar"* onde um problema é dividido em partes menores, que são então resolvidas independentemente e combinadas para produzir a solução final.<br/>
  Ao contrário da computação concorrente, onde as tarefas são alternadas ao longo do tempo, na computação paralela, as tarefas são realmente executadas ao mesmo tempo, semelhante ao paradigma de computação distribuída, com a diferença que a execução simultânea de múltiplas tarefas acontece na mesma máquina usando diferentes processadores ou núcleos de processamento, o que pode levar a um aumento significativo no desempenho e na capacidade de processamento.<br/>
@@ -2643,7 +2641,7 @@ Linguagens que suportam este paradigma:
  - A computação distribuída distribui tarefas entre vários dispositivos ou sistemas de computação em uma rede, permitindo a coordenação e colaboração entre eles.
 
 #### PROGRAMAÇÃO DE BANCO DE DADOS
- A programação de banco de dados é fundamentalmente baseada na manipulação e gerenciamento de dados armazenados em um banco de dados.<br/>
+ Derivado do paradigma declarativo por conta de sua forma de estruturação, a programação de banco de dados é fundamentalmente baseada na manipulação e gerenciamento de dados armazenados em um banco de dados, sendo descrito o resultado esperado, ou seja, "o que fazer" com este dados.<br/>
  Essa metodologia de programação é baseada no trabalho com dados. Os dados são armazenados no banco de dados e as consultas são feitas a esse banco de dados em uma linguagem especial, por exemplo, SQL. Com essas linguagens, você pode acessar os dados para filtragem, transformações, cálculo de estatísticas e assim por diante. As instruções do programa são definidas por dados, em vez de uma série de etapas embutidas em código.<br/>
  O programa de banco de dados é o coração do sistema de informações de negócios, permitindo a criação de arquivos, entrada de dados, atualização, consulta e funções de relatório.
 
