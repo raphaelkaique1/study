@@ -394,6 +394,31 @@ int main() {
 }
 ```
 
+##### ESTRUTURA DE DADOS
+ São as diferentes estruturas utilizadas para representar a informação em um computador. Neste sentido, uma estrutura de dados é uma forma de organizar um conjunto de dados elementares, de forma eficiente, com o objetivo de facilitar seu uso e manipulação.<br/>
+ Vamos pensar em um exemplo de estrutura de dados, se você possui uma livraria e está desenvolvendo uma aplicação para ter um controle do estoque, com uma estrutura de dados eficiente você poderá ter as informações representadas, não apenas de um livro em particular, mas de todos os livros que você tem em um sistema. Desta forma, com estruturas de dados você pode lidar com grandes quantidades de informações de forma otimizada.<br/>
+ Se buscarmos o conceito formal de estrutura de dados, veremos que ele não está muito distante do que já descrevemos: *"uma estrutura de dados é uma coleção de dados que pode ser caracterizada por sua organização e pelas operações que nela são definidas".*<br/>
+ Em conclusão, *estruturas de dados são geralmente baseadas na capacidade do computador de recuperar e armazenar dados em qualquer lugar em sua memória.*
+
+##### ESTRUTURA DE BANCO DE DADOS
+ Antes de entrarmos nos diferentes tipos de estruturas de dados existentes, vejamos a **diferença** *entre uma estrutura de dados e uma estrutura de banco de dados.* Como dissemos antes, quando nos perguntamos *o que é uma estrutura de dados na programação*, especificamos que é **uma forma de organizar um conjunto de dados com o objetivo de facilitar a sua manipulação.**</br>
+ Por outro lado, a **estrutura de um banco de dados** *também é um conjunto de dados, mas com a diferença de que eles pertencem ao mesmo contexto, sendo armazenados  sistematicamente para uso posterior.* Para entender melhor o conceito, vejamos um exemplo, pense em uma biblioteca nos anos 90. Naquele tempo, para encontrar um livro, era preciso procurá-lo em arquivos em uma parede da biblioteca. Ali, dentro de pequenas prateleiras, estavam os arquivos ordenados por ordem alfabética e por assunto. Então, você escreveu o código e o levou ao bibliotecário que, através desses números, pôde encontrar a prateleira onde estava o livro e entregá-lo a você.<br/>
+ Foi o que fizeram os bibliotecários, catalogando livros de forma sistemática para saber onde procurá-los, é o que conhecemos hoje como estrutura de um banco de dados. Por que as estruturas de banco de dados são úteis? Porque, pensando nisso do ponto de vista da programação, atualmente é possível armazenar grandes quantidades de informações de forma segura, bem como acelerar os processos de busca, tornando-os mais eficientes.</br>
+ Pensando nisso a partir da programação da estrutura de dados, poderíamos estabelecer uma outra diferença com relação ao armazenamento. O banco de dados é armazenado na nuvem ou no disco rígido do PC sob a forma de tabelas, onde a estrutura se refere a como essa tabela é composta e como a informação é organizada.</br>
+
+###### TIPOS DE ESTRUTURAS DE DADOS
+ Os tipos de estruturas de dados podem ser oganizados usando 2 tipos diferentes de estruturas:
+ - **ESTRUTURAS ESTÁTICAS DE DADOS**: São aquelas em que o tamanho da memória ocupada é definido durante a escrita do programa e não pode ser alterado durante a execução.
+ - **ESTRUTURAS DINÂMICAS DE DADOS**: Estes não tem as limitações de tamanho da memória ocupada. Ao utilizar um tipo de dados específico, chamado de *ponteiro*, é possível construir estruturas de dados dinâmicas que são suportatadas pela maioria das linguagens.<br/>
+ Ao contrário das estruturas estáticas (que contém um espaço definido para armazenar um número fixo de elementos), uma estrutura de dados dinâmica se modifica e expande durante a execução do programa. podem ser classificados em dois grupos distintos: **estruturas de dados lineares** e **não-lineares**.
+    - **ESTRUTURAS DE DADOS LINEARES**: As estruturas de dados lineares são caracterizadas pelo fato de que seus elementos são colocados lado a lado e relacionados de forma linear. Cada elemento da estrutura pode ser composto por um ou vários sub-elementos ou campos que podem pertecenr à qualquer tipo de dado. Existem 3 tipos de estruturas lineares:
+      1. Pilhas
+      2. Filas
+      3. Listas
+    - **ESTRUTURAS DE DADOS NÃO-LINEARES**: As estruturas de dados não-lineares também são conhecidas como *multi-linked*. Nessas estruturas, cada elemento pode ser ligado a qualquer outro componente. Isso significa que cada elemento pode ter múltiplos sucessores ou múltiplos predecessores. Existem 2 estruturas de dados não-lineares:
+      1. Árvores
+      2. Redes
+
 #### MANIPULAÇÃO DE DADOS
 
 ##### DECLARAÇÃO
@@ -515,6 +540,17 @@ int main() {
 }
 ```
 
+###### OBJETO
+ Em JavaScript, um objeto é uma coleção dinâmica de propriedades, onde cada propriedade é uma associação entre um nome (ou chave) e um valor. Esse valor pode ser uma simples string, um número, um booleano, ou mesmo outra estrutura complexa como um array ou mesmo um outro objeto, permitindo a criação de estruturas de dados aninhadas e complexas.
+```JS
+let pessoa = {
+    nome: "Raphael",
+    profissao: "FullStack",
+    experiencia: 5,
+    stacks: ["JavaScript", "TypeScript"]
+}
+```
+
 ###### VETORES E MATRIZES
 <pre>
          ┌──┐
@@ -578,36 +614,137 @@ int matriz[3][3];
 string tabela[3][3];
 ```
 
-###### PILHAS (FIRST-IN-LAST-OUT)
- As pilhas são um tipo abstrato de dados, cujo os elementos vão se agrupando uns sobre os outros:
+###### PILHAS (LAST-IN, FIRST-OUT)
+ As pilhas são um tipo abstrato de dados, cujo os elementos vão se agrupando uns sobre os outros, a inserção de novos elementos é feita apenas em uma extremidade, que é chamada de *topo*.
 <pre>
 ┌───┐
-| ↓ |
+| ↓ | <- topo
 ├───┤
 | ↓ |
 ├───┤
 | 1 |
 └───┘
 </pre>
- Quando é necessário obter um elemento que esteja na zona central, é necessário desempilhar os elementos acima dele. Sua implementação pode ser realizada por meio de um vetor (ou *array*). Para isso, são utilizados dosi métodos: `push()`, que insere um elemento na posição livre seguinte da pilha, e `pop()` que extrai o último elemento do vetor.
+ Quando é necessário obter um elemento que esteja na zona central, é necessário desempilhar os elementos acima dele. Isto se deve a seu mecanismo LIFO, no qual o último elemento que é colocado na pilha é o primeiro que pode ser retirado. Os elementos são trazidos apenas em uma extremidade, que neste caso seria o topo da pilha. Sua implementação pode ser realizada por meio de um vetor (ou *array*). Para isso, são utilizados dosi métodos: `push()`, que insere um elemento na posição livre seguinte da pilha, e `pop()` que extrai o último elemento do vetor.
 
-###### FILAS (FIRST-IN-FIRST-OUT)
- São caracterizadas por permitir a inserção e remoção de elementos livres de maneiras opostas. Os elementos entram na fila pelo "final" e saem da fila pelo "início". Sua implementação também pode ser feita através de um array, usando o método `shift()`, que *retira* o elemento mais ao "final" da fila e "empurra" os demais para "a frente".
+###### FILAS (FIRST-IN, FIRST-OUT)
+ São caracterizadas por permitir a inserção e remoção de elementos livres de maneiras opostas. Neste caso, as **exclusões** *são feitas no início da linha*, enquanto as
+**inserções** *são feitas na outra extremidade*, ou seja, no final. Os elementos entram na fila pelo "final" e saem da fila pelo "início". Sua implementação também pode ser feita através de um array, usando o método `shift()`, que *retira* o elemento mais ao "final" da fila e "empurra" os demais para "a frente".
 <pre>
  ┌───┬───┬───┐
  | → | → | 1 |
  └───┴───┴───┘
 </pre>
-
+ As filas na estrutura de dados têm um mecanismo conhecido como FIFO. Assim, a diferença com as pilhas está na forma como os dados entram e saem. A utilidade das filas está no armazenamento de dados que precisam ser processados por ordem de chegada.
+ 
 ###### LISTAS
- Podem ser definidas como uma sequência de elementos que tem a particularidade de, um elemento apontar para o próximo elemento, e este para o seguinte, e assim por diante. De tal maneira que percorrer uma lista, é simplesmente ir passando do primeiro elemento, um a um, até o último elemento.<br/>
+ Podem ser definidas como uma sequência de elementos composta de elementos que são colocados um após o outro, que tem a particularidade de um elemento apontar para o próximo elemento, e este para o seguinte, e assim por diante. De tal maneira que percorrer uma lista, é simplesmente ir passando do primeiro elemento, um a um, até o último elemento. Onde cada elemento é conectado ao próximo através de um link contendo a posição do próximo elemento.<br/>
  A implementação das listas pode ser feita usando objetos que se conectam uns aos outros, e também podem ser utilizados arrays.
-<pre>→
+<pre>
  ┌───┐  ┌───┐  ┌───┐  ┌───┐
  | 1 ├─>| 2 ├─>| 3 ├─>| 4 |
  └───┘  └───┘  └───┘  └───┘  
 </pre>
 
+###### ÁRVORES
+ As árvores, na estrutura de dados, são uma estrutura não-linear utilizada para representar dados com uma relação hierárquica na qual cada elemento tem um único ancestral e pode ter vários sucessores. Uma classificação de árvores na estrutura de dados pode ser feita:
+  - **ÁRVORE GERAL**: Cada elemento pode ter um número ilimitado de sub-árvores.
+  - **ÁRVORE BINÁRIA**: Estruturas de dados homogênea, dinâmica e não-linear onde cada elemento pode ser seguido por no máximo 2 nós. Dentro delas podemos encontrar:
+```mermaid
+graph TD
+  tittle(COMPLETA)
+  A --> B
+  A --> C
+  B --> D
+  B --> E
+  C --> F
+  C --> G
+```
+---
+```mermaid
+graph TD
+  tittle(DISTINTAS: Possui uma estrutura diferentes das outras árvores.)
+  A --> B;
+  B --> C
+  B --> D
+  C --> E
+  E --> H
+  E --> I
+  D --> F
+```
+---
+```mermaid
+graph TD
+  A --> B;tittle(SIMILAR: Quando sua estrutura é idêntica à de outras árvores binárias, mas as informações armazenadas nos nós são diferentes umas das outras); ᴋ --> ʟ
+  A --> C; ᴋ --> ᴍ;
+  B --> D; ʟ --> ɴ;
+  B --> E; ʟ --> ᴏ;
+  C --> F; ᴍ --> ᴘ;
+  D --> G; ᴘ --> s;
+  D --> H; ᴘ --> ᴛ;
+  F --> I; ɴ --> ǫ;
+  F --> J; ɴ --> ʀ;
+```
+---
+```mermaid
+graph TD
+  A --> B;tittle(EQUIVALENTE: Quando sua estrutura e informações de seus nós é idêntica à de outras árvores binárias.); ᴀ --> ʙ
+  A --> C; ᴀ --> ᴄ
+  B --> D; ʙ --> ᴅ
+  B --> E; ʙ --> ᴇ
+  C --> F; ᴄ --> ғ
+  D --> G; ᴅ --> ɢ
+  D --> H; ᴅ --> ʜ
+  F --> I; ғ --> ɪ
+  F --> J; ғ --> ᴊ
+```
+---
+```mermaid
+graph TD
+  A --> B; tittle(EQUILIBRADO: As alturas das 2 sub-árvores de cada 1 dos nós é idêntica à de outras árvores binárias.); NÃO-EQUILIBRADO; ᴀ --> ʙ
+  A --> C; ; ᴀ --> ᴄ
+  B --> D; ; ʙ --> ᴅ
+  D --> H; ; ᴅ --> ʜ
+  B --> E; ; ʙ --> ᴇ
+  D --> I; ; ᴅ --> ɪ
+  C --> F; ; ᴄ --> ғ
+  F --> J; ; ᴄ --> ɢ
+  C --> G; ; ɢ --> ᴋ
+  G --> K; ; ɢ --> ʟ
+  G --> L; ; ᴋ --> ᴍ
+  K --> M; ; 
+```
+---
+```mermaid
+graph TD
+  tittle(DEGENERADO: Quando seus nós tem apenas 1 sub-árvore.)
+  A --> C
+  C --> G
+  G --> L
+
+```
+---
+
+###### REDES
+ As redes, em estruturas de dados, são outra estrutura não-linear, assim como as árvores. Seu conceito é: *formalmente, uma rede é um conjunto de pontos - uma estrutura de dados - e um conjunto de linhas, cada uma das quais une um ponto a outro. Os "pontos" são chamados de **nós** (ou vértices) da rede, e as linhas são chamadas de **bordas** (ou arcos)*.<br/>
+ Se nos perguntarmos o que é uma rede e para que serve, podemos dizer que é uma estrutura matemática que nos permite modelar os problemas cotidianos por meio de uma representação gráfica, formada por nós, que exibe as realações entre os diferentes componentes.<br/>
+ Podemos usar como exemplo uma rede social, onde são estabelecidas relações entre pessoas que, por sua vez, geram relações entre elas, interagindo, formando assim uma rede.
+```mermaid
+erDiagram
+    A ||--|{ B : ""
+    A ||--|{ C : ""
+    A ||--|{ D : ""
+    D ||--|{ E : ""
+    B ||--|{ C : ""
+    D ||--|{ B : ""
+    D ||--|{ C : ""
+    C ||--|{ F : ""
+    C ||--|{ G : ""
+    E ||--|{ G : ""
+    G ||--|{ F : ""
+
+```
+---
 ## INSTRUÇÕES
  A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados. Para invocarmos e executar as propriedades de uma instrução, usamos seu nome, o nome de cada instrução é único, e para manter isso, cada linguagem tem sua **PALAVRA RESERVADA**. *Palavra reservada é toda palavra que é feita especialmente para o compilador daquela linguagem e o programador não pode usar ela para outro fim que não o definido pelo compilador (a não ser que seja uma String).*
 <pre>
