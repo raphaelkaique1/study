@@ -1513,7 +1513,7 @@ if __name__ == "__main__":
 ```
 
 ### LINGUAGENS DE PROGRAMAÇÃO
- A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. Ou seja, uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação de um código fonte.
+ Uma linguagem de programação é um sistema com uma estrutura de comunicação semelhante à humana que permite que os dispositivos se entendam e interpretem e executem as instruções do usuário. A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. A programação é um conjunto de instruções ordenadas e sucessivas destinadas a executar uma tarefa específica. Estas instruções são chamadas de "código fonte", que são exclusivas para cada idioma e são projetadas para cumprir uma função específica. As linguagens de programação têm um vocabulário que é regido por um conjunto de regras gramaticais que utilizam uma sintaxe que, neste caso, nos permite dar instruções concretas a uma máquina e para que ela as interprete. A programação é o processo de análise, projeto, implementação, teste e depuração de um algoritmo, a partir de uma linguagem que gera um código fonte executado no computador. Ou seja, uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação de um código fonte. A principal função das linguagens de programação é escrever programas que permitam a comunicação usuário-máquina.
 
 ```C
 #include <stdio.h>
@@ -1587,10 +1587,12 @@ resultado = 10 / 0 # divisão inválida
  - *Polimorfismo*: A capacidade de uma função ou operação atuar sobre diferentes tipos de dados de maneira uniforme, muitas vezes implementada através de generics ou templates.
 
 #### GRAU DE ABSTRAÇÃO
- Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
- 1. **Baixo Nível**: Possui símbolos que representam o código de máquina propriamente. Sua concepção é menos flexível, ou seja, a torna mais específica ao tipo de arquitetura para que foi escrita para tirar o máximo de proveito dos componentes do hardware, não sendo possível (ou tão facilmente) migrada e executada em outros sistemas além do qual foi criada.
- 2. **Médio Nível**: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador. Ou seja, são linguagens muito próximas da linguagem natural, mas com um poder de acesso ao kernel maior do que linguagens propriamente de nível mais alto, por serem "interpretadas" para linguagens de baixo nível. Permitindo operações de alto nível enquanto fazem a gestão local da arquitetura do hardware do sistema.
- 3. **Alto Nível**: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam transformados em linguagem de máquina. Tratam-se de linguagens com propósitos universais, são executadas em plataformas (não diretamente pelo hardware do sistema) o que permite maior flexibilidade de uso pois seus comandos são intepretados para que possam ser executados por qualquer sistema.
+ Uma linguagem de programação pode ser de BAIXO NÍVEL ou de ALTO NÍVEL. Assim como nas linguagens naturais existem seus vocabulários com regras, na linguagem de programação não é diferente, é preciso que exista um termo (comando) que solicite a entrada de dados, outro para solicitar a saída de dados e assim por diante. Assim como as linguagens naturais se diferenciam por idiomas, também são diferenciadas as linguagens de programação, e, dependendo da linguagem escolhida para se criar um programa, ela pode ser muito próxima da linguagem natural, mas isso significa que será necessário traduzi-la para a linguagem compreendida pelo computador. A linguagem de baixo nível (ou linguagem de máquina) é uma linguagem muito próxima da linguagem binária (que é o que o computador entende), linguagens de baixo nível dão maior controle sobre o hardware, por isso, e também pela sua sintáxe complexa e de difícil leitura, torna-se bem complexo o uso de linguagens desse tipo (a depender da tarefa a ser executada). Já as linguagens de alto nível apresentam uma sintáxe mais próxima da linguagem humana, contém palavras reservadas extraídas do vocabulário corrente (geralmente em inglês) e por isso possuem um desenvolvimento de programas mais rápido. Cada linguagem é melhor indicada para cada categoria de problemas específicos, e definimos qual linguagem usar para a resolução do problema em questão através do grau de abstração. O grau de abstração funciona como uma escala para linguagens: quanto mais abaixo, mais próximo da linguagem de máquina, e quanto mais alto, mais próximo está da linguagem humana. Existem 3 tipos de grau de abstração:
+ 1. **Baixo Nível**: Possui símbolos que representam o código de máquina propriamente. Sua concepção é menos flexível, ou seja, a torna mais específica ao tipo de sistema para que foi escrita, é usada para controlar diretamente o hardware do dispositivo para tirar o máximo de proveito dos componentes, não sendo possível (ou tão facilmente) migrada e executada em outros dispositivos além do qual foi originalmente criada, por ser exclusivamente dependente da arquitetura da máquina. Elas só podem comandar as operações primárias para a operação do dispositivo e tendem a ser complexas, razão pela qual são frequentemente utilizados pelos fabricantes de hardware. Com esta linguagem de programação de baixo nível é possível reproduzir áudio e vídeo, exibir imagens, realizar operações matemáticas, seguir o movimento do ponteiro, manipular a memória, e etc. Dentro deste grupo estão:
+    - **1.1 Linguagem de Máquina**: Essa linguagem comanda a máquina para realizar as operações que são fundamentais para seu funcionamento. Consiste na combinação de 0's e 1's para formar os comandos compreensíveis pelo hardware. Este idioma tem uma velocidade de execução muito superior aos idiomas de alto nível.
+    - **1.2 Linguagem de Montagem**: É um derivado da linguagem de máquina e é composto por abreviações de letras e números chamados de *"mnemônicos"* (mnemonics = relativo à memória). Os mnemônicos são instruções simbólicas que representam comandos específicos que o processador pode executar. Eles servem para simplificar a escrita do código em comparação com a utilização direta de números binários ou hexadecimais que o hardware entende. Com o aparecimento desta linguagem, foram criados programas de tradução para converter programas escritos em linguagem de montagem em linguagem de máquina. Uma vantagem sobre o código da máquina é que os códigos-fonte eram mais curtos e os programas criados ocupavam menos memória.
+ 2. **Médio Nível**: Possui símbolos que podem ser diretamente traduzíveis para código de máquina, mas também possui símbolos que precisam ser processados por um compilador. Ou seja, são linguagens muito próximas da linguagem natural, mas com um poder de acesso ao kernel maior do que linguagens propriamente de nível mais alto, por serem  "interpretadas" para linguagens de baixo nível. Permitindo operações de alto nível enquanto fazem a gestão local da arquitetura do hardware do sistema. Eles são necessários  para certas aplicações como a criação de sistemas operacionais, pois permitem um manuseio abstrato (independente da máquina, ao contrário do montador), mas sem perder muito da potência e eficiência das linguagens de baixo nível.
+ 3. **Alto Nível**: Possui símbolos complexos que necessitam da interpretação de um compilador para que sejam transformados em linguagem de máquina. Tratam-se de linguagens com propósitos universais, são executadas em plataformas (não diretamente pelo hardware do sistema) o que permite maior flexibilidade de uso pois seus comandos são intepretados para que possam ser executados por qualquer sistema já que são independentes da arquitetura informática, assim, em princípio, um programa escrito em linguagem de alto nível pode ser migrado de uma máquina para outra sem qualquer problema.
 <pre>
                                               LINGUAGEM QUE O
                     --------------         COMPUTADOR ENTENDE
@@ -1603,7 +1605,8 @@ resultado = 10 / 0 # divisão inválida
                    -----------------
 </pre>
 
-### IMPLEMENTAÇÕES DE LINGUAGEM
+### IMPLEMENTAÇÕES DE LINGUAGEM<br/>TRADUTORES
+São programas especiais (compiladores ou intépretes) que converter instruções escritas em código fonte, para instruções escritas em linguagem de máquina (binário - 0 e 1).
 <pre>
 COMPILAÇÃO   -\   1. Geração do programa objeto
 (TRADUÇÃO)   -/   2. Execução do programa objeto
@@ -1615,6 +1618,10 @@ INTERPRETAÇÃO => Programa fonte executado *"diretamente"*: lê a linha -> trad
 </pre>
 
 #### COMPILAÇÃO
+O script de uma linguagem de programação é traduzido em sua linguagem de máquina equivalente e então um programa executável é obtido. Os tradutores do tipo compilador conertem o código fonte de um programa em código de máquina, gerando um recurso adicional, um arquivo contendo o progama traduzido, que será usado para executar o programa.<br/>
+O programa fonte será convertido, frase por frase, em código de máquina, criando um *programa objeto* ou *código objeto*.<br/>
+Entretanto, para criar o programa final autoexecutável, será necessário um processo adicional: *a ligação (ou montagem) realizado pelo programa assembler, ou "linker"*.<br/>
+O resultado final será um programa auto-executador que não precisará de nenhuma ferramenta adicional para fazê-lo. Simplesmente solicitamos para *"rodar"* e ele o fará.
 <pre>
 C/C++, JAVA:
 ________________        _________        _________________
@@ -1683,7 +1690,7 @@ if(x == 0):                   \ /
  Por causa da lógica errada (uso de operador de atribuição no lugar do operador de comparação) o programa não fez aquilo que é esperado, não sendo possível seguir com a compilação, obrigando o desenvolvedor a debugar antes de seguir com o deploy do projeto.
 
 #### INTERPRETAÇÃO
- Executa diretamente o código fonte conforme a sua estrutura, ou seja, ele lê, traduz e executa o script ao invés de analisar e gerar o programa objeto primeiro, como é feito na compilação.
+ Executa diretamente o código fonte conforme a sua estrutura, ou seja, ele lê, traduz e executa linha a linha do script ao invés de analisar e gerar o programa objeto primeiro, como é feito na compilação.
 <pre>
 JAVASCRIPT, PYTHON:
 __________________        ______
@@ -1692,7 +1699,7 @@ __________________        ______
 </pre>
 
 ##### INTERPRETADOR
- O processo de interpretação é mais direto do que o processo de compilação, pois não há necessidade de gerar um código intermediário antes da execução, a interpretação e a execução do programa acontecem em tempo real e independente do sistema operacional utilizado. Em vez disso, o código-fonte é interpretado e executado diretamente pelo interpretador.
+ O processo de interpretação é mais direto do que o processo de compilação, pois não há necessidade de gerar um código intermediário antes da execução, a interpretação e a execução do programa acontecem em tempo real e independente do sistema operacional utilizado. Em vez disso, o código-fonte é interpretado e executado diretamente pelo interpretador. O código da máquina gerado no momento da tradução não é armazenado para posterior execução mediante solicitação. Portanto, o programa produzido com uma linguagem de programação traduzida por um intérprete sempre precisará do intérprete para poder ser executado. Não há independência entre as fases de tradução e execução. Toda vez que o programa precisar ser executado, o tradutor terá que converter o código fonte em código de máquina (interpretar). Esta característica significa que, como regra geral, os idiomas que utilizam este tipo de tradutor oferecem um desempenho inferior. Por outro lado, eles oferecem um melhor ambiente de programação, depuração e manutenção do que o outro conjunto de tradutores: os compiladores.
 <pre>
            ANÁLISE LÉXICA E SINTÁTICA                                        EXECUÇÃO
                       |                                                         |
@@ -1707,7 +1714,8 @@ __________________        ______
 #### JIT
  Teoricamente, qualquer linguagem pode ser compilada ou interpretada e, por isso, há algumas linguagens que possuem ambas implementações mescladas, processo chamado de *Just in time* (JIT), que veio aperfeiçoar a produção.<br/>
  Com o JIT nós continuamos a interpretar os códigos. Entretanto, nós também iremos compilá-los, mas apenas a parte do código que iremos usar no momento da execução. Isso representa um aumento muito grande de performance. Pois iremos usar o processo de compilação, que já é rápido, e ele será executado em partes isoladas do código, apenas na hora certa (“just in time”).<br/>
- Assim, temos à disposição “o melhor dos dois mundos”: a velocidade da compilação junto da simplicidade de depuração.
+ Assim, temos à disposição “o melhor dos dois mundos”: a velocidade da compilação junto da simplicidade de depuração.<br/>
+ Na linguagem Java, por exemplo, é gerado um recurso de *bytecode*: código pré-compilado que precisa ser interpretado pela *JVM* ou Máquina Virtual Java para ser executado.
 
 #### TRANSPILAÇÃO
  Linguagem de mais alto nível convertida para uma lingaguem mais baixa e então segue o fluxo, temos como exemplo, o TypeScript, que é convertido para JavaScript e então lido pelo Node.JS para ser executado pelo computador.<br/>
@@ -1724,6 +1732,7 @@ Dada uma função arrow ES2015 por exemplo:
     return n * 2;
   });
 ```
+
 ### PARADIGMAS DE PROGRAMAÇÃO
  Toda linguagem é baseada em um paradigma. Há também linguagens baseadas em vários, sendo consideradas nestes casos multiparadigmas. Quase todas as línguas modernas são multiparadigmáticas. Combinam facilmente as capacidades das abordagens imperativa e declarativa.<br/>
  Os paradigmas são modelagens de escrita de código que podem ser aplicados a várias linguagens, desde que estas permitam. É possível ainda aplicar mais de um paradigma a uma mesma solução em uma linguagem previamente escolhida.<br/>
