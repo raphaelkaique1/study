@@ -1598,7 +1598,7 @@ elif total_gasto <= orcamento:
   print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
 ```
 
-**Exemplo criação de programa:**
+**criando um programa:**
 
 **Média Escolar**<br/>
 Uma diretora decide fazer um programa para saber qual a média dos alunos da escola:
@@ -1738,6 +1738,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+###### EXTRA: [aprofundando nos conceitos de desenvolvimento de softwares](https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/segmentacao_da_programacao)
 
 ### LINGUAGENS DE PROGRAMAÇÃO
  Uma linguagem de programação é um sistema com uma estrutura de comunicação semelhante à humana que permite que os dispositivos se entendam e interpretem e executem as instruções do usuário. A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. A programação é um conjunto de instruções ordenadas e sucessivas destinadas a executar uma tarefa específica. Estas instruções são chamadas de "código fonte", que são exclusivas para cada idioma e são projetadas para cumprir uma função específica. As linguagens de programação têm um vocabulário que é regido por um conjunto de regras gramaticais que utilizam uma sintaxe que, neste caso, nos permite dar instruções concretas a uma máquina e para que ela as interprete. A programação é o processo de análise, projeto, implementação, teste e depuração de um algoritmo, a partir de uma linguagem que gera um código fonte executado no computador. Ou seja, uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação de um código fonte. A principal função das linguagens de programação é escrever programas que permitam a comunicação usuário-máquina.
