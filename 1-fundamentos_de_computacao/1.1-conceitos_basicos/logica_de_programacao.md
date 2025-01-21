@@ -729,22 +729,8 @@ graph TD
  As redes, em estruturas de dados, são outra estrutura não-linear, assim como as árvores. Seu conceito é: *formalmente, uma rede é um conjunto de pontos - uma estrutura de dados - e um conjunto de linhas, cada uma das quais une um ponto a outro. Os "pontos" são chamados de **nós** (ou vértices) da rede, e as linhas são chamadas de **bordas** (ou arcos)*.<br/>
  Se nos perguntarmos o que é uma rede e para que serve, podemos dizer que é uma estrutura matemática que nos permite modelar os problemas cotidianos por meio de uma representação gráfica, formada por nós, que exibe as realações entre os diferentes componentes.<br/>
  Podemos usar como exemplo uma rede social, onde são estabelecidas relações entre pessoas que, por sua vez, geram relações entre elas, interagindo, formando assim uma rede.
-```mermaid
-erDiagram
-    A ||--|{ B : ""
-    A ||--|{ C : ""
-    A ||--|{ D : ""
-    D ||--|{ E : ""
-    B ||--|{ C : ""
-    D ||--|{ B : ""
-    D ||--|{ C : ""
-    C ||--|{ F : ""
-    C ||--|{ G : ""
-    E ||--|{ G : ""
-    G ||--|{ F : ""
+![Image](https://github.com/user-attachments/assets/ebad1734-7ec7-48f6-8866-6bd27f6241f9)
 
-```
----
 ## INSTRUÇÕES
  A instrução irá executar um tipo de ação pré-determinada para manipular o dado. Aprofundando, instruções são como palavras-chave (vocabulário) de uma determinada linguagem de programação que tem como finalidade comandar os recursos do computador que irá executar ações/tarefas manipulando e tratando dados. Para invocarmos e executar as propriedades de uma instrução, usamos seu nome, o nome de cada instrução é único, e para manter isso, cada linguagem tem sua **PALAVRA RESERVADA**. *Palavra reservada é toda palavra que é feita especialmente para o compilador daquela linguagem e o programador não pode usar ela para outro fim que não o definido pelo compilador (a não ser que seja uma String).*
 <pre>
