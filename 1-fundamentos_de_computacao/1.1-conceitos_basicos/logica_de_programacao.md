@@ -631,9 +631,9 @@ string tabela[3][3];
  São caracterizadas por permitir a inserção e remoção de elementos livres de maneiras opostas. Neste caso, as **exclusões** *são feitas no início da linha*, enquanto as
 **inserções** *são feitas na outra extremidade*, ou seja, no final. Os elementos entram na fila pelo "final" e saem da fila pelo "início". Sua implementação também pode ser feita através de um array, usando o método `shift()`, que *retira* o elemento mais ao "final" da fila e "empurra" os demais para "a frente".
 <pre>
- ┌───┬───┬───┐
- | → | → | 1 |
- └───┴───┴───┘
+ in ┌───┬───┬───┐ out
+  → | → | → | 1 |  →
+    └───┴───┴───┘
 </pre>
  As filas na estrutura de dados têm um mecanismo conhecido como FIFO. Assim, a diferença com as pilhas está na forma como os dados entram e saem. A utilidade das filas está no armazenamento de dados que precisam ser processados por ordem de chegada.
  
