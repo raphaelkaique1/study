@@ -1284,10 +1284,25 @@ programa{
 </pre>
 
 ## DESENVOLVIMENTO DE PROGRAMAS
-- *Sequência de passos com o objetivo definido*
-- *Execução de tarefas específicas*
-- *Conjunto de operações que resultam em uma sucessão de finitas ações*
-- **feature = funcionalidades do programa*
+Ao desenvolver um programa, podemos nos fazer perguntas como:
+
+- *O programa segue uma programação modular?*
+- *Ele tem uma estrutura básica ou é caótico?*
+- *Os procedimentos e funções estão bem desenvolvidos?*
+
+A principal razão para usar um computador é para resolver problemas (no sentido geral), ou, em outras palavras, processar informações para obter um resultado a partir de dados de entrada. Durante a história dos computados, a forma como os computadores são programados sofreu grandes mudanças. A pesquisa teórica levou a um conjunto de princípios que formam o conhecimento central de uma metologia de programação. Isso consiste em obter *programas de qualidade*. Durante o desenvolvimento de programas, devemos seguir algumas boas práticas básicas:
+
+- *Estruturas com sequência de passos tendo o objetivo bem definido.*
+- *Funções que executam tarefas específicas.*
+- *Simplicidade no conjunto de operações que resultam em uma sucessão de finitas ações.*
+
+Tendo em mente que um programa ao longo da sua vida é escrito apenas uma vez, mas lido, analisado e modificado muitas vezes, é de grande importância adotar técnicas apropriadas de projeto e desenvolvimento. Isso pode ser avaliado no código por meio de diferentes características:
+
+- **A corretude** do programa; critério indispensável, no sentido de que queremos obter programas coerentes que resolvam os problemas para os quais foram projetados.
+- **A compreensibilidade** do código; que inclui legibilidade e boa documentação, características que permitem maior facilidade e conveniência na manutenção dos programas;
+- **A eficiência** da metodologia aplicada para a construção; que expressa os requisitos de memória e tempo de execução do programa.
+- **A flexibilidade** na verificação e tratamento de exceções; a capacidade do programa de se adaptar às variações do problema inicial.
+- **A transportabilidade** no uso do software; que é a possibilidade de usar o mesmo programa em sistemas diferentes sem fazer mudanças significativas em sua estrutura.
 
 São necessárias 3 etapas principais para o desenvolvimento de um programa:
 1. **ANÁLISE**: Primeiramente é necessário estudar o problema, definindo-se bem quais são so dados a serem informados na entrada, como esses dados serão processados e quais são os dados de saída esperados. Depois de processados, os dados de entrada processados são apresentados ao usuário por meio dos dispositivos de saída. Essas informações são importantes para que o objetivo do programa seja bem definido.
