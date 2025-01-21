@@ -845,7 +845,13 @@ programa{
 }
 </pre>
 
+## ESTRUTURAS DE CONTROLE
+ São parte fundamental de qualquer linguagem. Sem elas, as instruções de um programa só poderiam ser executadas na ordem em que são escritas (ordem sequencial). As estruturas de controle permitem que esta ordem seja modificada. Há 2 categorias de estruturas de controle:
+ 1. **CONDICIONAL**
+ 2. **LOOPS**
+
 ### ESTRUTURAS CONDICIONAIS E SEUS OPERADORES
+ Permitem que diferentes conjuntos de instruções sejam executados, dependo se uma determinada condição é verdadeira ou não. Em termos de programação, se uma condição é ou não verificada, se traduz em uma *expressão lógica*, tomando o valor *VERDADEIRO* (true) ou *FALSO* (false). Nos casos mais simples, a condição é geralmente uma comparação entre 2 dados, tais como: se **a < b** faz uma coisa, do contrário fará outra coisa.
   - *CONDIÇÃO* = ESTADO DE UM OBJETO
   - *CONDICIONAL* = EXPRESSA UMA CONDIÇÃO
 <pre>
@@ -860,6 +866,7 @@ Exemplo de estrutura condicional:
                       (END)
 </pre>
 #### TIPOS DE ESTRUTURAS CONDICIONAIS
+ Podemos definir estruturas condicionais como: *instruções a serem seguidas em caso afirmativo*. Observe que, em ambos os casos (quer a condição seja ou não verificada), os *"caminhos bifurcados"* são posteriormenteunidos em um ponto, ou seja, o fluxo do programa recupera seu caráter sequencial e continua a ser executado.
 <pre>
  SIMPLES                COMPOSTA                      ENCADEADA
 [CONDIÇÃO]             [CONDIÇÃO] ➝ [EXCEÇÃO]        [CONDIÇÃO] ⬎
@@ -868,11 +875,14 @@ Exemplo de estrutura condicional:
                                                                 [EXCEÇÃO]
 
 >>>>> CONDICIONAL SIMPLES
+É o tipo mais simples de estrutura condicional. É utilizada para implementar ações condicionais do tipo:
+- Se uma determinada condição for cumprida, executar uma série de instruções e, em seguida, proceder.
+- Se a condição não for cumprida, não execute as instruções.
 [CONDIÇÃO]                            (START)                 programa{
     ↓                                    ↓                      funcao inicio(){
 [OPERAÇÃO]                            /A, B/                      logico condicao = verdadeiro
                                          ↓                        se(condicao == verdadeiro){
-                                   [X <- A + B]                     escreva("CONCIONAL SIMPLES")
+                                   [X <- A + B]                     escreva("CONDICIONAL SIMPLES")
                                          ↓                        }
                                  N ┌-❮X  > 10❯-┐ S              }
                                    |           |              }
@@ -882,6 +892,10 @@ Exemplo de estrutura condicional:
                                        (END)
 
 >>>>> CONDICIONAL COMPOSTA
+Este tipo de estrutura permite a implementação de condicionantes nos quais existem 2 alternativas. Em outras palavras,
+neste tipo de estrutura há uma escolha: o programa fará uma coisa ou outra:
+- Se uma determinada condição for verificada, executar uma série de instruções (bloco 1).
+- Se a condição não for cumprida, executar outro conjunto de instruções (bloco 2).
 [CONDIÇÃO] ➝ [EXCEÇÃO]                (START)                 programa{
     ↓                                    ↓                      funcao inicio(){
 [OPERAÇÃO]                            /A, B/                      inteiro decisao = 0, condicao = 1
@@ -899,6 +913,11 @@ Exemplo de estrutura condicional:
                                        (END)
 
 >>>>> CONDICIONAL ENCADEADA
+Permite a implementação de condições mais complexas, nas quais as condições são encadeadas, verificadas e o fluxo sequencial
+do programa continua da seguinte maneira:
+- Se a condição 1 for verificada, executar as instruções do bloco 1.
+- Se a condição 1 não for verificada, verificar a condição 2, se esta for satisfeita executar as instruções do bloco 2.
+- Caso nenhuma das condições precedentes forem verificadas, executar as intruções do bloco 3.
 [CONDIÇÃO] ⬎                          (START)                 programa{
  ↓         [CONDIÇÃO] ⬎                  ↓                      funcao inicio(){
 [OPERAÇÃO]  |       [OPERAÇÃO]         /A, B/                      inteiro resultado, condicao = 15
@@ -919,7 +938,9 @@ Exemplo de estrutura condicional:
 </pre>
 
 ### ESTRUTURAS DE REPETIÇÃO
- Uma estrutura de repetição irá executar um determinado trecho de um programa a partir dos parâmetros determinados dentro dessa estrutura.
+ Uma estrutura de repetição irá executar um determinado trecho de um programa a partir dos parâmetros determinados dentro dessa estrutura. Elas permitem que um conjunto de instruções seja executado repetidamente, seja um número pré-determinado de vezes, ou até que uma determinada condição seja verificada. Existem 2 tipos de loops, dependendo se sabemos ou não o número de repetições que nosso loops irá fazer:
+ 1. **DETERMINADOS**: `for` - Nos determinados sabemos o número de vezes que a instrução será repetida.
+ 2. **INDETERMINADOS**: `while` & `do-while` - Nos indeterminados, não sabemos ao certo quantas vezes um loop se repetirá, já que será repetido até que se cumpra uma condição, que a priori, não sabemos quando será cumprida.
 <pre>
      ⤺
 trecho de um /  - Controle de fluxo
@@ -934,16 +955,27 @@ CONDIÇÃO DE PARADA ❮              ou
 #### TIPOS DE ESTRUTURAS DE REPETIÇÃO
 <pre>
 1. CONDIÇÃO DA REPETIÇÃO NO INÍCIO
+Permite implementar a repetição do mesmo conjunto de instruções, desde que uma determinada condição seja verificada: o
+nº de vezes qaue o ciclo será repetido não é definido a priori. No início de cada iteração, a expressão lógica é avaliada,
+se o resultado for VERDADEIRO, o conjunto de instruções é executado e iteratiza novamente, ou seja, o passo 1 é repetido.
+Se o resultado for FALSO, a execução do loop é interrompida e o programa continua a ser executado.
 ENQUANTO(CONDIÇÃO NÃO FOR SATISFEITA){
   FAÇA INSTRUÇÕES
 }
 
 2. CONDIÇÃO DA REPETIÇÃO NO FINAL
+Funcionamento semelhante ao WHILE, contudo, ele executa o bloco de instruções ao menos uma vez antes de avaliar a expressão
+lógica, pois essa verificação é feita ao final do loop, após a realização das intruções do bloco. Com isso é importante saber
+implementá-lo, para que o programa não tenha comportamentos inesperados.
 FAÇA{
   REPITA INSTRUÇÕES
 }ATÉ(CONDIÇÃO SER SATISFEITA)
 
-3. ESTRUTURA DE REPETIÇÃO COM NÚMERO DE REPETIÇÃO PRÉ-FIXADA
+3. ESTRUTURA DE REPETIÇÃO COM NÚMERO DE REPETIÇÃO INDEXADA
+Este tipo de estrutura permite implementar a repetição de um determinado conjunto de instrução por um nº pré-determiado
+de vezes. Isto é feito usando uma VARIÁVEL DE CONTROLE DE LAÇO (também chamada de ÍNDICE), que percorre um conjunto
+pré-fixado de valores em determinada ordem. Para cada valor de índice desse conjunto, o mesmo conjunto de instruções
+é executado uma vez.
 PARA(VALOR INICIAL; CONDIÇÃO DE PARADA/FAÇA ATÉ; ITERAÇÃO/ALTERAÇÃO DO VALOR INICIAL ATÉ ATENDER A CONDIÇÃO DE PARADA){
   FAÇA INSTRUÇÕES
 }
@@ -1195,6 +1227,29 @@ programa{
 
 }
 </pre>
+
+##### QUEBRA DE CICLOS DE REPETIÇÃO
+ As vezes é necessário interromper a execução de um ciclo de repetição em algum ponto do bloco de instruções que está sendo repetido. Embora seja desencorajado realizar interrupções dessa maneira ao invés de usar as variáveis de controle, logicamente, seu uso dependerá se alguma condição for verdadeira ou não. A interrupção pode ser feita de 2 maneiras:
+
+ 1. Abandona e sai do ciclo de repitação (`break`);
+ 2. Abandona a atual iteração (*"pula uma repetição"*) e continua a próxima (`continue`).
+
+ Ambos podem ser usados para quebrar qualquer loop. Quando o comando `break` é usado dentro de um loop `for` por exemplo, o *indice* do loop é retém fora do loop seu último valor atribuído.
+
+```JS
+let text = '';
+
+for (let i = 0; i < 20; i++) {
+  if (i === 3) {
+    continue; // output: "012456789" <- skip 3
+  } else if (i > 10) {
+    break; // output: i = 10 <- stop 10
+  }
+  text = text + i;
+}
+
+console.log(`${text} - ${i}`); // output: 012456789 - 10
+```
 
 ### FUNÇÕES
  *"Subalgoritmo", "bloco", "método", "função", "subprograma", "subrotina"*... São instruções que realizam tarefas específicas, são trechos de códigos com instruções/objetivos específicos que podem ser chamadas dentro do código principal. Ajudam na decomposição e modularização do algoritmo para torná-lo mais legível.
