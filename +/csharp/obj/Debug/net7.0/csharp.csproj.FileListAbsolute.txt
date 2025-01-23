@@ -1,0 +1,14 @@
+/home/raphael/Dev/GitHub/study/+/csharp/bin/Debug/net7.0/csharp
+/home/raphael/Dev/GitHub/study/+/csharp/bin/Debug/net7.0/csharp.deps.json
+/home/raphael/Dev/GitHub/study/+/csharp/bin/Debug/net7.0/csharp.runtimeconfig.json
+/home/raphael/Dev/GitHub/study/+/csharp/bin/Debug/net7.0/csharp.dll
+/home/raphael/Dev/GitHub/study/+/csharp/bin/Debug/net7.0/csharp.pdb
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.AssemblyInfoInputs.cache
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.AssemblyInfo.cs
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.csproj.CoreCompileInputs.cache
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.dll
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/refint/csharp.dll
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.pdb
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/csharp.genruntimeconfig.cache
+/home/raphael/Dev/GitHub/study/+/csharp/obj/Debug/net7.0/ref/csharp.dll

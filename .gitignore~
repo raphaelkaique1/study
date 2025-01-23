@@ -9,8 +9,6 @@ BACKUP.alg
 test.alg
 
 # cs build files
-./+/csharp/bin/
-./+/csharp/obj/
-./+/csharp/bin/*
-./+/csharp/obj/*
+/bin*
+/obj*
 *csproj
