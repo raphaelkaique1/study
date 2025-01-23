@@ -3095,6 +3095,48 @@ numericButtons.forEach(button => {
  └───────────────────┘
 </pre>
  Mas então, sobre o ponto de vista da programação, o que é um objeto? O ato de criar um objeto de uma classe é chamado de instanciação. Isso ocorre usando o construtor da classe para alocar memória e inicializar o objeto. Resumindo, uma instância é um novo objeto criado a partir de uma classe. Um objeto é descrito por características (atributos) específicos, comportamentos (métodos) e estado (condição).
+
+###### MÉTODOS COM ESTADO (STATEFUL) x MÉTODOS SEM ESTADO (ESTATELESS)
+ O estado descreve a condição do ambiente de execução em um momento específico no tempo. Conforme o código é executado, os valores são armazenados em variáveis. A qualquer momento durante sua execução, o estado atual do aplicativo é a coleção de todos os valores armazenados na memória.<br/>
+ Alguns métodos não dependem do estado atual do aplicativo para funcionarem, em suma, os *métodos sem estado* são implementados para que possam funcionar sem referenciar ou alterar os valores já armazenados na memória. Os métodos sem estado também são conhecidos como *métodos estáticos (static)*.<br/>
+ Por exemplo, em C#, o método `Console.WriteLine()` não depende de nenhum valor armazenado na memória. Ele executa sua função e termina sem afetar o estado do aplicativo de qualquer forma. Outros métodos contudo, devem ter acesso ao estado do aplicativo para funcionarem. Em outras palavras, os *métodos com estado* são são criados de forma que dependem de valores armazenados na memrória pelas linhas de código anteriormente executadas. Ou eles modificam o estado do aplicativo atualizando valores ou armazenando novos valores na memória. Eles também são conhecidos como *métodos de instância*.<br/>
+ Os métodos com estado *(instância)* controlam seu estado em *campos* (ou *propriedades*), que são variáveis definidas na classe. Cada nova instância da classe tem sua própria cópia desses campos nos quais o estado é armazenado. Uma única classe pode dar suporte a métodos com e sem estado. No entando, quando for necessário chamar métodos com estado, deve-se primeiro criar uma instância da classe para que o método possa ser acessado. Resumidamente, *para utilizar um método sem estado não é obrigatório instanciar um objeto para usá-lo, pois não dependendem de dados armazenados na classe, geralmente são métodos estáticos (ou funções livres) que operam apenas com os parâmetros fornecidos.* Enquanto que, *para usar os métodos com estado, é obrigatório instanciar um objeto, pois os métodos dependem do estado interno da classe (ou seja, dos atributos).* Um método sem estado permite ser chamado diretamente da classe enquanto um método com estado exige que seja criada uma instância.
+
+```JS
+// MÉTODO SEM ESTADO
+class Math {
+    static add(a, b){
+        return a + b
+    }
+}
+console.log(Math.add(5, 10)) // chamar "direto"
+let calc = Math.add(10, 10)  // atribuir numa variável
+console.log(calc)
+
+// MÉTODO COM ESTADO
+class Counter {
+    constructor(count) {
+        this.count = count;
+    }
+
+    increment(){
+        this.count++;
+    }
+
+    getCount() {
+        return this.count;
+    }
+}
+
+const counter = new Counter(0)
+for(let i = 0; i<3; i++) {
+    counter.increment();
+    console.log(counter.getCount())
+}
+```
+###### CRIAR UMA INSTÂNCIA DE CLASSE: INSTANCIANDO UM OBJETO
+ Uma instância de uma classe é chamada de um *objeto*. Para criar uma instância, em algumas linguagens é necessário a utilização do operador `new`. Mas cada linguagem possui sua maneira, vejamos um exemplo no C++:
+
 ```C++
 #include <iostream>
 using namespace std;
@@ -3147,6 +3189,7 @@ int main() {
     return 0;
 }
 ```
+ Ao criarmos um objeto, o código realiza várias ações importantes. Ele (a instanciação) solicita um endereço na memória do computador grande o suficiente para armazenar um novo objeto com base na classe de origem, e, retorna o endereço de memória para que possa ser salvo na variável atribuída. Desse ponto em diante, quando a variável é referenciada, o **Tempo de Execução** (ou equivalentes como **compilador**, **intérprete** e etc) executa uma pesquisa *"nos bastidores"* para que sinta-mos que estamos trabalhando diremente com o próprio objeto.
 
 ##### PILARES
  Os pilares da Programação Orientada a Objetos (POO) são os conceitos fundamentais que orientam a forma como o código é organizado e estruturado em sistemas baseados em objetos. Vejamos melhor sobre os quatro principais pilares da POO são:
