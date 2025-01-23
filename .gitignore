@@ -1,3 +1,21 @@
+# generic
+*~
+
+# cs build files
+./+/csharp/bin/
+./+/csharp/obj/
+./+/csharp/bin/*
+./+/csharp/obj/*
+/csharp/bin/
+/csharp/obj/
+*/csharp/bin/
+*/csharp/obj/
+/csharp/bin/*
+/csharp/obj/*
+*/csharp/bin/*
+*/csharp/obj/*
+*csproj
+
 # temp local backups
 *BACKUP-works.alg
 *BACKUP-work.alg
@@ -7,10 +25,3 @@ BACKUP-works.alg
 BACKUP-work.alg
 BACKUP.alg
 test.alg
-
-# cs build files
-./+/csharp/bin/
-./+/csharp/obj/
-./+/csharp/bin/*
-./+/csharp/obj/*
-*csproj
