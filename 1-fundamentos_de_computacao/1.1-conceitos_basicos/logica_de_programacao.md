@@ -1848,7 +1848,7 @@ INTERPRETAÇÃO => Programa fonte executado *"diretamente"*: lê a linha -> trad
 
 #### COMPILAÇÃO
  O script de uma linguagem de programação é traduzido em sua linguagem de máquina equivalente e então um programa executável é obtido. Os tradutores do tipo compilador convertem o código fonte de um programa em código de máquina, gerando um recurso adicional, um arquivo contendo o progama traduzido, que será usado para executar o programa.<br/>
- O programa fonte será convertido, frase por frase, em código de máquina, criando um *programa objeto* ou *código objeto*. Quem realiza este processo é o *"pré-processador"*, ele se encarrega de incluir arquivos, expandir macros, remover comentários e outras tarefas similares.<br/>
+ O programa fonte será analisado pelo *comutador*, que verifica se ele foi escrito de acordo com as regras da linguagem de programação, em seguida convertido, frase por frase, em código de máquina, criando um *programa objeto* ou *código objeto*. Quem realiza este processo é o *"pré-processador"*, ele se encarrega de incluir arquivos, expandir macros, remover comentários e outras tarefas similares.<br/>
  Entretanto, para criar o programa final autoexecutável, será necessário um processo adicional: *a ligação (ou montagem) realizado pelo programa assembler, ou "linker"*.<br/>
  O linker é um programa que constrói o *arquivo executável*; adicionando ao *programa objeto* os cabeçalhos necessários e as funções de biblioteca utilizadas pelo programa, ele leva os *arquivos objetos* gerados nas primeiras etapas do processo de compilação (pelo pré-processador) e os recursos necessários da(s) biblioteca(s), remove os processos e dados que não são necessários e liga o código à biblioteca para aumentar seu tamanho e comprimento. O resultado final será um programa auto-executador que não precisará de nenhuma ferramenta adicional para fazê-lo. Simplesmente solicitamos para *"rodar"* e ele o fará.<br/>
  *Muitos compiladores, ao invés de gerar código objeto, geram um programa de linguagem assembly que deve então ser convertido em um executável por um programa assembly, executável por meio de um programa de montagem.<br/>
@@ -1873,7 +1873,7 @@ ________________        _________        _________________
 ----------------        ---------        -----------------
 
 Processo de compilação:
-                                                                                 ANÁLISES - PRÉ-PROCESSADOR
+                                                                                 ANÁLISES
                             ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─┐⤸
 ┌────────┐                  | ┌────────┐     ┌────────┐     ┌────────┐     ┌─────────┐ |
 |PROGRAMA|  -\  [file1.cpp] | |lexycal |  \  | syntax |  \  |semantic|  \  |  code   | |
