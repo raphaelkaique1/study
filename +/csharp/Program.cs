@@ -10,26 +10,22 @@ Nesse contexto, o `m` é chamado de SUFIXO LITERAL. Ele informa ao compilador qu
 // declarando variáveis
 string name = "Raphael";
 char middleName = 'R';
-string fullName = name + "Kaíque";
+string fullName = $@"{name}  Kaíque";
 var stack = "Full Stack"; // tipo implícito: o tipo é definido de acordo com o valor atribuído
-int level = 99;
+int level = 95;
 decimal brute = 35950.15M;
 float discounts = 3150.95F;
 double liquid = (double)brute - (double)discounts; // converte temporáriamente o tipo do valor
 bool dev = true;
-string msg = $"user: {name} {middleName} ({fullName}) - stacks: {stack} - level: {level}\nsalary: {brute} - {discounts} = {liquid}";
+bool xp = stack.Contains("Full");
 
-void print(string text) {
-    Console.WriteLine($@"{text}");
-}
-
-
-if(dev != false && middleName == 'R') {
+if(dev != false && fullName.Contains("Raphael")) {
     middleName = 'K';
-    Console.WriteLine(msg);
-    Console.WriteLine($@"C:\system\{name}");
-    Console.WriteLine($@"{level+=5}");
-    Console.WriteLine($@"{++level}");
 
-    print("teste, estou testando a função");
+    string msg = $"user: {name} {middleName} ({fullName}) - stacks: {stack} - level: {level}\nsalary: {brute} - {discounts} = {liquid}";
+
+    Console.WriteLine(msg);
+    Console.WriteLine($@"{xp}\{name}");
+    Console.WriteLine($@"{level+=5}");
+    Console.WriteLine($@"{--level}");
 }
