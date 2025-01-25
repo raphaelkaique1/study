@@ -1,4 +1,6 @@
-﻿Console.Write("raphaelkaique1");   // !line break
+﻿// Console.Out($@"");
+// Console.OutLine($@"\n");
+Console.Write("raphaelkaique1");   // !line break
 Console.Write("\n");
 Console.WriteLine("Hello world!"); // line break
 Console.WriteLine("\u3053\u3093\u3068\u306F");
@@ -29,3 +31,35 @@ if(dev != false && fullName.Contains("Raphael")) {
     Console.WriteLine($@"{level+=5}");
     Console.WriteLine($@"{--level}");
 }
+
+// declarando arrays
+int[] matrix = new int[3]; // cria um array de 3 posições
+int[] alfa = {1, 2, 3}; // cria um array inicializado
+int sum = 0;
+
+// populando os arrays
+for(int i = 0; i < matrix.Length; i++) {
+    // populando array vazio de tamanho fixo
+    matrix[i] = alfa[i];
+}
+
+foreach(var item in matrix) {
+    Console.Write($@"{item} ");
+    sum += item;
+}
+Console.WriteLine($"\nSoma elementos array: {sum}");
+
+// exercício busca
+string[] matriz = {"B123", "C234", "A345", "C151", "B177", "G303", "C235", "B179"};
+List<string> fill = new List<string>();
+
+foreach(var index in matriz) {
+    if(index.StartsWith('B')) {
+        fill.Add(index);
+    }
+}
+
+foreach(var data in fill) {
+    Console.Write($@"{data} ");
+}
+Console.WriteLine($@"({fill.Count})");

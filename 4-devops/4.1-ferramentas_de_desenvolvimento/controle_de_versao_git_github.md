@@ -46,7 +46,7 @@ git checkout <branch_name> # goes to the branch especified
 # repository status
 cd ~/<file_directory>
 git status
-git remote add upstream <original_repository_url> # keeps the local repository up to date with changes from the original remote repository
+git remote add <branch_name> <original_repository_url> # keeps the local repository up to date with changes from the original remote repository
 
 # add file working tree
 ## git add <file_name>.<type_file>
