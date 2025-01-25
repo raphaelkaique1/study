@@ -1598,7 +1598,7 @@ elif total_gasto <= orcamento:
   print("\n\nCOMPRA EFETIVADA", orcamento, "\ntotal: ", total_gasto, "\ntroco: ", orcamento - total_gasto)
 ```
 
-**criando um programa:**
+###### CRIANDO UM PROGRAMA
 
 **Média Escolar**<br/>
 Uma diretora decide fazer um programa para saber qual a média dos alunos da escola:
@@ -1689,7 +1689,7 @@ else:
     print('Reprovado') # Aprovado
 ```
 
-#### Refatoração
+###### REFATORANDO
 <pre>
 programa{
     funcao inicio() {
@@ -1739,7 +1739,12 @@ if __name__ == "__main__":
     main()
 ```
 
-###### EXTRA: [aprofundando nos conceitos de desenvolvimento de softwares](https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/segmentacao_da_programacao.pdf)
+###### EXTRA
+[aprofundando nos conceitos de desenvolvimento de softwares](https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/segmentacao_da_programacao.pdf)
+
+###### MANUTENÇÃO: COMENTÁRIOS E ESTRUTURA DO SCRIPT
+ Os comentários de código são bastante úteis, porém não são confiáveis. Muitas vezes, os desenvolvedores atualizam o código mas esquecem de atualizar os comentários. *Deve-se usar comentários apenas para ideias de nível superior (de alguma forma, padronizados no escopo do projeto) e não adicionar cometários sobre como uma linha de código indivual funciona (pois não explicativos o suficiente - explicam apenas como o código executa as ações óbvias que foram feitos para fazer, mas não explicam o conceito para o qual aquele trecho foi desenvolvido - e "sujam" o código, tornando difícil entender sua lógica de execução)*. Em conjunto, *um código legível é construído declarando nomes de variáveis, funções e afins de forma que seu propósito esteja explícito, quanto mais descritívo, maior a legibilidade do código*, o tornando **auto-comentado**. Além disso, a estrutura de como o script do código é feita no arquivo ajuda em muito aumentar a fluência e o entendimento da lógica do código, mantendo as linhas em contextos semelhantes juntas e adicionando quebras de linha (espaços em branco) para separar blocos e aumentar a "área de campo limpa".<br/>
+ A utilidade de um comentário é subjetiva. Em todos os assuntos relacionados à legibilidade do código, use o bom senso. Faça aquilo que consdierar ser o melhor para aumentar a clareza do código.
 
 ### LINGUAGENS DE PROGRAMAÇÃO
  Uma linguagem de programação é um sistema com uma estrutura de comunicação semelhante à humana que permite que os dispositivos se entendam e interpretem e executem as instruções do usuário. A linguagem de programação é a transformação de uma ideia, estruturada com raciocínio lógico utilizando lógica de programação, para criar um algoritmo, que, através de uma linguagem de programação - que possui seu próprio conjunto de símbolos e comandos - define através de instruções, um programa de computador escrito em código fonte e traduzido para linguagem de máquina, para ser executada por algum equipamento e realizar a tarefa a qual foi designada. A programação é um conjunto de instruções ordenadas e sucessivas destinadas a executar uma tarefa específica. Estas instruções são chamadas de "código fonte", que são exclusivas para cada idioma e são projetadas para cumprir uma função específica. As linguagens de programação têm um vocabulário que é regido por um conjunto de regras gramaticais que utilizam uma sintaxe que, neste caso, nos permite dar instruções concretas a uma máquina e para que ela as interprete. A programação é o processo de análise, projeto, implementação, teste e depuração de um algoritmo, a partir de uma linguagem que gera um código fonte executado no computador. Ou seja, uma linguagem de programação é um método composto por um conjunto de regras sintáticas e semânticas para implementação de um código fonte. A principal função das linguagens de programação é escrever programas que permitam a comunicação usuário-máquina.
