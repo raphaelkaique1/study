@@ -1,15 +1,10 @@
 # ROADMAP
-> https://github.com/Universidade-Livre
-> 
-> https://roadmap.sh/roadmaps
->
-> https://quickref.me/
+- [english 🇺🇸](https://github.com/raphaelkaique1/study/blob/main/0-languages/english/README.md)
+- [TRILHA DE APRENDIZADO](https://roadmap.sh/roadmaps)
+- [CIÊNCIA DA COMPUTAÇÃO](https://github.com/Universidade-Livre)
+- [STACKS](https://quickref.me/)
 
-## STUDY
-
-+ [english 🇺🇸](https://github.com/raphaelkaique1/study/blob/main/0-languages/english/README.md)
-
-## CS/FS/FC
+## COMPUTER SCIENCE: FULL STACK CYCLE
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao">1. Fundamentos de Computação</a>
 ### <a id="conceitos_basicos" href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.1-conceitos_basicos">1.1 Conceitos Básicos</a>
