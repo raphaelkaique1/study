@@ -1,8 +1,8 @@
 # ROADMAP
-- [english 🇺🇸](https://github.com/raphaelkaique1/study/blob/main/0-languages/english/README.md)
-- [TRILHA DE APRENDIZADO](https://roadmap.sh/roadmaps)
-- [CIÊNCIA DA COMPUTAÇÃO](https://github.com/Universidade-Livre)
-- [STACKS](https://quickref.me/)
+- **[ENGLISH](https://github.com/raphaelkaique1/study/blob/main/0-languages/english/README.md)**
+- **[TRILHA DE APRENDIZADO](https://roadmap.sh/roadmaps)**
+- **[CIÊNCIA DA COMPUTAÇÃO](https://github.com/Universidade-Livre)**
+- **[STACKS](https://quickref.me/)**
 
 ## COMPUTER SCIENCE: FULL STACK CYCLE
 

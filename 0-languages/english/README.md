@@ -1,2 +1,2 @@
-- https://app.kultivi.com
-- https://open.spotify.com/show/2xb0LJMV9CDWN5jGVspjkI?si=dadb2105a1a145e2
+- [COURSE](https://app.kultivi.com)
+- [PODCAST](https://open.spotify.com/show/2xb0LJMV9CDWN5jGVspjkI?si=dadb2105a1a145e2)
