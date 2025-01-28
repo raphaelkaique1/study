@@ -7,48 +7,48 @@
 ## COMPUTER SCIENCE: FULL STACK CYCLE
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao">1. Fundamentos de Computação</a>
-### <a id="conceitos_basicos" href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.1-conceitos_basicos">1.1 Conceitos Básicos</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/logica_de_programacao.md">Lógica de Programação</a>**
-  - Estruturas condicionais e de repetição.
-  - Construção de algoritmos simples e complexos.
-  - Manipulação de variáveis, tipos e estruturas de dados.
-  - Resolução de problemas computacionais.
-
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/estruturas_de_dados.md">Estruturas de Dados</a>**
-  - Arrays, listas, filas, pilhas.
-  - Estruturas de dados dinâmicas (árvores, grafos).
-  - Algoritmos de ordenação e busca.
-  - Operações e manipulações em estruturas de dados.
-
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-conceitos_basicos/algoritmos.md">Algoritmos</a>**
-  - Desenvolvimento e análise de algoritmos.
-  - Otimização de algoritmos.
-  - Algoritmos de busca, classificação, ordenação e recursividade.
-  - Análise de complexidade.
-
-### <a id="hardware_e_software" href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.2-hardware_e_software">1.2 Hardware e Software</a>
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/arquitetura_de_computadores.md">Arquitetura de Computadores</a>**
+### <a id="hardware_e_software" href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.1-hardware_e_software">1.1 Hardware e Software</a>
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/arquitetura_de_computadores.md">Arquitetura de Computadores</a>**
   - Componentes de hardware (CPU, memória, dispositivos de armazenamento).
   - Organização de sistemas computacionais.
   - Arquiteturas de processadores.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/sistemas_operacionais.md">Sistemas Operacionais (Windows, Linux)</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/sistemas_operacionais.md">Sistemas Operacionais (Windows, Linux)</a>**
   - Funcionamento e gerenciamento de sistemas operacionais e de recursos.
   - Configuração e administração de ambientes Windows e Linux.
   - Virtualização e máquinas virtuais.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">Conhecimentos de Prompt de Comando/Terminal</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">Conhecimentos de Prompt de Comando/Terminal</a>**
   - Uso básico e avançado do prompt de comando/terminal.
   - Navegação e manipulação de arquivos.
   - Automação de tarefas por linha de comando.
   - Scripting em ambientes de linha de comando.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-hardware_e_software/redes_de_computadores.md">Redes de Computadores</a>**
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/redes_de_computadores.md">Redes de Computadores</a>**
   - Fundamentos de redes (TCP/IP, DNS, DHCP).
   - Tipos de redes (LAN, WAN, MAN).
   - Protocolos de comunicação.
   - Configuração e administração de redes locais.
   - Segurança em redes.
+
+### <a id="conceitos_basicos" href="https://github.com/raphaelkaique1/study/tree/main/1-fundamentos_de_computacao/1.2-conceitos_basicos">1.2 Conceitos Básicos</a>
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-conceitos_basicos/logica_de_programacao.md">Lógica de Programação</a>**
+  - Estruturas condicionais e de repetição.
+  - Construção de algoritmos simples e complexos.
+  - Manipulação de variáveis, tipos e estruturas de dados.
+  - Resolução de problemas computacionais.
+
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-conceitos_basicos/estruturas_de_dados.md">Estruturas de Dados</a>**
+  - Arrays, listas, filas, pilhas.
+  - Estruturas de dados dinâmicas (árvores, grafos).
+  - Algoritmos de ordenação e busca.
+  - Operações e manipulações em estruturas de dados.
+
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-conceitos_basicos/algoritmos.md">Algoritmos</a>**
+  - Desenvolvimento e análise de algoritmos.
+  - Otimização de algoritmos.
+  - Algoritmos de busca, classificação, ordenação e recursividade.
+  - Análise de complexidade.
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/2-linguagens_de_programacao">2. Linguagens de Programação</a>
 ### <a id="cpp" href="https://github.com/raphaelkaique1/study/tree/main/2-linguagens_de_programacao/2.1-cpp">2.1 C++</a>
