@@ -230,23 +230,23 @@
   - Configuração e criação de servidores com Node.js e Express.
   - Roteamento e middleware.
 
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">Administração de Servidores Linux</a>**
+  - Configuração e administração avançada de servidores Linux.
+  - Implementação de serviços e segurança.
+
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/consumo_e_criacao_de_apis.md">RESTful APIs / Fetch API / Consumo e Criação de APIs</a>**
   - Princípios RESTful.
   - Consumo de APIs utilizando a Fetch API.
   - Desenvolvimento de APIs RESTful.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">Administração de Servidores Linux</a>**
-  - Configuração e administração avançada de servidores Linux.
-  - Implementação de serviços e segurança.
-
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/configuracao_de_redes_avancadas.md">Configuração de Redes Avançadas</a>**
-  - Projeto e implementação de redes complexas.
-  - Configuração de roteadores, switches e firewalls.
-
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/banco_de_dados.md">Banco de Dados (SQL e NoSQL)</a>**
   - Modelagem de dados relacional (SQL).
   - Operações CRUD em bancos de dados relacionais.
   - Utilização de bancos de dados NoSQL.
+
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/configuracao_de_redes_avancadas.md">Configuração de Redes Avançadas</a>**
+  - Projeto e implementação de redes complexas.
+  - Configuração de roteadores, switches e firewalls.
 
 ### <a id="seguranca_autenticacao_e_autorizacao" href="https://github.com/raphaelkaique1/study/tree/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao">5.4 Segurança, Autenticação e Autorização</a>
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/praticas_de_seguranca_em_desenvolvimento_web.md">Práticas de Segurança em Desenvolvimento Web</a>**
