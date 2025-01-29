@@ -310,9 +310,55 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
  *Quando temos vários títulos de `h`, os agrupamos com a tag `<hgroup></hgroup>`.*
 
 ###### PARÁGRAFO
- Para informar ao navegador que ele exiba um texto em um parágrafo, deve-se escrevê-lo entre as tags `<p></p>`, com o texto separado por uma margem em branco acima e abaixo.<br/>
- Para separar um parágrafo do outro, podemos usar uma linha horizontal de tamanho e expessura que determinarmos no CSS, escrevemos este separador com a tag `hr`.
+ Para informar ao navegador que ele exiba um texto em um parágrafo, deve-se escrevê-lo entre as tags `<p>texto do parágrafo</p>`, com o texto separado por uma margem em branco acima e abaixo.
+ > Podemos usar uma linha horizontal de tamanho e expessura que determinarmos no CSS, escrevemos esta separação com a tag `<hr/>`, para separar um parágrafo do outro, ou também, utilizar a tag `<br/>` para saltar uma linha.
 
+###### FORMATAÇÃO
+ A tag `pre` significa *"texto pré formatado"*, e permite que o navegador interprete o texto escrito da forma em que está no documento, respeitando as quebras de linha, espaços e etc.<br/>
+ *Na ausência da tag `pre`, o navegador não leva em conta que o código fonte contém quebras de linha, espaços em branco e etc no texto.*<br/>
+ script:
+```html
+<p> Este parágrafo contém
+    espaços em branco    e também
+    quebras de linha, porém      o navegador irá exibí-lo com a formatação padrão.
+</p>
+<pre>
+    Este parágrafo contém
+    espaços em branco    e também
+    quebras de linha, e,      o navegador irá exibí-lo com a formatação do documento.
+</pre>
+```
+ output:
+<hr/>
+<p> Este parágrafo contém
+    espaços em branco    e também
+    quebras de linha, porém      o navegador irá exibí-lo com a formatação padrão.
+</p>
+<pre>
+    Este parágrafo contém
+    espaços em branco    e também
+    quebras de linha, e,      o navegador irá exibí-lo com a formatação do documento.
+</pre>
+<hr/>
+
+###### <span id="marcador">HYPERLINKS</span>
+ *Links* ou *Hyperlinks*, são textos ou objetos sobre os quais podemos clicar para nos levar para outra parte do documento, outra página do mesmo site ou mesmo para outro site na Internet, entre outras funções. Vejamos:
+ - **links internos**<br/>
+ Links internos são links dentro da mesma página, que, ao clicar em um deles, seremos levados a uma posição diferente dentro da mesma página.<br/>
+ O código dos marcadores é criado com o atributo **`id`**. Tanto o `name` quanto o `id` para uma tag específica devem ser únicos, ou seja, não podem haver 2 tags com o mesmo `name` ou `id` dentro de um documento.
+ **Para criar este tipo de ligação, 2 operações devem ser realizadas**:
+   - Estabelecer *marcadores*, chamados de *âncoras*, ao longo da página, que serão os locais para os quais saltaremos com os links.
+   - Adicionar os links direcionando para os marcadores.
+```html
+<p id="marcador">
+    Ao clicar no link, a visualização da tela será trazida para cá.
+<p>
+    <>
+        ...
+    </>
+<a href="#marcador">retornar</a>
+```
+<a href="#marcador">click here</a>
 
 
 
