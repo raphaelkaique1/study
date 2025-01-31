@@ -434,10 +434,10 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 </ol>
 ```
 <ol>
-    <li>Item</li>
-    <li>Item</li>
-    <li>Item</li>
-    <li value="10">Item; usando atributo `value`</li>
+    <li>Primeiro item.</li>
+    <li>Segundo item.</li>
+    <li>Terceiro item.</li>
+    <li value="10">Outro item usando atributo `value`</li>
 </ol>
 
 **LISTAS DE DEFNIÇÃO**<br/>
@@ -557,6 +557,13 @@ Exemplo de uma tabela simples:
 </table>
 
 _*Quando usados juntos na mesma tabela, desem ser cuidadosamente declarados para não produzir células sobrepostas._
+
+**CÉLULAS DE CABEÇALHO**<br/>
+ Há 2 tipos de tags que podem ser definidas em uma tabela, são tipos especiais que contém informações de cabeçalho para um conjunto específico de células, *servem para rotular a tabela*.<br/>
+ Os navegadores normalmente representam o ceonteúdo de células especiais como texto centralizado em negrito.
+ - **`th` table head**: *Usada para definir uma descrição para uma coluna.*
+ - **`caption`** description: *Usada para definir um título para a tabela*; sua posição pode ser definida usando CSS. **Este elemento só é permitido se ele for logo após
+a abertura da tabela.**
 
 
 
