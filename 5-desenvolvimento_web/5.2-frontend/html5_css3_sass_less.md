@@ -764,7 +764,141 @@ Aqui falaremos sobre como adicionar legendas.
  - **`loop`**: O áudio é reproduzido em loop.
 
 ###### FORMULÁRIOS
- 
+ Os formulários tem o propósito de coletar informações fornecidas pelos visitantes do site, que são então enviadas ao servidor para serem processadas.<br/>
+ Para que ele seja útil, é importante que o formulário fornecido seja acompanhado por um código do lado do servidor, que chamaremos de *"agente de processamento"*, que se encarrega de receber e processar as informações. Este processamento pode consistir, por exemplo, em armazenar as informações ou enviá-las por e-mail.<br/>
+ Um formulário é identificado pela tag `form`, e é basicamente um recipiente para controles. Cada controle em um formulário tem o objetivo de coletar informações inseridas pelos usuários em formulários que podem variar de linhas de texto, a upload de arquivos, datas, senhas e muito mais. Uma vez que os usuários tenham preenchido o fomulário com dados, eles podem ser enviados ao servidor para que o agente de processamento gerencie as informações coletadas.<br/>
+ **Os usuários interagem com os formulários através dos chamados controles.** De forma simplificada, um controle é definido como *um objeto que é exibido na tela e que pode ser modificado pelo usuário*. Por exemplo, um botão, uma caixa de texto, um menu suspenso e etc.<br/>
+ **Os formulários geralmente fazem uso da tag *`action`*, que se refere à página para a qual as informações no formulário serão encaminhadas.**
+```html
+<form action="https://server.php"></form>
+```
+ *Se não for enviado para nenhuma outra página, é deixado vazio, para utilizar as informações na mesma página.*
+```html
+<form action=""></form>
+```
+ Isto geralmente é seguido pelo atributo `method`, que pode ser `post` ou `get`.<br/>
+ A diferença entre os métodos `get` e `post` reside na forma como os dados são enviados para o destino quando o botão de enviar é pressionado.<br/>
+ Enquanto o método `get` envia os dados usando a URL, o método `post` os envia de forma oculta ao usuário.<br/>
+ O método `get` exibe na URL os dados inseridos no formulário quando é enviada ao servidor, por isso, é pouco confiável, pois com o conhecimento certo é fácil interpretar os dados. Portanto, sempre que formulários forem enviados, o método ideal é o `post`, no qual os dados são ocultos.<br/>
+ A tag `enctype` nos permite carregar e enviar arquivos ao servidor. Ele define o tipo de codificação de dados que será usado ao enviar um formulário. Quando o formulário é enviado, os dados dos campos são convertidos em pares de chave-valor e são codificados na URL. Esse tipo de codificação é usado principalmente para dados de formulário simples, como texto e números. Esse tipo de codificação é o padrão para a maioria dos formulários:
+```html
+<form enctype="application/x-www-form-urlencoded"></form>
+```
+ No entanto, se for preciso enviar arquivos, será necessário usar o formato a seguir, que permite o envio de arquivos binários junto com outros dados do formulário: 
+```html
+<form enctype="multipart/form-data"></form>
+```
+ Com o `accept`, indicamos que tipo de arquivos nos permite realizar upload:
+```html
+<form enctype="multipart/form-data" accept-charset="UTF-8"></form>
+```
+
+ Já sabemos que, quando o usuário preenche um formulário em uma página web, os dados devem ser enviados de alguma forma. Vamos considerar as 2 maneiras possíveis já vistas. Primeiro, usando o método `get`:
+```html
+<form action="https://server.php" method="get">
+    <>...</>
+</form>
+<button>submit<button>  <!-- veremos como implementar isto adiante -->
+```
+ No exemplo acima, quando o usuário clicar em *submit**, a ação que será executada é a de enviar os dados para a url especificada usando o método `get`.<br/>
+ Usando o método `get`, teriamos algo assim por exemplo:<br/>
+ `https://www.mydomain.com/newuser.php?name=Raphael&lastname=Santos&email=raphaelkaiquediassantos1%40gmail.com`<br/>
+ Podemos distinguir várias partes dessa URL: `https://www.mydomain.com/newuser.php` é o próprio site.<br/>
+ **O símbolo `?` é seguido por pares de dados com seu `nome` e `valor`, separados pelo símbolo `&`.** *Os pares `data1=value1`, `data2=value2`, `data3=value3`... refletem o nome dos campos enviados pelo formulário.*<br/>
+ Por exemplo: `name=Raphael`, `lastname=Santos` e etc, nos informa que o campo do formulário chamado `nome` chega com o valor `Raphael`, enquanto o campo `lastname` chega atribuído ao valor `Santos`. Estes valores são recebidos na página web de destino do fomulário.<br/>
+ **Note que para separar o primeiro par do próprio endereço usamos o símbolo `?`, já para separar os pares restantes uns dos outros usamos o símbolo `&`.**
+
+**ENTRADA DE DADOS EM FORMULÁRIOS**<br/>
+ Os controles de entrada de dados em formulários geralmente são controles visuais e permite que o usuário insira dados ou selecione opções. Seu uso depende do tipo de controle e também do tipo de informações que é possível a eles recuperar. Os elementos de entrada de um formulário podem ser definidos através do uso dos seguintes elementos:
+ - **``**:  
+ - **``**:  
+ - **``**:  
+ - **``**:  
+ - **``**:  
+ - **``**:  
+ - **``**:  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
