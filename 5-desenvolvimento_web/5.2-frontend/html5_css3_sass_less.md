@@ -1,5 +1,5 @@
 # DESENVOLVIMENTO FRONT END
- O desenvolvimento *front-end tem como foco de trabalho a tradução do design e das funcionalidades propostas para uma* **interface de usuário (GUI - Graphic User Interface)** concentrando-se no manuseio de **[HTML]()**, **[CSS]()** e **[JAVASCRIPT]()** (geralmente são as linguagens mais utilizadas para este fim). Para isso, usasse uma série de *bibliotecas*, *frameworks* e *padrões de design* criados e testados pela comunidade, com os quais é possível trabalhar de forma eficiente.<br/>
+ O desenvolvimento *front-end tem como foco de trabalho a tradução do design e das funcionalidades propostas para uma* **interface de usuário (GUI - Graphic User Interface)** concentrando-se no manuseio de **[HTML](#html)**, **[CSS]()** e **[JAVASCRIPT]()** (geralmente são as linguagens mais utilizadas para este fim). Para isso, usasse uma série de *bibliotecas*, *frameworks* e *padrões de design* criados e testados pela comunidade, com os quais é possível trabalhar de forma eficiente.<br/>
  O objetivo principal do desenvolvedor front-end está relacionado à otimização dos recursos consumidos por uma aplicação, através do servidor. Um exemplo disso é o *tempo de carga (carregamento de "tela")*. Quanto menor o tempo de carga, melhor será a experiência do usuário. Meio segundo de tempo de carregamento de página pode afetar significativamente a conversão do usuário. Portanto, o tempo é essencial para qualquer website. Ninguém gosta de esperar, especialmente os usuários que estão cada vez mais acostumados à velocidade. O desenvolvedor do front-end é responsável por melhorar os tempos de carregamento, assim melhorando a experiência do usuário e, por fim, como objetivo final obter mais leads ou vendas.<br/>
  A manutenção e escrita de códigos em tecnologias HTML e CSS pode ser um desafio por não serem muito dinâmicas. Não possuem ciclos, funções, objetos ou condições. Resumindo, todas as ferramentas disponíveis em outras linguagens de programação para a criação de código de manutenção não estão existem nessas tecnologias. Entretanto, ainda é possível graças à ajuda de processadores de CSS como *Stylus*, *LESS* ou *SASS*, o que pode ampliar as capacidades do CSS. Enquanto que, para HTML, há motores disponíveis para cada linguagem back-end. Ao trabalhar com frameworks, verá que já possuem motores de renderização predefinidos, como *ERB* e *HAML* (em *RAILS*), *JADE* e *ectjs* (em *NodeJS*) ou *Blade* (em *Laravel*). Isto faz com que os motores funcionem adicionando o código da linguagem ao modelo. *Quando uma solicitação chega ao servidor, este processa o template, transforma o código incorporado (HTML puro) e o envia para o navegador.* Além disso, também estão inclusas algumas ferramentas no JavaScript como *Backbone, AngularJS, Foundation e EmberJS* que facilitam a criação de páginas responsívas e otimizadas.<br/>
  Na programação web uma coisa é constante: não é fácil criar páginas capazes de parecer "bem" em todos os tipos de navegadores. Este é um ponto delicado para qualquer um que tenha que lidar com tal tarefa. A ideia é *não perder tráfego*, mesmo se for utilizado o *Internet Explorer 7*, especialmente se o serviço ou produto estiver focado em um público que utiliza esse navegador em particular. Para resolver este problema, existem scripts chamados *Polyfils*, que adicionam as capacidades de um navegador moderno usando JavaScript. Como nos navegadores, há uma infinidade de **telas**: smartphones, desktops, notebooks, tablets, smart tvs, e etc. Mesmo dentro do campo dos smartphones, são numerosas as variantes dependendo do dispositivo e da marca. O desenvolvedor front-end está encarregador de fazer o site funcionar para a maioria das telas.
@@ -29,7 +29,7 @@
 
 _*Embora todos os documentos com estas extensões sejam páginas web, apenas **HTML** e **MARKDOWN** são páginas web estáticas, e portanto, as únicas que podem ser visualizadas diretamente no navegador (por serem renderizadas no lado do cliente). As demais para que sejam exibidas devem estar contidas em um servidor (por serem renderizadas no lado do servidor e só existirem quando são requisitadas)._
 
-### HTML
+### <span id="html">HTML</span>
  A origem do HTML data de 1980, quando o físico Tim Berners-Lee, um trabalhador do CERN (Organização Européia de Pesquisa Nuclear), propôs um novo sistema de *"hipertexto"* para compartilhar documentos.<br/>
  **HyperText Markup Language**, é uma "linguagem" composta de *etiquetas*, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc.<br/>
  O HTML não é uma linguagem de programação em si, embora às vezes seja referido coloquialmente como uma linguagem de programação, é composto simplesmente por uma série de **tags** que o navegador interpreta de uma forma ou de outra para exibir e moldar conteúdos diferentes na tela.<br/>
@@ -56,7 +56,7 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
  - **ELEMENTOS SEMÂNTICOS**: São elementos que por seu próprio nome definem qual seu *propósito específico*. Portanto, quando os vemos em um arquivo HTML, sabemos para que eles são usados. Como por exemplo: `h1`, `h2`, `h3` e `p`. Todos eles são elementos semânticos, porque são usados para fins muito específicos. Quando vemos um elemento `h1`, sabemos que o que está entre ele é um *título*, desta forma, só de olhar para nosso HTML, podemos dizer que há um cabeçalho e parágrafos (conteúdo contido dentro dos elementos `p`). Podem ser usados junto com **atributos**.
  - **ELEMENTOS GENÉRICOS**: Elementos para qualquer tipo de uso. Como exemplo, um dos elementos genéricos chamado `div`, que significa *divisão*, serve para dividir um documento em diferentes partes. Por tanto, se quisermos criar um *card* com uma imagem e informações, podemos fazer isso com o elemento `div`. O problema de utilizar estes elementos é que não são muito descritivos semanticamente falando. Não sabemos para que servem. Durante o desenvolvimento, sabemos que aquele elemento `div` que criamos serve para exibir *cards* na página, mas como identificar isso em uma manutenção futura? Podemos dar alguma semântica aos nossos elementos `div` usando **atributos**, para identificarmos facilmente seu propósito.
 
- **ATRIBUTOS**
+ **ATRIBUTOS**<br/>
  Permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Alguns dos atributos mais importantes são o `id` e `class`. *A classe é um atributo que identifica múltiplos elementos, enquanto o id é uma identidade única para cada elemento.* Além destes, existem várious outros atributos que podem ser inseridos nas tags.
 
 ##### ESTRUTURA DE UMA PÁGINA WEB
@@ -389,9 +389,9 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 **IMAGENS COMO LINKS**<br/>
  Para colocar uma imagem como um link, basta criar um link e adicionar uma imagem dentro dele. Exemplo:
 ```html
-<a href="https://github.com/raphaelkaique1"><img src="https://avatars.githubusercontent.com/u/182110258?v=4" alt="Fulltechware Logo"></a>
+<a href="https://github.com/raphaelkaique1"><img src="https://avatars.githubusercontent.com/u/182110258" alt="Fulltechware Logo"></a>
 ```
-<a href="https://github.com/fulltechware/" title="Fulltechware's github profile" target="_blank"><img width="150rem" src="https://avatars.githubusercontent.com/u/182110258?v=4" alt="Fulltechware Logo"></a>
+<a href="https://github.com/fulltechware/" title="Fulltechware's github profile" target="_blank"><img width="150rem" src="https://avatars.githubusercontent.com/u/182110258" alt="Fulltechware Logo"></a>
 
 ###### LISTAS
  **_*Podemos combinar todos os tipos de listas que veremos a seguir uns com os outros, a depender da necessidade; <u>mas sempre pensando no SEO</u>._**<br/>
@@ -440,7 +440,7 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
     <li value="10">Outro item usando atributo `value`</li>
 </ol>
 
-**LISTAS DE DEFNIÇÃO**<br/>
+**LISTAS DE DEFINIÇÃO**<br/>
  Este tipo de listas não é usado com frequência, mas iremos conhecê-lo para entendermos seu significado caso nos deparemos com este tipo de código em uma página we.<br/>
  Listas de definição são usadas quando queremos fazer uma enumeração do tipo *dicionário*, onde temos vários termos e suas definições.<br/>
  Estes termos e suas definições (ou descrições) podem ser colocados de várias maneiras dentro de uma página web, como texto simples, lista ordenada ou não ordenada.<br/>
@@ -464,7 +464,7 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
     <dd>Geralmente servido gelado.</dd>
 </dl>
 
-**TABELAS**
+**TABELAS**<br/>
  As tabelas podem ser consideras como *um grupo de linhas, onde cada linha contém um grupo de células delimitadas por colunas*. Uma tabela pode ser inserida em um documento usando 3 elementos básicos:
  - **`table` estrutura de tabela**: 
  - **`tr` linhas**: 
@@ -562,8 +562,213 @@ _*Quando usados juntos na mesma tabela, desem ser cuidadosamente declarados para
  Há 2 tipos de tags que podem ser definidas em uma tabela, são tipos especiais que contém informações de cabeçalho para um conjunto específico de células, *servem para rotular a tabela*.<br/>
  Os navegadores normalmente representam o ceonteúdo de células especiais como texto centralizado em negrito.
  - **`th` table head**: *Usada para definir uma descrição para uma coluna.*
- - **`caption`** description: *Usada para definir um título para a tabela*; sua posição pode ser definida usando CSS. **Este elemento só é permitido se ele for logo após
-a abertura da tabela.**
+ - **`caption`** description: *Usada para definir um título para a tabela*; sua posição pode ser definida usando CSS. **Este elemento só é permitido se ele for inserido logo após
+a abertura da tabela.** 
+```html
+<table>
+    <!-- area de cabeçalho -->
+    <caption>SOFTWARE DEVELOPER</caption>
+    <tr>
+        <th>&nbsp;</th> <!-- COLUNA 1 -->
+        <th>front-end</th> <!-- COLUNA 2 -->
+        <th>back-end</th> <!-- COLUNA 3 -->
+        <th>devops</th> <!-- COLUNA 4 -->
+    </tr>
+    <!-- LINHA 1 -->
+    <tr>
+        <th>junior</th> <!-- COLUNA 1 -->
+        <td>GUI</td> <!-- COLUNA 2 -->
+        <td>API</td> <!-- COLUNA 3 -->
+        <td>CI/CD</td> <!-- COLUNA 4 -->
+    </tr>
+    <!-- LINHA 2 -->
+    <tr>
+        <th>full</th> <!-- COLUNA 1 -->
+        <td>UX/UI</td> <!-- COLUNA 2 -->
+        <td>SERVER-SIDE</td> <!-- COLUNA 3 -->
+        <td>MONIT</td> <!-- COLUNA 4 -->
+    </tr>
+    <!-- LINHA 3 -->
+        <th>senior</th> <!-- COLUNA 1 -->
+        <td>SEO</td> <!-- COLUNA 2 -->
+        <td>DB</td> <!-- COLUNA 3 -->
+        <td>INFRA/CLOUD</td> <!-- COLUNA 4 -->
+    </tr>
+</table>
+```
+<table border="1px">
+    <caption>SOFTWARE DEVELOPER</caption>
+    <tr>
+        <th>level</th>
+        <th>front-end</th>
+        <th>back-end</th>
+        <th>devops</th>
+    </tr>
+    <tr>
+        <th>junior</th>
+        <td>GUI</td>
+        <td>API</td>
+        <td>CI/CD</td>
+    </tr>
+    <tr>
+        <th>full</th>
+        <td>UX/UI</td>
+        <td>SERVER-SIDE</td>
+        <td>MONIT</td>
+    </tr>
+        <th>senior</th>
+        <td>SEO</td>
+        <td>DB</td>
+        <td>INFRA/CLOUD</td>
+    </tr>
+</table>
+
+ Aqui é facil ver como cada célula do cabeçalho da tabela fornece informações para o restante das células da coluna a qual pertecem. Alguns agentes, tais com navegadores de voz, fazem a mesma análise quando devem informar ao usuário qual célula de cabeçalho está associada a uma determinada célula. Mas, em algum casos, é preciso fornecer mais dados para evitar ambiguidades. Para isso exsite o atributo **`scope`**.
+ - **`scope` escopo**: *Fornece um mecanismo para indiciar explicitamente quais células de cabeçalho ele afeta.* **Este atributo só pode ser declarado em UMA CÉLULA DE CABEÇALHO** e tomar os valores `col`, `row`, `colgroup`e `rowgroup`.<br/>
+ Os valores `col` e `row` indicam que a célula de cabeçalho fornece informações para as demais células da coluna ou linha em que está presente.<br/>
+ No exemplo a seguir, a célula no canto superior esquerdo da tabela forneceria informações ambíguas se o atributo `scope` não estivesse presente; em outras palavras, isso afetaria as células de sua coluna, bem como as células da sua linha. *A presença deste atributo deixou claro que as células afetadas por este cabeçalho são aquelas na mesma linha.*
+```html
+<table>
+    <tr>
+        <th scope="row">Dia</th>
+        <th>Hoje</th>
+        <th>Amanhã</th>
+        <th>Depois de Amanhã</th>
+    </tr>
+    <tr>
+        <th>Condição</th>
+        <td>Ensolarado</td>
+        <td>Parcialmente nublado</td>
+        <td>Nublado</td>
+    </tr>
+    <tr>
+        <th>Temperatura</th>
+        <td>19°C</td>
+        <td>17°C</td>
+        <td>12°C</td>
+    </tr>
+    <tr>
+        <th>Ventos</th>
+        <td>E 13 km/h</td>
+        <td>E 11 km/h</td>
+        <td>S 16 km/h</td>
+    </tr>
+</table>
+```
+
+<table border="1px">
+    <tr>
+        <th scope="row">Dia</th>
+        <th>Hoje</th>
+        <th>Amanhã</th>
+        <th>Depois de Amanhã</th>
+    </tr>
+    <tr>
+        <th>Condição</th>
+        <td>Ensolarado</td>
+        <td>Parcialmente nublado</td>
+        <td>Nublado</td>
+    </tr>
+    <tr>
+        <th>Temperatura</th>
+        <td>19°C</td>
+        <td>17°C</td>
+        <td>12°C</td>
+    </tr>
+    <tr>
+        <th>Ventos</th>
+        <td>E 13 km/h</td>
+        <td>E 11 km/h</td>
+        <td>S 16 km/h</td>
+    </tr>
+</table>
+
+###### MULTIMÍDIA
+ A tag `figure` é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.
+
+**IMAGENS**<br/>
+ As imagens dentro de uma página web são incluídas usando a tag `<img/>` dentro da tag `figure`, que não tem par de fechamento.<br/>
+ Ao utilizá-la, é necessário especificar o caminho onde a imagem está localizada, seja um caminho para um diretório local ou um endereço na internet; **isso é feito com o atributo `src`.**<br/>
+ **Outros atributos não obrigatórios mas ALTAMENTE RECOMENDADOOS PARA O SEO, são os atributos `alt`, `title` e `figcaption`.**
+ - **`alt` alternative**: *Permite exibir uma mensagem no lugar da imgagem caso ela não possa ser encontrada e exibida.*
+ - **`title` título**: *Permite atribuir um título à imagem.*
+ - **`figcaption` legenda**: *Permite atribuir uma legenda à imagem.*
+```html
+<figure>
+    <img src="https://avatars.githubusercontent.com/u/182168576" alt="Logo Tech n' Logic" title="Tech n' Logic" figcaption="Fonte: Tech n' Logic GitHub profile"/>
+</figure>
+```
+<figure>
+    <img src="https://avatars.githubusercontent.com/u/182168576" width="190rem" alt="Logo Tech n' Logic" title="Tech n' Logic" figcaption="Fonte: Tech n' Logic GitHub profile"/>
+</figure>
+
+**VÍDEOS**<br/>
+ Semelhante a trabalhar com imagens, para a sua inclusão, usa-se a tag `video` (*que tem um par de fechamento*).<br/>
+ Possui os seguintes atributos:
+ - **`src`**: Permite especificar o caminho onde o vídeo está armazenado. **Pode-se usar `src` como tag, incluindo várias tags apontando para diferentes formatos de vídeo, permitindo ao navegador escolher o formato que ele consegue reproduzir.** *Não é obrigatória, pode-se usar apenas como atributo ou uma única tag, o uso de múltiplas tags apenas garante que o vídeo seja reproduzido em diversos navegadores.*
+ - **`controls`**: Adiciona controles visuais ao vídeo.
+ - **`autoplay`**: O vídeo é executado automaticamente quando a página é carregada.
+ - **`loop`**: O vídeo é executado em loop.
+ - **`poster`**: Permite definir uma *imagem "de capa"* ao vídeo, que será exibida antes da reprodução do vídeo.
+ - **`preload`**: Permite espeficar algumas características do vídeo antes de ser carregado, por exemplo, quantos quadros o vídeo tem, seu tempo de duração e etc.
+ - **`track`**: **VTT** ou *Video Text Tracks* é um formato de arquivo utilizado para legendas, transcrições ou descrições em áudio de vídeos, indicado para aumentar o SEO (pois leva em consideração questões de acessibilidade). *Possui um formato simples de texto, onde cada linha descreve um intervalo de tempo e o conteúdo de legenda para esse intervalo.* **A tag `<track/>` adiciona legendas, no íveo e proporciona uma interface para os usuários escolherem opções de legenda.**
+   - **`src`**: *Especifica o caminho do arquivo de legendas, normalmente em formato VTT.* Deve ser um caminho absoluto ou relativo para o arquivo de legendas.
+   - **`label`**: *Este atributo fornece um rótulo legível para o usuário, que aparecerá no menu de seleção de legendas do player de vídeo.* O valor de `label` pode ser usado para exibir o nome da legenda ou descrição para o usuário.
+   - **`srclang`**: *Define a linguagem do arquivo de legendas.* Normalmente, esse atributo é usado para indicar a língua do conteúdo das legendas, permitindo que o navegador escolha as legendas corretas para o usuário com base em seu idioma preferido.
+   - **`kind`**: *Define o tipo de conteúdo que será fornecido pela tag `track`.* Os valores mais comuns para `kind` são:
+     - **`subtitles`**: *Para legendas no idioma falado.*
+     - **`captions`**: *Para legendas ocultas (geralmente para deficientes auditivos, incluindo não apenas a fala, mas também sons de fundo, como "porta batendo").*
+     - **`descriptions`**: *Para descrições de áudio, geralmente usadas para pessoas com deficiência visual, descrevendo cenas de um vídeo.*
+     - **`chapters`**: *Usado para capítulos de um vídeo (mais raro, mas pode ser utilizado em vídeos longos com capítulos distintos).*
+ 
+ Exemplo de arquivo VTT:
+```vtt
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.000
+Bem-vindo ao meu vídeo!
+
+2
+00:00:05.000 --> 00:00:10.000
+Aqui falaremos sobre como adicionar legendas.
+```
+ Implementando a tag `video`:
+```html
+<figure>
+    <video controls autoplay loop poster="capa.jpg">
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.ogg" type="video/ogg">
+        <track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português">
+        <track src="legendas-en.vtt" kind="subtitles" srclang="en" label="English">
+    </video>
+</figure>
+```
+
+**IMPORTANDO VÍDEOS**<br/>
+ Se quisermos embutir em nossa página um vídeo de alguma plataforma de reprodução externa, como o YouTube por exemplo, é disponibilizado um código pré-formatado, geralmente na tag `iframe`. Sempre deve-se estar alerta quanto as questões legais, pois alguns conteúdos são protegidos por direitos autorais e seu uso não é permito sem o conhecimento do autor.<br/>
+ Exemplo de uso:
+```html
+<figure>
+    <iframe width="966" height="543" src="https://www.youtube.com/embed/lx0eir2xF5E" title="EU SOU DEV JR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</figure>
+```
+
+###### ÁUDIO
+ O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada tipo reproduz um áudio.<br/>
+ Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
+ Possui os seguintes atributos:
+ - **`src`**: necessário para especificar o caminho do áudio.
+ - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
+ - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
+ - **`loop`**: O áudio é reproduzido em loop.
+
+###### FORMULÁRIOS
+ 
+
+
+
+
 
 
 
