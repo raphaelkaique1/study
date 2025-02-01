@@ -30,10 +30,10 @@
 _*Embora todos os documentos com estas extensões sejam páginas web, apenas **HTML** e **MARKDOWN** são páginas web estáticas, e portanto, as únicas que podem ser visualizadas diretamente no navegador (por serem renderizadas no lado do cliente). As demais para que sejam exibidas devem estar contidas em um servidor (por serem renderizadas no lado do servidor e só existirem quando são requisitadas)._
 
 ### <span id="html">HTML</span>
- A origem do HTML data de 1980, quando o físico Tim Berners-Lee, um trabalhador do CERN (Organização Européia de Pesquisa Nuclear), propôs um novo sistema de *"hipertexto"* para compartilhar documentos.<br/>
- **HyperText Markup Language**, é uma "linguagem" composta de *etiquetas*, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc.<br/>
+ A origem do HTML data de 1980, quando o físico Tim Berners-Lee, um trabalhador do CERN (Organização Européia de Pesquisa Nuclear), propôs um novo sistema de *"hypertext"* para compartilhar documentos.<br/>
+ **HyperText Markup Language**, é uma "linguagem" composta de *etiquetas*, ou **tags**, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc.<br/>
  O HTML não é uma linguagem de programação em si, embora às vezes seja referido coloquialmente como uma linguagem de programação, é composto simplesmente por uma série de **tags** que o navegador interpreta de uma forma ou de outra para exibir e moldar conteúdos diferentes na tela.<br/>
- HTML é a linguagem utilizada para o desenvolvimento de páginas na Internet, e possui tags para imagens, hiperlinks, quebras de linha, listas, tabelas e etc.<br/>
+ HTML é a linguagem utilizada para o desenvolvimento de páginas na Internet, e possui tags para imagens, hyperlinks, quebras de linha, listas, tabelas e etc.<br/>
  Classicamente, diz-se que as linguagens de programação incluem 3 capacidades básicas para gerar fluxos de processo:
  
  1. **sequencial**: capacidade de executar sequências de instruções;
@@ -465,10 +465,13 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 </dl>
 
 **TABELAS**<br/>
- As tabelas podem ser consideras como *um grupo de linhas, onde cada linha contém um grupo de células delimitadas por colunas*. Uma tabela pode ser inserida em um documento usando 3 elementos básicos:
- - **`table` estrutura de tabela**: 
- - **`tr` linhas**: 
- - **`td` células**: 
+ As tabelas podem ser consideras como *um grupo de linhas, onde cada linha contém um grupo de células delimitadas por colunas*. Uma tabela pode ser inserida em um documento usando 6 elementos básicos:
+ 1. **`table` estrutura de tabela**: Cria o campo para estruturar as linhas e colunas da tabela.
+ 2. **`tr` linhas**: Define uma linha da tabela;
+ 3. **`td` células**: Cada célula é uma parte da linha contida em uma coluna.
+ 4. **`thead`**: Elemento semântico para agrupar os cabeçalhos da tabela.
+ 5. **`tbody`**: Elemento semântico para agrupar o corpo (*células*) da tabela.
+ 6. **`tfoot`**: Elemento semântico para agrupar o rodapé da tabela.
 
 _*Quando o conteúdo de uma célula estiver vazio, deve-se usar um espaço em branco, que é escrito em HTML como: `&nbsp;`; isto fará com que sua página seja exibida corretamente, pois alguns navegadores tem problemas para renderizar células vazias._<br/>
 Exemplo de uma tabela simples:
@@ -702,6 +705,15 @@ a abertura da tabela.**
     <img src="https://avatars.githubusercontent.com/u/182168576" width="190rem" alt="Logo Tech n' Logic" title="Tech n' Logic" figcaption="Fonte: Tech n' Logic GitHub profile"/>
 </figure>
 
+###### ÁUDIO
+ O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada tipo reproduz um áudio.<br/>
+ Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
+ Possui os seguintes atributos:
+ - **`src`**: necessário para especificar o caminho do áudio.
+ - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
+ - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
+ - **`loop`**: O áudio é reproduzido em loop.
+
 **VÍDEOS**<br/>
  Semelhante a trabalhar com imagens, para a sua inclusão, usa-se a tag `video` (*que tem um par de fechamento*).<br/>
  Possui os seguintes atributos:
@@ -745,23 +757,20 @@ Aqui falaremos sobre como adicionar legendas.
 </figure>
 ```
 
-**IMPORTANDO VÍDEOS**<br/>
- Se quisermos embutir em nossa página um vídeo de alguma plataforma de reprodução externa, como o YouTube por exemplo, é disponibilizado um código pré-formatado, geralmente na tag `iframe`. Sempre deve-se estar alerta quanto as questões legais, pois alguns conteúdos são protegidos por direitos autorais e seu uso não é permito sem o conhecimento do autor.<br/>
+###### IMPORTANDO CONTEÚDO
+ Com o **`iframe`** *é possível exibir uma página web dentro de outra página web*. Ele pode ser estilizado com CSS de acordo com o layout da página hospedeira.
+```html
+<iframe src="url" title="description"></iframe>
+```
+<iframe src="https://github.com/raphaelkaique1/" title="raphaelkaique1's GitHub profile."></iframe>
+
+ Como já vimos, o `iframe` traz o conteúdo externo para o nosso website, com isso, se quisermos embutir em nossa página um vídeo de alguma plataforma de reprodução externa, como o YouTube por exemplo, é disponibilizado um código pré-formatado, geralmente `iframe`. Sempre deve-se estar alerta quanto as questões legais, pois alguns conteúdos são protegidos por direitos autorais e seu uso não é permito sem o conhecimento do autor.<br/>
  Exemplo de uso:
 ```html
 <figure>
     <iframe width="966" height="543" src="https://www.youtube.com/embed/lx0eir2xF5E" title="EU SOU DEV JR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </figure>
 ```
-
-###### ÁUDIO
- O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada tipo reproduz um áudio.<br/>
- Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
- Possui os seguintes atributos:
- - **`src`**: necessário para especificar o caminho do áudio.
- - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
- - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
- - **`loop`**: O áudio é reproduzido em loop.
 
 ###### FORMULÁRIOS
  Os formulários tem o propósito de coletar informações fornecidas pelos visitantes do site, que são então enviadas ao servidor para serem processadas.<br/>
@@ -941,8 +950,8 @@ Aqui falaremos sobre como adicionar legendas.
     - **`time`**: <input type="time"/>
     - **`week`**: <input type="week"/>
     - **`month`**: <input type="month"/>
- - **`file`**:  Permite o envio de arquivos: <input type="file" name="arquivo"/>
  - **`color`**: Permite a seleção de uma cor usando um seletor de cores: <input type="color" name="cor"/>
+ - **`file`**:  Permite o envio de arquivos, quando incluso no formulário, é **OBRIGATÓRIO** adicionar o atributo **`enctype="multipart/form-data"`** ao `form`: <input type="file" name="arquivo"/>
  - **TIPOS RELACIONADOS A BOTÕES**
     - **type="`button`"**: **Método não recomendado por estar depreciado.** Cria um botão genérico, que pode ser programado com JavaScript para realizar ações customizadas.<br/>
     `<input type="button" value="clique aqui"/>` <input type="button" value="clique aqui"/>
@@ -951,13 +960,13 @@ Aqui falaremos sobre como adicionar legendas.
     - **`reset`**: Cria um botão que reseta os valores dos campos do formulário para seus valores iniciais.<br/>
     `<button type="reset">reset</button>` <button type="reset">reset</button>
  - **DADOS OCULTOS E OUTROS CASOS ESPECIAIS**
-    - **`image`**: Cria um botão de envio de formulário com a aparência de uma imagem. O clique na imagem envia o formulário. <input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar">
-    - **`hidden`**: Define um campo de entrada que não é exibido no formulário, mas pode armazenar um valor que será enviado quando o formulário for submetido. `<input type="hidden" name="user_id" value="@password"/>`
-    - **`form`**: *Serve para associar o campo de entrada a um formulário específico, mesmo que o campo de entrada não esteja dentro do formulário.* **Isso permite que você coloque os campos de entrada em uma área separada da tag `form`, mas ainda assim envie os dados para esse formulário quando o formulário for enviado.** Este atributo se refere ao ID de um formulário existente. Isso significa que, se você tiver vários formulários na página ou se o campo de entrada não estiver dentro do formulário ao qual ele deve se associar, você pode usar esse atributo para indicar qual formulário o campo deve pertencer.
+    - **`image`**: Cria um botão de envio de formulário com a aparência de uma imagem. O clique na imagem envia o formulário.<br/><input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar"> `<input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar">`
+    - **`hidden`**: Define um campo de entrada que não é exibido no formulário, mas pode armazenar informações necessárias ao servidor que serão enviadas quando o formulário for submetido.<br/>`<input type="hidden" name="user_id" value="@password"/>`
+    - **`form`**: *Serve para associar o campo de entrada a um formulário específico, mesmo que o campo de entrada não esteja dentro do formulário.* **Isso permite que você coloque os campos de entrada em uma área separada da tag `form`, mas ainda assim envie os dados para esse formulário quando o formulário for enviado.** *Este atributo se refere ao ID de um formulário existente.* Isso significa que, se você tiver vários formulários na página ou se o campo de entrada não estiver dentro do formulário ao qual ele deve se associar, você pode usar esse atributo para indicar qual formulário o campo deve pertencer.
  - **LABEL**<br/>
    **Permite associar um texto a um campo de controle de formulário.** *É uma boa prática de semântica e SEO.* Sua escrita possui um par de fechamento e o atributo `for`, que é o que associa a `label` ao campo a que ela se refere. **Este `for` deve ter o MESMO valor que o `id` do campo `input` que a label está associada.**
 ```html
-<form method="post" action="/data-base">
+<form method="post" action="/data-base.php">
     <fieldset>
         <legend>Cadastro</legend>
         <label for="userName">Nome de Usuário:</label>
@@ -979,10 +988,260 @@ Aqui falaremos sobre como adicionar legendas.
     </fieldset>
 </form>
 
+###### VIAS E ROTAS
+ Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. **Recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**
+ - **`src="file.ext"`**: **O arquivo está localizado na mesma pasta da página atual.**
+ - **`src="dir/file.ext`**: **O arquivo está localizado em uma pasta na raiz do site atual.**
+ - **`src="../file.ext`**: **O arquivo está localizado na pasta um nível acima da pasta atual.**
+ - **`src="https://site.com/image.png` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
 
-
-
-
+<table border="1px" style="text-align: center">
+    <caption>LISTA DE TAGS</caption>
+    <colgroup>
+        <col>
+        <col style="width: 30rem">
+        <col>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>TAG</th>
+            <th>DESCRIÇÃO</th>
+            <th>PAR DE FECHAMENTO</th>
+        </tr>
+    <thead>
+    <tbody>
+        <tr>
+            <th>&lt;!-- --&gt;</th>
+            <td>Define um comentário</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>&lt;!DOCTYPE x&gt;</th>
+            <td>Define o tipo do documento.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>h1 ... h6 </th>
+            <td>Define cabeçalhos e títulos.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>a</th>
+            <td>Define um hyperlink.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>abbr</th>
+            <td>Define uma abreviação</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>address</th>
+            <td>Define as informações de contato do autor ou proprietário do documento, fica localizado no footer.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>area</th>
+            <td>Define uma área dentro de um mapa de imagem.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>article</th>
+            <td>Define um campo com informações relacionadas.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>aside</th>
+            <td>Define o conteúdo lateral de uma página.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>audio</th>
+            <td>Define conteúdo de som.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>b</th>
+            <td>Define um texto em negrito.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>base</th>
+            <td>Especifica a base onde todas as URLs do documento serão abertas.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 
 
