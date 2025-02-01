@@ -848,37 +848,35 @@ Aqui falaremos sobre como adicionar legendas.
     - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option).**
     - **`label`**: Define um rótulo visível, *diferente do valor real da opção*.
   - **ATRIBUTOS DE CONTROLE DE INTERAÇÃO**
-    - **`multiple`**: Utilizado principalmente nos campos de entrada de tipo `file` e `email`, e **permite que o usuário selecione ou insira vários valores ao mesmo tempo**.
-    <input type="file" name="arquivos" multiple/> <input type="email" name="emails" placeholder="separe com vírgulas" multiple/>
-    - **`autofocus`**: utilizado para dar foco automático a um campo de entrada assim que a página é carregada. Ou seja, **o cursor será automaticamente colocado nesse campo, e o usuário poderá começar a digitar imediatamente, sem precisar clicar nele**.
+    - **`multiple`**: Utilizado principalmente nos campos de entrada de tipo `file` e `email`, e **permite que o usuário selecione ou insira vários valores ao mesmo tempo**.<br/><input type="file" name="arquivos" multiple/> <input type="email" name="emails" placeholder="separe com vírgulas" multiple/>
+    - **`autofocus`**: utilizado para dar foco automático a um campo de entrada assim que a página é carregada. Ou seja, **o cursor será automaticamente colocado nesse campo, e o usuário poderá começar a digitar imediatamente, sem precisar clicar nele**.<br/>
     <input type="text" placeholder="nome de usuário" autofocus/>
  - **TIPOS DE ENTRADAS**
-    - **`text`: Cria uma *caixa de texto* para que o usuário insira os dados para envio.** <input type="text" name="Nome" id="Nome" placeholder="Digite aqui seu nome..." value="Meu primeiro nome é: "/>
-    - **`textarea`**: Tag com par de fechamento e cria uma área maior de texto, juntamente com `rows` e `cols`, que definem altura e largura respectivamente: `<textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>`<br/>
-    <textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>
-      - **`readonly`**: Define o campo como somente leitura. O usuário não pode modificar o conteúdo, mas pode selecioná-lo e copiá-lo.
-      - **`maxlength`**: Define o número máximo de caracteres que o usuário pode digitar no campo de texto.
-      - **`minlength`**: Define o número mínimo de caracteres que o usuário deve inserir no campo de texto.
-      - **`wrap`**: Especifica como o texto deve ser quebrado quando atingir o final da linha.
-        - **`soft`**: Quebra de linha no campo visualmente, mas sem inserir uma quebra no texto.
-        - **`hard`**: Insere uma quebra de linha no texto.
-      - **`spellcheck`="`true`/`false`"**: Especifica se o navegador deve verificar a ortografia do texto digitado..
-    - **`password`**: Oculta os caracteres digitados. <input type="password" name="senha" placeholder="Digite aqui sua senha"/>
-    - **`email`**: Recebe um dado do tipo *texto* e o trata como um endereço de e-mail. <input type="email" name="Email" id="Email" placeholder="exemplo@email.com"/>
-    - **`search`**: Rece um dado como um termo de busca para pesquisa no banco de dados especificado. <input type="Search" name="Search" id="Search" placeholder="&#128269;"/>
-    - **`url`**: Recebe o dado como um endereço web. <input type="url" name="URL" id="URL" placeholder="www.url.com" value="https://"/>
-    - **As tags tipo texto geralmente tem um comportamento *auto complete* por padrão, ou seja, geralmente mantêm as entradas anteriores na memória.** Para alterar este comportamento usado os atributos abaixo e seus respectivos valores:
-    - **`tel`**: Recebe somente números e trata-os como número de telefone. <input type="tel" name="Phone" id="Phone" placeholder="+CC DDD X XXXX-XXXX"/>
+    - **`text`: Cria uma *caixa de texto* para que o usuário insira os dados para envio.**<br/><input type="text" name="Nome" id="Nome" placeholder="Digite aqui seu nome..." value="Meu primeiro nome é: "/>
+    - **`textarea`**: Tag com par de fechamento e cria uma área maior de texto, juntamente com `rows` e `cols`, que definem respectivamente o número de linhas e colunas de uma área de texto, mas o método mais usado atualmente é definir usando CSS: `<textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>`<br/><textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>
+      - **`readonly`**: Define o campo como *somente leitura*. O usuário não pode modificar o conteúdo, mas pode selecioná-lo e copiá-lo.
+      - **`maxlength`**: Define o número *máximo* de caracteres que o usuário pode digitar no campo de texto.
+      - **`minlength`**: Define o número *mínimo* de caracteres que o usuário deve inserir no campo de texto.
+      - **`wrap`**: *Especifica como o texto deve ser quebrado quando atingir o final da linha.*
+        - **`soft`**: Quebra de linha no campo visualmente, mas *sem inserir* uma quebra no texto.
+        - **`hard`**: *Insere* uma quebra de linha no texto.
+      - **`spellcheck`="`true`/`false`"**: Especifica se o navegador deve verificar a ortografia do texto digitado.
+    - **`password`**: Oculta os caracteres digitados.<br/><input type="password" name="senha" placeholder="Digite aqui sua senha"/><br/><br/>
+    - **`email`**: Recebe um dado do tipo *texto* e o trata como um endereço de e-mail.<br/><input type="email" name="Email" id="Email" placeholder="exemplo@email.com"/><br/><br/>
+    - **`search`**: Rece um dado como um termo de busca para pesquisa no banco de dados especificado.<br/><input type="Search" name="Search" id="Search" placeholder="&#128269;"/><br/><br/>
+    - **`url`**: Recebe o dado como um endereço web.<br/><input type="url" name="URL" id="URL" placeholder="www.url.com" value="https://"/><br/><br/>
+        - **As tags tipo texto geralmente tem um comportamento *auto complete* por padrão, ou seja, geralmente mantêm as entradas anteriores na memória.** Para alterar este comportamento usa-se o atributo `autocomplete` conforme já visto.
+    - **`tel`**: Recebe somente números e trata-os como número de telefone.<br/><input type="tel" name="Phone" id="Phone" placeholder="+CC DDD X XXXX-XXXX"/>
  - **FAIXA DE VALORES**
     - **`radio`**: Permite a seleção de uma opção entre várias opções, todas do mesmo grupo (nome). **Apenas uma opção pode ser selecionada por vez.**<br/>
     <input type="radio" name="sexo" value="masculino"/> Masculino
     <input type="radio" name="sexo" value="feminino"/> Feminino
-    - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. <input type="checkbox" name="quest" value="yes"/> Aceito <input type="checkbox" name="quest" value="no"/> Recuso
+    - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. <input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
       - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**: <input type="radio" checked/> <input type="checkbox" checked/>
     - **`Number`**: Números genéricos, juntamente com `min`, `max` e `step`: <input type="number" min="0" max="10" step="2" placeholder="Duplo" value="0"/>
     - **`range`**: Cria um controle deslizante (*slider*) para selecionar um valor dentro de um intervalo, juntamente com `min`, `max` e `step`: <input type="number" name="volume" min="1" max="100"/>
     - **`option`**: Contém os elementos que defiem uma das opções que pode ser selecionada. Por padrão, dependendo de onde é usado, tem seu primeiro elemento da lista selecionado, ou, exibe um campo em branco até que o usuário selecione uma das opções.
-        - Para alterar este comportamento, usa-se o atribuito `selected` na opção que se deseja manter pré selecionada.<select><option label="1"/><option label="2"/><option label="3" selected/></select>
+        - Para alterar este comportamento, usa-se o atribuito `selected` na opção que se deseja manter pré selecionada.<br/><select><option label="1"/><option label="2"/><option label="3" selected/></select>
         <!--
         <select>
             <option label="1"/>
@@ -886,9 +884,9 @@ Aqui falaremos sobre como adicionar legendas.
             <option label="3" selected/>
         </select>
         -->
-        - Para especificar o número de valores visíveis, usa-se o atributo `size`.<br/><select size="3" style="width: 3rem"><option label="1"/><option label="2"/><option label="3"/><option label="4"/><option label="5"/><option label="6"/><option label="7"/><option label="8"/><option label="9"/></select>
+        - Para especificar o número de valores visíveis, usa-se o atributo `size`.<br/><select size="3"><option label="1"/><option label="2"/><option label="3"/><option label="4"/><option label="5"/><option label="6"/><option label="7"/><option label="8"/><option label="9"/></select>
         <!--
-        <select size="3" style="width: 3rem">
+        <select size="3"">
             <option label="1"/>
             <option label="2"/>
             <option label="3"/>
@@ -937,13 +935,13 @@ Aqui falaremos sobre como adicionar legendas.
             </optgroup>
         </select>
         -->
- - **`date`**: Tipo de data. <input type="date"/>
+ - **`date`**: Tipo de data: <input type="date"/>
     - **`datetime-local`**: <input type="datetime-local"/>
     - **`time`**: <input type="time"/>
     - **`week`**: <input type="week"/>
     - **`month`**: <input type="month"/>
- - **`file`**:  Permite o envio de arquivos. <input type="file" name="arquivo"/>
- - **`color`**: Permite a seleção de uma cor usando um seletor de cores. <input type="color" name="cor"/>
+ - **`file`**:  Permite o envio de arquivos: <input type="file" name="arquivo"/>
+ - **`color`**: Permite a seleção de uma cor usando um seletor de cores: <input type="color" name="cor"/>
  - **TIPOS RELACIONADOS A BOTÕES**
     - **type="`button`"**: **Método não recomendado por estar depreciado.** Cria um botão genérico, que pode ser programado com JavaScript para realizar ações customizadas.<br/>
     `<input type="button" value="clique aqui"/>` <input type="button" value="clique aqui"/>
@@ -953,7 +951,7 @@ Aqui falaremos sobre como adicionar legendas.
     `<button type="reset">reset</button>` <button type="reset">reset</button>
  - **DADOS OCULTOS E OUTROS CASOS ESPECIAIS**
     - **`image`**: Cria um botão de envio de formulário com a aparência de uma imagem. O clique na imagem envia o formulário. <input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar">
-    - **`hidden`**: Define um campo de entrada que não é exibido no formulário, mas pode armazenar um valor que será enviado quando o formulário for submetido. <input type="hidden" name="user_id" value="@password"/>
+    - **`hidden`**: Define um campo de entrada que não é exibido no formulário, mas pode armazenar um valor que será enviado quando o formulário for submetido. `<input type="hidden" name="user_id" value="@password"/>`
     - **`form`**: *Serve para associar o campo de entrada a um formulário específico, mesmo que o campo de entrada não esteja dentro do formulário.* **Isso permite que você coloque os campos de entrada em uma área separada da tag `form`, mas ainda assim envie os dados para esse formulário quando o formulário for enviado.** Este atributo se refere ao ID de um formulário existente. Isso significa que, se você tiver vários formulários na página ou se o campo de entrada não estiver dentro do formulário ao qual ele deve se associar, você pode usar esse atributo para indicar qual formulário o campo deve pertencer.
  - **LABEL**<br/>
    **Permite associar um texto a um campo de controle de formulário.** *É uma boa prática de semântica e SEO.* Sua escrita possui um par de fechamento e o atributo `for`, que é o que associa a `label` ao campo a que ela se refere. **Este `for` deve ter o MESMO valor que o `id` do campo `input` que a label está associada.**
