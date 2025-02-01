@@ -845,7 +845,7 @@ Aqui falaremos sobre como adicionar legendas.
 ```
   - **ATRIBUTOS INFORMATIVOS**
     - **`placeholder`**: Exibe um texto informativo para o usuário *sem ocupar* o campo.
-    - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option).**
+    - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option), juntamente com o atributo `name` (chave e valor = name e value)**
     - **`label`**: Define um rótulo visível, *diferente do valor real da opção*.
   - **ATRIBUTOS DE CONTROLE DE INTERAÇÃO**
     - **`multiple`**: Utilizado principalmente nos campos de entrada de tipo `file` e `email`, e **permite que o usuário selecione ou insira vários valores ao mesmo tempo**.<br/><input type="file" name="arquivos" multiple/> <input type="email" name="emails" placeholder="separe com vírgulas" multiple/>
@@ -868,11 +868,12 @@ Aqui falaremos sobre como adicionar legendas.
         - **As tags tipo texto geralmente tem um comportamento *auto complete* por padrão, ou seja, geralmente mantêm as entradas anteriores na memória.** Para alterar este comportamento usa-se o atributo `autocomplete` conforme já visto.
     - **`tel`**: Recebe somente números e trata-os como número de telefone.<br/><input type="tel" name="Phone" id="Phone" placeholder="+CC DDD X XXXX-XXXX"/>
  - **FAIXA DE VALORES**
-    - **`radio`**: Permite a seleção de uma opção entre várias opções, todas do mesmo grupo (nome). **Apenas uma opção pode ser selecionada por vez.**<br/>
-    <input type="radio" name="sexo" value="masculino"/> Masculino
-    <input type="radio" name="sexo" value="feminino"/> Feminino
-    - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. <input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
-      - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**: <input type="radio" checked/> <input type="checkbox" checked/>
+    - Para os casos abaixo, o valor do `value` junto com o valor atribuído ao `name`, é a informação que chega ao servidor quando o usuário submete o formulário.
+        - **`radio`**: Permite a seleção de somente uma entre várias opções, todas do mesmo grupo (nome). Cada vez que uma opção é selecionada, a outra opção que foi selecionada é automaticamente desmarcada. **Apenas uma opção pode ser selecionada por vez, e para definir isso o valor atribuído ao `name` deve ser igual para todos, para que o navegador entenda que estão relacionados e garantir a exclusividade da seleção da selação, desmarcando outra quando uma é selecionada.**<br/>
+        <input type="radio" name="sexo" value="masculino"/> Masculino
+        <input type="radio" name="sexo" value="feminino"/> Feminino
+        - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. Embora várias checkbox sejam normalmente exibidas juntas, **cada uma é completamente independente das outras**.<br/><input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
+            - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.<input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
     - **`Number`**: Números genéricos, juntamente com `min`, `max` e `step`: <input type="number" min="0" max="10" step="2" placeholder="Duplo" value="0"/>
     - **`range`**: Cria um controle deslizante (*slider*) para selecionar um valor dentro de um intervalo, juntamente com `min`, `max` e `step`: <input type="number" name="volume" min="1" max="100"/>
     - **`option`**: Contém os elementos que defiem uma das opções que pode ser selecionada. Por padrão, dependendo de onde é usado, tem seu primeiro elemento da lista selecionado, ou, exibe um campo em branco até que o usuário selecione uma das opções.
