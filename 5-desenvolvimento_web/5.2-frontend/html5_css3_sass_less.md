@@ -1047,7 +1047,7 @@ Aqui falaremos sobre como adicionar legendas.
         </tr>
         <tr>
             <th>article</th>
-            <td>Define um campo com informações relacionadas.</td>
+            <td>Define um campo com informações independentes ao conteúdo da página.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -1071,257 +1071,461 @@ Aqui falaremos sobre como adicionar legendas.
             <td>❌</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>bdi</th>
+            <td>Isola uma parte do texto que pode ser formatada de forma diferente do texto externo.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>bdo</th>
+            <td>Sobrescreve o endereço do texto.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>big</th>
+            <td>Define um tamanho maior padronizada para um texto.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>blockquote</th>
+            <td>Define uma seção que tem outra fonte de informação, utilizado para citações longas.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>body</th>
+            <td>Define o corpo do documento.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>br</th>
+            <td>Define uma quebra de linha.</td>
+            <td>❌</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>button</th>
+            <td>Define um botão clicável.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>canvas</th>
+            <td>Usado para desenhar usando pixels da tela.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>caption</th>
+            <td>Define o título de uma tabela.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>cite</th>
+            <td>Define o título de uma obra.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>col</th>
+            <td>Se refere à colunas em uma tabela.</td>
+            <td>❌</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>command</th>
+            <td>Define comandos para menus.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>datalist</th>
+            <td>Define uma lista de opções de preenchimento.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>delete</th>
+            <td>Define um texto deletado.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>details</th>
+            <td>Define um conteúdo expansível.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>dl</th>
+            <td>Lista de definição.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>dt</th>
+            <td>Item termo de uma lista de definição.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>dd</th>
+            <td>Definição do termo da lista.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>em</th>
+            <td>Define ênfase a um texto tornando-o itálico</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>embed</th>
+            <td>Incorpora conteúdo externo definido um recipiente para sua exibição.</td>
+            <td>❌</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>fieldset</th>
+            <td>Grupo de elementos relacionados em um formulário.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>figcaption</th>
+            <td>Título de uma figura.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>figure</th>
+            <td>Especifica o conteúdo para o navegador.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>footer</th>
+            <td>Define o rodapé do documento.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>form</th>
+            <td>Define um formulário.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>head</th>
+            <td>Define meta informações sobre o documento.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>header</th>
+            <td>Define a seção de cabeçalho do documento.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>hgroup</th>
+            <td>Define um grupo de cabeçalhos <code>h1</code> à <code>h6</code>.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>hr</th>
+            <td>Insere uma linha horizontal para separar conteúdos define uma mudança de tema a partir dessa linha divisória.</td>
+            <td>❌</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>html</th>
+            <td>Define a raiz do documento.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>i</th>
+            <td>Define um texto itálico.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>iframe</th>
+            <td>Define um frame online de conteúdo exportado.</td>
+            <td>✅</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>img</th>
+            <td>Define uma imagem.</td>
+            <td>❌</td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
-            <td></td>
+            <th>input</th>
+            <td>Define um controle de entrada de dados.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>ins</th>
+            <td>Define o que foi inserido em um documento</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>kbd</th>
+            <td>Define entrada de teclado.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>keygen</th>
+            <td>Define um campo gerador de chave para formulários.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>label</th>
+            <td>Define o rótulo de um elemento.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>legend</th>
+            <td>Define um título para os elementos <code>fieldset</code>, <code>figure</code> e <code>details</code></td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>li</th>
+            <td>Item de uma lista.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>link</th>
+            <td>Define a relação entre um documento e um recurso externo vinculando geralmente arquivos de estilização e script.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>map</th>
+            <td>Define um mapa de imagem.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>mark</th>
+            <td>Define texto destacado.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>menu</th>
+            <td>Define uma lista de um menu.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>meta</th>
+            <td>Define um metadado do documento.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>meter</th>
+            <td>Define uma medida escalar em uma faixa conhecida.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>nav</th>
+            <td>Define um menu de navegação.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>noscript</th>
+            <td>Define um conteúdo alternativo para usuários que não suportam scripts por conta do cliente.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>object</th>
+            <td>Define um objeto incorporado.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>ol</th>
+            <td>Define uma lista ordenada.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>optgroup</th>
+            <td>Define um grupo de opções relacionadas em uma lista suspensa.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>option</th>
+            <td>Define uma opção em uma lista suspensa.</td>
+            <td>✅❌</td>
+        </tr>
+        <tr>
+            <th>output</th>
+            <td>Define o resultado de um cálculo.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>p</th>
+            <td>Define um parágrafo.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>param</th>
+            <td>Define um parâmetro para um <code>objeto</code>.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>pre</th>
+            <td>Define um texto pre-formatado.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>progress</th>
+            <td>Representa o progresso em uma barra.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>q</th>
+            <td>Define uma breve citação.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>rp</th>
+            <td>Define uma exibição em navegadores que não suportam script <code>ruby</code>.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>rt</th>
+            <td>Define a pronuncia de caracteres.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>ruby</th>
+            <td>Define uma notação de <code>ruby</code>.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>s</th>
+            <td>Define texto incorreto.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>samp</th>
+            <td>Define exemplo de resultados do programa.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>script</th>
+            <td>Define um script no lado do cliente.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>section</th>
+            <td>Define uma seção de conteúdo relacionado de um documento.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>select</th>
+            <td>Define uma lista drop-down.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>small</th>
+            <td>Define um tamanho menor padronizada para um texto.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>source</th>
+            <td>Define recursos para elementos multimídia.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>span</th>
+            <td>Define uma breve seção do documento.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>strike</th>
+            <td>Define um texto removido.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>strong</th>
+            <td>Define um texto importante em negrito.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>style</th>
+            <td>Define estilos para o documento.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>sub</th>
+            <td>Define um texto subescrito.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>summary</th>
+            <td>Define um cabeçalho visível para o elemento <code>details</code>.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>sup</th>
+            <td>Define um texto superescrito.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>table</th>
+            <td>Define uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>tbody</th>
+            <td>Define o corpo de uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>td</th>
+            <td>Define uma célula em uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>textarea</th>
+            <td>Define um controle de entrada de múltiplas linhas.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>tfoot</th>
+            <td>Define conteúdo do rodapé do grupo em uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>th</th>
+            <td>Define uma célula de cabeçalho em uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>thead</th>
+            <td>Agrupa os títulos de uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>time</th>
+            <td>Define data e hora.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>title</th>
+            <td>Define um título para o documento.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>tr</th>
+            <td>Define uma linha em uma tabela.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>track</th>
+            <td>Adiciona legendas em <code>video</code>.</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <th>u</th>
+            <td>Define um texto sublinhado.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>ul</th>
+            <td>Define uma lista não ordenada.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>var</th>
+            <td>Define uma variável matemática ou lógica em um contexto de texto.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>video</th>
+            <td>Define um arquivo de video.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>wbr</th>
+            <td>Define uma possível quebra de linha.</td>
+            <td>✅</td>
         </tr>
     </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
