@@ -988,22 +988,22 @@ Aqui falaremos sobre como adicionar legendas.
  ```html
  <input type="date"/>
  ```
-   - **`datetime-local`**
-   ```html
-   <input type="datetime-local"/>
-   ```
-   - **`time`**
-   ```html
-   <input type="time"/>
-   ```
-   - **`week`**
-   ```html
-   <input type="week"/>
-   ```
-   - **`month`**
-   ```html
-   <input type="month"/>
-   ```
+    - **`datetime-local`**
+    ```html
+    <input type="datetime-local"/>
+    ```
+    - **`time`**
+    ```html
+    <input type="time"/>
+    ```
+    - **`week`**
+    ```html
+    <input type="week"/>
+    ```
+    - **`month`**
+    ```html
+    <input type="month"/>
+    ```
  - **`color`**: Permite a seleção de uma cor usando um seletor de cores.
  ```html
  <input type="color" name="cor"/>
