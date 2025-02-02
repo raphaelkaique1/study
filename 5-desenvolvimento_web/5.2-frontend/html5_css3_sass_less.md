@@ -985,9 +985,9 @@ Aqui falaremos sobre como adicionar legendas.
           </select>
           ```
  - **`date`**: Tipo de data.
- ```html
- <input type="date"/>
- ```
+    ```html
+    <input type="date"/>
+    ```
     - **`datetime-local`**
     ```html
     <input type="datetime-local"/>
