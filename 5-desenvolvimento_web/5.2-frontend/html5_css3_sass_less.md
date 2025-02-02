@@ -79,17 +79,17 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
 
  Uma página HTML consiste a princípio de 2 partes distintas, o **head** e o **body**, nas quais as tags são distribuídas:
 ```html
-╭⎼⎼<!DOCTYPE>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╮ <!DOCTYPE html>
+╭──<!DOCTYPE>───────────╮       <!DOCTYPE html>
 |                       |
-╰─⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╯
-╭⎼⎼⎼<hmtl>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╮ <html lang="en">
-| ╭⎼<head>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╮ |     <head>
-| |                   | |         <title>webpage</title>
-| ╰─</head>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╯ |     </head>
-| ╭⎼<body>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╮ |     <body>
-| |                   | |         <h1>Bem-vindo!</h1>
-| ╰─</body>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╯ |     </body>
-╰─⎼⎼</hmtl>⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼╯ </html>
+╰───────────────────────╯
+╭───<hmtl>────────────────────╮ <html lang="en">
+| ╭─<head>──────────────────╮ |     <head>
+| |                         | |         <title>webpage</title>
+| ╰─</head>─────────────────╯ |     </head>
+| ╭─<body>──────────────────╮ |     <body>
+| |                         | |         <h1>Bem-vindo!</h1>
+| ╰─</body>─────────────────╯ |     </body>
+╰──</hmtl>────────────────────╯ </html>
 ```
 ###### ORGANIZAÇÃO DO HEAD
  O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis; o *title* da página e possíveis *links* para páginas CSS ou JavaScript.<br/>
@@ -97,11 +97,11 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
 
 ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 :---:      | :---:                      | :---:
-\<meta>    | define os metadados        | <input type="checkbox" disabled/>
-\<title>   | título do documento        | <input type="checkbox" disabled checked/>
-\<link>    | vincula arquivos           | <input type="checkbox" disabled/>
-\<base>    | define uma url base        | <input type="checkbox" disabled/>
-\<script>  | delimita scripts incluídos | <input type="checkbox" disabled/>
+\<meta>    | define os metadados        | ❌
+\<title>   | título do documento        | ✅
+\<link>    | vincula arquivos           | ❌
+\<base>    | define uma url base        | ❌
+\<script>  | delimita scripts incluídos | ❌
 
  - Meta tags não possuem um par fechamento, elas servem para incluir informações que não são exibidar como parte da página, mas sim informar aos navegadores sobre características da página, tais como sua breve descrição e palavras-chave. Elas contém a etiqueta `name`, que é usado para identificar dados de formulário que serão enviados ao servidor quando o formulário for submetido, criação de âncoras e agrupamento de opções, e o atributo *`description`* que é essencial para os motores de busca, pois dá uma breve descrição sobre o assunto da página e ajuda a categorizá-la (substituindo o atributo *"keywords"*).
  - A tag `title` exibe o nome da página no campo de abas do navegador.
@@ -291,18 +291,18 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 
 TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBSTITUÍDO POR CSS?
 :---:                   | :---:       | :---:                 | :---:
-\<b>text\</b>           | negrito     | <b>text</b>           | <input type="checkbox" disabled checked/>
-\<strong>text\</strong> | ênfase      | <strong>text</strong> | <input type="checkbox" disabled checked/>
-\<i>text\</i>           | itálico     | <i>text</i>           | <input type="checkbox" disabled checked/>
-\<em>text\</em>         | relevância  | <em>text</em>         | <input type="checkbox" disabled checked/>
-\<strike>text\</strike> | riscado     | <strike>text</strike> | <input type="checkbox" disabled checked/>
-\<s>text\</s>           | removido    | <s>text</s>           | <input type="checkbox" disabled checked/>
-\<del>text\</del>       | deletado    | <del>text</del>       | <input type="checkbox" disabled checked/>
-\<u>text\</u>           | sublinhado  | <u>text</u>           | <input type="checkbox" disabled checked/>
-\<small>text\</small>   | menor       | <small>text</small>   | <input type="checkbox" disabled checked/>
-\<big>text\</big>       | maior       | <big>text</big>       | <input type="checkbox" disabled checked/>
-\<sub>text\</sub>       | subescrito  | <sub>text</sub>       | <input type="checkbox" disabled checked/>
-\<sup>text\</sup>       | sobrescrito | <sup>text</sup>       | <input type="checkbox" disabled checked/>
+\<b>text\</b>           | negrito     | <b>text</b>           | ✅
+\<strong>text\</strong> | ênfase      | <strong>text</strong> | ✅
+\<i>text\</i>           | itálico     | <i>text</i>           | ✅
+\<em>text\</em>         | relevância  | <em>text</em>         | ✅
+\<strike>text\</strike> | riscado     | <strike>text</strike> | ✅
+\<s>text\</s>           | removido    | <s>text</s>           | ✅
+\<del>text\</del>       | deletado    | <del>text</del>       | ✅
+\<u>text\</u>           | sublinhado  | <u>text</u>           | ✅
+\<small>text\</small>   | menor       | <small>text</small>   | ✅
+\<big>text\</big>       | maior       | <big>text</big>       | ✅
+\<sub>text\</sub>       | subescrito  | <sub>text</sub>       | ✅
+\<sup>text\</sup>       | sobrescrito | <sup>text</sup>       | ✅
 
 ###### CABEÇALHO
  As tags `<h></h>` são usadas para títulos, variando hierarquicamente em ordem de importância de `h1` a `h6`. Não apenas mudam o tamanho do texto, mas, os motores de busca também dão importância a essas tags. Os próprios cabeçalhos geram uma quebra de linha.<br/>
@@ -318,24 +318,24 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
  *Na ausência da tag `pre`, o navegador não leva em conta que o código fonte contém quebras de linha, espaços em branco e etc no texto.*<br/>
  script:
 ```html
-<p> Este parágrafo contém
+<p> 1. Este parágrafo contém
     espaços em branco    e também
     quebras de linha, porém      o navegador irá exibí-lo com a formatação padrão.
 </p>
 <pre>
-    Este parágrafo contém
+    2. Este parágrafo contém
     espaços em branco    e também
     quebras de linha, e,      o navegador irá exibí-lo com a formatação do documento.
 </pre>
 ```
  output:
 <hr/>
-<p> Este parágrafo contém
+<p> 1. Este parágrafo contém
     espaços em branco    e também
     quebras de linha, porém      o navegador irá exibí-lo com a formatação padrão.
 </p>
 <pre>
-    Este parágrafo contém
+    2. Este parágrafo contém
     espaços em branco    e também
     quebras de linha, e,      o navegador irá exibí-lo com a formatação do documento.
 </pre>
@@ -525,7 +525,7 @@ Exemplo de uma tabela simples:
         <td>Célula 3</td>
     </tr>
     <tr>
-        <td colspan="3" style="text-align: center">Células 4, 5 e 6</td>
+        <td colspan="3">Células 4, 5 e 6</td>
     </tr>
     <tr>
         <td rowspan="2">Células 7 e 10</td>
@@ -546,7 +546,7 @@ Exemplo de uma tabela simples:
         <td>Célula 3</td>
     </tr>
     <tr>
-        <td colspan="3" style="text-align: center">Células 4, 5 e 6</td>
+        <td colspan="3">Células 4, 5 e 6</td>
     </tr>
     <tr>
         <td rowspan="2">Células 7 e 10</td>
@@ -762,8 +762,6 @@ Aqui falaremos sobre como adicionar legendas.
 ```html
 <iframe src="url" title="description"></iframe>
 ```
-<iframe src="https://github.com/raphaelkaique1/" title="raphaelkaique1's GitHub profile."></iframe>
-
  Como já vimos, o `iframe` traz o conteúdo externo para o nosso website, com isso, se quisermos embutir em nossa página um vídeo de alguma plataforma de reprodução externa, como o YouTube por exemplo, é disponibilizado um código pré-formatado, geralmente `iframe`. Sempre deve-se estar alerta quanto as questões legais, pois alguns conteúdos são protegidos por direitos autorais e seu uso não é permito sem o conhecimento do autor.<br/>
  Exemplo de uso:
 ```html
@@ -823,7 +821,10 @@ Aqui falaremos sobre como adicionar legendas.
    - **`fieldset`**: Agrupa elementos relacionados dentro de um formulário.
    - **`legend`**: Fornece uma descrição para o conteúdo de um `fieldset`.
  Vejamos alguns dos atributos que podem ser usados na tag `form`:
- - **`disabled/enabled` (bool)**: *Informa que o campo exibido não permite alteração do usuário.* <input value="🚫" disabled/>
+ - **`disabled/enabled` (bool)**: *Informa que o campo exibido não permite alteração do usuário.*
+ ```html
+ <input value="🚫" disabled/>
+ ```
  - **`novalidate` (bool)**: *Ele instrui o navegador a **não realizar a validação dos campos antes de submeter o formulário**, mesmo que haja campos com atributos de validação, como `required`, `pattern`.*
  - **`autocomplete`**: `on`/`off` - *Define o comportamento de armazenar ou não histórico de entradas na memória.* **Se usado na tag `form` afeta todos os campos de entrada do formulário, mas se usado em uma tag `input` afeta somente o campo à que a tag se refere.**
  - **A tag `method` É OBRIGATÓRIA para definir o método HTTP que será utilizado ao enviar os dados do formulário para o servidor.**
@@ -834,7 +835,6 @@ Aqui falaremos sobre como adicionar legendas.
     <>...</>
 </form>
 ```
- 
  **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.**
 ```html
  <input type="" name=""/>
@@ -857,12 +857,23 @@ Aqui falaremos sobre como adicionar legendas.
     - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option), juntamente com o atributo `name` (chave e valor = name e value)**
     - **`label`**: Define um rótulo visível, *diferente do valor real da opção*.
   - **ATRIBUTOS DE CONTROLE DE INTERAÇÃO**
-    - **`multiple`**: Utilizado principalmente nos campos de entrada de tipo `file` e `email`, e **permite que o usuário selecione ou insira vários valores ao mesmo tempo**.<br/><input type="file" name="arquivos" multiple/> <input type="email" name="emails" placeholder="separe com vírgulas" multiple/>
-    - **`autofocus`**: utilizado para dar foco automático a um campo de entrada assim que a página é carregada. Ou seja, **o cursor será automaticamente colocado nesse campo, e o usuário poderá começar a digitar imediatamente, sem precisar clicar nele**.<br/>
+    - **`multiple`**: Utilizado principalmente nos campos de entrada de tipo `file` e `email`, e **permite que o usuário selecione ou insira vários valores ao mesmo tempo**.
+    ```html
+    <input type="file" name="arquivos" multiple/> <input type="email" name="emails" placeholder="separe com vírgulas" multiple/>
+    ```
+    - **`autofocus`**: utilizado para dar foco automático a um campo de entrada assim que a página é carregada. Ou seja, **o cursor será automaticamente colocado nesse campo, e o usuário poderá começar a digitar imediatamente, sem precisar clicar nele**.
+    ```html
     <input type="text" placeholder="nome de usuário" autofocus/>
+    ```
  - **TIPOS DE ENTRADAS**
-    - **`text`: Cria uma *caixa de texto* para que o usuário insira os dados para envio.**<br/><input type="text" name="Nome" id="Nome" placeholder="Digite aqui seu nome..." value="Meu primeiro nome é: "/>
-    - **`textarea`**: Tag com par de fechamento e cria uma área maior de texto, juntamente com `rows` e `cols`, que definem respectivamente o número de linhas e colunas de uma área de texto, mas o método mais usado atualmente é definir usando CSS: `<textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>`<br/><textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>
+    - **`text`: Cria uma *caixa de texto* para que o usuário insira os dados para envio.**
+    ```html
+    <input type="text" name="Nome" id="Nome" placeholder="Digite aqui seu nome..." value="Meu primeiro nome é: "/>
+    ```
+    - **`textarea`**: Tag com par de fechamento e cria uma área maior de texto, juntamente com `rows` e `cols`, que definem respectivamente o número de linhas e colunas de uma área de texto, mas o método mais usado atualmente é definir usando CSS:
+    ```html
+    <textarea name="comentarios" id="comentario" rows="5" cols="30" placeholder="Digite aqui seu comentário (opcional).">Texto pré-formatado.</textarea>
+    ```
       - **`readonly`**: Define o campo como *somente leitura*. O usuário não pode modificar o conteúdo, mas pode selecioná-lo e copiá-lo.
       - **`maxlength`**: Define o número *máximo* de caracteres que o usuário pode digitar no campo de texto.
       - **`minlength`**: Define o número *mínimo* de caracteres que o usuário deve inserir no campo de texto.
@@ -870,33 +881,62 @@ Aqui falaremos sobre como adicionar legendas.
         - **`soft`**: Quebra de linha no campo visualmente, mas *sem inserir* uma quebra no texto.
         - **`hard`**: *Insere* uma quebra de linha no texto.
       - **`spellcheck`="`true`/`false`"**: Especifica se o navegador deve verificar a ortografia do texto digitado.
-    - **`password`**: Oculta os caracteres digitados.<br/><input type="password" name="senha" placeholder="Digite aqui sua senha"/><br/><br/>
-    - **`email`**: Recebe um dado do tipo *texto* e o trata como um endereço de e-mail.<br/><input type="email" name="Email" id="Email" placeholder="exemplo@email.com"/><br/><br/>
-    - **`search`**: Rece um dado como um termo de busca para pesquisa no banco de dados especificado.<br/><input type="Search" name="Search" id="Search" placeholder="&#128269;"/><br/><br/>
-    - **`url`**: Recebe o dado como um endereço web.<br/><input type="url" name="URL" id="URL" placeholder="www.url.com" value="https://"/><br/><br/>
-        - **As tags tipo texto geralmente tem um comportamento *auto complete* por padrão, ou seja, geralmente mantêm as entradas anteriores na memória.** Para alterar este comportamento usa-se o atributo `autocomplete` conforme já visto.
-    - **`tel`**: Recebe somente números e trata-os como número de telefone.<br/><input type="tel" name="Phone" id="Phone" placeholder="+CC DDD X XXXX-XXXX"/>
+    - **`password`**: Oculta os caracteres digitados.
+    ```html
+    <input type="password" name="senha" placeholder="Digite aqui sua senha"/>
+    ```
+    - **`email`**: Recebe um dado do tipo *texto* e o trata como um endereço de e-mail.
+    ```html
+    <input type="email" name="Email" id="Email" placeholder="exemplo@email.com"/>
+    ```
+    - **`search`**: Rece um dado como um termo de busca para pesquisa no banco de dados especificado.
+    ```html
+    <input type="Search" name="Search" id="Search" placeholder="&#128269;"/>
+    ```
+    - **`url`**: Recebe o dado como um endereço web.
+    ```html
+    <input type="url" name="URL" id="URL" placeholder="www.url.com" value="https://"/>
+    ```
+       - **As tags tipo texto geralmente tem um comportamento *auto complete* por padrão, ou seja, geralmente mantêm as entradas anteriores na memória.** Para alterar este comportamento usa-se o atributo `autocomplete` conforme já visto.
+    - **`tel`**: Recebe somente números e trata-os como número de telefone.
+    ```html
+    <input type="tel" name="Phone" id="Phone" placeholder="+CC DDD X XXXX-XXXX"/>
+    ```
  - **FAIXA DE VALORES**
     - Para os casos abaixo, o valor do `value` junto com o valor atribuído ao `name`, é a informação que chega ao servidor quando o usuário submete o formulário.
-        - **`radio`**: Permite a seleção de somente uma entre várias opções, todas do mesmo grupo (nome). Cada vez que uma opção é selecionada, a outra opção que foi selecionada é automaticamente desmarcada. **Apenas uma opção pode ser selecionada por vez, e para definir isso o valor atribuído ao `name` deve ser igual para todos, para que o navegador entenda que estão relacionados e garantir a exclusividade da seleção da selação, desmarcando outra quando uma é selecionada.**<br/>
+        - **`radio`**: Permite a seleção de somente uma entre várias opções, todas do mesmo grupo (nome). Cada vez que uma opção é selecionada, a outra opção que foi selecionada é automaticamente desmarcada. **Apenas uma opção pode ser selecionada por vez, e para definir isso o valor atribuído ao `name` deve ser igual para todos, para que o navegador entenda que estão relacionados e garantir a exclusividade da seleção da selação, desmarcando outra quando uma é selecionada.**
+        ```html
         <input type="radio" name="sexo" value="masculino"/> Masculino
         <input type="radio" name="sexo" value="feminino"/> Feminino
-        - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. Embora várias checkbox sejam normalmente exibidas juntas, **cada uma é completamente independente das outras**.<br/><input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
-            - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.<input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
-    - **`Number`**: Números genéricos, juntamente com `min`, `max` e `step`: <input type="number" min="0" max="10" step="2" placeholder="Duplo" value="0"/>
-    - **`range`**: Cria um controle deslizante (*slider*) para selecionar um valor dentro de um intervalo, juntamente com `min`, `max` e `step`: <input type="number" name="volume" min="1" max="100"/>
+        ```
+        - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. Embora várias checkbox sejam normalmente exibidas juntas, **cada uma é completamente independente das outras**.
+        ```html
+        <input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
+        ```
+           - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.
+           ```html
+           <input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
+           ```
+    - **`Number`**: Números genéricos, juntamente com `min`, `max` e `step`.
+    ```html
+    <input type="number" min="0" max="10" step="2" placeholder="Duplo" value="0"/>
+    ```
+    - **`range`**: Cria um controle deslizante (*slider*) para selecionar um valor dentro de um intervalo, juntamente com `min`, `max` e `step`.
+    ```html
+    <input type="number" name="volume" min="1" max="100"/>
+    ```
     - **`option`**: Contém os elementos que defiem uma das opções que pode ser selecionada. Por padrão, dependendo de onde é usado, tem seu primeiro elemento da lista selecionado, ou, exibe um campo em branco até que o usuário selecione uma das opções.
-        - Para alterar este comportamento, usa-se o atribuito `selected` na opção que se deseja manter pré selecionada.<br/><select><option label="1"/><option label="2"/><option label="3" selected/></select>
-        <!--
+        - Para alterar este comportamento, usa-se o atribuito `selected` na opção que se deseja manter pré selecionada.
+        ```html
         <select>
             <option label="1"/>
             <option label="2"/>
             <option label="3" selected/>
         </select>
-        -->
-        - Para especificar o número de valores visíveis, usa-se o atributo `size`.<br/><select size="3"><option label="1"/><option label="2"/><option label="3"/><option label="4"/><option label="5"/><option label="6"/><option label="7"/><option label="8"/><option label="9"/></select>
-        <!--
-        <select size="3"">
+        ```
+        - Para especificar o número de valores visíveis, usa-se o atributo `size`.
+        ```html
+        <select size="3">
             <option label="1"/>
             <option label="2"/>
             <option label="3"/>
@@ -907,18 +947,18 @@ Aqui falaremos sobre como adicionar legendas.
             <option label="8"/>
             <option label="9"/>
         </select>
-        -->
-        - Para permitir que o usuário selecione mais de um valor usa-se o atributo **`multiple`**.<br/><select multiple><option value="bmw">BMW</option><option value="audi">AUDI</option><option value="mercedes">MERCEDES</option></select>
-        <!--
+        ```
+        - Para permitir que o usuário selecione mais de um valor usa-se o atributo **`multiple`**.
+        ```html
         <select multiple>
             <option value="bmw">BMW</option>
             <option value="audi">AUDI</option>
             <option value="mercedes">MERCEDES</option>
         </select>
-        -->
+        ```
     - **É usado com `datalist` e `select`.**
-        - **`datalist`**: **Cria uma lista de sugestões para um campo `input`, mas o usuário ainda pode digitar um valor personalizado**, as sugestões aparecem conforme o usuário digita, mas ele não é obrigado a escolhê-las. Usado com o atributo `list` em um `input`, ele torna a interação com o formulário mais eficiente, especialmente quando há opções limitadas, como nomes de cidades, e-mails ou produtos.<br/><input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade."><datalist id="cidades"><option value=" "></option><option label="MG" value="Contagem"/><option label="MG" value="Belo Horizonte"/><option label="MG" value="Betim"/><option label="RJ" value="Rio De Janeiro"/><option label="SP" value="São Paulo"/></datalist>
-        <!--
+        - **`datalist`**: **Cria uma lista de sugestões para um campo `input`, mas o usuário ainda pode digitar um valor personalizado**, as sugestões aparecem conforme o usuário digita, mas ele não é obrigado a escolhê-las. Usado com o atributo `list` em um `input`, ele torna a interação com o formulário mais eficiente, especialmente quando há opções limitadas, como nomes de cidades, e-mails ou produtos.
+        ```html
         <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade.">
         <datalist id="cidades">
             <option value=" "></option>
@@ -928,9 +968,9 @@ Aqui falaremos sobre como adicionar legendas.
             <option label="RJ" value="Rio De Janeiro"/>
             <option label="SP" value="São Paulo"/>
         </datalist>
-        -->
-        - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**.<br/><select name="time" id="time" required><option label="" value=""></option><optgroup label="MG"><option value="cruzeiro">CRUZEIRO</option><option value="america">AMÉRICA</option><option value="atletico">ATLÉTICO</option></optgroup><optgroup label="SP"><option value="corinthians">CONRINTHIANS</option><option value="palmeiras">PALMEIRAS</option><option value="sao-paulo">SÃO PAULO</option></optgroup></select>
-        <!--
+        ```
+        - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**.
+        ```html
         <select name="time" id="time" required>
             <option label="" value=""></option>
             <optgroup label="MG">
@@ -944,24 +984,57 @@ Aqui falaremos sobre como adicionar legendas.
                 <option value="sao-paulo">SÃO PAULO</option>
             </optgroup>
         </select>
-        -->
- - **`date`**: Tipo de data: <input type="date"/>
-    - **`datetime-local`**: <input type="datetime-local"/>
-    - **`time`**: <input type="time"/>
-    - **`week`**: <input type="week"/>
-    - **`month`**: <input type="month"/>
- - **`color`**: Permite a seleção de uma cor usando um seletor de cores: <input type="color" name="cor"/>
- - **`file`**:  Permite o envio de arquivos, quando incluso no formulário, é **OBRIGATÓRIO** adicionar o atributo **`enctype="multipart/form-data"`** ao `form`: <input type="file" name="arquivo"/>
+        ```
+ - **`date`**: Tipo de data.
+ ```html
+ <input type="date"/>
+ ```
+   - **`datetime-local`**
+   ```html
+   <input type="datetime-local"/>
+   ```
+   - **`time`**
+   ```html
+   <input type="time"/>
+   ```
+   - **`week`**
+   ```html
+   <input type="week"/>
+   ```
+   - **`month`**
+   ```html
+   <input type="month"/>
+   ```
+ - **`color`**: Permite a seleção de uma cor usando um seletor de cores.
+ ```html
+ <input type="color" name="cor"/>
+ ```
+ - **`file`**:  Permite o envio de arquivos, quando incluso no formulário, é **OBRIGATÓRIO** adicionar o atributo **`enctype="multipart/form-data"`** ao `form`.
+ ```html
+ <input type="file" name="arquivo"/>
+ ```
  - **TIPOS RELACIONADOS A BOTÕES**
-    - **type="`button`"**: **Método não recomendado por estar depreciado.** Cria um botão genérico, que pode ser programado com JavaScript para realizar ações customizadas.<br/>
-    `<input type="button" value="clique aqui"/>` <input type="button" value="clique aqui"/>
-    - **`submit`**: Cria um botão que envia o formulário.<br/>
-    `<button type="submit">enviar</button>` <button type="submit">enviar</button>
-    - **`reset`**: Cria um botão que reseta os valores dos campos do formulário para seus valores iniciais.<br/>
-    `<button type="reset">reset</button>` <button type="reset">reset</button>
+    - **type="`button`"**: **Método não recomendado por estar depreciado.** Cria um botão genérico, que pode ser programado com JavaScript para realizar ações customizadas.
+    ```html
+    <input type="button" value="clique aqui"/>
+    ```
+    - **`submit`**: Cria um botão que envia o formulário.
+    ```html
+    <button type="submit">enviar</button>
+    ```
+    - **`reset`**: Cria um botão que reseta os valores dos campos do formulário para seus valores iniciais.
+    ```html
+    <button type="reset">reset</button>
+    ```
  - **DADOS OCULTOS E OUTROS CASOS ESPECIAIS**
-    - **`image`**: Cria um botão de envio de formulário com a aparência de uma imagem. O clique na imagem envia o formulário.<br/><input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar"> `<input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar">`
-    - **`hidden`**: Define um campo de entrada que não é exibido no formulário, mas pode armazenar informações necessárias ao servidor que serão enviadas quando o formulário for submetido.<br/>`<input type="hidden" name="user_id" value="@password"/>`
+    - **`image`**: Cria um botão de envio de formulário com a aparência de uma imagem. O clique na imagem envia o formulário.
+    ```html
+    <input type="image" src="https://cdn-icons-png.flaticon.com/16/2111/2111644.png" alt="enviar">
+    ```
+    - **`hidden`**: Define um campo de entrada que não é exibido no formulário, mas pode armazenar informações necessárias ao servidor que serão enviadas quando o formulário for submetido.
+    ```html
+    <input type="hidden" name="user_id" value="@password"/>
+    ```
     - **`form`**: *Serve para associar o campo de entrada a um formulário específico, mesmo que o campo de entrada não esteja dentro do formulário.* **Isso permite que você coloque os campos de entrada em uma área separada da tag `form`, mas ainda assim envie os dados para esse formulário quando o formulário for enviado.** *Este atributo se refere ao ID de um formulário existente.* Isso significa que, se você tiver vários formulários na página ou se o campo de entrada não estiver dentro do formulário ao qual ele deve se associar, você pode usar esse atributo para indicar qual formulário o campo deve pertencer.
  - **LABEL**<br/>
    **Permite associar um texto a um campo de controle de formulário.** *É uma boa prática de semântica e SEO.* Sua escrita possui um par de fechamento e o atributo `for`, que é o que associa a `label` ao campo a que ela se refere. **Este `for` deve ter o MESMO valor que o `id` do campo `input` que a label está associada.**
@@ -995,11 +1068,11 @@ Aqui falaremos sobre como adicionar legendas.
  - **`src="../file.ext`**: **O arquivo está localizado na pasta um nível acima da pasta atual.**
  - **`src="https://site.com/image.png` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
 
-<table border="1px" style="text-align: center">
+<table border="1px">
     <caption>LISTA DE TAGS</caption>
     <colgroup>
         <col>
-        <col style="width: 30rem">
+        <col>
         <col>
     </colgroup>
     <thead>
