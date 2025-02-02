@@ -1,5 +1,5 @@
 # DESENVOLVIMENTO FRONT END
- O desenvolvimento *front-end tem como foco de trabalho a tradução do design e das funcionalidades propostas para uma* **interface de usuário (GUI - Graphic User Interface)** concentrando-se no manuseio de **[HTML](#html)**, **[CSS]()** e **[JAVASCRIPT]()** (geralmente são as linguagens mais utilizadas para este fim). Para isso, usasse uma série de *bibliotecas*, *frameworks* e *padrões de design* criados e testados pela comunidade, com os quais é possível trabalhar de forma eficiente.<br/>
+ O desenvolvimento *front-end tem como foco de trabalho a tradução do design e das funcionalidades propostas para uma* **interface de usuário (GUI – Graphic User Interface)** concentrando-se no manuseio de **[HTML](#html)**, **[CSS](#css)** e **[JAVASCRIPT]()** (geralmente são as linguagens mais utilizadas para este fim). Para isso, usasse uma série de *bibliotecas*, *frameworks* e *padrões de design* criados e testados pela comunidade, com os quais é possível trabalhar de forma eficiente.<br/>
  O objetivo principal do desenvolvedor front-end está relacionado à otimização dos recursos consumidos por uma aplicação, através do servidor. Um exemplo disso é o *tempo de carga (carregamento de "tela")*. Quanto menor o tempo de carga, melhor será a experiência do usuário. Meio segundo de tempo de carregamento de página pode afetar significativamente a conversão do usuário. Portanto, o tempo é essencial para qualquer website. Ninguém gosta de esperar, especialmente os usuários que estão cada vez mais acostumados à velocidade. O desenvolvedor do front-end é responsável por melhorar os tempos de carregamento, assim melhorando a experiência do usuário e, por fim, como objetivo final obter mais leads ou vendas.<br/>
  A manutenção e escrita de códigos em tecnologias HTML e CSS pode ser um desafio por não serem muito dinâmicas. Não possuem ciclos, funções, objetos ou condições. Resumindo, todas as ferramentas disponíveis em outras linguagens de programação para a criação de código de manutenção não estão existem nessas tecnologias. Entretanto, ainda é possível graças à ajuda de processadores de CSS como *Stylus*, *LESS* ou *SASS*, o que pode ampliar as capacidades do CSS. Enquanto que, para HTML, há motores disponíveis para cada linguagem back-end. Ao trabalhar com frameworks, verá que já possuem motores de renderização predefinidos, como *ERB* e *HAML* (em *RAILS*), *JADE* e *ectjs* (em *NodeJS*) ou *Blade* (em *Laravel*). Isto faz com que os motores funcionem adicionando o código da linguagem ao modelo. *Quando uma solicitação chega ao servidor, este processa o template, transforma o código incorporado (HTML puro) e o envia para o navegador.* Além disso, também estão inclusas algumas ferramentas no JavaScript como *Backbone, AngularJS, Foundation e EmberJS* que facilitam a criação de páginas responsívas e otimizadas.<br/>
  Na programação web uma coisa é constante: não é fácil criar páginas capazes de parecer "bem" em todos os tipos de navegadores. Este é um ponto delicado para qualquer um que tenha que lidar com tal tarefa. A ideia é *não perder tráfego*, mesmo se for utilizado o *Internet Explorer 7*, especialmente se o serviço ou produto estiver focado em um público que utiliza esse navegador em particular. Para resolver este problema, existem scripts chamados *Polyfils*, que adicionam as capacidades de um navegador moderno usando JavaScript. Como nos navegadores, há uma infinidade de **telas**: smartphones, desktops, notebooks, tablets, smart tvs, e etc. Mesmo dentro do campo dos smartphones, são numerosas as variantes dependendo do dispositivo e da marca. O desenvolvedor front-end está encarregador de fazer o site funcionar para a maioria das telas.
@@ -7,13 +7,13 @@
 ## DESENVOLVIMENTO WEB
  Para começarmos, precisamos deixar claro que: *Internet* e *Web (World Wide Web)* **não são a mesma coisa**. A Internet é a estrutura (rede) que conecta os dipositivos uns aos outros, a fim de estabelecer uma ponte para a counicação entre seus usuários; já a Web é a plataforma onde as aplicações (websites) podem ser acessadas e usadas. Um *website* é um *site (localização)* na **World Wide Web** que contém documentos, ou *páginas web* hierarquicamente organizadas. Cada documento pode conter textos, imagens, gráficos e etc, que aparecem como informações digitais em uma tela. Cada website tem uma **Home Page**, *que é o primeiro documento que o usuário vê ao entrar no website* digitando o nome de domínio no navegador. O termo *página web* é às vezes usado equivocadamente para se referir a um website. Uma **Página Web** *é parte de um website e é um único arquivo com um nome atribuído*, enquanto um **WebSite** *é uma coleção de arquivos chamada Páginas Web*. Se o compararmos a um livro, um *website* seria o livro inteiro, e uma *página web* seria um capítulo; seria um capítulo e não uma página do livro porque muitas vezes é necessário percorrer a tela para ver todo o conteúdo de uma página web, assim como em um livro percorremos várias páginas para ver todo o conteúdo de um capítulo.<br/>
  Uma *página web*, também conhecida como *página da Internet*, é um documento adapatado para a web e geralmente faz parte de um website, Sua principal característica são os *hyperlinks* para outras páginas, que é a base da web. Dentro de uma página web, podemos encontrar todo tipo de conteúdo. Uma das divisões que podemos fazer entre todos os tipos de páginas web existentes poderia ser a diferença entre *páginas estáticas* e *páginas dinâmicas*.<br/>
- Para entender a comunicação mais básica que ocorre na internet, devemos saber que ela envolve um **servidor web**, como *ISS*, *Apache* ou *NGINX*, que contém os arquivos HTML, CSS e JavaScript das páginas web; e um cliente, neste caso o navegador (*Chrome, Firefox, Edge* e etc). O servidor web e o cliente comunicam-se via **HTTPS (Hypertext Transfer Protocol Secure)**, que *é um conjunto de regras que permitem a transferência de informações via arquivos na Internet*. A comunicação entre eles começa quando o usuário, através do navegador, entra no *endereço de um website* (conhecido como **url** - Uniform Resource Locator), gerando uma solicitação ao servidor web onde a página está hospedada (via HTTPS) para encontrar os arquivos dela. O servidor web então responde à solicitação e retorna os arquivos do site (resposta HTTPS). A resposta chega ao navegador como uma cópia HTML da página web, e é neste ponto que o usuário pode vê-la em sua tela.
+ Para entender a comunicação mais básica que ocorre na internet, devemos saber que ela envolve um **servidor web**, como *ISS*, *Apache* ou *NGINX*, que contém os arquivos HTML, CSS e JavaScript das páginas web; e um cliente, neste caso o navegador (*Chrome, Firefox, Edge* e etc). O servidor web e o cliente comunicam-se via **HTTPS (Hypertext Transfer Protocol Secure)**, que *é um conjunto de regras que permitem a transferência de informações via arquivos na Internet*. A comunicação entre eles começa quando o usuário, através do navegador, entra no *endereço de um website* (conhecido como **url** – Uniform Resource Locator), gerando uma solicitação ao servidor web onde a página está hospedada (via HTTPS) para encontrar os arquivos dela. O servidor web então responde à solicitação e retorna os arquivos do site (resposta HTTPS). A resposta chega ao navegador como uma cópia HTML da página web, e é neste ponto que o usuário pode vê-la em sua tela.
 
 
 #### ESTÁTICO x DINÂMICO
  Quando se trata de desenvolver um website, a primeira coisa a considerar é *como será construído, como um site **dinâmico** ou **estático***.<br/>
  Uma **página web estática** *está focada principalmente na exibição de informações permanentes*, onde o usuário se limita a somente visualizar essas informações, sem poder interagir com a página em questão. Este usuário só pode interagir com a página estática através dos elementos permitidos, como clicar em links e botões, ou preencher formulários. Quando falamos em "estática", podemos também dizer que a página web tem um número fixo de páginas, ou seja, da forma como foi projetada e armazenada no servidor web, ela é recebida pelo navegador e vista pelo usuário como um número fixo de páginas HTML. Podemos dizer que sites estáticos não armazenam informações externas, somente aquelas contidas no seu código fonte (armazenadas no servidor). Sites estáticos não são tão complexos tecnicamente quanto sites dinâmicos, além de também não são tão versáteis e eficazes quando de trata de oferecer funcionalidades. Simplificando, em um website estático, veremos as mesmas informações, layout e conteúdo sempre que o visitarmos, a menos que alguém aplique mudanças no código fonte manualmente. Um website estático possui algumas vantagens devido sua natureza estática, a complexidade e o tempo de desenvolvimento são menores, por que não requerem o uso de multiplas linguagens de programação ou de um banco de dados, e, por isso seu custo de desenvolvimento e implantação são baixos; por conta dessa característica "simplista", possuem um *tempo de carregamento extremamente rápido*, pois são *pré-construídos* e não possuem scripts complexos que levam tempo para executar ações, ainda mais com o advento do *Jamstack* como gerador de sites estáticos focado em desempenho e velocidade, incuindo o *Jekyll*, *GatsbyJS SSG*, *Eleventy*, *Headless CMS*, *Netlify CMS*, *Siteleaf CMS* e *Forestry CMS*. Além disso, é importante incorporar a *CDN (Content Delivery Network)* para gerenciar recursos de multimídia; ela pode gerar um aumento no custo de carregamento de uma página estática dependendo de suas características.
- Um **site dinâmico** *é aquele que contém aplicações dentro do próprio site, proporcionando maior interatividade com o navegante*. Exemplos de aplicações dinâmicas são pesquisas e votações, fóruns de suporte, livros de visitas, envio de e-mails, reservas de produtos, pedidos online, e etc. *É importante não confundir multimídia e interatividade com páginas dinâmicas.* Uma página web estática pode conter vários tipos de mídia e interativa através de links e hyperlinks, sem ser dinâmica em si. Já em páginas dinâmicas, o conteúdo é normalmente gerado no momento da visualização e pode, portanto, variar; enquanto páginas estáticas o conteúdo é normalmente predeterminado. As páginas web dinâmicas são interativas e funcionais, ao invés de simplesmente informativas. Naturalmente, isto requer mais do que apenas código HTML e CSS. Os sites dinâmicos baseiam seu comportamento e funcionalidadesem 2 tipos de programação: *front-end (lado do cliente - faz requisições)* e *back-end (lado do servidor - responde às requisições)*. As instruções do lado do cliente são códigos JavaScript, que são executados no navegador. Instruções do lado do servidor são escritas em linguagens de script, tais como ASP.Net, PHP, Python, entre outras, que são executadas para criar o que o usuário solicitou em sua interação com a página. Uma vez que as instruções tenham sido executadas no servidor, uma nova resposta HTTPS é devolvida ao navegador, exibindo ao usuário o que foi solicitado. O resultado final é o mesmo que em um site estático: uma página HTML que o usuário vê do navegador. *O importante nessa classificação entre dinâmica e estática é que, uma página web estática não pode ser modificada pelo usuário, enquanto que a dinâmica sim e armazena estes dados alterados.* Entre as vantagens de um site dinâmico, está a possibilidade de que ele pode gerenciar informações através de banco de dados. Isto permite ao usuário solicitar facilmente informações de forma organizada e estruturada dentro de uma tabéla ou catálogo, assim como criar e exibir conteúdo de acordo com o tipo de usuário que acessa a página; além de que, seu conteúdo pode ser gerenciado através de um *CMS (Content Management System - software que permite criar, editar, organizar e publicar conteúdo digital)*. O conteúdo armazenado no CMS pode incluir uma variedade de arquivos, desde texto às imagens exibidas, layouts da página, configurações do site e muito mais. Isto permite flexibilidade ao criar o site, e também, que vários usuários manipulem o conteúdo conforme necessário, fazendo com que se tenha um custo de manutenção menor do que seria em alterar o conteúdo em uma página estática por exemplo. Como as informações podem ser gerenciadas através de um CMS, há pouco ou nenhum custo quando se trata de manutenção dessas informações. Em contra partida, por conta de tantas funcionalidades, seu desenvolvimento e implementação podem possuir um alto custo. Além do custo do desenvolvimento da aplicação, há o custo do desenvolvimento do banco de dados onde o conteúdo a ser exibido será armazenado. O dsesenvolvimento pode aumentar seu custo ainda mais a medida que novas funcionalidades são adicionadas. Embora os custos de manutenção possam ser menores, este custo de desenvolvimento inicial é algo a se considerar durante a elaboração do projeto e definição do escopo de acordo com a necessidade. Também podem haver limitações técnicas no projeto. Há depender da arquitetura escolhida, como o conteúdo é baseado principalmente nas informações contidas no banco de dados e a apresentação ao usuário é baseada na estrutura do banco, isto pode tornar o projeto "engessado" complicando a criação de livre vontade, pois é mais fácil optar por uma única abordagem para todas as páginas. Dependendop do CMS, pode ser difícil criar vários layouts ou modelos que permitam que diferentes tispo de conteúdo sejam exibidos de diferentes maneiras.
+ Um **site dinâmico** *é aquele que contém aplicações dentro do próprio site, proporcionando maior interatividade com o navegante*. Exemplos de aplicações dinâmicas são pesquisas e votações, fóruns de suporte, livros de visitas, envio de e-mails, reservas de produtos, pedidos online, e etc. *É importante não confundir multimídia e interatividade com páginas dinâmicas.* Uma página web estática pode conter vários tipos de mídia e interativa através de links e hyperlinks, sem ser dinâmica em si. Já em páginas dinâmicas, o conteúdo é normalmente gerado no momento da visualização e pode, portanto, variar; enquanto páginas estáticas o conteúdo é normalmente predeterminado. As páginas web dinâmicas são interativas e funcionais, ao invés de simplesmente informativas. Naturalmente, isto requer mais do que apenas código HTML e CSS. Os sites dinâmicos baseiam seu comportamento e funcionalidadesem 2 tipos de programação: *front-end (lado do cliente – faz requisições)* e *back-end (lado do servidor – responde às requisições)*. As instruções do lado do cliente são códigos JavaScript, que são executados no navegador. Instruções do lado do servidor são escritas em linguagens de script, tais como ASP.Net, PHP, Python, entre outras, que são executadas para criar o que o usuário solicitou em sua interação com a página. Uma vez que as instruções tenham sido executadas no servidor, uma nova resposta HTTPS é devolvida ao navegador, exibindo ao usuário o que foi solicitado. O resultado final é o mesmo que em um site estático: uma página HTML que o usuário vê do navegador. *O importante nessa classificação entre dinâmica e estática é que, uma página web estática não pode ser modificada pelo usuário, enquanto que a dinâmica sim e armazena estes dados alterados.* Entre as vantagens de um site dinâmico, está a possibilidade de que ele pode gerenciar informações através de banco de dados. Isto permite ao usuário solicitar facilmente informações de forma organizada e estruturada dentro de uma tabéla ou catálogo, assim como criar e exibir conteúdo de acordo com o tipo de usuário que acessa a página; além de que, seu conteúdo pode ser gerenciado através de um *CMS (Content Management System – software que permite criar, editar, organizar e publicar conteúdo digital)*. O conteúdo armazenado no CMS pode incluir uma variedade de arquivos, desde texto às imagens exibidas, layouts da página, configurações do site e muito mais. Isto permite flexibilidade ao criar o site, e também, que vários usuários manipulem o conteúdo conforme necessário, fazendo com que se tenha um custo de manutenção menor do que seria em alterar o conteúdo em uma página estática por exemplo. Como as informações podem ser gerenciadas através de um CMS, há pouco ou nenhum custo quando se trata de manutenção dessas informações. Em contra partida, por conta de tantas funcionalidades, seu desenvolvimento e implementação podem possuir um alto custo. Além do custo do desenvolvimento da aplicação, há o custo do desenvolvimento do banco de dados onde o conteúdo a ser exibido será armazenado. O dsesenvolvimento pode aumentar seu custo ainda mais a medida que novas funcionalidades são adicionadas. Embora os custos de manutenção possam ser menores, este custo de desenvolvimento inicial é algo a se considerar durante a elaboração do projeto e definição do escopo de acordo com a necessidade. Também podem haver limitações técnicas no projeto. Há depender da arquitetura escolhida, como o conteúdo é baseado principalmente nas informações contidas no banco de dados e a apresentação ao usuário é baseada na estrutura do banco, isto pode tornar o projeto "engessado" complicando a criação de livre vontade, pois é mais fácil optar por uma única abordagem para todas as páginas. Dependendop do CMS, pode ser difícil criar vários layouts ou modelos que permitam que diferentes tispo de conteúdo sejam exibidos de diferentes maneiras.
 
 #### EXTENSÕES
  Como já visto, páginas web são documentos, e, como tal, geralmente têm uma extensão que nos dá uma ideia do tipo de conteúdo que o documento contém. As extensões mais comuns que podemos encontrar são:
@@ -101,6 +101,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 \<title>   | título do documento        | ✅
 \<link>    | vincula arquivos           | ❌
 \<base>    | define uma url base        | ❌
+\<style>   | delimita css interno       | ❌
 \<script>  | delimita scripts incluídos | ❌
 
  - Meta tags não possuem um par fechamento, elas servem para incluir informações que não são exibidar como parte da página, mas sim informar aos navegadores sobre características da página, tais como sua breve descrição e palavras-chave. Elas contém a etiqueta `name`, que é usado para identificar dados de formulário que serão enviados ao servidor quando o formulário for submetido, criação de âncoras e agrupamento de opções, e o atributo *`description`* que é essencial para os motores de busca, pois dá uma breve descrição sobre o assunto da página e ajuda a categorizá-la (substituindo o atributo *"keywords"*).
@@ -1589,5 +1590,117 @@ Aqui falaremos sobre como adicionar legendas.
         </tr>
     </tbody>
 </table>
+
+### <span id="css">CSS</span>
+ O objetivo do CSS é dar a aparência que quisermos às nossas páginas. Antes de seu surgimento, usava-se atributos nas tags para dá-las alguma aparência como por exemplo altura, largura, cor e etc. Atualmente, separamos a estrutura (HTML) da aparência (CSS). **Cascading Style Sheets** então surgiu para facilitar o desenvolvimento facilitando a separação de conteúdo da aparência, permitindo que os desenvolvedores controlassem a aparência dos documentos sem alterar sua estrutura.<br/>
+ Em meados de 1990 a web se expandia rapidamente, mas os navegadores ofereciam poucas maneiras de definir estilos e layouts de forma consistente. Nesse contexto, Håkon Wium Lie, enquanto trabalhava com Tim Berners-Lee (idealizador do HTML) no CERN, percebeu que faltava uma ferramenta para aplicar estilos de forma flexível aos documentos web. Então, em 1994, Håkon Wium Lie propôs a ideia de “folhas de estilo em cascata” para dar aos desenvolvedores um mecanismo que pudesse controlar a apresentação de forma separada do conteúdo. Essa proposta surgiu justamente para atender à necessidade de uma web mais dinâmica e com melhor controle visual. Pouco tempo depois, Bert Bos se juntou a Lie, contribuindo significativamente para o refinamento do conceito. Juntos, eles desenvolveram as bases do que se tornaria o CSS, defendendo uma abordagem em que os estilos pudessem vir de diferentes fontes – como o navegador, o autor da página e o usuário final – sendo aplicados de acordo com uma ordem de prioridade ou “cascata”.
+
+#### SINTÁXE
+ Todas as etiquetas CSS terão 2 partes:
+ 1. **SELETOR**: Que determina qual área da página será modificada.
+ 2. **INSTRUÇÕES (ou PROPRIEDADES)**: Que se referem ao formato e aparência que vamos aplicar a essa zona.
+
+ Para aplicarmos CSS à nossa página HTML existem **3 opções**:
+ 1. **DECLAÇÃO EXTERNA**: Em um arquivo separado de extensão `.css` linkado ao documento html. Dessa forma, podemos modificar **todas** as páginas do site apenas referenciando o arquivo css. **O *external CSS* é a melhor opção para melhorar o posicionamento SEO.**
+ 2. **DECLARAÇÃO INTERNA**: *No **cabeçalho** do documento, dentro do **`head`**.* Essa maneira permite modificarmos a aparência de uma **única** página em particular, onde as regras CSS são declaradas entre as tags `<style></style>` do documento html que se deseja estilizar. É chamado de *internal CSS*.
+ 3. **DECLARAÇÃO NA TAG**: *Usa-se o atributo **`style="seletor: regra-de-estilo"`** na tag que se deseja alterar a aparência. **Esta opção de _in-line CSS_ não é muito recomendada por não favorecer o SEO**, o ideal é utilizá-lo apenas em casos muito específicos.
+
+ Ao aplicarmos o *css in-line*, devemos repetir a estilização em cada uma das tags que queremos modificar, já com o _internal css_ estilizamos uma página inteira, e com o _external css_ podemos aplicar estilos a várias páginas do nosso site.<br/>
+ *É importante saber que cada uma dessas aplicações tem prioridade hierarquica sobre as outras, por isso deve-se sempre estar atento às regras de prioridade para não haver comportamentos inesperados.* A ordem de exibição informa ao navegador que aplique um estilo sobre o outro, ou seja, ao invés de aplicar o estilo (mais abaixo na hierarquia) presente em uma declaração, será aplicado o que estiver declarado de forma mais alta hierarquicamente. **Caso uma tag seja afetada por vários estilos CSS, o navegador aplicará os seguinte critérios seguindo a seguinte hierarquia, sendo 1 o maior e 3 o menor**:
+ 1. **in-line CSS**
+ 2. **internal CSS**
+ 3. **external CSS**
+
+**DECLARAÇÃO EXTERNA**<br/>
+ Consiste em criar um arquivo.css referenciado ao arquivo html. *Uma vez criado o arquivo CSS, declaramos no `head` uma tag `link` usando o atributo `rel`, que informa ao navegador a natureza do arquivo linkado, idicando a relação entre o documento atual e o recurso vinculado, e o `href`, que informa o caminho onde o arquivo está armazenado.*
+ ```html
+ <head>
+     <meta charset="utf-7">
+     <meta name="Description" content="Estudo de estilos CSS.">
+     <meta name="ketwords" content="pragramção web, htmll, css">
+     <title>Programação Web</title>
+     <link rel="stylesheet" href="assets/style.css">
+ </head>
+ ```
+
+**DECLARAÇÃO INTERNA**<br/>
+ Para declararmos o estilo internamente, ou seja, dentro do documento html, escrevemos as regras dentro da tag `style` no `head`.
+ ```html
+ <head>
+     <meta charset="utf-7">
+     <meta name="Description" content="Estudo de estilos CSS.">
+     <meta name="ketwords" content="pragramção web, htmll, css">
+     <title>Programação Web</title>
+     <style>
+        p {
+            font-size: 32px;
+        }
+     </style>
+ </head>
+ ```
+ Dessa forma, dizemos que o conteúdo das tags `p` terão um tamanho de fonte de 32px, assim, todas as tags `p` seguirão essa regra.
+
+**DECLARAÇÃO IN-LINE**<br/>
+ Usamos o atributo `style` para declararmos nosso CSS na tag que desejamos modificar – o estilo que escolhermos só alterará essa tag.
+ ```html
+ <body>
+    <p style="color: blueviolet">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ut magni, tempora natus assumenda voluptatum commodi non quod, sed repellat nostrum doloribus consequatur quis neque distinctio earum. Blanditiis, nulla est.
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolor aperiam, ratione repudiandae minima reiciendis fuga similique architecto doloribus nulla unde. Deleniti repellendus quo delectus rerum voluptas temporibus, facilis nobis.
+    </p>
+ </body>
+ ```
+<p style="color: blueviolet">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ut magni, tempora natus assumenda voluptatum commodi non quod, sed repellat nostrum doloribus consequatur quis neque distinctio earum. Blanditiis, nulla est.
+</p>
+<p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolor aperiam, ratione repudiandae minima reiciendis fuga similique architecto doloribus nulla unde. Deleniti repellendus quo delectus rerum voluptas temporibus, facilis nobis.
+</p>
+<hr>
+ A sintáxe para criar um comentário em CSS é: `/* comentário */`
+
+**FONTES PERSONALIZADAS**<br/>
+ **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
+ *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
+ ```css
+ @font-face {
+    font-family: 'fonte'; /* armazena a referência à fonte atrelando à variável na memória */
+    src: url('Fonte.ttf'); /* informa o caminho do arquivo da fonte */
+ }
+
+ p {
+    font: bold 2rem 'fonte'; /* informa para que use a fonte para as tags `p` */
+ }
+ ```
+**MODELO BOX-CONTAINER**<br/>
+ Existem 2 tipos de propriedades em um documento:
+ 1. **`block`**: Causam uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
+ 2. **`in-line`**: Não geram uma quebra de linha, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag. Exemplos de tags tipo `in-line`: `span`, `strong`, `em`, `a`, `img`, entre outas.
+
+ Para realizar a conversão de um tipo de elemento deve-se alterar a propriedade `display` do seletor em questão:
+ ```css
+ .id {
+    display: inline;
+ }
+ ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
