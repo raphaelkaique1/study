@@ -329,7 +329,6 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 </pre>
 ```
  output:
-<hr/>
 <p> 1. Este parágrafo contém
     espaços em branco    e também
     quebras de linha, porém      o navegador irá exibí-lo com a formatação padrão.
@@ -339,7 +338,6 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
     espaços em branco    e também
     quebras de linha, e,      o navegador irá exibí-lo com a formatação do documento.
 </pre>
-<hr/>
 
 ###### <span id="marcador">HYPERLINKS</span>
  *Links* ou *Hyperlinks*, são textos ou objetos sobre os quais podemos clicar para nos levar para outra parte do documento, outra página do mesmo site ou mesmo para outro site na Internet, entre outras funções.
@@ -820,6 +818,7 @@ Aqui falaremos sobre como adicionar legendas.
  - **AGRUPAMENTO E DESCRIÇÃO SEMÂNTICA DE SEÇÕES DE UM FORMULÁRIO**
    - **`fieldset`**: Agrupa elementos relacionados dentro de um formulário.
    - **`legend`**: Fornece uma descrição para o conteúdo de um `fieldset`.
+
  Vejamos alguns dos atributos que podem ser usados na tag `form`:
  - **`disabled/enabled` (bool)**: *Informa que o campo exibido não permite alteração do usuário.*
  ```html
@@ -913,10 +912,10 @@ Aqui falaremos sobre como adicionar legendas.
         ```html
         <input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
         ```
-           - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.
-           ```html
-           <input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
-           ```
+          - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.
+          ```html
+          <input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
+          ```
     - **`Number`**: Números genéricos, juntamente com `min`, `max` e `step`.
     ```html
     <input type="number" min="0" max="10" step="2" placeholder="Duplo" value="0"/>
@@ -956,35 +955,35 @@ Aqui falaremos sobre como adicionar legendas.
             <option value="mercedes">MERCEDES</option>
         </select>
         ```
-    - **É usado com `datalist` e `select`.**
-        - **`datalist`**: **Cria uma lista de sugestões para um campo `input`, mas o usuário ainda pode digitar um valor personalizado**, as sugestões aparecem conforme o usuário digita, mas ele não é obrigado a escolhê-las. Usado com o atributo `list` em um `input`, ele torna a interação com o formulário mais eficiente, especialmente quando há opções limitadas, como nomes de cidades, e-mails ou produtos.
-        ```html
-        <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade.">
-        <datalist id="cidades">
-            <option value=" "></option>
-            <option label="MG" value="Contagem"/>
-            <option label="MG" value="Belo Horizonte"/>
-            <option label="MG" value="Betim"/>
-            <option label="RJ" value="Rio De Janeiro"/>
-            <option label="SP" value="São Paulo"/>
-        </datalist>
-        ```
-        - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**.
-        ```html
-        <select name="time" id="time" required>
-            <option label="" value=""></option>
-            <optgroup label="MG">
-                <option value="cruzeiro">CRUZEIRO</option>
-                <option value="america">AMÉRICA</option>
-                <option value="atletico">ATLÉTICO</option>
-            </optgroup>
-            <optgroup label="SP">
-                <option value="corinthians">CONRINTHIANS</option>
-                <option value="palmeiras">PALMEIRAS</option>
-                <option value="sao-paulo">SÃO PAULO</option>
-            </optgroup>
-        </select>
-        ```
+      - **É usado com `datalist` e `select`.**
+          - **`datalist`**: **Cria uma lista de sugestões para um campo `input`, mas o usuário ainda pode digitar um valor personalizado**, as sugestões aparecem conforme o usuário digita, mas ele não é obrigado a escolhê-las. Usado com o atributo `list` em um `input`, ele torna a interação com o formulário mais eficiente, especialmente quando há opções limitadas, como nomes de cidades, e-mails ou produtos.
+          ```html
+          <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade.">
+          <datalist id="cidades">
+              <option value=" "></option>
+              <option label="MG" value="Contagem"/>
+              <option label="MG" value="Belo Horizonte"/>
+              <option label="MG" value="Betim"/>
+              <option label="RJ" value="Rio De Janeiro"/>
+              <option label="SP" value="São Paulo"/>
+          </datalist>
+          ```
+          - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**.
+          ```html
+          <select name="time" id="time" required>
+              <option label="" value=""></option>
+              <optgroup label="MG">
+                  <option value="cruzeiro">CRUZEIRO</option>
+                  <option value="america">AMÉRICA</option>
+                  <option value="atletico">ATLÉTICO</option>
+              </optgroup>
+              <optgroup label="SP">
+                  <option value="corinthians">CONRINTHIANS</option>
+                  <option value="palmeiras">PALMEIRAS</option>
+                  <option value="sao-paulo">SÃO PAULO</option>
+              </optgroup>
+          </select>
+          ```
  - **`date`**: Tipo de data.
  ```html
  <input type="date"/>
@@ -1050,16 +1049,6 @@ Aqui falaremos sobre como adicionar legendas.
     </fieldset>
 </form>
 ```
-<form method="post" action="/data-base">
-    <fieldset>
-        <legend>Cadastro</legend>
-        <label for="userName">Nome de Usuário:</label>
-        <input type="text" name="userID" id="userName" placeholder="Digite o nome de usuário." autocomplete="off" pattern="[a-zA-z0-9]{3,13}" autofocus required/>
-        <label for="email">E-mail:</label>
-        <input type="email" name="userEmail" id="email" placeholder="contact@email.com" autocomplete="off" required/>
-        <button type="submit">enviar</button>
-    </fieldset>
-</form>
 
 ###### VIAS E ROTAS
  Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. **Recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**
