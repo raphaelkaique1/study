@@ -704,7 +704,7 @@ a abertura da tabela.**
     <img src="https://avatars.githubusercontent.com/u/182168576" width="190rem" alt="Logo Tech n' Logic" title="Tech n' Logic" figcaption="Fonte: Tech n' Logic GitHub profile"/>
 </figure>
 
-###### ÁUDIO
+**ÁUDIO**<br/>
  O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada tipo reproduz um áudio.<br/>
  Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
  Possui os seguintes atributos:
@@ -756,7 +756,7 @@ Aqui falaremos sobre como adicionar legendas.
 </figure>
 ```
 
-###### IMPORTANDO CONTEÚDO
+**IMPORTANDO CONTEÚDO**<br/>
  Com o **`iframe`** *é possível exibir uma página web dentro de outra página web*. Ele pode ser estilizado com CSS de acordo com o layout da página hospedeira.
 ```html
 <iframe src="url" title="description"></iframe>
@@ -790,10 +790,12 @@ Aqui falaremos sobre como adicionar legendas.
 ```html
 <form enctype="application/x-www-form-urlencoded"></form>
 ```
+
  No entanto, se for preciso enviar arquivos, será necessário usar o formato a seguir, que permite o envio de arquivos binários junto com outros dados do formulário: 
 ```html
 <form enctype="multipart/form-data"></form>
 ```
+
  Com o `accept`, indicamos que tipo de arquivos nos permite realizar upload:
 ```html
 <form enctype="multipart/form-data" accept-charset="UTF-8"></form>
@@ -806,6 +808,7 @@ Aqui falaremos sobre como adicionar legendas.
 </form>
 <button>submit<button>  <!-- veremos como implementar isto adiante -->
 ```
+
  No exemplo acima, quando o usuário clicar em *submit**, a ação que será executada é a de enviar os dados para a url especificada usando o método `get`.<br/>
  Usando o método `get`, teriamos algo assim por exemplo:<br/>
  `https://www.mydomain.com/newuser.php?name=Raphael&lastname=Santos&email=raphaelkaiquediassantos1%40gmail.com`<br/>
@@ -835,10 +838,12 @@ Aqui falaremos sobre como adicionar legendas.
     <>...</>
 </form>
 ```
+
  **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.**
 ```html
  <input type="" name=""/>
 ```
+
  - _**A tag `name` É OBRIGATÓRIA, pois é o nome ao qual nos referimos quando o enviamos ao servidor, ou seja, se o nomearmos "`Nome`", poderemos recuperá-lo com `$_post("Nome")` ou `$_get("Nome")`.**_ *Neste exemplo, os dados do formulário, ou seja, **o valor inserido no campo `query`** serão enviados como parte da URL, como **https://exemplo.com/buscar?query=valorFornecidoPeloUsuário.*** Normalmente, as propriedades `name` e `id` recebem o mesmo nome, embora não seja obrigatório.
 ```html
 <form method="GET" action="/buscar">
@@ -846,13 +851,15 @@ Aqui falaremos sobre como adicionar legendas.
   <button type="submit">Pesquisar</button>
 </form>
 ```
+
  - **ELEMENTOS DE VALIDAÇÃO**
     - **`required`**: *Indica que é **OBRIGATÓRIO** preencher o campo para o envio do formulário.*
     - **`pattern`**: **Define uma expressão regular (regex) que o valor do campo de entrada deve seguir.** *O valor inserido pelo usuário será validado com base nessa expressão regular.*
 ```html
 <input type="text" pattern="[A-Za-z]{3,5}" required/>
 ```
-  - **ATRIBUTOS INFORMATIVOS**
+
+ - **ATRIBUTOS INFORMATIVOS**
     - **`placeholder`**: Exibe um texto informativo para o usuário *sem ocupar* o campo.
     - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option), juntamente com o atributo `name` (chave e valor = name e value)**
     - **`label`**: Define um rótulo visível, *diferente do valor real da opção*.
@@ -1722,7 +1729,7 @@ Aqui falaremos sobre como adicionar legendas.
 │                                       v                                        │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
-**SELETORES**
+**SELETORES**<br/>
  Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo, se for um `id` por exemplo, deve-se usar `#` para especificar ao documento, se for uma `class` usa-se `.`, e assim por diante.
  - **bloco de declaração**: Contém entre chaves seguidas após o seletor `{...}` as regras de estilo para o elemento em questão.
@@ -1736,8 +1743,9 @@ Aqui falaremos sobre como adicionar legendas.
  ```css
  h2 {
     color: lightblue;
- } 
+ }
  ```
+ **IMPORTANTE**: Para estilizar apenas uma palavra ou um grupo de palavras dentro de um texto, os envolvemos com a tag `span` e então a selecionamos para estilizar com CSS.
  - **`id`**: **Aplica as alterações apenas a um elemento específico.** Sua declaração é feita com um `#` antes do nome do `id` contido da tag que se deseja afetar:
  ```css
  #profileStatus {
@@ -1758,19 +1766,160 @@ Aqui falaremos sobre como adicionar legendas.
  ```html
  <p class="fontSize textColor"> ... </p>
  ```
- - **`[name="grupo"]`**
- - **`* - universal`**
- - **`+ - irmão`**
- - **`> - descendente`**
+ - **`*`**: **Seleciona TODOS os elementos no documento.**
+ ```css
+ * {
+    margin: 0;
+    padding: 0;
+ }
+ ```
+ - **`identificador[atributo="valor"]`**: **Aplica o mesmo conjunto de declarações a vários seletores de uma vez.** Com isso, podemos selecionar elementos com um determinado valor de atributo. *Por exemplo, o seletor `[name="description"]` seleciona todos os elementos que possuem o atributo `name` com o valor `description`.*
+ ```css
+ [name="description"] {
+     /* estilo aplicado a todos elementos com `name` "description" */
+ }
 
+ [required] {
+     /* estilo definido para todos os elementos que possuem o atributo `required` */
+ }
 
+ a[target="_blank"] {
+     /* estilo para todos os links com atributo `target="_blank"` */
+ }
 
+ [class~="destaque"] {
+     /* seleciona elementos cujo atributo CONTÉM O VALOR COMO UMA PALAVRA ISOLADA em uma lista de classes que inclui "destaque" */
+ }
 
+ [class*="tmp"] {
+     /* seleciona os títulos que CONTÉM O VALOR CORRESPONDENTE EM QUALQUER POSIÇÃO em uma lista de classes que inclui "tmp" */
+ }
 
+ a[href^="https://"] {
+     /* seleciona e aplica a todos os elementos links que COMEÇAM com "https://" */
+ }
 
+ img[src$=".png"] {
+     /* seleciona imagens cujo `src` TERMINA com ".png" */
+ }
 
+ p[lang|="en"] {
+     /* 
+     Seleciona elementos cuho atributo é exatamente o "valor" ou começa com "valor-",
+     principalmente útil para atributos de idioma por exemplo, `lang="en"` ou `lang="en-US"`.
+     
+     Este exemplo seleciona parágrafos em inglês ou variantes.
+     */
+ }
+```
+ - **Combinar seletores.** *Isso é utilizado para restringir a seleção apenas a elementos específicos.*
+ ```css
+ h2, h3, .identification, #card {
+     /*
+     AGRUPADO: Ao listar os seletores separados por `,`,
+     estamos agrupando-os para que o mesmo bloco de regras
+     seja aplicado a cada um deles individualmente.
+     */
+ }
 
+ article p {
+     /*
+     DESCENDENTE: Ao listar os seletores separados por espaço em branco,
+     busca o elemento da esquerda para a direita dentro do elemento
+     a fim de aplicar o estilo no último elemento da linha, como neste exemplo,
+     seleciona todos os parágrafos `p` que estão dentro de um `article`.
+     */
+ }
 
+ ul > li {
+     /*
+     FILHO: Seleciona apenas os elementos filhos imediatos.
+     Por exemplo, este trecho seleciona apenas os `li` que são filhos diretos de `ul`.
+     */
+ }
+
+ h1 + p {
+    /*
+    IRMÃO ADJACENTE: Seleciona o elemento imediatamente seguinte ao primeiro.
+    Aqui por exemplo, selecionamos o primeiro parágrafo imediatamente após um h1.
+    */
+ }
+
+ h1 ~ p {
+     /*
+     IRMÃO GERAL: Seleciona todos os elementos irmãos que seguem o primeiro,
+     este exemplo seleciona todos os parágrafos que seguem um h1.
+     */
+ }
+ ```
+ - **pseudo-classes**: **São *modificadores* que permitem selecionar elementos com base em estados, posições ou características que não podem ser definidas apenas pelo nome da tag, classe ou ID.** Ou seja, elas ajudam a estilizar um elemento dependendo de, por exemplo, se ele está com o mouse sobre ele, se é o primeiro filho de seu pai, se está desabilitado, entre outros estados. Vejamos algumas das mais comuns:
+   - **`:link`** – Seleciona links que ainda não foram visitados.
+   - **`:visited`** – Seleciona links que já foram visitados.
+   - **`:hover`** – Seleciona elementos quando o ponteiro do mouse está sobre eles.
+   - **`:active`** – Seleciona o elemento no momento em que ele é ativado (por exemplo, durante um clique).
+   - **`:focus`** – Seleciona o elemento que atualmente tem o foco (como um input selecionado).
+   - **`:first-child`** – Seleciona um elemento que é o primeiro filho de seu elemento pai.
+   - **`:last-child`** – Seleciona o último filho.
+   - **`:nth-child(an+b)`** – Seleciona os filhos que se encaixam na fórmula (por exemplo, `:nth-child(2n)` para pares).
+   - **`:nth-last-child(an+b)`** – Como o anterior, mas contando a partir do final.
+   - **`:only-child`** – Seleciona um elemento se ele for o único filho de seu pai.
+   - **`:first-of-type`** – Seleciona o primeiro elemento de um determinado tipo entre seus irmãos.
+   - **`:last-of-type`** – Seleciona o último elemento de seu tipo.
+   - **`:nth-of-type(an+b)`** e **`:nth-last-of-type(an+b)`** – Selecionam elementos de um mesmo tipo de acordo com uma fórmula.
+   - **`:only-of-type`** – Seleciona um elemento se ele for o único do seu tipo entre os irmãos.
+   - **`:empty`** – Seleciona elementos que não possuem nenhum filho (exceto nós de texto vazios).
+   - **`:target`** – Seleciona o elemento que é alvo (target) da URL (por exemplo, quando você usa uma âncora).
+   - **`:enabled`** e **`:disabled`** – Selecionam elementos de formulário que estão habilitados ou desabilitados.
+   - **`:checked`** – Seleciona inputs (como checkboxes ou radios) que estão marcados.
+   - **`:indeterminate`** – Seleciona inputs que estão em um estado indeterminado.
+   - **`:default`** – Seleciona o elemento padrão dentro de um grupo de inputs.
+   - **`:valid`** e **`:invalid`** – Selecionam inputs com valores válidos ou inválidos, de acordo com as restrições do elemento.
+   - **`:in-range`** e **`:out-of-range`** – Selecionam inputs cujo valor está dentro ou fora de um intervalo definido.
+   - **`:required`** e **`:optional`** – Selecionam inputs que são obrigatórios ou opcionais.
+   - **`:read-only`** e **`:read-write`** – Selecionam elementos que não podem ou podem ser editados.
+   - **`:placeholder-shown`** – Seleciona inputs que estão exibindo o placeholder.- **`:root`** – Seleciona o elemento raiz do documento (geralmente o `<html>`).
+   - **`:lang()`** – Seleciona elementos com base no valor do atributo `lang`.
+   - **`:not()`** – Seleciona elementos que não correspondem ao seletor especificado (a versão aprimorada permite listas de seletores).
+   - **`:is()`** – Seleciona um elemento se ele corresponder a qualquer um dos seletores listados, simplificando seletores complexos.
+   - **`:where()`** – Funciona como o `:is()`, porém sempre com especificidade zero, facilitando a manutenção de estilos.
+   - **`:focus-visible`** – Seleciona elementos que devem mostrar um foco visível (útil para acessibilidade).
+   - **`:focus-within`** – Seleciona um elemento que contém um descendente com foco.
+   - **`:has()`** – Permite selecionar um elemento com base em seus descendentes (ainda experimental em alguns navegadores).
+   - **`:any-link`** – Seleciona todos os links, combinando o comportamento de `:link` e `:visited`.
+
+ - **pseudo-elementos**: **Permitem que estilizar partes específicas de um elemento, “quebrando” sua estrutura interna sem a necessidade de marcar o HTML com elementos extras.** Eles são escritos normalmente com 2 pontos `valor::pseudo-elemento` – embora, por razões históricas, alguns pseudo-elementos também possam ser escritos com apenas um “:” e ainda funcionar.
+   - **`::before` e `::after`** – Permitem inserir conteúdo (usando a propriedade `content`) antes ou depois do conteúdo real do elemento. São muito úteis para adicionar decorações ou elementos visuais sem alterar o HTML.
+   - **`::first-line`** – Aplica estilos somente à primeira linha do texto de um bloco. Essa pseudo-classe é especialmente útil para ajustar tipografia ou espaçamentos na primeira linha de um parágrafo.
+   - **`::first-letter`** – Permite estilizar a primeira letra de um bloco de texto. É bastante usado para criar efeitos de “drop cap” (grande letra capital) em inícios de parágrafos.
+   - **`::selection`** – Define os estilos (como cor de fundo e de texto) para a parte do conteúdo que o usuário seleciona com o cursor.
+   - **`::placeholder`** – Aplica estilos ao texto de placeholder em campos de formulário, como `<input>` e `<textarea>`.
+   - **`::marker`** – Permite estilizar os marcadores (bullets ou números) de listas.
+   - **`::backdrop`** – Usado para estilizar o fundo exibido por trás de elementos que possuem uma sobreposição, como o elemento `<dialog>` quando está em modo de exibição.
+   - **`::file-selector-button`** – Específico para inputs do tipo file, esse pseudo-elemento possibilita a customização do botão de seleção de arquivos.
+   - **`::slotted()`** – Utilizado em componentes com Shadow DOM para selecionar e estilizar os elementos que foram distribuídos em slots.
+   - **`::part()`** – Permite que o desenvolvedor estilize partes específicas de um componente que usa Shadow DOM, quando o componente define partes nomeadas através do atributo `part`.
+   - **`::cue`** – Utilizado para estilizar as legendas de vídeos que usam WebVTT.
+
+ Essa variedade torna o CSS muito poderoso para aplicar estilos de forma precisa, sem a necessidade de alterar a estrutura HTML.<br/>
+ _A sintaxe atual recomenda **o uso de dois pontos duplos `::` em pseudo-elementos para diferenciá-los das pseudo-classes, que usam apenas um `:`**. Contudo, por razões históricas, navegadores aceitam tanto :before quanto ::before._
+
+**CORES**<br/>
+ Podem ser aplicadas a quase qualquer coisa no documento HTML.
+ - **`rgb()`**: Onde o **red**, **green** e **blue** são *números inteiros desde* **0 a 255**, *ou porcentagens de* **0% a 100%**.
+ ```css
+ .class {
+    color: rgb(42, 44, 156);
+ }
+ ```
+ - **`#rgb`**: Onde **red**, **green** e **blue** *são números hexadeximais de* **0 a F**.
+ ```css
+ .class {
+    color: #353E9A;
+ }
+ ```
+ - **`rgba()`**: Extensão do `rgb()` com um *canal alfa*, onde *o parâmetro `alfa` é um número entre **0,0 (totalmente transparente) a 1,0 (totalmente opaco)**.*
+
+**GRADIENTES**<br/>
 
 
 
