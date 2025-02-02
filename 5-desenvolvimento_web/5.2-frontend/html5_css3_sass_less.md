@@ -1631,7 +1631,7 @@ Aqui falaremos sobre como adicionar legendas.
      <meta name="Description" content="Estudo de estilos CSS.">
      <meta name="ketwords" content="pragramção web, htmll, css">
      <title>Programação Web</title>
-     <style>
+     <style type="text/css">
         p {
             font-size: 32px;
         }
@@ -1686,10 +1686,82 @@ Aqui falaremos sobre como adicionar legendas.
  }
  ```
 
+**FLOAT, MARGIN E PADDING**<br/>
+ Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
 
+ - **`border`**: Modifica a borda de um elemento.
+ - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-container`, usamos a propriedade `clear`.<br/>
+ Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
+ - **`margin`**: **Define o espaço entre a borda _"externa"_ da box-container e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
+   1. **`margin-top`**: Distância em relação ao elemento acima.
+   2. **`margin-right`**: Distância em relação ao elemento a direta.
+   3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
+   4. **`margin-left`**: Distância em relação ao elemento a esquerda.
+ - **`padding`**: **Define o espaço entre o conteúdo _dentro_ da box-container e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
+   1. **`padding-top`**: Distância em relação a borda acima.
+   2. **`padding-right`**: Distância em relação a borda à direta.
+   3. **`padding-bottom`**: Distância em relação a borda abaixo.
+   4. **`padding-left`**: Distância em relação a borda à esquerda.
+```
+┌────────────────────────────────────────────────────────────────────────────────┐
+│                                       ^                                        │
+│                                       | margin-top                             │
+│                                       ┴                                        │
+│            ┌──────────────────────────────────────────────────────┐            │
+│            │                          ^                           │            │
+│            │              padding-top |                           │            │
+│   margin   │                          ┴                           │   margin   │
+│    left    │             Lorem ipsum, dolor sit amet              |   right    |
+| <--------┤ | <-------┤  consectetur adipisicing elit.  ├--------> │ ├--------> │
+│            │  padding                 ┬                 padding   │            │
+│            │   left    padding-bottom |                  right    │            │
+│            │                          v                           │            │
+│            └──────────────────────────────────────────────────────┘            │
+│                                       ┬                                        │
+│                                       | margin-bottom                          │
+│                                       v                                        │
+└────────────────────────────────────────────────────────────────────────────────┘
+```
+**SELETORES**
+ Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
+ - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo, se for um `id` por exemplo, deve-se usar `#` para especificar ao documento, se for uma `class` usa-se `.`, e assim por diante.
+ - **bloco de declaração**: Contém entre chaves seguidas após o seletor `{...}` as regras de estilo para o elemento em questão.
 
+ Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização.
+ - **propriedade**: *Define qual característica será alterada.* Como por exemplo `border`.
+ - **atributo**: *Define a alteração a ser feita naquela propriedade*, como por exemplo aplicar a cor `#333`. 
 
-
+ Vejamos alguns dos seletores usados:
+ - **`<tag>`**: **Altera o estilo de todos os elementos de um mesmo tipo de tag.** Para declará-lo, basta utilizar o nome da tag:
+ ```css
+ h2 {
+    color: lightblue;
+ } 
+ ```
+ - **`id`**: **Aplica as alterações apenas a um elemento específico.** Sua declaração é feita com um `#` antes do nome do `id` contido da tag que se deseja afetar:
+ ```css
+ #profileStatus {
+    color: green;
+ } 
+ ```
+ **IMPORTANTE**: *um elemento deve ter apenas 1 id ÚNICO.
+ ```html
+ <p id="profileBio"> ... </p>
+ ```
+ - **`class`**: **Aplica as alterações a um grupo de elementos da mesma classe.** Sua declaração é feita com um `.` antes do nome da `class` contido da tag que se deseja afetar:
+ ```css
+ .profile {
+    color: orange;
+ } 
+ ```
+ **IMPORTANTE**: *um elemento pode ter mais de uma classe atribuída.**
+ ```html
+ <p class="fontSize textColor"> ... </p>
+ ```
+ - **`[name="grupo"]`**
+ - **`* - universal`**
+ - **`+ - irmão`**
+ - **`> - descendente`**
 
 
 
