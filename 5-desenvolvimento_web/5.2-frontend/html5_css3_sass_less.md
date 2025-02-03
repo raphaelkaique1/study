@@ -2003,26 +2003,52 @@ Aqui falaremos sobre como adicionar legendas.
    ```
 
 **GRADIENTES**<br/>
- Os gradientes permitem criar transições suaves entre 2 ou mais cores. Podemos aplicar um gradiente de cor a um elemento.<br/>
+ Os gradientes permitem criar transições suaves entre 2 ou mais cores. Podemos aplicar um gradiente de cor a várias tipos de elementos.<br/>
  1. Para aumentar o efeito de um gradiente, podemos *usar cores com alfa* como **`rgba()`** ou **`hsla()`**, *criando efeitos de fade e sobreposições*.
- Gradientes são tratados como imagens, então os definimos na propriedade **`background-image`**, mas também  *ou na propriedade abreviada **`background`***.
- 2. 
- - **TIPOS DE GRADIENTE**<br/>
- O CSS define atualmente 4 funções principais para gradientes:
-   - **Linear Gradients**: As cores *mudam ao longo* de uma **linha reta**.
-   - **Radial Gradients**: As cores se *irradiam a partir de um ponto central* podendo ser **circular ou elíptico**.
-      - **Forma**: **`circle`** *para um gradiente circular* ou **`ellipse`** **para um gradiente elíptico**. *Se omitido, o navegador escolhe o que melhor se adapta ao elemento.*
-      - **Tamanho**: Pode ser definido com palavras-chave como **`closest-side`**, **`farthest-corner`**, etc., ou **usando um valor de comprimento**.
-      - **Posição**: Define o *ponto de origem do gradiente*, por exemplo, **`at center`** ou **`at 20% 70%`**.
-   - **Conic Gradients**: As cores *se distribuem* **em torno de um ponto central em um círculo**, como um gráfico de pizza por exemplo.
-      - **`from angle`:** Especifica o *ângulo inicial*, por exemplo, **`from 0deg`** ou **`from 45deg`**.
-      - **`at position`:** Define a *posição central* do gradiente, por exemplo, **`at center`** ou **`at 20% 20%`**.
-   - **Repeating Gradients**: São versões *“repetitivas” dos gradientes* (linear, radial ou conic), **que se repetem infinitamente para criar padrões**.
-      - As funções **`repeating-linear-gradient()`**, **`repeating-radial-gradient()`** e **`repeating-conic-gradient()`** *permitem criar gradientes que se repetem indefinidamente*.
- - **DIREÇÃO E ÂNGULO**<br/>
-  Podemos especificar a direção usando **palavras-chave**, por exemplo, **`to right`** e **`to bottom left`**, ou um **ângulo** como por exemplo, **`45deg`** ou **`180deg`**. *Se omitido, o gradiente vai de cima para baixo equivalente a `to bottom`.*
- - **PARADAS DE COR**<br/>
+ 2. *Gradientes são tratados como imagens*, ou seja, **são funções que retornam um valor do tipo imagem `image`. _Isso significa que, em princípio, eles podem ser usados em qualquer propriedade que aceite um valor de imagem._** então os definimos nas propriedades:
+    - **`background-image`** – *ou na propriedade abreviada **`background`***
+    - **`border-image`**
+    - **`list-style-image`**
+    - **`mask-image`** – *ou em variantes como **`-webkit-mask-image`***
+ 3. **TIPOS DE GRADIENTE**<br/>
+    O CSS define atualmente 4 funções principais para gradientes:
+    - **Linear Gradients**: As cores *mudam ao longo* de uma **linha reta**.
+    - **Radial Gradients**: As cores se *irradiam a partir de um ponto central* podendo ser **circular ou elíptico**.
+        - **Forma**: **`circle`** *para um gradiente circular* ou **`ellipse`** **para um gradiente elíptico**. *Se omitido, o navegador escolhe o que melhor se adapta ao elemento.*
+        - **Tamanho**: Pode ser definido com palavras-chave como **`closest-side`**, **`farthest-corner`**, etc, ou **usando um valor de comprimento**.
+        - **Posição**: Define o *ponto de origem do gradiente*, por exemplo, **`at center`** ou **`at 20% 70%`**.
+    - **Conic Gradients**: As cores *se distribuem* **em torno de um ponto central em um círculo**, como um gráfico de pizza por exemplo.
+        - **`from angle`:** Especifica o *ângulo inicial*, por exemplo, **`from 0deg`** ou **`from 45deg`**.
+        - **`at position`:** Define a *posição central* do gradiente, por exemplo, **`at center`** ou **`at 20% 20%`**.
+    - **Repeating Gradients**: São versões *“repetitivas” dos gradientes* (linear, radial ou conic), **que se repetem infinitamente para criar padrões**.
+        - As funções **`repeating-linear-gradient()`**, **`repeating-radial-gradient()`** e **`repeating-conic-gradient()`** *permitem criar gradientes que se repetem indefinidamente*.
+ 4. **DIREÇÃO E ÂNGULO**<br/>
+ Podemos especificar a direção usando **palavras-chave**, por exemplo, **`to right`** e **`to bottom left`**, ou um **ângulo** como por exemplo, **`45deg`** ou **`180deg`**. *Se omitido, o gradiente vai de cima para baixo equivalente a `to bottom`.*
+ 5. **PARADAS DE COR**<br/>
  *São os pontos onde as cores são definidas.* **Podemos apenas listar as cores ou especificar também sua posição em porcentagem ou medida.**
+ 6. **MÚLTIPLOS GRADIENTES**<br/>
+ É possível empilhar vários gradientes, e até mesmo gradientes com outras imagens, separando-os por vírgula na propriedade `background`. O primeiro declarado fica no topo.<br/>
+ Além disso, a propriedade **`background-blend-mode`** pode ser usada para definir como eles se misturam. Pode-se aplicar quantos gradientes quiser, basta separá-los por vírgula. A propriedade **`background-blend-mode`** permite definir como as camadas de fundo chamadas *backgrounds* — sejam elas definidas por imagens, gradientes ou cores sólidas — se misturam entre si. Essa propriedade aceita valores do tipo **`blend-mode`**, que são os mesmos modos de mesclagem que podemos encontrar em softwares de edição de imagem como o Photoshop por exemplo. Neste exemplo, os dois gradientes são renderizados um sobre o outro e mesclados com o modo **`multiply`**. Os modos de mesclagem especificados na especificação **CSS Compositing and Blending Level 1** são: 
+ - **`normal`**
+ - **`multiply`**
+ - **`screen`**
+ - **`overlay`**
+ - **`darken`**
+ - **`lighten`**
+ - **`color-dodge`**
+ - **`color-burn`**
+ - **`hard-light`**
+ - **`soft-light`**
+ - **`difference`**
+ - **`exclusion`**
+ - **`hue`**
+ - **`saturation`**
+ - **`color`**
+ - **`luminosity`**
+ - **`initial`**
+ - **`inherit`**
+ - **`unset`**
+ - **`revert`**
 
  Para usarmos o gradiente, devemos especificar em ordem:<br/>
  **tipo de gradiente** > **direção do gradiente** > **[cor inicial] [opacidade em %]** > **[cor final] [opacidade em %]**
@@ -2031,6 +2057,7 @@ Aqui falaremos sobre como adicionar legendas.
     property: gradient-type(([<direção> ou <ângulo>] || [<forma> <tamanho>?] [at <posição>]? || [from <ângulo>] [at <posição>]?), <parada-de-cor1>, <parada-de-cor2>, ...);
  }
  ```
+
  - **`linear-gradient`**
 
  **Exemplo 1 – Gradiente de cima para baixo (padrão):**
@@ -2093,8 +2120,311 @@ Aqui falaremos sobre como adicionar legendas.
  }
  ```
 
- - **``**: 
+ **GRADIENTE APLICADO EM DIFERENTES PROPRIEDADES**
+ - Gradiente em **`background-image`**.<br/>
+ Este é o uso mais comum, *definir um gradiente para o fundo do elemento*. **Aqui o gradiente está aplicado como imagem de fundo do elemento.**
+
  ```css
+ .exemplo-background {
+   /* Um gradiente linear da esquerda para a direita, de vermelho a azul. */
+   background-image: linear-gradient(to right, red, blue);
+   /* Fallback: cor sólida se o navegador não suportar gradientes. */
+   background-color: red;
+ }
  ```
+
+ - Gradiente em **`border-image`**.<br/>
+ Pode-se **usar gradientes para criar bordas com transições de cor**. *Note que para utilizar border-image é preciso definir uma borda (mesmo que transparente) e depois usar a função de gradiente.*
+
+ ```css
+ .exemplo-border {
+   /* Define uma borda sólida com largura (necessário para que `border-image` funcione). */
+   border: 10px solid transparent;
+   /* Usa um gradiente para a imagem da borda; o valor "1" é o `slice`. */
+   border-image: linear-gradient(to right, red, blue) 1;
+ }
+ ```
+
+ - Gradiente em **`list-style-image`**.<br/>
+ Embora menos comum, podemos **usar um gradiente para substituir o marcador de lista**. *Esse uso depende do navegador e do contexto, mas funciona onde a propriedade aceita uma imagem.*
+
+ ```css
+ .exemplo-lista li {
+   /* Usa um gradiente como imagem para o marcador da lista.
+      Lembrando que o marcador tem tamanho definido (por exemplo, 1em x 1em). */
+   list-style-image: linear-gradient(to bottom, red, blue);
+ }
+ ```
+
+ - Gradiente em **`mask-image`** (ou -webkit-mask-image).<br/>
+ **Gradientes também podem ser usados como máscaras, definindo quais partes do elemento serão visíveis.** *Geralmente, uma máscara utiliza gradientes para criar transições suaves de opacidade. Na máscara, as áreas onde a máscara for preta (ou opaca) são totalmente visíveis e as áreas transparentes ficam ocultas.*
+
+ ```css
+ .exemplo-mask {
+   width: 200px;
+   height: 200px;
+   /* Um fundo para o elemento (pode ser uma imagem ou cor). */
+   background: url('imagem.jpg') center/cover no-repeat;
+   
+   /* Define uma máscara que vai do transparente (no topo) ao opaco (na base). */
+   mask-image: linear-gradient(to bottom, transparent, black);
+   /* Para navegadores baseados em WebKit, use o prefixo. */
+   -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+ }
+ ```
+
+ **APLICANDO MÚLTIPLOS GRADIENTES EM UM MESMO ELEMENTO**
+
+ **Exemplo – Botão com Gradiente:**
+ ```css
+ .botao-gradiente {
+   background: linear-gradient(90deg, #ff7e5f, #feb47b);
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   border-radius: 4px;
+   cursor: pointer;
+ }
+ .botao-gradiente:hover {
+   background: linear-gradient(90deg, #feb47b, #ff7e5f);
+ }
+ ```
+
+ **Exemplo – Fundo com Linear Gradient e Imagem:**
+ ```css
+ .fundo-completo {
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent),
+               url('imagem.jpg') center/cover no-repeat;
+ }
+ ```
+
+ **Exemplo – Linear Gradient aplicado vertical e horizontalmente:**
+ - Usando **`background-blend-mode`** com mais de um gradiente aplicado.<br/>
+ O modo de mesclagem **`multiply`** combina as camadas de forma que as cores se influenciem mutuamente, resultando em uma mescla onde as áreas de sobreposição apresentam tonalidades mais intensas e contrastantes.
+ ```css
+ .exemplo-multiplos {
+   /* Dois gradientes aplicados juntos:
+      - O primeiro: de vermelho semi-transparente a azul semi-transparente (horizontal).
+      - O segundo: de amarelo a verde (vertical). */
+   background-image:
+     linear-gradient(to right, rgba(255,0,0,0.5), rgba(0,0,255,0.5)),
+     linear-gradient(to bottom, yellow, green);
+   /* Define o modo de mesclagem dos backgrounds. */
+   background-blend-mode: multiply;
+ }
+ ```
+
+ - Usando **`background-blend-mode`** com múltiplos backgrounds.<br/>
+ Vários fundos podem ser definidos em **`background-image`** e, em seguida, especificar um modo de mesclagem para cada camada, separando os valores por vírgula. Nesse exemplo, o **primeiro fundo**, *o gradiente*, *será mesclado* **com o segundo** que é *a imagem*, usando o modo **`multiply`** na camada inferior e **`screen`** na camada superior. *Lembrando que a ordem segue a declaração dos backgrounds*:
+
+ ```css
+ .exemplo-multiplo {
+   /* Dois backgrounds: um gradiente linear e uma imagem. */
+   background-image: 
+     linear-gradient(to right, rgba(255,0,0,0.5), rgba(0,0,255,0.5)),
+     url('fundo.jpg');
+   /* Mescla a camada do gradiente com a imagem de fundo. */
+   background-blend-mode: multiply, screen;
+ }
+ ```
+
+ - Usando **`background-blend-mode`** com apenas uma camada de fundo.<br/>
+ Mesmo que haja apenas uma imagem (ou gradiente) e uma cor de fundo, podemos usar o blend mode para definir como a cor de fundo se mistura com a imagem. Nesse caso, o gradiente é mesclado com a cor de fundo branca usando o modo **`overlay`**:
+
+ ```css
+ .exemplo-simples {
+   background-color: #fff;
+   background-image: linear-gradient(to right, red, blue);
+   /* Mescla o gradiente com a cor de fundo. */
+   background-blend-mode: overlay;
+ }
+ ```
+
+**TRANSIÇÕES**<br/>
+
+
+**IMAGENS**<br/>
+
+
+**ESTILOS PARA LISTAS E LINKS**<br/>
+ Os estilos para listas e links permitem personalizar a aparência de elementos comuns – listas e hiperlinks – de maneira a enriquecer o design do site sem alterar a estrutura. A seguir, veremos como controlar marcadores chamados de *bullets* em listas e como estilizar links, seguindo a regra "LoVe HAte”, que define os estados dos links.
+
+**ESTILIZANDO LISTAS**<br/>
+O CSS oferece as seguintes propriedades para alterar a aparência das listas:
+
+- **`list-style-type`**<br/>
+  Define o tipo de marcador. Valores comuns incluem:
+  - **`disc`** (padrão para `<ul>`)
+  - **`circle`**
+  - **`square`**
+  - **`decimal`** (padrão para `<ol>`)
+  - **`none`** (sem marcador)
+  ```css
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ```
+
+- **`list-style-image`**<br/>
+  Permite usar uma imagem como marcador.
+  ```css
+  ul.custom {
+    list-style-image: url('meu-marcador.png');
+  }
+  ```
+
+- **`list-style-position`**<br/>
+  Controla a posição do marcador, podendo ser:
+  - **`inside`**: o marcador fica dentro do bloco de conteúdo (o texto pode quebrar a linha).
+  - **`outside`**: o marcador fica fora (padrão na maioria dos casos).
+  ```css
+  ul {
+    list-style-position: inside;
+  }
+  ```
+
+**Pseudo-elemento `::marker`**<br/>
+O pseudo-elemento `::marker` permite alterar a cor, tamanho e outros aspectos dos marcadores das listas.<br/>
+O código abaixo fará com que todos os marcadores de itens de lista fiquem vermelhos e um pouco maiores que o padrão.
+```css
+li::marker {
+  color: red;
+  font-size: 1.2em;
+}
+```
+
+Também podemos combinar seletores para aplicar estilos apenas a listas específicas ou a determinados itens. Por exemplo, para remover os marcadores apenas de listas com uma classe específica:
+```css
+ul.sem-marcador {
+  list-style: none;
+  padding-left: 0;
+}
+```
+
+Ou ainda, para alterar o marcador apenas de itens pares:
+```css
+ul li:nth-child(even)::marker {
+  color: blue;
+}
+```
+
+**ESTILIZANDO LINKS**<br/>
+Os links podem ser personalizados em seus diferentes estados – e a “regra *LoVe HAte*” é um lembrete da ordem que devemos definir os pseudo-estados dos links para que funcionem corretamente: **Link**, **Visited**, **Hover**, **Active**. Essa regra é uma convenção para definir os estilos de links na ordem correta, **pois a ordem no CSS influencia a forma como os estilos são aplicados**. Essa ordem evita que, por exemplo, o `:hover` seja sobrescrito por `:link` ou `:visited`.
+
+- **`:link`**<br/>
+  Seleciona links que ainda não foram visitados.
+  ```css
+  a:link {
+    color: blue;
+    text-decoration: none;
+  }
+  ```
+- **`:visited`**<br/>
+  Seleciona links que já foram visitados.
+  ```css
+  a:visited {
+    color: purple;
+  }
+  ```
+- **`:hover`**<br/>
+  Aplica-se quando o mouse está sobre o link.
+  ```css
+  a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  ```
+- **`:active`**<br/>
+  Aplica-se quando o link está sendo ativado (clicado).
+  ```css
+  a:active {
+    color: orange;
+  }
+  ```
+
+Colocar os seletores nessa ordem garante que o navegador aplique corretamente os estados dinâmicos sem conflitos:
+```css
+/* Link não visitado */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Link já visitado */
+a:visited {
+  color: purple;
+}
+
+/* Quando o mouse passa sobre o link */
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Durante o clique */
+a:active {
+  color: orange;
+}
+```
+- **Transições:**  
+  Você pode adicionar transições para suavizar a mudança entre estados:
+  ```css
+  a {
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+  ```
+- **Text-decoration:**  
+  Além de mudar a cor, pode-se alterar a decoração do texto (underline, overline, etc.).
+- **Uso de Variáveis:**  
+  Para facilitar a manutenção, você pode definir cores em variáveis CSS e usá-las nos diferentes estados.
+  ```css
+  :root {
+    --cor-link: blue;
+    --cor-visitado: purple;
+    --cor-hover: red;
+    --cor-active: orange;
+  }
+  
+  a:link {
+    color: var(--cor-link);
+  }
+  a:visited {
+    color: var(--cor-visitado);
+  }
+  a:hover {
+    color: var(--cor-hover);
+  }
+  a:active {
+    color: var(--cor-active);
+  }
+  ```
+
+**UNIDADES**<br/>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
