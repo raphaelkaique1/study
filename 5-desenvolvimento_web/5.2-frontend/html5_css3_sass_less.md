@@ -1661,7 +1661,37 @@ Aqui falaremos sobre como adicionar legendas.
  ```
  A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
-**FONTES PERSONALIZADAS**<br/>
+**UNIDADES**<br/>
+ Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
+ O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
+ *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
+ Existem 2 tipos de unidades de comprimento: a **absoluta** e a **relativa**.
+ 1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
+
+ | UNIDADE | DESCRIÇÃO |
+ | --- | ---- |
+ | **`cm`** | centímetros |
+ | **`mm`** | milímetros |
+ | **`in`** | polegadas |
+ | **`px *`** | pixel – Ele indica que unidades pixel podem variar em dispositivos de alta resolução e impressoras, refletindo uma escala não tradicional. Devido às diferentes densidades de pixels em dispositivos (por exemplo, telas de alta resolução), o “px” é um “pixel de referência” que pode não corresponder a um pixel físico individual. Em resumo, o valor em `px *` garante que os elementos apareçam com dimensões visualmente consistentes, independentemente do dispositivo. |
+ | **`pt`** | ponto – Originado do mundo da tipografia, 1pt equivale a 1/72 de uma polegada. Essa unidade é tradicionalmente usada na impressão, onde a medida física exata é importante. Em telas, seu uso é menos comum porque as dimensões absolutas (como pt, cm, in) não se adaptam bem às variações de tamanho e densidade das telas modernas.|
+ | **`pc`** | pica – Também vinda da tipografia, a pica é uma unidade derivada dos pontos: 1pc equivale a 12pt. Assim, como 1pt ≈ 1.33px (visto que 96px/72pt ≈ 1.33), temos que 1pc corresponde aproximadamente a 16px. Essa unidade é mais usada em contextos de design gráfico e impressão.|
+
+ 2. **Relativo**: As unidades de comprimento relativo, como o próprio nome diz, **especificam um comprimento em relação a outra propriedade de comprimento**. *As unidades de comprimento relativas escalam melhor entre os diferentes meios de renderização, se adaptando melhor entre os diferentes tipos e tamanhos de telas.*
+
+ | UNIDADE | DESCRIÇÃO |
+ | --- | ---- |
+ | **`rem`** | Relativo ao tamanho da fonte do elemento raiz – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
+ | **`em`** | Relativo ao tamanho da fonte do elemento – `2em` significa **2 vezes o tamanho da fonte do elemento atual**. |
+ | **`vw`** | Relativo a `x%` da **largura** da tela. |
+ | **`vh`** | Relativo a `x%` da **altura** da tela. |
+ | **`%`** | Relativo a `x%` do **elemento pai**. |
+ | **`vmin`** | Relativo a `x%` da menor dimensão da janela ou interface gráfica – se a viewport tem 1200px de largura e 800px de altura, `1vmin` equivale a **8px** (1% de 800px). |
+ | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
+ | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
+ | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
+
+##### FONTES
  **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
  *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
  ```css
@@ -1674,19 +1704,164 @@ Aqui falaremos sobre como adicionar legendas.
     font: bold 2rem 'fonte'; /* informa para que use a fonte para as tags `p` */
  }
  ```
-**MODELO BOX-CONTAINER**<br/>
- Existem 2 tipos de propriedades em um documento:
- 1. **`block`**: Causam uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
- 2. **`in-line`**: Não geram uma quebra de linha, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag. Exemplos de tags tipo `in-line`: `span`, `strong`, `em`, `a`, `img`, entre outas.
 
- Para realizar a conversão de um tipo de elemento deve-se alterar a propriedade `display` do seletor em questão:
- ```css
- .id {
-    display: inline;
- }
- ```
+###### ESTILOS PARA LISTAS E LINKS**
+ Os estilos para listas e links permitem personalizar a aparência de elementos comuns – listas e hiperlinks – de maneira a enriquecer o design do site sem alterar a estrutura. A seguir, veremos como controlar marcadores chamados de *bullets* em listas e como estilizar links, seguindo a regra "LoVe HAte”, que define os estados dos links.
 
-**FLOAT, MARGIN E PADDING**<br/>
+**ESTILIZANDO LISTAS**<br/>
+O CSS oferece as seguintes propriedades para alterar a aparência das listas:
+
+- **`list-style-type`**<br/>
+  Define o tipo de marcador. Valores comuns incluem:
+  - **`disc`** (padrão para `<ul>`)
+  - **`circle`**
+  - **`square`**
+  - **`decimal`** (padrão para `<ol>`)
+  - **`none`** (sem marcador)
+  ```css
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ```
+
+- **`list-style-image`**<br/>
+  Permite usar uma imagem como marcador.
+  ```css
+  ul.custom {
+    list-style-image: url('meu-marcador.png');
+  }
+  ```
+
+- **`list-style-position`**<br/>
+  Controla a posição do marcador, podendo ser:
+  - **`inside`**: o marcador fica dentro do bloco de conteúdo (o texto pode quebrar a linha).
+  - **`outside`**: o marcador fica fora (padrão na maioria dos casos).
+  ```css
+  ul {
+    list-style-position: inside;
+  }
+  ```
+
+**Pseudo-elemento `::marker`**<br/>
+O pseudo-elemento `::marker` permite alterar a cor, tamanho e outros aspectos dos marcadores das listas.<br/>
+O código abaixo fará com que todos os marcadores de itens de lista fiquem vermelhos e um pouco maiores que o padrão.
+```css
+li::marker {
+  color: red;
+  font-size: 1.2em;
+}
+```
+
+Também podemos combinar seletores para aplicar estilos apenas a listas específicas ou a determinados itens. Por exemplo, para remover os marcadores apenas de listas com uma classe específica:
+```css
+ul.sem-marcador {
+  list-style: none;
+  padding-left: 0;
+}
+```
+
+Ou ainda, para alterar o marcador apenas de itens pares:
+```css
+ul li:nth-child(even)::marker {
+  color: blue;
+}
+```
+
+ **ESTILIZANDO LINKS**<br/>
+Os links podem ser personalizados em seus diferentes estados – e a “regra *LoVe HAte*” é um lembrete da ordem que devemos definir os pseudo-estados dos links para que funcionem corretamente: **Link**, **Visited**, **Hover**, **Active**. Essa regra é uma convenção para definir os estilos de links na ordem correta, **pois a ordem no CSS influencia a forma como os estilos são aplicados**. Essa ordem evita que, por exemplo, o `:hover` seja sobrescrito por `:link` ou `:visited`.
+
+- **`:link`**<br/>
+  Seleciona links que ainda não foram visitados.
+  ```css
+  a:link {
+    color: blue;
+    text-decoration: none;
+  }
+  ```
+- **`:visited`**<br/>
+  Seleciona links que já foram visitados.
+  ```css
+  a:visited {
+    color: purple;
+  }
+  ```
+- **`:hover`**<br/>
+  Aplica-se quando o mouse está sobre o link.
+  ```css
+  a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  ```
+- **`:active`**<br/>
+  Aplica-se quando o link está sendo ativado (clicado).
+  ```css
+  a:active {
+    color: orange;
+  }
+  ```
+
+Colocar os seletores nessa ordem garante que o navegador aplique corretamente os estados dinâmicos sem conflitos:
+```css
+/* Link não visitado */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Link já visitado */
+a:visited {
+  color: purple;
+}
+
+/* Quando o mouse passa sobre o link */
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Durante o clique */
+a:active {
+  color: orange;
+}
+```
+- **Transições:**  
+  Você pode adicionar transições para suavizar a mudança entre estados:
+  ```css
+  a {
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+  ```
+- **Text-decoration:**  
+  Além de mudar a cor, pode-se alterar a decoração do texto (underline, overline, etc.).
+- **Uso de Variáveis:**  
+  Para facilitar a manutenção, você pode definir cores em variáveis CSS e usá-las nos diferentes estados.
+  ```css
+  :root {
+    --cor-link: blue;
+    --cor-visitado: purple;
+    --cor-hover: red;
+    --cor-active: orange;
+  }
+  
+  a:link {
+    color: var(--cor-link);
+  }
+  a:visited {
+    color: var(--cor-visitado);
+  }
+  a:hover {
+    color: var(--cor-hover);
+  }
+  a:active {
+    color: var(--cor-active);
+  }
+  ```
+
+##### FLOAT, MARGIN E PADDING
  Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
 
  - **`border`**: Modifica a borda de um elemento.
@@ -1722,7 +1897,7 @@ Aqui falaremos sobre como adicionar legendas.
 │                                       v                                        │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
-**SELETORES**<br/>
+##### SELETORES
  Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo, se for um `id` por exemplo, deve-se usar `#` para especificar ao documento, se for uma `class` usa-se `.`, e assim por diante.
  - **bloco de declaração**: Contém entre chaves seguidas após o seletor `{...}` as regras de estilo para o elemento em questão.
@@ -1896,7 +2071,7 @@ Aqui falaremos sobre como adicionar legendas.
  Essa variedade torna o CSS muito poderoso para aplicar estilos de forma precisa, sem a necessidade de alterar a estrutura HTML.<br/>
  _A sintaxe atual recomenda **o uso de dois pontos duplos `::` em pseudo-elementos para diferenciá-los das pseudo-classes, que usam apenas um `:`**. Contudo, por razões históricas, navegadores aceitam tanto :before quanto ::before._
 
-**CORES**<br/>
+##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
  - **`rgb()`**: Onde o **red**, **green** e **blue** são *números inteiros desde* **0 a 255**, *ou porcentagens de* **0% a 100%**.
  ```css
@@ -1995,7 +2170,7 @@ Aqui falaremos sobre como adicionar legendas.
    }
    ```
 
-**GRADIENTES**<br/>
+##### GRADIENTES
  Os gradientes permitem criar transições suaves entre 2 ou mais cores. Podemos aplicar um gradiente de cor a várias tipos de elementos.<br/>
  1. Para aumentar o efeito de um gradiente, podemos *usar cores com alfa* como **`rgba()`** ou **`hsla()`**, *criando efeitos de fade e sobreposições*.
  2. *Gradientes são tratados como imagens*, ou seja, **são funções que retornam um valor do tipo imagem `image`. _Isso significa que, em princípio, eles podem ser usados em qualquer propriedade que aceite um valor de imagem._** então os definimos nas propriedades:
@@ -2233,196 +2408,24 @@ Aqui falaremos sobre como adicionar legendas.
  }
  ```
 
-**TRANSIÇÕES**<br/>
+##### TRANSIÇÕES
 
+##### IMAGENS
 
-**IMAGENS**<br/>
+##### POSICIONAMENTO
 
+##### MODELO BOX-CONTAINER**
+ Existem 2 tipos de propriedades em um documento:
+ 1. **`block`**: Causam uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
+ 2. **`in-line`**: Não geram uma quebra de linha, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag. Exemplos de tags tipo `in-line`: `span`, `strong`, `em`, `a`, `img`, entre outas.
 
-**ESTILOS PARA LISTAS E LINKS**<br/>
- Os estilos para listas e links permitem personalizar a aparência de elementos comuns – listas e hiperlinks – de maneira a enriquecer o design do site sem alterar a estrutura. A seguir, veremos como controlar marcadores chamados de *bullets* em listas e como estilizar links, seguindo a regra "LoVe HAte”, que define os estados dos links.
+ Para realizar a conversão de um tipo de elemento deve-se alterar a propriedade `display` do seletor em questão:
+ ```css
+ .id {
+    display: inline;
+ }
+ ```
 
-**ESTILIZANDO LISTAS**<br/>
-O CSS oferece as seguintes propriedades para alterar a aparência das listas:
-
-- **`list-style-type`**<br/>
-  Define o tipo de marcador. Valores comuns incluem:
-  - **`disc`** (padrão para `<ul>`)
-  - **`circle`**
-  - **`square`**
-  - **`decimal`** (padrão para `<ol>`)
-  - **`none`** (sem marcador)
-  ```css
-  ul {
-    list-style-type: square;
-  }
-  ol {
-    list-style-type: decimal;
-  }
-  ```
-
-- **`list-style-image`**<br/>
-  Permite usar uma imagem como marcador.
-  ```css
-  ul.custom {
-    list-style-image: url('meu-marcador.png');
-  }
-  ```
-
-- **`list-style-position`**<br/>
-  Controla a posição do marcador, podendo ser:
-  - **`inside`**: o marcador fica dentro do bloco de conteúdo (o texto pode quebrar a linha).
-  - **`outside`**: o marcador fica fora (padrão na maioria dos casos).
-  ```css
-  ul {
-    list-style-position: inside;
-  }
-  ```
-
-**Pseudo-elemento `::marker`**<br/>
-O pseudo-elemento `::marker` permite alterar a cor, tamanho e outros aspectos dos marcadores das listas.<br/>
-O código abaixo fará com que todos os marcadores de itens de lista fiquem vermelhos e um pouco maiores que o padrão.
-```css
-li::marker {
-  color: red;
-  font-size: 1.2em;
-}
-```
-
-Também podemos combinar seletores para aplicar estilos apenas a listas específicas ou a determinados itens. Por exemplo, para remover os marcadores apenas de listas com uma classe específica:
-```css
-ul.sem-marcador {
-  list-style: none;
-  padding-left: 0;
-}
-```
-
-Ou ainda, para alterar o marcador apenas de itens pares:
-```css
-ul li:nth-child(even)::marker {
-  color: blue;
-}
-```
-
-**ESTILIZANDO LINKS**<br/>
-Os links podem ser personalizados em seus diferentes estados – e a “regra *LoVe HAte*” é um lembrete da ordem que devemos definir os pseudo-estados dos links para que funcionem corretamente: **Link**, **Visited**, **Hover**, **Active**. Essa regra é uma convenção para definir os estilos de links na ordem correta, **pois a ordem no CSS influencia a forma como os estilos são aplicados**. Essa ordem evita que, por exemplo, o `:hover` seja sobrescrito por `:link` ou `:visited`.
-
-- **`:link`**<br/>
-  Seleciona links que ainda não foram visitados.
-  ```css
-  a:link {
-    color: blue;
-    text-decoration: none;
-  }
-  ```
-- **`:visited`**<br/>
-  Seleciona links que já foram visitados.
-  ```css
-  a:visited {
-    color: purple;
-  }
-  ```
-- **`:hover`**<br/>
-  Aplica-se quando o mouse está sobre o link.
-  ```css
-  a:hover {
-    color: red;
-    text-decoration: underline;
-  }
-  ```
-- **`:active`**<br/>
-  Aplica-se quando o link está sendo ativado (clicado).
-  ```css
-  a:active {
-    color: orange;
-  }
-  ```
-
-Colocar os seletores nessa ordem garante que o navegador aplique corretamente os estados dinâmicos sem conflitos:
-```css
-/* Link não visitado */
-a:link {
-  color: blue;
-  text-decoration: none;
-}
-
-/* Link já visitado */
-a:visited {
-  color: purple;
-}
-
-/* Quando o mouse passa sobre o link */
-a:hover {
-  color: red;
-  text-decoration: underline;
-}
-
-/* Durante o clique */
-a:active {
-  color: orange;
-}
-```
-- **Transições:**  
-  Você pode adicionar transições para suavizar a mudança entre estados:
-  ```css
-  a {
-    transition: color 0.3s, text-decoration 0.3s;
-  }
-  ```
-- **Text-decoration:**  
-  Além de mudar a cor, pode-se alterar a decoração do texto (underline, overline, etc.).
-- **Uso de Variáveis:**  
-  Para facilitar a manutenção, você pode definir cores em variáveis CSS e usá-las nos diferentes estados.
-  ```css
-  :root {
-    --cor-link: blue;
-    --cor-visitado: purple;
-    --cor-hover: red;
-    --cor-active: orange;
-  }
-  
-  a:link {
-    color: var(--cor-link);
-  }
-  a:visited {
-    color: var(--cor-visitado);
-  }
-  a:hover {
-    color: var(--cor-hover);
-  }
-  a:active {
-    color: var(--cor-active);
-  }
-  ```
-
-**UNIDADES**<br/>
- Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
- O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
- *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
- Existem 2 tipos de unidades de comprimento: a **absoluta** e a **relativa**.
- 1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
-
- | UNIDADE | DESCRIÇÃO |
- | --- | ---- |
- | **`cm`** | centímetros |
- | **`mm`** | milímetros |
- | **`in`** | polegadas |
- | **`px *`** | pixel – Ele indica que unidades pixel podem variar em dispositivos de alta resolução e impressoras, refletindo uma escala não tradicional. Devido às diferentes densidades de pixels em dispositivos (por exemplo, telas de alta resolução), o “px” é um “pixel de referência” que pode não corresponder a um pixel físico individual. Em resumo, o valor em `px *` garante que os elementos apareçam com dimensões visualmente consistentes, independentemente do dispositivo. |
- | **`pt`** | ponto – Originado do mundo da tipografia, 1pt equivale a 1/72 de uma polegada. Essa unidade é tradicionalmente usada na impressão, onde a medida física exata é importante. Em telas, seu uso é menos comum porque as dimensões absolutas (como pt, cm, in) não se adaptam bem às variações de tamanho e densidade das telas modernas.|
- | **`pc`** | pica – Também vinda da tipografia, a pica é uma unidade derivada dos pontos: 1pc equivale a 12pt. Assim, como 1pt ≈ 1.33px (visto que 96px/72pt ≈ 1.33), temos que 1pc corresponde aproximadamente a 16px. Essa unidade é mais usada em contextos de design gráfico e impressão.|
-
- 2. **Relativo**: As unidades de comprimento relativo, como o próprio nome diz, **especificam um comprimento em relação a outra propriedade de comprimento**. *As unidades de comprimento relativas escalam melhor entre os diferentes meios de renderização, se adaptando melhor entre os diferentes tipos e tamanhos de telas.*
-
- | UNIDADE | DESCRIÇÃO |
- | --- | ---- |
- | **`rem`** | Relativo ao tamanho da fonte do elemento raiz – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
- | **`em`** | Relativo ao tamanho da fonte do elemento – `2em` significa **2 vezes o tamanho da fonte do elemento atual**. |
- | **`vw`** | Relativo a `x%` da **largura** da tela. |
- | **`vh`** | Relativo a `x%` da **altura** da tela. |
- | **`%`** | Relativo a `x%` do **elemento pai**. |
- | **`vmin`** | Relativo a `x%` da menor dimensão da janela ou interface gráfica – se a viewport tem 1200px de largura e 800px de altura, `1vmin` equivale a **8px** (1% de 800px). |
- | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
- | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
- | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
+#### FLEXBOX
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
