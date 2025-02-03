@@ -1862,7 +1862,7 @@ Aqui falaremos sobre como adicionar legendas.
    - **`:last-child`** – Seleciona o último filho.
    - **`:nth-child(an+b)`** – Seleciona os filhos que se encaixam na fórmula (por exemplo, `:nth-child(2n)` para pares).
    - **`:nth-last-child(an+b)`** – Como o anterior, mas contando a partir do final.
-   - **`:only-child`** – Seleciona um elemento se ele for o único filho de seu pai.
+   - **`:only-child`** – Seleciona um elemento se ele for o único filho de seu pai.-
    - **`:first-of-type`** – Seleciona o primeiro elemento de um determinado tipo entre seus irmãos.
    - **`:last-of-type`** – Seleciona o último elemento de seu tipo.
    - **`:nth-of-type(an+b)`** e **`:nth-last-of-type(an+b)`** – Selecionam elementos de um mesmo tipo de acordo com uma fórmula.
@@ -1908,20 +1908,193 @@ Aqui falaremos sobre como adicionar legendas.
  - **`rgb()`**: Onde o **red**, **green** e **blue** são *números inteiros desde* **0 a 255**, *ou porcentagens de* **0% a 100%**.
  ```css
  .class {
-    color: rgb(42, 44, 156);
+    background-color: rgb(42, 44, 156);
  }
  ```
- - **`#rgb`**: Onde **red**, **green** e **blue** *são números hexadeximais de* **0 a F**.
+ - **`#rgb`**: Onde **red**, **green** e **blue** *são números hexadeximais de* **00 a FF**.
  ```css
  .class {
-    color: #353E9A;
+    background-color: #353E9A;
  }
  ```
- - **`rgba()`**: Extensão do `rgb()` com um *canal alfa*, onde *o parâmetro `alfa` é um número entre **0,0 (totalmente transparente) a 1,0 (totalmente opaco)**.*
+ - **`rgba()`**: Extensão do `rgb()` com um *canal alfa*, onde *o parâmetro `alfa` é um número entre **0.0 (totalmente transparente) a 1.0 (totalmente opaco)***.
+ ```css
+ .class {
+    background-color: rgba(0, 0, 255, 0.5);
+ }
+
+ #id {
+    /*
+    Com a sintaxe moderna, também é possível
+    separar os valores por espaços e
+    indicar a opacidade com a barra.
+    */
+    background-color: rgb(255 0 0 / 50%);
+ }
+ ```
+ - **`hsl`**: Este modelo define a cor com base em 3 parâmetros:
+   1. **`hue` matriz**: Ângulo de *0 a 360°*, que **representa a cor no círculo cromático**.
+   2. **`saturation` saturação**: *Intensidade da cor*, de **0% (sem cor, tons de cinza) a 100%**.
+   3. **`lightness` brilho**: *Quão claro ou escuro é o tom*, de **0% (preto) a 100% (branco).**
+ ```css
+ #hsl {
+    /* neste exemplo o matiz 0 (°) define a cor base, com 100% de saturação e 50% de brilho */
+    background-color: hsl(0, 100%, 50%);
+ }
+ ```
+ - **`hsla`**: Adiciona um canal alfa para definir a opacidade.
+ ```css
+ #hsla {
+    background-color: hsla(120, 100%, 50%, 0.5);
+ }
+ ```
+ - **`hsv`**: Outra forma de representar cores, muito utilizada em ferramentas de design e em alguns preprocessadores como o LESS para facilitar a manipulação das cores. Enquanto o `hsl` usa *`lightness`* para definir o quão claro ou escuro é o tom, o `hsv` utiliza *`value`* para representar a intensidade e luminosidade máxima da cor.
+   1. **`hue` matriz**: Ângulo de *0 a 360°*, que **representa a cor no círculo cromático**.
+   2. **`saturation` saturação**: *Intensidade da cor*, de **0% (sem cor, tons de cinza) a 100%**.
+   3. **`value` valor**: Indica a *intensidade luminosa da cor*, **onde 0% signifa ausência de brilho e 100% é o máximo de brilho que a cor pode ter**.
+   ```css
+   div {
+      /*
+      Vermelho com menor saturação, mais próximo de um rosa claro.
+      */
+      background-color: hsv(0, 50%, 100%);
+   }
+   ```
+ - **`hwb` hue-whiteness-blackness**: É uma alternativa ao `HSL` e `HSV`, e funciona da seguinte forma:
+   1. **`hue` matriz**: Ângulo de *0 a 360°*, que **representa a cor no círculo cromático**.
+   2. **`whiteness` claridade**: Representa a *porcentagem de BRANCO* **misturado à cor**.
+   3. **`blackness` escuridão**: Representa a *porcentagem de PRETO* **misturado à cor**.
+   ```css
+   div {
+      /* neste exemplo o matiz 90 (°) define a cor base, com 10% de branco e 10% de preto */
+      background-color: hwb(90 10% 10%);
+   }
+   ```
+ - **`lch`**: Este modelo foi desenvolvido para aproximar a forma como percebemos as cores, garantindo que valores iguais de luminosidade resultem em uma percepção similar de clareza, independentimente do matiz.
+   1. **`lightness` luminosidade**: *Valor em porcentagem* de **0% para preto e 100% para branco**.
+   2. **`chroma` croma**: Representa a *intensidade e pureza da cor*, **valor maiores indicam cores mais vibrantes e saturadas**.
+   3. **`hue` matriz**: Ângulo de *0 a 360°*, que **determina o tom**.
+   ```css
+   div {
+      /*
+      Define uma cor com 50% de luminosidade, um croma de 80 e matiz de 20°.
+      O valor de 20° indica o tom e pode variar conforme o efeito desejado.
+      */
+      background-color: lch(50% 80 20);
+   }
+
+   ```
+ - **`display-p3`**: O Display P3 é *um espaço de cores com uma gama mais ampla que o tradicional sRGB*. Ele permite que dispositivos (como alguns smartphones e monitores modernos) exibam cores mais vibrantes e saturadas. Para usar esse espaço, utiliza-se a **função `color()`** *junto com o identificador do espaço de cores*. Para notar as diferenças, seu dispositivo precisa suportar o Display P3. Em dispositivos que trabalham somente com sRGB, as cores podem ser convertidas automaticamente, mas sem a mesma vivacidade.
+ ```css
+ div {
+    /*
+    Especifica um vermelho intenso no espaço Display P3.
+    Os valores aqui variam de 0 a 1.
+    */
+    background-color: color(display-p3 1 0 0);
+ }
+ ```
+   - **`current-color`**: Permite *reutilizar o valor atual da propriedade `color` em outras propriedades* **sem precisar repetir o valor da cor**. Isso é especialmente útil para manter a coerência do design, por exemplo:
+   ```css
+   div {
+      color: #111;
+      border: 1px solid currentcolor;
+   }
+   ```
 
 **GRADIENTES**<br/>
+ Os gradientes permitem criar transições suaves entre 2 ou mais cores. Podemos aplicar um gradiente de cor a um elemento.<br/>
+ 1. Para aumentar o efeito de um gradiente, podemos *usar cores com alfa* como **`rgba()`** ou **`hsla()`**, *criando efeitos de fade e sobreposições*.
+ Gradientes são tratados como imagens, então os definimos na propriedade **`background-image`**, mas também  *ou na propriedade abreviada **`background`***.
+ 2. 
+ - **TIPOS DE GRADIENTE**<br/>
+ O CSS define atualmente 4 funções principais para gradientes:
+   - **Linear Gradients**: As cores *mudam ao longo* de uma **linha reta**.
+   - **Radial Gradients**: As cores se *irradiam a partir de um ponto central* podendo ser **circular ou elíptico**.
+      - **Forma**: **`circle`** *para um gradiente circular* ou **`ellipse`** **para um gradiente elíptico**. *Se omitido, o navegador escolhe o que melhor se adapta ao elemento.*
+      - **Tamanho**: Pode ser definido com palavras-chave como **`closest-side`**, **`farthest-corner`**, etc., ou **usando um valor de comprimento**.
+      - **Posição**: Define o *ponto de origem do gradiente*, por exemplo, **`at center`** ou **`at 20% 70%`**.
+   - **Conic Gradients**: As cores *se distribuem* **em torno de um ponto central em um círculo**, como um gráfico de pizza por exemplo.
+      - **`from angle`:** Especifica o *ângulo inicial*, por exemplo, **`from 0deg`** ou **`from 45deg`**.
+      - **`at position`:** Define a *posição central* do gradiente, por exemplo, **`at center`** ou **`at 20% 20%`**.
+   - **Repeating Gradients**: São versões *“repetitivas” dos gradientes* (linear, radial ou conic), **que se repetem infinitamente para criar padrões**.
+      - As funções **`repeating-linear-gradient()`**, **`repeating-radial-gradient()`** e **`repeating-conic-gradient()`** *permitem criar gradientes que se repetem indefinidamente*.
+ - **DIREÇÃO E ÂNGULO**<br/>
+  Podemos especificar a direção usando **palavras-chave**, por exemplo, **`to right`** e **`to bottom left`**, ou um **ângulo** como por exemplo, **`45deg`** ou **`180deg`**. *Se omitido, o gradiente vai de cima para baixo equivalente a `to bottom`.*
+ - **PARADAS DE COR**<br/>
+ *São os pontos onde as cores são definidas.* **Podemos apenas listar as cores ou especificar também sua posição em porcentagem ou medida.**
 
+ Para usarmos o gradiente, devemos especificar em ordem:<br/>
+ **tipo de gradiente** > **direção do gradiente** > **[cor inicial] [opacidade em %]** > **[cor final] [opacidade em %]**
+ ```css
+ selector {
+    property: gradient-type(([<direção> ou <ângulo>] || [<forma> <tamanho>?] [at <posição>]? || [from <ângulo>] [at <posição>]?), <parada-de-cor1>, <parada-de-cor2>, ...);
+ }
+ ```
+ - **`linear-gradient`**
 
+ **Exemplo 1 – Gradiente de cima para baixo (padrão):**
+ ```css
+ .element {
+   background: linear-gradient(red, yellow);
+ }
+ ```
 
+ **Exemplo 2 – Gradiente da esquerda para a direita:**
+ ```css
+ .element {
+   background: linear-gradient(to right, blue, pink);
+ }
+ ```
+
+ **Exemplo 3 – Gradiente com ângulo personalizado:**
+ ```css
+ .element {
+   background: linear-gradient(45deg, green, purple);
+ }
+ ```
+ 
+ **Exemplo 4 – Gradiente com múltiplas paradas de cor:**
+ ```css
+ .element {
+   background: linear-gradient(to right, red, orange 30%, yellow 60%, green);
+ }
+ ```
+
+ - **`radial-gradient`**: 
+
+ **Exemplo 1 – Gradiente radial simples:**
+ ```css
+ .element {
+   background: radial-gradient(circle, red, blue);
+ }
+ ```
+
+ **Exemplo 2 – Gradiente radial com posição personalizada:**
+ ```css
+ .element {
+   background: radial-gradient(ellipse farthest-side at 30% 70%, yellow, green);
+ }
+ ```
+
+ - **`conic-gradient()`**: 
+
+ **Exemplo 1 – Gradiente conic simples:**
+ ```css
+ .element {
+   background: conic-gradient(red, yellow, green, blue, red);
+ }
+ ```
+
+ **Exemplo 2 – Gradiente conic com ângulo inicial e posição:**
+ ```css
+ .element {
+   background: conic-gradient(from 45deg at center, purple, pink, orange, purple);
+ }
+ ```
+
+ - **``**: 
+ ```css
+ ```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
