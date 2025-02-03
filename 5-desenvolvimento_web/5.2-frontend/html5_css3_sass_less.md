@@ -1659,14 +1659,7 @@ Aqui falaremos sobre como adicionar legendas.
     </p>
  </body>
  ```
-<p style="color: blueviolet">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam ut magni, tempora natus assumenda voluptatum commodi non quod, sed repellat nostrum doloribus consequatur quis neque distinctio earum. Blanditiis, nulla est.
-</p>
-<p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolor aperiam, ratione repudiandae minima reiciendis fuga similique architecto doloribus nulla unde. Deleniti repellendus quo delectus rerum voluptas temporibus, facilis nobis.
-</p>
-<hr>
- A sintáxe para criar um comentário em CSS é: `/* comentário */`
+ A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
 **FONTES PERSONALIZADAS**<br/>
  **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
@@ -1762,7 +1755,7 @@ Aqui falaremos sobre como adicionar legendas.
     color: orange;
  } 
  ```
- **IMPORTANTE**: *um elemento pode ter mais de uma classe atribuída.**
+ **IMPORTANTE**: *um elemento pode ter mais de uma classe atribuída.*
  ```html
  <p class="fontSize textColor"> ... </p>
  ```
@@ -2027,28 +2020,28 @@ Aqui falaremos sobre como adicionar legendas.
  5. **PARADAS DE COR**<br/>
  *São os pontos onde as cores são definidas.* **Podemos apenas listar as cores ou especificar também sua posição em porcentagem ou medida.**
  6. **MÚLTIPLOS GRADIENTES**<br/>
- É possível empilhar vários gradientes, e até mesmo gradientes com outras imagens, separando-os por vírgula na propriedade `background`. O primeiro declarado fica no topo.<br/>
- Além disso, a propriedade **`background-blend-mode`** pode ser usada para definir como eles se misturam. Pode-se aplicar quantos gradientes quiser, basta separá-los por vírgula. A propriedade **`background-blend-mode`** permite definir como as camadas de fundo chamadas *backgrounds* — sejam elas definidas por imagens, gradientes ou cores sólidas — se misturam entre si. Essa propriedade aceita valores do tipo **`blend-mode`**, que são os mesmos modos de mesclagem que podemos encontrar em softwares de edição de imagem como o Photoshop por exemplo. Neste exemplo, os dois gradientes são renderizados um sobre o outro e mesclados com o modo **`multiply`**. Os modos de mesclagem especificados na especificação **CSS Compositing and Blending Level 1** são: 
- - **`normal`**
- - **`multiply`**
- - **`screen`**
- - **`overlay`**
- - **`darken`**
- - **`lighten`**
- - **`color-dodge`**
- - **`color-burn`**
- - **`hard-light`**
- - **`soft-light`**
- - **`difference`**
- - **`exclusion`**
- - **`hue`**
- - **`saturation`**
- - **`color`**
- - **`luminosity`**
- - **`initial`**
- - **`inherit`**
- - **`unset`**
- - **`revert`**
+    É possível empilhar vários gradientes, e até mesmo gradientes com outras imagens, separando-os por vírgula na propriedade `background`. O primeiro declarado fica no topo.<br/>
+    Além disso, a propriedade **`background-blend-mode`** pode ser usada para definir como eles se misturam. Pode-se aplicar quantos gradientes quiser, basta separá-los por vírgula. A propriedade **`background-blend-mode`** permite definir como as camadas de fundo chamadas *backgrounds* — sejam elas definidas por imagens, gradientes ou cores sólidas — se misturam entre si. Essa propriedade aceita valores do tipo **`blend-mode`**, que são os mesmos modos de mesclagem que podemos encontrar em softwares de edição de imagem como o Photoshop por exemplo. Neste exemplo, os dois gradientes são renderizados um sobre o outro e mesclados com o modo **`multiply`**. Os modos de mesclagem especificados na especificação **CSS Compositing and Blending Level 1** são: 
+    - **`normal`**
+    - **`multiply`**
+    - **`screen`**
+    - **`overlay`**
+    - **`darken`**
+    - **`lighten`**
+    - **`color-dodge`**
+    - **`color-burn`**
+    - **`hard-light`**
+    - **`soft-light`**
+    - **`difference`**
+    - **`exclusion`**
+    - **`hue`**
+    - **`saturation`**
+    - **`color`**
+    - **`luminosity`**
+    - **`initial`**
+    - **`inherit`**
+    - **`unset`**
+    - **`revert`**
 
  Para usarmos o gradiente, devemos especificar em ordem:<br/>
  **tipo de gradiente** > **direção do gradiente** > **[cor inicial] [opacidade em %]** > **[cor final] [opacidade em %]**
