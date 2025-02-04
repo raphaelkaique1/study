@@ -2765,7 +2765,7 @@ align-content: center                            align-content: stretch
         <th>SIGNIFICADO</th>
     </tr>
     <tr>
-        <th rowspan="5"><code>align-content</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
+        <th rowspan="6"><code>align-self</code>Permite que um item individual sobreponha o alinhamento definido por <code>align-items</code>.</th>
         <td><code>flex-start</code></td>
         <td>Alinha o item no INÍCIO do container.</td>
     </tr>
@@ -2959,5 +2959,6 @@ align-content: center                            align-content: stretch
     gap: 12px;
  }
  ```
+ ![Image](https://github.com/user-attachments/assets/ac2022bc-5d38-475a-9fd1-b9d4bb2adaf4)
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
