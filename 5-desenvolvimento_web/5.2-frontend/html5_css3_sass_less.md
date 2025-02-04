@@ -591,6 +591,7 @@ a abertura da tabela.**
         <td>MONIT</td> <!-- COLUNA 4 -->
     </tr>
     <!-- LINHA 3 -->
+    <tr>
         <th>senior</th> <!-- COLUNA 1 -->
         <td>SEO</td> <!-- COLUNA 2 -->
         <td>DB</td> <!-- COLUNA 3 -->
@@ -618,6 +619,7 @@ a abertura da tabela.**
         <td>SERVER-SIDE</td>
         <td>MONIT</td>
     </tr>
+    <tr>
         <th>senior</th>
         <td>SEO</td>
         <td>DB</td>
@@ -2427,5 +2429,137 @@ a:active {
  ```
 
 #### FLEXBOX
+ Tradicionalmente, o CSS tem usado posicionamento `static`, `relative`, `absolute`, e etc, além de elementos `block` ou `in-line`, `float` e derivados, que, em termos gerais, são sistemas de criação de design engessados e pouco flexíveis, que atualmente não se ajustam aos desafios enfrentados hoje com sistemas de desktop, dispositivos móveis, multiplas resoluções e mais.<br/>
+ Para atender essa demanda, surgiu o **`flexbox`**, que é um sismte ade elementos flexíveis, que vem com a ideia de esquecer estes mecanismos para usar uma mecânica mais poderosa, limpa e personalizável, na qual os elementos do documento são automaticamente adaptados e manipulados, tornando mais fácil a personalização. O `flexbox` foi especialmente projetado para criar *estruturas unidimensionais*. A estrutura de um `flexbox` segue o seguinte padrão:
+```
+┌─────────────────────────────────────────────┐
+|                  ┌─> item                   |
+| ┌────┐ ┌────┐ ┌──┴─┐            |           |
+| ┤----├-┤----├-┤----├------┬----─┼─> eixo    |
+| └────┘ └────┘ └────┘ eixo<┘     | principal |
+|                   secundário                |
+└───────────┬─────────────────────────────────┘
+            v
+        container
+```
+ - **container**: É o **elemento principal** que conterá cada um dos *flex items*. Ao contrário de outras estruturas, como regra geral, *no `flex` definimos as propriedades para o elemento pai*.
+ - **eixo principal**: As *flexboxes* devem ter uma orientação principal específica. Por padrão **o eixo principal do recipiente flexbox é horizontal**, como uma *"fileira"*.
+ - **eixo secundário**: Da mesma forma, os recipientes flex devem possuir uma segunda orientação perpendicular à principal, então se a horientação primária for horizontal, a **orientação do eixo secundário será vertical**.
+ - **item**: **É cada um ds *filhos* – ou `children` como são chamados – que o recipiente terá em seu interior.**
+
+ ```html
+ <div class="container"> <!-- flex container -->
+    <!-- flex items -->
+    <div class="item item-1">1</div>
+    <div class="item item-2">2</div>
+    <div class="item item-3">3</div>
+ </div>
+ ```
+##### SINTAXE
+ Para ativarmos o modo **`flexbox`**, utilizamos a propriedade de display do elemento repecipiente e especificamos o valor **`flex`** ou **`inline-flex`**.
+ 1. **`flex`**: Configura um recipiente em bloco, semelhante a **`block`** que ocupa toda a largura do elemento pai.
+ 2. **`inline-flex`**: Configura um recipiente em linha, semelhante a **`inline-block`** que ocupa apenas o espaço do conteúdo.
+ ```css
+ .container {
+    background-color: lightblue;
+    display: flex /* inline-flex */;
+ }
+ .item {
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px
+ }
+ ```
+
+ Por padrão, os elementos são todos dispostos *"grudados"* lado a lado na mesma linha.
+```
+display: flex
+┌────┬────┬────┐─────────────────────────────┐
+|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+└────┴────┴────┘─────────────────────────────┘
+
+display: inline-flex
+┌┌────┬────┬────┐┐
+||1   |2   |3   ||
+└└────┴────┴────┘┘
+```
+
+##### DIREÇÃO DO EIXO
+ Existem 2 propriedades principais para manipular a direção e o comportamento dos itens ao longo do **eixo principal** do repcipiente:
+ 1. **`flex-direction`**<br/>
+ Usando as propriedades do `flex-direction`, podemos mudar a orientação do eixo principal do recipiente para ser orientado **horizontalmente (padrão)** ou **verticalmente**.
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th rowspan="4"><code>flex-direction</code><br/>Muda a orientação do eixo principal.</th>
+        <td>row</td>
+        <td>Define a direção do eixo principal para HORIZONTAL com os itens em ORDEM DO PRIMEIRO AO ÚLTIMO.</td>
+    </tr>
+    <tr>
+        <td>row-reverse</td>
+        <td>Define a direção do eixo principal para HORIZONTAL com os itens em ORDEM DO ÚLTIMO AO PRIMEIRO.</td>
+    </tr>
+    <tr>
+        <td>column</td>
+        <td>Define a direção do eixo principal para VERTICAL com os itens em ORDEM DO PRIMEIRO AO ÚLTIMO.</td>
+    </tr>
+    <tr>
+        <td>column-reverse</td>
+        <td>Define a direção do eixo principal para VERTICAL com os itens em ORDEM DO ÚLTIMO AO PRIMEIRO.</td>
+    </tr>
+</table>
+
+ Além disso, podemos incluir o sufixo **`reverse`** para indicar uma *colocação dos itens em ordem inversa*.<br/>
+  ```css
+ .container {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+ }
+ ```
+ Isso nos permite um alto nível de controle sobre a ordem dos elementos em uma página.
+```
+flex-direction: row                              flex-direction: row-reverse
+┌────┬────┬────┐─────────────────────────────┐   ┌─────────────────────────────┌────┬────┬────┐
+|1   |2   |3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦  |3   |2   |1   |
+└────┴────┴────┘─────────────────────────────┘   └─────────────────────────────└────┴────┴────┘
+
+flex-direction: column                           flex-direction: column-reverse
+┌────┐───────────────────────────────────────┐⠀⠀ ┌────┐───────────────────────────────────────┐
+|1   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |1   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   ├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+|2   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |2   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   ├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+|3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+└────┘───────────────────────────────────────┘⠀⠀ └────┘───────────────────────────────────────┘
+```
+ 2. **`flex-wrap`**<br/>
+ Usando o **`flex-wrap`** podemos especificar o comportamento do recipiente no que diz respeito a *evitar que ele se ajuste com uma quebra de linha* com o **`nowrap`**, ou *permitir que ele o faça com **`wrap`**, que "adiciona" mais uma linha para comportar o conteúdo*.
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th rowspan="3"><code>flex-wrap</code><br/>Impede ou permite a quebra de linha para ajustar os elementos.</th>
+        <td>nowrap</td>
+        <td>Define os itens em uma ÚNICA DIREÇÃO, impedindo uma quebra de linha, ou que o container transborde.</td>
+    </tr>
+    <tr>
+        <td>wrap</td>
+        <td>Define os items no modo MULTILINHA, permitindo que o container transborde e adcione mais espaço para quebras de linha.</td>
+    </tr>
+    <tr>
+        <td>wrap-reverse</td>
+        <td>Define os items no modo MULTILINHA, permitindo que o container transborde e adcione mais espaço para quebras de linha invertendo a direção de ordem dos itens.</td>
+    </tr>
+</table>
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
