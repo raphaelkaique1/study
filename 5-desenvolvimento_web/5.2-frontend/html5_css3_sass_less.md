@@ -2791,12 +2791,125 @@ align-content: center                            align-content: stretch
     </tr>
 </table>
 
- **Funciona exatamente da mesma forma que `align-items`, no entanto, é especial pois é uma propriedade utilizada em um _item específico_ e não no elemento container.**<br/>
+ **Funciona exatamente da mesma forma que `align-items`, no entanto, é especial pois é a primeira propriedade utilizada em um _item filho específico_ e não no elemento container.**<br/>
  *Graças a esse detalhe, o **`align-self`** nos permite mudar o comportamento de `align-items` e anulá-lo com comportamentos específicos para itens que queremos que se comportem diferente dos demais.*
 
  ![Image](https://github.com/user-attachments/assets/118c98d3-ce27-4a9d-89e8-454b92bfc0eb)
  ![Image](https://github.com/user-attachments/assets/4e837327-58aa-46bd-864b-6910d5260d06)
  ![Image](https://github.com/user-attachments/assets/6105f6ff-c3f0-435f-b82a-7f47394fb865)
 
+**ALINHAMENTOS**<br/>
+ Existe uma propriedade de atalho com a qual os valores de **`justify-content`** e **`align-content`** podem ser definidos de uma só vez:
+ - **`place-content`**<br/>
+ `place-content: <justify-content> <align-content>`
+ ```css
+ .container {
+    display: flex;
+    place-content: space-around center;
+ }
+ ```
+
+###### PROPRIEDADE DOS ITEMS
+ Todas as propriedades que vimos até agora se aplicam ao **container**, as seguintes propriedaddes, no entanto, aplicam-se aos **items filhos**.
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th><code>order</code></th>
+        <td>0 | number</td>
+        <td>Número <strong><em>"peso"</em></strong>, ou seja, de prioridade que indica a ordem de exibição dos itens.</td>
+    </tr>
+    <tr>
+        <th><code>flex-grow</code></th>
+        <td>0 | number</td>
+        <td>Número que indica o fator de AUMENTO do item em relação ao restante.</td>
+    </tr>
+    <tr>
+        <th><code>flex-shrink</code></th>
+        <td>1 | number</td>
+        <td>Número que indica o fator de ENCOLHIMENTO do item em relação ao restante.</td>
+    </tr>
+    <tr>
+        <th><code>flex-basis</code></th>
+        <td>size | content</td>
+        <td>Tamanho BÁSICO dos itens antes da aplicação de alguma variação.</td>
+    </tr>
+</table>
+
+ 1. **`order`**<br/>
+ Permite alterar a ordem visual dos itens dentro do container flex, independentemente da ordem no HTML. Por padrão, todos os itens têm `order: 0`.
+ ```css
+ .container {
+     display: flex;
+ }
+ .item-1 { order: 3; }
+ .item-2 { order: 1; }
+ .item-3 { order: 2; }
+ ```
+ ![Image](https://github.com/user-attachments/assets/534a74f1-95ec-4613-8791-96f4e11cddd8)
+
+ 2. **`flex-grow`**<br/>
+ Define a **proporção de crescimento de um item em relação aos seus irmãos** quando há *espaço extra* no container.
+   - Se definirmos `flex-grow: 1` para *todos os itens*, o espaço extra será distribuído **igualmente**.
+   - Se um item tiver um *valor maior*, **ele receberá uma porção maior do espaço disponível**.
+   ```css
+   .container {
+     display: flex;
+   }
+   .item-1 { flex-grow: 1; }
+   .item-2 { flex-grow: 1; }
+   .item-3 { flex-grow: 8; }
+   ```
+ ![Image](https://github.com/user-attachments/assets/d2409a96-288f-4f56-ad8f-8653c70278b0)
+
+ 3. **`flex-shrink`**<br/>
+ Controla a capacidade do item de *encolher* quando **não há espaço suficiente** no container.
+   - O valor padrão é 1, ou seja, *todos os itens podem encolher proporcionalmente* **se o conteiner ficar menor que a sema dos tamanhos inicialmente desejados**.
+   - Se definirmos `flex-shrink: 0` o item *não encolherá*, **mesmo que haja falta de espaço**.
+   - Valores *maiores* **indicam que o item pode encolher mais agressivamente**.
+   ```css
+   .container {
+        display: flex;
+        width: 500px;
+    }
+    .item {
+        width: 200px; /* tamanho base */
+    }
+    .item 1 { flex-shrink: 1; }
+    .item 2 { flex-shrink: 3; }
+    .item 3 { flex-shrink: 5; }
+
+   ```
+ ![Image](https://github.com/user-attachments/assets/bcb7a4d9-bd8f-4455-9a75-8acd8bd24f6e)
+
+ 4. **`flex-basis`**<br/>
+ Determina o *tamanho “ideal” ou inicial* do item **antes que qualquer crescimento ou encolhimento ocorra**.
+   - Em uma *linha flex* com `flex-direction: row`, funciona de forma similar ao **`width`**.
+   - Em uma *coluna* `flex-direction: column`, funciona como **`height`**.
+   - O valor padrão é `auto`, **o que significa que o tamanho ideal é determinado pelo conteúdo ou pelo valor definidos para largura e altura**.
+   - Podemos aplicar o atributo *`content`*, **que ajusta automaticamente o tamanho do item elemento ao seu conteúdo** – que é seu valor padrão.
+   ```css
+   .container {
+        display: flex;
+        width: 500px;
+    }
+    .item-1 { flex-basis: 150px; }
+    .item-2 { flex-basis: 200px; }
+    .item-3 { flex-basis: 250px; }
+
+   ```
+ ![Image](https://github.com/user-attachments/assets/ecea0072-d3cd-4983-85ee-ad89fcbb1176)
+
+**ALINHAMENTOS**<br/>
+ Em vez de definir as 3 propriedades separadamente, é comum usar a propriedade abreviada **`flex`**:<br/>
+ `flex: <flex-grow> <flex-shrink> <flex-basis>;`
+
+##### GAPS
+ Existem 2 propriedades do `flexbox` que **permitem definir o tamanho de uma *lacuna* entre os itens no recipiente e o container**, sem a necessidade de usar `padding` ou `margin`:
+ 1. **`row-gap`**
+ 2. **`column-gap`**
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
