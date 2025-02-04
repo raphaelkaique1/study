@@ -2909,7 +2909,55 @@ align-content: center                            align-content: stretch
 
 ##### GAPS
  Existem 2 propriedades do `flexbox` que **permitem definir o tamanho de uma *lacuna* entre os itens no recipiente e o container**, sem a necessidade de usar `padding` ou `margin`:
- 1. **`row-gap`**
- 2. **`column-gap`**
+
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th><code>row-gap</code></th>
+        <td>normal | size</td>
+        <td>Espaçamento entre fileiras, ou "linhas" – somente se houver <code>flex-direction: column</code>.</td>
+    </tr>
+    <tr>
+        <th><code>column-gap</code></th>
+        <td>normal | size</td>
+        <td>Espaçamento entre colunas – somente se houver <code>flex-direction: row</code>.</td>
+    </tr>
+</table>
+
+ Como podemos ver, a propriedade só terá efeito dependendo do valor atribuído a `flex-direction`.<br/>
+ No entanto, é possível utilizar ambos se tivermos a propriedade de `flex-wrap: wrap`, ou seja, se tivermos um **`flexbox` multicolunas**.
+
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th><code>gap</code></th>
+        <td>0 | size</td>
+        <td>Aplica o tamanho indicado para a folga em AMBOS os eixos.</td>
+    </tr>
+    <tr>
+        <th><code>gap</code></th>
+        <td>0 0 | size size</td>
+        <td>Aplica os tamanhos indicados para o espaçamento do eixo X e Y.</td>
+    </tr>
+</table>
+
+`gap: <row> <column>`
+
+ ```css
+ .container {
+    gap: 4px 8px;
+
+    /* 1 mesmo parâmetro para ambos */
+    gap: 12px;
+ }
+ ```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
