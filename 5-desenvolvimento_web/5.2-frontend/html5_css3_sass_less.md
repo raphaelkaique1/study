@@ -1584,7 +1584,7 @@ Aqui falaremos sobre como adicionar legendas.
         </tr>
         <tr>
             <th>var</th>
-            <td>Define uma variável matemática ou lógica em um contexto de texto.</td>
+            <td>Define uma variável matemática ou lógica em um contexto de string.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -2468,16 +2468,17 @@ a:active {
     background-color: grey;
     color: white;
     border: 1px solid black;
-    width: 30px;
-    height: 30px
+    width: 100px;
+    height: 100px;
  }
  ```
 
  Por padrão, os elementos são todos dispostos *"grudados"* lado a lado na mesma linha.
 ```
 display: flex
+
 ┌────┬────┬────┐─────────────────────────────┐
-|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
+|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
 └────┴────┴────┘─────────────────────────────┘
 
 display: inline-flex
@@ -2486,8 +2487,10 @@ display: inline-flex
 └└────┴────┴────┘┘
 ```
 
+ ![Image](https://github.com/user-attachments/assets/85a1b770-0c7a-4e42-8193-7e55173e977d)
+
 ##### DIREÇÃO DO EIXO
- Existem 2 propriedades principais para manipular a direção e o comportamento dos itens ao longo do **eixo principal** do repcipiente:
+ Existem 3 propriedades principais para manipular a direção e o comportamento dos itens ao longo do **eixo principal** do repcipiente:
  1. **`flex-direction`**<br/>
  Usando as propriedades do `flex-direction`, podemos mudar a orientação do eixo principal do recipiente para ser orientado **horizontalmente (padrão)** ou **verticalmente**.
 <table border="1px">
@@ -2498,25 +2501,25 @@ display: inline-flex
     </tr>
     <tr>
         <th rowspan="4"><code>flex-direction</code><br/>Muda a orientação do eixo principal.</th>
-        <td>row</td>
+        <td><code>row</code></td>
         <td>Define a direção do eixo principal para HORIZONTAL com os itens em ORDEM DO PRIMEIRO AO ÚLTIMO.</td>
     </tr>
     <tr>
-        <td>row-reverse</td>
+        <td><code>row-reverse</code></td>
         <td>Define a direção do eixo principal para HORIZONTAL com os itens em ORDEM DO ÚLTIMO AO PRIMEIRO.</td>
     </tr>
     <tr>
-        <td>column</td>
+        <td><code>column</code></td>
         <td>Define a direção do eixo principal para VERTICAL com os itens em ORDEM DO PRIMEIRO AO ÚLTIMO.</td>
     </tr>
     <tr>
-        <td>column-reverse</td>
+        <td><code>column-reverse</code></td>
         <td>Define a direção do eixo principal para VERTICAL com os itens em ORDEM DO ÚLTIMO AO PRIMEIRO.</td>
     </tr>
 </table>
 
  Além disso, podemos incluir o sufixo **`reverse`** para indicar uma *colocação dos itens em ordem inversa*.<br/>
-  ```css
+ ```css
  .container {
     background-color: lightblue;
     display: flex;
@@ -2539,8 +2542,12 @@ flex-direction: column                           flex-direction: column-reverse
 |3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
 └────┘───────────────────────────────────────┘⠀⠀ └────┘───────────────────────────────────────┘
 ```
+
+ ![Image](https://github.com/user-attachments/assets/becdbcba-f17d-42ea-b23c-6ac37d4e7289)
+ ![Image](https://github.com/user-attachments/assets/7f434484-2b48-46cd-b941-ffb8f7883275)
+
  2. **`flex-wrap`**<br/>
- Usando o **`flex-wrap`** podemos especificar o comportamento do recipiente no que diz respeito a *evitar que ele se ajuste com uma quebra de linha* com o **`nowrap`**, ou *permitir que ele o faça com **`wrap`**, que "adiciona" mais uma linha para comportar o conteúdo*.
+ Usando o **`flex-wrap`** podemos especificar o comportamento do recipiente no que diz respeito a *EVITAR que ele se ajuste com uma quebra de linha* com o **`nowrap`**, ou *PERMITIR que ele o faça com **`wrap`**, "adicionando" mais linhas para comportar o conteúdo*.
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -2549,17 +2556,176 @@ flex-direction: column                           flex-direction: column-reverse
     </tr>
     <tr>
         <th rowspan="3"><code>flex-wrap</code><br/>Impede ou permite a quebra de linha para ajustar os elementos.</th>
-        <td>nowrap</td>
-        <td>Define os itens em uma ÚNICA DIREÇÃO, impedindo uma quebra de linha, ou que o container transborde.</td>
+        <td><code>nowrap</code></td>
+        <td>Define os itens em uma ÚNICA DIREÇÃO, ignorando seu tamanho definido e o ajustando para caber no container impedindo uma quebra de linha, ou que o container transborde.</td>
     </tr>
     <tr>
-        <td>wrap</td>
-        <td>Define os items no modo MULTILINHA, permitindo que o container transborde e adcione mais espaço para quebras de linha.</td>
+        <td><code>wrap</code></td>
+        <td>Define os items no modo MULTILINHA, mantém o tamanho definido e permite que o container transborde, adcionando mais linhas usando quebras de linha.</td>
     </tr>
     <tr>
-        <td>wrap-reverse</td>
-        <td>Define os items no modo MULTILINHA, permitindo que o container transborde e adcione mais espaço para quebras de linha invertendo a direção de ordem dos itens.</td>
+        <td><code>wrap-reverse</code></td>
+        <td>Define os items no modo MULTILINHA, mantém o tamanho definido e permite que o container transborde, adcionando mais linhas usando quebras de linha invertendo a direção de ordem dos itens.</td>
     </tr>
 </table>
+
+ Assim como no `flex-direction`, aqui também podemos incluir o sufixo **`reverse`** para indicar uma *colocação dos itens em ordem inversa*.
+```
+flex-wrap: nowrap   flex-wrap: wrap     flex-wrap: wrap-reverse
+┌────┬────┬────┐    ┌────┐─────────┐⠀⠀⠀┌────┐─────────┐
+|1   |2   |3   |    |1   | 🟦🟦🟦🟦🟦|⠀⠀ |3   | 🟦🟦🟦🟦🟦|
+└────┴────┴────┘    ├────┤ 🟦🟦🟦🟦🟦|⠀⠀ ├────┤ 🟦🟦🟦🟦🟦|
+|⠀🟦🟦🟦🟦🟦🟦🟦 |    |2   | 🟦🟦🟦🟦🟦|⠀⠀ |2   | 🟦🟦🟦🟦🟦|
+└──────────────┘    ├────┤ 🟦🟦🟦🟦🟦|⠀⠀ ├────┤ 🟦🟦🟦🟦🟦|
+                    |3   | 🟦🟦🟦🟦🟦|⠀⠀ |1   | 🟦🟦🟦🟦🟦|
+                    └────┘─────────┘⠀⠀⠀└────┘─────────┘
+```
+
+ ![Image](https://github.com/user-attachments/assets/1004ea07-ea14-452a-8415-29d79b8d205b)
+ ![Image](https://github.com/user-attachments/assets/e2e1749a-793e-4ef2-bd31-e4621903f3a6)
+
+ 2. **`flex-flow`**<br/>
+ É a *função shorthand* que combina o uso do **`flex-direction`** e **`flex-wrap`** na respectiva ordem.<br/>
+ `flex-flow: <flex-direction> <flex-wrap>`
+ ```css
+ .container {
+    display: flex;
+    flex-flow: row wrap;
+ }
+ ```
+##### PROPRIEDADES DE ALINHAMENTO
+ Agora que temos um controle básico do recipiente dos `flex-items`, iremos conhecer as propriedades existentes dentro da `flexbox` para **organizar os itens dependendo do nosso objetivo para o layout da página**.<br/>
+ Vejamos 4 propriedaddes básicas para isso:
+ 1. **`justify-content` – EIXO PRIMÁRIO**
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th rowspan="6"><code>justify-content</code><br/>Alinha os itens no EIXO PRIMÁRIO (HORIZONTAL).</th>
+        <td><code>flex-start</code></td>
+        <td>Itens agrupados no INÍCIO do eixo principal.</td>
+    </tr>
+    <tr>
+        <td><code>flex-end</code></td>
+        <td>Itens agrupados no FINAL do eixo principal.</td>
+    </tr>
+    <tr>
+        <td><code>center</code></td>
+        <td>Itens agrupados no CENTRO do eixo principal.</td>
+    </tr>
+    <tr>
+        <td><code>space-betwen</code></td>
+        <td>Distribui os itens deixando o MÁXIMO de espaço possível para separálos.</td>
+    </tr>
+    <tr>
+        <td><code>space-around</code></td>
+        <td>Distribui os itens deixando o MESMO espaço ao seu redor.</td>
+    </tr>
+    <tr>
+        <td><code>space-evenly</code></td>
+        <td>Distribui os itens deixando o MESMO ESPAÇO SOBREPOSTOS PARA A ESQUERDA E PARA A DIREITA.</td>
+    </tr>
+</table>
+
+ **Esta propriedade aloca os itens de um recipiente em um determinado arranjo ao longo do eixo principal.**
+```
+justify-content: flex-start                       justify-content: space-between
+┌────┬────┬────┐─────────────────────────────┐⠀   ┌────┐─────────────────────┌────┐────────────────────┌────┐
+|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |1   |⠀🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦⠀|2  ⠀|⠀🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦  |3   |
+└────┴────┴────┘─────────────────────────────┘⠀   └────┘─────────────────────└────┘────────────────────└────┘
+
+justify-content: flex-end                         justify-content: space-around
+┌─────────────────────────────┌────┬────┬────┐⠀⠀ ⠀┌────────┌────┐────────────┌────┐────────────┌────┐───────┐
+| 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|1   |2   |3   | ⠀  |🟦🟦🟦🟦🟦|1   |🟦🟦🟦🟦🟦🟦🟦|2⠀  |🟦🟦🟦🟦🟦🟦🟦|3⠀⠀ |🟦🟦🟦🟦|
+└─────────────────────────────└────┴────┴────┘⠀ ⠀⠀└────────└────┘────────────└────┘────────────└────┘───────┘
+
+justify-content: center                            justify-content: space-evenly
+┌──────────────┌────┬────┬────┐───────────────┐⠀⠀ ⠀┌──────────┌────┐──────────┌────┐──────────┌────┐─────────┐
+| 🟦🟦🟦🟦🟦🟦🟦🟦|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦⠀|     |🟦🟦🟦🟦🟦⠀|1⠀  |⠀🟦🟦🟦🟦  |2   |⠀🟦🟦🟦🟦⠀ |3   | 🟦🟦🟦🟦🟦|
+└──────────────└────┴────┴────┘───────────────┘⠀ ⠀⠀└──────────└────┘──────────└────┘──────────└────┘─────────┘
+```
+
+![Image](https://github.com/user-attachments/assets/5e832354-0f3c-4652-8880-0ad292a7c5b8)
+
+ 2. **`align-content` – EIXO PRIMÁRIO**
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th rowspan="6"><code>align-content</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
+        <td><code>flex-start</code></td>
+        <td>Itens agrupados no INÍCIO do eixo principal.</td>
+    </tr>
+    <tr>
+        <td><code>flex-end</code></td>
+        <td>Itens agrupados no FINAL do eixo principal.</td>
+    </tr>
+    <tr>
+        <td><code>center</code></td>
+        <td>Itens agrupados no CENTRO do eixo principal.</td>
+    </tr>
+    <tr>
+        <td><code>space-betwen</code></td>
+        <td>Distribui os itens do INÍCIO AO FIM.</td>
+    </tr>
+    <tr>
+        <td><code>space-around</code></td>
+        <td>Distribui os itens deixando o MESMO espaço ao seu redor, em ambos os lados de cada item.</td>
+    </tr>
+    <tr>
+        <td><code>stretch</code></td>
+        <td>"ESTICA" os itens para ocupar todo o espaço de maneira UNIFORME.</td>
+    </tr>
+</table>
+
+ **A propriedade `align-content` é especialmente útil quando estivermos lidando com um container flex multilinha, ou seja, um container em que os itens não cabem na largunra disponível e, por tanto, o eixo principal é dividido em várias linhas com o `flex-wrap: wrap` por exemplo. Assim, o `align-content` é usado para alinhar cada uma das linhas do container multilinhas.**
+```
+align-content: flex-start                         align-content: space-between
+┌────┬────┬────┬────┬────┬────┬────┬────┐────┐⠀   ┌────┬────┬────┬────┬────┬────┬────┬────┐──────┐
+|1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |    |1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦🟦 |
+├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |    ├────┴────┴────┴────┴────┴────┴────┴────┘🟦🟦🟦 |
+|9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+├────┴────┘🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    ├────┬────┐🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+└────┴────┴──────────────────────────────────┘⠀⠀  └────┴────┴────────────────────────────────────┘
+
+align-content: flex-end                           align-content: space-around
+┌────────────────────────────────────────────┐⠀   ┌──────────────────────────────────────────────┐
+|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+├────┬────┬────┬────┬────┬────┬────┬────┐🟦🟦 |    ├────┬────┬────┬────┬────┬────┬────┬────┐🟦🟦🟦 |
+|1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |    |1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦🟦 |
+├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |    ├────┴────┴────┴────┴────┴────┴────┴────┘🟦🟦🟦 |
+|9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+└────┴────┴──────────────────────────────────┘⠀⠀  ├────┬────┐🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+⠀⠀                                                |9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+⠀⠀                                                └────┴────┴────────────────────────────────────┘
+
+align-content: center                            align-content: stretch
+┌────────────────────────────────────────────┐⠀⠀ ┌────┬────┬────┬────┬────┬────┬────┬────┐────┐
+|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   |1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |
+├────┬────┬────┬────┬────┬────┬────┬────┐🟦🟦 |   |    |    |    |    |    |    |    |    |🟦🟦 |
+|1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |   ├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |
+├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |   |9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+|9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   |    |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+├────┴────┘🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   └────┴────┴──────────────────────────────────┘
+|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
+└────────────────────────────────────────────┘
+
+```
+
+
+
+
+
+
+
+
+
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
