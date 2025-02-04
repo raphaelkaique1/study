@@ -2658,7 +2658,7 @@ justify-content: center                            justify-content: space-evenly
         <th>SIGNIFICADO</th>
     </tr>
     <tr>
-        <th rowspan="6"><code>align-content</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
+        <th rowspan="6"><code>align-content</code><br/>Alinha os itens no EIXO PRIMÁRIO (HORIZONTAL).</th>
         <td><code>flex-start</code></td>
         <td>Itens agrupados no INÍCIO do eixo principal.</td>
     </tr>
@@ -2684,7 +2684,7 @@ justify-content: center                            justify-content: space-evenly
     </tr>
 </table>
 
- **A propriedade `align-content` é especialmente útil quando estivermos lidando com um container flex multilinha, ou seja, um container em que os itens não cabem na largunra disponível e, por tanto, o eixo principal é dividido em várias linhas com o `flex-wrap: wrap` por exemplo. Assim, o `align-content` é usado para alinhar cada uma das linhas do container multilinhas.**
+ **A propriedade `align-content` é especialmente útil quando estivermos lidando com um container flex MULTILINHA, ou seja, um container em que os itens não cabem na largunra disponível e, por tanto, o eixo principal é dividido em várias linhas com o `flex-wrap: wrap` por exemplo. Assim, o `align-content` é usado para alinhar cada uma das linhas do container multilinhas.**
 ```
 align-content: flex-start                         align-content: space-between
 ┌────┬────┬────┬────┬────┬────┬────┬────┐────┐⠀   ┌────┬────┬────┬────┬────┬────┬────┬────┐──────┐
@@ -2716,16 +2716,87 @@ align-content: center                            align-content: stretch
 ├────┴────┘🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   └────┴────┴──────────────────────────────────┘
 |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
 └────────────────────────────────────────────┘
-
 ```
 
+ ![Image](https://github.com/user-attachments/assets/b26e23be-fcfd-4bf7-9004-efbbac276b91)
+ 
+ 3. **`align-items` – EIXO SECUNDÁRIO**
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th rowspan="5"><code>align-content</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
+        <td><code>flex-start</code></td>
+        <td>Itens agrupados no INÍCIO do eixo secundário.</td>
+    </tr>
+    <tr>
+        <td><code>flex-end</code></td>
+        <td>Itens agrupados no FINAL do eixo secundário.</td>
+    </tr>
+    <tr>
+        <td><code>center</code></td>
+        <td>Itens agrupados no CENTRO do eixo secundário.</td>
+    </tr>
+    <tr>
+        <td><code>stretch</code></td>
+        <td>"ESTICA" os itens para ocupar todo o espaço de maneira UNIFORME.</td>
+    </tr>
+    <tr>
+        <td><code>baseline</code></td>
+        <td>Alinha os elementos no espaço com base do CONTEÚDO dos itens no container.</td>
+    </tr>
+</table>
 
+ **O conteúdo do container é alinhado de acordo com cada linha de um recipiente multilinha.**
 
+ ![Image](https://github.com/user-attachments/assets/776b9bb4-65e1-41b1-aade-80adfbd5e273)
+ ![Image](https://github.com/user-attachments/assets/924c8e1d-0bf7-420b-8efa-079a655e6c5a)
+ ![Image](https://github.com/user-attachments/assets/84270b6f-32d9-421c-b4f4-14958652066a)
+ ![Image](https://github.com/user-attachments/assets/662ba1f0-75e5-4733-8cb6-9f8edda4309b)
 
+ 4. **`align-self` – EIXO SECUNDÁRIO**
+<table border="1px">
+    <tr>
+        <th>PROPRIEDADE</th>
+        <th>VALOR</th>
+        <th>SIGNIFICADO</th>
+    </tr>
+    <tr>
+        <th rowspan="5"><code>align-content</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
+        <td><code>flex-start</code></td>
+        <td>Alinha o item no INÍCIO do container.</td>
+    </tr>
+    <tr>
+        <td><code>flex-end</code></td>
+        <td>Alinha o item no FINAL do container.</td>
+    </tr>
+    <tr>
+        <td><code>center</code></td>
+        <td>Alinha o item no CENTRO do container</td>
+    </tr>
+    <tr>
+        <td><code>stretch</code></td>
+        <td>Alinha o item ESTICANDO ao tamanho do container.</td>
+    </tr>
+    <tr>
+        <td><code>baseline</code></td>
+        <td>Alinha o elemento no espaço com base do CONTEÚDO do item no container.</td>
+    </tr>
+    <tr>
+        <td><code>auto</code></td>
+        <td>Herda o valor dos <code>align-items</code> do elemento pai, caso não esteja definido, seu padrão é o valor <code>stretch</code>.</td>
+    </tr>
+</table>
 
+ **Funciona exatamente da mesma forma que `align-items`, no entanto, é especial pois é uma propriedade utilizada em um _item específico_ e não no elemento container.**<br/>
+ *Graças a esse detalhe, o **`align-self`** nos permite mudar o comportamento de `align-items` e anulá-lo com comportamentos específicos para itens que queremos que se comportem diferente dos demais.*
 
-
-
+ ![Image](https://github.com/user-attachments/assets/118c98d3-ce27-4a9d-89e8-454b92bfc0eb)
+ ![Image](https://github.com/user-attachments/assets/4e837327-58aa-46bd-864b-6910d5260d06)
+ ![Image](https://github.com/user-attachments/assets/6105f6ff-c3f0-435f-b82a-7f47394fb865)
 
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
