@@ -2416,6 +2416,29 @@ a:active {
 
 ##### POSICIONAMENTO
 
+### MEDIA QUERIES
+ As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que serão exibidas apenas para alguns usuários ou dispositivos.<br/>
+ Numa época em que o tráfego móvel se multiplica a cada ano, os sites estáticos projetados para serem exibidos em uma resolução específica não eram mais úteis. Foi necessário adaptar os designs às dimensões para que o usuário pudesse receber as informações na tela do seu dispositivo sem ter que aplicar o zoom para conseguir enxergar.<br/>
+ Neste ponto, surgiram 2 formas de trabalho. A primeira defendia te 2 versões do mesmo site, uma para desktop e outra para mobile. Na maioria dos casos, eles não estão conectados entre si, tornando a manutenção dos sites despendiosa e também, nem sempre mostravam o mesmo conteúdo para ambos os usuários.<br/>
+ A segunda forma de trabalho é usar o mesmo design para ambas as resoluções. Um projeto que pudesse se adaptar a certas resoluções ou ser flexível em sua totalidade, independentemente do ceonteúdo e do projeto. Esta forma de trabalho foi chamada de *web desing responsivo*.<br/>
+ E como o CSS é responsável pelo design da web, surgiu um novo elemento capaz de incorporar esta flexibilidade na folha de estilo: o `media query`, que pode incluir partes do código que só serão aplicadas dependendo das condições de resolução da tela.
+ ```css
+ @media not|only mediatype and|not|only
+ (media feature) {
+    .code {
+        property: value;
+    }
+ }
+ ```
+
+ As `media queries` atuam como um recipiente para as regras e reletores a serem aplicados, de modo que tudo o que elas abrangem fica entre chaves. Sua sitaxe consiste em uma *bandeira* `@media` seguida por um **`mediatype`**.<br/>
+ Este `mediatype` está encarregado de selecionar o tipo d formato que será objeto das regras definidas. Aqui podemos decidir entre *impressão*, *tela* ou *speech*, útil para equipamentos adaptados e acessíveis.<br/>
+ Com os operadores **`not`** e **`only`** definimos quais `mediatype`s *agrupar ou excluir*.<br/>
+ O segundo parâmetro é o **`media feature`**, onde dizemos ao navegador qual condição o dispositivo de saída especificado acima deve preencher para que a condição seja verdadeira e o código contido em nossa `media query` seja aplicado. As `media features` mais comuns de mídia são aquelas referentes às dimensões da tela do dispositivo, sendo capaz de estabelecer a altura e largura em que serão aplicadas – com `height` e `width`, ou o que é mais interessante, *a partir de qual largura ou altura serão aplicadas* – **`min-width`**, **`max-width`**, **`min-height`** e **`max-height`**.
+
+
+### VARIÁVEIS
+
 ##### MODELO BOX-CONTAINER**
  Existem 2 tipos de propriedades em um documento:
  1. **`block`**: Causam uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
