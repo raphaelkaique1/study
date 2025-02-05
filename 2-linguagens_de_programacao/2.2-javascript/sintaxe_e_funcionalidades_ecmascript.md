@@ -7,6 +7,82 @@
  - *Responsivo*.
  - *Dinâmico*.
 
+## ESTRUTURAS
+
+### COMENTÁRIOS
+ Para comentar uma linha de código usa-se a seguinte sintaxe: `// comentário`. Já para comentar um bloco inteiro usa-se: `/* trecho comentado */`.
+ ```js
+  // linha de comentário
+
+  /* este trecho inteiro
+  está comentado */
+ ```
+
+### TIPOS DE DADOS
+Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de dados básicos**:
+ 1. **NUMBERS**<br/>
+ Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**).
+ 2. **STRINGS**<br/>
+ Caracteres, alfanuméricos, textos em geral (como palavras e frases).
+ 3. **BOOLEANS**<br/>
+ Com apenas **2 valores possíveis**: **`true`** ou **`false`**.
+
+### DECLARAÇÕES
+ Chamamos cada _comando_ que escrevemos de **declaração**, e, apesar de o JS não exigir, como **boa prática de código limpo** *cada linha de comando deve ser fechada com `;`*.
+ ```js
+ console.log("Esta é uma declaração.");
+ ```
+
+#### STRICT MODE
+ Em JS existem um modo que, quando ativado, nos permite ser mais restritivos em nossas declarações. Ele ajuda a detectar erros comuns e práticas que programação que podem levar a comportamentos inesperados, ou seja, ele faz com que alguns *"erros silenciosos"* se tornem **explícitos**, lançando exceções e impedindo certas operações que podem causar bugs difíceis de identificar.
+ - Para ativar este modo, podemos declarar no início do arquivo JS para que atinja todo o código:
+ ```js
+ "use strict";
+ ```
+ - Ou podemos colocar essa diretiva dentro de uma função para aplicar o modo estrito apenas ao seu escopo:
+ ```js
+ function minhaFuncao() {
+   "use strict";
+   // aqui o código está em strict mode
+   y = 20; // Isso gerará um erro, pois 'y' não foi declarado.
+ } 
+
+ function outraFuncao() {
+   // aqui o código NÃO está em strict mode
+   z = 30; // Essa linha não dispara erro (embora não seja uma boa prática).
+ }
+ ```
+
+ Sem este modo ativo, poderíamos definir uma variável com a seguinte sintaxe:
+ ```js
+ num = 5;
+ ```
+
+ Com o modo ativo, somos **obrigados** a definir o *escopo* da variável:
+ ```js
+ var = num = 5;
+ ```
+
+#### DECLARANDO VARIÁVEIS
+ Por definição, uma variável é um espaço na memória do computador onde um valor será amazenado, tal este que pode mudar durante a execução do programa.<br/>
+ As variáveis são declaradas de 2 maneiras:
+
+ 1. **`let`**
+ 1. **`var`**
+
+### FUNÇÕES PRÉ-DEFINIDAS
+ São comandos padronizados prontos para serem usados.
+ ```js
+ alert("Este é um exemplo de função pré-definida.");
+ ```
+
+ Além destes também podemos criar nossas próprias funções combinando com outras pré-definidas.
+ ```js
+ function saudacao() {
+  console.log("Olá! Bem vindo!");
+ }
+ ```
+
 ## CRIANDO CÓDIGO
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
 
@@ -133,7 +209,7 @@ const rl = readline.createInterface({
         doSomething(callback-input-parameter)
     .close}) */
 rl.question('User: ', (name) => {
-  console.log(`Welcome ${name}`)
+  console.log(`Welcome ${name}`);
   rl.close(); // fecha a interface de leitura, liberando os recursos associados
 });
 
