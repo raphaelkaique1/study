@@ -67,8 +67,329 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  Por definição, uma variável é um espaço na memória do computador onde um valor será amazenado, tal este que pode mudar durante a execução do programa.<br/>
  As variáveis são declaradas de 2 maneiras:
 
- 1. **`let`**
- 1. **`var`**
+ 1. **`let`**: **escopo LOCAL**; Permite declarar variáveis limitando seu escopo ao bloco ou declaração onde estão localizadas. *Variáveis tipo **`let`** só podem ser utilizadas a partir de funções, condicionantes ou loops dentro do mesmo escopo.* Ou seja, podemos acessá-las apenas dentro do escopo que foram definidas, dentro da própria função ou de funções aninhadas em níveis mais altos do que a função anterior, fazendo com que *só possam ser vistas **de dentro para fora***, nunca de fora para dentro da função.
+ ```js
+ let num = 5;
+ console.log(num); // num == 5
+
+ if(true) {
+  let num = 10;
+  console.log(num); //num == 10
+ }
+
+ console.log(num); // num == 10 <-
+ ```
+ 2. **`var`**: **escopo GLOBAL**; Define uma variável global, independemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do código.
+ ```js
+ let num = 5;
+ console.log(num); // num == 5
+
+ if(true) {
+  let num = 10;
+  console.log(num); //num == 10
+ }
+
+ console.log(num); // num == 5  <-
+ ```
+
+##### POPULANDO VARIÁVEIS
+
+###### ALTERANDO VALOR ATRIBUÍDO
+ Para modificar uma variável já declarada ou com valor atribuído, basta escrevermos seu *identificador* e o valor que queremos sobrescrever:
+ ```js
+ var num = 10;
+ num = 5;
+ ```
+###### TRABALHANDO STRING
+ Qualquer valor entre aspas duplas `"value"` ou simples `'value'` atribuído a uma variável é considerado uma `string`, mesmo que o valor seja um número.
+ ```js
+ var num1 = 5; // int
+ var num2 = "5"; // str
+ ```
+ Um ponto que o desenvolver deve estar sempre atento ao trabalhar com `strings` é que, ao concatená-las com valores numéricos, estes valores passam a ser considerados TODOS como `strings`:
+ ```js
+ var x = "5";
+ console.log(x + 10); // 510
+ ```
+ *Uma boa prática é sempre declarar como `strings` números que não vão ser operados matematicamente, como cpf, número de telefone ou CEP por exemplo.*
+
+
+##### IDENTIFICANDO TIPO DE VARIÁVEL
+ O comando **`typeof(var)`** nos diz o tipo de uma variável.
+
+##### VAR CASTING
+ Existem vários meios para manipular variáveis. Vejamos algumas opções:
+
+ 1. **`length`**<br/>
+   1. Calcula a extensão de um texto, ou seja, a quantidade de caracteres que ele contém.
+   2. Se usado em um **`array`** retorna o número de elementos contidos nele.
+ ```js
+ const texto = "Olá, Mundo!";
+ const vetor = ["valor 1", "valor 2", "valor 3"];
+ console.log(texto.length); // Saída: 12
+ console.log(vetor.length); // Saída: 3
+ ```
+
+ 2. **`Number()`**<br/>
+ Converte o valor inteiro para um número, aplicando as regras internas de conversão do algoritmo *`ToNumber`*. Se o valor não for um número válido por completo, ou seja, se houver caracteres “extras” que não se encaixem na notação numérica, retorna um resultado **`NaN`** — *Not a Number*.
+ ```js
+ var num1 = 5;
+ var num2 = "10";
+
+ result = num1 + Number(num2); // result == 15
+
+ Number("10.5");    // retorna 10.5
+ Number("  10  ");  // retorna 10 — os espaços são ignorados
+ Number("10 anos"); // retorna NaN, pois a string inteira não é um número
+ Number(true);      // retorna 1; Number(false) retorna 0
+ ```
+
+ 3. **`parseInt()`**<br/>
+ Examina a string do início e converte os dígitos encontrados até que um caractere inválido seja encontrado. Se o primeiro caractere não for numérico — após ignorar espaços, retorna **`NaN`**. **Mesmo que a parte analisada contenha uma parte decimal, o retorno é sempre um inteiro, e a parte decimal depois do ponto é descartada.** *Permite informar a base numérica — por exemplo, 10 para decimal, 16 para hexadecimal — como segundo parâmetro.*
+ ```js
+ parseInt("10.5");       // retorna 10
+ parseInt("10 anos");    // retorna 10
+ parseInt("   123abc");  // retorna 123
+ parseInt("abc123");     // retorna NaN — não começa com dígitos
+ parseInt("0xF");        // retorna 15 — interpretado como hexadecimal
+ ```
+
+ 4. **`parseFloat()`**<br/>
+ Funciona de forma similar ao `parseInt()` ao “ler” a string do início e interromper na primeira ocorrência de um caractere inválido para um número, **mas retorna um valor de ponto flutuante**. *Se a parte numérica da string contém um ponto decimal, o valor retornado preserva essa parte fracionária e não trunca o valor como em `parseInt()`.*
+ ```js
+ parseFloat("10.5");       // retorna 10.5
+ parseFloat("10.5abc");    // retorna 10.5
+ parseFloat("10 anos");    // retorna 10
+ parseFloat("abc10.5");    // retorna NaN
+ ```
+
+ 5. **`toString()`**<br/>
+ Converte tipo numérico para string:
+ ```js
+ var num = 10;
+ var Num = num.toString();
+ console.log(`Num: ${typeof(Num)}`); // Num: string
+ ```
+
+ 6. **`toUppercase()`**<br/>
+ Converte uma `string` em maiúsculas:
+ ```js
+ const texto = "Olá, Mundo!";
+ const textoMaiusculo = texto.toUpperCase();
+
+ console.log(textoMaiusculo); // Saída: "OLÁ, MUNDO!"
+ ```
+
+ 7. **`toLowercase()`**<br/>
+ Converte uma `string` em minúsculas:
+ ```js
+ const texto = "Olá, Mundo!";
+ const textoMinusculo = texto.toLowerCase();
+
+ console.log(textoMinusculo); // Saída: "olá, mundo!"
+ ```
+
+ 8. **`includes()`**<br/>
+ Também retorna um valor booleano e procura por uma palavra no texto, porém busca qualquer correspondência em qualquer posição e é *case sensitive*.
+ ```js
+ const texto = "Hello, World!";
+ console.log(texto.includes(", ")); // true
+ ```
+
+ 9. **`substr()`**<br/>
+ Extrai uma parte da `string` a partir de um índice inicial e, opcionalmente, retorna um determinado número de caracteres.
+ ```js
+ const texto = "Hello, World!";
+
+ // extraindo 5 caracteres a partir do índice 7:
+ console.log(texto.substr(7, 5)); // "World"
+
+ // se o comprimento for omitido, extrai até o final da string:
+ console.log(texto.substr(7)); // "World!"
+
+ // usando índice negativo:
+ console.log(texto.substr(-6, 5)); // "World"
+ ```
+
+ 10. **`substring()`**<br/>
+ É usado para extrair parte de uma string, de forma semelhante ao `substr()`, porém não aceita valores negativos.
+ ```js
+ const texto = "JavaScript";
+
+ // extraindo "Java"
+ console.log(texto.substring(0, 4)); // "Java"
+
+ // extraindo "Script"
+ console.log(texto.substring(4, 10)); // "Script"
+
+ // se `fim` for omitido, extrai até o final
+ console.log(texto.substring(4)); // "Script"
+
+ // se inicio > fim, ele inverte os valores:
+ console.log(texto.substring(6, 4)); // "Sc"
+ ```
+
+ 11. **`slice()`**<br/>
+ Utilizado para extrair uma parte de uma string ou array, retornando uma nova string ou array sem modificar o original. Tanto para strings quanto para arrays, índices negativos contam a partir do final, onde o -1 representa o último elemento.
+ ```js
+ const nomeCompleto = "Raphael Kaíque Dias Santos";
+ const primeiroNome = `${nomeCompleto.slice(0, 9)}.` ; // extraindo a palavra "Raphael K"
+ console.log(primeiroNome); // "Raphael K."
+
+ const frutas = ["Maçã", "Banana", "Laranja", "Manga"];
+ const resultado = frutas.slice(0, 2); // extraindo as duas primeiras frutas
+ console.log(resultado); // ["Maçã", "Banana"]
+ ```
+
+ 12. **`split()`**<br/>
+ Permite dividir uma string em um array de substrings com base em um delimitador especificado. Ele não modifica a string original e retorna um array contendo as partes divididas.
+ ```js
+ const frase = "JavaScript é incrível";
+ const palavras = frase.split(" ");
+ console.log(palavras); // ["JavaScript", "é", "incrível"]
+
+ const lista = "Maçã,Banana,Laranja,Manga";
+ const frutas = lista.split(",");
+ console.log(frutas); // ["Maçã", "Banana", "Laranja", "Manga"]
+
+ const texto = "Aprender JavaScript é divertido";
+ const resultado = texto.split(" ", 2);
+ console.log(resultado); // ["Aprender", "JavaScript"]
+
+ const texto = "Isso   é   um   teste";
+ const partes = texto.split(/\s+/); // Regex para múltiplos espaços
+ console.log(partes); // ["Isso", "é", "um", "teste"]
+
+ const nome = "JavaScript";
+ const letras = nome.split("");
+ console.log(letras); // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
+ ```
+
+ 13. **`replace()`**<br/>
+ Permite substituir um texto por outro em qualquer parte da `string`, e é *case sensitive*.
+ ```js
+ var texto = "Hello, World!";
+ console.log(texto.replace(", World", "life")); // "Hello life!"
+ ```
+
+ 14. **`trim()`**<br/>
+ Permite remover espaços em branco no início e no fim de uma string. Ele não modifica a string original, apenas retorna uma nova string sem os espaços desnecessários.
+ ```js
+ const texto = "   Olá, Mundo!   ";
+ console.log(texto.trim()); // "Olá, Mundo!"
+ console.log(texto.replace(/\s+/g, " ").trim());  // "Olá, Mundo!"
+
+ const string1 = "   JavaScript   ";
+ console.log(`Antes: "${string1}"`);
+ console.log(`Depois: "${string1.trim()}"`);
+
+ const exemplo = "   Exemplo   ";
+ console.log(exemplo.trimStart()); // || console.log(exemplo.trimLeft()); // "Exemplo   "
+ console.log(exemplo.trimEnd());   // || console.log(exemplo.trimRight()); // "   Exemplo"
+ ```
+
+ 15. **`startsWith()`**<br/>
+ Procura um textmo no início da `string`, retornando `true` ou `false`. Ou seja, se o texto começa com os caracteres que buscamos, neste caso o resultado seria `true`.
+ ```js
+ const texto = "Hello, World!";
+ console.log(texto.startsWith("Hell")); // true
+ ```
+
+ 16. **`endsWith()`**<br/>
+ Como o anterior, mas verificando o final do texto.
+ ```js
+ const texto = "Hello, World!";
+ console.log(texto.endsWith("World!")); // true
+ ```
+
+ 17. **`chartAt()`**<br/>
+ Usado para obter o caractere localizado em um determinado índice de uma `string`. Ele pertence ao protótipo de String e retorna uma nova `string` com o caractere encontrado, sem modificar a `string` original.
+ ```js
+ const texto = "Hello, World!";
+
+ // obtém o caractere na posição 0:
+ console.log(texto.charAt(0)); // "H"
+
+ // obtém o caractere na posição 7:
+ console.log(texto.charAt(7)); // "W"
+
+ // se o índice for maior que o tamanho da string:
+ console.log(texto.charAt(100)); // ""
+ ```
+
+ 18. **`lastIndexOf()`**<br/>
+ Busca a última ocorrência de uma substring. Também podemos fornecer um segundo parâmetro que indica o índice a partir de qual a busca deve começar, buscando do índice indicado até o índice 0 para retonar qual a posição do índice do termo buscado.
+ ```js
+ const frase = "O rato roeu a roupa do rei de Roma.";
+ const posicao = frase.lastIndexOf("rei");
+ console.log(posicao); // saída: 23 — índice da última ocorrência de "rei"
+
+
+ const frase = "três pratos de trigo para três tigres tristes";
+
+ var posicao = frase.lastIndexOf("três", 30); // procura a última ocorrência de "três" antes do índice 30
+ console.log(posicao); // retorna 26, que é a POSIÇÃO DA PRIMEIRA OCORRÊNCIA antes do índice 30
+
+ posicao = frase.lastIndexOf("três", 10); // procura a última ocorrência de "três" antes do índice 10
+ console.log(posicao); // retorna 0, que é a POSIÇÃO DA PRIMEIRA OCORRÊNCIA, a única antes do índice 10
+
+
+ const numeros = [1, 2, 3, 2, 1];
+ const indice = numeros.lastIndexOf(2); // procura a última ocorrência de um elemento no array
+ console.log(indice); // saída: 3 — a ÚLTIMA OCORRÊNCIA do número "2" está no índice `3`
+
+
+ const letras = ["a", "b", "c", "b", "a"]; // também é possível passar um segundo parâmetro para indicar o índice a partir do qual a busca deve iniciar buscando para trás
+ const indice = letras.lastIndexOf("b", 2); // Procura "b" a partir do índice 2, buscando para trás
+ console.log(indice); // Saída: 1
+ ```
+
+ 19. **`indexOf()`**<br/>
+ Para procurar a posição de um termo dentro de um texto. Ele retorna o valor do índice se encontrado e qual sua posição no parâmetro de busca.
+ ```js
+ var nomeCompleto = "Raphael Kaíque Dias Santos";
+ var primeiroNome = nomeCompleto.indexOf("Raphael");
+
+ console.log(primeiroNome); // Saída: 0
+ ```
+
+ 20. **`search()`**<br/>
+ Funciona da mesma maneira, caso não encontre uma correspondência ele retorna `-1`.
+ ```js
+ var nomeCompleto = "Raphael Kaíque Dias Santos";
+ var primeiroNome = nomeCompleto.search("Silva");
+
+ console.log(primeiroNome); // Saída: -1
+ ```
+
+ 21. **`match()`**<br/>
+ Pesquisa e extrai correspondências com base em uma *expressão regular*. Em outras palavras, ele analisa uma `string` para encontrar padrões definidos pelo **`regex`** e retorna um array contendo os resultados.
+ ```js
+ const texto = "Hoje é dia 15 de fevereiro.";
+ const resultado = texto.match(/(\d+)/);
+ console.log(resultado);
+ /* Saída:
+    [
+      "15",      <- correspondência completa
+      "15",      <- primeiro grupo de captura
+      index: 9,
+      input: "Hoje é dia 15 de fevereiro.",
+      groups: undefined
+    ]
+  */
+
+ // Flag Global `g`: Se a flag global for usada, o método retorna um array contendo todas as correspondências encontradas, sem incluir os detalhes dos grupos de captura.
+
+ const texto = "Há 10 maçãs e 20 laranjas.";
+ const resultado = texto.match(/\d+/g);
+ console.log(resultado); // Saída: ["10", "20"]
+ ```
+
+#### CONSTANTES
+ Por definição, uma constante é um espaço na memória do computador onde um valor é armazenado que **NÃO** pode ser alterado durante o *tempo de execução* do programa. Ou seja, se declararmos uma constante e lhe atribuirmos um valor, este valor não pode ser modificado.
+ ```js
+ const pi = 3.14;
+ ```
 
 ### FUNÇÕES PRÉ-DEFINIDAS
  São comandos padronizados prontos para serem usados.
