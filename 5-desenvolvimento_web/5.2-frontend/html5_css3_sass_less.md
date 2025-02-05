@@ -1605,14 +1605,19 @@ Aqui falaremos sobre como adicionar legendas.
  Em meados de 1990 a web se expandia rapidamente, mas os navegadores ofereciam poucas maneiras de definir estilos e layouts de forma consistente. Nesse contexto, Håkon Wium Lie, enquanto trabalhava com Tim Berners-Lee (idealizador do HTML) no CERN, percebeu que faltava uma ferramenta para aplicar estilos de forma flexível aos documentos web. Então, em 1994, Håkon Wium Lie propôs a ideia de “folhas de estilo em cascata” para dar aos desenvolvedores um mecanismo que pudesse controlar a apresentação de forma separada do conteúdo. Essa proposta surgiu justamente para atender à necessidade de uma web mais dinâmica e com melhor controle visual. Pouco tempo depois, Bert Bos se juntou a Lie, contribuindo significativamente para o refinamento do conceito. Juntos, eles desenvolveram as bases do que se tornaria o CSS, defendendo uma abordagem em que os estilos pudessem vir de diferentes fontes – como o navegador, o autor da página e o usuário final – sendo aplicados de acordo com uma ordem de prioridade ou “cascata”.
 
 #### SINTÁXE
- Todas as etiquetas CSS terão 2 partes:
- 1. **SELETOR**: Que determina qual área da página será modificada.
- 2. **INSTRUÇÕES (ou PROPRIEDADES)**: Que se referem ao formato e aparência que vamos aplicar a essa zona.
+ Todas as etiquetas CSS terão **2 partes**:
+ 1. **SELETOR**:<br/>
+ Que determina qual área da página será modificada.
+ 2. **INSTRUÇÕES (ou PROPRIEDADES)**:<br/>
+ Que se referem ao formato e aparência que vamos aplicar a essa zona.
 
  Para aplicarmos CSS à nossa página HTML existem **3 opções**:
- 1. **DECLAÇÃO EXTERNA**: Em um arquivo separado de extensão `.css` linkado ao documento html. Dessa forma, podemos modificar **todas** as páginas do site apenas referenciando o arquivo css. **O *external CSS* é a melhor opção para melhorar o posicionamento SEO.**
- 2. **DECLARAÇÃO INTERNA**: *No **cabeçalho** do documento, dentro do **`head`**.* Essa maneira permite modificarmos a aparência de uma **única** página em particular, onde as regras CSS são declaradas entre as tags `<style></style>` do documento html que se deseja estilizar. É chamado de *internal CSS*.
- 3. **DECLARAÇÃO NA TAG**: *Usa-se o atributo **`style="seletor: regra-de-estilo"`** na tag que se deseja alterar a aparência. **Esta opção de _in-line CSS_ não é muito recomendada por não favorecer o SEO**, o ideal é utilizá-lo apenas em casos muito específicos.
+ 1. **DECLAÇÃO EXTERNA**:<br/>
+ Em um arquivo separado de extensão `.css` linkado ao documento html. Dessa forma, podemos modificar **todas** as páginas do site apenas referenciando o arquivo css. **O *external CSS* é a melhor opção para melhorar o posicionamento SEO.**
+ 2. **DECLARAÇÃO INTERNA**:<br/>
+ *No **cabeçalho** do documento, dentro do **`head`**.* Essa maneira permite modificarmos a aparência de uma **única** página em particular, onde as regras CSS são declaradas entre as tags `<style></style>` do documento html que se deseja estilizar. É chamado de *internal CSS*.
+ 3. **DECLARAÇÃO NA TAG**:<br/>
+ *Usa-se o atributo **`style="seletor: regra-de-estilo"`** na tag que se deseja alterar a aparência. **Esta opção de _in-line CSS_ não é muito recomendada por não favorecer o SEO**, o ideal é utilizá-lo apenas em casos muito específicos.
 
  Ao aplicarmos o *css in-line*, devemos repetir a estilização em cada uma das tags que queremos modificar, já com o _internal css_ estilizamos uma página inteira, e com o _external css_ podemos aplicar estilos a várias páginas do nosso site.<br/>
  *É importante saber que cada uma dessas aplicações tem prioridade hierarquica sobre as outras, por isso deve-se sempre estar atento às regras de prioridade para não haver comportamentos inesperados.* A ordem de exibição informa ao navegador que aplique um estilo sobre o outro, ou seja, ao invés de aplicar o estilo (mais abaixo na hierarquia) presente em uma declaração, será aplicado o que estiver declarado de forma mais alta hierarquicamente. **Caso uma tag seja afetada por vários estilos CSS, o navegador aplicará os seguinte critérios seguindo a seguinte hierarquia, sendo 1 o maior e 3 o menor**:
@@ -1620,7 +1625,7 @@ Aqui falaremos sobre como adicionar legendas.
  2. **internal CSS**
  3. **external CSS**
 
-**DECLARAÇÃO EXTERNA**<br/>
+##### DECLARAÇÃO EXTERNA
  Consiste em criar um arquivo.css referenciado ao arquivo html. *Uma vez criado o arquivo CSS, declaramos no `head` uma tag `link` usando o atributo `rel`, que informa ao navegador a natureza do arquivo linkado, idicando a relação entre o documento atual e o recurso vinculado, e o `href`, que informa o caminho onde o arquivo está armazenado.*
  ```html
  <head>
@@ -1632,7 +1637,7 @@ Aqui falaremos sobre como adicionar legendas.
  </head>
  ```
 
-**DECLARAÇÃO INTERNA**<br/>
+##### DECLARAÇÃO INTERNA
  Para declararmos o estilo internamente, ou seja, dentro do documento html, escrevemos as regras dentro da tag `style` no `head`.
  ```html
  <head>
@@ -1649,7 +1654,7 @@ Aqui falaremos sobre como adicionar legendas.
  ```
  Dessa forma, dizemos que o conteúdo das tags `p` terão um tamanho de fonte de 32px, assim, todas as tags `p` seguirão essa regra.
 
-**DECLARAÇÃO IN-LINE**<br/>
+##### DECLARAÇÃO IN-LINE
  Usamos o atributo `style` para declararmos nosso CSS na tag que desejamos modificar – o estilo que escolhermos só alterará essa tag.
  ```html
  <body>
@@ -1663,242 +1668,6 @@ Aqui falaremos sobre como adicionar legendas.
  ```
  A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
-**UNIDADES**<br/>
- Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
- O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
- *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
- Existem 2 tipos de unidades de comprimento: a **absoluta** e a **relativa**.
- 1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
-
- | UNIDADE | DESCRIÇÃO |
- | --- | ---- |
- | **`cm`** | centímetros |
- | **`mm`** | milímetros |
- | **`in`** | polegadas |
- | **`px *`** | pixel – Ele indica que unidades pixel podem variar em dispositivos de alta resolução e impressoras, refletindo uma escala não tradicional. Devido às diferentes densidades de pixels em dispositivos (por exemplo, telas de alta resolução), o “px” é um “pixel de referência” que pode não corresponder a um pixel físico individual. Em resumo, o valor em `px *` garante que os elementos apareçam com dimensões visualmente consistentes, independentemente do dispositivo. |
- | **`pt`** | ponto – Originado do mundo da tipografia, 1pt equivale a 1/72 de uma polegada. Essa unidade é tradicionalmente usada na impressão, onde a medida física exata é importante. Em telas, seu uso é menos comum porque as dimensões absolutas (como pt, cm, in) não se adaptam bem às variações de tamanho e densidade das telas modernas.|
- | **`pc`** | pica – Também vinda da tipografia, a pica é uma unidade derivada dos pontos: 1pc equivale a 12pt. Assim, como 1pt ≈ 1.33px (visto que 96px/72pt ≈ 1.33), temos que 1pc corresponde aproximadamente a 16px. Essa unidade é mais usada em contextos de design gráfico e impressão.|
-
- 2. **Relativo**: As unidades de comprimento relativo, como o próprio nome diz, **especificam um comprimento em relação a outra propriedade de comprimento**. *As unidades de comprimento relativas escalam melhor entre os diferentes meios de renderização, se adaptando melhor entre os diferentes tipos e tamanhos de telas.*
-
- | UNIDADE | DESCRIÇÃO |
- | --- | ---- |
- | **`rem`** | Relativo ao tamanho da fonte do elemento raiz – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
- | **`em`** | Relativo ao tamanho da fonte do elemento – `2em` significa **2 vezes o tamanho da fonte do elemento atual**. |
- | **`vw`** | Relativo a `x%` da **largura** da tela. |
- | **`vh`** | Relativo a `x%` da **altura** da tela. |
- | **`%`** | Relativo a `x%` do **elemento pai**. |
- | **`vmin`** | Relativo a `x%` da menor dimensão da janela ou interface gráfica – se a viewport tem 1200px de largura e 800px de altura, `1vmin` equivale a **8px** (1% de 800px). |
- | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
- | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
- | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
-
-##### FONTES
- **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
- *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
- ```css
- @font-face {
-    font-family: 'fonte'; /* armazena a referência à fonte atrelando à variável na memória */
-    src: url('Fonte.ttf'); /* informa o caminho do arquivo da fonte */
- }
-
- p {
-    font: bold 2rem 'fonte'; /* informa para que use a fonte para as tags `p` */
- }
- ```
-
-###### ESTILOS PARA LISTAS E LINKS**
- Os estilos para listas e links permitem personalizar a aparência de elementos comuns – listas e hiperlinks – de maneira a enriquecer o design do site sem alterar a estrutura. A seguir, veremos como controlar marcadores chamados de *bullets* em listas e como estilizar links, seguindo a regra "LoVe HAte”, que define os estados dos links.
-
-**ESTILIZANDO LISTAS**<br/>
-O CSS oferece as seguintes propriedades para alterar a aparência das listas:
-
-- **`list-style-type`**<br/>
-  Define o tipo de marcador. Valores comuns incluem:
-  - **`disc`** (padrão para `<ul>`)
-  - **`circle`**
-  - **`square`**
-  - **`decimal`** (padrão para `<ol>`)
-  - **`none`** (sem marcador)
-  ```css
-  ul {
-    list-style-type: square;
-  }
-  ol {
-    list-style-type: decimal;
-  }
-  ```
-
-- **`list-style-image`**<br/>
-  Permite usar uma imagem como marcador.
-  ```css
-  ul.custom {
-    list-style-image: url('meu-marcador.png');
-  }
-  ```
-
-- **`list-style-position`**<br/>
-  Controla a posição do marcador, podendo ser:
-  - **`inside`**: o marcador fica dentro do bloco de conteúdo (o texto pode quebrar a linha).
-  - **`outside`**: o marcador fica fora (padrão na maioria dos casos).
-  ```css
-  ul {
-    list-style-position: inside;
-  }
-  ```
-
-**Pseudo-elemento `::marker`**<br/>
-O pseudo-elemento `::marker` permite alterar a cor, tamanho e outros aspectos dos marcadores das listas.<br/>
-O código abaixo fará com que todos os marcadores de itens de lista fiquem vermelhos e um pouco maiores que o padrão.
-```css
-li::marker {
-  color: red;
-  font-size: 1.2em;
-}
-```
-
-Também podemos combinar seletores para aplicar estilos apenas a listas específicas ou a determinados itens. Por exemplo, para remover os marcadores apenas de listas com uma classe específica:
-```css
-ul.sem-marcador {
-  list-style: none;
-  padding-left: 0;
-}
-```
-
-Ou ainda, para alterar o marcador apenas de itens pares:
-```css
-ul li:nth-child(even)::marker {
-  color: blue;
-}
-```
-
- **ESTILIZANDO LINKS**<br/>
-Os links podem ser personalizados em seus diferentes estados – e a “regra *LoVe HAte*” é um lembrete da ordem que devemos definir os pseudo-estados dos links para que funcionem corretamente: **Link**, **Visited**, **Hover**, **Active**. Essa regra é uma convenção para definir os estilos de links na ordem correta, **pois a ordem no CSS influencia a forma como os estilos são aplicados**. Essa ordem evita que, por exemplo, o `:hover` seja sobrescrito por `:link` ou `:visited`.
-
-- **`:link`**<br/>
-  Seleciona links que ainda não foram visitados.
-  ```css
-  a:link {
-    color: blue;
-    text-decoration: none;
-  }
-  ```
-- **`:visited`**<br/>
-  Seleciona links que já foram visitados.
-  ```css
-  a:visited {
-    color: purple;
-  }
-  ```
-- **`:hover`**<br/>
-  Aplica-se quando o mouse está sobre o link.
-  ```css
-  a:hover {
-    color: red;
-    text-decoration: underline;
-  }
-  ```
-- **`:active`**<br/>
-  Aplica-se quando o link está sendo ativado (clicado).
-  ```css
-  a:active {
-    color: orange;
-  }
-  ```
-
-Colocar os seletores nessa ordem garante que o navegador aplique corretamente os estados dinâmicos sem conflitos:
-```css
-/* Link não visitado */
-a:link {
-  color: blue;
-  text-decoration: none;
-}
-
-/* Link já visitado */
-a:visited {
-  color: purple;
-}
-
-/* Quando o mouse passa sobre o link */
-a:hover {
-  color: red;
-  text-decoration: underline;
-}
-
-/* Durante o clique */
-a:active {
-  color: orange;
-}
-```
-- **Transições:**  
-  Você pode adicionar transições para suavizar a mudança entre estados:
-  ```css
-  a {
-    transition: color 0.3s, text-decoration 0.3s;
-  }
-  ```
-- **Text-decoration:**  
-  Além de mudar a cor, pode-se alterar a decoração do texto (underline, overline, etc.).
-- **Uso de Variáveis:**  
-  Para facilitar a manutenção, você pode definir cores em variáveis CSS e usá-las nos diferentes estados.
-  ```css
-  :root {
-    --cor-link: blue;
-    --cor-visitado: purple;
-    --cor-hover: red;
-    --cor-active: orange;
-  }
-  
-  a:link {
-    color: var(--cor-link);
-  }
-  a:visited {
-    color: var(--cor-visitado);
-  }
-  a:hover {
-    color: var(--cor-hover);
-  }
-  a:active {
-    color: var(--cor-active);
-  }
-  ```
-
-##### FLOAT, MARGIN E PADDING
- Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
-
- - **`border`**: Modifica a borda de um elemento.
- - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-container`, usamos a propriedade `clear`.<br/>
- Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
- - **`margin`**: **Define o espaço entre a borda _"externa"_ da box-container e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
-   1. **`margin-top`**: Distância em relação ao elemento acima.
-   2. **`margin-right`**: Distância em relação ao elemento a direta.
-   3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
-   4. **`margin-left`**: Distância em relação ao elemento a esquerda.
- - **`padding`**: **Define o espaço entre o conteúdo _dentro_ da box-container e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
-   1. **`padding-top`**: Distância em relação a borda acima.
-   2. **`padding-right`**: Distância em relação a borda à direta.
-   3. **`padding-bottom`**: Distância em relação a borda abaixo.
-   4. **`padding-left`**: Distância em relação a borda à esquerda.
-```
-┌────────────────────────────────────────────────────────────────────────────────┐
-│                                       ^                                        │
-│                                       | margin-top                             │
-│                                       ┴                                        │
-│            ┌──────────────────────────────────────────────────────┐            │
-│            │                          ^                           │            │
-│            │              padding-top |                           │            │
-│   margin   │                          ┴                           │   margin   │
-│    left    │             Lorem ipsum, dolor sit amet              |   right    |
-| <--------┤ | <-------┤  consectetur adipisicing elit.  ├--------> │ ├--------> │
-│            │  padding                 ┬                 padding   │            │
-│            │   left    padding-bottom |                  right    │            │
-│            │                          v                           │            │
-│            └──────────────────────────────────────────────────────┘            │
-│                                       ┬                                        │
-│                                       | margin-bottom                          │
-│                                       v                                        │
-└────────────────────────────────────────────────────────────────────────────────┘
-```
 ##### SELETORES
  Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo, se for um `id` por exemplo, deve-se usar `#` para especificar ao documento, se for uma `class` usa-se `.`, e assim por diante.
@@ -2072,6 +1841,243 @@ a:active {
 
  Essa variedade torna o CSS muito poderoso para aplicar estilos de forma precisa, sem a necessidade de alterar a estrutura HTML.<br/>
  _A sintaxe atual recomenda **o uso de dois pontos duplos `::` em pseudo-elementos para diferenciá-los das pseudo-classes, que usam apenas um `:`**. Contudo, por razões históricas, navegadores aceitam tanto :before quanto ::before._
+
+##### UNIDADES
+ Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
+ O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
+ *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
+ Existem 2 tipos de unidades de comprimento: a **absoluta** e a **relativa**.
+ 1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
+
+ | UNIDADE | DESCRIÇÃO |
+ | --- | ---- |
+ | **`cm`** | centímetros |
+ | **`mm`** | milímetros |
+ | **`in`** | polegadas |
+ | **`px *`** | pixel – Ele indica que unidades pixel podem variar em dispositivos de alta resolução e impressoras, refletindo uma escala não tradicional. Devido às diferentes densidades de pixels em dispositivos (por exemplo, telas de alta resolução), o “px” é um “pixel de referência” que pode não corresponder a um pixel físico individual. Em resumo, o valor em `px *` garante que os elementos apareçam com dimensões visualmente consistentes, independentemente do dispositivo. |
+ | **`pt`** | ponto – Originado do mundo da tipografia, 1pt equivale a 1/72 de uma polegada. Essa unidade é tradicionalmente usada na impressão, onde a medida física exata é importante. Em telas, seu uso é menos comum porque as dimensões absolutas (como pt, cm, in) não se adaptam bem às variações de tamanho e densidade das telas modernas.|
+ | **`pc`** | pica – Também vinda da tipografia, a pica é uma unidade derivada dos pontos: 1pc equivale a 12pt. Assim, como 1pt ≈ 1.33px (visto que 96px/72pt ≈ 1.33), temos que 1pc corresponde aproximadamente a 16px. Essa unidade é mais usada em contextos de design gráfico e impressão.|
+
+ 2. **Relativo**: As unidades de comprimento relativo, como o próprio nome diz, **especificam um comprimento em relação a outra propriedade de comprimento**. *As unidades de comprimento relativas escalam melhor entre os diferentes meios de renderização, se adaptando melhor entre os diferentes tipos e tamanhos de telas.*
+
+ | UNIDADE | DESCRIÇÃO |
+ | --- | ---- |
+ | **`rem`** | Relativo ao tamanho da fonte do elemento raiz – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
+ | **`em`** | Relativo ao tamanho da fonte do elemento – `2em` significa **2 vezes o tamanho da fonte do elemento atual**. |
+ | **`vw`** | Relativo a `x%` da **largura** da tela. |
+ | **`vh`** | Relativo a `x%` da **altura** da tela. |
+ | **`%`** | Relativo a `x%` do **elemento pai**. |
+ | **`vmin`** | Relativo a `x%` da menor dimensão da janela ou interface gráfica – se a viewport tem 1200px de largura e 800px de altura, `1vmin` equivale a **8px** (1% de 800px). |
+ | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
+ | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
+ | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
+
+##### FONTES
+ **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
+ *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
+ ```css
+ @font-face {
+    font-family: 'fonte'; /* armazena a referência à fonte atrelando à variável na memória */
+    src: url('Fonte.ttf'); /* informa o caminho do arquivo da fonte */
+ }
+
+ p {
+    font: bold 2rem 'fonte'; /* informa para que use a fonte para as tags `p` */
+ }
+ ```
+
+###### ESTILOS PARA LISTAS E LINKS**
+ Os estilos para listas e links permitem personalizar a aparência de elementos comuns – listas e hiperlinks – de maneira a enriquecer o design do site sem alterar a estrutura. A seguir, veremos como controlar marcadores chamados de *bullets* em listas e como estilizar links, seguindo a regra "LoVe HAte”, que define os estados dos links.
+
+1. **ESTILIZANDO LINKS**
+Os links podem ser personalizados em seus diferentes estados – e a “regra *LoVe HAte*” é um lembrete da ordem que devemos definir os pseudo-estados dos links para que funcionem corretamente: **Link**, **Visited**, **Hover**, **Active**. Essa regra é uma convenção para definir os estilos de links na ordem correta, **pois a ordem no CSS influencia a forma como os estilos são aplicados**. Essa ordem evita que, por exemplo, o `:hover` seja sobrescrito por `:link` ou `:visited`.
+
+- **`:link`**<br/>
+  Seleciona links que ainda não foram visitados.
+  ```css
+  a:link {
+    color: blue;
+    text-decoration: none;
+  }
+  ```
+- **`:visited`**<br/>
+  Seleciona links que já foram visitados.
+  ```css
+  a:visited {
+    color: purple;
+  }
+  ```
+- **`:hover`**<br/>
+  Aplica-se quando o mouse está sobre o link.
+  ```css
+  a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  ```
+- **`:active`**<br/>
+  Aplica-se quando o link está sendo ativado (clicado).
+  ```css
+  a:active {
+    color: orange;
+  }
+  ```
+
+Colocar os seletores nessa ordem garante que o navegador aplique corretamente os estados dinâmicos sem conflitos:
+```css
+/* Link não visitado */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Link já visitado */
+a:visited {
+  color: purple;
+}
+
+/* Quando o mouse passa sobre o link */
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Durante o clique */
+a:active {
+  color: orange;
+}
+```
+- **Transições:**  
+  Você pode adicionar transições para suavizar a mudança entre estados:
+  ```css
+  a {
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+  ```
+- **Text-decoration:**  
+  Além de mudar a cor, pode-se alterar a decoração do texto (underline, overline, etc.).
+- **Uso de Variáveis:**  
+  Para facilitar a manutenção, você pode definir cores em variáveis CSS e usá-las nos diferentes estados.
+  ```css
+  :root {
+    --cor-link: blue;
+    --cor-visitado: purple;
+    --cor-hover: red;
+    --cor-active: orange;
+  }
+  
+  a:link {
+    color: var(--cor-link);
+  }
+  a:visited {
+    color: var(--cor-visitado);
+  }
+  a:hover {
+    color: var(--cor-hover);
+  }
+  a:active {
+    color: var(--cor-active);
+  }
+  ```
+
+2. **ESTILIZANDO LISTAS**
+O CSS oferece as seguintes propriedades para alterar a aparência das listas:
+
+- **`list-style-type`**<br/>
+  Define o tipo de marcador. Valores comuns incluem:
+  - **`disc`** (padrão para `<ul>`)
+  - **`circle`**
+  - **`square`**
+  - **`decimal`** (padrão para `<ol>`)
+  - **`none`** (sem marcador)
+  ```css
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ```
+
+- **`list-style-image`**<br/>
+  Permite usar uma imagem como marcador.
+  ```css
+  ul.custom {
+    list-style-image: url('meu-marcador.png');
+  }
+  ```
+
+- **`list-style-position`**<br/>
+  Controla a posição do marcador, podendo ser:
+  - **`inside`**: o marcador fica dentro do bloco de conteúdo (o texto pode quebrar a linha).
+  - **`outside`**: o marcador fica fora (padrão na maioria dos casos).
+  ```css
+  ul {
+    list-style-position: inside;
+  }
+  ```
+
+**Pseudo-elemento `::marker`**<br/>
+O pseudo-elemento `::marker` permite alterar a cor, tamanho e outros aspectos dos marcadores das listas.<br/>
+O código abaixo fará com que todos os marcadores de itens de lista fiquem vermelhos e um pouco maiores que o padrão.
+```css
+li::marker {
+  color: red;
+  font-size: 1.2em;
+}
+```
+
+Também podemos combinar seletores para aplicar estilos apenas a listas específicas ou a determinados itens. Por exemplo, para remover os marcadores apenas de listas com uma classe específica:
+```css
+ul.sem-marcador {
+  list-style: none;
+  padding-left: 0;
+}
+```
+
+Ou ainda, para alterar o marcador apenas de itens pares:
+```css
+ul li:nth-child(even)::marker {
+  color: blue;
+}
+```
+
+##### FLOAT, MARGIN E PADDING
+ Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
+
+ - **`border`**: Modifica a borda de um elemento.
+ - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-container`, usamos a propriedade `clear`.<br/>
+ Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
+ - **`margin`**: **Define o espaço entre a borda _"externa"_ da box-container e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
+   1. **`margin-top`**: Distância em relação ao elemento acima.
+   2. **`margin-right`**: Distância em relação ao elemento a direta.
+   3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
+   4. **`margin-left`**: Distância em relação ao elemento a esquerda.
+ - **`padding`**: **Define o espaço entre o conteúdo _dentro_ da box-container e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
+   1. **`padding-top`**: Distância em relação a borda acima.
+   2. **`padding-right`**: Distância em relação a borda à direta.
+   3. **`padding-bottom`**: Distância em relação a borda abaixo.
+   4. **`padding-left`**: Distância em relação a borda à esquerda.
+```
+┌────────────────────────────────────────────────────────────────────────────────┐
+│                                       ^                                        │
+│                                       | margin-top                             │
+│                                       ┴                                        │
+│            ┌──────────────────────────────────────────────────────┐            │
+│            │                          ^                           │            │
+│            │              padding-top |                           │            │
+│   margin   │                          ┴                           │   margin   │
+│    left    │             Lorem ipsum, dolor sit amet              |   right    |
+| <--------┤ | <-------┤  consectetur adipisicing elit.  ├--------> │ ├--------> │
+│            │  padding                 ┬                 padding   │            │
+│            │   left    padding-bottom |                  right    │            │
+│            │                          v                           │            │
+│            └──────────────────────────────────────────────────────┘            │
+│                                       ┬                                        │
+│                                       | margin-bottom                          │
+│                                       v                                        │
+└────────────────────────────────────────────────────────────────────────────────┘
+```
 
 ##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
@@ -2415,29 +2421,6 @@ a:active {
 ##### IMAGENS
 
 ##### POSICIONAMENTO
-
-### MEDIA QUERIES
- As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que serão exibidas apenas para alguns usuários ou dispositivos.<br/>
- Numa época em que o tráfego móvel se multiplica a cada ano, os sites estáticos projetados para serem exibidos em uma resolução específica não eram mais úteis. Foi necessário adaptar os designs às dimensões para que o usuário pudesse receber as informações na tela do seu dispositivo sem ter que aplicar o zoom para conseguir enxergar.<br/>
- Neste ponto, surgiram 2 formas de trabalho. A primeira defendia te 2 versões do mesmo site, uma para desktop e outra para mobile. Na maioria dos casos, eles não estão conectados entre si, tornando a manutenção dos sites despendiosa e também, nem sempre mostravam o mesmo conteúdo para ambos os usuários.<br/>
- A segunda forma de trabalho é usar o mesmo design para ambas as resoluções. Um projeto que pudesse se adaptar a certas resoluções ou ser flexível em sua totalidade, independentemente do ceonteúdo e do projeto. Esta forma de trabalho foi chamada de *web desing responsivo*.<br/>
- E como o CSS é responsável pelo design da web, surgiu um novo elemento capaz de incorporar esta flexibilidade na folha de estilo: o `media query`, que pode incluir partes do código que só serão aplicadas dependendo das condições de resolução da tela.
- ```css
- @media not|only mediatype and|not|only
- (media feature) {
-    .code {
-        property: value;
-    }
- }
- ```
-
- As `media queries` atuam como um recipiente para as regras e reletores a serem aplicados, de modo que tudo o que elas abrangem fica entre chaves. Sua sitaxe consiste em uma *bandeira* `@media` seguida por um **`mediatype`**.<br/>
- Este `mediatype` está encarregado de selecionar o tipo d formato que será objeto das regras definidas. Aqui podemos decidir entre *impressão*, *tela* ou *speech*, útil para equipamentos adaptados e acessíveis.<br/>
- Com os operadores **`not`** e **`only`** definimos quais `mediatype`s *agrupar ou excluir*.<br/>
- O segundo parâmetro é o **`media feature`**, onde dizemos ao navegador qual condição o dispositivo de saída especificado acima deve preencher para que a condição seja verdadeira e o código contido em nossa `media query` seja aplicado. As `media features` mais comuns de mídia são aquelas referentes às dimensões da tela do dispositivo, sendo capaz de estabelecer a altura e largura em que serão aplicadas – com `height` e `width`, ou o que é mais interessante, *a partir de qual largura ou altura serão aplicadas* – **`min-width`**, **`max-width`**, **`min-height`** e **`max-height`**.
-
-
-### VARIÁVEIS
 
 ##### MODELO BOX-CONTAINER**
  Existem 2 tipos de propriedades em um documento:
@@ -2983,5 +2966,53 @@ align-content: center                            align-content: stretch
  }
  ```
  ![Image](https://github.com/user-attachments/assets/ac2022bc-5d38-475a-9fd1-b9d4bb2adaf4)
+
+
+### MEDIA QUERY
+ As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que _serão exibidas apenas para alguns usuários ou dispositivos_.<br/>
+ Numa época em que o tráfego móvel se multiplica a cada ano, os sites estáticos projetados para serem exibidos em uma resolução específica não eram mais úteis. Foi necessário adaptar os designs às dimensões para que o usuário pudesse receber as informações na tela do seu dispositivo sem ter que aplicar o zoom para conseguir enxergar.<br/>
+ Neste ponto, surgiram 2 formas de trabalho. A primeira defendia ter 2 versões do mesmo site, uma para desktop e outra para mobile. Na maioria dos casos, eles não estão conectados entre si, tornando a manutenção dos sites despendiosa e também, nem sempre mostravam o mesmo conteúdo para ambos os usuários.<br/>
+ A segunda forma de trabalho é usar o mesmo design para ambas as resoluções. Um projeto que pudesse se adaptar a certas resoluções ou ser flexível em sua totalidade, independentemente do ceonteúdo e do projeto. Esta forma de trabalho foi chamada de *web desing responsivo*.<br/>
+ E como o CSS é responsável pelo design da web, surgiu um novo elemento capaz de incorporar esta flexibilidade na folha de estilo: o `media query`, que pode incluir partes do código que só serão aplicadas dependendo das condições de resolução da tela.
+ ```css
+ @media not|only mediatype
+ and|not|only (media feature) {
+    .code {
+        property: value;
+    }
+ }
+ ```
+
+ As `media queries` atuam como um recipiente para as regras e seletores a serem aplicados, de modo que tudo o que elas abrangem fica entre chaves. Sua sitaxe consiste em uma *bandeira* `@media` seguida por um **`mediatype`**.
+ - Este **`mediatype`** está encarregado de **selecionar o tipo d formato que será objeto das regras definidas**. Aqui podemos decidir entre *impressão*, *tela* ou *speech*, útil para equipamentos adaptados e acessíveis. São eles:
+    - **`all`**
+    - **`print`**
+    - **`screen`**
+    - **`speech`**
+    - **depreciados**: **`braile`** - **`protection`** - **`tv`**
+ - Com os operadores **`not`** e **`only`** definimos *quais `mediatype`s agrupar ou excluir*.
+ - O segundo parâmetro é o **`media feature`**, **onde dizemos ao navegador qual condição o dispositivo de saída especificado acima deve preencher para que a condição seja verdadeira e o código contido em nossa `media query` seja aplicado**. *As `media features` mais comuns de mídia são aquelas referentes às dimensões da tela do dispositivo*, sendo capaz de estabelecer a altura e largura em que serão aplicadas, ou o que é mais interessante, *a partir de qual largura ou altura serão aplicadas*.
+    - **`height`**
+    - **`width`**
+    - **`min-width`**
+    - **`max-width`**
+    - **`min-height`**
+    - **`max-height`**
+ - Existem também tipos mais complexos, como os *combinados com a orientação do dispositivo ou mesmo os que definem a relação de pixels da tela, muito útil para definir estilos para telas de retina, por exemplo iPads ou iPhones.
+    - **`landscape`**
+    - **`portrait`**
+    - **`device-pixel-ratio`**
+
+ A aplicação de uma `media query` por parte do navegador acontece de forma automática, ele simplesmente **aplicará o código que está incluído em uma `media query` sobregravando o herdado logo que identificar que as condições para essa operação forem satisfeitas**. *É como se estivéssemos colocando **camada sobre camada** com alguma transparência, pois o **código "original" NÃO é removido**.*<br/>
+ Digamos que queremos um estilo específico seja exibido apenas em telas com uma resolução inferior a `400px`. Neste exemplo definimos um pequeno tamanho de texto para todos os dispositivos com uma resolução de **até** 400px de largura. *Para todos os outros dispositivos, este comando NÃO terá efeito.*
+ ```css
+ @media screen and (max-width: 400px) {
+    h1 {
+        font-size: small;
+    }
+ }
+ ```
+
+### VARIÁVEIS
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>

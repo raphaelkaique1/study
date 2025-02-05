@@ -66,6 +66,9 @@
 </table>
 
 ## MOBILE FIRST
+ Ter alguns estilos para o mobile como base e ir crescendo gradualmente de acordo com a resolução graças ao `mediatype min-width`, adicionando `media queries` é consideravelmente a melhor prática para o desenvolvimento de design.<br/>
+ Com isso, conseguimos criar uma versão mais leve para usuários mobile, onde o navegador só precisa aplicar as primeiras linhas do código de estilo, enquanto a carga de leitura de todo o conjunto sobrescrevendo as linhas marcadas nas `media queries` é deixada para dispositivos de maior resolução, que são entendidos como tendo uma conexão de internet mais rápida e velocidade de processamento mais eficiênte de tais condicionantes.<br/>
+ Além disso, é menos provável que tenhamos problemas com elementos de nossa página que estejam fora de ordem. Se projetarmos primeiro para dispositivos móveis, quando mudarmos o projeto para dispositivos de mesa, estes problemas não ocorrem, normalmente é preciso apenas anular os elementos.<br/>
  Com uma propriedade `meta tag` podemos especificar a escala inicial do `viewport`. Como as páginas Bootstrap são responsive, especificamos que o `viewport virtual` deve corresponder à largura da tela, ou seja, o `viewport` comum. **Em outras palavras, _sem_ `viewport virtual`.**
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
