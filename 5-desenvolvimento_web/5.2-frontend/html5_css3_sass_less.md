@@ -99,8 +99,8 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 :---:      | :---:                      | :---:
 \<meta>    | define os metadados        | ❌
 \<title>   | título do documento        | ✅
-\<link>    | vincula arquivos           | ❌
 \<base>    | define uma url base        | ❌
+\<link>    | vincula arquivos           | ❌
 \<style>   | delimita css interno       | ❌
 \<script>  | delimita scripts incluídos | ❌
 
