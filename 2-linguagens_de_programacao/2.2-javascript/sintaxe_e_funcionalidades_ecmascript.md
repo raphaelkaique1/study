@@ -73,11 +73,11 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  let = escopo local
 
   ⬐ declaração */
- let        nick_name = "Raphael" /* <- "propriedade"
+ let        nick_name = "Raphael"; /* <- "propriedade"
   identificador ⬏     ⬑ atribuição */
 
  // const = obrigatório atribuição inicial, valor atribuído é imutável
- const alert = "!Alert:"
+ const alert = "!Alert:";
  ```
 
  Como visto acima, as variáveis são declaradas de 2 maneiras:
@@ -111,6 +111,15 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
 ##### POPULANDO VARIÁVEIS
+ Podemos tanto declarar uma **¹variável _inicializada_** quanto **¹uma variável _vazia_ e atribuir-lhe um valor durante o tempo de execução do programa**.
+ ```js
+ // 1
+ var name;
+ name = "Raphael";
+
+ // 2
+ var msg = `Welcome ${name}`;
+ ```
 
 ###### ALTERANDO VALOR ATRIBUÍDO
  Para modificar uma variável já declarada ou com valor atribuído, basta escrevermos seu *identificador* e o valor que queremos sobrescrever:
@@ -156,9 +165,10 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  var name = "Raphael";
  var nick_name = "Rael";
  var info = `<h3>User: ${name}</h3><h3>Nick: ${nick_name}</h3>`;
+ var fullName = `${name} ${nick_name}`;
 
- console.log(`Welcome ${nick_name}`)
- console.log(`${alert} user ${nick_name} accessed the system`)
+ console.log(`Welcome ${nick_name}`);
+ console.log(`${alert} user ${nick_name} accessed the system`);
  ```
 
 **BOAS PRÁTICAS**<br/>
@@ -436,11 +446,71 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
 #### CONSTANTES
- Por definição, uma constante é um espaço na memória do computador onde um valor é armazenado que **NÃO** pode ser alterado durante o *tempo de execução* do programa. Ou seja, se declararmos uma constante e lhe atribuirmos um valor, este valor não pode ser modificado.<br/>
- **Só funciona se INICIALIZADA, ou seja, necessita de um valor atribuído no código fonte, caso contrário o programa não executa.**
+ Por definição, uma constante é um espaço na memória do computador onde um valor que é armazenado **NÃO pode ser alterado** durante o *tempo de execução* do programa. Ou seja, se declararmos uma constante e lhe atribuirmos um valor, este valor não pode ser modificado.<br/>
+ **Uma constante só funciona se INICIALIZADA, ou seja, necessita de um valor atribuído no código fonte — não sendo possível atribuir-lhe uma variável, apenas um valor ou "apontar" para outra constante — caso contrário o programa não executa.**
  ```js
  const pi = 3.14;
  ```
+
+### OPERAÇÕES
+ Os comandos, instruções e variáveis não serviriam de nada se não fosse possível manipular os dados recebidos, e, para transformá-los em informação útil, usamos os `operadores`. Eles permitem que os programas realizem cálculos complexos e tomem decisões lógicas com base em comparações e outros tipos de condições. São eles:
+ - **unários**: Operam sobre **1 único parâmetro, alterando seu próprio valor**.
+ - **binários**: Operam sobre **2 ou mais parâmetros sem alterá-los para obter um resultado que é um novo valor**.
+ - **lógicos**: **Comparam as relações entre 2 ou mais valores para verificar uma condição**, retornando `true` ou `false`.
+ - **bitwise**: **Realizam operações aritméticas manipulando diretamente os `bits` de números inteiros**, retornando sempre um número decimal, mas gerado através de operações binárias. Ou seja, são operadores que trabalham diretamente na manipulação binária dos números gerando um número decimal como resultado.
+
+#### OPERADORES ARITMÉTICOS
+<pre>
+OPERADORES UNÁRIOS                                                          OPERADORES BINÁRIOS
+- atribuição....................(=): a = b                                  - atribuição......(=): a = b
+- positivo......................(+): +a                                     - atribuição......(=): a = b
+- negativo......................(-): -a                                     - adição..........(+): a + b
+- incremento...................(++): ++a | a++  (a + 1)                     - subtração.......(-): a - b
+- decremento...................(--): --a | a--  (a - 1)                     - divisão.........(/): a / b
+- adição e atribuição..........(+=): a += 5     (a = a + 5)                 - multiplicação...(*): a * b
+- subtração e atribuição.......(-=): a -= 5     (a = a - 5)                 - módulo..........(%): a % b
+- multiplicação e atribuição...(*=): a *= 5     (a = a * 5)                 - potenciação....(**): a ** b
+- divisão e atribuição.........(/=): a /= 2     (a = a / 2)
+- módulo e atribuição..........(%=): a %= 2     (a = a % 2)
+
+                                            ORDEM HIERARQUICA
+OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     TIPO DE RETORNO DE RESULTADO
+   +         MANUTENÇÃO DE SINAL      UNÁRIO                1                          POSITIVO
+   -          INVERSÃO DE SINAL       UNÁRIO                1                          NEGATIVO
+  **            POTENCIAÇÃO           BINÁRIO               2                       INTEIRO OU REAL
+   /              DIVISÃO             BINÁRIO               3                            REAL
+   /              DIVISÃO             BINÁRIO               4                          INTEIRO
+   %               MÓDULO             BINÁRIO               3                          INTEIRO
+   *           MULTIPLICAÇÃO          BINÁRIO               3                       INTEIRO OU REAL
+   +               ADIÇÃO             BINÁRIO               4                       INTEIRO OU REAL
+   -              SUBTRAÇÃO           BINÁRIO               4                       INTEIRO OU REAL
+</pre>
+
+#### OPERADORES LÓGICOS
+<pre>
+- AND........................................(&&): true && true
+- OR.........................................(||): true || false
+- NOT.........................................(!): !true
+- maior.......................................(>): 1 > 0
+- maior ou igual.............................(>=): 1 >= 1
+- menor.......................................(<): 0 < 1
+- menor ou igual.............................(<=): 0 <= 0
+- comparação de igualdade de valor...........(==): A == a
+- comparação de valor e tipo................(===): A === A
+- comparação de diferença de valor...........(!=): a != b
+- comparação de diferença de valor e tipo...(!==): a !== b
+</pre>
+
+#### OPERADORES BIT A BIT
+<pre>
+- AND.........................................(&): (bit == 1 & bit == 1) 1 <> (bit == 0 & bit == 1) 0
+- OR..........................................(|): (bit == 0 & bit == 1) 1 <> (bit == 0 & bit == 0) 0
+- XOR.........................................(^): (bit == 1 & bit == 1) 0 <> (bit == 0 & bit == 1) 1
+- NOT.........................................(~):  bit = 1010 ~ bit = 0101
+- LEFT SHIFT 0...............................(<<):  bit(5) = 00000101 <<  3 : bit(40) = 00101000  -  bit(-5) = 11111011 <<  3 : bit(-40) = 11011000
+- RIGHT SHIFT 1..............................(>>):  bit(5) = 00000101 >>  3 : bit(0)  = 00000000  -  bit(-5) = 11111011 >>  3 : bit(-1)  = 11111111
+- RIGHT SHIFT 0.............................(>>>):  bit(5) = 00000101 >>> 3 : bit(0)  = 00000000  -  bit(-5) = 11111011 >>> 3 : bit(31)  = 00011111
+</pre>
 
 ### MÉTODOS DE MANIPULAÇÃO
  ```JS

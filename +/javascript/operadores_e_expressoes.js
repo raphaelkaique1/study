@@ -36,7 +36,7 @@ console.log(`    ATRIBUIÇÃO -> VARIÁVEIS
     DIVISÃO                           MÓDULO
     a{${a}}  / c{${c}} = ${a = a/2}           a{${a}} % c{${c}} = ${a = a%2}
 
-    
+
     d = true
     e = true
     f = false
