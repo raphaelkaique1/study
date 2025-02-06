@@ -1,6 +1,6 @@
 # JAVASCRIPT
  JavaScript é uma linguagem de programação *interpretada*, de *alto nível* e *multiparadigma*, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica.<br/>
- Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, logo em seguida, numa jogada de marketing influenciada pela popularidade da linguagem **Java** o nome foi alterado para **`JavaScript`**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização da linguagem veio por meio da Ecma International, dando origem à especificação **ECMAScript** — padronização de linguagens de script, definindo regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguit para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
+ Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, logo em seguida, numa jogada de marketing influenciada pela popularidade da linguagem **Java** o nome foi alterado para **`JavaScript`**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização da linguagem veio por meio da Ecma International, dando origem à especificação **ECMAScript** — padronização de linguagens de script, definindo regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
  As principais características que destacam o JS são:
  - *Execução local*.
  - *Interpretado*.
@@ -19,7 +19,7 @@
  ```
 
 ### TIPOS DE DADOS
-Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de dados básicos**:
+Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**:
  1. **NUMBERS**<br/>
  Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**).
  2. **STRINGS**<br/>
@@ -39,7 +39,7 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  ```js
  "use strict";
  ```
- - Ou podemos colocar essa diretiva dentro de uma função para aplicar o modo estrito apenas ao seu escopo:
+ - Ou podemos colocar essa diretiva dentro de uma função para aplicar o modo estrito **apenas ao seu escopo**:
  ```js
  function minhaFuncao() {
    "use strict";
@@ -60,26 +60,30 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
 
  Com o modo ativo, somos **obrigados** a definir o *escopo* da variável:
  ```js
- var = num = 5;
+ var num = 5;
  ```
 
 #### DECLARANDO VARIÁVEIS
  Por definição, uma variável é um espaço na memória do computador onde um valor será amazenado, tal este que pode mudar durante a execução do programa.<br/>
- As variáveis são declaradas de 2 maneiras:
-
- 1. **`let`**: **escopo LOCAL**; Permite declarar variáveis limitando seu escopo ao bloco ou declaração onde estão localizadas. *Variáveis tipo **`let`** só podem ser utilizadas a partir de funções, condicionantes ou loops dentro do mesmo escopo.* Ou seja, podemos acessá-las apenas dentro do escopo que foram definidas, dentro da própria função ou de funções aninhadas em níveis mais altos do que a função anterior, fazendo com que *só possam ser vistas **de dentro para fora***, nunca de fora para dentro da função.
+ A sintaxe básica da declaração é a seguinte:
  ```js
- let num = 5;
- console.log(num); // num == 5
+ /* var ≠ let
 
- if(true) {
-  let num = 10;
-  console.log(num); //num == 10
- }
+ var = escopo global
+ let = escopo local
 
- console.log(num); // num == 10 <-
+  ⬐ declaração */
+ let        nick_name = "Raphael" /* <- "propriedade"
+  identificador ⬏     ⬑ atribuição */
+
+ // const = obrigatório atribuição inicial, valor atribuído é imutável
+ const alert = "!Alert:"
  ```
- 2. **`var`**: **escopo GLOBAL**; Define uma variável global, independemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do código.
+
+ Como visto acima, as variáveis são declaradas de 2 maneiras:
+
+ 1. **`var`**: **escopo GLOBAL**<br/>
+ Define uma variável global, independemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do código.
  ```js
  let num = 5;
  console.log(num); // num == 5
@@ -92,6 +96,20 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  console.log(num); // num == 5  <-
  ```
 
+ 2. **`let`**: **escopo LOCAL**<br/>
+ Permite declarar variáveis limitando seu escopo ao bloco ou declaração onde estão localizadas. *Variáveis tipo **`let`** só podem ser utilizadas a partir de funções, condicionantes ou loops dentro do mesmo escopo.* Ou seja, podemos acessá-las apenas dentro do escopo que foram definidas, dentro da própria função ou de funções aninhadas em níveis mais altos do que a função anterior, fazendo com que *só possam ser vistas **de dentro para fora***, nunca de fora para dentro da função.
+ ```js
+ let num = 5;
+ console.log(num); // num == 5
+
+ if(true) {
+  let num = 10;
+  console.log(num); //num == 10
+ }
+
+ console.log(num); // num == 10 <-
+ ```
+
 ##### POPULANDO VARIÁVEIS
 
 ###### ALTERANDO VALOR ATRIBUÍDO
@@ -100,19 +118,51 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  var num = 10;
  num = 5;
  ```
-###### TRABALHANDO STRING
- Qualquer valor entre aspas duplas `"value"` ou simples `'value'` atribuído a uma variável é considerado uma `string`, mesmo que o valor seja um número.
+###### TRABALHANDO STRINGS
+ Qualquer valor entre aspas duplas `"value"` ou simples `'value'` atribuído a uma variável é considerado uma `string`, mesmo que o valor seja um número.<br/>
+ Uma boa prática é usar **aspas duplas `""`** *para palavras e frases*, e **aspas imples `''`** *para caracteres*.
  ```js
  var num1 = 5; // int
- var num2 = "5"; // str
+ var num2 = '5'; // str
  ```
+
  Um ponto que o desenvolver deve estar sempre atento ao trabalhar com `strings` é que, ao concatená-las com valores numéricos, estes valores passam a ser considerados TODOS como `strings`:
  ```js
- var x = "5";
- console.log(x + 10); // 510
+ var x = '5';
+ console.log(x + 10); // "510": string
  ```
- *Uma boa prática é sempre declarar como `strings` números que não vão ser operados matematicamente, como cpf, número de telefone ou CEP por exemplo.*
 
+**CONCATENAÇÃO**<br/>
+ Para exibirmos dados no documento, existem 3 formas de *concatenação de `strings`*. São elas:
+
+ 1. **Template Literals `texto ${variavel}`**<br/>
+ *Avalia a expressão dentro de `${}` primeiro e então monta a string final.*<br/>
+ Ideal para concatenar variáveis ou expressões dentro de strings de forma legível e clara, especialmente quando você tem mais de uma variável ou uma expressão complexa.<br/>
+ Dentro da string, o `${nick_name}` será interpretado primeiro, ou seja, a variável `nick_name` será acessada antes da concatenação com a string `"Welcome "`.
+
+ 2. **Operador de Concatenação `"texto " + variavel`**<br/>
+ *Avalia os operandos antes de concatená-los.*<br/>
+ O operador `+` é usado para juntar `strings` e `values`. O JavaScript converte automaticamente o valor de `nick_name` para uma string e concatena com `"Welcome "`.<br/>
+ O operador `+` executa a concatenação após a conversão do valor de `nick_name` para string. Ou seja, o valor de `nick_name` é acessado primeiro, e depois a `string` `"Welcome "` é concatenada.
+
+ 3. **Vírgula `"texto ", variavel`**<br/>
+ *Ideal para quando você deseja imprimir múltiplos valores em vez de concatená-los em uma única string.*<br/>
+ Nesse caso, a vírgula *não faz* uma concatenação de `strings`, mas sim imprime os dois valores (`"Welcome "` e `nick_name`) separados por um espaço — comportamento padrão do `console.log()`.<br/>
+ O JavaScript imprime os argumentos passados para `console.log()` de forma separada na ordem em que estão, sem concatená-los explicitamente.
+
+**MODELOS DE STRINGS**<br/>
+ Podemos usar o DOM para substituir valores dentro de uma `string` sem a necessidade de concatená-las, usando a *interpolação de `strings`*:
+ ```js
+ var name = "Raphael";
+ var nick_name = "Rael";
+ var info = `<h3>User: ${name}</h3><h3>Nick: ${nick_name}</h3>`;
+
+ console.log(`Welcome ${nick_name}`)
+ console.log(`${alert} user ${nick_name} accessed the system`)
+ ```
+
+**BOAS PRÁTICAS**<br/>
+ *Uma boa prática é sempre **declarar como `strings` números que não vão ser operados matematicamente**, como cpf, número de telefone ou CEP por exemplo.*
 
 ##### IDENTIFICANDO TIPO DE VARIÁVEL
  O comando **`typeof(var)`** nos diz o tipo de uma variável.
@@ -121,8 +171,8 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  Existem vários meios para manipular variáveis. Vejamos algumas opções:
 
  1. **`length`**<br/>
-   1. Calcula a extensão de um texto, ou seja, a quantidade de caracteres que ele contém.
-   2. Se usado em um **`array`** retorna o número de elementos contidos nele.
+      - Calcula a *extensão de um texto*, ou seja, a quantidade de caracteres que ele contém.
+      - Se usado em um **`array`** retorna o *número de elementos contidos nele*.
  ```js
  const texto = "Olá, Mundo!";
  const vetor = ["valor 1", "valor 2", "valor 3"];
@@ -168,7 +218,7 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  ```js
  var num = 10;
  var Num = num.toString();
- console.log(`Num: ${typeof(Num)}`); // Num: string
+ console.log(`Num: ${typeof(Num)}`); // Num = "10": string
  ```
 
  6. **`toUppercase()`**<br/>
@@ -230,7 +280,7 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  ```
 
  11. **`slice()`**<br/>
- Utilizado para extrair uma parte de uma string ou array, retornando uma nova string ou array sem modificar o original. Tanto para strings quanto para arrays, índices negativos contam a partir do final, onde o -1 representa o último elemento.
+ Utilizado para extrair uma parte de uma string ou array, retornando uma nova string ou array sem modificar o original. Tanto para strings quanto para arrays, índices negativos contam a partir do final, onde o `-1` representa o último elemento.
  ```js
  const nomeCompleto = "Raphael Kaíque Dias Santos";
  const primeiroNome = `${nomeCompleto.slice(0, 9)}.` ; // extraindo a palavra "Raphael K"
@@ -289,7 +339,7 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  ```
 
  15. **`startsWith()`**<br/>
- Procura um textmo no início da `string`, retornando `true` ou `false`. Ou seja, se o texto começa com os caracteres que buscamos, neste caso o resultado seria `true`.
+ Procura um termo no início da `string`, retornando `true` ou `false`. Ou seja, se o texto começa com os caracteres que buscamos, neste caso o resultado seria `true`.
  ```js
  const texto = "Hello, World!";
  console.log(texto.startsWith("Hell")); // true
@@ -386,23 +436,43 @@ Por ser uma linguagem e tipagem dinâmica, o JavaScript tem apenas **3 tipos de 
  ```
 
 #### CONSTANTES
- Por definição, uma constante é um espaço na memória do computador onde um valor é armazenado que **NÃO** pode ser alterado durante o *tempo de execução* do programa. Ou seja, se declararmos uma constante e lhe atribuirmos um valor, este valor não pode ser modificado.
+ Por definição, uma constante é um espaço na memória do computador onde um valor é armazenado que **NÃO** pode ser alterado durante o *tempo de execução* do programa. Ou seja, se declararmos uma constante e lhe atribuirmos um valor, este valor não pode ser modificado.<br/>
+ **Só funciona se INICIALIZADA, ou seja, necessita de um valor atribuído no código fonte, caso contrário o programa não executa.**
  ```js
  const pi = 3.14;
  ```
 
-### FUNÇÕES PRÉ-DEFINIDAS
+### MÉTODOS DE MANIPULAÇÃO
+ ```JS
+ /* objetos, métodos e propriedades
+
+ Enquanto métodos¹ são ações para manipulação de objetos²,
+ as propriedades³ são as caracteríticas da sua atribuição.
+
+ console = objeto manipulado */
+ console.log("User name: ") /* () = execução de ação com parâmetros ou não
+         log = método de processamento do objeto */
+ ```
+
+#### FUNÇÕES PRÉ-DEFINIDAS
  São comandos padronizados prontos para serem usados.
  ```js
  alert("Este é um exemplo de função pré-definida.");
  ```
 
+#### FUNÇÕES
  Além destes também podemos criar nossas próprias funções combinando com outras pré-definidas.
  ```js
  function saudacao() {
   console.log("Olá! Bem vindo!");
  }
  ```
+#### TIPOS DE FUNÇÕES
+ As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código. 
+ - **Funções _SEM_ parâmetros**: Usadas quando a operação pode ser feita com valores internos ou globais, ou quando não há necessidade de interação com o resto do código.
+ - **Funções _COM_ parâmetros**: Usadas quando a operação precisa de entradas externas para ser realizada.
+ - **Funções _SEM_ retorno**: Usadas quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
+ - **Funções _COM_ retorno**: Usadas quando é necessário calcular um valor e utilizá-lo posteriormente no código.
 
 ## CRIANDO CÓDIGO
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
@@ -479,7 +549,7 @@ Outra forma de obter entrada do usuário é através de elementos HTML, como **`
 ```
 
 ##### PROMPT
- Com **`prompt`**, inserimos a variável através de uma janela, este método é uma função nativa do objeto **`window`** nos navegadores. Quando chamado, ele pausa a execução do script e exibe uma caixa de diálogo *modal*, aguardando a interação do usuário. Após o usuário inserir um valor e confirmar, o `prompt()` retorna esse valor, permitindo que o script continue sua execução com a entrada fornecida.<br/>
+ Com **`prompt`**, inserimos a variável através de uma janela, este método é uma função nativa do objeto **`window`** nos navegadores. Quando chamado, ele pausa a execução do script e exibe uma caixa de diálogo *`modal`*, aguardando a interação do usuário. Após o usuário inserir um valor e confirmar, o `prompt()` retorna esse valor, permitindo que o script continue sua execução com a entrada fornecida.<br/>
  Neste exemplo, o que o usuário inserir no campo de entrada da janela será armazenado na variável `name`.
 ```js
 var name=prompt("Nome: ");
@@ -528,12 +598,15 @@ const rl = readline.createInterface({
 
 /* .question(output-parameter, (callback-input-parameter) => {
         doSomething(callback-input-parameter)
-    .close}) */
-rl.question('User: ', (name) => {
+    .close})
+    
+podemos encapsular este código dentro de uma `arow function` caso precisemos utilizá-lo outras vezes sem precisar reescreve-lo */
+let userName = () => rl.question('User: ', (name) => {
   console.log(`Welcome ${name}`);
   rl.close(); // fecha a interface de leitura, liberando os recursos associados
 });
 
+userName();
 ```
 
 ##### DOCUMENT OUTPUT

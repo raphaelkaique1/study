@@ -1,10 +1,10 @@
 /* objetos, métodos e propriedades
 
  Enquanto métodos¹ são ações para manipulação de objetos²,
-as propriedades³ são as caracteríticas da sua atribuição.
+ as propriedades³ são as caracteríticas da sua atribuição.
 
 console = objeto manipulado */
-console.log("User name: ") /* () = execução de ação
+console.log("User name: ") /* () = execução de ação com parâmetros ou não
         log = processamento do objeto */
 
 /* var ≠ let
@@ -26,7 +26,7 @@ Avalia a expressão dentro de ${} primeiro e então monta a string final.
 Ideal para concatenar variáveis ou expressões dentro de strings de forma legível e clara, especialmente quando você tem mais de uma variável ou uma expressão complexa.
 Dentro da string, o ${nick_name} será interpretado primeiro, ou seja, a variável `nick_name` será acessada antes da concatenação com a string "Welcome ".
 
-2. Operador de Concatenação ("texto ", + variavel)
+2. Operador de Concatenação ("texto " + variavel)
 Avalia os operandos antes de concatená-los.
 O operador + é usado para juntar strings e valores. O JavaScript converte automaticamente o valor de `nick_name` para uma string e concatena com "Welcome ".
 O operador `+` executa a concatenação após a conversão do valor de `nick_name` para string. Ou seja, o valor de `nick_name` é acessado primeiro, e depois a string "Welcome " é concatenada.
