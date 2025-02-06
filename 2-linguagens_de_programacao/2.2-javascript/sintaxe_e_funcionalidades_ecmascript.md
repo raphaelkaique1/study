@@ -4,8 +4,10 @@
  As principais características que destacam o JS são:
  - *Execução local*.
  - *Interpretado*.
+ - *Dinâmico em tipagem*.
+ - *Verifica valor e tipo*.
  - *Responsivo*.
- - *Dinâmico*.
+ - *Case sensitive*.
 
 ## ESTRUTURAS
 
@@ -19,7 +21,7 @@
  ```
 
 ### TIPOS DE DADOS
-Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**:
+Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**. Por conta dessa característica, uma variável pode receber uma **`string`** em um determinado momento, e em outro, um dado tipo **`number`**. Vejamos:
  1. **NUMBERS**<br/>
  Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**).
  2. **STRINGS**<br/>
@@ -457,6 +459,9 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  - **unários**: Operam sobre **1 único parâmetro, alterando seu próprio valor**.
  - **binários**: Operam sobre **2 ou mais parâmetros sem alterá-los para obter um resultado que é um novo valor**.
  - **lógicos**: **Comparam as relações entre 2 ou mais valores para verificar uma condição**, retornando `true` ou `false`.
+   - **bool**: `var condition === satisfied ? true : false`
+   - **string**: `var string === "" ? true : false`
+   - **number**: `var number === 0 ? 1 : 0`
  - **bitwise**: **Realizam operações aritméticas manipulando diretamente os `bits` de números inteiros**, retornando sempre um número decimal, mas gerado através de operações binárias. Ou seja, são operadores que trabalham diretamente na manipulação binária dos números gerando um número decimal como resultado.
 
 #### OPERADORES ARITMÉTICOS
@@ -490,7 +495,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
 <pre>
 - AND........................................(&&): true && true
 - OR.........................................(||): true || false
-- NOT.........................................(!): !true
+- NOT.........................................(!): !true (false)
 - maior.......................................(>): 1 > 0
 - maior ou igual.............................(>=): 1 >= 1
 - menor.......................................(<): 0 < 1
