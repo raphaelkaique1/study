@@ -743,28 +743,35 @@ graph TD
 |_____________________________________|
 </pre>
 
-### OPERADORES DE ALTERAÇÃO/MANIPULAÇÃO DE ESTADO/DADO
->atribuição...(=): a = 10
+### OPERADORES ARITMÉTICOS
 <pre>
-OPERADORES BINÁRIOS                      OPERADORES UNÁRIOS
-- adição..........(+): a + b             - positivo.........(+): +a          - adição e atribuição..................(+=): a += 15
-- subtração.......(-): a - b             - negativo.........(-): -a          - subtração e atribuição...............(-=): a -= 5
-- multiplicação...(*): a * b             - incremento......(++): ++a | a++   - multiplicação e atribuição...........(*=): a *= 5
-- divisão.........(/): a / b             - decremento......(--): --a | a--   - divisão/módulo e atribuição.....(/= | %=): a /= 2 | a %= 2
+OPERADORES UNÁRIOS                                                          OPERADORES BINÁRIOS
+- atribuição....................(=): a = b                                  - atribuição.........(=): a = b
+- positivo......................(+): +a                                     - atribuição.........(=): a = b
+- negativo......................(-): -a                                     - adição.............(+): a + b
+- incremento...................(++): ++a | a++  (a + 1)                     - subtração..........(-): a - b
+- decremento...................(--): --a | a--  (a - 1)                     - divisão............(/): a / b
+- adição e atribuição..........(+=): a += 5     (a = a + 5)                 - multiplicação......(*): a * b
+- subtração e atribuição.......(-=): a -= 5     (a = a - 5)                 - módulo.............(%): a % b
+- multiplicação e atribuição...(*=): a *= 5     (a = a * 5)                 - potenciação...(^ | **): a ^ b | a ** b 
+- divisão e atribuição.........(/=): a /= 2     (a = a / 2)
+- módulo e atribuição..........(%=): a %= 2     (a = a % 2)
 
+                                            ORDEM HIERARQUICA
 OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     TIPO DE RETORNO DE RESULTADO
    +         MANUTENÇÃO DE SINAL      UNÁRIO                1                          POSITIVO
    -          INVERSÃO DE SINAL       UNÁRIO                1                          NEGATIVO
- ^ / **         EXPONENCIAÇÃO         BINÁRIO               2                       INTEIRO OU REAL
+ ^ / **         POTENCIAÇÃO           BINÁRIO               2                       INTEIRO OU REAL
    /              DIVISÃO             BINÁRIO               3                            REAL
    /              DIVISÃO             BINÁRIO               4                          INTEIRO
+   %               MÓDULO             BINÁRIO               3                          INTEIRO
    *           MULTIPLICAÇÃO          BINÁRIO               3                       INTEIRO OU REAL
    +               ADIÇÃO             BINÁRIO               4                       INTEIRO OU REAL
    -              SUBTRAÇÃO           BINÁRIO               4                       INTEIRO OU REAL
 </pre>
 Exemplo: π * r² = area
 
-### OPERADORES LÓGICOS/COMPARAÇÃO/RELACIONAIS
+### OPERADORES LÓGICOS
 <pre>
 - AND.......................(&&): true && true
 - OR........................(||): true || false
