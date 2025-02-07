@@ -520,9 +520,9 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
 #### ESTRUTURAS DE CONTROLE
  São parte fundamental de qualquer linguagem, sem elas, as intruções de um programa só poderiam ser executadas na ordem em que são escritas, ou seja, só seriam excutadas *sequencialmente*. As estruturas de controle permitem que esta ordem seja modificada. Existem 2 categorias deste tipo de estrutura, onde nelas veremos quais são seus métodos de execução.<br/>
  Em linguagens de programação, as intruções que permitem controlar decisões e loops de execução são chamadas de *Estruturas de Controle*. **Uma estrutura de controle dirige o fluxo da execução através de uma sequência de instruções, baseada em _decisões_ entre outros fatores.** *A parte mais importante de uma estrutura de controle é a **condição**, cada condição é uma expressão que se tem como resultado **`true`** ou **`false`**.*<br/>
- O JS oferece um total de 4 instruções para processar o código de acordo com as condições determinadas pelo programador. Com as condicionais, modificamos o fluxo de execução como acharmos conveniente, dependendo se uma condição é cumprida. Dependendo das necessidade de nosso código, o condional pode se tornar tão complicado quanto necessário.
+ O JS oferece um total de 4 instruções para processar o código de acordo com as condições determinadas pelo programador. Com as condicionais, modificamos o fluxo de execução como acharmos conveniente, dependendo se uma condição é cumprida. Dependendo das necessidade de nosso código, o condional pode se tornar tão complicado quanto necessário. Todas as condições podem ser usadas em conjunto para formar a lógica de execução do programa.
  1. **CONDICIONAL**
-   - **`if` - `if-else` - `if-ifelse-else`**: 
+   - **`if` - `if-else` - `if-elseif` - `if-elseif-else`**: 
    - **`switch-case`**: 
  2. **LOOPS**
    - **`for` - `for-in` - `for-of` - `forEach` - `for-await-of`**: 
@@ -533,7 +533,141 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  A base da tomada de decisões é realizar comparações. Estas comparações neste caso são realizadas utilizando os *operados lógicos* e *de comparação*.<br/>
  As condicionais em JS são realizadas com 2 tipos de estruturas de decisão, o **`if`** e o **`switch`**.
 
-##### IF
+###### IF
+ Esta declaração é a condição mais simples de tomada de decisão. É usado para decidir se uma determinada declaração ou bloco de instruções será executado ou não, ou seja, se uma determinada condição for verdadeira então um bloco de instruções é executado, caso contrário outras instruções será executadas.<br/>
+ Sua sintaxe pode assumir várias formas:
+
+ 1. **`if`**<br/>
+ **Verifica apenas 1 condição, que, dependendo do resultado executa ou não um bloco de instruções e segue o fluxo normal do código.**
+ ```js
+ var condition = true;
+
+ if(condition == true) {
+  console.log(`condition: ${condition}`);
+ }
+ ```
+
+ 2. **`if-else`**<br/>
+ **Verifica 1 condição, porém se for satisfeita executa instruções específicas, e caso não satisfeita executa outras instruções, ao final retorna ao fluxo normal de execução do código.**
+ ```js
+ var condition = true;
+
+ if(condition == true) {
+  console.log(`condition OK: ${condition}`);
+ } else {
+  console.log(`condition NOT: ${condition}`);
+ }
+ ```
+
+ 3. **`if-elseif`**<br/>
+ **Verifica várias condições e executa o código de acordo com a condição satisfeita, caso contrário não executa nenhuma, e segue o fluxo normal de execução do código.**
+ ```js
+ var condition = 0;
+
+ if(condition == 1) {
+  console.log(`condition 1: ${condition}`);
+ } else if(condition == 2) {
+  console.log(`condition 2: ${condition}`);
+ }
+ ```
+
+ 4. **`if-elseif-else`**<br/>
+ **Uma série de verificações de condições é testada e conforme o resultado um ou outro bloco de instruções é executado, também retornando ao fluxo de execução do programa quando finalizado.**
+ ```js
+ var condition = 0;
+
+ if(condition == 1) {
+  console.log(`condition 1: ${condition}`);
+ } else if(condition == 2) {
+  console.log(`condition 2: ${condition}`);
+ } else {
+  console.log(`ANY condition: ${condition}`);
+ }
+ ```
+
+ 5. **ternary operator**<br/>
+ **Operadores ternários são _shorthands_ para verificações simples, como o `if-else`, apesar de ser possível aninhá-los não é uma boa prática pois dificulta a legibilidade da lógica, neste caso usam-se as estruturas completas já vistas até agora. O `if` ternário é excelente para verificações simples por possuir uma sintaxe de fácil leitura e entendimento.**
+ ```js
+ var condition = true;
+
+ condition == true ? console.log("OK") : console.log("NOT");
+ ```
+
+ 6. **`nested if`**</br>
+ **É possível aninhar todos os `if`s acima de acordo com a necessidade, mas dependedo da complexidade podem não ser uma boa opção por ser difícil de ler seu fluxo de execução.**
+ ```js
+ var condition = "0", verification = false;
+
+ if(condition == 1) {
+   if(verification == true) {
+      console.log(`1. condition: ${condition} - verification: ${verification}`);
+   }
+ } else if(condition == 2) {
+   if(verification == false){
+      console.log(`2. condition: ${condition} - verification: ${verification}`);
+    } else {
+      console.log(`2.2 condition: ${condition} - verification: ${verification}`);
+    }
+ } else {
+   if(condition != 3 && verification == true) {
+      condition > 0 && condition < 5 ? console.log(`condition 4`) : console.log(`condition ${condition}`);
+   } else if(isNaN(condition)) {
+       if(condition == "a") {
+          console.log(`condition: ${condition} - verification: ${verification}`);
+       } else if(condition == "b") {
+          console.log(`condition: ${condition} - verification: ${verification}`);
+       } else {
+          console.log(`condition: ${condition} - verification: ${verification}`);
+       }
+   }
+ }
+ ```
+
+###### SWITCH-CASE
+ Uma opção melhor para a legibilidade em questões de decisões complexas é o `switch-case`, funciona da seguinte maneira: "Escolha isto caso essa condição seja verdade, escolha isso caso outra condição seja verdade... Escolha isso se caso indefinido". Como podemos ver, opera com base em decisão e execução igual ao `if`, qualquer avaliação que possa ser feito em um pode ser feita no outro, porém ele é mais indicado para grandes fluxos com várias tomadas decisões possíveis, por possuir uma estrutura limpa e mais fácil de acompanhar a lógica.<br/>
+ Sua sintaxe é:
+ ```js
+ var option = 0;
+
+ switch(option) {
+     case 1:
+         console.log("conditions 1");
+         break;
+     case 2:
+     case 3:
+         console.log("conditions 2 & 3");
+         break;
+     case 4:
+         console.log("condition 4");
+         break;
+     case 5:
+         console.log("condition 5");
+         break;
+     default:
+         console.log("condition out of range [1, 5]");
+ }
+ ```
+
+ Vamos analisar cada parâmetro e termo:
+ 1. **`switch`**<br/>
+ É o nome da função, para construir um `switch-case` é necessário informar um parâmetro entre parênteses `()` para as verificações de condições, e o bloco com as instruções para cada condição atendida vai entre chaves `{}`.
+ 2. **`case`**<br/>
+ É a palavra chave para verificar o estado do parâmetro, logo seguida ao `case` deve-se indicar qual parâmetro será testado, exemplo: `case true:`, e os dois pontos `:` indicam ao interpretador para executar o bloco de instruções seguidas. Um mesmo bloco de instruções pode ser executado caso mais de uma condição seja satisfeita, basta indicar um `case` abaixo de outro antes do bloco de instruções, exemplo:
+ ```js
+ case 1:
+ case 2:
+   // instruções
+   break;
+ ```
+ 3. **`break`**<br/>
+ É obrigatório incluí=lo ao final de cada cláusula `case` para que o programa pare de executar as instruções daquele ponto em diante do `switch` e siga o fluxo de execução do código.
+ 4. **`default`**<br/>
+ Trata exceções dentro deste escpop e funciona semelhante ao `else`, ou seja, caso nenhuma condição seja satisfeita, o bloco de instruções contido nele será executado.
+
+##### LOOPS
+ 
+
+###### 
 
 #### ESTRUTURAS DE MÉTODOS
  ```JS
