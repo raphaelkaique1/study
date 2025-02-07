@@ -453,6 +453,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```js
  const pi = 3.14;
  ```
+ **Como uma boa prática, definimos as constantes em nosso código sempre com `LETRAS_MAIUSCULAS`, para facilitar a legibilidade intuitiva.**
 
 ### OPERAÇÕES
  Os comandos, instruções e variáveis não serviriam de nada se não fosse possível manipular os dados recebidos, e, para transformá-los em informação útil, usamos os `operadores`. Eles permitem que os programas realizem cálculos complexos e tomem decisões lógicas com base em comparações e outros tipos de condições. São eles:
@@ -528,13 +529,18 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
    - **`for` - `for-in` - `for-of` - `forEach` - `for-await-of`**: 
    - **`while` - `do-while`**: 
 
+##### ALTERADORES DE FLUXO
+ Podemos manipular a iteração de loops usando alteradores de fluxos quando uma condição além da original é atingida. São eles:
+ 1. **`break`**: *Interrompe* a iteração do fluxo de repetição.
+ 2. **`continue`**: *Pula* 1 iteração do fluxo de repetição.
+
 ##### CONDICIONAIS
  A tomada de decisão na programação é semelhante à tomada de decisão na vida real, pois também existem algumas situações no programa em que um determinado bloco deve ser executado dada uma condição. As linguagens de programação utilizam declarações condicionais para controlar o fluxo de execução do programa com base em certas condições. Estes são usados para fazer o fluxo de execução avançar e ramificar-se com base em mudanças no estado de um programa.<br/>
  A base da tomada de decisões é realizar comparações. Estas comparações neste caso são realizadas utilizando os *operados lógicos* e *de comparação*.<br/>
  As condicionais em JS são realizadas com 2 tipos de estruturas de decisão, o **`if`** e o **`switch`**.
 
 ###### IF
- Esta declaração é a condição mais simples de tomada de decisão. É usado para decidir se uma determinada declaração ou bloco de instruções será executado ou não, ou seja, se uma determinada condição for verdadeira então um bloco de instruções é executado, caso contrário outras instruções será executadas.<br/>
+ Esta declaração é a condição mais simples de tomada de decisão, "se (`if`) uma condição for verdadeira faça isso, se outra (`else if`) condição for verdadeira faça aquilo, caso nenhuma (`else`) condição seja verdade faça isto". É usado para decidir se uma determinada declaração ou bloco de instruções será executado ou não, ou seja, se uma determinada condição for verdadeira então um bloco de instruções é executado, caso contrário outras instruções será executadas.<br/>
  Sua sintaxe pode assumir várias formas:
 
  1. **`if`**<br/>
@@ -665,9 +671,118 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  Trata exceções dentro deste escpop e funciona semelhante ao `else`, ou seja, caso nenhuma condição seja satisfeita, o bloco de instruções contido nele será executado.
 
 ##### LOOPS
- 
+ São estruturas de programação que nos permitem executar instruções de forma repetitiva dentro de um bloco de códigos. *Além disso, os loops são executados através de condições.*<br/>
+ Existem 2 tipos de loops:
+ 1. **DETERMINADOS**: São aqueles em que se sabe quantas vezes um código será executado.
+   - **`for`**
+ 2. **INDETERMINADOS**
+   - **`while`**
+   - **`do-while`**
 
-###### 
+###### FOR
+ Um tipo de loop cuja execução dura um determinado número de vezes ou até que sua condição seja avaliada com `false` é o `for`, vejamos sua sintaxe básica e também suas variações:
+
+ 1. **`for`**</br>
+ Usado quando sabemos quantas vezes queremos iterar.
+ ```js
+ var fim = 10;
+
+ for(var inicio = 0; inicio < fim; inicio++) {
+     console.log(inicio);
+ }
+ ```
+
+ 2. **`infinity-empty-for`**<br/>
+ **Todas** as partes do `for` são *opcionais*.
+ ```js
+ let i = 0;
+
+ for (;;) { // loop infinito
+   console.log(i);
+   if (i >= 5) break; // condição de parada
+   i++;
+ }
+ ```
+
+ 3. **`for-break-continue`**</br>
+ Podemos usar `break` para **interromper** um loop e `continue` para **pular** uma iteração.
+ ```js
+ for (let i = 0; i < 5; i++) {
+   if (i === 3) break;    // sai do loop quando i for 3
+   if (i === 1) continue; // pula a iteração quando i for 1
+   console.log(i);
+ }
+ ```
+
+ 4. **`forEach`**</br>
+ Método especialmente otimizado para percorrer `arrays`, passamos os parâmetros em uma função `callback` que tem o parâmetro **obrigatório** uma variável para obter o `value` do elemento autal no array, e os parâmetros *opcionais* `index`¹ e `array`² para *obter o número do índice do elemento atual*¹ e o *objeto de array completo ao qual o elemento pertence*² respectivamente.
+ ```js
+ let Array = [10, 20, 30];
+
+ Array.forEach((value, index, array) => {
+   console.log(`Valor: ${value}, Índice: ${index}, Array Completo:`, array);
+ });
+ ```
+
+ 5. **`for-in`**</br>
+ Usado para iterar sobre as **chaves** de um *objeto*. Não é recomendado para arrays, pois pode incluir propriedades herdadas.
+ ```js
+ const obj = {a: 1, b: 2, c: 3}
+
+ for(let key in obj) {
+     console.log(key, obj[key]);
+ }
+ ```
+
+ 6. **`for-of`**</br>
+ Usado para iterar *diretamente* sobre os **valores** de elementos iteráveis como `arrays`, `stings`, `maps` e `sets`.
+ ```js
+ const arr = [10, 20, 30];
+
+ for (let value of arr) {
+   console.log(value);
+ }
+ ```
+
+ 7. **`for-await-of`**</br>
+ Usado para iterar sobre **objetos assíncronos**, como *`async iterators`* e *`Promises`*.
+ ```js
+ async function fetchData() {
+   const urls = ['url1', 'url2', 'url3'];
+   for await (let url of urls) {
+     console.log(url); // aguarda cada Promise resolver antes de continuar
+   }
+ }
+ fetchData();
+ ```
+
+###### WHILE
+ É executado até que a condição seja `false`, porém realiza antes a verificação da condição, e, se a condição não for atentida não executa o bloco de instruções.
+
+ - **`while`**</br>
+ ```js
+ let condition = true, i = 0;
+
+ while(i <= 5) {
+  ++i;
+  i == 5 ? condition = false : condition = true;
+  console.log(`${i} ${condition}`);
+ }
+ ```
+
+###### DO-WHILE
+ Semelhante ao `while`, porém as instruções são executadas ao menos 1 vez, pois verifica a condição ao final da execução do bloco.
+
+ - **`do-while`**</br>
+ ```js
+ let condition = true, i = 0;
+
+ do {
+     console.log(`${i} ${condition}`);
+     ++i;
+     i == 5 ? condition = false : condition = true;
+ } while(i <= 5)
+ ```
 
 #### ESTRUTURAS DE MÉTODOS
  ```JS
@@ -700,6 +815,8 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  - **Funções _COM_ parâmetros**: Usadas quando a operação precisa de entradas externas para ser realizada.
  - **Funções _SEM_ retorno**: Usadas quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
  - **Funções _COM_ retorno**: Usadas quando é necessário calcular um valor e utilizá-lo posteriormente no código.
+
+#### CALLBACK: FUNÇÃO ANÔNIMA
 
 ## CRIANDO CÓDIGO
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:

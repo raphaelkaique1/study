@@ -961,6 +961,16 @@ CONDIÇÃO DE PARADA ❮              ou
 
 #### TIPOS DE ESTRUTURAS DE REPETIÇÃO
 <pre>
+LOOPS
+São estruturas de programação que nos permitem executar instruções de forma repetitiva dentro de um bloco de códigos.
+Além disso, os loops são executados através de condições.
+Existem 2 tipos de loops:
+1. DETERMINADOS: São aqueles em que se sabe quantas vezes um código será executado.
+    1.1. for
+2. INDETERMINADOS
+    2.1. while
+    2.2. do-while
+
 1. CONDIÇÃO DA REPETIÇÃO NO INÍCIO
 Permite implementar a repetição do mesmo conjunto de instruções, desde que uma determinada condição seja verificada: o
 nº de vezes qaue o ciclo será repetido não é definido a priori. No início de cada iteração, a expressão lógica é avaliada,
