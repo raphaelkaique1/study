@@ -1019,7 +1019,7 @@ const rl = readline.createInterface({
 /* .question(output-parameter, (callback-input-parameter) => {
         doSomething(callback-input-parameter)
     .close})
-    
+
 podemos encapsular este código dentro de uma `arow function` caso precisemos utilizá-lo outras vezes sem precisar reescreve-lo */
 let userName = () => rl.question('User: ', (name) => {
   console.log(`Welcome ${name}`);

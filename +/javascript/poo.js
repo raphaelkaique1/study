@@ -7,7 +7,7 @@ objeto: mantém a estrutura de dados padrão (da classe) mas implementa suas pro
 class formaDeBolo {
     constructor(bolo, saborMassa, saborRecheio, cobertura, saborCobertura = "chantilly") {
         /* this = esta classe
-           este método (this) atribui dentro da classe uma variável que recebe um parâmetro
+           o método `this` atribui dentro da classe uma variável que recebe um parâmetro
            que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro
            let Bolo
            se tratando de classe, seria como no exemplo abaixo:
@@ -44,7 +44,7 @@ console.log(`\nboloChocolate = ${boloChocolate}
 Massa: ${boloChocolate.SaborMassa}
 Recheio: ${boloChocolate.SaborRecheio}\n`)
 
-// ----------
+// ----------------------
 boloChocolate.pedido()
 
 // instanciando um novo objeto
