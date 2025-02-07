@@ -180,6 +180,14 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  O comando **`typeof(var)`** nos diz o tipo de uma variável.
 
 ##### VAR CASTING
+ Var casting (ou type casting) é o processo de converter um valor de um tipo de dado para outro em uma linguagem de programação. Isso é útil quando precisamos tratar dados de diferentes tipos em uma operação.
+
+###### TIPOS DE CASTING
+ 1. **Casting Implícito (Automatic Type Conversion)**<br/>
+ Ocorre automaticamente quando um tipo menor é convertido para um tipo maior, por exemplo: `int` para `float`, sem perda de dados.
+ 2. **Casting Explícito (Explicit Type Conversion)**<br/>
+ Feito manualmente pelo programador usando funções específicas, e por conta do `truncate` pode causar perda de dados por exemplo: `float` para `int`.
+
  Existem vários meios para manipular variáveis. Vejamos algumas opções:
 
  1. **`length`**<br/>
@@ -454,6 +462,74 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  const pi = 3.14;
  ```
  **Como uma boa prática, definimos as constantes em nosso código sempre com `LETRAS_MAIUSCULAS`, para facilitar a legibilidade intuitiva.**
+
+#### AGRUPAMENTO DE DADOS
+ Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória.
+
+##### `arrays`
+ Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. Declaramos um `array` em JS das seguintes maneiras:
+
+ 1. **`array literal notation`**<br/>
+ É a forma mais comum e recomendada para criar `arrays`, pois é simples e diretaa. Basta listar os elementos entre colchetes `[]` separados por vígulas `,`.
+   ```js
+   // podem ser inicializados durante a declaração:
+   let qnt = [2, 3, 4, 5];
+   let fruits = ["pineapple", "orange", "banana", "apple"];
+   let invoice = [["pineapple", 2], ["orange", 3], ["banana", 4], ["apple", 5]]
+   let toBuy = [1, 'watermelon', true, null];
+   let empty = [] // ou vazios
+   ```
+ 2. **`array constructor`**<br/>
+ É possível criar um array usando a função construtora `Array`. Essa abordagem permite passar os elementos como argumentos ou definir diretamente o tamanho do array. **Uma observação importante, é que quando se passa um único número para o construtor, o valor representa o tamanho do array e não um elemento.**
+ ```js
+ // Passando os elementos como argumentos:
+ let cores = new Array('vermelho', 'verde', 'azul');
+ console.log(cores); // ["vermelho", "verde", "azul"]
+
+ // Criando um array com tamanho definido (caso seja passado apenas um número):
+ let tamanho = new Array(3);
+ console.log(tamanho); // [ <3 empty items> ]
+ // Atenção: new Array(3) cria um array com 3 "slots" vazios.
+ ```
+
+ 3. **`array.of`**<br/>
+ O método estático `Array.of()` cria um novo array a partir de um número variável de argumentos, independentemente do número e tipo dos argumentos. Essa forma evita a ambiguidade do construtor quando é passado um único número.
+ ```js
+ let numerosOf = Array.of(7); // Cria um array com um único elemento: [7]
+ let mistoOf = Array.of(1, 'dois', true);
+ console.log(numerosOf); // [7]
+ console.log(mistoOf);   // [1, "dois", true]
+ ```
+
+ 4. **`array.from`**<br/>
+ O método estático `Array.from()` cria um novo array a partir de um objeto iterável ou de um objeto semelhante a array. Ele é muito útil para converter strings, NodeLists, ou outros iteráveis em arrays.
+ ```js
+ // Convertendo uma string em array de caracteres:
+ let letras = Array.from('JavaScript');
+ console.log(letras);
+ // Resultado: ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
+
+ // Usando um objeto iterável (exemplo com Set)
+ let numerosSet = new Set([1, 2, 3, 4]);
+ let arraySet = Array.from(numerosSet);
+ console.log(arraySet); // [1, 2, 3, 4]
+
+ // Aplicando uma função de mapeamento para cada elemento
+ let dobro = Array.from([1, 2, 3], x => x * 2);
+ console.log(dobro); // [2, 4, 6]
+ ```
+
+ 5. **`typed arrays`**<br/>
+ Além dos objetos tipo `Array` normais, o JS também oferece arrays tipados para manipulação de dados numéricos em buffers binários, úteis em contextos como processamento gráfico ou WebGL. Exemplos incluem `Int8Array`, `Uint8Array`, `Float32Array`, entre outros.
+ ```js
+ // Criando um array de inteiros com 4 posições:
+ let inteiros = new Int16Array(4);
+ console.log(inteiros); // [0, 0, 0, 0]
+
+ // Criando e inicializando um array tipado:
+ let floatArray = new Float32Array([1.5, 2.5, 3.5]);
+ console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
+ ```
 
 ### OPERAÇÕES
  Os comandos, instruções e variáveis não serviriam de nada se não fosse possível manipular os dados recebidos, e, para transformá-los em informação útil, usamos os `operadores`. Eles permitem que os programas realizem cálculos complexos e tomem decisões lógicas com base em comparações e outros tipos de condições. São eles:
