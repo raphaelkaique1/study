@@ -35,6 +35,24 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  console.log("Esta é uma declaração.");
  ```
 
+#### HOISTING
+ É o comportamento em que as declarações, seja de variáveis, funções, classes e etc, são *"elevadas"* **para o topo do seu respectivo escopo, seja global ou de função antes que o código seja executado**.<br/>
+ Isso significa que, mesmo que a declaração de uma variável ou função seja realizada *mais abaixo* no código, o interpretador *"sabe"* que ela existe desde o início do escopo.<br/>
+ **Por exemplo, uma declaração usando `var` é *hoisted* e a variável é automaticamente inicializada com o valor `undefined` até o ponto em que sua atribução é executada.**
+ ```js
+ console.log(x); // Imprime: undefined
+ var x = 10;
+ console.log(x); // Imprime: 10
+ ```
+
+ No caso de `let` e `const`, embora a declaração também seja *"elevada"* – ou seja, o interpretados reconhece a existência da variável, **elas não são inicializadas até que o fluxo de execução atinja a linha de declaração**. Isso gera o que chamados de *zona morta temporal (temporal dead zone)*, onde o acesso à variável antes da sua inicialização gera um erro:
+ ```js
+ console.log(y); // ReferenceError: Cannot access 'y' before initialization
+ let y = 20;
+ ```
+
+ Em resumo, *hoisting* é o processo pelo qual as declarações são movidas para o topo do seu escopo durante a fase de intepretação, o que pode afetar a maneira *como* e *quando* as variáveis e funções estão disponíveis no código. Essa característica é particularmente importante ao usar `var`, já que permite o acesso à variável antes de sua linha de declaração – embora seu valor seja `undefined` até ser atribuído, enquanto `let` e `const` protegem a posição alocada contra entre acesso prematuro, ajudando a evitar erros inesperados.
+
 #### STRICT MODE
  Em JS existe um modo que, quando ativado, nos permite ser mais restritivos em nossas declarações. Ele ajuda a detectar erros comuns e práticas de programação que podem levar a comportamentos inesperados, ou seja, ele faz com que alguns *"erros silenciosos"* se tornem **explícitos**, lançando exceções e impedindo certas operações que podem causar bugs difíceis de identificar.
  - Para ativar este modo, podemos declarar no início do arquivo JS para que atinja todo o código:
@@ -85,7 +103,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Como visto acima, as variáveis são declaradas de 2 maneiras:
 
  1. **`var`**: **escopo GLOBAL**<br/>
- Define uma variável global, independemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do script.
+ Define uma variável global, independentemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do script.
  ```js
  var num = 5;
  console.log(num); // num == 5
@@ -482,21 +500,47 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
 #### AGRUPAMENTO DE DADOS
  Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória.
 
+##### `JSON`
+ **JavaScript Object Notation** é um tipo simples de objeto, composto por **`{key: value}`** *com o objetivo de transferir dados*.
+
+
 ##### `arrays`
- Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. Declaramos um `array` em JS das seguintes maneiras:
+ Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. *A posição dos elementos começa sempre a partir de um índice 0.* Por padrão são *estruturas dinâmicas*, ou seja, seu tamanho pode ser alterado após a criação, no entanto, também veremos maneiras de criar `arrays` de *tamanho fixo*.
+ 
+**CONSIDERAÇÕES SOBRE DECLARAÇÕES**<br/>
+ Independente da forma escolhida para criar o array, podemos declará-los usando `var`, `let` ou `const`, porém existem algumas particularidades, vejamos:
+
+ - **`let`**: Tem escopo de bloco e é **recomendado para a maioria dos casos**.
+ - **`var`**: Tem escopo de função e sofre *hoisting*.
+ - **`const`**: **Garante que a referência não será reatribuída**, *embora o conteúdo do array possa ser modificado*.
+ 
+ Declaramos um `array` em JS das seguintes maneiras:
 
  1. **`array literal notation`**<br/>
  É a forma mais comum e recomendada para criar `arrays`, pois é simples e direta. Basta listar os elementos entre colchetes `[]` separados por vígulas `,`.
    ```js
    // podem ser inicializados durante a declaração:
    let qnt = [2, 3, 4, 5];
+   console.log(qnt) // [ 1, 2, 3, 4 ]
+
    let fruits = ["pineapple", "orange", "banana", "apple"];
-   let invoice = [["pineapple", 2], ["orange", 3], ["banana", 4], ["apple", 5]]
-   let toBuy = [1, 'watermelon', true, null];
-   let empty = [] // ou vazios
-   empty.push("*", true, 3) // e populados durante a execução do programa
-   console.log(empyt) // [ '*', true, 3 ]
+   console.log(fruits[3]) // apple
+
+   let toBuy = [1, 'watermelon', true, null]; // mixed types
+
+   let empty = []; // ou vazios
+   empty.push("*", true, 3); // e populados durante a execução do programa
+   console.log(empyt); // [ '*', true, 3 ]
+
+   // é comum utilizarmos arrays para representar matrizes para criar tabelas ou grids por exemplo. Vejamos um exemplo simples de uma matriz 4x2:
+   let invoice = [["pineapple", 2], ["orange", 3], ["banana", 4], ["apple", 5]];
+   console.log(invoice[1][0]); // acessa o valor "orange": linha 1 coluna 0.
+
+   invoice[1][0] = "kiwi"; // altera o valor na posição indicada
+   console.log(invoice[1][0]); // kiwi
+   console.log(invoice); // [ [ 'pineapple', 2 ], [ 'kiwi', 3 ], [ 'banana', 4 ], [ 'apple', 5 ] ]
    ```
+
  2. **`array constructor`**<br/>
  É possível criar um array usando a função construtora `Array`. Essa abordagem permite passar os elementos como argumentos ou definir diretamente o tamanho do array. **Uma observação importante, é que quando se passa um único número para o construtor, o valor representa o tamanho do array e não um elemento.**
  ```js
@@ -538,7 +582,21 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
  5. **`typed arrays`**<br/>
- Além dos objetos tipo `Array` normais, o JS também oferece arrays tipados para manipulação de dados numéricos em buffers binários, úteis em contextos como processamento gráfico ou WebGL. Exemplos incluem `Int8Array`, `Uint8Array`, `Float32Array`, entre outros.
+ Além dos objetos tipo `Array` normais, o JS também oferece arrays tipados para manipulação de dados numéricos em buffers binários, úteis em contextos como processamento gráfico ou WebGL. Eles são especialmente úteis quando o desempenho é crucial, pois oferecemm forma eficiente de manipular dados binários e realizar operações numéricas de alto desempenho – neste caso, se tentarmos atribuir um valor que não seja numérico, este será convertido para um número de acordo com as regras de conversão do JS ou poderá resultar em `NaN` se a conversão não for possível. **Cada um dos typed arrays trabalham com tamanhos fixos, definidos no momento de sua criação, e oferem métodos específicos para manipulação de dados binários.**
+
+ - **Int8Array**: Array de inteiros com 8 bits ***com* sinal** – **ou seja, pode representar números negativos e positivos. Geralmente, seu intervalo vai de -128 a 127, pois um dos 8 bits é usado para o sinal**.
+ - **Uint8Array**: Array de inteiros com 8 bits ***sem* sinal** – **só armazena valores NÃO negativos, ou seja, números sem sinal, com um intervalo de 0 a 255**.
+ - **Uint8ClampedArray**: Similar ao Uint8Array, porém os valores são *"limitados"* – **clamped** – **entre 0 e 255**.
+ - **Int16Array**: Array de inteiros com 16 bits ***com* sinal**.
+ - **Uint16Array**: Array de inteiros com 16 bits ***sem* sinal**.
+ - **Int32Array**: Array de inteiros com 32 bits ***com* sinal**.
+ - **Uint32Array**: Array de inteiros com 32 bits ***sem* sinal**.
+ - **Float32Array**: Array de números de ponto flutuante com precisão **simples** (32 bits).
+ - **Float64Array**: Array de números de ponto flutuante com precisão **dupla** (64 bits).
+ - **BigInt64Array**: Array de inteiros de 64 bits ***com* sinal,** utilizando o tipo BigInt.
+ - **BigUint64Array**: Array de inteiros de 64 bits ***sem* sinal**, utilizando o tipo BigInt.
+
+ Sua declaração é simples:
  ```js
  // Criando um array de inteiros com 4 posições:
  let inteiros = new Int16Array(4);
