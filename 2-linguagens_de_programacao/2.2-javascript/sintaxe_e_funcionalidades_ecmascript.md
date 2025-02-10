@@ -1,6 +1,6 @@
 # JAVASCRIPT
  JavaScript é uma linguagem de programação *interpretada*, de *alto nível* e *multiparadigma*, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica.<br/>
- Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, logo em seguida, numa jogada de marketing influenciada pela popularidade da linguagem **Java** o nome foi alterado para **`JavaScript`**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização da linguagem veio por meio da Ecma International, dando origem à especificação **ECMAScript** — padronização de linguagens de script, definindo regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
+ Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, logo em seguida, numa jogada de marketing influenciada pela popularidade da linguagem **Java** o nome foi alterado para **`JavaScript`**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização da linguagem veio por meio da Ecma International, dando origem à especificação **ECMAScript** — padronização de linguagens de script que define as regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
  As principais características que destacam o JS são:
  - *Execução local*.
  - *Interpretado*.
@@ -25,7 +25,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  1. **NUMBERS**<br/>
  Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**).
  2. **STRINGS**<br/>
- Caracteres, alfanuméricos, textos em geral (como palavras e frases).
+ Caracteres, alfanuméricos e textos em geral (como palavras e frases).
  3. **BOOLEANS**<br/>
  Com apenas **2 valores possíveis**: **`true`** ou **`false`**.
 
@@ -36,7 +36,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
 #### STRICT MODE
- Em JS existem um modo que, quando ativado, nos permite ser mais restritivos em nossas declarações. Ele ajuda a detectar erros comuns e práticas que programação que podem levar a comportamentos inesperados, ou seja, ele faz com que alguns *"erros silenciosos"* se tornem **explícitos**, lançando exceções e impedindo certas operações que podem causar bugs difíceis de identificar.
+ Em JS existe um modo que, quando ativado, nos permite ser mais restritivos em nossas declarações. Ele ajuda a detectar erros comuns e práticas de programação que podem levar a comportamentos inesperados, ou seja, ele faz com que alguns *"erros silenciosos"* se tornem **explícitos**, lançando exceções e impedindo certas operações que podem causar bugs difíceis de identificar.
  - Para ativar este modo, podemos declarar no início do arquivo JS para que atinja todo o código:
  ```js
  "use strict";
@@ -66,7 +66,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
 #### DECLARANDO VARIÁVEIS
- Por definição, uma variável é um espaço na memória do computador onde um valor será amazenado, tal este que pode mudar durante a execução do programa.<br/>
+ Por definição, uma variável é um espaço na memória do computador onde um valor será armazenado, tal este que pode mudar durante a execução do programa.<br/>
  A sintaxe básica da declaração é a seguinte:
  ```js
  /* var ≠ let
@@ -85,17 +85,17 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Como visto acima, as variáveis são declaradas de 2 maneiras:
 
  1. **`var`**: **escopo GLOBAL**<br/>
- Define uma variável global, independemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do código.
+ Define uma variável global, independemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do script.
  ```js
- let num = 5;
+ var num = 5;
  console.log(num); // num == 5
 
  if(true) {
-  let num = 10;
+  var num = 10;
   console.log(num); //num == 10
  }
 
- console.log(num); // num == 5  <-
+ console.log(num); // num == 10  <-
  ```
 
  2. **`let`**: **escopo LOCAL**<br/>
@@ -106,14 +106,14 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
 
  if(true) {
   let num = 10;
-  console.log(num); //num == 10
+  console.log(num); //num == 10 <-
  }
 
- console.log(num); // num == 10 <-
+ console.log(num); // num == 5 <-
  ```
 
 ##### POPULANDO VARIÁVEIS
- Podemos tanto declarar uma **¹variável _inicializada_** quanto **¹uma variável _vazia_ e atribuir-lhe um valor durante o tempo de execução do programa**.
+ Podemos tanto declarar uma **uma variável _vazia¹_ e atribuir-lhe um valor durante o tempo de execução do programa** quanto **variável _inicializada²_**.
  ```js
  // 1
  var name;
@@ -133,11 +133,12 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Qualquer valor entre aspas duplas `"value"` ou simples `'value'` atribuído a uma variável é considerado uma `string`, mesmo que o valor seja um número.<br/>
  Uma boa prática é usar **aspas duplas `""`** *para palavras e frases*, e **aspas imples `''`** *para caracteres*.
  ```js
- var num1 = 5; // int
- var num2 = '5'; // str
+ var num1 = 9;   // int
+ var num2 = '9'; // char
+ var num3 = "10" // string
  ```
 
- Um ponto que o desenvolver deve estar sempre atento ao trabalhar com `strings` é que, ao concatená-las com valores numéricos, estes valores passam a ser considerados TODOS como `strings`:
+ Um ponto que o desenvolvedor deve estar sempre atento ao trabalhar com `strings` é que, ao concatená-las com valores numéricos, estes valores passam a ser considerados TODOS como `strings`:
  ```js
  var x = '5';
  console.log(x + 10); // "510": string
@@ -150,19 +151,34 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  *Avalia a expressão dentro de `${}` primeiro e então monta a string final.*<br/>
  Ideal para concatenar variáveis ou expressões dentro de strings de forma legível e clara, especialmente quando você tem mais de uma variável ou uma expressão complexa.<br/>
  Dentro da string, o `${nick_name}` será interpretado primeiro, ou seja, a variável `nick_name` será acessada antes da concatenação com a string `"Welcome "`.
+ ```js
+ let nick_name = "Raphael";
+
+ console.log(`Welcome ${nick_name}`);
+ ```
 
  2. **Operador de Concatenação `"texto " + variavel`**<br/>
  *Avalia os operandos antes de concatená-los.*<br/>
  O operador `+` é usado para juntar `strings` e `values`. O JavaScript converte automaticamente o valor de `nick_name` para uma string e concatena com `"Welcome "`.<br/>
  O operador `+` executa a concatenação após a conversão do valor de `nick_name` para string. Ou seja, o valor de `nick_name` é acessado primeiro, e depois a `string` `"Welcome "` é concatenada.
+ ```js
+ let nick_name = "Raphael";
+
+ console.log("Welcome " + nick_name);
+ ```
 
  3. **Vírgula `"texto ", variavel`**<br/>
  *Ideal para quando você deseja imprimir múltiplos valores em vez de concatená-los em uma única string.*<br/>
  Nesse caso, a vírgula *não faz* uma concatenação de `strings`, mas sim imprime os dois valores (`"Welcome "` e `nick_name`) separados por um espaço — comportamento padrão do `console.log()`.<br/>
  O JavaScript imprime os argumentos passados para `console.log()` de forma separada na ordem em que estão, sem concatená-los explicitamente.
+ ```js
+ let nick_name = "Raphael";
+
+ console.log("Welcome ", nick_name);
+ ```
 
 **MODELOS DE STRINGS**<br/>
- Podemos usar o DOM para substituir valores dentro de uma `string` sem a necessidade de concatená-las, usando a *interpolação de `strings`*:
+ Podemos usar o **`DOM`** para substituir valores dentro de uma `string` sem a necessidade de concatená-las, usando a *interpolação de `strings`*:
  ```js
  var name = "Raphael";
  var nick_name = "Rael";
@@ -174,7 +190,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
 **BOAS PRÁTICAS**<br/>
- *Uma boa prática é sempre **declarar como `strings` números que não vão ser operados matematicamente**, como cpf, número de telefone ou CEP por exemplo.*
+ *Uma boa prática é **sempre declarar como `strings` números que não vão ser operados matematicamente**, como cpf, número de telefone ou CEP por exemplo.*
 
 ##### IDENTIFICANDO TIPO DE VARIÁVEL
  O comando **`typeof(var)`** nos diz o tipo de uma variável.
@@ -196,7 +212,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```js
  const texto = "Olá, Mundo!";
  const vetor = ["valor 1", "valor 2", "valor 3"];
- console.log(texto.length); // Saída: 12
+ console.log(texto.length); // Saída: 11
  console.log(vetor.length); // Saída: 3
  ```
 
@@ -215,7 +231,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
  3. **`parseInt()`**<br/>
- Examina a string do início e converte os dígitos encontrados até que um caractere inválido seja encontrado. Se o primeiro caractere não for numérico — após ignorar espaços, retorna **`NaN`**. **Mesmo que a parte analisada contenha uma parte decimal, o retorno é sempre um inteiro, e a parte decimal depois do ponto é descartada.** *Permite informar a base numérica — por exemplo, 10 para decimal, 16 para hexadecimal — como segundo parâmetro.*
+ Examina a string do início e converte os dígitos encontrados até que um caractere inválido seja encontrado. **Se o primeiro caractere não for numérico — após ignorar espaços, retorna `NaN`. Mesmo que a parte analisada contenha uma parte decimal, o retorno é sempre um inteiro, e a parte decimal depois do ponto é descartada.** *Permite informar a base numérica — por exemplo, 10 para decimal, 16 para hexadecimal — como segundo parâmetro.*
  ```js
  parseInt("10.5");       // retorna 10
  parseInt("10 anos");    // retorna 10
@@ -225,7 +241,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
  4. **`parseFloat()`**<br/>
- Funciona de forma similar ao `parseInt()` ao “ler” a string do início e interromper na primeira ocorrência de um caractere inválido para um número, **mas retorna um valor de ponto flutuante**. *Se a parte numérica da string contém um ponto decimal, o valor retornado preserva essa parte fracionária e não trunca o valor como em `parseInt()`.*
+ Funciona de forma similar ao `parseInt()` ao "ler" a string do início e interromper na primeira ocorrência de um caractere inválido para um número, **mas retorna um valor de ponto flutuante**. *Se a parte numérica da string contém um ponto decimal, o valor retornado preserva essa parte fracionária e não trunca o valor como em `parseInt()`.*
  ```js
  parseFloat("10.5");       // retorna 10.5
  parseFloat("10.5abc");    // retorna 10.5
@@ -350,8 +366,8 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  console.log(texto.replace(/\s+/g, " ").trim());  // "Olá, Mundo!"
 
  const string1 = "   JavaScript   ";
- console.log(`Antes: "${string1}"`);
- console.log(`Depois: "${string1.trim()}"`);
+ console.log(`Antes: "${string1}"`);         // output: '   JavaScript   '
+ console.log(`Depois: "${string1.trim()}"`); // output: 'JavaScript'
 
  const exemplo = "   Exemplo   ";
  console.log(exemplo.trimStart()); // || console.log(exemplo.trimLeft()); // "Exemplo   "
@@ -388,7 +404,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  ```
 
  18. **`lastIndexOf()`**<br/>
- Busca a última ocorrência de uma substring. Também podemos fornecer um segundo parâmetro que indica o índice a partir de qual a busca deve começar, buscando do índice indicado até o índice 0 para retonar qual a posição do índice do termo buscado.
+ Busca a última ocorrência de uma substring. Também podemos fornecer um segundo parâmetro que indica o índice a partir de qual a busca deve começar, buscando do índice indicado até o índice 0 para retonar qual a posição de índice do termo buscado.
  ```js
  const frase = "O rato roeu a roupa do rei de Roma.";
  const posicao = frase.lastIndexOf("rei");
@@ -459,7 +475,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Por definição, uma constante é um espaço na memória do computador onde um valor que é armazenado **NÃO pode ser alterado** durante o *tempo de execução* do programa. Ou seja, se declararmos uma constante e lhe atribuirmos um valor, este valor não pode ser modificado.<br/>
  **Uma constante só funciona se INICIALIZADA, ou seja, necessita de um valor atribuído no código fonte — não sendo possível atribuir-lhe uma variável, apenas um valor ou "apontar" para outra constante — caso contrário o programa não executa.**
  ```js
- const pi = 3.14;
+ const PI = 3.14;
  ```
  **Como uma boa prática, definimos as constantes em nosso código sempre com `LETRAS_MAIUSCULAS`, para facilitar a legibilidade intuitiva.**
 
@@ -470,7 +486,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. Declaramos um `array` em JS das seguintes maneiras:
 
  1. **`array literal notation`**<br/>
- É a forma mais comum e recomendada para criar `arrays`, pois é simples e diretaa. Basta listar os elementos entre colchetes `[]` separados por vígulas `,`.
+ É a forma mais comum e recomendada para criar `arrays`, pois é simples e direta. Basta listar os elementos entre colchetes `[]` separados por vígulas `,`.
    ```js
    // podem ser inicializados durante a declaração:
    let qnt = [2, 3, 4, 5];
@@ -478,6 +494,8 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
    let invoice = [["pineapple", 2], ["orange", 3], ["banana", 4], ["apple", 5]]
    let toBuy = [1, 'watermelon', true, null];
    let empty = [] // ou vazios
+   empty.push("*", true, 3) // e populados durante a execução do programa
+   console.log(empyt) // [ '*', true, 3 ]
    ```
  2. **`array constructor`**<br/>
  É possível criar um array usando a função construtora `Array`. Essa abordagem permite passar os elementos como argumentos ou definir diretamente o tamanho do array. **Uma observação importante, é que quando se passa um único número para o construtor, o valor representa o tamanho do array e não um elemento.**
