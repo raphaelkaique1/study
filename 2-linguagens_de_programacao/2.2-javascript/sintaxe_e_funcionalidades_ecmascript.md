@@ -501,8 +501,442 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória.
 
 ##### `JSON`
- **JavaScript Object Notation** é um tipo simples de objeto, composto por **`{key: value}`** *com o objetivo de transferir dados*.
+ **JavaScript Object Notation** é um tipo simples de objeto, composto por **`{key: value}`** *com o objetivo de transferir dados*. Por ter se tornado um modelo leve de troca de dados baseado na sintaxe de objetos do JavaScript, é independete de linguagem, o que significa que pode ser usado em diversar outras tecnologias.
+ ```json
+ {
+  "nome": "João",
+  "idade": 25,
+  "email": "joao@email.com",
+  "hobbies": ["futebol", "leitura", "música"],
+  "endereco": {
+    "rua": "Av. Brasil",
+    "cidade": "São Paulo"
+  }
+ }
+ ```
 
+ O principal uso do `JSON` é na transferência de dados em **`APIs`**. Para criarmos um `JSON` em JS, podemos atribuílo a uma variável, tranformando-o em um **objeto**:
+ ```js
+ const user = {
+  name: "Raphael",
+  age: 30
+ };
+ ```
+
+ Para enviarmos estes dados, devemos converter este **`object JS`** em uma **`string JSON`**, usando o método **`JSON.stringify()`**:
+ ```js
+ const user = {
+  name: "Raphael",
+  age: 30
+ };
+
+ const jsonString = JSON.stringify(user);
+ console.log(jsonString); // '{"name":"Raphael","age":30}'
+ ```
+
+ E para realizarmos a conversão inversa — `string JSON` para `object JS` — usamos **`JSON.parse()`**:
+ ```js
+ const jsonString = '{"name":"Raphael","age":30}';
+
+ const obj = JSON.parse(jsonString);
+ console.log(obj.name); // Raphael
+ ```
+
+ Diferente de um **objeto JS**, o **JSON** exige *aspas duplas* `""` para as chaves e valores.
+
+##### `objects`
+ Como vimos em JSON, um objeto é uma estrutura semelhante que permite armazenar dados na forma de pares de chave e valor `{key: value}`. Porém, diferentemente do JSON – que apenas armazena dados, um objeto também pode armazenar funções. É um dos principais tipos de dados e é muito usado para representar entidades do mundo real.
+
+ - **`literal object`**<br/>
+ Para **criarmos um objeto**, *declaramos uma variável `let`, `var` ou o mais comumente usado, o `const`*, e *atribuímos `=` a uma *estrutura de chaves `{}`*, onde irá conter *cada par de chave e valor*, com os *valores atribuídos às chaves usando `:`*. Vejamos:
+ ```js
+ const Pessoa = {
+  nome: "Raphael",
+  profissao: "software developer"
+ };
+ ```
+
+ - **`constructor`**<br/>
+ Além da declaração literal direta de um objeto, existem outras formas de criarmos um objeto, como por exemplo **`new Object`**:
+ ```js
+ const livro = new Object();
+ livro.titulo = "Dom Casmurro";
+ livro.autor = "Machado de Assis";
+
+ /* o elemento `Object()` é uma função tipo `constructor`,
+ que coleta os atributos passados como valor
+ e a propriedade após o `.` como chave
+ 
+ enquanto o elemento `new` realiza o mesmo que:
+ const livro = {
+   tiutlo: "Dom Casmurro",
+   autor: "Machado de Assis"
+   }; */
+ ```
+
+ - **`direct prototypic inheritance`**<br>
+ O **`Object.create()`** é útil quando é necessário criar um objeto que herda diretamente de outro, exemplo:
+ ```js
+ const animal = {
+   tipo: "mamífero",
+   fazerSom() {
+     console.log("Som do animal!");
+   }
+ };
+
+ const cachorro = Object.create(animal);
+ cachorro.raca = "Labrador";
+ /* const cachorro = {
+   + raca: "Labrador",
+   tipo: "mamífero",
+   fazerSom() {
+     console.log("Som do animal!");
+   }
+ }
+ */
+
+ console.log(cachorro.tipo); // "mamífero"
+ cachorro.fazerSom(); // "Som do animal!"
+ ```
+
+ - **`factory function`**<br/>
+ Também podemos usar funções para criar objetos, porém não é aconselhado pois cada objeto criado tem suas próprias cópias dos métodos, gastando mais memória.
+ ```js
+ function criarPessoa(nome, idade) {
+   return {
+     nome,
+     idade,
+     falar() {
+       console.log(`Oi, eu sou ${this.nome}!`);
+     }
+   };
+ }
+
+ const marido = criarPessoa("Raphael", 30);
+ const esposa = criarPessoa("Déborah", 30);
+
+ marido.falar(); // "Oi, eu sou Raphael!"
+ esposa.falar(); // "Oi, eu sou Déborah!"
+ console.log(`${marido.nome} é casado com ${esposa.nome}.`);
+ ```
+
+ - **`constructor function new`**<br/>
+ Uma alternativa usada antes da introdução da `class` no **`ES6`**, este método era ussado junto com a `factory function` quando havia a necessidade de se criar múltiplos objetos que compartilhem médotos via **`prototype`** – o que economiza muita memória.
+ ```js
+ function Pessoa(nome, idade) {
+   this.nome = nome;
+   this.idade = idade;
+ }
+
+ Pessoa.prototype.falar = function () {
+   console.log(`Meu nome é ${this.nome}.`);
+ };
+
+ const pessoa1 = new Pessoa("Raphael", 30);
+ const pessoa2 = new Pessoa("Déborah", 30);
+
+ pessoa1.falar(); // "Meu nome é Raphael."
+ ```
+
+ - **`class`**<br/>
+ É o método usado em POO, pois um objeto é uma instância de uma classe, ou seja, a classe é o *"padrão"* de como o objeto deve ser. Exemplo:
+ ```js
+ // criando a classe, que é o modelo do objeto
+ class Animal {
+   constructor(nome, tipo) {
+     this.nome = nome;
+     this.tipo = tipo;
+   }
+
+   fazerSom() {
+     console.log("Som do animal!");
+   }
+ }
+
+ const gato = new Animal("Mia", "Felino"); // instanciando o objeto
+
+ console.log(gato.nome); // "Mia"
+ gato.fazerSom(); // "Som do animal!"
+ ```
+
+ Um objeto pode conter diferentes métodos e propriedades. Sendo as **propriedades** as informações armazenadas no objeto, e os **métodos** as funções dentro dele.
+ ```js
+ const carro = {
+   marca: "Toyota",
+   modelo: "Corolla",
+   ano: 2022,
+   ligar: function () {
+     console.log("O carro está ligado!");
+   }
+ };
+
+ carro.ligar(); // "O carro está ligado!"
+ ```
+
+**Objetos podem conter outros objetos e também `arrays`.**
+ ```js
+ const aluno = {
+   nome: "Raphael",
+   notas: [8, 9, 10],
+   endereco: {
+     cidade: "Belo Horizonte",
+     cep: "12345-678"
+   }
+ };
+
+ console.log(aluno.notas[1]); // 9
+ console.log(aluno.endereco.cidade); // "Belo Horizonte"
+ ```
+
+ Para acessarmos as *propriedades* de um objeto, primeiro o declaramos e, usando o *seletor `.`* escolhemos qual método ou propriedade do objeto queremos. Exemplo:
+ ```js
+ const Pessoa = {
+  nome: "Raphael",
+  profissao: "software developer",
+  saudacao () {
+      console.log(`Olá! Me chamo ${this.nome} e trabalho como ${this.profissao}.`)
+  }
+ };
+
+ console.log(Pessoa.nome);      // "Raphael"
+ console.log(Pessoa.profissao); // "software developer"
+ Pessoa.saudacao(); // Olá! Me chamo Raphael e trabalho como software developer.
+ ```
+
+###### `this`
+ Trata-se de uma referência ao objeto que está executando o código no momento, dessa forma, quando um objeto ou classe quer se referir a si mesmo, ele usa **`this`**. Este método atribui dentro de um objeto ou uma classe, uma variável que recebe um parâmetro, que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro externo. Ele se refere ao contexto de execução atual. Seu comportamento pode mudar dependendo de onde e como é usado. Se não precisarmos de privacidade ou quisermos manter as propriedades acessíveis ao programa, usar **`this` é a melhor opção**.
+
+ - **`this` em Objetos Literais**<br/>
+ Em um **objeto literal**, `this` *se refere ao próprio objeto*.<br/>
+ **Aqui, `this` se refere ao objeto `pessoa`**:
+
+ ```js
+ const pessoa = {
+   nome: "Rael",
+   saudacao: function () {
+     console.log(`Olá, meu nome é ${this.nome}.`);
+   }
+ };
+
+ pessoa.saudacao(); // "Olá, meu nome é Rael."
+ ```
+
+ - **`this` em Funções Construtoras**<br/>
+ Em uma **função construtora**, `this` *representa a nova instância criada*.<br/>
+ **Aqui, `this` se refere ao objeto criado com `new Pessoa()`**:
+
+ ```js
+ function Pessoa(nome) {
+   this.nome = nome;
+   this.falar = function () {
+     console.log(`Oi, eu sou ${this.nome}.`);
+   };
+ }
+
+ const pessoa1 = new Pessoa("Raphael");
+ pessoa1.falar(); // "Oi, eu sou Raphael."
+ ```
+
+ - **`this` em Classes (`class`)**<br/>
+ Em **classes**, `this` *funciona da mesma forma que em funções construtoras*.<br/>
+ **Aqui, `this` representa cada instância da classe `Carro`**:
+
+ ```js
+ class Carro {
+   constructor(marca, modelo) {
+     this.marca = marca;
+     this.modelo = modelo;
+   }
+
+   detalhes() {
+     console.log(`Este carro é um ${this.marca} ${this.modelo}.`);
+   }
+ }
+
+ const meuCarro = new Carro("Toyota", "Corolla");
+ meuCarro.detalhes(); // "Este carro é um Toyota Corolla."
+ ```
+
+ **PROBLEMA COMUM - `this`**<br/>
+ **`functions`**<br/>
+ O valor de `this` **muda dependendo do contexto**, o que pode causar erros.
+
+ - **❌ PROBLEMA ❌**<br/>
+ **`this` em funções normais.**<br/>
+ **Motivo:** `this` dentro de `setTimeout` não se refere ao objeto `obj`, mas ao escopo global — `window` no navegador ou `global` no Node.js:
+
+ ```js
+ const obj = {
+   nome: "Lucas",
+   dizerNome: function () {
+     setTimeout(function () {
+       console.log(this.nome); // ❌ `this` aqui não é `obj` ❌
+     }, 1000);
+   }
+ };
+
+ obj.dizerNome(); // `undefined`
+ ```
+
+**✅ SOLUÇÕES ✅**
+
+ - **`arrow function`**<br/>
+ Arrow functions **não criam um novo `this`**, então elas *"herdam"* o `this` do escopo onde foram definidas.<br/>
+ **Aqui, `this` mantém a referência ao `obj`**:  
+
+ ```js
+ const obj = {
+   nome: "Raphael",
+   dizerNome: function () {
+     setTimeout(() => {
+       console.log(this.nome); // agora funciona
+     }, 1000);
+   }
+ };
+
+ obj.dizerNome(); // "Raphael"
+ ```
+
+ - **`let var = this`**<br/>
+ Ao armazenar o `this` em uma variável, podemos usar sua referência na variável.<br/>
+ **Aqui, usamos `self` para manter a referência correta de `this`**:
+
+ ```js
+ const obj = {
+   nome: "Lucas",
+   dizerNome: function () {
+     const self = this; // guardamos a referência de `this`
+     setTimeout(function () {
+       console.log(self.nome); // ✅ Agora funciona
+     }, 1000);
+   }
+ };
+
+ obj.dizerNome(); // "Lucas"
+ ```
+
+ **ALTERNATIVAS AO `this`**<br/>
+ Caso seja necessário manter as propriedades ocultas e inacessíveis ao resto do programa, podemos usar os **Métodos Privados**. Estes métodos são aqueles que não podem ser acessados fora da classe. Existem algumas formas de criá-los:
+
+ - **private variables `#` (ES6+)**<br/>
+ Podemos usar **campos privados `#`** para armazenar valores sem expô-los diretamente, assim mantemos os dados privados e encapsulados.<br/>
+ Este método oferece total segurança, sendo impossível acessar os dados privados fora da classe:
+
+ ```js
+ class Person {
+     #name; // propriedade privada
+     #age;  // propriedade privada
+ 
+     constructor(name, age) {
+         this.#name = name;
+         this.#age = age;
+     }
+
+     // método público
+     saudacao() {
+         console.log(`Olá, me chamao ${this.#name}.`);
+     }
+
+     // método privado
+     #idade() {
+       console.log(`Eu tenho ${this.#age}`);
+     }
+
+     // método privado / público
+     exibirIdade() {
+       this.#idade(); // pode ser chamado ao executar: raphael.exibirIdade()
+     }
+ }
+
+ const raphael = new Person("Raphael", 20);
+ raphael.saudacao(); // "Olá, me chamo Raphael"
+
+ // console.log(raphael.#name); ❌ Erro: propriedade privada ❌
+ ```
+
+ - **`Symbol`**<br/>
+ Se precisar de privacidade sem `#`, pode usar `Symbol`, que mantém as propriedades privadas sem expor os valores, porém ainda pode ser acessado com `Object.getOwnPropertySymbols()`, o que faz não ser um método tão seguro:
+
+ ```js
+ const _name = Symbol("name");
+ const _age = Symbol("age");
+ const _Age = Symbol("Age");
+
+ class Person {
+     constructor(name, age) {
+         this[_name] = name;
+         this[_age] = age;
+     }
+    
+     saudacao() {
+         console.log(`Olá, me chamo ${this[_name]}.`);
+     }
+
+     // método privado
+     [_Age]() {
+       console.log(`Eu tenho ${this[_age]}.`);
+     }
+
+     // método privado / público
+     showAge() {
+       this[_Age](); // pode ser chamado ao executar: raphael.showAge()
+     }
+ }
+
+ const raphael = new Person("Raphael", 20);
+ raphael.saudacao(); // "Olá, me chamo Raphael."
+ raphael.showAge();  // "Eu tenho 20."
+
+ // console.log(raphael[_name]); ❌ Erro: símbolo privado
+ ```
+
+ - **`WeakMap`**<br/>
+ Outra abordagem é usar **`WeakMap`** para armazenar métodos privados, apesar de ser mais complexo e pouco intuitívo, era uma boa alternativa antes do surgimento de `#`, pois impedia acesso direto.  
+
+ ```js
+ const _metodos = new WeakMap();
+
+ class Pessoa {
+     constructor(nome) {
+         this.nome = nome;
+         
+         _metodos.set(this, {
+             saudacaoPrivada: () => console.log(`Olá, eu sou ${this.nome}.`)
+         });
+     }
+
+     chamarSaudacao() {
+         _metodos.get(this).saudacaoPrivada(); // ✅ Acessando método privado
+     }
+ }
+
+ const p = new Pessoa("Rael");
+ p.chamarSaudacao(); // "Olá, eu sou Rael."
+ ```
+
+ - **private functions in `constructor`**<br/>
+ Outra abordagem para criar métodos privados é defini-los **dentro do `constructor`**. Apesar de conseguir impedir acesso direto ao método privado, cada instância criava uma nova cópia da função, o que consumia maior quantidade de memória.
+
+ ```js
+ class Pessoa {
+     constructor(nome) {
+         this.nome = nome;
+ 
+         const saudacaoPrivada = () => {
+             console.log(`Olá, eu sou ${this.nome}.`);
+         };
+ 
+         this.chamarSaudacao = () => {
+             saudacaoPrivada(); // ✅ Método privado acessível apenas aqui
+         };
+     }
+ }
+
+ const p = new Pessoa("Raphael");
+ p.chamarSaudacao(); // "Olá, eu sou Raphael."
+
+ p.saudacaoPrivada(); // ❌ Erro: não existe fora do construtor
+ ```
 
 ##### `arrays`
  Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. *A posição dos elementos começa sempre a partir de um índice 0.* Por padrão são *estruturas dinâmicas*, ou seja, seu tamanho pode ser alterado após a criação, no entanto, também veremos maneiras de criar `arrays` de *tamanho fixo*.
@@ -539,6 +973,14 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
    invoice[1][0] = "kiwi"; // altera o valor na posição indicada
    console.log(invoice[1][0]); // kiwi
    console.log(invoice); // [ [ 'pineapple', 2 ], [ 'kiwi', 3 ], [ 'banana', 4 ], [ 'apple', 5 ] ]
+
+   // além de outros arrays, arrays podem também armazenar objetos
+   const produtos = [
+     { nome: "Notebook", preco: 3000 },
+     { nome: "Celular", preco: 1500 }
+   ];
+
+   console.log(`${produtos[0].nome}: R$ ${produtos[0].preco}`); // "Notebook"
    ```
 
  2. **`array constructor`**<br/>
