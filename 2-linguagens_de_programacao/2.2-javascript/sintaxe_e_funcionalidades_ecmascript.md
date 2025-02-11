@@ -1379,6 +1379,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  ```
 
 #### ESTRUTURAS DE MÉTODOS
+ Referem-se à forma como definimos e organizamos funções dentro de objetos e classes. Um **método** é simplesmente uma **função** que pertence a um *objeto* ou uma *classe*.
  ```JS
  /* objetos, métodos e propriedades
 
@@ -1390,27 +1391,244 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
          log = método de processamento do objeto */
  ```
 
-#### FUNÇÕES PRÉ-DEFINIDAS
- São comandos padronizados prontos para serem usados.
+ - **`object methods`**<br/>
+ **Os métodos podem ser definidos diretamente dentro de um objeto.**
+ Neste exemplo, `saudacao()` é um **método** do objeto `Pessoa`, que pode acessar outras propriedades do objeto usando `this`:
+ ```js
+ const Pessoa = {
+  nome: "Raphael",
+  saudacao () {
+      console.log(`Olá ${this.nome}.`);
+  }
+ }
+ 
+ Pessoa.saudacao();
+ ```
+
+ - **`class methods`**<br/>
+ **Por natureza, as classes contém métodos.**
+ Neste exemplo, `saudacao()` é um **método** da classe `Pessoa`:
+ ```js
+ class Pessoa {
+  constructor(nome) {
+    this.nome = nome;
+  }
+
+  saudacao() {
+    return `Olá ${this.nome}`;
+  }
+ }
+
+ const pessoa = new Pessoa("Raphael");
+ console.log(pessoa.saudacao());
+ ```
+
+ - **`static methods`**<br/>
+ **Semelhante aos *métodos de objetos*, métodos estáticos são métodos que pertencem somente à classe, e não às instâncias dela.**
+ Aqui o método `somar()` pode ser chamados sem precisar criar um objeto da classe:
+ ```js
+ class Matematica {
+  static somar(number1, number2) {
+    return number1 + number2;
+  }
+ }
+
+ console.log(Matematica.somar(5, 14));
+ ```
+
+ As funções são definidas como um conjunto de instruções prontas para serem chamadas a qualquer momento e só serão executadas quando chamadas, seu objetivo é, portanto, a reutilização de código.<br/>
+ Usamos basicamente, 2 tipos de funções:
+ - **funções pré-definidas**: São como *ferramentas prontas* que o JS fornece, executam ações generalistas.
+ - **funções próprias**: São as *ferramentas que criamos* usando condicionais, loops e outras funções pré-definidas, para resolverem tarefas específicas que as funções pré-definidas não conseguem por si só.
+
+##### FUNÇÕES PRÉ-DEFINIDAS
+ São comandos padronizados, prontos para serem usados. Exemplo:
  ```js
  alert("Este é um exemplo de função pré-definida.");
  ```
 
-#### FUNÇÕES
- Além destes também podemos criar nossas próprias funções combinando com outras pré-definidas.
+##### FUNÇÕES
+ Também podemos criar nossas próprias funções combinando com outras pré-definidas e usando outros parâmetros conforme a necessidade. Para criar uma função, primeiro é necessário definí-la. Vejamos sua sintaxe básica:
  ```js
- function saudacao() {
-  console.log("Olá! Bem vindo!");
- }
- ```
-#### TIPOS DE FUNÇÕES
- As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código. 
- - **Funções _SEM_ parâmetros**: Usadas quando a operação pode ser feita com valores internos ou globais, ou quando não há necessidade de interação com o resto do código.
- - **Funções _COM_ parâmetros**: Usadas quando a operação precisa de entradas externas para ser realizada.
- - **Funções _SEM_ retorno**: Usadas quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
- - **Funções _COM_ retorno**: Usadas quando é necessário calcular um valor e utilizá-lo posteriormente no código.
+ userStatus = "on";
 
-#### CALLBACK: FUNÇÃO ANÔNIMA
+ // declaramos a função
+ function saudacao(name = "guest") {
+  console.log(`Olá ${name}, Bem vindo!`);
+ }
+
+ // e a chamamos em outro ponto do código
+ userStatus == "on" ? saudacao("Raphael") : console.log("system offline");
+ ```
+
+###### TIPOS DE FUNÇÕES
+ As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código. 
+ - **Funções _SEM_ `(parameters)`**: Usadas quando a operação pode ser feita com valores internos ou globais, ou quando não há necessidade de interação com o resto do código.
+ - **Funções _COM_ `(parameters)`**: Usadas quando a operação precisa de entradas externas para ser realizada.
+ - **Funções _SEM_ `return`**: Usadas quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
+ - **Funções _COM_ `return`**: Usadas quando é necessário calcular um valor e utilizá-lo posteriormente no código.
+
+###### REST & SPREAD
+ - **`rest`**<br/>
+ **No caso de funções com parâmetros, quando não sabemos exatamente o número de parâmetros que podem atingir nossa função, usamos `...` para nos referirmos ao restante dos parâmetros possíveis.** *Estes parâmetros são armazenados em um `array` com o nome dado ao parâmetro.* Ele basicamente junta múltiplos argumentos em um único array.
+
+ ```js
+ function loteria(jogo, ...numeros) {
+     return `${jogo}: ${numeros}`;
+ }
+
+ console.log(loteria("Mega-Sena", 13, 38, 39, 40, 42, 56)); // Mega-Sena: 13,38,39,40,42,56
+ ```
+
+ - **`spread`**<br/>
+ Realiza o contrário do **rest**, pois ele *"espalha"* elementos de arrays ou objetos. É útil para cópias, combinações e chamadas de função.
+ ```js
+ const numeros = [1, 2, 3];
+ console.log(numeros);      // [ 1, 2, 3 ]
+ console.log(...numeros);   // 1 2 3                      <- separamos por completo cada index do aray original
+ console.log([...numeros]); // [ 1, 2, 3 ]                <- podemos copiar outro array sem modificá-lo
+ console.log({...numeros}); /* { '0': 1, '1': 2, '2': 3 } <- além de criar objetos, visto que cada valor ocupa uma posição,
+                                e as chaves serão como as posições do array */
+
+ const a = [1, 2, 3];
+ const b = [4, 5, 6];
+ const combinado = [...a, ...b]; /* podemos concatenar arrays, adquirindo cada valor de índice individualmente,
+                                    ao invés de somente "juntar" 2 arrays dentro de 1 */
+ console.log(combinado); // [1, 2, 3, 4, 5, 6]
+
+ const pessoa = { nome: "Raphael", idade: 25 };
+ const copiaPessoa = { ...pessoa, cidade: "São Paulo" }; // além de copiar também podemos adicionar propriedades em objetos
+
+ console.log(copiaPessoa); // { nome: "Raphael", idade: 25, cidade: "São Paulo" }
+ ```
+
+###### RECURSIVIDADE
+ Função recursiva é aquela que **se chama dentro do próprio escopo**. Isso é útil para resolver problemas que podem ser dividos em subproblemas menores.<br/>
+ **Para evitarmos que a recursão continue indefinidamente, sempre precisamos de uma condição de parada.**
+ ```js
+  function contagemRegressiva(numero) {
+    if (numero <= 0) { // condição de parada
+      console.log("FIM!");
+      return;
+    }
+    console.log(numero);
+    contagemRegressiva(numero - 1); // chamando a própria função
+  }
+
+
+ contagemRegressiva(5);
+ /* Saída:
+ 5
+ 4
+ 3
+ 2
+ 1
+ FIM! */
+ ```
+
+ **Se não existir uma condição de parada, a recursão será infinita:**
+ ```js
+ function infinito() {
+   console.log("executando");
+   infinito(); // sem condição de parada
+ }
+
+ infinito(); // irá travar o navegador ou dar "Stack Overflow"
+ ```
+
+ **Podemos resolver muitos problemas recursivos com loops, que às vezes são mais eficientes e seguros:**
+ ```js
+ function fatorialIterativo(n) {
+   let resultado = 1;
+   for (; n > 1; n--) {
+     resultado *= n;
+   }
+   return resultado;
+ }
+
+ console.log(fatorialIterativo(5)); // 120
+ ```
+
+###### FUNÇÕES ANÔNIMAS
+ São aquelas que não tem nome armazenadas em variáveis. Geralmente, são usadas em situações onde a função não precisa ser reutilizada ou quando queremos passá-la como argumento para outra função.
+ ```js
+ const saudacao = function(nome) {
+   return `Olá, ${nome}!`;
+ };
+
+ console.log(saudacao("Lucas")); // "Olá, Raphael!"
+ ```
+
+###### CALLBACK
+ Como seu nome indica, são **chamadas de retorno**, ou seja, são *funções passadas como argumentos e parâmetroso para outras funções*. O que significa que quando invocamos uma função passando-a como parâmetro outra função – **`callback`**. Se a função principal for **síncrona**, *o callback é executado logo dentro dela*. Se for **assíncrona**, *o callback espera a operação terminar antes de ser executado*.
+ ```js
+ function fazerAlgo(callbackParameter) {
+   console.log("Executando algo...");
+   callbackParameter(); // chamando a função callback passada como parâmetro
+ }
+
+ // chamando a função fazer Algo e passando uma função anônima – callback – como parâmetro – callbackParameter
+ fazerAlgo( function() {  console.log("Callback foi chamado!")} );
+ ```
+
+ Quando temos vários callbacks aninhados, o código pode ficar difícil de ler, chamamos isso se chama **Callback Hell**, e, parar resolver este problema usamos [**`Promises`**, **`async`** e **`awayt`**](https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.2-javascript/assincronismo_promises_async_await.md)
+
+**`anonymous callback functions`**<br/>
+ As funções anônimas são muito usadas como calbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
+ ```js
+ setTimeout(function() {
+   console.log("Mensagem exibida após 2 segundos!");
+ }, 2000);
+ ```
+
+###### ARROW FUNCTIONS
+ As `arrow functions` são uma forma ainda mais curta de escrever funções anônimas de forma muito mais clara e limpa. A sintaxe para funções `callback` omite a palavra **`function`**, que é substituída pr uma seta **`=>`** colocada após o identificador caso não seja necessário passar nenhum parâmetro.
+ ```js
+ let nameUser = firstName => console.log(`Olá ${firstName}!`); // em funções com somente 1 parâmetro quase tudo pode ser omitido
+ nameUser("Raphael");
+
+ const saudacao = (nome, sobrenome) => `Olá, ${nome} ${sobrenome}!`; // se houverem múltiplos parâmetros os parênsetes são obrigatórios
+ console.log(saudacao("Raphael", "Santos"))
+ ```
+
+ Podemos atribuí-la a uma variável que recebe parâmetros, e, se a função tiver apenas uma expressão, podemos omitir as chaves `{}` e o `return`, no caso em que a expressão for retornada diretamente.
+ ```js
+ var soma = (x, y) => x + y;
+ let subtracao = (x, y) => x - y;
+ const calcular = (fn, x, y) => fn(x, y);
+
+ console.log(calcular(soma, 2, 1)); // 3
+ console.log(calcular(subtracao, 2, 1)); // 1
+ ```
+
+ Podemos atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, como demonstrado neste código:
+```JS
+// atribuindo uma função a uma variável
+const saudar = saudacaoFactory('Olá');
+
+// função que retorna outra função
+function saudacaoFactory(saudacao) {
+  return function(nome) {
+    console.log(`${saudacao}, ${nome}!`);
+  };
+}
+
+// chamando a função armazenada na variável
+saudar("Raphael"); // Saída: Olá, Raphael!
+
+// ----------------------------------------------------
+
+// passando uma função como argumento para outra função
+function executaOperacao(operacao, a, b) {
+  return operacao(a, b);
+}
+
+function soma(a, b) {
+  return a + b;
+}
+
+console.log(executaOperacao(soma, 2, 3)); // Saída: 5
+```
 
 ## CRIANDO CÓDIGO
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
