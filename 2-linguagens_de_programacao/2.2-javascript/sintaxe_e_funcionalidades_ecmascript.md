@@ -1550,7 +1550,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  ```
 
 ###### FUNÇÕES ANÔNIMAS
- São aquelas que não tem nome armazenadas em variáveis. Geralmente, são usadas em situações onde a função não precisa ser reutilizada ou quando queremos passá-la como argumento para outra função.
+ São aquelas que não tem nome armazenadas em variáveis ou passadas como argumentos. Geralmente, são usadas em situações onde a função não precisa ser reutilizada em vários lugares no código ou quando queremos passá-la como argumento para outra função, evitando poluir o escopo global.
  ```js
  const saudacao = function(nome) {
    return `Olá, ${nome}!`;
@@ -1560,7 +1560,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  ```
 
 ###### CALLBACK
- Como seu nome indica, são **chamadas de retorno**, ou seja, são *funções passadas como argumentos e parâmetroso para outras funções*. O que significa que quando invocamos uma função passando-a como parâmetro outra função – **`callback`**. Se a função principal for **síncrona**, *o callback é executado logo dentro dela*. Se for **assíncrona**, *o callback espera a operação terminar antes de ser executado*.
+ Como seu nome indica, são **chamadas de retorno**, ou seja, são *funções passadas como argumentos e parâmetros para outras funções*. O que significa que quando invocamos uma função passando-a como parâmetro outra função – **`callback`** se a função principal for **síncrona**, *o callback é executado logo dentro dela*. Se for **assíncrona**, *o callback espera a operação terminar antes de ser executado*.
  ```js
  function fazerAlgo(callbackParameter) {
    console.log("Executando algo...");
@@ -1629,6 +1629,100 @@ function soma(a, b) {
 
 console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 ```
+ Funções tipo `arrow functions` possuem o `this` **léxico**, o que significa que o `this` dentro de uma arrow function se refere ao contexto onde foi definida, e não ao objeto que a chamou – não pode ser usada como `constructor`.
+
+###### FUNÇÕES DE ARRAYS
+ Existem funções pré-definidas otimizadas para lidar com dados em arrays que nos ajudam a economizar tempo de escrita de código. Esse métodos podem ser dividiso em 2 grupos principais:
+ - **`static methods`**: chamados diretamente no objeto array.
+    - **`Array.of()`**<br/>
+    Cria um novo array a partir de um número variável de argumentos, interpretando-os como elementos do array – evita a ambiguidade do construtor quando um único número é passado.
+    - **`Array.from()`**<br/>
+    Cria um novo array a partir de um objeto iterável ou semelhante a array.
+    - **`Array.fromAsync()`**<br/>
+    Cria um novo array a partir de um objeto iterável assíncrono ou semelhante a array.
+    - **`Array.isArray()`**<br/>
+    Verifica se o valor passado é um array e retorna um booleano.
+ - **`instance methods`**: disponíveis em `Array.prototype`.
+    - **`at(index)`**<br/>
+    **Retorna o item no índice especificado** – aceita índices negativos, que contam a partir do final.
+    - **`concat(...values)`**<br/>
+    Retorna um novo array que é a concatenação do array original com os valores, que podem ser outros arrays ou valores individuais.
+    - **`copyWithin(target, start[, end])`**<br/>
+    Copia uma sequência de elementos dentro do próprio array, substituindo os elementos existentes.
+    - **`entries()`**<br/>
+    Retorna um iterador para os pares `[index, value]` de cada elemento do array.
+    - **`every(value[, start [, end]])`**<br/>
+    Testa se todos os elementos do array passam em um teste implementado pela função callback, e retorna um booleano.
+    - **`some(callback[, thisArg])`**<br/>
+    Testa se ao menos um elemento do array passa no teste implementado pela função callback, retornando `true` ou `false`.
+    - **`fill(value[, start[, end]])`**<br/>
+    Preenche todos os elementos de um array com um valor estático, do índice `start` (*inclusivo*) ao índice `end` (*exclusivo*).
+    - **`filter(callback[, thisArg])`**<br/>
+    Cria um novo array com todos os elementos que passaram no teste implementado pela função callback.
+    - **`find(callback[, thisArg])`**<br/>
+    Retorna o **primeiro** elemento que satisfaz a função callback, se nenhum for encontrado retorna `undefined`.
+    - **`findLast(callback[, thisArg])`**<br/>
+    Retorna o **último** elemento que satisfaz a função callback, se nenhum for encontrado retorna `undefined`.
+    - **`findIndex(callback[, thisArg])`**<br/>
+    Retorna o **índice do primeiro elemento** que satisfaz a função callback, se nenhum for encontrado, retorna `-1`.
+    - **`findLastIndex(callback[, thisArg])`**<br/>
+    Retorna o **índice do último elemento** que satisfaz a função callback, se nenhum for encontrado, retorna `-1`.
+    - **`flat([depth])`**<br/>
+    Retorna um novo array com todos os subarrays concatenados recursivamente até a profundidade especificada, que por padrão é `1`.
+    - **`flatMap(callback[, thisArg])`**<br/>
+    Aplica uma função a cada elemento do array e, em seguida, achata o resultado em um novo array com um único nível de profundidade.
+    - **`forEach(callback[, thisArg])`**<br/>
+    Executa a função callback para cada elemento do array.
+    - **`includes(valueToFind[, fromIndex])`**<br/>
+    Verifica se o array contém um determinado elemento, retornando `true` ou `false`.
+    - **`indexOf(searchElement[, fromIndex])`**<br/>
+    Retorna o **primeiro índice em que o elemento pode ser encontrado**, se não for encontrado retorna `-1`.
+    - **`lastIndexOf(searchElement[, fromIndex])`**<br/>
+    Retorna o **último índice em que o elemento pode ser encontrado**, se não for encontrado retorna `-1`.
+    - **`join([separator])`**<br/>
+    Junta todos os elementos do array em uma string, separados pelo separador especificado.
+    - **`keys()`**<br/>
+    Retorna um iterador que contém os índices chaves para cada elemento no array.
+    - **`map(callback[, thisArg])`**<br/>
+    Cria um novo array com os resultados da aplicação da função callback a cada elemento.
+    - **`pop()`**<br/>
+    **_Remove_ o último** elemento do array e o retorna.
+    - **`shift()`**<br/>
+    **_Remove_ o primeiro** elemento do array e o retorna.
+    - **`unshift(...elements)`**<br/>
+    **_Adiciona_ um ou mais elementos no início do array** e torna o novo comprimento do array.
+    - **`push(...elements)`**<br/>
+    **_Adiciona_ um ou mais elementos ao final do array** e retorna o novo comprimento do array.
+    - **`reduce(callback[, initialValue])`**<br/>
+    Aplica uma função acumuladora de soma a cada elemento do array – da esquerda para a direita – para reduzir o array a um único valor.
+    - **`reduceRight(callback[, initialValue])`**<br/>
+    Como o `reduce()`, mas processa os elementos do array inversamente – da direita para a esquerda.
+    - **`reverse()`**<br/>
+    **Inverte** a ordem os elementos do array in-loco e o retorna.
+    - **`sort([compareFunction])`**<br/>
+    **Ordena** os elementos do array in-loco e o retorna.
+    - **`slice([start[, end]])`**<br/>
+    Retorna um novo array contendo uma cópia superficial de parte do array original, mas sem modificar o original.
+    - **`splice(start[, deleteCount[, item1[, item2[, ...]]]])`**<br/>
+    Adiciona, remove ou sbstitui elementos do array e retorna um novo array com os elementos removidos.
+    - **`toLocaleString([locales[, options]])`**<br/>
+    Retorna uma string representado os elementos do array de acordo com as configurações locais.
+    - **`toReversed()`**<br/>
+    Retorna um novo array com os elementos na ordem inversa, sem modificar o array original.
+    - **`toSorted([compareFunction])`**<br/>
+    Retorna um novo array com os elementos ordenados, sem modificar o array original.
+    - **`toSpliced(start, deleteCount, ...items)`**<br/>
+    Retorna um novo array com a substituição de alguns elementos, sem modificar o array original.
+    - **`toString()`**<br/>
+    Retorna uma string representando o array e seus elementos.
+    - **`values()`**<br/>
+    Retorna um iterador que contém os valores para cada índice do array.
+    - **`with(index, value)`**<br/>
+    Retorna um novo array com o elemento no índice especificado substituído pelo novo valor, sem modificar o array original.
+    - **`[Symbol.iterator]`**<br/>
+    Permite que o array seja iterado, geralmente utilizado implicitamente em laços `for-of`; é um `alias` para o método **`values()`**.
+    - **`.length`**<br/>
+    Retorna a quantidade de elementos presentes no array, e é atualizada automaticamente conforme o array é modificado.
 
 ## CRIANDO CÓDIGO
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
