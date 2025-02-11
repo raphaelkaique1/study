@@ -9,7 +9,49 @@
  - *Responsivo*.
  - *Case sensitive*.
 
+## CRIANDO CÓDIGO
+ Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
+
+### EXTERNAL
+ Neste caso, criamos o arquivo e o referenciamos no `head` usando a meta tag **`<script scr="file_path.js"></script>`**, anexando o arquivo à página web. **Se a página possuir referências externas tanto código CSS quanto JS na `head`, é uma boa prática colocar o link CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a ligação ao JS.**
+```html
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS -->
+    <script src="script.js"></script> <!-- JS -->
+</head>
+```
+
+### INTERNAL
+ Entre a tag `script` no `head` do documento. **Se a página possuir tanto código CSS quanto JS na `head`, é uma boa prática colocar o trecho CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a parte JS.**
+```html
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+
+    <!-- CSS -->
+    <style>
+        .css {
+            property: value;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+        alert("Hello world!");
+    </script>
+</head>
+```
+
+### IN-LINE
+ Também é possível incluir *script diretamente nas tags*, basta declarar a função que desejamos usar:
+```html
+<p onClick="alert('Alerta de clique no parágrafo');">Parágrafo de texto.</p>
+```
+
 ## ESTRUTURAS
+ Vejamos como podemos escrever nossos códigos em JS e quais as diferentes maneiras de lidar com os dados.
 
 ### COMENTÁRIOS
  Para comentar uma linha de código usa-se a seguinte sintaxe: `// comentário`. Já para comentar um bloco inteiro usa-se: `/* trecho comentado */`.
@@ -1724,46 +1766,97 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
     - **`.length`**<br/>
     Retorna a quantidade de elementos presentes no array, e é atualizada automaticamente conforme o array é modificado.
 
-## CRIANDO CÓDIGO
- Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
+## OOP
+ Vimos os princípios da programação orientada a objetos em tópicos anteriores, pois o JavaScript é uma linguagem de programação multiparadigma, por isso compartilha os conceitos-chave. Entretanto, a **POO em JS não é normalmente usada**, *uma vez que POO é projetado para tipos de programas diferentes de páginas web*.<br/>
+ Na programação web, o uso de classes, objetos, atributos, métodos entre outros não faz muito sentido por não haver necessidade de tal uso.<br/>
+ Mas veremos como podemos usar a POO com JS.
 
-### EXTERNAL
- Neste caso, criamos o arquivo e o referenciamos no `head` usando a meta tag **`<script scr="file_path.js"></script>`**, anexando o arquivo à página web. **Se a página possuir referências externas tanto código CSS quanto JS na `head`, é uma boa prática colocar o link CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a ligação ao JS.**
-```html
-<head>
-    <meta charset="UTF-8">
-    <title>JavaScript</title>
-    <link rel="stylesheet" href="style.css"> <!-- CSS -->
-    <script src="script.js"></script> <!-- JS -->
-</head>
+### CLASSE
+ É a padronização de uma estrutura de dados que *instancía* um objeto na saída. Podemos dizer que uma classe é uma *"forma"* para a criação de um objeto, contendo atributos que são como características do objeto e métodos que são ações que o objeto pode executar. Vejamos o exemplo de carro, sabemos que um carro independente da marca e modelo, para ser considerado um carro precisa ter no mínimo 4 rodas, carcaça, motor, freio, bancos e sistema de direção, e que com isso, o carro se locomove carregando o que estiver dentro e para no lugar quando solicitado.
+ ```js
+ class Car {
+  /* as vezes, temos dados no código que necessitamos manter "ocultos" dentro da classe
+     são dados que não queremos que possam ser vistos e nem chamados de fora da classe
+     pois fazem parte da lógica interna e podemos evitar que sejam alterados usando atributos e métodos privados*/
+
+  #km /* isso priva um dado de ser chamado por um objeto fora da classe
+         quando temos atributos privados, normalmente lidamos com eles em métodos também privados
+
+     o método construtor é a função que irá receber os dados durante a instanciação
+     para a criação de um objeto conforme os moldes informados */
+  constructor(marca, modelo, cor, ano, dono, km) {
+    /* como já vimos, o método `this` se refere à variável dentro da classe
+       para que possam ser usadas dentro dos métodos sabendo que são pertencentes da classe*/
+    this.marca = marca,
+    this.modelo = modelo,
+    this.cor = cor,
+    this.ano = ano,
+    this.dono = dono,
+    this.#km = km; // <- referenciado o atributo privado dentro da classe
+  }
+
+  /* também já vimos que uma classe pode conter métodos estáticos
+     ou seja, funções que podemos acessar sem a necessidade da criação de um objeto */
+  static carro(){
+    console.log(`Um carro tem 4 rodas, um motor, meio de parada e sistema de direção.`);
+  }
+
+  // assim criamos um método privado para lidar com os atributos privados
+  #KM() {
+    console.log(`km total: ${this.#km}`);
+  }
+
+  /* caso haja necessidade de devolver um valor privado tratador em um método também privado 
+     devemos criar um método que pode ser chamados de fora da classe para invocar o método privado */
+  exibirKm(){
+    this.#KM();
+  }
+
+  // e os atributos e métodos públicos, que são os dados que podem ser "vistos" e chamados "de fora da classse"
+  ligar(){
+    console.log(`${this.modelo} ${this.cor} ${this.ano} ligado.`);
+  }
+ }
+ ```
+
+### OBJETO
+ Uma instância de classe é um objeto criado a partir dos moldes de uma classe, ele compartilha métodos e atributos com a classe, mas contém suas próprias características, podendo compartilhar, herdar, sobrescrever adicionando ou removendo dados conforme sua necessidae.
+
+```js
+ Car.carro(); /* para usarmos o método estático, basta chamarmos na classe
+ saída: Um carro tem 4 rodas, um motor, meio de parada e sistema de direção.*/
+ 
+ /* para instaciar um objeto, definimos seu nome, em seguida usamos o método construtor `new`
+    que cria uma instância da classe referenciada, e por fim informamos os parâmetros se necessário */
+ const corolla = new Car("Toyota", "Corolla", "Branco", 2025, "Raphael", 0);
+
+ // assim então temos acesso aos atributos e métodos da classe para o objeto em questão
+ corolla.ligar();           // Corolla branco 2025 ligado.
+ console.log(corolla.dono); // Raphael
+ corolla.exibirKm();        // km total: 0 km
 ```
 
-### INTERNAL
- Entre a tag `script` no `head` do documento. **Se a página possuir tanto código CSS quanto JS na `head`, é uma boa prática colocar o trecho CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a parte JS.**
-```html
-<head>
-    <meta charset="UTF-8">
-    <title>JavaScript</title>
+ Para criarmos uma classe que herda atributos e métodos de uma classe "mãe", usamos **`extends`** para referenciar a qual classe queremos e no método `constructor` usamos **`super()`** que chama o construtor da classe pai inicializando os atributos herdados da classe antes de adicionar novos atributos ou modificar comportamentos, fazendo assim uma classe moldada a partir de outra classe que pode incluir outros atributos e métodos sem modificar a classe original.
+ ```js
+ class Truck extends Car {
+  constructor(marca, modelo, cor, ano, dono, potencia, carga) {
+    super(marca, modelo, cor, ano, dono); // é importante ressaltar que não é possível herdar atributos e métodos privados em JS
+    this.potencia = potencia,
+    this.carga = carga;
+  }
 
-    <!-- CSS -->
-    <style>
-        .css {
-            property: value;
-        }
-    </style>
+  peso() {
+    console.log(`O ${this.modelo} suporta até ${carga} kg.`);
+  }
+ }
 
-    <!-- JS -->
-    <script>
-        alert("Hello world!");
-    </script>
-</head>
-```
+ const sprinter = new Truck("Mercedes", "Sprinter", "Branca", 2025, "Raphael", 3000, 5000);
+ sprinter.ligar(); /* método herdado
+ saída: Sprinter Branca 2025 ligado. */
+ sprinter.peso();  /* método próprio
+ saída: O Sprinter 2025 suporta até 5000 kg. */
+ ```
 
-### IN-LINE
- Também é possível incluir *script diretamente nas tags*, basta declarar a função que desejamos usar:
-```html
-<p onClick="alert('Alerta de clique no parágrafo');">Parágrafo de texto.</p>
-```
 
 ### DATA I/O
 
