@@ -1839,8 +1839,8 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  Para criarmos uma classe que herda atributos e métodos de uma classe "mãe", usamos **`extends`** para referenciar a qual classe queremos e no método `constructor` usamos **`super()`** que chama o construtor da classe pai inicializando os atributos herdados da classe antes de adicionar novos atributos ou modificar comportamentos, fazendo assim uma classe moldada a partir de outra classe que pode incluir outros atributos e métodos sem modificar a classe original.
  ```js
  class Truck extends Car {
-  constructor(marca, modelo, cor, ano, dono, potencia, carga) {
-    super(marca, modelo, cor, ano, dono); // é importante ressaltar que não é possível herdar atributos e métodos privados em JS
+  constructor(marca, modelo, cor, ano, dono, km, potencia, carga) {
+    super(marca, modelo, cor, ano, dono, km); // importa e inicializa os atributos da classe pai
     this.potencia = potencia,
     this.carga = carga;
   }
@@ -1850,13 +1850,59 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
   }
  }
 
- const sprinter = new Truck("Mercedes", "Sprinter", "Branca", 2025, "Raphael", 3000, 5000);
+ const sprinter = new Truck("Mercedes", "Sprinter", "Branca", 2025, "Raphael", 1500, 3000, 5000);
  sprinter.ligar(); /* método herdado
  saída: Sprinter Branca 2025 ligado. */
  sprinter.peso();  /* método próprio
  saída: O Sprinter 2025 suporta até 5000 kg. */
+ sprinter.exibirKm(); /* método privado herdado
+ saída: km total: 1500 km */
  ```
 
+ Além de reutilizar, também é possível modificar métodos os métodos herdados:
+ - **`override`**<br/>
+ A classe filha redefine um método da classe pai.
+ ```js
+  class Truck extends Car {
+  constructor(marca, modelo, cor, ano, dono, km, potencia, carga) {
+    super(marca, modelo, cor, ano, dono, km); // importa e inicializa os atributos da classe pai
+    this.potencia = potencia,
+    this.carga = carga;
+  }
+
+  peso() {
+    console.log(`O ${this.modelo} suporta até ${carga} kg.`);
+  }
+
+  ligar(){
+    console.log(`${this.modelo} ${this.cor} ${this.ano} está ligado, combustível: DIESEL.`); /*/* sobrescrevendo o método herdado
+    apenas os objetos instanciados na classe filha sofrerão a alteração */
+  }
+ }
+
+ corolla.ligar();  // Corolla Branco 2025 ligado.
+ // execução do método sobrescrito
+ sprinter.ligar(); // Sprinter Branca 2025 está ligado, combustível: DIESEL.
+ ```
+
+ - **`overload`**<br/>
+ A classe filha sobrecarrega um método da classe pai, ou seja, o método possui o mesmo nome, porém realiza outras instruções.
+ ```js
+ class Calculadora {
+     soma(a, b, c) {
+         if(c !== undefined) {
+             return a + b + c;
+         }
+         return a + b;
+     }
+ }
+
+ const calc = new Calculadora();
+ console.log(calc.soma(2, 3)); // 5
+ console.log(calc.soma(2, 3, 4)); // 9
+ ```
+
+## EOP
 
 ### DATA I/O
 
