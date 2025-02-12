@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GR71EkDAakhfHDixN350AgSVo0J1DNUFdBamulau1iYlpXJ9yikznZK6znNpADhQK+fi+XFUERl2si1LDut5Kg==",
+  "dgSpecHash": "bb7RbHBu2XKuX5gk2jnVcD3DqWiVdC9z2dGWHRpvDIGuFocw6EmMkaq/7jnYLYegqDuOiCHGFD33CjxrxSLOYQ==",
   "success": true,
-  "projectFilePath": "/home/raphael/Dev/GitHub/study/+/csharp/csharp.csproj",
+  "projectFilePath": "/home/raphael/Dev/GitHub/study/coding/scripts/csharp/csharp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

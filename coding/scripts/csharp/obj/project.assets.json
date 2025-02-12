@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/raphael/Dev/GitHub/study/+/csharp/csharp.csproj",
+      "projectUniqueName": "/home/raphael/Dev/GitHub/study/coding/scripts/csharp/csharp.csproj",
       "projectName": "csharp",
-      "projectPath": "/home/raphael/Dev/GitHub/study/+/csharp/csharp.csproj",
+      "projectPath": "/home/raphael/Dev/GitHub/study/coding/scripts/csharp/csharp.csproj",
       "packagesPath": "/home/raphael/.nuget/packages/",
-      "outputPath": "/home/raphael/Dev/GitHub/study/+/csharp/obj/",
+      "outputPath": "/home/raphael/Dev/GitHub/study/coding/scripts/csharp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/raphael/.nuget/NuGet/NuGet.Config"
