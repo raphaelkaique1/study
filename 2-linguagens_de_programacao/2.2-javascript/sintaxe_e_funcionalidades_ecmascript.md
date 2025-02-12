@@ -1908,7 +1908,232 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  2. **Handlers ou Listeneres** "ouvem" estes eventos e respondem a eles com funções ou métodos.
 
 ### DOM
+ O objetivo do JavaScript é interagir com o código HTML/CSS, e, para isso temos que conhecer o que é a *àrvore de `tags`* que compõe nosso documento. O **`Document Objet Model`** *representa os documentos como uma estrutura de árvore, onde cada elemento da página é um nó dessa árvore* – ele permite que linguagens de script acessem e manipulem o conteúdo, a estrutura e o estilo de um documento web de forma dinâmica.<br/>
+ Vejamos como funciona:
+ 1. Quando um navegador carrega uma página web, ele lê o código HTML e o transforma em uma árvore de objetos chamada **Árvore DOM**.
+ 2. Cada elemento do documento, como `div`, `p`, `h1`, `a` entre outros se torna um *`nó`* dentro dessa árvore.
+ 3. O JavaScript pode usar métodos e propriedades do DOM para modificar esses elementos em tempo real.
+
+#### SELEÇÃO DE ELEMENTOS
+ Uma maneira *"generalista"* de selecionar um elemento da página é com **`querySelector`**. Este método é usado para selecionar elementos do DOM com base em seletores CSS. Ele retorna o **primeiro** elemento que corresponde ao seletor informado. Caso haja necessidade de selecionar **todos** os elementos que correspondem ao seletor usamos **`querySelectorAll`**, pois ele retorna uma **NodeList** com todos os elementos desejados.
+ ```js
+ var aboutMe = document.querySelector("#aboutMe");       /* guarda na variável o primeiro id que corresponde ao seletor #aboutMe
+                                                            se não o encontrar seu valor será `null` */
+
+ var aboutMe = document.querySelector(".info");          // retorna a primeira `tag` com a classe `.info`
+
+ let elementoAninhado = document.querySelector("div p"); /* também é possível selecionar elementos aninhados
+                                                            neste caso, armazena o primeiro `p` dentro de uma `div` */
+ ```
+
+ Existem outras maneiras mais *"semânticas"* para a seleção de elementos do documento:
+
+ - **`getElementById`**<br/>
+ *Mais rápido que `querySelector("#id")`*, e retorna **1 único elemento com o `id` especificado**.
+ Por exemplo, assumindo que temos uma `tag` com o `id="profile"`, podemos nos referir a ela como o exemplo a seguir. Desta forma, carregamos na variável `profile` o valor do elemento `id="profile"`. Feito isso, podemos modificar as propriedades ou valores do elemento obtido:
+ ```js
+ var profile = document.getElementById("profile");
+ ```
  
+ - **`getElementByClassName`**<br/>
+ Retorna uma **`HTMLCollection`**, que é parecida com um array, contendo todos os elementos da classe informada.
+ ```js
+ let elementos = document.getElementsByClassName("minhaClasse");
+ console.log(elementos);    // [ 'elemento 1', 'elemento 2', 'elemento 3']
+ console.log(elementos[0]); // primeiro elemento com essa classe
+ ```
+ 
+ - **`getElementByTagName`**<br/>
+ Igual ao `getElementByClassName`, também podemos selecionar todos os elementos de um tipo que serão armazenados em uma `HTMLCollection`.
+ ```js
+ let paragrafos = document.getElementsByTagName("p");
+ console.log(paragrafos);
+ console.log(paragrafos[0]);
+ ```
+
+ - **`getElementByName`**<br/>
+ Usado especialmente para **formulários `<input name="campo">`, seleciona e retorna uma NodeList com todos os elementos correspondentes.
+ ```js
+ let inputs = document.getElementsByName("usuario");
+ console.log(inputs);
+ ```
+#### Seleção de Elementos
+Esses métodos são usados para encontrar elementos dentro do documento.
+
+- `document.getElementById(id)`: Seleciona um elemento pelo ID.
+- `document.getElementsByClassName(className)`: Seleciona todos os elementos que possuem uma classe específica.
+- `document.getElementsByTagName(tagName)`: Seleciona todos os elementos de um determinado tipo de tag (ex: `div`, `p`, `h1`).
+- `document.querySelector(selector)`: Seleciona o primeiro elemento que corresponde a um seletor CSS.
+- `document.querySelectorAll(selector)`: Seleciona todos os elementos que correspondem a um seletor CSS.
+
+#### Criação e Manipulação de Elementos
+Esses métodos são usados para criar, clonar e modificar elementos na página.
+
+- `document.createElement(tagName)`: Cria um novo elemento HTML.
+- `document.createTextNode(text)`: Cria um nó de texto.
+- `element.appendChild(child)`: Adiciona um elemento filho ao elemento pai.
+- `element.insertBefore(newElement, referenceElement)`: Insere um novo elemento antes de um elemento existente.
+- `element.replaceChild(newChild, oldChild)`: Substitui um filho existente por um novo.
+- `element.removeChild(child)`: Remove um elemento filho.
+- `element.cloneNode(deep)`: Clona um nó (se `deep=true`, também clona os filhos).
+
+#### Manipulação de Estilos
+Métodos para alterar o estilo de elementos na página.
+
+- `element.style.property = "value"`: Modifica um estilo CSS diretamente.
+- `element.classList.add(className)`: Adiciona uma classe CSS ao elemento.
+- `element.classList.remove(className)`: Remove uma classe CSS.
+- `element.classList.toggle(className)`: Adiciona a classe se não existir, ou remove se já existir.
+- `element.classList.contains(className)`: Verifica se o elemento possui uma determinada classe.
+
+#### Manipulação de Conteúdo
+Métodos para alterar ou recuperar o conteúdo de um elemento.
+
+- `element.innerText`: Obtém ou altera o texto dentro de um elemento (ignora HTML interno).
+- `element.innerHTML`: Obtém ou altera o HTML dentro de um elemento.
+- `element.textContent`: Similar ao `innerText`, mas mantém os espaços e quebras de linha.
+- `element.outerHTML`: Obtém ou altera o HTML do próprio elemento e seu conteúdo.
+- `element.setAttribute(name, value)`: Define um atributo no elemento.
+- `element.getAttribute(name)`: Obtém o valor de um atributo específico.
+- `element.removeAttribute(name)`: Remove um atributo do elemento.
+- `element.hasAttribute(name)`: Verifica se um atributo existe.
+
+#### Manipulação de Eventos
+Métodos usados para adicionar, remover e disparar eventos.
+
+- `element.addEventListener(event, function)`: Adiciona um ouvinte de evento ao elemento.
+- `element.removeEventListener(event, function)`: Remove um ouvinte de evento.
+- `element.dispatchEvent(new Event("event"))`: Dispara manualmente um evento.
+
+#### Manipulação da Estrutura do DOM
+Métodos para navegar e modificar a estrutura dos nós do DOM.
+
+- `element.parentElement`: Retorna o elemento pai.
+- `element.children`: Retorna os elementos filhos diretos.
+- `element.firstElementChild`: Obtém o primeiro elemento filho.
+- `element.lastElementChild`: Obtém o último elemento filho.
+- `element.nextElementSibling`: Obtém o próximo elemento irmão.
+- `element.previousElementSibling`: Obtém o elemento irmão anterior.
+- `element.parentNode`: Obtém o nó pai do elemento.
+- `element.childNodes`: Obtém todos os nós filhos (incluindo espaços e quebras de linha).
+- `element.firstChild`: Obtém o primeiro nó filho (pode ser um texto ou elemento).
+- `element.lastChild`: Obtém o último nó filho.
+- `element.nextSibling`: Obtém o próximo nó irmão (pode ser um texto ou elemento).
+- `element.previousSibling`: Obtém o nó irmão anterior.
+
+#### Manipulação do Documento
+Métodos para interagir com o próprio documento.
+
+- `document.title`: Obtém ou define o título da página.
+- `document.URL`: Obtém a URL da página.
+- `document.domain`: Obtém o domínio da página.
+- `document.referrer`: Obtém a URL da página anterior.
+- `document.body`: Obtém o elemento `body` da página.
+- `document.head`: Obtém o elemento `head` da página.
+- `document.documentElement`: Retorna o `html` inteiro.
+- `document.activeElement`: Retorna o elemento que está focado no momento.
+- `document.forms`: Obtém todos os formulários da página.
+- `document.forms["specialForm"]`: Retorna um formulário específico pelo nome.
+- `document.forms[0]`: Retorna um formulário específico pelo índice.
+- `form.elements`: Retorna todos os elementos dentro do formulário.
+- `document.images`: Obtém todas as imagens da página.
+- `document.links`: Obtém todos os links da página.
+- `document.anchors`: Retorna todos os `a` com atributo `name`.
+- `document.scripts`: Obtém todos os scripts da página.
+
+#### Manipulação da Janela do Navegador
+Métodos para interagir com a janela do navegador.
+
+- `window.open(url, name, specs)`: Abre uma nova janela.
+- `window.close()`: Fecha a janela atual.
+- `window.alert(message)`: Exibe um alerta.
+- `window.confirm(message)`: Exibe uma caixa de confirmação (OK/Cancelar).
+- `window.prompt(message, defaultText)`: Exibe uma caixa de entrada de texto.
+- `window.scrollTo(x, y)`: Rola a página para uma posição específica.
+- `window.scrollBy(x, y)`: Rola a página de acordo com os valores passados.
+
+#### Manipulação de Navegação e Histórico
+Métodos para interagir com o histórico de navegação.
+
+- `window.history.back()`: Volta para a página anterior.
+- `window.history.forward()`: Avança para a próxima página.
+- `window.history.go(n)`: Vai para um ponto específico no histórico (`n` pode ser positivo ou negativo).
+
+#### Manipulação de Cookies e Armazenamento
+Métodos para trabalhar com armazenamento local e cookies.
+
+- `document.cookie`: Obtém ou define cookies no navegador.
+- `localStorage.setItem(key, value)`: Armazena um valor no localStorage.
+- `localStorage.getItem(key)`: Obtém um valor do localStorage.
+- `localStorage.removeItem(key)`: Remove um item do localStorage.
+- `localStorage.clear()`: Limpa todo o localStorage.
+- `sessionStorage.setItem(key, value)`: Armazena um valor na sessão atual.
+- `sessionStorage.getItem(key)`: Obtém um valor da sessão.
+- `sessionStorage.removeItem(key)`: Remove um item da sessão.
+- `sessionStorage.clear()`: Limpa toda a sessão.
+
+#### Manipulação de Tempo
+Métodos para executar ações depois de um tempo específico.
+
+- `setTimeout(function, delay)`: Executa uma função após um tempo (`delay` em milissegundos).
+- `setInterval(function, interval)`: Executa uma função repetidamente a cada `interval` ms.
+- `clearTimeout(id)`: Cancela um `setTimeout`.
+- `clearInterval(id)`: Cancela um `setInterval`.
+
+### BOM
+ O **Browser Object Model** contém uma infinidade de propriedades que nos permitem trabalhar com o navegador. Da mesma forma queno DOM podemos selecionar objetos do documento, **com o BOM podemos selecionar objetos do navegador e modificá-los**. Ele controla coisas como:
+ - **`window`**: Representa a janela do navegador e é o objeto global.
+ - **`navigator`**: Informações sobre o navegador (tipo, versão, etc.).
+ - **`location`**: URL atual da página e redirecionamentos.
+ - **`history`**: Histórico de navegação (avançar e voltar).
+ - **`screen`**: Informações sobre a tela do usuário (resolução, largura, etc.).
+ - **`alert()`, `confirm()`, `prompt()`**: Caixas de diálogo do navegador.
+
+ Vejamos alguns exemplos:
+ ```js
+ alert("Bem-vindo!"); // exibe um alerta no navegador
+ // confirmar ação
+ let resposta = confirm("Você tem certeza?");
+ respota ? console.log("ok") : console.log("cancel");
+ // solicitar entrada do usuário
+ let nome = prompt("Qual o seu nome?");
+ console.log("Nome do usuário:", nome);
+
+
+ console.log(window.location.href); // mostra a URL atual
+ // exibindo a URL completa
+ console.log(location.href); // retorna a URL atual
+ // navegando para outra página
+ location.href = 'https://www.exemplo.com'; // redireciona para uma nova URL
+ // obtendo o domínio
+ console.log(location.hostname); // retorna o domínio da página
+ // obtendo o path da URL
+ console.log(location.pathname); // retorna o caminho da URL
+ // redirecionando a página
+ window.location.href = 'https://www.exemplo.com'; // redireciona para a URL fornecida
+
+
+ // verificando o nome do navegador
+ console.log(navigator.userAgent);  // informações sobre o navegador e sistema operacional
+ // Verificando se o navegador suporta geolocalização
+ navigator.geolocation ? console.log("Geolocalização está disponível.") : console.log("Geolocalização não é suportada.");
+
+
+ // acessando a altura e largura da janela
+ console.log(window.innerWidth);  // largura da janela
+ console.log(window.innerHeight); // altura da janela
+ // exibindo a resolução da tela
+ console.log(screen.pixelDepth); // profundidade de cor da tela
+
+
+ // navegando para a página anterior
+ history.back(); // semelhante ao "voltar" no navegador
+ // navegando para a página seguinte
+ history.forward(); // semelhante ao "avançar" no navegador
+ // movendo para uma posição específica no histórico
+ history.go(-1); // vai para a página anterior
+ history.go(1);  // vai para a página seguinte
+ ```
 
 ### EVENTOS
  Os eventos são a forma que temos para controlar as ações dos visitantes e definir o comportamento da página quando eles ocorrem. Quando um usuário visita e interage com uma página web são produzidos eventos, e podemos definir quais ações devem ser executadas quando eles ocorrem. Para definir as ações que queremos realizar quando um evento ocorre, utilizamos manipuladores de eventos. A manipulação de eventos é a principal ferramenta para o desenvolvimento de páginas interativas, pois com isso podemos responder às ações dos usuários. Há muitos tipos de eventos nos quais podemos associar manipuladores, para muitos tipos de ações de usuários.<br/>
@@ -1967,7 +2192,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  Portanto, a técnica que vamos conhecer agora é a mais apropriada, pois nos permitirá escrever o código da funcionalidade – eventos – sem bagunçar o código de conteúdo. São necessárias 2 etapas para associarmos um evento a um elemento da página:
 
  - **ACESSAR O OBJETO**<br/>
- Para ter acesso ao objeto que queremos definir o evento, temos que localizar o objeto apropriado primeiro, para isso usamos o **`Document Objet Model`**, *que representa os documentos como uma estrutura de árvore, onde cada elemento da página é um nó dessa árvore* – ele permite que linguagens de script acessem e manipulem o conteúdo, a estrutura e o estilo de um documento web de forma dinâmica.
+ Para ter acesso ao objeto que queremos definir o evento, temos que localizar o objeto apropriado primeiro, para isso usamos o `DOM`.
  - **ADICIONAR O MANIPULADOR DE EVENTOS**<br/>
  Sobre o objeto, aplicamos **`addEvenListener()`**, *indicando o tipo de evento e função do manipulador*.
 
@@ -1978,7 +2203,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  A maneira mais conveniente de acessar o elemento da página para recuperar o objeto associado a essa `tag` é usar o identificador – **atributo `id`**.<br/>
  Neste caso, o identificador **`botaoClicavel`**; para acessar este elemento usamos o método **`getElementById()`** do objeto `document`, enviado o identificador.
  ```js
- var botaoClicavel = document.getElementByID("botaoClicavel");
+ var botaoClicavel = document.getElementById("botaoClicavel");
  ```
  **Agora temos o objeto elemento da página associado a esse botão na variável `botaoClicavel`. Sobre este objeto podemos invocar o método `addEventListener()`.**<br/>
  2 parâmetros devem ser passados para este método:
@@ -1998,7 +2223,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  ```
  Agora associamos o manipulador de eventos do tipo `mouseover` com o código abaixo:
  ```js
- var profilePic = document.getElementByID("profilePic");
+ var profilePic = document.getElementById("profilePic");
  profilePic.addEventListener('mouseover', function() {
   alert("O ponteiro do mouse foi posicionado sobre a imagem!");
  });
@@ -2018,12 +2243,12 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `onpointerlockchange` – Quando o ponteiro do mouse é "bloqueado" (`pointer lock`).
 - `onpointerlockerror` – Quando ocorre um erro no bloqueio do ponteiro.
 
-✅ **Qualquer elemento interativo** (`<button>`, `<a>`, `<input>`, `<textarea>`, `<div>`, `<span>`, `<canvas>`, `<svg>`, `<iframe>`, `<img>`, etc.)
+✅ **Qualquer elemento interativo** (`button`, `a`, `input`, `textarea`, `div`, `span`, `canvas`, `svg`, `iframe`, `img`, etc.)
 - `onpointerdown`, `onpointerup`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `onpointercancel`:  
-  - **Usado em**: Quase todos os elementos, mas principalmente interativos como `<button>`, `<a>`, `<div>`, `<span>`, `<canvas>`, `<img>`, `<textarea>`.
+  - **Usado em**: Quase todos os elementos, mas principalmente interativos como `button`, `a`, `div`, `span`, `canvas`, `img`, `textarea`.
 
 - `onpointerlockchange`, `onpointerlockerror`:  
-  - **Usado em**: `<body>`, `<document>`, `<canvas>`, `<iframe>`.
+  - **Usado em**: `body`, `document`, `canvas`, `iframe`.
 
 #### **Eventos de Mouse**
 - `onclick` – Quando o elemento é clicado.
@@ -2037,30 +2262,30 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `onmouseleave` – Quando o mouse sai do elemento (sem propagar para filhos).
 - `oncontextmenu` – Quando o botão direito do mouse é pressionado.
 
-✅ **Qualquer elemento interativo** (`<button>`, `<a>`, `<div>`, `<span>`, `<img>`, `<canvas>`, `<textarea>`, `<iframe>`)
+✅ **Qualquer elemento interativo** (`button`, `a`, `div`, `span`, `img`, `canvas`, `textarea`, `iframe`)
 
 - `onclick`, `ondblclick`, `onmousedown`, `onmouseup`, `onmousemove`, `onmouseover`, `onmouseout`, `onmouseenter`, `onmouseleave`, `oncontextmenu`:  
-  - **Usado em**: `<button>`, `<a>`, `<div>`, `<span>`, `<img>`, `<textarea>`, `<canvas>`, `<iframe>`.
+  - **Usado em**: `button`, `a`, `div`, `span`, `img`, `textarea`, `canvas`, `iframe`.
 
 #### **Eventos de Teclado**
 - `onkeydown` – Quando uma tecla é pressionada.
 - `onkeyup` – Quando uma tecla é solta.
 - `onkeypress` – Quando uma tecla é pressionada e solta (obsoleto).
 
-✅ **Elementos de entrada** (`<input>`, `<textarea>`, `<select>`, `<body>`)
+✅ **Elementos de entrada** (`input`, `textarea`, `select`, `body`)
 
 - `onkeydown`, `onkeyup`, `onkeypress`:  
-  - **Usado em**: `<input>`, `<textarea>`, `<select>`, `<body>`, `<document>`.
+  - **Usado em**: `input`, `textarea`, `select`, `body`, `document`.
 
 #### **Eventos de Clipboard**
 - `oncopy` – Quando o usuário copia algo.
 - `oncut` – Quando o usuário recorta algo.
 - `onpaste` – Quando o usuário cola algo.
 
-✅ **Elementos editáveis** (`<input>`, `<textarea>`, `[contenteditable]`)
+✅ **Elementos editáveis** (`input`, `textarea`, `[contenteditable]`)
 
 - `oncopy`, `oncut`, `onpaste`:  
-  - **Usado em**: `<input>`, `<textarea>`, `[contenteditable]`.
+  - **Usado em**: `input`, `textarea`, `[contenteditable]`.
 
 #### **Eventos de Formulário**
 - `onfocus` – Quando um elemento recebe foco.
@@ -2073,19 +2298,19 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `onselect` – Quando o usuário seleciona um texto.
 - `onsubmit` – Quando um formulário é enviado.
 
-✅ **Elementos de formulário** (`<input>`, `<textarea>`, `<select>`, `<form>`)
+✅ **Elementos de formulário** (`input`, `textarea`, `select`, `form`)
 
 - `onfocus`, `onblur`, `onchange`, `oninput`, `oninvalid`:  
-  - **Usado em**: `<input>`, `<textarea>`, `<select>`.
+  - **Usado em**: `input`, `textarea`, `select`.
 
 - `onreset`, `onsubmit`:  
-  - **Usado em**: `<form>`.
+  - **Usado em**: `form`.
 
 - `onsearch`:  
-  - **Usado em**: `<input type="search">`.
+  - **Usado em**: `input type="search"`.
 
 - `onselect`:  
-  - **Usado em**: `<input type="text">`, `<textarea>`.
+  - **Usado em**: `input type="text"`, `textarea`.
 
 #### **Eventos de Drag & Drop**
 - `ondrag` – Quando um elemento está sendo arrastado.
@@ -2096,10 +2321,10 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `ondragover` – Quando um elemento arrastado está sobre uma área válida.
 - `ondrop` – Quando o usuário solta o elemento arrastado.
 
-✅ **Elementos interativos** (`<div>`, `<img>`, `<a>`, `<span>`, `<canvas>`)
+✅ **Elementos interativos** (`div`, `img`, `a`, `span`, `canvas`)
 
 - `ondrag`, `ondragstart`, `ondragend`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`:  
-  - **Usado em**: `<div>`, `<img>`, `<a>`, `<span>`, `<canvas>`, `<body>`.
+  - **Usado em**: `div`, `img`, `a`, `span`, `canvas`, `body`.
 
 #### **Eventos de Mídia**
 - `onabort` – Quando o carregamento de mídia é interrompido.
@@ -2125,10 +2350,10 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `onvolumechange` – Quando o volume da mídia muda.
 - `onwaiting` – Quando a mídia está aguardando para carregar mais dados.
 
-✅ **Elementos de mídia** (`<audio>`, `<video>`, `<source>`, `<track>`)
+✅ **Elementos de mídia** (`audio`, `video`, `source`, `track`)
 
 - `onabort`, `oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onended`, `onloadeddata`, `onloadedmetadata`, `onloadstart`, `onpause`, `onplay`, `onplaying`, `onprogress`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting`:  
-  - **Usado em**: `<audio>`, `<video>`, `<source>`, `<track>`.
+  - **Usado em**: `audio`, `video`, `source`, `track`.
 
 #### ✏️ **Eventos de Estilização e Animação**
 - `onanimationstart` – Quando uma animação CSS começa.
@@ -2141,10 +2366,10 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 ✅ **Qualquer elemento com animação/transição CSS**
 
 - `onanimationstart`, `onanimationiteration`, `onanimationend`:  
-  - **Usado em**: Qualquer elemento animado com CSS (`<div>`, `<span>`, `<button>`, etc.).
+  - **Usado em**: Qualquer elemento animado com CSS (`div`, `span`, `button`, etc.).
 
 - `ontransitionstart`, `ontransitionrun`, `ontransitionend`:  
-  - **Usado em**: Qualquer elemento com transições CSS (`<div>`, `<span>`, `<button>`, etc.).
+  - **Usado em**: Qualquer elemento com transições CSS (`div`, `span`, `button`, etc.).
 
 #### **Eventos de DOM**
 - `onreadystatechange` – Quando o estado do `document.readyState` muda.
@@ -2153,10 +2378,10 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `onfullscreenchange` – Quando a página entra ou sai do modo tela cheia.
 - `onfullscreenerror` – Quando ocorre um erro ao tentar alternar para tela cheia.
 
-✅ **Apenas elementos globais como `<document>` e `<body>`**
+✅ **Apenas elementos globais como `document` e `body`**
 
 - `onreadystatechange`, `onDOMContentLoaded`, `onvisibilitychange`, `onfullscreenchange`, `onfullscreenerror`:  
-  - **Usado em**: `<document>`, `<body>`.
+  - **Usado em**: `document`, `body`.
 
 #### **Eventos de Janela e Documento**
 - `onload` – Quando o documento ou um recurso (como imagem) é carregado.
@@ -2168,20 +2393,20 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `onstorage` – Quando ocorre uma mudança no `localStorage` ou `sessionStorage`.
 - `onerror` – Quando um erro ocorre (imagem, script, etc).
 
-✅ **Somente `<window>`, `<document>` e `<body>`**
+✅ **Somente `window`, `document` e `body`**
 
 - `onload`, `onunload`, `onbeforeunload`, `onresize`, `onscroll`, `onhashchange`, `onstorage`, `onerror`:  
-  - **Usado em**: `<window>`, `<document>`, `<body>`.
+  - **Usado em**: `window`, `document`, `body`.
 
 #### **Eventos de Histórico e Navegação**
 - `onpopstate` – Quando o estado do histórico muda (`window.history`).
 - `onpageshow` – Quando uma página é exibida (inclusive de cache).
 - `onpagehide` – Quando uma página é oculta.
 
-✅ **Somente `<window>`, `<document>` e `<body>`**
+✅ **Somente `window`, `document` e `body`**
 
 - `onpopstate`, `onpageshow`, `onpagehide`:  
-  - **Usado em**: `<window>`, `<document>`.
+  - **Usado em**: `window`, `document`.
 
 #### **Eventos de Touch (Toque em Dispositivos Móveis)**
 - `ontouchstart` – Quando um toque começa na tela.
@@ -2189,37 +2414,37 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 - `ontouchend` – Quando um toque termina.
 - `ontouchcancel` – Quando um toque é interrompido.
 
-✅ **Quase todos os elementos interativos (`<div>`, `<button>`, `<canvas>`, `<img>`)**
+✅ **Quase todos os elementos interativos (`div`, `button`, `canvas`, `img`)**
 
 - `ontouchstart`, `ontouchmove`, `ontouchend`, `ontouchcancel`:  
-  - **Usado em**: `<div>`, `<span>`, `<button>`, `<canvas>`, `<img>`, `<a>`.
+  - **Usado em**: `div`, `span`, `button`, `canvas`, `img`, `a`.
 
 #### **Eventos de Dispositivo**
 - `ondeviceorientation` – Quando a orientação do dispositivo muda.
 - `ondevicemotion` – Quando o acelerômetro detecta movimento.
 
-✅ **Apenas `<window>` e `<document>`**
+✅ **Apenas `window` e `document`**
 
 - `ondeviceorientation`, `ondevicemotion`:  
-  - **Usado em**: `<window>`, `<document>`.
+  - **Usado em**: `window`, `document`.
 
 #### **Eventos de Rede e Conectividade**
 - `onoffline` – Quando o dispositivo fica offline.
 - `ononline` – Quando o dispositivo volta a ficar online.
 
-✅ **Somente `<window>` e `<document>`**
+✅ **Somente `window` e `document`**
 
 - `onoffline`, `ononline`:  
-  - **Usado em**: `<window>`, `<document>`.
+  - **Usado em**: `window`, `document`.
 
 #### **Eventos de Impressão**
 - `onbeforeprint` – Antes da página ser impressa.
 - `onafterprint` – Depois que a página foi impressa.
 
-✅ **Somente `<window>` e `<document>`**
+✅ **Somente `window` e `document`**
 
 - `onbeforeprint`, `onafterprint`:  
-  - **Usado em**: `<window>`, `<document>`.
+  - **Usado em**: `window`, `document`.
 
 ## DATA I/O
 
