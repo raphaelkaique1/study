@@ -6,9 +6,9 @@ Este repositório contém uma coleção de scripts e programas simples para estu
 
 O repositório está organizado da seguinte forma:
 
-- [**`scripts/`**](https://github.com/raphaelkaique1/study/tree/main/coding/scripts): Exemplos de algoritmos escritos em diferentes linguagens, usadas para estudo de scripts e exercícios de lógica de programação, cobrindo desde conceitos básicos como sintaxe, variáveis, operadores e estrutura de dados até tópicos mais avançados, como orientação a objetos, desenvolvimento web orientado à eventos, tratamento de exceções e manipulação de arquivos. Os scripts aqui focam em estruturas de controle e organização básica de programas.
+- [**`scripts/`**](https://github.com/raphaelkaique1/study/blob/main/coding/scripts/README.md): Exemplos de algoritmos escritos em diferentes linguagens, usadas para estudo de scripts e exercícios de lógica de programação, cobrindo desde conceitos básicos como sintaxe, variáveis, operadores e estrutura de dados até tópicos mais avançados, como orientação a objetos, desenvolvimento web orientado à eventos, tratamento de exceções e manipulação de arquivos. Os scripts aqui focam em estruturas de controle e organização básica de programas.
 
-- [**`projects/`**](https://github.com/raphaelkaique1/study/tree/main/coding/projects): Programas criados com base nos conhecimentos adquiridos para praticar o desenvolvimento e programação de softwares.
+- [**`projects/`**](https://github.com/raphaelkaique1/study/blob/main/coding/projects/README.md): Programas criados com base nos conhecimentos adquiridos para praticar o desenvolvimento e programação de softwares.
 
 ## Objetivo
 
