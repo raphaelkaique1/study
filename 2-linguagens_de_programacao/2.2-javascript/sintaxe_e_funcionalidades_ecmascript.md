@@ -1902,9 +1902,326 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  console.log(calc.soma(2, 3, 4)); // 9
  ```
 
-## EOP
+## EDP
+ O paradigma mais usado em desenvolvimento de páginas web é o **Event-Driven Programming**. É o paradgima de programação onde o fluxo do programa é determinado por eventos e ações do usuário como cliques, pressionamento de teclas, mensagens do sistema, sensores ou até respostas de rede. Funciona da seguinte maneira:
+ 1. **Eventos** ocorrem.
+ 2. **Handlers ou Listeneres** "ouvem" estes eventos e respondem a eles com funções ou métodos.
 
-### DATA I/O
+### DOM
+ 
+
+### EVENTOS
+ Os eventos são a forma que temos para controlar as ações dos visitantes e definir o comportamento da página quando eles ocorrem. Quando um usuário visita e interage com uma página web são produzidos eventos, e podemos definir quais ações devem ser executadas quando eles ocorrem. Para definir as ações que queremos realizar quando um evento ocorre, utilizamos manipuladores de eventos. A manipulação de eventos é a principal ferramenta para o desenvolvimento de páginas interativas, pois com isso podemos responder às ações dos usuários. Há muitos tipos de eventos nos quais podemos associar manipuladores, para muitos tipos de ações de usuários.<br/>
+ Para entendermos os eventos, precisamos conhecer alguns conceitos básicos:
+ - **`event`**<br/>
+ **Algo que acontece.** Geralmente os eventos *ocorrem quando o usuário interage com o documento*, mas podem ser causados por situações fora do controle do usuário, como por exemplo uma imagem que não pode ser carregada porque não está disponível.
+ - **`event type`**<br/>
+ **Tipo do evento ocorrido.** *Cada tipo de elemento da página informa diferentes tipos de eventos.* Pode ser por exemplo um clique em um botão, o preenchimento de um formulário ou mesmo o usuário deixando a página.
+ - **`event handler`**<br/>
+ **Comportamento atribuído em resposta a um evento.** *Uma vez que o manipulador estiver associado a um tipo de evento em um elemento da página, toda vez que esse tipo de evento ocorrer naquele elemento específico, o manipulador associado será executado.*
+
+ Podemos definir eventos de 2 maneiras diferentes:
+ - **`tags`**: Uma forma está no próprio documento, usando atributos dos elementos aos quais queremos associar os manipuladores.
+ - **`DOM`**: Outra maneira um pouco mais avançada, é usar os próprios objetos do documento.
+
+#### `onEventHandler`
+ O manipulador de eventos pode ser colocado na tag do elemento que queremos responder às ações do usuário. Para isso usamos atributos especiais nas tags, que são prefixados com **`on`** *seguido do tipo de evento*. Por exemplo, o manipulador associado com o atributo **`onclick`** é executado quando ocorre um clique em uma tag.<br/>
+ **Então se quisermos que uma função seja executada quando o botão é clicado, usamos o manipulador de eventos _`onclick`_ na tag do elemento em questão para associar o elemento à função.**<br/>
+ ```html
+ <input type="button" value="click" onclick="alert('button clicked')"/>
+
+ <button onclick="alert('button clicked')">click me</button> 
+ ```
+
+ Cada elemento da página tem sua própria lista de eventos suportados. Vejamos outro exemplo de tratamento de eventos, desta vez em um menu suspenso, onde definimos um comportamento quando alteramos o valor selecionado:
+ ```html
+ <select onchange="window.alert('selection changed')">
+   <option value="option1"> 1ª opção
+   <option value="option2"> 2ª opção
+ </select>
+ ```
+
+ Assim como o atributo **`style`**, dentro dos manipuladores de eventos podemos colocar quantas instruções forem necessárias, sempre separadas por **`;`**.
+ ```html
+ <button onclick="x=30; window.alert(x); window.document.bgColor='#111'">click me</button>
+ ```
+
+ São instruções muito simples como atribuir a `x` o valor 30, exibir uma janela de alerta com o valor `x` e mudar a cor do fundo para preto. No entanto, tantas instruções colocadas em um manipulador são um pouco confusas, teria sido melhor criar uma função.<br/>
+ O mais comum é inserir apenas uma instrução, e, caso seja necessário usar mais de uma geralmente criamos uma função com todas as instruções e a referenciamos no manipulador.
+ ```html
+ <script>
+   function executaEventoOnclick() {
+    var x = 30;
+    window.alert(x);
+    window.document.bgColor = "#111";
+   }
+ </script>
+ <button onclick="executaEventoOnclick()">click me</button>
+ ```
+
+ Uma boa prática é sempre fazer com que o código possa ser de fácil leitura, tornando o trabalho de mantê-lo atualizado mais fácil.
+
+#### `addEventListener`
+ Outra maneira de associar os manipuladores de eventos aos elementos da página é através do método **`addEventListener()`**. Esta é uma forma ligeiramente mais avançada, mais melhora em muito a capacidade de manutenção do código, pois permite uma melhor separação entre o código de funcionalidades e o código de conteúdo.<br/>
+ O código HTML deve ser usado somente para definir o conteúdo de nossa página. Se tivermos instruções JavaScript dentro de `tags`, colocando atributos como `onclick` ou `onchange`, o que estamos fazendo na realidade é colocar códigos de funcionalidade dentro do código de conteúdo, o que não é recomendado.<br/>
+ Portanto, a técnica que vamos conhecer agora é a mais apropriada, pois nos permitirá escrever o código da funcionalidade – eventos – sem bagunçar o código de conteúdo. São necessárias 2 etapas para associarmos um evento a um elemento da página:
+
+ - **ACESSAR O OBJETO**<br/>
+ Para ter acesso ao objeto que queremos definir o evento, temos que localizar o objeto apropriado primeiro, para isso usamos o **`Document Objet Model`**, *que representa os documentos como uma estrutura de árvore, onde cada elemento da página é um nó dessa árvore* – ele permite que linguagens de script acessem e manipulem o conteúdo, a estrutura e o estilo de um documento web de forma dinâmica.
+ - **ADICIONAR O MANIPULADOR DE EVENTOS**<br/>
+ Sobre o objeto, aplicamos **`addEvenListener()`**, *indicando o tipo de evento e função do manipulador*.
+
+ Por exemplo, temos este elemento:
+ ```html
+ <button id='botaoClicavel'>click me</button>
+ ```
+ A maneira mais conveniente de acessar o elemento da página para recuperar o objeto associado a essa `tag` é usar o identificador – **atributo `id`**.<br/>
+ Neste caso, o identificador **`botaoClicavel`**; para acessar este elemento usamos o método **`getElementById()`** do objeto `document`, enviado o identificador.
+ ```js
+ var botaoClicavel = document.getElementByID("botaoClicavel");
+ ```
+ **Agora temos o objeto elemento da página associado a esse botão na variável `botaoClicavel`. Sobre este objeto podemos invocar o método `addEventListener()`.**<br/>
+ 2 parâmetros devem ser passados para este método:
+ 1. **tipo de evento que queremos detectar**
+ 2. **a função que o manipulador de eventos irá executar quando o evento ocorrer**
+ ```js
+ botaoClicavel.addEventListener("click", 
+  function() {
+    alert("Botão foi clicado!");
+  }
+ )
+ ```
+ Neste exemplo visto, será exibida a mensagem de alerta.<br/>
+ Vejamos outro exemplo de uma imagem na qual vamos associar manipulador de eventos a um **`mouseover`** – que é "reproduzido" quando o usuário coloca o ponteiro do mouse sobre o elemento.
+ ```html
+ <img src="https://website.com/image.png" id="profilePic">
+ ```
+ Agora associamos o manipulador de eventos do tipo `mouseover` com o código abaixo:
+ ```js
+ var profilePic = document.getElementByID("profilePic");
+ profilePic.addEventListener('mouseover', function() {
+  alert("O ponteiro do mouse foi posicionado sobre a imagem!");
+ });
+ ```
+
+ A tabela a seguir resume os principais eventos definidos pelo JS:
+
+#### **Eventos de Posição do Mouse (Pointer)**
+- `onpointerdown` – Quando um ponteiro (mouse, caneta ou toque) é pressionado.
+- `onpointerup` – Quando o ponteiro é solto.
+- `onpointermove` – Quando o ponteiro se move.
+- `onpointerover` – Quando o ponteiro entra na área do elemento.
+- `onpointerout` – Quando o ponteiro sai da área do elemento.
+- `onpointerenter` – Como `pointerover`, mas sem propagação.
+- `onpointerleave` – Como `pointerout`, mas sem propagação.
+- `onpointercancel` – Quando um ponteiro é cancelado.
+- `onpointerlockchange` – Quando o ponteiro do mouse é "bloqueado" (`pointer lock`).
+- `onpointerlockerror` – Quando ocorre um erro no bloqueio do ponteiro.
+
+✅ **Qualquer elemento interativo** (`<button>`, `<a>`, `<input>`, `<textarea>`, `<div>`, `<span>`, `<canvas>`, `<svg>`, `<iframe>`, `<img>`, etc.)
+- `onpointerdown`, `onpointerup`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `onpointercancel`:  
+  - **Usado em**: Quase todos os elementos, mas principalmente interativos como `<button>`, `<a>`, `<div>`, `<span>`, `<canvas>`, `<img>`, `<textarea>`.
+
+- `onpointerlockchange`, `onpointerlockerror`:  
+  - **Usado em**: `<body>`, `<document>`, `<canvas>`, `<iframe>`.
+
+#### **Eventos de Mouse**
+- `onclick` – Quando o elemento é clicado.
+- `ondblclick` – Quando ocorre um clique duplo.
+- `onmousedown` – Quando o botão do mouse é pressionado.
+- `onmouseup` – Quando o botão do mouse é solto.
+- `onmousemove` – Quando o mouse se move sobre o elemento.
+- `onmouseover` – Quando o mouse entra na área do elemento.
+- `onmouseout` – Quando o mouse sai da área do elemento.
+- `onmouseenter` – Quando o mouse entra no elemento (sem propagar para filhos).
+- `onmouseleave` – Quando o mouse sai do elemento (sem propagar para filhos).
+- `oncontextmenu` – Quando o botão direito do mouse é pressionado.
+
+✅ **Qualquer elemento interativo** (`<button>`, `<a>`, `<div>`, `<span>`, `<img>`, `<canvas>`, `<textarea>`, `<iframe>`)
+
+- `onclick`, `ondblclick`, `onmousedown`, `onmouseup`, `onmousemove`, `onmouseover`, `onmouseout`, `onmouseenter`, `onmouseleave`, `oncontextmenu`:  
+  - **Usado em**: `<button>`, `<a>`, `<div>`, `<span>`, `<img>`, `<textarea>`, `<canvas>`, `<iframe>`.
+
+#### **Eventos de Teclado**
+- `onkeydown` – Quando uma tecla é pressionada.
+- `onkeyup` – Quando uma tecla é solta.
+- `onkeypress` – Quando uma tecla é pressionada e solta (obsoleto).
+
+✅ **Elementos de entrada** (`<input>`, `<textarea>`, `<select>`, `<body>`)
+
+- `onkeydown`, `onkeyup`, `onkeypress`:  
+  - **Usado em**: `<input>`, `<textarea>`, `<select>`, `<body>`, `<document>`.
+
+#### **Eventos de Clipboard**
+- `oncopy` – Quando o usuário copia algo.
+- `oncut` – Quando o usuário recorta algo.
+- `onpaste` – Quando o usuário cola algo.
+
+✅ **Elementos editáveis** (`<input>`, `<textarea>`, `[contenteditable]`)
+
+- `oncopy`, `oncut`, `onpaste`:  
+  - **Usado em**: `<input>`, `<textarea>`, `[contenteditable]`.
+
+#### **Eventos de Formulário**
+- `onfocus` – Quando um elemento recebe foco.
+- `onblur` – Quando um elemento perde o foco.
+- `onchange` – Quando o valor de um campo muda.
+- `oninput` – Quando há entrada de dados em um campo de formulário.
+- `oninvalid` – Quando um campo não passa na validação.
+- `onreset` – Quando um formulário é resetado.
+- `onsearch` – Quando um campo de pesquisa recebe uma entrada.
+- `onselect` – Quando o usuário seleciona um texto.
+- `onsubmit` – Quando um formulário é enviado.
+
+✅ **Elementos de formulário** (`<input>`, `<textarea>`, `<select>`, `<form>`)
+
+- `onfocus`, `onblur`, `onchange`, `oninput`, `oninvalid`:  
+  - **Usado em**: `<input>`, `<textarea>`, `<select>`.
+
+- `onreset`, `onsubmit`:  
+  - **Usado em**: `<form>`.
+
+- `onsearch`:  
+  - **Usado em**: `<input type="search">`.
+
+- `onselect`:  
+  - **Usado em**: `<input type="text">`, `<textarea>`.
+
+#### **Eventos de Drag & Drop**
+- `ondrag` – Quando um elemento está sendo arrastado.
+- `ondragstart` – Quando o usuário começa a arrastar um elemento.
+- `ondragend` – Quando o usuário solta o elemento arrastado.
+- `ondragenter` – Quando um elemento arrastado entra em uma área válida.
+- `ondragleave` – Quando um elemento arrastado sai de uma área válida.
+- `ondragover` – Quando um elemento arrastado está sobre uma área válida.
+- `ondrop` – Quando o usuário solta o elemento arrastado.
+
+✅ **Elementos interativos** (`<div>`, `<img>`, `<a>`, `<span>`, `<canvas>`)
+
+- `ondrag`, `ondragstart`, `ondragend`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`:  
+  - **Usado em**: `<div>`, `<img>`, `<a>`, `<span>`, `<canvas>`, `<body>`.
+
+#### **Eventos de Mídia**
+- `onabort` – Quando o carregamento de mídia é interrompido.
+- `oncanplay` – Quando a mídia pode começar a ser reproduzida.
+- `oncanplaythrough` – Quando a mídia pode ser reproduzida completamente sem interrupções.
+- `oncuechange` – Quando a cue (legenda) muda.
+- `ondurationchange` – Quando a duração da mídia muda.
+- `onemptied` – Quando uma mídia não tem mais dados válidos.
+- `onended` – Quando a reprodução da mídia termina.
+- `onloadeddata` – Quando os dados da mídia foram carregados.
+- `onloadedmetadata` – Quando os metadados da mídia (duração, dimensões, etc.) foram carregados.
+- `onloadstart` – Quando o carregamento da mídia começa.
+- `onpause` – Quando a reprodução da mídia é pausada.
+- `onplay` – Quando a mídia começa a ser reproduzida.
+- `onplaying` – Quando a mídia continua sendo reproduzida após ter sido pausada ou carregada.
+- `onprogress` – Quando há progresso no carregamento da mídia.
+- `onratechange` – Quando a velocidade da reprodução muda.
+- `onseeked` – Quando a busca na mídia foi concluída.
+- `onseeking` – Quando a busca na mídia está em andamento.
+- `onstalled` – Quando o carregamento da mídia é interrompido.
+- `onsuspend` – Quando o carregamento da mídia é suspenso.
+- `ontimeupdate` – Quando o tempo de reprodução da mídia é atualizado.
+- `onvolumechange` – Quando o volume da mídia muda.
+- `onwaiting` – Quando a mídia está aguardando para carregar mais dados.
+
+✅ **Elementos de mídia** (`<audio>`, `<video>`, `<source>`, `<track>`)
+
+- `onabort`, `oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onended`, `onloadeddata`, `onloadedmetadata`, `onloadstart`, `onpause`, `onplay`, `onplaying`, `onprogress`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting`:  
+  - **Usado em**: `<audio>`, `<video>`, `<source>`, `<track>`.
+
+#### ✏️ **Eventos de Estilização e Animação**
+- `onanimationstart` – Quando uma animação CSS começa.
+- `onanimationiteration` – Quando uma animação CSS repete.
+- `onanimationend` – Quando uma animação CSS termina.
+- `ontransitionstart` – Quando uma transição CSS começa.
+- `ontransitionrun` – Quando uma transição CSS inicia, mas antes do delay.
+- `ontransitionend` – Quando uma transição CSS termina.
+
+✅ **Qualquer elemento com animação/transição CSS**
+
+- `onanimationstart`, `onanimationiteration`, `onanimationend`:  
+  - **Usado em**: Qualquer elemento animado com CSS (`<div>`, `<span>`, `<button>`, etc.).
+
+- `ontransitionstart`, `ontransitionrun`, `ontransitionend`:  
+  - **Usado em**: Qualquer elemento com transições CSS (`<div>`, `<span>`, `<button>`, etc.).
+
+#### **Eventos de DOM**
+- `onreadystatechange` – Quando o estado do `document.readyState` muda.
+- `onDOMContentLoaded` – Quando o HTML foi carregado, mas os recursos ainda não.
+- `onvisibilitychange` – Quando a visibilidade da página muda (`visible` ou `hidden`).
+- `onfullscreenchange` – Quando a página entra ou sai do modo tela cheia.
+- `onfullscreenerror` – Quando ocorre um erro ao tentar alternar para tela cheia.
+
+✅ **Apenas elementos globais como `<document>` e `<body>`**
+
+- `onreadystatechange`, `onDOMContentLoaded`, `onvisibilitychange`, `onfullscreenchange`, `onfullscreenerror`:  
+  - **Usado em**: `<document>`, `<body>`.
+
+#### **Eventos de Janela e Documento**
+- `onload` – Quando o documento ou um recurso (como imagem) é carregado.
+- `onunload` – Quando a página está sendo descarregada.
+- `onbeforeunload` – Antes do usuário sair da página.
+- `onresize` – Quando o tamanho da janela do navegador muda.
+- `onscroll` – Quando a página ou elemento é rolado.
+- `onhashchange` – Quando o hash da URL muda (`#algumacoisa`).
+- `onstorage` – Quando ocorre uma mudança no `localStorage` ou `sessionStorage`.
+- `onerror` – Quando um erro ocorre (imagem, script, etc).
+
+✅ **Somente `<window>`, `<document>` e `<body>`**
+
+- `onload`, `onunload`, `onbeforeunload`, `onresize`, `onscroll`, `onhashchange`, `onstorage`, `onerror`:  
+  - **Usado em**: `<window>`, `<document>`, `<body>`.
+
+#### **Eventos de Histórico e Navegação**
+- `onpopstate` – Quando o estado do histórico muda (`window.history`).
+- `onpageshow` – Quando uma página é exibida (inclusive de cache).
+- `onpagehide` – Quando uma página é oculta.
+
+✅ **Somente `<window>`, `<document>` e `<body>`**
+
+- `onpopstate`, `onpageshow`, `onpagehide`:  
+  - **Usado em**: `<window>`, `<document>`.
+
+#### **Eventos de Touch (Toque em Dispositivos Móveis)**
+- `ontouchstart` – Quando um toque começa na tela.
+- `ontouchmove` – Quando um toque se move na tela.
+- `ontouchend` – Quando um toque termina.
+- `ontouchcancel` – Quando um toque é interrompido.
+
+✅ **Quase todos os elementos interativos (`<div>`, `<button>`, `<canvas>`, `<img>`)**
+
+- `ontouchstart`, `ontouchmove`, `ontouchend`, `ontouchcancel`:  
+  - **Usado em**: `<div>`, `<span>`, `<button>`, `<canvas>`, `<img>`, `<a>`.
+
+#### **Eventos de Dispositivo**
+- `ondeviceorientation` – Quando a orientação do dispositivo muda.
+- `ondevicemotion` – Quando o acelerômetro detecta movimento.
+
+✅ **Apenas `<window>` e `<document>`**
+
+- `ondeviceorientation`, `ondevicemotion`:  
+  - **Usado em**: `<window>`, `<document>`.
+
+#### **Eventos de Rede e Conectividade**
+- `onoffline` – Quando o dispositivo fica offline.
+- `ononline` – Quando o dispositivo volta a ficar online.
+
+✅ **Somente `<window>` e `<document>`**
+
+- `onoffline`, `ononline`:  
+  - **Usado em**: `<window>`, `<document>`.
+
+#### **Eventos de Impressão**
+- `onbeforeprint` – Antes da página ser impressa.
+- `onafterprint` – Depois que a página foi impressa.
+
+✅ **Somente `<window>` e `<document>`**
+
+- `onbeforeprint`, `onafterprint`:  
+  - **Usado em**: `<window>`, `<document>`.
+
+## DATA I/O
 
  O JS tem várias ferramentas para lidar com dados:
  - Entrada de **`form`**: **`input`**.
@@ -1913,7 +2230,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  - O comando: **`confirm()`**.
  - O módulo: **`const readline = require('readline');`**.
 
-##### FORM INPUTS
+### FORM INPUTS
 Outra forma de obter entrada do usuário é através de elementos HTML, como **`<input>`**, e manipulá-los com JavaScript. Esta abordagem é **mais flexível** e permite uma *melhor experiência do usuário*.<br/>
  Os navegadores permitem a manipulação do **DOM** (*Document Object Model*) através do JavaScript. *Ao associar eventos, como o clique de um botão, a funções JavaScript, podemos interagir dinamicamente com os elementos da página.* O método **`getElementById()`** *retorna uma referência ao elemento com o id especificado, permitindo acessar e manipular suas propriedades, como o **`value`** de um campo de entrada*.
 ```html
@@ -1937,7 +2254,7 @@ Outra forma de obter entrada do usuário é através de elementos HTML, como **`
 </html>
 ```
 
-##### PROMPT
+### PROMPT
  Com **`prompt`**, inserimos a variável através de uma janela, este método é uma função nativa do objeto **`window`** nos navegadores. Quando chamado, ele pausa a execução do script e exibe uma caixa de diálogo *`modal`*, aguardando a interação do usuário. Após o usuário inserir um valor e confirmar, o `prompt()` retorna esse valor, permitindo que o script continue sua execução com a entrada fornecida.<br/>
  Neste exemplo, o que o usuário inserir no campo de entrada da janela será armazenado na variável `name`.
 ```js
@@ -1957,19 +2274,19 @@ var salary = parseFloat(prompt("Pretenção: U$ "));
 
  Uma **`string`** é retornada se o usuário clicar em *"OK"*, caso clique em *"Cancel"* é retornado **`null`**, e, se o usuário clicar em *"OK"* sem inserir nenhum texto, uma **string vazia** é devolvida. **Por isso devemos sempre fazer o tratamento de excessões quando precisamos de dados externos, para garantir que o código trabalhe sempre com o dados esperados, evitando assim _bugs_ durante a execução do programa.**
 
-##### ALERT
+### ALERT
  O comando `alert` exibe uma janela pop-up com um aviso e botões para coletar a resposta do usuário. Este é considerado um *"alerta normal"*, que exibe uma informação do usuário com **apenas o botão para fechar o pop-up**.
 ```js
 alert("!ALERTA!");
 ```
 
-##### CONFIRM
+### CONFIRM
   O comando `confirm` exibe uma janela pop-up com um aviso e botões para coletar a resposta do usuário. Este é considerado um *"alerta de confirmação"*, que exibe uma informação do usuário e **coleta na variável a resposta do usuário, que será `true` ou `false`**.
 ```js
 var confirmation = confirm("Termos de Política de Privacidade");
 ```
 
-##### CONSOLE
+### CONSOLE
  Até agora, vimos opções que são visíveis ao usuário, mas esta opção não é exibida ao usuário a menos que abramos o console. O console nos permite trabalhar com JS instantaneamente, corrigir erros, ver quais variáveis estão dentro, ver o que está acontecendo em nosso código, observar o fluxo do programa está indo e assim por diante. Este comando exibe uma mensagem no **console** do navegador.
 ```js
 console.log("Hello world!");
@@ -1998,7 +2315,7 @@ let userName = () => rl.question('User: ', (name) => {
 userName();
 ```
 
-##### DOCUMENT OUTPUT
+### DOCUMENT OUTPUT
  Com o **`document.write()`** podemos **escrever _diretamente_ no código HTML de nossa página web.**<br/>
 ```html
 <head>
