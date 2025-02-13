@@ -1,4 +1,4 @@
-## Convenção de Commits 
+## Convenção de Commits
 
 | Tipo de Commit |Descrição                                                             | Exemplo
 | ---------------|----------------------------------------------------------------------|---------
