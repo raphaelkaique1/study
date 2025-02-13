@@ -5,7 +5,7 @@
  Na programação web uma coisa é constante: não é fácil criar páginas capazes de parecer "bem" em todos os tipos de navegadores. Este é um ponto delicado para qualquer um que tenha que lidar com tal tarefa. A ideia é *não perder tráfego*, mesmo se for utilizado o *Internet Explorer 7*, especialmente se o serviço ou produto estiver focado em um público que utiliza esse navegador em particular. Para resolver este problema, existem scripts chamados *Polyfils*, que adicionam as capacidades de um navegador moderno usando JavaScript. Como nos navegadores, há uma infinidade de **telas**: smartphones, desktops, notebooks, tablets, smart tvs, e etc. Mesmo dentro do campo dos smartphones, são numerosas as variantes dependendo do dispositivo e da marca. O desenvolvedor front-end está encarregador de fazer o site funcionar para a maioria das telas.
 
 ## DESENVOLVIMENTO WEB
- Para começarmos, precisamos deixar claro que: *Internet* e *Web (World Wide Web)* **não são a mesma coisa**. A Internet é a estrutura (rede) que conecta os dipositivos uns aos outros, a fim de estabelecer uma ponte para a counicação entre seus usuários; já a Web é a plataforma onde as aplicações (websites) podem ser acessadas e usadas. Um *website* é um *site (localização)* na **World Wide Web** que contém documentos, ou *páginas web* hierarquicamente organizadas. Cada documento pode conter textos, imagens, gráficos e etc, que aparecem como informações digitais em uma tela. Cada website tem uma **Home Page**, *que é o primeiro documento que o usuário vê ao entrar no website* digitando o nome de domínio no navegador. O termo *página web* é às vezes usado equivocadamente para se referir a um website. Uma **Página Web** *é parte de um website e é um único arquivo com um nome atribuído*, enquanto um **WebSite** *é uma coleção de arquivos chamada Páginas Web*. Se o compararmos a um livro, um *website* seria o livro inteiro, e uma *página web* seria um capítulo; seria um capítulo e não uma página do livro porque muitas vezes é necessário percorrer a tela para ver todo o conteúdo de uma página web, assim como em um livro percorremos várias páginas para ver todo o conteúdo de um capítulo.<br/>
+ O desenvolvimento web é o processo de criação de websites e aplicativos para a web, e envolve diversas tecnologias e linguagens que trabalham junstas para criar páginas web interativas e funcionais. Para começarmos, precisamos deixar claro que: *Internet* e *Web (World Wide Web)* **não são a mesma coisa**. A Internet é a estrutura na rede que conecta os dipositivos uns aos outros, a fim de estabelecer uma ponte para a counicação entre seus usuários; já a Web é a plataforma onde as aplicações e websites podem ser acessadas e usadas. Um *website* é um *site – localização* na **World Wide Web** que contém documentos, ou *páginas web* hierarquicamente organizadas. Cada documento pode conter textos, imagens, gráficos e etc, que aparecem como informações digitais em uma tela. Cada website tem sua **Home Page**, *que é o primeiro documento que o usuário vê ao entrar no website* digitando o nome de domínio no navegador. O termo *página web* é às vezes usado equivocadamente para se referir a um website. Uma **Página Web** *é parte de um website e é um único arquivo com um nome atribuído*, enquanto um **WebSite** *é uma coleção de arquivos chamada Páginas Web*. Se o compararmos a um livro, um *website* seria o livro inteiro, e uma *página web* seria um capítulo; seria um capítulo e não uma página do livro porque muitas vezes é necessário percorrer a tela para ver todo o conteúdo de uma página web, assim como em um livro percorremos várias páginas para ver todo o conteúdo de um capítulo.<br/>
  Uma *página web*, também conhecida como *página da Internet*, é um documento adapatado para a web e geralmente faz parte de um website, Sua principal característica são os *hyperlinks* para outras páginas, que é a base da web. Dentro de uma página web, podemos encontrar todo tipo de conteúdo. Uma das divisões que podemos fazer entre todos os tipos de páginas web existentes poderia ser a diferença entre *páginas estáticas* e *páginas dinâmicas*.<br/>
  Para entender a comunicação mais básica que ocorre na internet, devemos saber que ela envolve um **servidor web**, como *ISS*, *Apache* ou *NGINX*, que contém os arquivos HTML, CSS e JavaScript das páginas web; e um cliente, neste caso o navegador (*Chrome, Firefox, Edge* e etc). O servidor web e o cliente comunicam-se via **HTTPS (Hypertext Transfer Protocol Secure)**, que *é um conjunto de regras que permitem a transferência de informações via arquivos na Internet*. A comunicação entre eles começa quando o usuário, através do navegador, entra no *endereço de um website* (conhecido como **url** – Uniform Resource Locator), gerando uma solicitação ao servidor web onde a página está hospedada (via HTTPS) para encontrar os arquivos dela. O servidor web então responde à solicitação e retorna os arquivos do site (resposta HTTPS). A resposta chega ao navegador como uma cópia HTML da página web, e é neste ponto que o usuário pode vê-la em sua tela.
 
@@ -31,7 +31,7 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
 
 ### <span id="html">HTML</span>
  A origem do HTML data de 1980, quando o físico Tim Berners-Lee, um trabalhador do CERN (Organização Européia de Pesquisa Nuclear), propôs um novo sistema de *"hypertext"* para compartilhar documentos.<br/>
- **HyperText Markup Language**, é uma "linguagem" composta de *etiquetas*, ou **tags**, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc.<br/>
+ **HyperText Markup Language**, é uma "linguagem" composta de *etiquetas*, ou **tags**, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc. As tags são os blocos de construção do HTML, usadas para marcar o início e o fim de seus elementos  edefinir a estrutura de uma página. Cada tag é cercada por colchetes angulares `< >` e pode conter **atributos** *que fornecem informações adicionais sobre o elemento.* **Algumas tags são autofechadas**, *o que significa que não possuem uma tag de fechamento correspondente*, entretanto a maioria possui um par de abertura e fechamento com o conteúdo entre elas, sendo a de fechamento semelhantes a de abertura, mas inclui uma barra antes do nome da tag, como `</tag>`.<br/>
  O HTML não é uma linguagem de programação em si, embora às vezes seja referido coloquialmente como uma linguagem de programação, é composto simplesmente por uma série de **tags** que o navegador interpreta de uma forma ou de outra para exibir e moldar conteúdos diferentes na tela.<br/>
  HTML é a linguagem utilizada para o desenvolvimento de páginas na Internet, e possui tags para imagens, hyperlinks, quebras de linha, listas, tabelas e etc.<br/>
  Classicamente, diz-se que as linguagens de programação incluem 3 capacidades básicas para gerar fluxos de processo:
@@ -74,9 +74,8 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
  _*As etiquetas sem um par de fechamento são fechadas com uma sintaxe semelhante a estas: `<br/>` `<img/>`. Todas as tags contidas dentro do **head** não são "fechadas" com uma barra "/" no final, apenas as tags sem par de fechamento incluídas no body usam isto, somente a fim de evitar quebras no restante da página._<br/>
  Para se saber que a visualização será igual em todos os cenários, que navegadores devemos usar para testar nossas páginas web? ... Muito simples, **TODOS ELES**. Deve-se certificar de que o website possa ser visualizado corretamente em qualquer dispositivo. Um programador front-end deve sempre testar suas páginas em todos os dispositivos e navegadores possíveis, para garantir que os navegadores não interpretem a página de diferentes maneiras, ou seja, que sua exibição seja uniforme e padrão na maioria dos testes.
 
- - Os comentários em HTML possuem a seguinte sintáxe: `<!-- comentário -->`
- - Por convenção, a página principal de qualquer projeto web é normalmente chamada de **index.html**.
-
+###### CONCEITOS
+ Os comentários em HTML possuem a seguinte sintáxe: `<!-- comentário -->`. Por convenção, a *página principal* de qualquer projeto web é normalmente chamada de **index.html**.<br/>
  Uma página HTML consiste a princípio de 2 partes distintas, o **head** e o **body**, nas quais as tags são distribuídas:
 ```html
 ╭──<!DOCTYPE>───────────╮       <!DOCTYPE html>
@@ -92,7 +91,20 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
 ╰──</hmtl>────────────────────╯ </html>
 ```
 ###### ORGANIZAÇÃO DO HEAD
- O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis. Os *metaelementos*, ou *metamarcas*, fornecem informações descritivas sobre a página; o *title* da página e possíveis *links* para páginas CSS ou JavaScript.<br/>
+ O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis. Os *metaelementos*, ou *metamarcas*, fornecem informações descritivas sobre a página; o *title* da página e possíveis *links* para páginas CSS ou JavaScript. Vejamos:
+ - **`<!DOCTYPE html>`**<br/>
+ Declara o tipo de documento e a versão do HTML.
+ - **`html lang="en"`**<br/>
+ É a tag raiz que engloba todo o conteúdo do documento; o atributo `lang` especifica o idioma da página.
+ - **`head`**<br/>
+ Contém as metainformações sobre o documento, como: e título da página.
+   - **`<meta charset="UTF-8>"`**<br/>
+   O tipo e conjunto de caracteres.
+   - **`<meta name="viewport" content="width=device-width, initial-scale=1.0">`**<br/>
+   Configurações de viewport para responsividade.
+ - **`body`**<br/>
+ Armazena o conteúdo visível da página, como os cabeçalhos, títulos, texto e parágrafos, imagens, mídias entre outras coisas.
+
  A tabela a seguir mostra um resumo dos elementos que podem ir dentro da etiqueta *head*:
 
 ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
@@ -148,7 +160,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 ```
 
 ###### ORGANIZAÇÃO DO BODY
- A tag de fechamento do `head` é seguida pela de abertura do `body`. O `body` é o "corpo" da página onde introduzimos a parte vísivel ao usuário. No passado, a página era dividida em *células* com a tag `table`, mais tarde foi utilizada a `div`, que era chamada de *modelo box-container*. Hoje em dia usam-se as tags semânticas definidas para cada parte específica, o "padrão" atual segue o seguinte esquema básico:
+ A tag de fechamento do `head` é seguida pela de abertura do `body`. O `body` é o "corpo" da página onde introduzimos a parte vísivel ao usuário. No passado, a página era dividida em *células* com a tag `table`, mais tarde foi utilizada a `div`, que era chamada de *box-model*. Hoje em dia usam-se as tags semânticas definidas para cada parte específica, o "padrão" atual segue o seguinte esquema básico:
 
 ```
 ┌───────────────────────────────┐
@@ -341,14 +353,15 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 </pre>
 
 ###### <span id="marcador">HYPERLINKS</span>
- *Links* ou *Hyperlinks*, são textos ou objetos sobre os quais podemos clicar para nos levar para outra parte do documento, outra página do mesmo site ou mesmo para outro site na Internet, entre outras funções.
+ *Links* ou *Hyperlinks*, são textos ou objetos sobre os quais podemos clicar para nos levar para outra parte do documento, outra página do mesmo site ou mesmo para outro site na Internet, entre outras funções.<br/>
+ No hyperlink, distinguimos as seguintes partes:
+ - Abertura e fechamento da tag de hyperlink `<a>...</a>`.
+ - O atributo `href="https://url.domain"` contendo o caminho para o endereço desejado.
+ - Um texto descritivo ao usuário.
 
- **LINKS INTERNOS**<br/>
- **Links internos** *são links dentro da mesma página, que, ao clicar em um deles, seremos levados a uma posição diferente dentro da mesma página.*<br/>
- O código dos marcadores é criado com o atributo **`id`**. Tanto o `name` quanto o `id` para uma tag específica devem ser únicos, ou seja, não podem haver 2 tags com o mesmo `name` ou `id` dentro de um documento.
- **Para criar este tipo de ligação, 2 operações devem ser realizadas**:
- - Estabelecer *marcadores*, chamados de *âncoras*, ao longo da página, que serão os locais para os quais saltaremos com os links.
- - Adicionar os links direcionando para os marcadores.
+ **ÂNCORAS**<br/>
+ **Âncoras** *são links dentro da mesma página, que, ao clicar em um deles, seremos levados a uma posição diferente e específica dentro da mesma página.*<br/>
+ O código dos marcadores é criado com o atributo **`id`**. Tanto o `name` quanto o `id` para uma tag específica devem ser únicos, ou seja, não podem haver 2 tags com o mesmo `name` ou `id` dentro de um documento. **Para criar este tipo de ligação, 2 operações devem ser realizadas**, primeiro deve-se estabelecer *marcadores*, chamados de *âncoras*, ao longo da página, que serão os locais para os quais saltaremos com os links. Em seguida, adicionar os links direcionando para os marcadores, usando a sintaxe `<a href="#marcador">go</a>`.
 ```html
 <p id="marcador">
     Ao clicar no link, a visualização da tela será trazida para cá.
@@ -360,14 +373,15 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 ```
 <a href="#marcador">click here</a>
 
-**LINKS EXTERNOS**<br/>
- Um **hyperlink externo** *é um link para outro site na Internet (site externo), ou seja, é uma "ligação" para qualquer outro lugar fora do site atual.*<br/>
- Quando colocamos um link externo, digitamos o endereço completo, incluindo `https://www...`; estas rotas que incluem `https://www...` são chamadas de **rotas absolutas**.<br/>
- No hyperlink, distinguimos as seguintes partes:
- - Abertura e fechamento da tag de hyperlink `<a>...</a>`.
- - O atributo `href="https://url.domain"` contendo a url do endereço desejado.
- - Um texto descritivo ao usuário.
+**LINKS INTERNOS**<br/>
+ Um **link interno** aponta para outra página dentro do mesmo site, é usado para navegar entre os diferentes arquivos do nosso site. Um exemplo disso são os menus de navegação, que ao clicar em uma opção é carregada outra página no nosso website. Para criar um link interno, informamos o caminho e nome do arquivo que queremos exibir
+```html
+<a href="page.html">Link Interno</a>
+```
 
+**LINKS EXTERNOS**<br/>
+ Um **hyperlink externo** *é um link para outro site na Internet, um site externo, ou seja, é uma "ligação" para qualquer outro lugar fora do site atual.*<br/>
+ Quando colocamos um link externo, digitamos o endereço completo, incluindo `https://www...`; estas rotas que incluem `https://www...` são chamadas de **rotas absolutas**.
 ```html
 <a href="https://raphaelkaique1.github.io/raphaelkaique1">ir para esta página</a>
 ```
@@ -466,7 +480,8 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 **TABELAS**<br/>
  As tabelas podem ser consideras como *um grupo de linhas, onde cada linha contém um grupo de células delimitadas por colunas*. Uma tabela pode ser inserida em um documento usando 6 elementos básicos:
  1. **`table` estrutura de tabela**: Cria o campo para estruturar as linhas e colunas da tabela.
- 2. **`tr` linhas**: Define uma linha da tabela;
+ 1. **`th` título**: Define um título de cabeçalho.
+ 2. **`tr` linhas**: Define uma linha da tabela.
  3. **`td` células**: Cada célula é uma parte da linha contida em uma coluna.
  4. **`thead`**: Elemento semântico para agrupar os cabeçalhos da tabela.
  5. **`tbody`**: Elemento semântico para agrupar o corpo (*células*) da tabela.
@@ -705,6 +720,12 @@ a abertura da tabela.**
 <figure>
     <img src="https://avatars.githubusercontent.com/u/182168576" width="190rem" alt="Logo Tech n' Logic" title="Tech n' Logic" figcaption="Fonte: Tech n' Logic GitHub profile"/>
 </figure>
+
+ O HTML suporta vários diferentes formatos de imagens, porém cada tipo tem suas vantagens e desvantagens:
+ - **JPEG**: bom para fotografias e imagens com muitas cores.
+ - **PNG**: suporta transparência e é utilizado para gráficos com menos cores.
+ - **GIF**: suporta animações, mas é limitado a 256 cores.
+ - **SVG**: gráficos vetoriais escaláveis, ideais para ícones e logotipos.
 
 **ÁUDIO**<br/>
  O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada tipo reproduz um áudio.<br/>
@@ -1061,11 +1082,13 @@ Aqui falaremos sobre como adicionar legendas.
 ```
 
 ###### VIAS E ROTAS
- Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. **Recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**
- - **`src="file.ext"`**: **O arquivo está localizado na mesma pasta da página atual.**
- - **`src="dir/file.ext`**: **O arquivo está localizado em uma pasta na raiz do site atual.**
- - **`src="../file.ext`**: **O arquivo está localizado na pasta um nível acima da pasta atual.**
- - **`src="https://site.com/image.png` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
+ Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. Existem 2 tipos de caminhos, porém, **recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**:
+ 1. **caminho relativo**: especifica a localização em relação ao documento atual.
+    - **`src="file.ext"`**: **O arquivo está localizado na mesma pasta da página atual.**
+    - **`src="dir/file.ext`**: **O arquivo está localizado em uma pasta na raiz do site atual.**
+    - **`src="../file.ext`**: **O arquivo está localizado na pasta um nível acima da pasta atual.**
+ 2. **caminho absoluto**: especifica a localização completa incluindo o domínio.
+    - **`src="https://site.com/image.png` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
 
 <table border="1px">
     <caption>LISTA DE TAGS</caption>
@@ -1605,6 +1628,7 @@ Aqui falaremos sobre como adicionar legendas.
  Em meados de 1990 a web se expandia rapidamente, mas os navegadores ofereciam poucas maneiras de definir estilos e layouts de forma consistente. Nesse contexto, Håkon Wium Lie, enquanto trabalhava com Tim Berners-Lee (idealizador do HTML) no CERN, percebeu que faltava uma ferramenta para aplicar estilos de forma flexível aos documentos web. Então, em 1994, Håkon Wium Lie propôs a ideia de “folhas de estilo em cascata” para dar aos desenvolvedores um mecanismo que pudesse controlar a apresentação de forma separada do conteúdo. Essa proposta surgiu justamente para atender à necessidade de uma web mais dinâmica e com melhor controle visual. Pouco tempo depois, Bert Bos se juntou a Lie, contribuindo significativamente para o refinamento do conceito. Juntos, eles desenvolveram as bases do que se tornaria o CSS, defendendo uma abordagem em que os estilos pudessem vir de diferentes fontes – como o navegador, o autor da página e o usuário final – sendo aplicados de acordo com uma ordem de prioridade ou “cascata”.
 
 #### SINTÁXE
+ O CSS utiliza uma sintaxe simples para definir estilos, cada regra de estilo consiste em um **seletor** e um **bloco de declaração**. O seletor aponta para o elemento HTML que se desja estilizar, e o bloco de declaração é contido entre **`{}`** e possui uma ou mais declarações de estilo que são declaradas com o **identificador** seguido de **`:`** e a **propriedade** que desejamos atribuir ao elemento, separadas por **`;`**.<br/>
  Todas as etiquetas CSS terão **2 partes**:
  1. **SELETOR**:<br/>
  Que determina qual área da página será modificada.
@@ -1619,9 +1643,9 @@ Aqui falaremos sobre como adicionar legendas.
  3. **DECLARAÇÃO NA TAG**:<br/>
  *Usa-se o atributo **`style="seletor: regra-de-estilo"`** na tag que se deseja alterar a aparência. **Esta opção de _in-line CSS_ não é muito recomendada por não favorecer o SEO**, o ideal é utilizá-lo apenas em casos muito específicos.
 
- Ao aplicarmos o *css in-line*, devemos repetir a estilização em cada uma das tags que queremos modificar, já com o _internal css_ estilizamos uma página inteira, e com o _external css_ podemos aplicar estilos a várias páginas do nosso site.<br/>
+ Ao aplicarmos o *embedded css*, devemos repetir a estilização em cada uma das tags que queremos modificar, já com o _internal css_ estilizamos uma página inteira, e com o _external css_ podemos aplicar estilos a várias páginas do nosso site.<br/>
  *É importante saber que cada uma dessas aplicações tem prioridade hierarquica sobre as outras, por isso deve-se sempre estar atento às regras de prioridade para não haver comportamentos inesperados.* A ordem de exibição informa ao navegador que aplique um estilo sobre o outro, ou seja, ao invés de aplicar o estilo (mais abaixo na hierarquia) presente em uma declaração, será aplicado o que estiver declarado de forma mais alta hierarquicamente. **Caso uma tag seja afetada por vários estilos CSS, o navegador aplicará os seguinte critérios seguindo a seguinte hierarquia, sendo 1 o maior e 3 o menor**:
- 1. **in-line CSS**
+ 1. **embedded CSS**
  2. **internal CSS**
  3. **external CSS**
 
@@ -1669,13 +1693,14 @@ Aqui falaremos sobre como adicionar legendas.
  A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
 ##### SELETORES
- Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
- - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo, se for um `id` por exemplo, deve-se usar `#` para especificar ao documento, se for uma `class` usa-se `.`, e assim por diante.
+ Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização. Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
+ - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo:
+    - **`id`**: deve-se usar `#` para se referir ao elemento.
+    - **`class`**: usa-se `.`, e atinge todos os elementos atribuídos à mesma classe.
+    - **`tag`**: caso seja necessário aplicar um estilo a todos elementos do mesmo tipo usa-se a identificação da `tag`.
  - **bloco de declaração**: Contém entre chaves seguidas após o seletor `{...}` as regras de estilo para o elemento em questão.
-
- Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização.
- - **propriedade**: *Define qual característica será alterada.* Como por exemplo `border`.
- - **atributo**: *Define a alteração a ser feita naquela propriedade*, como por exemplo aplicar a cor `#333`. 
+    - **propriedade**: *Define qual característica será alterada.* Como por exemplo `color`.
+    - **atributo**: *Define a alteração a ser feita naquela propriedade*, como por exemplo aplicar a cor `#333`. 
 
  Vejamos alguns dos seletores usados:
  - **`<tag>`**: **Altera o estilo de todos os elementos de um mesmo tipo de tag.** Para declará-lo, basta utilizar o nome da tag:
@@ -1872,7 +1897,19 @@ Aqui falaremos sobre como adicionar legendas.
  | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
  | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
 
-##### FONTES
+##### PROPRIEDADES DE TEXTO
+ Acrescentando estilos ao texto e ao layout de um site, podemos melhorar a legibilidade e dar uma identidade visual à página. Essas propriedades incluem fontes, cores, margens, bordas, padding entre outras dimensões. O CSS oferece uma ampla variedade de propriedades para estilizar o texto e aplicar cores aos elementos. Vejamos algumas:
+ - **propriedades de texto**:
+   - **`font-size`**: define o tamanho da fonte.
+   - **`font-family`**: define o estilo da fonte.
+   - **`font-weight`**: define o "peso" da fonte.
+   - **`text-align`**: define o alinhamento do texto.
+   - **`line-height`**: define a altura e espaçamento entre as linhas.
+ - **propriedades de cor**:
+   - **`color`**: define a cor da fonte.
+   - **`background`**: define a cor de fundo do texto.
+
+###### FONTES
  **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
  *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
  ```css
@@ -2042,18 +2079,17 @@ ul li:nth-child(even)::marker {
 }
 ```
 
-##### FLOAT, MARGIN E PADDING
- Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
-
- - **`border`**: Modifica a borda de um elemento.
- - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-container`, usamos a propriedade `clear`.<br/>
+##### DIMENSÕES
+ Margens, bordas e padding são usadas para controlar o espaço ao redor dos elementos, essa é a base do modelo de caixa, o **`box-model`**. Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
+ - **`border`**: Trata o contorno do elemento, modificando sua borda.
+ - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-model`, usamos a propriedade `clear`.<br/>
  Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
- - **`margin`**: **Define o espaço entre a borda _"externa"_ da box-container e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
+ - **`margin` top left bottom right**: **Define o espaço entre a borda _"externa"_ da box-model e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
    1. **`margin-top`**: Distância em relação ao elemento acima.
    2. **`margin-right`**: Distância em relação ao elemento a direta.
    3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
    4. **`margin-left`**: Distância em relação ao elemento a esquerda.
- - **`padding`**: **Define o espaço entre o conteúdo _dentro_ da box-container e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
+ - **`padding` top left bottom right**: **Define o espaço entre o conteúdo _dentro_ da box-model e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
    1. **`padding-top`**: Distância em relação a borda acima.
    2. **`padding-right`**: Distância em relação a borda à direta.
    3. **`padding-bottom`**: Distância em relação a borda abaixo.
@@ -2422,7 +2458,7 @@ ul li:nth-child(even)::marker {
 
 ##### POSICIONAMENTO
 
-##### MODELO BOX-CONTAINER**
+##### BOX MODEL
  Existem 2 tipos de propriedades em um documento:
  1. **`block`**: Causam uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
  2. **`in-line`**: Não geram uma quebra de linha, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag. Exemplos de tags tipo `in-line`: `span`, `strong`, `em`, `a`, `img`, entre outas.
@@ -2436,7 +2472,9 @@ ul li:nth-child(even)::marker {
 
 #### FLEXBOX
  Tradicionalmente, o CSS tem usado posicionamento `static`, `relative`, `absolute`, e etc, além de elementos `block` ou `in-line`, `float` e derivados, que, em termos gerais, são sistemas de criação de design engessados e pouco flexíveis, que atualmente não se ajustam aos desafios enfrentados hoje com sistemas de desktop, dispositivos móveis, multiplas resoluções e mais.<br/>
- Para atender essa demanda, surgiu o **`flexbox`**, que é um sismte ade elementos flexíveis, que vem com a ideia de esquecer estes mecanismos para usar uma mecânica mais poderosa, limpa e personalizável, na qual os elementos do documento são automaticamente adaptados e manipulados, tornando mais fácil a personalização. O `flexbox` foi especialmente projetado para criar *estruturas unidimensionais*. A estrutura de um `flexbox` segue o seguinte padrão:
+ Para atender essa demanda, surgiu o **`flexbox`**, que é um sismte ade elementos flexíveis, que vem com a ideia de esquecer estes mecanismos para usar uma mecânica mais poderosa, limpa e personalizável, na qual os elementos do documento são automaticamente adaptados e manipulados, tornando mais fácil a personalização. O `flexbox` foi especialmente projetado para criar *estruturas unidimensionais*.<br/>
+ Este é um módulo de layout que facilita a distribuição de espaço e o alinhamento de itens em uma interface de forma eficiente, e é ideal para a criação de layouts responsivos, pois permite que os itens se ajustem automaticamente ao tamanho da tela. Quando precisamos organizar elementos em linhas ou colunas o flexbox é a escolha ideal.<br/>
+ Para começar a usar o flexbox, é necessário define um **`flex container`** usando a propriedade **`display: flex`**. **As propriedades do `flex container` controlar a direção, alinhamento e espaçamento dos itens filhos. A estrutura de um `flexbox` segue o seguinte padrão:
 ```
 ┌─────────────────────────────────────────────┐
 |                  ┌─> item                   |
