@@ -23,6 +23,21 @@
 </head>
 ```
 
+ **O mais recomendado é colocar o `script` no final da seção `body`, permitindo assim que todod o conteúdo da página seja exibido na tela primeiro, carregando o script em seguida.**
+```html
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <>
+    ...
+  </>
+  <script src="script.js"></script>
+</body>
+```
+
 ### INTERNAL
  Entre a tag `script` no `head` do documento. **Se a página possuir tanto código CSS quanto JS na `head`, é uma boa prática colocar o trecho CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a parte JS.**
 ```html
@@ -99,7 +114,7 @@ Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 ti
  Em JS existe um modo que, quando ativado, nos permite ser mais restritivos em nossas declarações. Ele ajuda a detectar erros comuns e práticas de programação que podem levar a comportamentos inesperados, ou seja, ele faz com que alguns *"erros silenciosos"* se tornem **explícitos**, lançando exceções e impedindo certas operações que podem causar bugs difíceis de identificar.
  - Para ativar este modo, podemos declarar no início do arquivo JS para que atinja todo o código:
  ```js
- "use strict";
+ 'use strict';
  ```
  - Ou podemos colocar essa diretiva dentro de uma função para aplicar o modo estrito **apenas ao seu escopo**:
  ```js

@@ -57,7 +57,7 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
  - **ELEMENTOS GENÉRICOS**: Elementos para qualquer tipo de uso. Como exemplo, um dos elementos genéricos chamado `div`, que significa *divisão*, serve para dividir um documento em diferentes partes. Por tanto, se quisermos criar um *card* com uma imagem e informações, podemos fazer isso com o elemento `div`. O problema de utilizar estes elementos é que não são muito descritivos semanticamente falando. Não sabemos para que servem. Durante o desenvolvimento, sabemos que aquele elemento `div` que criamos serve para exibir *cards* na página, mas como identificar isso em uma manutenção futura? Podemos dar alguma semântica aos nossos elementos `div` usando **atributos**, para identificarmos facilmente seu propósito.
 
  **ATRIBUTOS**<br/>
- Permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Alguns dos atributos mais importantes são o `id` e `class`. *A classe é um atributo que identifica múltiplos elementos, enquanto o id é uma identidade única para cada elemento, podendo assim nos referirmos a ele.* Além destes, existem várious outros atributos que podem ser inseridos nas tags.
+ Permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Alguns dos atributos mais importantes são o `id` e `class`. *A **`class`** é um atributo que **identifica múltiplos elementos**, enquanto o **`id`** é uma **identidade única para cada elemento**, podendo assim nos referirmos a ele.* Além destes, existem várious outros atributos que podem ser inseridos nas tags.
 
 ##### ESTRUTURA DE UMA PÁGINA WEB
  Um exemplo simples de código HTML poderia ser:
@@ -92,7 +92,7 @@ _*Embora todos os documentos com estas extensões sejam páginas web, apenas **H
 ╰──</hmtl>────────────────────╯ </html>
 ```
 ###### ORGANIZAÇÃO DO HEAD
- O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis; o *title* da página e possíveis *links* para páginas CSS ou JavaScript.<br/>
+ O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis. Os *metaelementos*, ou *metamarcas*, fornecem informações descritivas sobre a página; o *title* da página e possíveis *links* para páginas CSS ou JavaScript.<br/>
  A tabela a seguir mostra um resumo dos elementos que podem ir dentro da etiqueta *head*:
 
 ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
@@ -104,7 +104,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 \<style>   | delimita css interno       | ❌
 \<script>  | delimita scripts incluídos | ❌
 
- - Meta tags não possuem um par fechamento, elas servem para incluir informações que não são exibidar como parte da página, mas sim informar aos navegadores sobre características da página, tais como sua breve descrição e palavras-chave. Elas contém a etiqueta `name`, que é usado para identificar dados de formulário que serão enviados ao servidor quando o formulário for submetido, criação de âncoras e agrupamento de opções, e o atributo *`description`* que é essencial para os motores de busca, pois dá uma breve descrição sobre o assunto da página e ajuda a categorizá-la (substituindo o atributo *"keywords"*).
+ - Meta tags não possuem um par fechamento, elas servem para incluir informações que não são exibidar como parte da página, mas sim informar aos navegadores sobre características da página, tais como sua breve descrição e palavras-chave. Elas contém a etiqueta `name`, que é usado para identificar dados de formulário que serão enviados ao servidor quando o formulário for submetido, criação de âncoras e agrupamento de opções, e o atributo *`description`* que é essencial para os motores de busca, pois dá uma breve descrição sobre o assunto da página e ajuda a categorizá-la (substituindo o atributo *"keywords"*). A metatag **`charset="UTF-8"`** por exemplo, informa ao navegador como devem interpretar os caracteres, garantindo a compatibilidade com diferentes idiomas e tornando a página acessível globalmente, sua ausência pode levar a um comprometimento de segurança ou de instabilidade na exibição do documento.
  - A tag `title` exibe o nome da página no campo de abas do navegador.
  - A ordem das tags é indiferente, exceto pela tag `link`, que, se existir, deve ser colocada idealmente logo após `title`. Tags `link` são usadas para indicar que o documento HTML está relacionado a outro arquivo ou recurso externo. Ele liga nossa página web com outras páginas externas, tais como CSS (*external CSS*), JavaScript e etc. Não possuem par de fechamento. Exemplo:
 
