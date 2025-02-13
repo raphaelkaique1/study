@@ -1,6 +1,6 @@
-# Scripts de Estudo em Diferentes Linguagens de Programação
+# Linguagens de Programação
 
-Este repositório contém uma coleção de scripts e programas simples para estudo e prática de várias linguagens de programação. As pastas estão organizadas por linguagem e projeto, e cada uma delas contém exemplos e exercícios criados com o objetivo de ajudar no aprendizado de conceitos fundamentais e avançados em cada linguagem.
+Este repositório contém uma coleção de scripts e programas para estudo e prática de várias linguagens de programação. As pastas estão organizadas por linguagem e projeto, e cada uma delas contém exemplos e exercícios criados com o objetivo de ajudar no aprendizado de conceitos fundamentais e avançados em cada linguagem.
 
 ## Estrutura do Repositório
 
@@ -12,7 +12,7 @@ O repositório está organizado da seguinte forma:
 
 ## Objetivo
 
-O objetivo deste repositório é fornecer exemplos simples para o estudo de diversas linguagens de programação. Cada pasta contém código de estudo, desafios e exercícios que podem ser utilizados para entender conceitos-chave de programação.
+O objetivo deste repositório é fornecer exemplos para o estudo de diversas linguagens de programação. Cada pasta contém um material de estudo, desafios e exercícios utilizados para entender conceitos-chave de programação.
 
 ## Como Usar
 
