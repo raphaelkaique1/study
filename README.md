@@ -1,5 +1,5 @@
 # ROADMAP
-- **[ENGLISH](https://github.com/raphaelkaique1/study/blob/main/0-languages/english/README.md)**
+- **[ENGLISH](https://github.com/raphaelkaique1/study/blob/main/0-languages/english)**
 - **[CIÊNCIA DA COMPUTAÇÃO](https://github.com/Universidade-Livre)**
 - **[TRILHA DE APRENDIZADO](https://roadmap.sh/roadmaps)**
 - **[STACKS](https://quickref.me/)**

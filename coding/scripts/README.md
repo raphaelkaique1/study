@@ -6,4 +6,4 @@
 - **[portugol](https://github.com/raphaelkaique1/study/tree/main/coding/scripts/portugol)**
 - **[visualg](https://github.com/raphaelkaique1/study/tree/main/coding/scripts/visualg)**
 ---
-[<-](https://github.com/raphaelkaique1/study/tree/main/coding)
+[**<-**](https://github.com/raphaelkaique1/study/tree/main/coding)
