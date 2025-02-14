@@ -1692,6 +1692,9 @@ Aqui falaremos sobre como adicionar legendas.
  ```
  A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
+##### VIEWPORT
+ Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. A **`viewport`** *é a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.
+
 ##### ESTILIZAÇÃO
  Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização. Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo:
@@ -1868,6 +1871,86 @@ Aqui falaremos sobre como adicionar legendas.
  _A sintaxe atual recomenda **o uso de dois pontos duplos `::` em pseudo-elementos para diferenciá-los das pseudo-classes, que usam apenas um `:`**. Contudo, por razões históricas, navegadores aceitam tanto :before quanto ::before._
 
 ##### POSICIONAMENTO
+ As propriedades de posicionamento são técnicas que permitem criar layouts resposivos que se adaptam a diferentes tamanhos de telas e dispositivos. São usadas para garantir que o site ofereça uma boa UX e a UI se adapte em qualquer dispositivo.
+
+###### PROPRIEDADES
+ As propriedades para posicionar os elementos na página são:
+ - **`position`**<br/>
+ Define como um elemento é posicionado na página, seus valores possíveis são:
+   - **`static`**: comportamento **padrão** *onde os elementos são posicionados conforme sua posição original* ou o fluxo normal da página – não aceita `top`, `bottom` e etc.
+   - **`relative`**: o elemento é posicionado **relativo** *à sua posição original*.
+   - **`absolute`**: o elemento é posicionado **relativo** *ao seu primeiro ancestral com `position: relative`*, ou ao seu container mais próximo.
+   - **`fixed`**: posiciona o elemento relativo à janela do navegador ficando fixo na tela, mesmo ao rolar a página.
+   - **`sticky`**: posiciona o elemento baseado na posição de rolagem do usuário, ficando fixo ao atingir um limite.
+   ```css
+   .relative-box {
+     position: relative;
+     top: 20px;
+     left: 30px;
+   }
+
+   .absolute-box {
+     position: absolute;
+     top: 50px;
+     right: 20px;
+   }
+   ```
+ - **`z-index`**<br/>
+ **Controla a sobreposição de elementos posicionados.** Um elemento com um `z-index` **maior** aparecerá *acima* de um elemento com um `z-index` *menor*. Funciona apenas em elementos com position: `relative | absolute | fixed | sticky`.
+ ```css
+  .box1 {
+   position: absolute;
+   z-index: 1;
+ }
+
+ .box2 {
+   position: absolute;
+   z-index: 2; /* quanto maior o valor, mais à frente o elemento aparece */
+ }
+ ```
+ - **`float`**<br/>
+ Faz elementos flutuarem à esquerda ou direita enqaunto outros elementos o contornam.
+ ```css
+ .img {
+     float: left;
+     margin-right: 10px;
+ }
+ ```
+ - **`clear`**<br/>
+ Evita que elementos flutuantes afetem outros elementos:
+   - **`clear: left`**: Bloqueia elementos flutuantes à esquerda.
+   - **`clear: right`**: Bloqueia elementos flutuantes à direita.
+   - **`clear: both`**: Bloqueia elementos flutuantes em ambos os lados.
+ - **`top | right | bottom | left`**<br/>
+ posicionam um elemento em relação à sua propriedade.
+ ```css
+ ```
+ - **`display`**<br/>
+ Controla o modelo de caixa do elemento:
+   - **`block`**
+   - **`inline`**
+   - **`flex`**
+   - **`grid`**
+   - **`none`**
+   - entre outros.
+ - **`visibility`**<br/>
+ Controla a visibilidade do elemento:
+   - **`visible`**: elemento visível, padrão.
+   - **`hidden`**: elemento oculto, mas ainda mantém ocupado seu espaço na página.
+   - **`none`**: elemento oculto, e perde seu espaço na página.
+ - **`overflow`**<br/>
+ Define o comportamento do conteúdo que ultrapassa o tamanho do elemento:
+   - **`visible`**: o conteúdo transborda para fora do elemento, padrão.
+   - **`hidden`**: o conteúdo extra fica oculto.
+   - **`scroll`**: adiciona barras de rolagem.
+   - **`none`**: adiciona barras de rolagem se necessário.
+ - **`clip-path`**<br/>
+ Corta parte do elemento, permitindo criar formas personalizadas para exibir apenas parte de um elemento:
+ ```css
+ .box {
+    clip-path: circle(50%);
+ }
+ ```
 
 ##### DIMENSÕES
  Margens, bordas e padding são usadas para controlar o espaço ao redor dos elementos, essa é a base do modelo de caixa, o **`box-model`**. Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
@@ -3158,8 +3241,8 @@ align-content: center                            align-content: stretch
  As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que _serão exibidas apenas para alguns usuários ou dispositivos_.<br/>
  Numa época em que o tráfego móvel se multiplica a cada ano, os sites estáticos projetados para serem exibidos em uma resolução específica não eram mais úteis. Foi necessário adaptar os designs às dimensões para que o usuário pudesse receber as informações na tela do seu dispositivo sem ter que aplicar o zoom para conseguir enxergar.<br/>
  Neste ponto, surgiram 2 formas de trabalho. A primeira defendia ter 2 versões do mesmo site, uma para desktop e outra para mobile. Na maioria dos casos, eles não estão conectados entre si, tornando a manutenção dos sites despendiosa e também, nem sempre mostravam o mesmo conteúdo para ambos os usuários.<br/>
- A segunda forma de trabalho é usar o mesmo design para ambas as resoluções. Um projeto que pudesse se adaptar a certas resoluções ou ser flexível em sua totalidade, independentemente do ceonteúdo e do projeto. Esta forma de trabalho foi chamada de *web desing responsivo*.<br/>
- E como o CSS é responsável pelo design da web, surgiu um novo elemento capaz de incorporar esta flexibilidade na folha de estilo: o `media query`, que pode incluir partes do código que só serão aplicadas dependendo das condições de resolução da tela.
+ A segunda forma de trabalho é usar o mesmo design para ambas as resoluções. Um projeto que pudesse se adaptar a certas resoluções ou ser flexível em sua totalidade, independentemente do conteúdo e do projeto. Esta forma de trabalho foi chamada de *web design responsivo*.<br/>
+ E como o CSS é responsável pelo design da web, surgiu um novo elemento capaz de incorporar esta flexibilidade na folha de estilo: o **`media query`**, que pode incluir partes do código que só serão aplicadas dependendo das condições de resolução da tela.
  ```css
  @media not|only mediatype
  and|not|only (media feature) {
@@ -3189,6 +3272,22 @@ align-content: center                            align-content: stretch
     - **`portrait`**
     - **`device-pixel-ratio`**
 
+```css
+/* estilos para dispositivos com largura máxima de 600px */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* estilos para dispositivos com largura mínima de 601px */
+@media (min-width: 601px) {
+  .container {
+    flex-direction: row;
+  }
+}
+```
+
  A aplicação de uma `media query` por parte do navegador acontece de forma automática, ele simplesmente **aplicará o código que está incluído em uma `media query` sobregravando o herdado logo que identificar que as condições para essa operação forem satisfeitas**. *É como se estivéssemos colocando **camada sobre camada** com alguma transparência, pois o **código "original" NÃO é removido**.*<br/>
  Digamos que queremos um estilo específico seja exibido apenas em telas com uma resolução inferior a `400px`. Neste exemplo definimos um pequeno tamanho de texto para todos os dispositivos com uma resolução de **até** 400px de largura. *Para todos os outros dispositivos, este comando NÃO terá efeito.*
  ```css
@@ -3198,6 +3297,8 @@ align-content: center                            align-content: stretch
     }
  }
  ```
+
+ Com essas ténicas é possível criar layouts que se adaptam a diferentes tamanhos de tela, proporcionando uma experiência de usuário consistente em *desktops*, *tables* e *smartphones*.
 
 ### VARIÁVEIS
 
