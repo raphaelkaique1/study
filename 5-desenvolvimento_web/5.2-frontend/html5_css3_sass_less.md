@@ -1909,7 +1909,7 @@ Aqui falaremos sobre como adicionar legendas.
  Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
  O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
  *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
- Existem 2 tipos de unidades de comprimento: a **absoluta** e a **relativa**.
+ Existem 3 tipos de unidades de comprimento: a **absoluta**, a **relativa** e as **unidades especiais**.
  1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
 
  | UNIDADE | DESCRIÇÃO |
@@ -1934,6 +1934,15 @@ Aqui falaremos sobre como adicionar legendas.
  | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
  | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
  | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
+
+ 3. **Especiais**: Existem algumas unidades de medidas especiais que funcionam como funções calculando e ajustando automaticamente os elementos e conteúdos, um exemplo é o **`fractional unit`**, que representa uma fração do espaço disponível do container, diferente de `px` ou `%`, o **`fr`** ajusta automaticamente oo tamanho do container.
+| UNIDADE         | EXEMPLO                         | DESCRIÇÃO                                           |
+|-----------------|---------------------------------|-----------------------------------------------------|
+| `auto`          | `property: auto auto;`          | O conteúdo define o tamanho automaticamente.        |
+| `minmax()`      | `property: minmax(100px, 1fr);` | Define um mínimo e um máximo para a coluna.         |
+| `0fr`           | `property: 1fr 2fr 1fr;`        | Calcula e divide frações do espaço disponível       |
+| `repeat()`      | `property: repeat(3, 1fr);`     | Atalho para criar colunas repetitivas.              |
+| `fit-content()` | `property: fit-content(200px);` | Ajusta a coluna ao conteúdo, sem ultrapassar 200px. |
 
 ##### PROPRIEDADES DE TEXTO
  Acrescentando estilos ao texto e ao layout de um site, podemos melhorar a legibilidade e dar uma identidade visual à página. Essas propriedades incluem fontes, cores, margens, bordas, padding entre outras dimensões. O CSS oferece uma ampla variedade de propriedades para estilizar o texto e aplicar cores aos elementos. Vejamos algumas:
@@ -3091,6 +3100,59 @@ align-content: center                            align-content: stretch
  ![Image](https://github.com/user-attachments/assets/ac2022bc-5d38-475a-9fd1-b9d4bb2adaf4)
 
 #### GRID
+ Este é um sistema de layout **bidimensional** que permite criar laytous mais sofisticados com facilidade, oferecendo uma maneira simples de definir *colunas* e *linhas* como uma *tabela*, para posicionar os itens de forma precisa dentro de um container.
+
+##### SINTAXE
+ Para usar o **`grid`**, é necessário definir um container *"grade"* usando a propriedae `grid`, e em seguida especificar as linhas e colunas usando as propriedades:
+ - **`grid-template-columns`**: para definir o tamanho e o número de colunas.
+ - **`grid-template-rows`**: para definir o tamanho e o número de linhas.
+ - **`gaps`**: assim como no `flexbox`, define o espaçamento entre as células, ou seja os itens da grade.
+ ```css
+ .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+ }
+ ```
+###### MEDIDAS
+ No exemplo anterior, `1fr 1fr 1fr` divide o espaço igualmente em 3 partes, porém podemos definir algo como `1fr 2fr 1fr`, que separa o espaço total em 4 partes onde **a primeira coluna ocupará 1/4 do espaço**, **a segunda ocupará 2/4 do espaço sendo o dobro da primeira** e **a terceira coluna ocupará o 1/4 restante**.
+
+ Também são aceitas outras unidades de medida, porém não são recomendadas quando se quer um design responsivo.
+| UNIDADE         | EXEMPLO                                      | DESCRIÇÃO                                                           |
+|-----------------|----------------------------------------------|---------------------------------------------------------------------|
+| `px`            | `grid-template-columns: 100px 200px;`        | Tamanho fixo em pixels.                                             |
+| `%`             | `grid-template-columns: 50% 50%;`            | Proporção em relação ao contêiner.                                  |
+| `em` / `rem`    | `grid-template-columns: 10em 20em;`          | Relativo ao tamanho da fonte `em` ou raiz `rem`.                    |
+| `auto`          | `grid-template-columns: auto auto;`          | O conteúdo define o tamanho automaticamente.                        |
+| `minmax()`      | `grid-template-columns: minmax(100px, 1fr);` | Define um mínimo e um máximo para a coluna.                         |
+| `repeat()`      | `grid-template-columns: repeat(3, 1fr);`     | Atalho para criar colunas repetitivas.                              |
+| `vw` / `vh`     | `grid-template-columns: 10vw 20vw;`          | Relativo à largura `vw` ou altura `vh` da tela.                     |
+| `fit-content()` | `grid-template-columns: fit-content(200px);` | Ajusta a coluna ao conteúdo, sem ultrapassar 200px.                 |
+| `max-content`   | `grid-template-columns: fit-content(200px);` | Faz a coluna ocupar o tamanho exato do conteúdo.                    |
+| `min-content`   | `grid-template-columns: fit-content(200px);` | Faz a coluna ocupar o menor espaço possível sem quebrar o conteúdo. |
+
+###### POSICIONAMENTO DOS ITEMS
+ Os itens dentro de um grid podem ser posicionados usando as propriedades:
+ - **`grid-column`**: define a posição de início e final de ocupação dos itens na coluna: **`grid-column: start / end;`**.
+ - **`grid-row`**: define a posição de início e final de ocupação dos itens na linha: **`grid-row: start / end;`**.
+
+ ```css
+ .item1 {
+   grid-column: 1 / 3; /* Ocupará da coluna 1 até antes da coluna 3 */
+   grid-row: 1 / 2; /* Ocupará a linha 1 */
+ }
+
+ .item2 {
+   grid-column: 3 / 4; /* Ocupará a coluna 3 */
+   grid-row: 1 / 2; /* Ocupará a linha 1 */
+ }
+
+ .item3 {
+   grid-column: 1 / 4; /* Ocupará da coluna 1 até antes da coluna 4 */
+   grid-row: 2 / 3; /* Ocupará a linha 2 */
+ }
+ ```
 
 ### MEDIA QUERY
  As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que _serão exibidas apenas para alguns usuários ou dispositivos_.<br/>
