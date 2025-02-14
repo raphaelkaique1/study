@@ -1692,7 +1692,7 @@ Aqui falaremos sobre como adicionar legendas.
  ```
  A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
-##### SELETORES
+##### ESTILIZAÇÃO
  Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização. Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo:
     - **`id`**: deve-se usar `#` para se referir ao elemento.
@@ -1867,6 +1867,44 @@ Aqui falaremos sobre como adicionar legendas.
  Essa variedade torna o CSS muito poderoso para aplicar estilos de forma precisa, sem a necessidade de alterar a estrutura HTML.<br/>
  _A sintaxe atual recomenda **o uso de dois pontos duplos `::` em pseudo-elementos para diferenciá-los das pseudo-classes, que usam apenas um `:`**. Contudo, por razões históricas, navegadores aceitam tanto :before quanto ::before._
 
+##### POSICIONAMENTO
+
+##### DIMENSÕES
+ Margens, bordas e padding são usadas para controlar o espaço ao redor dos elementos, essa é a base do modelo de caixa, o **`box-model`**. Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
+ - **`border`**: Trata o contorno do elemento, modificando sua borda.
+ - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-model`, usamos a propriedade `clear`.<br/>
+ Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
+ - **`margin` top left bottom right**: **Define o espaço entre a borda _"externa"_ da box-model e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
+   1. **`margin-top`**: Distância em relação ao elemento acima.
+   2. **`margin-right`**: Distância em relação ao elemento a direta.
+   3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
+   4. **`margin-left`**: Distância em relação ao elemento a esquerda.
+ - **`padding` top left bottom right**: **Define o espaço entre o conteúdo _dentro_ da box-model e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
+   1. **`padding-top`**: Distância em relação a borda acima.
+   2. **`padding-right`**: Distância em relação a borda à direta.
+   3. **`padding-bottom`**: Distância em relação a borda abaixo.
+   4. **`padding-left`**: Distância em relação a borda à esquerda.
+```
+┌────────────────────────────────────────────────────────────────────────────────┐
+│                                       ^                                        │
+│                                       | margin-top                             │
+│                                       ┴                                        │
+│            ┌──────────────────────────────────────────────────────┐            │
+│            │                          ^                           │            │
+│            │              padding-top |                           │            │
+│   margin   │                          ┴                           │   margin   │
+│    left    │             Lorem ipsum, dolor sit amet              |   right    |
+| <--------┤ | <-------┤  consectetur adipisicing elit.  ├--------> │ ├--------> │
+│            │  padding                 ┬                 padding   │            │
+│            │   left    padding-bottom |                  right    │            │
+│            │                          v                           │            │
+│            └──────────────────────────────────────────────────────┘            │
+│                                       ┬                                        │
+│                                       | margin-bottom                          │
+│                                       v                                        │
+└────────────────────────────────────────────────────────────────────────────────┘
+```
+
 ##### UNIDADES
  Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
  O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
@@ -2022,11 +2060,13 @@ O CSS oferece as seguintes propriedades para alterar a aparência das listas:
 
 - **`list-style-type`**<br/>
   Define o tipo de marcador. Valores comuns incluem:
+  - **`none`** (sem marcador)
   - **`disc`** (padrão para `<ul>`)
   - **`circle`**
   - **`square`**
   - **`decimal`** (padrão para `<ol>`)
-  - **`none`** (sem marcador)
+  - **`lower-roman`**
+  - **`lower-roman`**
   ```css
   ul {
     list-style-type: square;
@@ -2079,41 +2119,9 @@ ul li:nth-child(even)::marker {
 }
 ```
 
-##### DIMENSÕES
- Margens, bordas e padding são usadas para controlar o espaço ao redor dos elementos, essa é a base do modelo de caixa, o **`box-model`**. Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
- - **`border`**: Trata o contorno do elemento, modificando sua borda.
- - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-model`, usamos a propriedade `clear`.<br/>
- Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
- - **`margin` top left bottom right**: **Define o espaço entre a borda _"externa"_ da box-model e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
-   1. **`margin-top`**: Distância em relação ao elemento acima.
-   2. **`margin-right`**: Distância em relação ao elemento a direta.
-   3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
-   4. **`margin-left`**: Distância em relação ao elemento a esquerda.
- - **`padding` top left bottom right**: **Define o espaço entre o conteúdo _dentro_ da box-model e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
-   1. **`padding-top`**: Distância em relação a borda acima.
-   2. **`padding-right`**: Distância em relação a borda à direta.
-   3. **`padding-bottom`**: Distância em relação a borda abaixo.
-   4. **`padding-left`**: Distância em relação a borda à esquerda.
-```
-┌────────────────────────────────────────────────────────────────────────────────┐
-│                                       ^                                        │
-│                                       | margin-top                             │
-│                                       ┴                                        │
-│            ┌──────────────────────────────────────────────────────┐            │
-│            │                          ^                           │            │
-│            │              padding-top |                           │            │
-│   margin   │                          ┴                           │   margin   │
-│    left    │             Lorem ipsum, dolor sit amet              |   right    |
-| <--------┤ | <-------┤  consectetur adipisicing elit.  ├--------> │ ├--------> │
-│            │  padding                 ┬                 padding   │            │
-│            │   left    padding-bottom |                  right    │            │
-│            │                          v                           │            │
-│            └──────────────────────────────────────────────────────┘            │
-│                                       ┬                                        │
-│                                       | margin-bottom                          │
-│                                       v                                        │
-└────────────────────────────────────────────────────────────────────────────────┘
-```
+3. **ESTILIZANDO TABELAS**
+
+##### IMAGENS
 
 ##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
@@ -2454,27 +2462,104 @@ ul li:nth-child(even)::marker {
 
 ##### TRANSIÇÕES
 
-##### IMAGENS
+#### DISPLAYS
+ O display é uma propriedade que define como um elemento deve se comportar na página, ele controla: o `box-model` do elemento, como ele *ocupa o espaço* e como *interage com outros elementos*. Ele é a propriedade que especifica o tipo de renderização de um elemento, determinando se ele será tratado como um `block`, `inline`, `flex` e etc.<br/>
+ É a chave para criar layouts, definindo como os elementos devem se comportar na página. Desde algo simples como transformar um `span` em `block` a comportamentos mais complexos como criar um layout flexível com `flex`.
 
-##### POSICIONAMENTO
+ Vejamos alguns:
+ - **`contents`**<br/>
+ Remove o próprio elemento do fluxo de renderização, mas mantém seus filhos visíveis na página, ou seja, ele faz o elemento pai "desaparecer" visualmente, sem afertar seus filhos, no entanto, os filhos ainda herdam estilos e comportamentos normalmente, como se estivessem diretamente no elemento pai do "desaparecido".<br/>
+ Deve ser usado quando um elemento não precisar de estilos próprios, mas seus filhos devem continuar existindo, para assim simplificar a estrutura do DOM sem afetar o layout.
+ Neste exemplo, o elemento `wrapper` desaparece visualmente, porém, os elementos `p` se comportam como se estivessem dentro `container` diretamente, e, o `background-color` do `wrapper` não funciona, porque não há mais uma "caixa" visível. Propriedades como `background`, `border`, `padding`, `margin` não terão efeito, pois o elemento deixa de existir visualmente.
+ ```html
+ <style>
+ .wrapper {
+    display: contents;
+    background-color: lightblue;
+ }
+ </style>
+ <div class="container">
+    <div class="wrapper">
+       <p>Texto 1</p>
+       <p>Texto 2</p>
+    </div>
+ </div>
+ ```
+
+ - **`list-item`**<br/>
+ Faz com que os elementos se comportem como um item de lista, semelhante a um `li` dentro de um `ul` ou `ol`. Isso significa que o elemento exibe um marcador automaticamente podendo ter seu estilo personalizado com `list-style-type`, `list-style-position`, `list-style-image` e se comporta como um bloco por padrão.
+ ```html
+ <style>
+ .item {
+    display: list-item;
+ }
+ </style>
+
+ <div class="item">Item 1</div>
+ <div class="item">Item 2</div>
+ <div class="item">Item 3</div>
+ ```
+
+ - **`table`**<br/>
+ Faz com que o elemento se comporte como uma `table`, permitindo layouts similares a tabelas, permitindo que os filhos sejam tratados como `table-row`, `table-cell` e etc.
+ ```html
+ <style>
+ .container {
+    display: table;
+ }
+
+ .row {
+    display: table-row;
+    background-color: yellow;
+ }
+ </style>
+
+ <div class="container">
+    <div class="row">Linha 1</div>
+    <div class="row">Linha 2</div>
+ </div>
+ ```
+
+ - **`flow-root`**<br/>
+ Cria um novo bloco de formatação, garantindo que elementos filhos com a propriedade `float` não escapem do container, sem precisar de `clearfix`.
+ ```html
+ <style>
+ .container {
+    display: flow-root;
+    background-color: lightgray;
+ }
+
+ .item {
+    float: left;
+    width: 50%;
+ }
+ </style>
+
+ <div class="container">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+ </div>
+ ```
 
 ##### BOX MODEL
- Existem 2 tipos de propriedades em um documento:
- 1. **`block`**: Causam uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
- 2. **`in-line`**: Não geram uma quebra de linha, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag. Exemplos de tags tipo `in-line`: `span`, `strong`, `em`, `a`, `img`, entre outas.
+ Existem 2 tipos básicos de propriedades em um documento:
+ 1. **`inline`**: Não geram uma quebra de linha e ficam na mesma linha ou posição em que o elemento estiver disposto, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag e não aceitam propriedades como `width` e `height`. Exemplos de tags tipo `inline`: `span`, `strong`, `em`, `a`, `img`, entre outas.
+ 2. **`block`**: Sempre começam em uma nova linha causando uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
 
- Para realizar a conversão de um tipo de elemento deve-se alterar a propriedade `display` do seletor em questão:
+ Para realizar a conversão de um tipo de elemento deve-se alterar a propriedade **`display`** do seletor em questão:
  ```css
  .id {
-    display: inline;
+    display: inline-block;
  }
  ```
 
+ Existe também o tipo **`inline-block`**, que mostura comportamentos do `inline` com `block`, fazendo com que o elemento comece na mesma linha e posição onde está aceitando propriedades como `width` e `height`.
+
 #### FLEXBOX
  Tradicionalmente, o CSS tem usado posicionamento `static`, `relative`, `absolute`, e etc, além de elementos `block` ou `in-line`, `float` e derivados, que, em termos gerais, são sistemas de criação de design engessados e pouco flexíveis, que atualmente não se ajustam aos desafios enfrentados hoje com sistemas de desktop, dispositivos móveis, multiplas resoluções e mais.<br/>
- Para atender essa demanda, surgiu o **`flexbox`**, que é um sismte ade elementos flexíveis, que vem com a ideia de esquecer estes mecanismos para usar uma mecânica mais poderosa, limpa e personalizável, na qual os elementos do documento são automaticamente adaptados e manipulados, tornando mais fácil a personalização. O `flexbox` foi especialmente projetado para criar *estruturas unidimensionais*.<br/>
- Este é um módulo de layout que facilita a distribuição de espaço e o alinhamento de itens em uma interface de forma eficiente, e é ideal para a criação de layouts responsivos, pois permite que os itens se ajustem automaticamente ao tamanho da tela. Quando precisamos organizar elementos em linhas ou colunas o flexbox é a escolha ideal.<br/>
- Para começar a usar o flexbox, é necessário define um **`flex container`** usando a propriedade **`display: flex`**. **As propriedades do `flex container` controlar a direção, alinhamento e espaçamento dos itens filhos. A estrutura de um `flexbox` segue o seguinte padrão:
+ Para atender essa demanda, surgiu o **`flexbox`**, que é um sistema de elementos flexíveis, que vem com a ideia de esquecer estes mecanismos para usar uma técnica mais poderosa, limpa e personalizável, na qual os elementos do documento são automaticamente adaptados e manipulados, tornando mais fácil a personalização. O `flexbox` foi especialmente projetado para criar *estruturas unidimensionais*.<br/>
+ Este é um módulo de layout que facilita a distribuição de espaço e o alinhamento de itens em uma interface de forma eficiente, e é ideal para a criação de layouts responsivos, pois permite que os itens se ajustem automaticamente ao tamanho da tela. Quando precisamos **organizar elementos em linhas ou colunas** o flexbox é a escolha ideal.<br/>
+ Para começar a usar o flexbox, é necessário definir um **`flex container`** usando a propriedade **`display: flex`**. **As propriedades do `flex container` controlam a direção, alinhamento e espaçamento dos itens filhos.** A estrutura de um `flexbox` segue o seguinte padrão:
 ```
 ┌─────────────────────────────────────────────┐
 |                  ┌─> item                   |
@@ -2487,10 +2572,9 @@ ul li:nth-child(even)::marker {
         container
 ```
  - **container**: É o **elemento principal** que conterá cada um dos *flex items*. Ao contrário de outras estruturas, como regra geral, *no `flex` definimos as propriedades para o elemento pai*.
- - **eixo principal**: As *flexboxes* devem ter uma orientação principal específica. Por padrão **o eixo principal do recipiente flexbox é horizontal**, como uma *"fileira"*.
+ - **eixo principal**: As *`flexboxes`* devem ter uma orientação principal específica. Por padrão **o eixo principal do recipiente flexbox é horizontal**, como uma *"fileira"*.
  - **eixo secundário**: Da mesma forma, os recipientes flex devem possuir uma segunda orientação perpendicular à principal, então se a horientação primária for horizontal, a **orientação do eixo secundário será vertical**.
  - **item**: **É cada um ds *filhos* – ou `children` como são chamados – que o recipiente terá em seu interior.**
-
  ```html
  <div class="container"> <!-- flex container -->
     <!-- flex items -->
@@ -2499,10 +2583,11 @@ ul li:nth-child(even)::marker {
     <div class="item item-3">3</div>
  </div>
  ```
+
 ##### SINTAXE
- Para ativarmos o modo **`flexbox`**, utilizamos a propriedade de display do elemento repecipiente e especificamos o valor **`flex`** ou **`inline-flex`**.
- 1. **`flex`**: Configura um recipiente em bloco, semelhante a **`block`** que ocupa toda a largura do elemento pai.
- 2. **`inline-flex`**: Configura um recipiente em linha, semelhante a **`inline-block`** que ocupa apenas o espaço do conteúdo.
+ Para começarmos a usar o **`flexbox`**, é necessário definir um **`flex container`**, as propriedades do container flex controlam a direção, o alinhamento e o espaçamento dos itens filhos. Para ativarmos o modo `flexbox` do container, utilizamos a propriedade de `display` no elemento repecipiente e especificamos o valor **`flex`** ou **`inline-flex`**.
+ 1. **`flex`**: Configura um recipiente em bloco, semelhante a **`block`** que ocupa toda a largura do elemento pai enquanto os filhos ficam alinhados em fila dentro do container flex.
+ 2. **`inline-flex`**: Configura um recipiente em linha, semelhante a **`inline-block`** que ocupa apenas o espaço do conteúdo, sem quebrar linhas.
  ```css
  .container {
     background-color: lightblue;
@@ -2536,7 +2621,7 @@ display: inline-flex
 ##### DIREÇÃO DO EIXO
  Existem 3 propriedades principais para manipular a direção e o comportamento dos itens ao longo do **eixo principal** do repcipiente:
  1. **`flex-direction`**<br/>
- Usando as propriedades do `flex-direction`, podemos mudar a orientação do eixo principal do recipiente para ser orientado **horizontalmente (padrão)** ou **verticalmente**.
+ Define a direção dos itens no container, usando as propriedades do `flex-direction` podemos mudar a orientação do eixo principal do recipiente para ser orientado **horizontalmente (padrão)** ou **verticalmente**.
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -2854,7 +2939,7 @@ align-content: center                            align-content: stretch
  ```
 
 ###### PROPRIEDADE DOS ITEMS
- Todas as propriedades que vimos até agora se aplicam ao **container**, as seguintes propriedaddes, no entanto, aplicam-se aos **items filhos**.
+ Além das propriedades do container, o `felxbox` também ofere propriedades específicas para os `flexitems`. Todas as propriedades que vimos até agora se aplicam ao **container**, as seguintes propriedaddes, no entanto, aplicam-se aos **items filhos**.
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -2884,7 +2969,7 @@ align-content: center                            align-content: stretch
 </table>
 
  1. **`order`**<br/>
- Permite alterar a ordem visual dos itens dentro do container flex, independentemente da ordem no HTML. Por padrão, todos os itens têm `order: 0`.
+ Define a ordem dos itens dentro do container flex, podeno ser definidos valores positivos ou negativos para ordenar os itens. Permite alterar a ordem visual dos itens dentro do container flex, independentemente da ordem no HTML. Por padrão, todos os itens têm `order: 0`.
  ```css
  .container {
      display: flex;
@@ -2896,7 +2981,7 @@ align-content: center                            align-content: stretch
  ![Image](https://github.com/user-attachments/assets/534a74f1-95ec-4613-8791-96f4e11cddd8)
 
  2. **`flex-grow`**<br/>
- Define a **proporção de crescimento de um item em relação aos seus irmãos** quando há *espaço extra* no container.
+ Define a capacidade de um tiem crescer para preencher o espaço disponível no container, e seu valor padrão é `0`, o que significa que o item não crescerá além do tamanho definido. De modo simples, ele define a **proporção de crescimento de um item em relação aos seus irmãos** quando há *espaço extra* no container.
    - Se definirmos `flex-grow: 1` para *todos os itens*, o espaço extra será distribuído **igualmente**.
    - Se um item tiver um *valor maior*, **ele receberá uma porção maior do espaço disponível**.
    ```css
@@ -3005,6 +3090,7 @@ align-content: center                            align-content: stretch
  ```
  ![Image](https://github.com/user-attachments/assets/ac2022bc-5d38-475a-9fd1-b9d4bb2adaf4)
 
+#### GRID
 
 ### MEDIA QUERY
  As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que _serão exibidas apenas para alguns usuários ou dispositivos_.<br/>
