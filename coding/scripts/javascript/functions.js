@@ -57,3 +57,29 @@ createStringConnection("db_users", "Raphael", "FullStackDev");
 // ou
 const userName = (fullName, splitChar = " ") => firtsName = fullName.split(splitChar)[0];
 console.log(`Olá ${userName("Raphael-Kaíque", "-")}.`);
+
+//---------------------------------------
+let love = "Déborah Santos da Silva Dias"
+
+console.log(love.toUpperCase());
+console.log(love.toLowerCase());
+console.log(love.includes("Dias"));
+console.log(love.replace("Déborah", "Déh"));
+
+let loveArray = love.split(" ");
+console.log(loveArray);
+
+let findLove = loveArray.find((cute) => {
+    return cute === "Déborah";
+});
+console.log(findLove)
+
+let myLove = loveArray.map((cute) => {
+    return "Déh"
+});
+console.log(myLove)
+
+let filter = loveArray.filter((cute) => {
+    return cute.length > 2;
+});
+console.log(filter)

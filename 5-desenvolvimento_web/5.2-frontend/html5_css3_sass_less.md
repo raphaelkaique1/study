@@ -2950,7 +2950,7 @@ align-content: center                            align-content: stretch
         <th>SIGNIFICADO</th>
     </tr>
     <tr>
-        <th rowspan="5"><code>align-content</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
+        <th rowspan="5"><code>align-items</code><br/>Alinha os itens no EIXO SECUNDÁRIO (VERTICAL).</th>
         <td><code>flex-start</code></td>
         <td>Itens agrupados no INÍCIO do eixo secundário.</td>
     </tr>
