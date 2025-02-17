@@ -29,6 +29,7 @@ test.alg
 *csproj
 
 # react
+coding/scripts/javascript/react/
 /node_modules/
 build/
 *.log
