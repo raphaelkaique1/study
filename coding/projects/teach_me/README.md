@@ -1,6 +1,6 @@
 # teach.me
 
-teach.me é uma plataforma de estudos interativa que integra o ChatGPT para proporcionar uma experiência única de aprendizado. Nesta plataforma, o aluno faz perguntas sobre diversos tópicos e recebe respostas em formato de chat, simulando uma conversa com uma inteligência artificial. O projeto foi desenvolvido utilizando HTML, CSS, Bootstrap, JavaScript, React e OpenAI-API.
+teach.me é uma plataforma de estudos interativa que integra o ChatGPT para proporcionar uma experiência única de aprendizado. Nesta plataforma, o aluno faz perguntas sobre diversos tópicos e recebe respostas em formato de chat, simulando uma conversa com uma inteligência artificial. O projeto foi desenvolvido utilizando HTML, CSS, Bootstrap, TypeScript, React com Vite e OpenAI-API.
 
 ## Funcionalidades
 - **Interação em Tempo Real:** Faça perguntas e receba respostas instantâneas via chat.

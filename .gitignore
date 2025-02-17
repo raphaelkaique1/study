@@ -30,6 +30,7 @@ test.alg
 
 # react
 coding/scripts/javascript/react/
+coding/projects/teach_me
 /node_modules/
 build/
 *.log
