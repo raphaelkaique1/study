@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ItemSuggestion } from "./components/ItemSuggestion";
 import { getHistoric, setHistoric } from "./storage/historic";
+import { sendMessage } from "./api/openai";
 
 type ProgressType = 'pending' | 'started' | 'done';
 
@@ -8,6 +9,7 @@ type Message = {
     /* role: 'user' | 'assistant' */
     role: 'user' | 'system'
     content: string
+    subject?: string
 }
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
     const [textArea, setTextArea] = useState<string>('');
     const [chat, setChat] = useState<Message[]>([]);
 
-    function handleSubmitChat() {
+    async function handleSubmitChat() {
         if(!textArea) {return};
 
         const message = textArea;
@@ -23,15 +25,20 @@ function App() {
 
         if(progress === 'pending') {
             setHistoric(message);
+
+            const prompt = `Gere uma pergunta onde simule uma entrevista de emprego sobre ${message}, após essa pergunta enviarei a resposta e você me dará um feedback. O feedback precisa ser simples, objetivo e corresponder fielmente a resposta enviada. Após o feedback não existirá mais interação.`
+
             const messageGPT: Message = {
                 role: 'user',
-                content: message
+                content: prompt,
+                subject: message
             }
 
             setChat(text => [...text, messageGPT]);
 
-            // API call
-            setChat(text => [...text, {role: 'system', content: 'ChatGPT'}]);
+            const questionGPT = await sendMessage([messageGPT])
+
+            setChat(text => [...text, {role: 'system', content: questionGPT.content}]);
 
             setProgress('started');
             return;
@@ -42,10 +49,10 @@ function App() {
             content: message
         }
 
+        
+        const feedbackGPT = await sendMessage([...chat, responseUser])
         setChat(text => [...text, responseUser]);
-
-        // API call
-        setChat(text => [...text, {role: 'system', content: 'feedbackGPT'}]);
+        setChat(text => [...text, {role: 'system', content: feedbackGPT.content}]);
 
         setProgress('done');
     }
@@ -68,7 +75,7 @@ function App() {
     let Started = () => {return (<>
     <section className="chat">
     {
-        chat[0] && (<h1>Você está estudando sobre <span className="pinkText">{chat[0].content /*&lt;/&gt;*/}</span></h1>)
+        chat[0] && (<h1>Você está estudando sobre <span className="pinkText">{chat[0].subject /*&lt;/&gt;*/}</span></h1>)
     }
     {
         chat[1] && (
