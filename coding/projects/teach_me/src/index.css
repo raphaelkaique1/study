@@ -150,6 +150,10 @@ main {
                 border-radius: 0.35rem;
                 outline: none;
                 color: var(--text-color);
+
+                &:focus {
+                    border: 1px solid var(--border-secondary);
+                }
             }
             
             button {

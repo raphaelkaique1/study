@@ -12,14 +12,16 @@ teach.me é uma plataforma de estudos interativa que integra o ChatGPT para prop
 
 ```plaintext
 projects/
-├── galeria_de_imagens/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   ├── icons/
-│   │   ├── question.svg
+├── teach_me/
+│   ├── public/
 │   │   └── t.png
+│   ├── src/
+│   │   ├── assets/
+│   │   |   └── question.png
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   ├── index.css
+│   │   └── vite-env.d.tsx
 │   ├── index.html
 │   ├── LICENSE
 │   └── README.md
