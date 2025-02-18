@@ -10,15 +10,9 @@ export function getHistoric(): string[] {
 
 export function setHistoric(item: string) {
     const historic = localStorage.getItem('historics');
+    let parse: string[] = historic ? JSON.parse(historic) : [];
 
-    if(historic) {
-        const parse = JSON.parse(historic);
-        if (parse.length >= 5) {
-            parse.shift();
-        }
-        localStorage.setItem('historics', JSON.stringify([...parse, item]));
-        return;
-    }
-
-    localStorage.setItem('historics', JSON.stringify([item]));
+    parse.unshift(item);
+    parse = parse.slice(0, 5);
+    localStorage.setItem('historics', JSON.stringify(parse));
 }

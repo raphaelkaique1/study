@@ -116,7 +116,7 @@ function App() {
     {
         progress !== 'done' && (
         <div id="prompt">
-            <textarea value={textArea}  onChange={element => setTextArea(element.target.value)} type="text" name="text" id="text" placeholder={progress === 'started' ? "Insira sua resposta..." : "Insira o tema que deseja estudar..."} wrap="soft" spellCheck="true"/>
+            <textarea value={textArea}  onChange={element => setTextArea(element.target.value)} itemType="text" name="text" id="text" placeholder={progress === 'started' ? "Insira sua resposta..." : "Insira o tema que deseja estudar..."} wrap="soft" spellCheck="true"/>
             <button type="submit" onClick={handleSubmitChat}>enviar</button>
         </div>
         )
