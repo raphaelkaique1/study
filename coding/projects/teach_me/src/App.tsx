@@ -1,58 +1,91 @@
 import { useState } from "react";
-import { ItemSuggestion } from "./components/ItemSuggestion"
-
+import { ItemSuggestion } from "./components/ItemSuggestion";
+import { getHistoric, setHistoric } from "./storage/historic";
 
 type ProgressType = 'pending' | 'started' | 'done';
 
 function App() {
     const [progress, setProgress] = useState<ProgressType>('pending');
+    const [textArea, setTextArea] = useState<string>('');
+    const [chat, setChat] = useState<string[]>([]);
 
     function handleSubmitChat() {
-        progress === 'pending' ? setProgress('started') : setProgress('done');
-    }
+        if(!textArea) {return};
 
-    function handleNewTopic() {
-        window.location.reload();
+        const message = textArea;
+        setTextArea('');
+
+        if(progress === 'pending') {
+            setHistoric(message);
+            setChat(text => [...text, message]);
+            setChat(text => [...text, 'question']);
+
+            setProgress('started');
+            return;
+        }
+
+        setChat(text => [...text, message]);
+        setChat(text => [...text, 'feedback']);
+
+        setProgress('done');
+    }
+    
+    function resetChat() {
+        setProgress('pending');
+        setChat([]);
     }
 
     let Start = () => {
-        return (<>
+        return (
         <section className="content">
             <span>Olá, eu sou o</span>
             <h1>teach<span className="pinkText">.me</span></h1>
             <p>Estou aqui para te ajudar nos seus estudos.</p>
             <p>Selecione um dos tópicos sugeridos ao lado ou digite um tópico que deseja estudar para começarmos.</p>
         </section>
-        <form name="prompt"> {/*action="#" method="post"*/}
-            <textarea type="text" name="topic" id="topic" placeholder="Insira o tema que deseja estudar..." wrap="soft" spellcheck="true"></textarea>
-            <button type="submit" onClick={handleSubmitChat}>enviar</button>
-        </form>
-      </>)}
+    )}
 
     let Started = () => {return (<>
     <section className="chat">
-    <h1>Você está estudando sobre <span className="pinkText">&lt;/&gt;</span></h1>
+    {
+        chat[0] && (<h1>Você está estudando sobre <span className="pinkText">{chat[0] /*&lt;/&gt;*/}</span></h1>)
+    }
+    {
+        chat[1] && (
         <div className="question">
             <h2>Pergunta</h2>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptas non praesentium nemo, nihil consequuntur sapiente debitis numquam explicabo minus eum nisi repellendus doloribus exercitationem ipsam architecto? Expedita, quidem placeat.
+                {chat[1]}
             </p>
         </div>
+        )
+    }
+    
+    {
+        chat[2] && (
         <div className="answer">
             <h2>Sua resposta</h2>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                {chat[2]}
             </p>
         </div>
+        )
+    }
+
+    {
+        chat[3] && (
         <div className="feedback">
             <h2>Feedback teach<span className="pinkText">.me</span></h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eum, voluptates pariatur voluptatum accusamus, temporibus nisi impedit porro sequi asperiores facere ullam perferendis quo itaque placeat molestias amet officiis harum!
+                {chat[3]}
             </p>
             <div>
-                <button type="reset" onClick={handleNewTopic}>Estudar novo tópico</button>
+                <button type="reset" onClick={resetChat}>Estudar novo tópico</button>
             </div>
         </div>
+        )
+    }
+
     </section>
     </>)}
 
@@ -61,22 +94,33 @@ function App() {
         <aside>
             <details open>
                 <summary>Tópicos sugeridos</summary>
-                <ItemSuggestion title="HTML"/>
-                <ItemSuggestion title="CSS"/>
-                <ItemSuggestion title="JS"/>
-                <ItemSuggestion title="TS"/>
+                <ItemSuggestion title="HTML" onClick={() => progress !== 'started' ? setTextArea("HTML") : false}/>
+                <ItemSuggestion title="CSS" onClick={() => progress !== 'started' ? setTextArea("CSS") : false}/>
+                <ItemSuggestion title="JS" onClick={() => progress !== 'started' ? setTextArea("JS") : false}/>
+                <ItemSuggestion title="TS" onClick={() => progress !== 'started' ? setTextArea("TS") : false}/>
             </details>
             <details open>
                 <summary>Histórico</summary>
-                <ItemSuggestion title="Py"/>
-                <ItemSuggestion title="JAVA"/>
-                <ItemSuggestion title="PHP"/>
-                <ItemSuggestion title="GO"/>
+                {
+                    getHistoric().map(item => (
+
+                        <ItemSuggestion title={item} onClick={() => progress !== 'started' ? setTextArea(item) : false}/>
+                    ))
+                }
             </details>
         </aside>
         <section>
 
         {progress === 'pending' ? Start() : Started()}
+
+    {
+        progress !== 'done' && (
+        <div id="prompt">
+            <textarea value={textArea}  onChange={element => setTextArea(element.target.value)} type="text" name="text" id="text" placeholder={progress === 'started' ? "Insira sua resposta..." : "Insira o tema que deseja estudar..."} wrap="soft" spellCheck="true"/>
+            <button type="submit" onClick={handleSubmitChat}>enviar</button>
+        </div>
+        )
+    }
 
             <footer>
                 <p>teach<span className="pinkText">.me</span></p>

@@ -1,10 +1,12 @@
-type ItemSuggestionProperties = {
-    title: string;
+import { ComponentProps } from 'react';
+
+type ItemSuggestionProperties = ComponentProps<'button'> & {
+    title: string,
 }
 
-export function ItemSuggestion({title}: ItemSuggestionProperties) {
+export function ItemSuggestion({title, ...props}: ItemSuggestionProperties) {
 
     return (
-        <button>{title}</button>
+        <button {...props}>{title}</button>
     );
 }
