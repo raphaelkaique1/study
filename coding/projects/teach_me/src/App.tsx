@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, CSSProperties } from "react";
 import { ItemSuggestion } from "./components/ItemSuggestion";
 import { getHistoric, setHistoric } from "./storage/historic";
 import { sendMessage } from "./api/openai";
+import { FadeLoader } from "react-spinners";
 
 type ProgressType = 'pending' | 'started' | 'done';
 
@@ -16,6 +17,7 @@ function App() {
     const [progress, setProgress] = useState<ProgressType>('pending');
     const [textArea, setTextArea] = useState<string>('');
     const [chat, setChat] = useState<Message[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     async function handleSubmitChat() {
         if(!textArea) {return};
@@ -37,9 +39,13 @@ function App() {
 
             setChat(text => [...text, messageGPT]);
 
+            setLoading(true)
+            
             const questionGPT = await sendMessage([messageGPT])
-
+            
             setChat(text => [...text, {role: 'system', content: questionGPT.content}]);
+            
+            setLoading(false)
 
             return;
         }
@@ -50,8 +56,10 @@ function App() {
         }
 
         setChat(text => [...text, responseUser]);
+        setLoading(true)
         const feedbackGPT = await sendMessage([...chat, responseUser])
         setChat(text => [...text, {role: 'system', content: feedbackGPT.content}]);
+        setLoading(false)
         setProgress('done');
 
     }
@@ -111,7 +119,12 @@ function App() {
         </div>
         )
     }
-
+    {
+        loading &&
+        <div className="loaderContainer">
+            <FadeLoader color="#fff"/>
+        </div>
+    }
     </section>
     </>)}
 
@@ -136,7 +149,6 @@ function App() {
             </details>
         </aside>
         <section>
-
         {progress === 'pending' ? Start() : Started()}
 
     {

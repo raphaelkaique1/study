@@ -183,6 +183,12 @@ main {
             width: 100%;
             padding-top: 2rem;
 
+            .loaderContainer {
+                margin: 3rem 50%;
+                background: transparent;
+                border: 0;
+            }
+
             h1 {
                 font-size: 2.5rem;
                 font-weight: 400;
