@@ -7,7 +7,7 @@ type Message = {
 }
 
 const openai = new OpenAI({
-    apiKey: '',
+    apiKey: 'secret',
     dangerouslyAllowBrowser: true
 })
 
