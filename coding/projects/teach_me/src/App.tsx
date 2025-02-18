@@ -25,6 +25,7 @@ function App() {
 
         if(progress === 'pending') {
             setHistoric(message);
+            setProgress('started');
 
             const prompt = `Gere uma pergunta onde simule uma entrevista de emprego sobre ${message}, após essa pergunta enviarei a resposta e você me dará um feedback. O feedback precisa ser simples, objetivo e corresponder fielmente a resposta enviada. Após o feedback não existirá mais interação.`
 
@@ -40,7 +41,6 @@ function App() {
 
             setChat(text => [...text, {role: 'system', content: questionGPT.content}]);
 
-            setProgress('started');
             return;
         }
 
@@ -49,12 +49,11 @@ function App() {
             content: message
         }
 
-        
-        const feedbackGPT = await sendMessage([...chat, responseUser])
         setChat(text => [...text, responseUser]);
+        const feedbackGPT = await sendMessage([...chat, responseUser])
         setChat(text => [...text, {role: 'system', content: feedbackGPT.content}]);
-
         setProgress('done');
+
     }
     
     function resetChat() {
