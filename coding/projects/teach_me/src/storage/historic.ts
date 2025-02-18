@@ -13,6 +13,9 @@ export function setHistoric(item: string) {
 
     if(historic) {
         const parse = JSON.parse(historic);
+        if (parse.length >= 5) {
+            parse.shift();
+        }
         localStorage.setItem('historics', JSON.stringify([...parse, item]));
         return;
     }
