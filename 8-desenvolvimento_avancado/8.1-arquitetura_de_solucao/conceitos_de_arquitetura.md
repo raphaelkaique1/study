@@ -1614,8 +1614,8 @@ Começando pela estrutura básica dos diretórios do projeto, não existe um ún
 
 Essa estrutura funciona bem para a maioria dos projetos. Agora, vamos para exemplos específicos.
 
+### Software Desktop - Python, Java, C#
 ```bash
-# Software Desktop - Python, Java, C#
 /projeto
 │── /src          # Código-fonte principal
 │   │── /main     # Arquivos principais do app
@@ -1633,10 +1633,9 @@ Essa estrutura funciona bem para a maioria dos projetos. Agora, vamos para exemp
 │── setup.py      # Se for Python, para instalação
 │── pom.xml       # Se for Java, configuração Maven
 ```
-Essa estrutura ajuda a separar bem os componentes do sistema.
 
+### Software Web - Node.js, Django, Laravel
 ```bash
-# Software Web - Node.js, Django, Laravel
 /projeto
 │── /src
 │   │── /controllers  # Controladores (MVC)
@@ -1657,10 +1656,9 @@ Essa estrutura ajuda a separar bem os componentes do sistema.
 │── requirements.txt # Dependências (Python/Django)
 │── composer.json    # Dependências (PHP/Laravel)
 ```
-Essa estrutura é muito usada em frameworks como Express.js (Node.js), Django (Python), Laravel (PHP), Ruby on Rails e etc.
 
+### Frontend Web - React, Angular, Vue.js
 ```bash
-# Frontend Web - React, Angular, Vue.js
 /projeto
 │── /src
 │   │── /components   # Componentes reutilizáveis
@@ -1679,9 +1677,8 @@ Essa estrutura é muito usada em frameworks como Express.js (Node.js), Django (P
 │── vite.config.js   # Configuração do Vite (se usar React/Vite)
 ```
 
-
+### Backend Web - API REST + Node.js, Flask, Spring Boot
 ```bash
-# Backend Web - API REST + Node.js, Flask, Spring Boot
 /projeto
 │── /src
 │   │── /controllers  # Controladores (MVC)
@@ -1699,7 +1696,6 @@ Essa estrutura é muito usada em frameworks como Express.js (Node.js), Django (P
 │── requirements.txt # Dependências (se for Python)
 │── Dockerfile       # Configuração do Docker
 ```
-Essa estrutura é muito comum para APIs REST e microservices.
 
 Embora cada tecnologia ou framework tenha suas particularidades, as convenções básicas incluem:
 - Código-fonte separado em `/src`
@@ -1735,13 +1731,13 @@ Breve descrição do software, explicando seu propósito e funcionalidades princ
 ## 📦 Instalação
 
 1. Instale as dependências:
-   ```sh
-   comando de instalação
-   ```
+    ```sh
+    comando de instalação
+    ```
 2. Execute o projeto:
-   ```sh
-   comando para rodar
-   ```
+    ```sh
+    comando para rodar
+    ```
 
 ## 🚀 Uso
 
@@ -1770,21 +1766,21 @@ Breve descrição do software, explicando seu propósito e principais funcionali
 ## 📦 Instalação
 
 1. Clone o repositório:
-   ```sh
-   git clone https://github.com/seu-usuario/nome-do-projeto.git
-   ```
+    ```sh
+    git clone https://github.com/seu-usuario/nome-do-projeto.git
+    ```
 2. Acesse o diretório:
-   ```sh
-   cd nome-do-projeto
-   ```
+    ```sh
+    cd nome-do-projeto
+    ```
 3. Instale as dependências:
-   ```sh
-   comando de instalação
-   ```
+    ```sh
+    comando de instalação
+    ```
 4. Execute o projeto:
-   ```sh
-   comando para rodar
-   ```
+    ```sh
+    comando para rodar
+    ```
 
 ## 🚀 Uso
 
@@ -1808,7 +1804,7 @@ Ou chamando via código:
 
 ## 🏗️ Estrutura do Código
 
-    ```
+    ```plaintext
     /nome-do-projeto
     │── /src          # Código-fonte principal
     │── /docs         # Documentação do projeto
@@ -1834,10 +1830,9 @@ Criado por [Seu Nome](https://github.com/seu-usuario) - Entre em contato via [se
 Este projeto está licenciado sob a licença **[Nome da Licença](link da licença)**.
 ```
 
-Esses templates podem ser adaptados conforme a necessidade do projeto. O primeiro é o mais básico possível, enquanto o segundo já traz mais informações úteis para quem deseja contribuir ou entender melhor o código.
-
+Esses templates podem ser adaptados conforme a necessidade do projeto. O primeiro é o mais básico possível, enquanto o segundo já traz mais informações úteis para quem deseja contribuir ou entender melhor o código.<br/>
 Vamos realizar um exemplo prático para a construção de um CMS gerador de páginas estáticas:
-
+```md
 # Comp: compilador de site estático
 
 Comp é um geradoe de websites estáticos, suas características incluem:
@@ -1861,13 +1856,11 @@ Para criar um arquivo com Comp, basta executar estes comandos no CLI, usando o S
 	echo "Hello world!" > data/index.fe
 
 O site compilado será criado na pasta `output`. pronta para ser copiada para um ambiente web.
-
+```
 ## LICENSE
 A **Licença de Código** define as regras de uso, distribuição, modificação e comercialização de um software. Sem uma licença explícita, um software é considerado **proprietário** por padrão, o que significa que ninguém pode usá-lo ou modificá-lo legalmente sem permissão do autor.
 
-## **Tipos de Licenças de Código**
-
-As licenças de software são geralmente classificadas em **proprietárias** ou **livres (open source)**.  
+## **Tipos de Licenças de Código**<br/>As licenças de software são geralmente classificadas em **proprietárias** ou **livres (open source)**.  
 
 ### **1. Licenças Proprietárias**  
 - O código-fonte **não** é disponibilizado livremente.  
@@ -1902,8 +1895,8 @@ Permitem acesso ao código-fonte e geralmente permitem modificações e redistri
 - **Creative Commons (CC-BY, CC-BY-SA, etc.)**: Muito usada para documentação de software.  
 - **GNU FDL (Free Documentation License)**: Específica para manuais e tutoriais.  
 
-Aqui está um resumo das licenças mencionadas, organizadas por categoria e com explicações sobre suas permissões e restrições.
-
+---
+**Aqui está um resumo das licenças mencionadas, organizadas por categoria e com explicações sobre suas permissões e restrições.**
 ---
 
 ## **1. Licenças Permissivas (Mais Livres)**
@@ -2135,7 +2128,7 @@ Um **arquivo TODO** é um documento de texto simples utilizado por desenvolvedor
   (B) 2025-02-19 Implementar função de login +Autenticação @Desenvolvimento
   ```
 
-  Nesse formato, `(A)` indica a prioridade, seguida da data de criação, descrição da tarefa, projeto (`+Projeto`) e contexto (`@Contexto`). citeturn0search5
+  Nesse formato, `(A)` indica a prioridade, seguida da data de criação, descrição da tarefa, projeto (`+Projeto`) e contexto (`@Contexto`).
 
 - **TODO.md:** Utiliza a sintaxe Markdown para organizar as tarefas, permitindo a criação de listas de tarefas com checkboxes, seções e subtarefas. Exemplo:
 
@@ -2154,7 +2147,7 @@ Um **arquivo TODO** é um documento de texto simples utilizado por desenvolvedor
   - [ ] Corrigir erro no módulo de pagamento
   ```
 
-  Aqui, os itens `- [ ]` representam tarefas a serem feitas, enquanto `- [x]` indicaria tarefas concluídas. citeturn0search2
+  Aqui, os itens `- [ ]` representam tarefas a serem feitas, enquanto `- [x]` indicaria tarefas concluídas.
 
 **Vantagens do Uso de Arquivos TODO:**
 
