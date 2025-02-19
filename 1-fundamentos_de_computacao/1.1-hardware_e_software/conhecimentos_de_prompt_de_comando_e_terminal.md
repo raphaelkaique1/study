@@ -277,7 +277,9 @@ ping -c 5 https://ubuntu.com/ # tests the connection by sending a specified numb
 
 #!/bin/bash # #! - command interpreter | /... - path to interpreter
 
-parameter="$1" # receives the first parameter passed, to use another parameter just indicate its position
+# $ - is a marker that defines parameters, using `_` it receives as a parameter the last parameter of the previous function, using numbers it receives as a parameter the corresponding parameter of the last function executed, for example, `$1` receives the first parameter of the last function, `$2` receives the second parameter, and so on.
+
+parameter="$_" # receives the first parameter passed, to use another parameter just indicate its position
 'example: sudo chmod +x ./file.sh && ./file.sh 10
 
 file.sh:
