@@ -1,4 +1,32 @@
-Os métodos HTTP são usados para definir a ação que o cliente deseja realizar sobre um recurso no servidor. Os principais métodos são:
+# PROTOCOLOS
+Qualquer aplicação que utiliza comunicação em rede, o mais seguro é utilizar algum protoloco de comunicação com **[SSL/TLS](https://www.youtube.com/watch?v=BVqFpbFiV34)**.
+ O **SSL (Secure Sockets Layer)** e o **TLS (Transport Layer Security)** são protocolos criptográficos fundamentais para a segurança das comunicações na internet. Eles garantem a confidencialidade, integridade e autenticidade dos dados transmitidos entre um cliente e um servidor.
+
+**SSL (Secure Sockets Layer):**
+
+Desenvolvido pela Netscape na década de 1990, o SSL foi o primeiro protocolo amplamente adotado para proteger as comunicações na web. Ele utiliza criptografia para assegurar que os dados transmitidos não possam ser interceptados ou alterados por terceiros. No entanto, o SSL possui vulnerabilidades conhecidas e foi gradualmente substituído pelo TLS.
+
+**TLS (Transport Layer Security):**
+
+O TLS é a evolução do SSL, projetado para corrigir as falhas de segurança do SSL e oferecer uma criptografia mais robusta. Ele é amplamente utilizado para proteger protocolos como HTTP (resultando no HTTPS), SMTP, FTP e outros. O TLS opera em camadas inferiores do modelo OSI, garantindo que os dados sejam transmitidos de forma segura entre as partes envolvidas.
+
+**Como o SSL/TLS Funciona:**
+
+1. **Handshake (Aperto de Mão):** Quando um cliente se conecta a um servidor, eles iniciam um processo de negociação para estabelecer uma conexão segura. Durante o handshake, são trocadas informações como certificados digitais e chaves públicas.
+
+2. **Autenticação:** O servidor apresenta um certificado digital assinado por uma autoridade certificadora confiável **CA - CERTIFICATION AUTHORITY**, permitindo que o cliente verifique a identidade do servidor.
+
+3. **Geração de Chaves:** Após a autenticação, o cliente e o servidor geram uma chave secreta compartilhada, que será usada para criptografar e descriptografar os dados durante a sessão.
+
+4. **Criptografia de Dados:** Com a chave secreta, os dados transmitidos entre o cliente e o servidor são criptografados, garantindo que informações sensíveis, como senhas e dados pessoais, permaneçam protegidas contra interceptação.
+
+5. **Integridade:** O TLS também assegura que os dados não sejam alterados durante a transmissão, utilizando códigos de autenticação de mensagem (MACs) para verificar a integridade dos dados.
+
+É importante notar que, embora o termo "SSL" ainda seja amplamente utilizado, a maioria das implementações modernas utiliza o TLS devido às suas melhorias de segurança.
+
+## [HTTPS: Let's Encrypt](https://letsencrypt.org/pt-br/how-it-works/)
+
+Feita a conexão segura no canal, usamos os métodos HTTP para definir a ação que o cliente deseja realizar sobre um recurso no servidor. Os principais métodos são:
 
 - **GET**: Recupera informações de um recurso sem modificá-lo.
 - **POST**: Envia dados para o servidor, geralmente para criar um novo recurso ou processar informações.
