@@ -1,0 +1,3 @@
+[submodule "9-boas_praticas/boas_praticas_em_desenvolvimento"]
+	path = 9-boas_praticas/boas_praticas_em_desenvolvimento
+	url = https://github.com/rhatto/boaspraticas.git

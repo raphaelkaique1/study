@@ -418,5 +418,47 @@
   - Criação de Smart Contracts
   - Tokenização de ativos
   - Desenvolvimento no Metaverso (SandBox)
+
+## <a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas">9. Boas Práticas</a>
+### <a id="boas_praticas" href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.1-clean_code">9.1 Clean Code</a>
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.1-clean_code/clean_code_and_more.md">Clean Code & more</a>**
+- Boas práticas de desenvolvimento de código limpo.
+- Princípios do Clean Code (legibilidade, simplicidade e organização).
+- Nomes descritivos e significado semântico no código.
+- Estruturação adequada de funções e classes.
+- Evitando comentários desnecessários com código autoexplicativo (automentado).
+
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.1-clean_code/solid.md">Princípios SOLID</a>**
+  - **S**ingle Responsibility Principle (SRP) – Princípio da Responsabilidade Única.
+  - **O**pen/Closed Principle (OCP) – Princípio Aberto/Fechado.
+  - **L**iskov Substitution Principle (LSP) – Princípio da Substituição de Liskov.
+  - **I**nterface Segregation Principle (ISP) – Princípio da Segregação de Interface.
+  - **D**ependency Inversion Principle (DIP) – Princípio da Inversão de Dependência.
+
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.1-clean_code/design_patterns.md">Padrões de Design (Design Patterns)</a>**
+  - Uso de padrões de projeto para reutilização de código e escalabilidade.
+  - Exemplos de Design Patterns comuns: Singleton, Factory, Observer, Strategy.
+  - Implementação prática dos padrões em linguagens modernas.
+
+### <a id="metodologias" href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento">9.2 Metodologias de Desenvolvimento</a>
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento/agile_scrum_kanban.md">Metodologias Ágeis (Agile, Scrum, Kanban)</a>**
+  - Princípios do Manifesto Ágil.
+  - Scrum: papéis, eventos e artefatos.
+  - Kanban: fluxo contínuo de desenvolvimento.
+  - Benefícios e aplicação no ciclo de vida do software.
+
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento/tdd_bdd.md">Test-Driven Development (TDD) & Behavior-Driven Development (BDD)</a>**
+  - Princípios do desenvolvimento orientado a testes.
+  - Benefícios do TDD e BDD na qualidade do código.
+  - Ferramentas populares para testes automatizados.
+  - Implementação prática com frameworks como Jest, Mocha e PyTest.
+
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento/devops_culture.md">Cultura DevOps e CI/CD</a>**
+  - Integração entre desenvolvimento e operações.
+  - Práticas de Continuous Integration e Continuous Deployment (CI/CD).
+  - Automação no desenvolvimento e entrega de software.
+  - Ferramentas populares como Jenkins, GitHub Actions, GitLab CI/CD.
+
 ---
+
 <div align="center">Copyright &copy; 2025 <a href="https://github.com/raphaelkaique1">Raphael Kaíque Dias Santos</a></div>

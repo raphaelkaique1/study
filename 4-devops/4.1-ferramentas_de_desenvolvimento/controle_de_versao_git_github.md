@@ -776,7 +776,7 @@ Vejamos como adicionar um submodulo:<br/>
 ```bash
 # navegue até o repositório do projeto principal, e então adicione o repositório da dependência do projeto
 git submodule add https://github.com/user/repo dir_name
-cat .gitmodulos # isso mostra o caminho para a referência do diretório no submodulo
+cat .gitmodules # isso mostra o caminho para a referência do diretório no submodulo
 [submodule "dir_name"]
   path = dir_name
   url = https://github.com/user/repo
