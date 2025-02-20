@@ -1593,14 +1593,135 @@ Existem vários tipos de testes a serem feitos para validar a qualidade do softw
 ⠀• Segurança⠀⠀⠀  • Funcional<br/>
 
 ## Documentação
-A documentação é uma das formas principais de comunicarmos a outros desenvolvedores nossa inteção ao escrever um projeto: como usar, porque usar e como obter mais informações. Porém, existe uma tendência natural de um descompaço entre a documentação e o código. Em geral, o que acontece é que, a documentação fica rapidamente destualizada a medida que o código evolui com várias mudanças o tempo todo.<br/>
-Grande parte dos desenvolvedores de software não adotam o costume de escrever documentação, exatamente por sempre estar pensando em como melhorar o software e aplica continuamente melhorias, sem separar tempo para atualizar a documentação.<br/>
-Algumas maneiras de contornar isso, é sempre lembrar que, *quanto mais próxima a documentação estiver do código, é mais difícil de se tornar desatualizada*.<br/>
-**Na maioria das linguagens de programação, é possível escrever a documentação em forma de comentário.** Junto do código, podemos colocar comentários chamados **`docblocks`**, ou também **`heredocs`**, que podem ser convertidos numa documentação indexada, referenciada e navegável.<br/>
-Além disso, é importante também escrever e atualizar uma documentação de nível mais alto e distanciado da implementação do projeto. Assim então temos 2 níveis de documentação:
-1. **técnico**: documentação extensa e detalhada no sentido macro para micro.
-2. **operacional**: documentação pontual que descreve partes micro que podem ser agrupadas para o entendimento do macro.
+A documentação desempenha um papel crucial no desenvolvimento de software, servindo como um meio de comunicação entre desenvolvedores e garantindo que a intenção por trás do código seja clara e acessível. A documentação é uma das formas principais de comunicarmos a outros desenvolvedores nossa inteção ao escrever um projeto: como usar, porque usar e como obter mais informações. No entanto, manter a documentação atualizada pode ser desafiador, especialmente em projetos que evoluem rapidamente por existir uma tendência natural de um descompaço entre a documentação e o código. Em geral, o que acontece é que, a documentação fica rapidamente destualizada a medida que o código evolui com várias mudanças o tempo todo.<br/>
+Grande parte dos desenvolvedores de software não adotam o costume de escrever documentação, exatamente por sempre estar pensando em como melhorar o software e aplica continuamente melhorias, sem separar tempo para atualizar a documentação.
 
-Uma boa prática é implementar a documentação desde o início, seguindo o **DDD**, começando escrevendo um pequeno documento sobre como usar o software e seguir atualizando regularmente a cada nova **release**. Então, ao fim de um grande ciclo, revisar essa documentação para atualizá-la e torná-la mais completa.
+**Desafios na Manutenção da Documentação:**
+- **Descompasso entre código e documentação:** À medida que o código sofre alterações frequentes, a documentação pode rapidamente se tornar obsoleta se não for atualizada concomitantemente.
+- **Prioridade ao desenvolvimento:** Muitos desenvolvedores focam na implementação e melhoria contínua do software, frequentemente negligenciando a atualização da documentação.
+
+Algumas maneiras de contornar isso, é sempre lembrar que, *quanto mais próxima a documentação estiver do código, é mais difícil de se tornar desatualizada*.
+
+**Estratégias para Manter a Documentação Atualizada:**
+1. **Proximidade entre código e documentação:** Manter a documentação o mais próximo possível do código-fonte reduz a chance de desatualização. Comentários embutidos e ferramentas que geram documentação automaticamente a partir do código são exemplos eficazes dessa prática.
+2. **Uso de docblocks e heredocs:** Incorporar comentários estruturados, conhecidos como docblocks, diretamente no código permite a geração de documentação navegável e referenciada. Ferramentas específicas podem extrair esses comentários e criar documentação formal.
+
+**Na maioria das linguagens de programação, é possível escrever a documentação em forma de comentário.** Junto do código, podemos colocar comentários chamados **`docblocks`**, ou também **`heredocs`**, que podem ser convertidos numa documentação indexada, referenciada e navegável.
+
+Além disso, é importante também escrever e atualizar uma documentação de nível mais alto e distanciado da implementação do projeto. Assim então temos 2 níveis de documentação:
+1. **técnico**: documentação extensa e detalhada no sentido macro para micro, fornecendo uma visão abrangente do sistema, abordando sua arquitetura, componentes principais e interações.
+2. **operacional**: documentação pontual que descreve partes micro que podem ser agrupadas para o entendimento do macro, focada em detalhes específicos, como funções individuais, classes ou módulos, facilitando o entendimento de partes específicas do sistema.
+
+Uma boa prática é implementar a documentação desde o início, seguindo o **DDD**, começando escrevendo um pequeno documento sobre como usar o software e seguir atualizando regularmente a cada nova **release**. Então, ao fim de um grande ciclo, revisar essa documentação para atualizá-la e torná-la mais completa. Outras boas práticas incluem:
+- **Documentação desde o início:** Implementar a documentação desde as fases iniciais do projeto, alinhando-a com os princípios do Desenvolvimento Orientado ao Domínio (DDD), assegura que as decisões de design e funcionalidades sejam bem compreendidas.
+- **Atualizações regulares:** Estabelecer um cronograma para revisar e atualizar a documentação, especialmente após novas releases ou mudanças significativas no código.
+- **Ferramentas de automação:** Utilizar ferramentas que integrem a geração de documentação ao fluxo de desenvolvimento pode minimizar o esforço manual e garantir consistência.
+
+Além disso, existem metodologias dedicadas a manter o código organizado e inteligível seguindo a ideia de documentar o código com o próprio código, e usar isso para a escrita da documentação formal, que é o caso do **clean code**, que é uma boa prática de escrita de código que usa código *"autocomentado"*. Um **código autocomentado** é aquele escrito de maneira tão clara e intuitiva que dispensa comentários adicionais para explicar seu funcionamento. Nele, a escolha precisa de nomes de variáveis, funções e classes, juntamente com uma estrutura lógica e organizada, torna o propósito e a lógica do código facilmente compreensíveis para outros desenvolvedores.
+
+```js
+function calcularSalarioAnual(salarioMensal) {
+    const mesesNoAno = 12;
+    return salarioMensal * mesesNoAno;
+}
+
+const salarioMensal = 5000;
+const salarioAnual = calcularSalarioAnual(salarioMensal);
+console.log(`O salário anual é R$ ${salarioAnual}`);
+```
+
+- **Docblocks** são blocos de comentários estruturados utilizados para documentar elementos do código, como classes, métodos e funções. Geralmente posicionados imediatamente antes da definição do elemento que descrevem, os docblocks seguem uma sintaxe específica que permite a geração automática de documentações detalhadas por meio de ferramentas especializadas. Além de fornecerem descrições claras, podem incluir informações sobre parâmetros, valores de retorno, exceções lançadas e outros detalhes relevantes.
+
+```php
+/**
+ * Calcula o salário anual com base no salário mensal.
+ *
+ * @param float $salarioMensal O valor do salário mensal.
+ * @return float O valor do salário anual.
+ */
+function calcularSalarioAnual($salarioMensal) {
+    $mesesNoAno = 12;
+    return $salarioMensal * $mesesNoAno;
+}
+```
+
+- **Heredocs** são uma forma de definir strings multilinha em várias linguagens de programação, como PHP, Perl e Shell Script. Utilizando uma sintaxe específica, permitem a inserção de blocos de texto que preservam quebras de linha e formatação, facilitando a manipulação de grandes trechos de texto ou código dentro do próprio código fonte. No contexto de documentação, heredocs podem ser empregados para incluir exemplos de uso ou saídas esperadas de funções, enriquecendo a compreensão do comportamento do código.
+
+```php
+$mensagem = <<<EOT
+Olá,
+
+Este é um exemplo de texto utilizando Heredoc em PHP.
+Você pode escrever múltiplas linhas sem se preocupar com concatenação ou caracteres especiais.
+
+Atenciosamente,
+Equipe de Desenvolvimento
+EOT;
+
+echo $mensagem;
+```
+
+- **Clean Code** é um conceito que enfatiza a importância de escrever códigos legíveis, mantíveis e eficientes. Nesse contexto, a prática de criar um código autocomentado é fundamental, pois reduz a necessidade de comentários excessivos, tornando o código autoexplicativo. No entanto, quando a documentação adicional se faz necessária, o uso de docblocks estruturados assegura que as informações complementares estejam diretamente associadas aos elementos correspondentes, facilitando a manutenção e evitando desatualizações. Por outro lado, o uso de heredocs contribui para a clareza e organização do código, especialmente ao lidar com strings extensas ou exemplos incorporados, alinhando-se aos princípios do Clean Code ao promover uma estrutura mais limpa e compreensível.<br/>
+Escrever um **código limpo** é fundamental para garantir a legibilidade, manutenibilidade e eficiência de um software. A seguir veremos um exemplo prático em JavaScript que ilustra os princípios do Clean Code:
+
+**Exemplo: Função para calcular o preço total de itens em um carrinho de compras**
+
+*Código não otimizado:*
+```javascript
+function calc(items) {
+    let p = 0;
+    for (let i = 0; i < items.length; i++) {
+        p += items[i].qt * items[i].prc;
+    }
+    return p;
+}
+```
+*Problemas identificados:*
+- **Nomes de variáveis e função pouco descritivos:** `calc`, `p`, `qt` e `prc` não indicam claramente seus propósitos.
+- **Falta de tratamento para casos especiais:** Como carrinhos vazios ou valores negativos.
+
+*Código otimizado seguindo os princípios do Clean Code:*
+```javascript
+/**
+ * Calcula o preço total dos itens no carrinho de compras.
+ *
+ * @param {Array} itens - Lista de itens no carrinho. Cada item deve possuir:
+ *   - quantidade: Número de unidades do item.
+ *   - preco: Preço unitário do item.
+ * @returns {number} O preço total dos itens.
+ */
+function calcularPrecoTotal(itens) {
+    if (!Array.isArray(itens) || itens.length === 0) {
+        return 0; // Retorna 0 se o carrinho estiver vazio ou não for um array válido
+    }
+
+    let precoTotal = 0;
+
+    for (const item of itens) {
+        const { quantidade, preco } = item;
+
+        if (quantidade <= 0 || preco < 0) {
+            continue; // Ignora itens com quantidade ou preço inválidos
+        }
+
+        precoTotal += quantidade * preco;
+    }
+
+    return precoTotal;
+}
+```
+*Melhorias implementadas:*
+- **Nomes descritivos:** A função `calcularPrecoTotal` e as variáveis `itens`, `quantidade` e `preco` indicam claramente seus propósitos.
+- **Documentação com comentários:** O uso de docblocks fornece informações sobre a função, seus parâmetros e o valor retornado.
+- **Tratamento de casos especiais:** A função verifica se a entrada é um array válido e se não está vazio, além de ignorar itens com quantidade ou preço inválidos.
+- **Uso de `const` e `let`:** Variáveis são declaradas com `const` ou `let` conforme apropriado, promovendo boas práticas de escopo e imutabilidade.
+
+Seguindo os princípios do Clean Code, como nomes significativos, funções com responsabilidade única e tratamento adequado de erros, o código se torna mais claro e fácil de manter.
+
+- [Clean Code - Guia e Exemplos - Balta.io](https://balta.io/artigos/clean-code)
+- [Clean Code (Código Limpo): O que é + 13 exemplos - Task Blog](https://blog.task.com.br/clean-code/)
+- [Desvendando o Clean Code: Princípios, Exemplos e Boas Práticas - DIO](https://www.dio.me/articles/desvendando-o-clean-code-principios-exemplos-e-boas-praticas)
+
+Em resumo, enquanto o código autocomentado busca minimizar a necessidade de explicações adicionais através de uma escrita clara e intuitiva, os docblocks e heredocs oferecem meios estruturados de adicionar documentação e exemplos diretamente no código, complementando as práticas recomendadas pelo Clean Code para um desenvolvimento mais eficiente e colaborativo. Ele implementa a documentaçãm que é altamente eficaz é fundamental para a manutenção, escalabilidade e colaboração em projetos de software. Adotar práticas que integrem a documentação ao processo de desenvolvimento e garantir sua atualização contínua são passos essenciais para o sucesso a longo prazo do projeto. 
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/plataformas_iot_arduino_raspberry_pi.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#arquitetura_de_solucao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/padroes_de_projeto_design_patterns.md">next</a>
