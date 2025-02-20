@@ -257,7 +257,16 @@ Comp é um geradoe de websites estáticos, suas características incluem:
 - Baseado em arquivos de texto com formatação básica.
 - Leve e de fácil instalação, por ter pouca depência em aplicações e bibliotecas externas.
 - Fácil hospedagem em qualquer local.
-- O conteúdo pode ser convertido noutros formatos.  
+- O conteúdo pode ser convertido noutros formatos.
+
+## Dependências
+O Comp depende dos seguintes pacotes instalados no seu sistema:
+- bash
+- perl
+- coreutils
+- findutils
+- pandoc
+- rsync
 
 ## Criando um site
 
@@ -714,6 +723,68 @@ echo "done"
 ### .git
 ### .gitignore
 ### .gitkeep
+### git stagin area
+### git branches
+### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
+Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, para simplificarmos a nossa forma de trabalho foi criado o `gitflow`, um pugglin para o Git.<br/>
+O segredo do gitflow, é o trabalho com branches bem definidas e estabelecer o fluxo de trabalho para o envio de código de um branch para o outro.
+
+![Image](https://github.com/user-attachments/assets/300d2ced-f295-4d66-9325-4d464150fde1)
+
+- **master || main**<br/>
+Este é o branch principal, onde reside o código que já está pronto para lançamento.
+- **hotfix**<br/>
+São branches destinados à correções rápidas e alternativas para resolução de bugs pequenos que precisam ser enviados logo para produção.
+- **release**<br/>
+É a branche onde cada alteração significativa no código em develop é enviada para produção como uma nova versão do software.
+- **develop**<br/>
+É o branch de desenvolvimento, onde acontece a integração das funcionalidades desenvolvidas. Essas funcionalidades são criadas nos branches do tipo **features**.
+- **features**<br/>
+Branches designidas para a criação das funcionalidades onde podem ser realizados teste unitários, e em seguida enviadas para serem testadas na branch develop.
+
+Para instalar e usar o git flow deve-se seguir os seguintes passos:<br/>
+```git flow <branch_name> <process_status: start || finish> <workflow_name>```
+```sh
+sudo apt install -y git-flow
+git flow init # no diretório do projeto inicie o git flow
+git flow feature start doc # exemplo: este comando da `start` em uma `feature` com o nome `doc`, que neste caso serve para trabalhar a documentação do projeto
+git branch # podemos ver a branch criada
+  develop
+* feature/doc
+  main
+# após realizar as alterações deve-se atualizar a branch
+git commit -a -m "Commit changes"
+gt flow feature finish # indica que as alterações necessárias foram encerradas, então o git-flow realiza o merge das alterações dessa branch no branch `develop` e então a branch `feature` é apagada localmente
+
+# vamos agora criar uma release do software para ser mesclada com a branch main lançando assim uma nova versão do programa
+git flow release start 0.1
+git branch # podemos ver a branch criada
+  main
+  develop
+* release/0.1
+# após realizar as alterações deve-se atualizar a branch
+git commit -a -m "Commit changes"
+gt flow release finish
+```
+
+### git LFS
+### submodules
+Um submodulo do git nada mais é do que um repositório dentro do outro, e ainda, a versão desse repositório está travada. Isso constitui um sistema de gestão de dependências bem simples e integrado usando o próprio git. Ou seja, é uma forma de distribuirmos nosso código junto com as bibliotecas e demais requisitos que são necessários o embarque automáticamente no repositório git principal.<br/>
+Mas é preciso muita atenção, pois o fluxo de trabalho pode acabar se tornando complexo se não for bem compreendido este conceito, pois os submodulos podem ser recursivos, ou seja, um repositório pode conter outros submodulos e ainda cada um deles conterem mais submodulos.<br/>
+Vejamos como adicionar um submodulo:<br/>
+`git submodule add <url_repo> <dir_name>`
+```bash
+# navegue até o repositório do projeto principal, e então adicione o repositório da dependência do projeto
+git submodule add https://github.com/user/repo dir_name
+cat .gitmodulos # isso mostra o caminho para a referência do diretório no submodulo
+[submodule "dir_name"]
+  path = dir_name
+  url = https://github.com/user/repo
+# agora podemos incluir este módulo ao nosso repositório remoto, e sempre que nosso projeto for clonado, essa referência será clonada também
+git commit -a -m "Commit changes"
+```
+Este é o caso do módulo do `node.js` por exemplo. O arquivo do submodulo dentro do nosso diretório é apenas uma entrada para o repositório original do submodulo. Ou seja, um submodulo é uma referência para o git qual versão queremos usar no nosso projeto e onde buscar os arquivos do diretório submodulo indicado.<br/>
+Isso é bem interessante para a distribuição de dependências do nosso projeto, onde quando uma versão específica da depedência é necessária para nosso software, podemos subí-la no nosso projeto sem necessariamente ter que incluir os arquivos no diretório, podemos apenas referenciá-los.
 
 ```Shell
 git --version # git version x.xx.x
@@ -772,7 +843,7 @@ git remote add <branch_name> <original_repository_url> # keeps the local reposit
 ## git commit -m "Commit changes"
 
 # shorthand:
-git commit -am "Commit changes"
+git commit -a -m "Commit changes"
 
 # push file in branch
 git push -u origin <branch_name>
@@ -802,6 +873,8 @@ git checkout <file_name>
 #.file
 ```
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/progit.pdf">progit</a>
+
+## GITHUB
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/3-bancos_de_dados/3.2-nosql/mongodb_redis_neo4j.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
 <!--  -->

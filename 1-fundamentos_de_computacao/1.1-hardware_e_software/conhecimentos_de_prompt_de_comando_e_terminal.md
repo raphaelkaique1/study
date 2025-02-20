@@ -6,6 +6,8 @@ user@localhost:~$ # user is logged in to localhost
 # # = super user
 
 [ctrl] + [Alt] + [T] # open the terminal
+[ctrl] + [z] # "pause" a process opened by the terminal to free up the CLI
+bg # keeps the paused program open to be used independently of the terminal
 command -l
 command -labcd
 command --word
