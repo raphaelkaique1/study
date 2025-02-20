@@ -168,6 +168,14 @@
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/4-devops">4. DevOps</a>
 ### <a id="ferramentas_de_desenvolvimento" href="https://github.com/raphaelkaique1/study/tree/main/4-devops/4.1-ferramentas_de_desenvolvimento">4.1 Ferramentas de Desenvolvimento</a>
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">Continuous Integration e Continuous Deployment (CI/CD)</a>**
+  - Implementação de pipelines de CI/CD.
+  - Integração entre desenvolvimento e operações.
+  - Práticas de Continuous Integration e Continuous Deployment (CI/CD).
+  - Ferramentas populares como Jenkins, GitHub Actions, GitLab CI/CD.
+  - Automação no desenvolvimento e entrega de software.
+  - Automação de testes, construção e deploy contínuo.
+
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/controle_de_versao_git_github.md">Controle de Versão (Git/GitHub)</a>**
   - Versionamento de código com Git para controle de versão.
   - Uso do GitHub (fork e etc).
@@ -182,10 +190,6 @@
   - Criação e configuração de containers.
   - Utilização avançada de Docker para criação de ambientes isolados.
   - Orquestração de múltiplos containers com Docker Compose.
-
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">Continuous Integration e Continuous Deployment (CI/CD)</a>**
-  - Implementação de pipelines de CI/CD.
-  - Automação de testes, construção e deploy contínuo.
 
 ### <a id="cloud_computing" href="https://github.com/raphaelkaique1/study/tree/main/4-devops/4.2-cloud_computing">4.2 Cloud Computing</a>
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.2-cloud_computing/aws_google_gloud_azure.md">AWS, Google Cloud, Azure</a>**
@@ -396,20 +400,27 @@
   - Entendimento e aplicação de arquiteturas como Model-View-Controller (MVC), Model-View-View-Model (MVVM), entre outras.
 
 * **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/padroes_de_projeto_design_patterns.md">Padrões de Projeto (Design Patterns)</a>**
-  - Implementação de padrões como Singleton, Observer, Factory, etc.
+  - Uso de padrões de projeto para reutilização de código e escalabilidade.
   - Escolha adequada de padrões para cenários específicos.
   - Aplicação de padrões de design para resolver problemas recorrentes.
+  - Exemplos de Design Patterns comuns: Singleton, Factory, Observer, Strategy.
+  - Implementação de padrões como Singleton, Observer, Factory, etc.
   - Utilização de design patterns como ferramenta para estruturar o código.
+  - Implementação prática dos padrões em linguagens modernas.
 
 ### <a id="arquitetura_de_software" href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.2-arquitetura_de_software">8.2 Arquitetura de Software</a>
 * **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.2-arquitetura_de_software/escalabilidade_e_desempenho_estrategias_de_otimizacao_e_caching.md">Escalabilidade e Desempenho, Estratégias de Otimização, Caching</a>**
   - Estratégias para escalabilidade e otimização de desempenho.
   - Implementação de cache para melhoria de performance.
 
-* **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.2-arquitetura_de_software/testes_automatizados_e_tdd.md">Testes Automatizados e TDD (Jasmine, Mocha, Jest, Test-Driven Development)</a>**
+* **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.2-arquitetura_de_software/testes_automatizados_e_tdd.md">Testes Automatizados, TDD (Jasmine, Mocha, Jest, Test-Driven Development) e Behavior-Driven Development (BDD)</a>**
+  - Princípios do desenvolvimento orientado a testes.
   - Implementação de testes automatizados.
   - Adoção de Test-Driven Development (TDD) como prática de desenvolvimento.
+  - Benefícios do TDD e BDD na qualidade do código.
+  - Ferramentas populares para testes automatizados.
   - Uso de frameworks de teste como Jasmine, Mocha, Jest.
+  - Implementação prática com frameworks como Jest, Mocha e PyTest.
 
 ### <a id="future_of_web" href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.3-future_of_web">8.3 Future of Web</a>
 * **<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.3-future_of_web/web3_blockchain_tokenization_smart_contracts_metaverse.md">web3, Blockchain, Tokenization, Smart Contracts & Metaverse</a>**
@@ -435,29 +446,12 @@
   - **I**nterface Segregation Principle (ISP) – Princípio da Segregação de Interface.
   - **D**ependency Inversion Principle (DIP) – Princípio da Inversão de Dependência.
 
-* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.1-clean_code/design_patterns.md">Padrões de Design (Design Patterns)</a>**
-  - Uso de padrões de projeto para reutilização de código e escalabilidade.
-  - Exemplos de Design Patterns comuns: Singleton, Factory, Observer, Strategy.
-  - Implementação prática dos padrões em linguagens modernas.
-
 ### <a id="metodologias" href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento">9.2 Metodologias de Desenvolvimento</a>
 * **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento/agile_scrum_kanban.md">Metodologias Ágeis (Agile, Scrum, Kanban)</a>**
   - Princípios do Manifesto Ágil.
   - Scrum: papéis, eventos e artefatos.
   - Kanban: fluxo contínuo de desenvolvimento.
   - Benefícios e aplicação no ciclo de vida do software.
-
-* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento/tdd_bdd.md">Test-Driven Development (TDD) & Behavior-Driven Development (BDD)</a>**
-  - Princípios do desenvolvimento orientado a testes.
-  - Benefícios do TDD e BDD na qualidade do código.
-  - Ferramentas populares para testes automatizados.
-  - Implementação prática com frameworks como Jest, Mocha e PyTest.
-
-* **<a href="https://github.com/raphaelkaique1/study/tree/main/9-boas_praticas/9.2-metodologias_de_desenvolvimento/devops_culture.md">Cultura DevOps e CI/CD</a>**
-  - Integração entre desenvolvimento e operações.
-  - Práticas de Continuous Integration e Continuous Deployment (CI/CD).
-  - Automação no desenvolvimento e entrega de software.
-  - Ferramentas populares como Jenkins, GitHub Actions, GitLab CI/CD.
 
 ---
 
