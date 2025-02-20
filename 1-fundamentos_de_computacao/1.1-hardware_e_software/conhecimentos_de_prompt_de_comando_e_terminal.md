@@ -84,6 +84,7 @@ shutdown -r now || shutdown -r 00:00 || shutdown -r +10 ||  # schedule the resta
 shutdown -c # cancel a scheduled shutdown
 reboot # restart
 exit # close the terminal
+exit 1 # causes that, if the command exits with a status other than 0 (true), it will not be executed, nor will the following commands.
 
 # std
 command --help # command documentation

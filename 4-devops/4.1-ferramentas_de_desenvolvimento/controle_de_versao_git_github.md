@@ -786,6 +786,8 @@ git commit -a -m "Commit changes"
 Este é o caso do módulo do `node.js` por exemplo. O arquivo do submodulo dentro do nosso diretório é apenas uma entrada para o repositório original do submodulo. Ou seja, um submodulo é uma referência para o git qual versão queremos usar no nosso projeto e onde buscar os arquivos do diretório submodulo indicado.<br/>
 Isso é bem interessante para a distribuição de dependências do nosso projeto, onde quando uma versão específica da depedência é necessária para nosso software, podemos subí-la no nosso projeto sem necessariamente ter que incluir os arquivos no diretório, podemos apenas referenciá-los.
 
+### hooks - post update && pre commit
+
 ```Shell
 git --version # git version x.xx.x
 
