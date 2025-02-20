@@ -1,2 +1,4 @@
+# CRIPTOGRAFIA
+É a técnica de se transmitir mensagens entre 2 ou mais partes garantindo que somente as partes envolvidas tenham acesso ao conteúdo da informação trafegada e também que seja possível validar a autoria do envio da mensagem.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/seguranca_de_rede.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#seguranca_autenticacao_e_autorizacao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/owasp_top_10.md">next</a>
