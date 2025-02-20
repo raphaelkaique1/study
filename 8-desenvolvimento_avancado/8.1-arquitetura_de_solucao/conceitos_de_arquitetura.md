@@ -995,7 +995,7 @@ Em ambas é usado o cabeçalho, que trás a identificação do caso de uso:
  Modelagem é a visão da empresa através da construção de diagramas funcionais sobre o comportamento de seus processos. A construção de um modelo da empresa permite a avaliação dos processos de negócio envolvidos, viabilizando a formulação de processos de mudanças, estruturados de forma a garantir o cumprimento da missão organizacional e o atendimento das estratégias empresariais básicas ao sucesso em seu ramo de atuação.<br/>
  A Modelagem de Processos de Negócio é desenvolvida para identificar e mapear os processos. Existem algumas orientações de modelagem como: Orientada à Atividade, Orientada ao Objeto e Orientada à Função ou ao Papel (Funcional) e Orientada ao Discurso. Para desenvolvimento de uma modelagem é necessário considerar a aplicação de uma metodologia de trabalho em que serão definidas: ferramentar tecnológicas (softwares), técnicas (práticas ou conjunto de métodos), métodos (procedimentos) e modelos (formas de representação) a serem adotados.
 
- ### 1. Processo, o que é? Conceituando processo.
+### 1. Processo, o que é? Conceituando processo.
 Um grupo de atividades realizadas numa sequência lógica com o objetivo de produzir um bem ou um serviço que tem valor para um grupo específico de clientes [HAMMER e CHAMPY, 1994], ou seja, processo é a forma pela qual um conjunto de atividades cria, trabalha ou transforma insumos (entradas), agregando-lhes valor, com a finalidade de produzir bens ou serviços, com qualidade, para serem entregues a clientes (saídas), sejam eles internos ou externos (CRUZ, 2002, pág. 106). De forma resumida, um processo é um conjunto de atividades do negócio, inter-relacionadas para atingir um objetivo da empresa, e a modelagem de processo fornece uma visão única de todos os processos da empresa, com  suporte da gestão por processo.<br/>
 A gestão por processo é uma técnica de modelagem de processo com várias vantagens, sendo elas:
     - Ter uma visão ampla de todo o negócio, trazendo um melhor entendimento do seu conceito;
@@ -1043,7 +1043,7 @@ Com isso, podemos compreender que a gestão por processo é um método para se t
   - Relações com concorrentes e fornecedores devem ser substituídas constantemente;
   - Relação com os participantes da cadeia de valor, a correção das decisões tomadas e a necessidade de reavaliação dos processos envolvidos indicam a medida de nosso desempenho;
 
- ### 2. Introdução a BPM: O que é BPM?
+### 2. Introdução a BPM: O que é BPM?
 Dentro da gestão por processo é onde construímos a modelagem do processo de negócio, também conhecida como BPM: Business Process Management - Gerenciamento de Processos de negócio através da modelagem dos processos. Podemos dizer que, o BPM é a proposta do gerenciamento de processo através da modelagem de processo, onde iremos desenvolver um modelo que irá representar de forma simbólica todas as atividades e interconexões do(s) processo(s). O BPM é comumente utilizado sobre dois enfoques:
   1. ferramenta de modelagem de gestão de processos de negócios;
   2. relacionado às áreas de BI - Business Intelligence e ERP (planejamento de recursos empresariais);
@@ -1068,7 +1068,7 @@ Os softwares de BPM controlam: processos, atividades e recursos registrando para
 
 É uma metodologia aplicada à representação de processos de negócios utilizando como notação o BPD (Business Process Diagram). Os elementos gráficos no BPD permitem desenvolvimento fácil e familiar para a maioria dos analistas de negócio (por exemplo, um fluxograma). Os elementos são diferentes entre si e utilizam formas parecidas com as da maioria dos modelos, o que torna a construção de fácil aprendizado. É uma modelagem rica em recursos para a representação de uma maneira mais completa de como as atividades são realizados numa única visualização. Com as ferramentas disponíveis na tecnologia podemos realizar a construção destes modelos.
 
- ### 3. BPMN - Notação: Conhecendo a simbologia para o BPMN.
+### 3. BPMN - Notação: Conhecendo a simbologia para o BPMN.
 A Notação é a simbologia proposta no BPM para a construção dos modelos de processo. Um BPD é constituído de objetos gráficos da BPMN e seus relacionamentos. Ou seja, é a Notação para construção de diagramas BPD na representação de processos de negócio.
 
 - **Objetivo:**
@@ -1134,8 +1134,8 @@ A Notação é a simbologia proposta no BPM para a construção dos modelos de p
   3.3. Atividades paralelas
 4. Construir o modelo de processo BPMN;
 
-### Resumo
-A Modelagem de Processo é uma prática que vem sendo exercida no mercado de trabalho para conhecimento das atividades de negócio, os responsáveis que as realizam e a ligação entre elas. Considera-se no escopo desta aula a modelagem BPD, que utiliza a BPMN.<br/>
+**Resumo**<br/>
+A Modelagem de Processo é uma prática que vem sendo exercida no mercado de trabalho para conhecimento das atividades de negócio, os responsáveis que as realizam e a ligação entre elas. Considera-se no escopo desta aula a modelagem BPD, que utiliza a BPMN.
 #### Vantagens
 - Dar visibilidade as atividades de negócio e seus relacionamentos;
 - Agilizar a identificação das conexões e implicações entre as atividades, quando é necessário inserção de novas necessidades;
@@ -1591,5 +1591,16 @@ Existem vários tipos de testes a serem feitos para validar a qualidade do softw
 ⠀• Regressão⠀⠀⠀  • Instalação<br/>
 ⠀• Usabilidade⠀⠀⠀• Manutenção<br/>
 ⠀• Segurança⠀⠀⠀  • Funcional<br/>
+
+## Documentação
+A documentação é uma das formas principais de comunicarmos a outros desenvolvedores nossa inteção ao escrever um projeto: como usar, porque usar e como obter mais informações. Porém, existe uma tendência natural de um descompaço entre a documentação e o código. Em geral, o que acontece é que, a documentação fica rapidamente destualizada a medida que o código evolui com várias mudanças o tempo todo.<br/>
+Grande parte dos desenvolvedores de software não adotam o costume de escrever documentação, exatamente por sempre estar pensando em como melhorar o software e aplica continuamente melhorias, sem separar tempo para atualizar a documentação.<br/>
+Algumas maneiras de contornar isso, é sempre lembrar que, *quanto mais próxima a documentação estiver do código, é mais difícil de se tornar desatualizada*.<br/>
+**Na maioria das linguagens de programação, é possível escrever a documentação em forma de comentário.** Junto do código, podemos colocar comentários chamados **`docblocks`**, ou também **`heredocs`**, que podem ser convertidos numa documentação indexada, referenciada e navegável.<br/>
+Além disso, é importante também escrever e atualizar uma documentação de nível mais alto e distanciado da implementação do projeto. Assim então temos 2 níveis de documentação:
+1. **técnico**: documentação extensa e detalhada no sentido macro para micro.
+2. **operacional**: documentação pontual que descreve partes micro que podem ser agrupadas para o entendimento do macro.
+
+Uma boa prática é implementar a documentação desde o início, seguindo o **DDD**, começando escrevendo um pequeno documento sobre como usar o software e seguir atualizando regularmente a cada nova **release**. Então, ao fim de um grande ciclo, revisar essa documentação para atualizá-la e torná-la mais completa.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/7-desenvolvimento_iot/7.1-desenvolvimento_para_iot_internet_of_things/plataformas_iot_arduino_raspberry_pi.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#arquitetura_de_solucao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/padroes_de_projeto_design_patterns.md">next</a>
