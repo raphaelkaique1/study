@@ -1,6 +1,12 @@
 # Redes de Computadores
+As atividades que realizamos todos os dias rotineiramente fazem parte do networking. Quando assistimos a um vídeo de streaming por meio de um serviço, a mídia está passando pela internet até o dispositivo. Vamos entender como isso acontece.<br/>
+Quado grupos de computadores e dispositivos estão conectados uns aos outros de forma que permite que eles compartilhem dados e recursos entre si, eles formam uma rede de computadores. Uma rede pode ser pequena, com apenas alguns dispositivos, ou pode ser grande com um prédio cheio de servidores conectados, e que, por meio de sua rede, são enviados e recebidos dados, incluindo vídeos de streaming.<br/>
+Os computadores trabalham principalmente com dados digitais — 1s e 0s — para processar documentos, vídeos, imagens e outros tipos de arquivos. Sem estar conectado à internet ou a outros computadores, é possível salvar, editar e excluir dados no dispositivo, mas assim que os dados são transferidos para a internet, estamos estabelecendo uma conexão de rede para que estes arquivos sejam visualizados ou editados em um outro dispositivo. Ao enviar um e-mail, ou uma mensagem, assistir um vídeo no YouTube, todos estes arquivos são em essência dados computacionais, ou seja, 1s e 0s. Uma rede de computadores é o canal para compartilhar estes dados, e a internet é uma conexão de rede em tempo real entre recursos como computadores.
 
 ## 1. Redes: Conceitos
+Estar conectado à rede requer mais do que apenas 2 computadores, também são necessários equipamentos especiais como um *modem* para converter a informação que queremos em formas dados que possam ser enviados pela rede para se comunicar na internet e um *roteador* para gerenciar o tráfego, ou seja, estes dados que estão se movento. Então, podemos dizer que uma rede de computadores se define como um grupo de aparelhos de computação que compartilha recursos como dispositivos, modems e roteadores.<br/>
+As tecnologias que conectam os dispositivos podem usar fios, sinais eletromagnéticos sem fio, ondas ópticas ou ondas de rádio. Dispositivos em rede são às vezes chamados de **nós de rede**, ou também *endpoint*. Os sistemas de rede usam hardware especializado que sabem como gerenciar pacotes de dados enviados e recebidos. Redes de fidelidade sem fio, ou simplesmente *wi-fi* transmitem dados usando sinais de rádio.
+
 ### Ondas e Sinais
   Sinais em redes de computadores e telecomunicações são essenciais para a transmissão de dados entre dispositivos. Eles representam a informação que é enviada através de diversos meios, como cabos, fibras ópticas e sinais sem fio. Sinais Analógicos variam continuamente e podem representar uma gama infinita de valores dentro de um intervalo, eles são descritos por sua amplitude, frequência e fase. A amplitude do sinal pode variar de forma contínua, permitindo uma representação precisa de dados como som e imagem. A qualidade do sinal analógico pode ser degradada por interferências e ruídos. Exemplos: Sinais de áudio em um rádio AM, sinais de vídeo analógico em TVs antigas. Sinais Digitais representam dados em forma de sequências discretas de valores, geralmente binários (0s e 1s), eles são menos suscetíveis a ruídos e interferências do que os sinais analógicos. Os sinais digitais são representados por uma série de pulsos ou ondas de forma discreta. A transmissão digital pode ser mais confiável, pois os sinais podem ser regenerados ou corrigidos se houver degradação. Exemplos: Dados transmitidos em uma rede Ethernet, pacotes de dados em uma comunicação Wi-Fi. Em redes de computadores e telecomunicações, o conceito de ondas e sinais são fundamentais para entender como os dados são transmitidos e recebidos. Uma onda é uma perturbação ou variação que se propaga através de um meio ou espaço transportando energia de um lugar para outro, as ondas em redes geralmente se referem a ondas eletromagnéticas que são usadas para transmitir informações sem fio. Aqui está uma visão detalhada sobre como as ondas se aplicam a redes:
 
@@ -89,6 +95,21 @@ Caracterização de uma rede:
 #### Meios de Transmissão:
   Corresponde ao meio físico que será utilizado para realizar a comunicação entre hosts e aplicações (cabos, placas, modems, roteadores, servidores, etc).
 
+  - **ROTEADOR**: É o aparelho que gerencia o tráfego de rede entre os dispositivos e a internet. A tarefa do roteador é escolher o caminho para o tráfego de dados.<br/>
+  O roteador é um dispositivo de hardware que envia dados. Ele encaminha dados da internet para os dispositivos na nossa rede, e geralmente está conectado a um provedor de serviços de internet — **ISP**.<br/>
+  Roteadores roteiam dados. Um roteador tem um ponto de acesso com pelo menos uma antena. Embora a maioria dos roteadores suporte redes sem fio, eles não são verdadeiramente sem fio, eles precisam ser conectados a uma tomada com um cabo de alimentação e ao ponto de rede de fibra óptica do provedor de internet.<br/>
+  Podemos imaginar então, um roteador com uma pessoa fazendo linguagem de sinais em um evento televisionado. O intérprete ouve as palavras do apresentador e as sinalizando para aqueles que entendem a linguagem de sinais. De certa forma, o intérprete está encaminhando informações de uma fonte (o apresentador) para o público-alvo (o espectador). Os roteadores fazem algo semelhante: eles transmitem tráfego de um lado da rede, do dispositivo remetente, para o outro lado da rede, o dispositivo receptor.<br/>
+  Outro tipo de rede é a que usamos em nossos dispositivos móveis quando não estamos no wifi. O hardware que dispositivo usa para isso é um rádio. Ele envia e recebe dados de e para torres que as empresas de telefonia ou governos instalam. Embora a tecnologia subjacente seja diferente em como os dados são enviados e recebidos, é tudo tecnologia de rede.<br/>
+  Os roteadores usam endereços MAC, que são fornecidos aos dispositivos na fábrica, e endereços IP, que são atribuídos aos dispositivos pelo provedor de serviços de internet (ISP), para rotear os dados corretamente. A combinação de endereço MAC e endereço IP dá a cada dispositivo uma ID exclusiva que os roteadores entendem. Por isso, os roteadores desempenham um papel essencial em levar os dados para onde eles precisam ir.<br/>
+  Os roteadores podem ter 2 tipos de hardware:
+  - Um rádio, que envia e recebe informações em ondas sonoras eletromagnéticas.
+  - E o **NIC**, que é uma peça de um dispositivo computacional que transmite e recebe os dados através de um sistema sem fios de ondas ópticas que encaminha os dados para a rede de internet fornecida pelo provedor.
+
+  - **MODEM**: É a peça que conecta os dispositivos ao serviço de internet, podendo ser uma caixa externa ou um chip interno.<br/>
+ Às vezes, engenheiros se referem ao hardware de rede usando o termo modem. Modem é uma junção das palavras modulador e demodulador. Esses termos técnicos se referem ao envio ou transmissão (modulação) de dados ou ao recebimento (demodulação) de dados.
+
+ - **GATEWAY**: É o dispositivo que contém os 2: 1 modem + 1 roteador.
+
 - **Redes de Acesso (wireless, wi-fi)**: Rede física que conecta um sistema final ao primeiro roteador de um caminho partindo de um sistema final até outro qualquer - Enlaces de comunicação.
 <pre>
          📱    💻 ＞ Rede Móvel
@@ -117,11 +138,35 @@ Caracterização de uma rede:
     100Mbits/s 💻  🎚️ Servidor
 </pre>
 
+![Image](https://github.com/user-attachments/assets/50b02a6c-c31a-4f6a-8e04-caca08003815)
+<!-- https://ole03.yourlearning.ibm.com/scorm_package_symlnk/scorm_packages/MDL-236_MDLPT-244_v3_LARS-4097/scormcontent/assets/network-animation.gif -->
+
+#### Endereçamento
+Os computadores usam endereços exclusivos para se localizar na rede. Todos os dispositivos conectados à rede têm 2 IDs especiais.
+1. **MAC**: Hardware como um laptop ou celular tem um endereço de controle de **ACESSO À MÍDIA**. Endereços MAC são globalmente exclusivos, então nenhuma peça de hardware compartilhará o mesmo endereço MAC. Pense em um endereço MAC como um número de passaporte. Esse número é totalmente exclusivo para cada um e diz às autoridades que aquela pessoa é aquela pessoa.
+2. **IP**: Dispositivos em uma rede incluindo computadores que atendem sites na internet, também têm outro ID chamado endereço de **PROTOCOLO DE INTERNET**. O endereço IP identifica dispositivos em uma rede específica. Endereços IP não precisam ser exclusivos. Em uma rede privada como uma rede residencial, comercial ou escolar, o roteador atribui a todos os dispositivos naquela rede um endereço IP individual que é associado ao endereço MAC do dispositivo. O roteador também recebe um endereço IP (geralmente pelo ISP) porque ele faz a interface entre a internet e a rede privada. O endereço IP da internet que o roteador tem é exclusivo na internet.
+
+Vamos ver as diferenças nas características entre um MAC e um IP na tabela a seguir:
+| MAC                                                       | IP                                               |
+|-----------------------------------------------------------|--------------------------------------------------|
+| ID do dispositivo                                         | ID da conexão de internet do dispositivo         |
+| Atribuído pelo fabricante da placa de rede do dispositivo | Atribuído pelo ISP                               |
+| Endereço físico (localização da memória)                  | Endereço lógico (localização da CPU)             |
+| Orientado a hardware                                      | Orientado a software                             |
+| Não pode mudar                                            | Pode mudar                                       |
+| Não pode ser compartilhado                                | Pode ser compartilhado                           |
+| Pode ajudar a resolver um problema de                     | IP Não pode ajudar a resolver um problema de MAC |
+
 ##### Classificação por área geográfica
-- **Pessoais (Personal Area Network)**: Redes de curtíssimo alcance, normalmente alguns poucos metros.
-- **Local (Local Area Network)**: Redes em que a abrangência de uma rede não ultrapassa algumas dezenas de metros, situando-se, normalmente, dentro de um edifício.
-- **Longa Distancia (Wide Area Network)**: Consiste normalmente em diversas redes locais entre si, abrangendo um conjunto de edifícios vizinhos, como por exemplo vários países ou até a totalidade do globo (como é o caso da World Wide Web).
+- **Pessoais (Personal Area Network)**: Redes de curtíssimo alcance, normalmente alguns poucos metros. Muitos dispositivos modernos permitem pagar por compras tocando o dispositivo em um pad na loja. Também enviar arquivos e fotos para outro dispositivo sem fio se ele estiver ao alcance. Essas tecnologias usam linguagens de rede específicas chamadas protocolos como Bluetooth e comunicação de campo próximo, o **NFC**. Como podemos ver pelo termo *campo próximo*, a tecnologia de rede depende de 2 dispositivos estarem próximos. Não é possível usar NFC ou Bluetooth para enviar dados para alguém em outra cidade ou mesmo outro quarteirão. Esses tipos de redes são chamadas de redes de área pessoal (PANs), e elas tem esse nome porque a rede é realmente pessoal. A PAN é extremamente segura, por ter que aprovar qualquer transferência ou recepção de dados. Os dados só podem ir entre dispositivos que temos conhecimento e controle. Os PANs são populares porque podem ser de baixo custo, eficientes e portáteis. Quando precisamos de uma conexão simples, um PAN pode substituir conexões com fio volumosas. Outra maneira pela qual os PANs podem ser úteis é para transferências rápidas de conhecimento. Por exemplo, um museu pode ter um display com um chip NFC para fornecer detalhes adicionais sobre o display aos visitantes que usam seus celulares. PANs tem aplicações muito específicas. Elas são úteis quando é necessário concluir uma tarefa específica, como enviar um único arquivo. A maior parte do trabalho e da interação que é realizada nos dispositivos envolve streaming de dados, ou seja, movimentação de muitos arquivos de uma vez, recebimento de notificações push para notícias, clima e mensagens, e atividades semelhantes. Para essa funcionalidade mais em tempo real, é necessário uma conexão em tempo integral com uma rede.
+- **Local (Local Area Network)**: Redes em que a abrangência de uma rede não ultrapassa algumas dezenas de metros, situando-se, normalmente, dentro de um edifício. As redes também precisam de algum nível de privacidade. Uma corporação, uma escola ou até mesmo nossa casa precisa de uma maneira de proteger dados, fornecer recursos apenas para as pessoas na casa ou organização e ter uma maneira de deixar algumas pessoas entrarem e manter outras fora. Nossa casa seria inabitável se qualquer um pudesse entrar pela porta, sentar-se à mesa e começar a jantar a qualquer hora que quisesse. As redes precisam de um *gatekeeping* semelhante. Este é o trabalho que uma LAN realiza. Quando configuramos um roteador para nossa casa e usamos seu ISP para conectar à internet, estamos configurando uma LAN. Quando inserimos uma senha de wifi em uma cafeteria, estamos entrando pela porta da frente da LAN da loja. Uma vez lá dentro, podemos acessar recursos especiais ou acessar o mundo mais amplo da internet.
 - **Metropolitanas (Metropolitan Area Network)**: Redes que cobrem a área de uma grande cidade ou região urbana, interligando determinadas entidades ou instituições que necessitam de manter entre si um sistema de comunicações de dados, como por exemplo as entidades administrativas ou policiais de uma grande cidade.
+- **Longa Distancia (Wide Area Network)**: Consiste normalmente em diversas redes locais entre si, abrangendo um conjunto de edifícios vizinhos, como por exemplo vários países ou até a totalidade do globo (como é o caso da World Wide Web). A internet é o que se chama de rede de longa distância (WAN). Assim como PANs e LANs, uma WAN se refere principalmente à distância que a rede alcança. WANs podem ser tão seguras quanto LANs, mas cobrem uma área geográfica muito mais ampla. A internet é uma WAN pública que cobre o mundo (e agora, até mesmo o espaço). A internet é considerada uma WAN aberta porque os dispositivos não precisam de permissão para acessá-la. LANs, PANs e WANs que exigem credenciais de segurança para acessá-las são consideradas redes fechadas. Embora existam WANs fechadas, elas podem ficar bem caras porque exigem uma maneira segura de transmitir dados entre áreas geográficas amplas e díspares. Construir linhas de transmissão que uma única empresa usará, por exemplo, não é viável para muitos. Mas e se uma empresa precisar da segurança de uma LAN, mas permitir que pessoas de todo o mundo acessem sua rede? Isso requer tecnologia especial para manter a rede privada.
+- **Rede Virtual Privada (Virtual Private Network)**: Em vez de ter que baixar todos os arquivos e recursos da empresa para seus computadores locais, corporações e escolas usam uma tecnologia que permite que pessoas remotas façam um túnel em sua LAN privada usando a internet. Isso as poupa de ter que instalar cabos de transmissão privados. Essa tecnologia de rede privada virtual (VPN) usa a infraestrutura da internet para criar um "túnel" de uma LAN para outra LAN.<br/>
+A tecnologia VPN cria uma conexão segura com uma rede privada (a LAN). O virtual em VPN implica que o dispositivo conectado não está fisicamente atrás do roteador da LAN — está virtualmente atrás dele.<br/>
+Por exemplo, se um amigo quisesse se conectar ao nosso wifi, seria śo informar o nome da conexão wifi (digamos que é MyHomeWiFi) do seu roteador físico dentro de casa. Assim que ele tiver seu dispositivo na rede, ele será solicitado a fornecer uma senha que devemos informar também para que ele possa se conectar.<br/>
+Agora este amigo está virtualmente atrás do roteador da rede e pode acessar o que estiver disponível nesta rede, incluindo ver todos os dispositivos, acessar arquivos e usar a internet.<br/>
+As VPNs funcionam de forma semelhante, exceto que, em vez de ter que estar no local onde o roteador está, o software e o hardware usam a internet para fornecer a conexão. Se houver uma VPN em casa, nosso amigo seria capaz de se conectar à sua casa de qualquer outro lugar em que ele tivesse uma conexão com a internet. Ele teria acesso a todos os mesmos recursos como se estivesse em casa, mas ele está na verdade acessando esses recursos da sua localização pela internet.
 - **GATEWAY**: É um dispositivo de rede que serve como um ponto de entrada ou saída para diferentes redes e protocolos. Ele atua como uma ponte entre redes que podem usar diferentes protocolos ou arquiteturas de comunicação, permitindo que os dispositivos em uma rede se comuniquem com dispositivos em outra rede.<br/>**Funções Principais do Gateway**
   - **Interconexão de Redes Diferentes**: Um gateway pode conectar redes que utilizam diferentes protocolos de comunicação ou arquiteturas, como redes locais (LANs) e redes de longa distância (WANs), ou até mesmo diferentes tipos de redes, como redes IP e redes de telefonia.
   - **Encaminhamento de Pacotes**: No contexto de redes IP, um gateway encaminha pacotes entre redes diferentes. Por exemplo, em uma rede doméstica, o roteador atua como um gateway para a Internet, encaminhando dados entre a rede local e a rede global.
@@ -147,6 +192,27 @@ Caracterização de uma rede:
 - **Conectividade**: Sem gateways, dispositivos em diferentes redes ou sistemas que usam protocolos diferentes não poderiam se comunicar.
 - **Segurança e Controle**: Gateways podem implementar políticas de segurança e controle de tráfego para proteger redes e gerenciar o acesso a recursos.
 - **Flexibilidade e Escalabilidade**: Permite a integração de diferentes redes e sistemas, facilitando a expansão e a integração de redes complexas.
+
+#### Recursos de Rede:
+Recursos de rede são dados, informações, dispositivos de computação e periféricos que podemos acessar por meio da nossa conexão de rede. Dispositivos de computação processam quantidades cada vez maiores de dados, e, a quantidade de dados que eles enviam por uma rede pode ser extremamente grande. Onde os dados — não o código — têm informações repetitivas, por exemplo, uma imagem de um céu limpo é uma grande área composta do mesmo tom de azul, um algoritmo de conversão levará isso em conta a fim de comprimir o pacote de dados de forma mais eficiente, como escrever uma frase e adicionar x100 ao lado dela em vez de escrever uma frase 100 vezes em uma folha de papel.<br/>
+As unidades binárias são as usadas para medir os diferentes tamanhos de dados de tráfego:
+
+| unidade  | valor                   |
+|----------|-------------------------|
+| bit      | `0` `1`                 |
+| byte     | 8 **bits**              |
+| kilobyte | 1,024 **bytes**         |
+| megabyte | 1,048,576 **bytes**     |
+| gigabyte | 1,073,741,824 **bytes** |
+
+##### Pacotes de Dados
+Quando pensamos nos trilhões de bits de dados transferidos diaramente pode parecer incrível que e-mails, mensagens e mídia encontre o local de destino certo. Mas é na verdade simples, os dados são transferidos entre pacotes.<br/>
+Um arquivo grande como um vídeo por exemplo, pode conter muitos gigabytes, por isso, para que não seja corrimpido durante o transporte e assim não entregue do servidor para o dispositivo que o requisitou, ele é dividido em pequenos pedaços chamados de pacotes de dados. A rede pode transferir cada pedaço separadamente e os recursos de rede podem remontá-los no lado do receptor.<br/>
+É semelhante a comprar um guarda roupas, o vendedor desmonta e embala as peças em pacotes separados e ao recebermos os pacotes um montador desembala os pacotes e remonta da forma que estava originalmente, no comôdo que ele será usado.<br/>
+Assim como uma grande peça de mobília que precisa ser desmontada, os dados enviados e recebidos são desmontados e remontados em pacotes. A tecnologia de transporte na ficção científica é um exemplo de rede que desmonta e remonta dados.<br/>
+Suponha que estejamos baixando um arquivo grande da internet, ele está em 60% e a conexão wifi cai por alguns segundos. É possível notar muitas vezes que o download se recupera e continua de onde parou quando a conexão wifi volta. Isso ocorre porque a tecnologia de pacotes informa ao hardware de rede o que esperar em seguida para cada pacote que ele envia. Se esse pacote nunca aparecer ou um pacote diferente for enviado, o modem informará o remetente e os 2 sistemas tentarão resolver a discrepância.<br/>
+Voltanto ao exemplo do móvel, vamos imaginar que juntamente de um amigo, estamos montando um armário. O amigo diz que precisa do painel 1 e 4 parafusos, porém por engano entregamos apenas 3 parafusos. O amigo então informa que recebeu o painel e 3 dos 4 parafusos. Então retornamos com o parafuso faltante para que possamos prosseguir para a próxima etapa.<br/>
+
 
 ## 2. Protocolos: Estrutura topológica das redes e protocolos de comunicação.
   Protocolos definem os formatos, a ordem das mensagem enviadas e recebidas pelas entidades de rede e as ações tomadas na transmissão e recepção de mensagens.
@@ -179,6 +245,35 @@ cliente 💻                🎚️ servidor
 </pre>
 
 ### Tipos de Protocolos do Modelo TCP/IP
+Para que os dados cheguem ao local certo e seja possível aos recebedores confirmarem o recebimento, os pacotes contém um cabeçalho com informações sobre endereço de entrega e envio. O **Modelo TCP/IP** é uma arquitetura de protocolos que organiza a comunicação em redes de computadores, como a Internet. Ele é dividido em camadas, cada uma responsável por funções específicas no processo de transmissão de dados. A seguir, uma descrição de cada camada:
+
+**1. Camada de Aplicação:**
+Esta é a camada mais próxima do usuário e lida com protocolos que fornecem serviços de rede diretamente às aplicações. Inclui protocolos como HTTP usado para navegação web, FTP para transferência de arquivos, SMTP para envio de e-mails e DNS que é a resolução de nomes de domínio. Esses protocolos permitem que softwares interajam com a rede de forma padronizada.
+
+**2. Camada de Transporte:**
+Responsável pela comunicação de host para host, garantindo que os dados sejam entregues de forma confiável e ordenada. Os principais protocolos desta camada são:
+- **TCP (Transmission Control Protocol):** Protocolo orientado à conexão que assegura a entrega correta e sequencial dos dados.
+- **UDP (User Datagram Protocol):** Protocolo sem conexão que envia datagramas sem garantir a ordem ou integridade, sendo mais rápido e utilizado em aplicações como streaming.
+
+**3. Camada de Internet:**
+Também conhecida como camada de rede, é responsável pelo endereçamento e roteamento dos pacotes através de múltiplas redes. O principal protocolo desta camada é o IP (Internet Protocol), que define os endereços IP e encaminha os pacotes ao destino correto.
+
+**4. Camada de Interface de Rede:**
+Conhecida também como camada de enlace ou física, trata da transmissão real dos dados pelo meio físico, seja ele cabos, fibras ópticas ou sinais sem fio. Inclui tecnologias e protocolos como Ethernet e Wi-Fi, que definem como os dispositivos na mesma rede local se comunicam.
+
+Cada camada do modelo TCP/IP adiciona seu próprio cabeçalho aos dados, contendo informações necessárias para o funcionamento correto da comunicação. No exemplo de um pacote de e-mail mencionado, o cabeçalho (HEADER) inclui informações como os endereços IP do remetente e do destinatário, e o número do pacote, o corpo da mensagem (PAYLOAD) contém o conteúdo real do e-mail, enquanto o cabeçalho (header) é anexado no início do pacote e contém informações como endereços de origem e destino, o trailer é posicionado após a carga útil (payload) e geralmente inclui dados para verificar a integridade e a conclusão correta da transmissão, frequentemente contém códigos de verificação, como o CRC (Cyclic Redundancy Check), que permitem ao receptor identificar se ocorreram erros durante a transmissão dos dados e em alguns protocolos, o trailer sinaliza o término do pacote, ajudando o receptor a distinguir onde um pacote termina e outro começa.<br/>
+Um pacote de dados típico pode ser dividido em 3 partes principais:
+
+1. **Cabeçalho (Header)**: Contém informações de controle, como endereços de origem e destino, números de sequência e outros dados necessários para o roteamento e entrega.
+2. **Carga Útil (Payload)**: É o conteúdo real dos dados que estão sendo transmitidos, como partes de um arquivo ou mensagens.
+3. **Trailer**: Inclui informações adicionais para garantir a integridade e a correta recepção dos dados. É importante notar que nem todos os protocolos utilizam um trailer. Por exemplo, no protocolo TCP (Transmission Control Protocol), a verificação de integridade é realizada através de um campo chamado "checksum" presente no cabeçalho, dispensando a necessidade de um trailer. Já em protocolos de enlace de dados, como o Ethernet, o trailer é utilizado para detecção de erros e marcação do fim do quadro.
+
+| HEADER                        | PAYLOAD                | TRAILER |
+|-------------------------------|------------------------|---------|
+| Sender's IP: 64.134.82.11     | Hello world,           | 1101011 |
+| Recipient's IP: 64.195.67.134 | This is a new message. |         |
+| Packet number: 1              |                        |         |
+
 - ***Overhead**: Em redes e comunicação de dados refere-se ao conjunto de recursos adicionais (tempo, largura de banda, armazenamento) necessários para gerenciar e manter a comunicação e o protocolo de rede. Esses recursos são usados para funções de controle e gerenciamento que não estão diretamente relacionadas ao conteúdo útil dos dados sendo transmitidos.
 
 **Componentes de Overhead**
@@ -286,4 +381,5 @@ Alguns dos mais comuns códigos de Status HTTP:
  3. Segurança: Redes quanto ao seu alcance geográfico.
  4. Redes de computadores: Evolução.
 -->
+
 <a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#hardware_e_software">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-conceitos_basicos/logica_de_programacao.md">next</a>
