@@ -142,9 +142,9 @@ Caracterização de uma rede:
 <!-- https://ole03.yourlearning.ibm.com/scorm_package_symlnk/scorm_packages/MDL-236_MDLPT-244_v3_LARS-4097/scormcontent/assets/network-animation.gif -->
 
 #### Endereçamento
-Os computadores usam endereços exclusivos para se localizar na rede. Todos os dispositivos conectados à rede têm 2 IDs especiais.
+Os computadores usam endereços exclusivos para se localizar na rede. Um endereço IP junto com um endereço MAC, é como as redes encontram dispositivos. Todos os dispositivos conectados à rede tem estes IDs especiais.
 1. **MAC**: Hardware como um laptop ou celular tem um endereço de controle de **ACESSO À MÍDIA**. Endereços MAC são globalmente exclusivos, então nenhuma peça de hardware compartilhará o mesmo endereço MAC. Pense em um endereço MAC como um número de passaporte. Esse número é totalmente exclusivo para cada um e diz às autoridades que aquela pessoa é aquela pessoa.
-2. **IP**: Dispositivos em uma rede incluindo computadores que atendem sites na internet, também têm outro ID chamado endereço de **PROTOCOLO DE INTERNET**. O endereço IP identifica dispositivos em uma rede específica. Endereços IP não precisam ser exclusivos. Em uma rede privada como uma rede residencial, comercial ou escolar, o roteador atribui a todos os dispositivos naquela rede um endereço IP individual que é associado ao endereço MAC do dispositivo. O roteador também recebe um endereço IP (geralmente pelo ISP) porque ele faz a interface entre a internet e a rede privada. O endereço IP da internet que o roteador tem é exclusivo na internet. Cada lugar na internet é localizado por um endereço IP. Quando o usuário fornece um endereço da web em seu navegador, o servidor DNS recebe uma solicitação, resolve o endereço IP e encaminha a solicitação para os servidores da web de destino. Então os servidores da web enviam a página da web para o navegador do usuário. Ele é construído de 2 partes chaves:
+2. **IP**: Dispositivos em uma rede incluindo computadores que atendem sites na internet, também têm outro ID chamado endereço de **PROTOCOLO DE INTERNET**. O endereço IP identifica dispositivos em uma rede específica. Um endereço IP é uma ID que um roteador ou servidor atribui a um determinado dispositivo. Endereços IP não precisam ser exclusivos. Em uma rede privada como uma rede residencial, comercial ou escolar, o roteador atribui a todos os dispositivos naquela rede um endereço IP individual que é associado ao endereço MAC do dispositivo. O roteador também recebe um endereço IP (geralmente pelo ISP) porque ele faz a interface entre a internet e a rede privada. O endereço IP da internet que o roteador tem é exclusivo na internet. Cada lugar na internet é localizado por um endereço IP. Quando o usuário fornece um endereço da web em seu navegador, o servidor DNS recebe uma solicitação, resolve o endereço IP e encaminha a solicitação para os servidores da web de destino. Então os servidores da web enviam a página da web para o navegador do usuário. Ele é construído de 2 partes chaves:
 1. **192.168.1**.1: A primeira parte de um IP é o seu ID na internet.
 2. 192.168.1<strong>.1</strong>: A segunda parte é o ID do host.
 
@@ -160,6 +160,29 @@ Vamos ver as diferenças nas características entre um MAC e um IP na tabela a s
 | Não pode mudar                                            | Pode mudar                                       |
 | Não pode ser compartilhado                                | Pode ser compartilhado                           |
 | Pode ajudar a resolver um problema de                     | IP Não pode ajudar a resolver um problema de MAC |
+
+Suponha que a rede doméstica de um amigo tenha 10 dispositivos conectados a ela. Cada dispositivo tem um endereço IP exclusivo para essa rede. Este amigo procura o endereço IP de um dos dispositivos, algo que ele pode fazer em uma janela de terminal ou no software do roteador e descobre que o endereço IP do dispositivo é 192.168.1.10. Ao olhar para todos os dispositivos nessa rede doméstica descobrimos que temos um dispositivo com 192.168.1.10 também. Como isso é possível? Como dois dispositivos em redes separadas compartilham um endereço IP e ainda obtêm os dados de que precisam da internet?
+
+Os roteadores usam **sub-redes**. Os dispositivos que compartilham o mesmo endereço IP são invisíveis para todos os outros dispositivos fora da sua rede doméstica. Seu roteador está voltado para sua rede, fornecendo endereços IP para cada um dos seus dispositivos. Nossa rede é chamada de sub-rede porque é uma rede que está dentro de outra rede, ou seja, a internet.
+
+### sub-redes
+Uma sub-rede é um endereço para uma rede dentro de uma rede. A sub-rede ajuda o roteador a classificar e enviar informações para seu destino.<br/>
+Mas o roteador também está voltado para a internet. O provedor de serviços de internet (ISP) fornece ao roteador um endereço IP, que é exclusivo. Então, quando os dados são enviados para um dispositivo na rede doméstica, eles são roteados primeiro para o roteador e então ele os envia para o dispositivo adequado.<br/>
+O diagrama a seguir mostra uma rede com o roteador voltado para seis dispositivos e para o modem, que se comunica com a internet. Observe como o roteador se comunica com o modem e cada um dos dispositivos.
+
+![Image](https://github.com/user-attachments/assets/c5d81d9f-a4e0-4d0b-a084-723842564098)
+
+Os dispositivos deste amigo funcionam da mesma forma. O roteador deles fica voltado para dentro, o que fornece os endereços de sub-rede, enquanto também fica voltado para fora, para a internet, com um endereço IP exclusivo.<br/>
+Então, como dois dispositivos em redes separadas podem compartilhar um endereço IP e ainda obter os dados de que precisam da internet? Isso ocorre porque nosso dispositivo e o dispositivo do nosso amigo estão isolados atrás de seus próprios roteadores em suas próprias sub-redes individuais. Embora o endereço IP de cada um dos roteadores precise ser exclusivo, dispositivos isolados em sub-redes diferentes podem, coincidentemente, receber os mesmos endereços IP.<br/>
+No diagrama a seguir, podemos ver a sub-rede para uma rede doméstica que um roteador cria.
+1. Os dados são enviados da internet para o roteador, que recebe um endereço IP exclusivo.
+2. O roteador cria uma sub-rede para essa rede doméstica.
+3. A ID de sub-rede é 192.168.1.n.
+4. Cada dispositivo dentro dessa sua sub-rede obtém um endereço IP, também chamado de ID do host, com base em sua ID de sub-rede.
+5. O último número no endereço IP é como a sub-rede identifica cada dispositivo.
+6. O endereço IP para seu dispositivo específico é 192.168.1.10.
+
+![Image](https://github.com/user-attachments/assets/50850b0a-f397-418e-88bc-a9e739564360)
 
 ##### Classificação por área geográfica
 - **Pessoais (Personal Area Network)**: Redes de curtíssimo alcance, normalmente alguns poucos metros. Muitos dispositivos modernos permitem pagar por compras tocando o dispositivo em um pad na loja. Também enviar arquivos e fotos para outro dispositivo sem fio se ele estiver ao alcance. Essas tecnologias usam linguagens de rede específicas chamadas protocolos como Bluetooth e comunicação de campo próximo, o **NFC**. Como podemos ver pelo termo *campo próximo*, a tecnologia de rede depende de 2 dispositivos estarem próximos. Não é possível usar NFC ou Bluetooth para enviar dados para alguém em outra cidade ou mesmo outro quarteirão. Esses tipos de redes são chamadas de redes de área pessoal (PANs), e elas tem esse nome porque a rede é realmente pessoal. A PAN é extremamente segura, por ter que aprovar qualquer transferência ou recepção de dados. Os dados só podem ir entre dispositivos que temos conhecimento e controle. Os PANs são populares porque podem ser de baixo custo, eficientes e portáteis. Quando precisamos de uma conexão simples, um PAN pode substituir conexões com fio volumosas. Outra maneira pela qual os PANs podem ser úteis é para transferências rápidas de conhecimento. Por exemplo, um museu pode ter um display com um chip NFC para fornecer detalhes adicionais sobre o display aos visitantes que usam seus celulares. PANs tem aplicações muito específicas. Elas são úteis quando é necessário concluir uma tarefa específica, como enviar um único arquivo. A maior parte do trabalho e da interação que é realizada nos dispositivos envolve streaming de dados, ou seja, movimentação de muitos arquivos de uma vez, recebimento de notificações push para notícias, clima e mensagens, e atividades semelhantes. Para essa funcionalidade mais em tempo real, é necessário uma conexão em tempo integral com uma rede.
@@ -399,8 +422,63 @@ Alguns dos mais comuns códigos de Status HTTP:
   - **RTP (Real-time Transport Protocol)**: Um protocolo usado para a transmissão de dados de áudio e vídeo em tempo real, trabalha em conjunto com o SIP para a entrega dos dados da chamada.
   - **RTCP (Real-time Transport Control Protocol)**: Um protocolo complementar ao RTP que fornece informações de controle e qualidade sobre a transmissão de dados.
 - **SMTP (Simple Mail Transfer Protocol)**: Protocolo usado para enviar mensagens de correio eletrônico dos computadores clientes para os servidores, e também para transferir mensagens entre servidores. O SMTP usa a porta TCP 25 por padrão para a comunicação entre servidores. No entanto, portas alternativas como 587 e 465 são usadas para comunicação com clientes de e-mail com suporte a autenticação e criptografia. Relacionados com este, existem também o IMAP (Internet Message Access Protocol), que permite a procura de mensagens por palavras chave no servidor e a seleção das mensagens a retirar, e o POP3 (Post Office Protocol Version 3), que retira mensagens do servidor para nosso computador (cliente). O cliente de e-mail (por exemplo, Outlook, Thunderbird) se conecta ao servidor SMTP na porta 25 (ou 587/465 para conexões seguras) para iniciar o envio do e-mail, então, o cliente SMTP envia comandos ao servidor SMTP para fornecer informações sobre o remetente, destinatário e conteúdo do e-mail, o servidor SMTP responde a esses comandos com códigos de status para confirmar a aceitação ou rejeição do e-mail, o servidor SMTP tenta entregar o e-mail ao servidor de e-mail do destinatário e, se o servidor de destino não estiver disponível, o servidor SMTP reterá a mensagem e tentará reenviá-la periodicamente. Se o servidor SMTP não puder entregar o e-mail diretamente ao destinatário, ele pode encaminhar a mensagem para outros servidores SMTP até alcançar o servidor de e-mail final.
-<!-- 
- 3. Segurança: Redes quanto ao seu alcance geográfico.
+
+## 3. Segurança: Redes quanto ao seu alcance geográfico.
+A segurança em um mundo conectado se tornou uma prioridade para tecnólogos e usuários. De roubo de identidade a perda de receita, o custo humano de violações de dados e ataques cibernéticos é enorme.<br/>
+Ao ouvir o termo *segurança cibernética*, é fácil pensar imediatamente em criar senhas mais fortes e bloquear ataques de phishing, e isso é importante. Para um profissional de TI, a segurança cibernética precisa ser holística. Isso significa proteger o hardware de rede, bem como o software que as pessoas usam para acessar redes.<br/>
+Roteadores e modems podem ser protegidos de várias maneiras. Primeiro, os dispositivos físicos precisam ser protegidos, principalmente em ambientes onde muitas pessoas podem acessar o hardware. Câmeras de segurança, gaiolas com travas e até mesmo uma porta com trava ou senha podem impedir que indivíduos não autorizados acessem e instalem malware em um roteador ou modem. Modems sem fio, que tendem a funcionar melhor em espaços abertos, podem ser tornados mais seguros instalando-os em locais de difícil acesso.
+
+### Segurança na Primeira Camada Firmware
+Hardware como roteadores e modems têm um tipo de sistema operacional chamado firmware. O firmware controla como o hardware opera e também inclui controles de interface de usuário para permitir que os técnicos modifiquem como o hardware funciona. Manter o firmware atualizado pode ajudar a tapar buracos de segurança e ajudar o hardware a ter um melhor desempenho para evitar certos tipos de ataques, como ataques de negação de serviço. Usar uma senha forte e o protocolo https ao acessar roteadores e modems remotamente é outra maneira de manter seu hardware de rede seguro.<br/>
+Infelizmente, muitas violações de segurança modernas não acontecem na camada de hardware. Muitos ataques acontecem quando as pessoas estão usando a rede. Mas há várias maneiras de se manter seguro online.
+
+### Segurança na Segunda Camada Autenticação
+As senhas têm uma má reputação, mas podem evitar violações de segurança devastadoras. Os profissionais de TI às vezes reclamam sobre senhas porque os usuários tendem a criar senhas fracas que abrem os sistemas para ataques. Os usuários não gostam de senhas porque as fortes podem ser difíceis de lembrar e tendem a haver muitas delas para lembrar.<br/>
+Usar um gerenciador de senhas pode resolver ambos os problemas. Quase todo navegador possui um gerenciador de senhas integrado. Os gerenciadores de senhas salvam as muitas senhas que criadas, ele é um programa de software para gerenciar, criar, armazenar e atualizar senhas, ajudando o usuário a fazer login nos sites com segurança. Eles geram senhas fortes para que não seja necessário inventá-las sozinho. Os profissionais de TI podem evitar muitas dores de cabeça para si mesmos e seus usuários educando os usuários sobre e, quando apropriado, exigindo que os usuários usem gerenciadores de senhas.<br/>
+A autenticação de dois fatores complementa o gerenciamento de senhas. Uma tecnologia que se tornou comum e que complementa a senha testada e comprovada é a autenticação de dois fatores (2FA). A autenticação de dois fatores exige que as pessoas insiram um código, escolham uma resposta de uma lista, respondam a uma chamada telefônica ou respondam a uma pergunta para confirmar sua identidade. Essa tecnologia ajuda a reforçar a força dos nomes de usuário e senhas ao exigir outra forma de verificação de identidade.<br/>
+Atualmente protegemos os celulares tanto quanto, se não mais, do que a carteira. Estamos cada vez mais carregando o celular o tempo todo. Os celulares podem ser profundamente pessoais e individualizados e os tecnólogos reconheceram isso, trazendo uma participação maior dos dispositivos móveis na segurança. A autenticação de dois fatores usando um dispositivo móvel requer que o usuário insira um código enviado ao seu dispositivo móvel para confirmar sua identidade. Outras implementações usam um aplicativo em um dispositivo móvel que cria um novo código a cada minuto, que é necessário copiar e usar para confirmar a identidade em outro aplicativo.<br/>
+Independentemente da forma que assuma, a segurança com senhas e autenticação de dois fatores pode parecer difícil, mas isso custa muito menos do que o impacto de dados perdidos, uma identidade roubada ou perda financeira devido a uma violação de segurança.
+
+### Segurança na Terceira Camada Firewall
+O firewall é um sistema de segurança que monitora, controla e filtra o tráfego de rede com base em regras predefinidas. Seu principal objetivo é proteger dispositivos e redes contra acessos não autorizados, ataques cibernéticos e tráfego malicioso. Ele atua como uma barreira entre redes confiáveis e não confiáveis, exemplo: entre uma rede interna e a internet. Ele pode permitir ou bloquear pacotes de dados com base em critérios como:
+- Endereço IP de origem e destino.
+- Porta de origem e destino.
+- Tipo de protocolo TCP, UDP e ICMP.
+- Regras configuradas pelo administrador.
+
+Em resumo, um firewall é fundamental para a segurança de redes e dispositivos, funcionando como uma barreira contra ameaças externas.
+
+#### Tipos de Firewall:
+- **Firewall de Rede** – Protege redes inteiras, operando em roteadores ou servidores.
+- **Firewall de Host** – Instalado em um único dispositivo, como o Windows Defender Firewall.
+- **Firewall de Próxima Geração (NGFW)** – Combina funções avançadas, como inspeção profunda de pacotes e prevenção contra intrusões (IDS/IPS).
+- **Firewall baseado em Proxy** – Atua como intermediário entre dispositivos e a internet, filtrando tráfego e aumentando a segurança.
+
+##### proxy
+O proxy é um servidor intermediário que fica entre o seu dispositivo (cliente) e a internet, atuando como um "ponte" para encaminhar e filtrar solicitações. Ele pode ser usado para segurança, anonimato, controle de tráfego e otimização de desempenho.<br/>
+Quando você acessa um site usando um proxy:
+1. Seu dispositivo envia a solicitação para o servidor proxy.
+2. O proxy recebe a solicitação e a encaminha para o destino final.
+3. O site responde ao proxy, que repassa a resposta para você.
+
+Isso pode ocultar seu IP real, fornecer mais segurança e até acelerar a navegação.
+
+**Tipos de Proxy:**
+- **Proxy Transparente** – Não esconde o IP do usuário, geralmente usado em empresas para controle de acesso.
+- **Proxy Anônimo** – Oculta o IP real do usuário, aumentando a privacidade.
+- **Proxy Reverso** – Usado em servidores para otimizar o tráfego e proteger aplicações web.
+- **Proxy SOCKS** – Funciona em vários protocolos além do HTTP, sendo útil para jogos e P2P.
+- **Proxy VPN (Virtual Private Network)** – Criptografa o tráfego e oferece um nível maior de privacidade.
+
+**Vantagens do Uso de Proxy:**
+- **Privacidade**: Esconde seu IP real para maior anonimato.
+- **Segurança**: Pode bloquear sites maliciosos e filtrar tráfego indesejado.
+- **Acesso a Conteúdos Restritos**: Pode contornar bloqueios geográficos.
+- **Otimização de Rede**: Armazena em cache conteúdos acessados com frequência para melhorar a velocidade.
+
+O proxy é uma ferramenta útil para controle de acesso, anonimato e segurança na internet, sendo amplamente usado por empresas e usuários individuais.
+
+<!--
  4. Redes de computadores: Evolução.
 -->
 

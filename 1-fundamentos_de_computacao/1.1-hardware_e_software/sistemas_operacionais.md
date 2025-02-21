@@ -4,6 +4,18 @@ Software são as instruções que dizem ao hardware quais dados processar, o que
 Os computadores usam uns e zeros para representar informações, isso é chamado de modelo de Turing. Podemos pensar no hardware como tendo bilhões de interruptores para serem desligados (zero) ou ligados (um). Com base na combinação desses bilhões de interruptores, o computador faz certas coisas, como enviar uma mensagem de texto ou adicionar números em uma planilha. O programa de software diz ao computador quais interruptores desligar, quais ligar, em qual ordem e em que momento.<br/>
 Por exemplo, se quisermos criar um documento, podemos usar o computador para executar um programa — um conjunto de instruções — chamado processador de texto. Este programa é composto de código de computador que é carregado na RAM do seu computador e diz à CPU o que mostrar na tela. O programa, quando carregado, pode mostrar uma página em branco na qual criamos o documento. Quando começamos a digitar, o programa diz à CPU para enviar instruções à GPU para mostrar as palavras que estão sendo digitadas na tela. Tudo isso é possível porque o software diz ao hardware o que fazer.
 
+## Firmware
+É a primeira camada de integração do hardware com o usuário. O firmware é um tipo de software de baixo nível que fica armazenado diretamente no hardware de um dispositivo e é responsável por controlar suas funções básicas. Ele atua como uma ponte entre o hardware e o software do sistema operacional, garantindo que o equipamento funcione corretamente. 
+- **Armazenamento**: Geralmente gravado em memória ROM, EEPROM ou Flash, tornando-o mais permanente que um software convencional.
+- **Atualizável**: Muitos dispositivos permitem atualizações de firmware para corrigir bugs, melhorar desempenho ou adicionar novos recursos.
+- **Baixo Nível**: Opera em um nível mais próximo do hardware, diferentemente dos sistemas operacionais que interagem com o usuário.
+
+O firmware é essencial para o funcionamento de praticamente todos os dispositivos eletrônicos modernos, pois define como o hardware deve operar.
+- **Computadores**: BIOS/UEFI, controladores de armazenamento.
+- **Celulares e Eletrônicos**: Firmware de smartphones, smart TVs e roteadores.
+- **Dispositivos Embarcados**: Impressoras, câmeras digitais, eletrodomésticos inteligentes.
+- **Automotivo**: Controle de injeção eletrônica, sistemas ABS e etc.
+
 ## Modelo de Von Neumann
 **Os componentes do modelo de Von Neumann são:**
 - **Unidade de Controle - UC**: busca cada instrução dos programas na memória e executa sobre os dados de entrada;

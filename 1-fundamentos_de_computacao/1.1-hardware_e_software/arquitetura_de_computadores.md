@@ -8,7 +8,7 @@
   - **Unidade de Controle - UC:** Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
   - **Unidade Lógica e Aritmética - ULA:** Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
   - **Memória (RAM e ROM):** Armazena dados e programas.
-	
+
 	 * A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
 	 * A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. A memória RAM, volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM, não volátil, armazena informações permanentes, como a BIOS.
 	 * Os dispositivos de entrada e saída permitem a interação do usuário com o computador. Através do teclado e do mouse, inserimos dados e comandos, enquanto o monitor e a impressora nos fornecem a saída das informações processadas. Os dispositivos de entrada e saída (I/O) interagem com o modelo, mas não fazem parte dos componentes principais.
@@ -121,6 +121,10 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
    - Teclados e microfones são periféricos comuns que fornecem entradas baseadas em linguagem.
    - Mouses e telas sensíveis ao toque permitem que você navegue por visuais como ícones para dizer ao computador o que você quer fazer sem ter que usar palavras.
    - Impressoras, telas e alto-falantes permitem que você veja, sinta e ouça as saídas de dispositivos de computação.
+
+ ### Identidade do Hardware
+ Todo hardware tem uma identificação especial chamada endereço de controle de acesso à mídia, ou simplesmente **MAC**. Endereços MAC são usados ​​para identificar exclusivamente o hardware. Eles são atribuídos na fábrica onde o dispositivo é produzido. Um fato interessante sobre endereços MAC é que eles são exclusivos para cada peça de hardware que já foi criada. Novos produtos não compartilharão um endereço MAC com nenhum outro produto, mesmo aqueles que são reciclados ou acabam em aterros sanitários.<br/>
+ É uma coisa boa que os dispositivos tenham endereços MAC exclusivos porque, sem eles, os dados que viajam pela Internet podem não conseguir encontrar o lugar certo.
 
  ### Sistemas de Numeração
 
