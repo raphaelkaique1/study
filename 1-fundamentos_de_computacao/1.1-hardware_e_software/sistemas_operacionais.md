@@ -5,7 +5,8 @@ Os computadores usam uns e zeros para representar informações, isso é chamado
 Por exemplo, se quisermos criar um documento, podemos usar o computador para executar um programa — um conjunto de instruções — chamado processador de texto. Este programa é composto de código de computador que é carregado na RAM do seu computador e diz à CPU o que mostrar na tela. O programa, quando carregado, pode mostrar uma página em branco na qual criamos o documento. Quando começamos a digitar, o programa diz à CPU para enviar instruções à GPU para mostrar as palavras que estão sendo digitadas na tela. Tudo isso é possível porque o software diz ao hardware o que fazer.
 
 ## Firmware
-É a primeira camada de integração do hardware com o usuário. O firmware é um tipo de software de baixo nível que fica armazenado diretamente no hardware de um dispositivo e é responsável por controlar suas funções básicas. Ele atua como uma ponte entre o hardware e o software do sistema operacional, garantindo que o equipamento funcione corretamente. 
+É a primeira camada de integração do hardware com o usuário. O firmware é um tipo de software de baixo nível que fica armazenado diretamente no hardware de um dispositivo e é responsável por controlar suas funções básicas. Ele atua como uma ponte entre o hardware e o software do sistema operacional, garantindo que o equipamento funcione corretamente. Um software essencialmente, é um conjunto de instruções que dizem ao computador (hardware) o que fazer, o firmware é uma *espécie de software*, ele difere de um "software padrão" na forma como ele é executado no hardware. Ele normalmente é armazenado em um chip especial dentro do dispositivo e controla as funções mais básicas do hardware, ele é um gerenciador sempre ativo em segundo plano, garantindo que as coisas funcionem da maneira que deveriam.<br/>
+Como qualquer outro software, ele pode também ser atualizado, mas isso requer algumas instruções especiais pois, como controla *diretamente* as principais funções do hardware, ele necessita por exemplo que, durante sua atualização o sistema tenha energia constante até o fim da sua atualização, caso contrário, ele será corrimpido e, como um HDD danificado, o firmware é extremamente difícil de recuperar.
 - **Armazenamento**: Geralmente gravado em memória ROM, EEPROM ou Flash, tornando-o mais permanente que um software convencional.
 - **Atualizável**: Muitos dispositivos permitem atualizações de firmware para corrigir bugs, melhorar desempenho ou adicionar novos recursos.
 - **Baixo Nível**: Opera em um nível mais próximo do hardware, diferentemente dos sistemas operacionais que interagem com o usuário.
@@ -183,8 +184,17 @@ A identificação de discos rígidos no GNU/Linux é feita da seguinte forma:
  └ Diretório onde são armazenados os arquivos usados para acessar dispositivos existentes no sistema
 </pre>
 
+## Driver
+Um driver é um software que atua como uma ponte entre o sistema operacional e um hardware específico. Ele permite que o sistema operacional se comunique corretamente com dispositivos como impressoras, placas de vídeo, teclados, discos rígidos, entre outros. Quando um programa precisa interagir com um hardware, por exemplo, imprimir um documento, ele envia a solicitação ao sistema operacional, que repassa essa solicitação ao driver correspondente. O driver, por sua vez, traduz essa solicitação em comandos que o hardware entende e executa.
+
+1. **Drivers de dispositivo** – Controlam periféricos como teclados, mouses, impressoras e placas de vídeo.
+2. **Drivers de kernel** – Funcionam diretamente no núcleo do sistema operacional para controlar dispositivos de baixo nível.
+3. **Drivers de software** – Simulam um hardware ou interface para compatibilidade com softwares por exemplo: drivers de impressora virtual.
+
+Quando um pendrive é conectado ao computador, o sistema operacional usa um driver USB para reconhecer, acessar e permitir a leitura e escrita de arquivos no dispositivo. Sem drivers, o sistema não conseguiria reconhecer ou controlar adequadamente o hardware.
+
 ### Kernel
- O kernel é o núcleo do sistema operacional. Ele é responsável por gerenciar o hardware do computador e fornecer uma interface entre o hardware e o software do sistema. O kernel é essencial para o funcionamento de qualquer sistema operacional, e suas principais funções incluem:
+ O kernel é o núcleo do sistema operacional. Ele é responsável por criar uma ponte com os comando do usuário e o hardware do computador, ele fornece uma interface entre o hardware e o software do sistema. O kernel é essencial para o funcionamento de qualquer sistema operacional, e suas principais funções incluem:
 
 - **Gerenciamento de Processos**: O kernel gerencia a criação, execução e terminação de processos. Ele garante que os processos sejam alocados recursos de forma justa e eficiente e lida com a troca de contexto entre processos.
 - **Gerenciamento de Memória**: O kernel controla o uso da memória RAM, alocando e liberando espaço conforme necessário. Ele também gerencia a memória virtual e a paginação, permitindo que o sistema use mais memória do que fisicamente disponível.
