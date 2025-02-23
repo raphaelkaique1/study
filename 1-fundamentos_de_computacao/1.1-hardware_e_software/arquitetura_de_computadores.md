@@ -164,8 +164,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
  Componente responsável por alimentar todos os outros. Sua função é converter a tensão usada pela rede elétrica em tensões requidas pelos componentes internos.<br/>
  Ela possui conectores de alimentação independentes, a fim de alimentar a placa, o disco, e etc por meio da placa mãe todos os demais componentes.
 
- ##### BIOS
- **Basic Input / Output System** é o sistema de configurações mais básico e essencial do hardware. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações (como luz de teclado em notebooks por exemplo) e desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo).
+ ##### BIOS / UEFI
+ **Basic Input / Output System** ou **Unified Extensible Firmware Interface** é o sistema de configurações mais básico e essencial do hardware especializado na placa-mãe. Ela é responsável por inicializar o hardware e carregar o sistema operacional. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional, o **bootloader** que inicia o kernel. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações de memória ou funções do hardware (como luz de teclado em notebooks por exemplo), desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo).
 
  ##### Portas
  As portas de comunicação podem ser físicas ou lógicas. São usadas para encaminhar os dados de comunicação entre diferentes partes de um sistema.<br/>
