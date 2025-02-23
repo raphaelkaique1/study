@@ -15,3 +15,5 @@
 
 ## Convenção de Branches
 ![Image](https://github.com/user-attachments/assets/300d2ced-f295-4d66-9325-4d464150fde1)
+* remote: [main, hotfix, develop]
+* local: [feature, release]

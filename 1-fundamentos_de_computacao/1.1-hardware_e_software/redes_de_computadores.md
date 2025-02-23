@@ -95,7 +95,6 @@ Caracterização de uma rede:
 #### Meios de Transmissão:
   Corresponde ao meio físico que será utilizado para realizar a comunicação entre hosts e aplicações (cabos, placas, modems, roteadores, servidores, etc).
 
-
   - **MODEM**: É a peça que conecta os dispositivos ao serviço de internet, ou seja, ele conecta uma casa à internet através do provedor de serviço, podendo ser uma caixa externa ou um chip interno.<br/>
  Às vezes, engenheiros se referem ao hardware de rede usando o termo modem. Modem é uma junção das palavras modulador e demodulador. Esses termos técnicos se referem ao envio ou transmissão (modulação) de dados ou ao recebimento (demodulação) de dados.<br/>
  Ele converte o sinal da operadora (fibra óptica, cabo, DSL) em um formato que pode ser usado pelos dispositivos. Normalmente, tem uma porta Ethernet para conectar-se a um roteador ou diretamente a um computador. Se conectarmos um computador diretamente ao modem, ele terá acesso à internet, mas apenas um dispositivo pode se conectar.
@@ -199,6 +198,38 @@ No diagrama a seguir, podemos ver a sub-rede para uma rede doméstica que um rot
 6. O endereço IP para seu dispositivo específico é 192.168.1.10.
 
 ![Image](https://github.com/user-attachments/assets/50850b0a-f397-418e-88bc-a9e739564360)
+
+### DHCP
+**Dynamic Host Configuration Protocol** é um protocolo de rede que **atribui automaticamente endereços IP** e outras configurações para dispositivos conectados a uma rede. Em vez de configurar manualmente um endereço IP para cada dispositivo, o **servidor DHCP** faz isso de forma dinâmica, garantindo que cada máquina receba um IP válido e evitando conflitos. Um DHCP funciona da seguinte maneira:
+- **Dispositivo se conecta à rede**: Ele envia uma solicitação de IP ao servidor DHCP.
+- **Servidor DHCP responde**: Ele atribui um endereço IP e configurações de rede (gateway, DNS, máscara de sub-rede).
+- **Dispositivo usa o IP**: Ele pode agora se comunicar na rede até que o IP expire.
+- **Renovação do IP**: Quando o tempo de concessão expira, o dispositivo pode solicitar um novo IP ou renovar o atual.
+
+**Configurações do DHCP**
+- **Endereço IP**.
+- **Máscara de sub-rede**.
+- **Gateway padrão** (para acessar a internet).
+- **Servidor DNS** (para resolver nomes de domínio).
+
+**Vantagens do DHCP**  
+- **Automatiza** a distribuição de IPs  
+- **Evita conflitos** de IP na rede  
+- **Facilita a administração** de redes grandes  
+- **Garante flexibilidade** para dispositivos móveis  
+
+O **DHCP** é essencial para redes modernas, tornando a conexão de dispositivos mais eficiente e simplificada. Ele evita a necessidade de configurações manuais e garante que tudo funcione de forma dinâmica e automática. O servidor DHCP pode ser implementado em diferentes dispositivos dentro da rede. Os mais comuns são:
+- **Roteador**<br/>
+Na maioria das redes domésticas e pequenos escritórios, o roteador atua como servidor DHCP, distribuindo endereços IP automaticamente para os dispositivos conectados.
+  * O roteador gera e distribui os IPs via DHCP.
+  * Se houver um modem separado, ele apenas conecta a rede à internet, enquanto o roteador gerencia os IPs locais.
+- **Modem-Roteador**<br/>
+Se o modem tiver funções de roteador integradas como acontece em muitos modelos de provedores de internet, ele também pode atuar como servidor DHCP.
+  * O dispositivo gera e distribui os IPs via DHCP e gerencia o tráfego dos aparelhos pela internet.
+- **Servidor Dedicado**<br/>
+Em redes corporativas, um servidor DHCP dedicado como um servidor Windows, Linux ou um firewall podem ser responsáveis pela distribuição de IPs, permitindo maior controle e personalização.
+  * Um servidor DHCP dedicado é usado para maior controle.
+  * O roteador pode ser configurado para apenas repassar as requisições DHCP ao servidor.
 
 ##### Classificação por área geográfica
 - **Pessoais (Personal Area Network)**: Redes de curtíssimo alcance, normalmente alguns poucos metros. Muitos dispositivos modernos permitem pagar por compras tocando o dispositivo em um pad na loja. Também enviar arquivos e fotos para outro dispositivo sem fio se ele estiver ao alcance. Essas tecnologias usam linguagens de rede específicas chamadas protocolos como Bluetooth e comunicação de campo próximo, o **NFC**. Como podemos ver pelo termo *campo próximo*, a tecnologia de rede depende de 2 dispositivos estarem próximos. Não é possível usar NFC ou Bluetooth para enviar dados para alguém em outra cidade ou mesmo outro quarteirão. Esses tipos de redes são chamadas de redes de área pessoal (PANs), e elas tem esse nome porque a rede é realmente pessoal. A PAN é extremamente segura, por ter que aprovar qualquer transferência ou recepção de dados. Os dados só podem ir entre dispositivos que temos conhecimento e controle. Os PANs são populares porque podem ser de baixo custo, eficientes e portáteis. Quando precisamos de uma conexão simples, um PAN pode substituir conexões com fio volumosas. Outra maneira pela qual os PANs podem ser úteis é para transferências rápidas de conhecimento. Por exemplo, um museu pode ter um display com um chip NFC para fornecer detalhes adicionais sobre o display aos visitantes que usam seus celulares. PANs tem aplicações muito específicas. Elas são úteis quando é necessário concluir uma tarefa específica, como enviar um único arquivo. A maior parte do trabalho e da interação que é realizada nos dispositivos envolve streaming de dados, ou seja, movimentação de muitos arquivos de uma vez, recebimento de notificações push para notícias, clima e mensagens, e atividades semelhantes. Para essa funcionalidade mais em tempo real, é necessário uma conexão em tempo integral com uma rede.
