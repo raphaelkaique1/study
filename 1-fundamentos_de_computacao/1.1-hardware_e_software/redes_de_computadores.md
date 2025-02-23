@@ -95,9 +95,14 @@ Caracterização de uma rede:
 #### Meios de Transmissão:
   Corresponde ao meio físico que será utilizado para realizar a comunicação entre hosts e aplicações (cabos, placas, modems, roteadores, servidores, etc).
 
-  - **ROTEADOR**: É o aparelho que gerencia o tráfego de rede entre os dispositivos e a internet. A tarefa do roteador é escolher o caminho para o tráfego de dados.<br/>
-  O roteador é um dispositivo de hardware que envia dados. Ele encaminha dados da internet para os dispositivos na nossa rede, e geralmente está conectado a um provedor de serviços de internet — **ISP**.<br/>
-  Roteadores roteiam dados. Um roteador tem um ponto de acesso com pelo menos uma antena. Embora a maioria dos roteadores suporte redes sem fio, eles não são verdadeiramente sem fio, eles precisam ser conectados a uma tomada com um cabo de alimentação e ao ponto de rede de fibra óptica do provedor de internet.<br/>
+
+  - **MODEM**: É a peça que conecta os dispositivos ao serviço de internet, ou seja, ele conecta uma casa à internet através do provedor de serviço, podendo ser uma caixa externa ou um chip interno.<br/>
+ Às vezes, engenheiros se referem ao hardware de rede usando o termo modem. Modem é uma junção das palavras modulador e demodulador. Esses termos técnicos se referem ao envio ou transmissão (modulação) de dados ou ao recebimento (demodulação) de dados.<br/>
+ Ele converte o sinal da operadora (fibra óptica, cabo, DSL) em um formato que pode ser usado pelos dispositivos. Normalmente, tem uma porta Ethernet para conectar-se a um roteador ou diretamente a um computador. Se conectarmos um computador diretamente ao modem, ele terá acesso à internet, mas apenas um dispositivo pode se conectar.
+
+  - **ROTEADOR**: É o aparelho que gerencia o tráfego de rede entre os dispositivos e a internet, ele distribui a conexão do modem para vários dispositivos via Wi-Fi ou cabo Ethernet. Ele cria uma rede local (LAN) e permite que dispositivos se comuniquem entre si e com a internet. **O roteador recebe o sinal do modem** e distribui para celulares, notebooks, smart TVs, etc. A tarefa do roteador é escolher o caminho para o tráfego de dados.<br/>
+  O roteador é um dispositivo de hardware que envia dados. Ele encaminha dados da internet para os dispositivos na nossa rede, e geralmente está conectado a um provedor de serviços de internet — **ISP** através de um *modem*.<br/>
+  Roteadores roteiam dados. Um roteador tem pontos de acesso de portas Ethernet e pelo menos uma antena. Embora a maioria dos roteadores suporte redes sem fio, eles não são verdadeiramente sem fio, eles precisam ser conectados a uma tomada com um cabo de alimentação.<br/>
   Podemos imaginar então, um roteador com uma pessoa fazendo linguagem de sinais em um evento televisionado. O intérprete ouve as palavras do apresentador e as sinalizando para aqueles que entendem a linguagem de sinais. De certa forma, o intérprete está encaminhando informações de uma fonte (o apresentador) para o público-alvo (o espectador). Os roteadores fazem algo semelhante: eles transmitem tráfego de um lado da rede, do dispositivo remetente, para o outro lado da rede, o dispositivo receptor.<br/>
   Outro tipo de rede é a que usamos em nossos dispositivos móveis quando não estamos no wifi. O hardware que dispositivo usa para isso é um rádio. Ele envia e recebe dados de e para torres que as empresas de telefonia ou governos instalam. Embora a tecnologia subjacente seja diferente em como os dados são enviados e recebidos, é tudo tecnologia de rede.<br/>
   Os roteadores usam endereços MAC, que são fornecidos aos dispositivos na fábrica, e endereços IP, que são atribuídos aos dispositivos pelo provedor de serviços de internet (ISP), para rotear os dados corretamente. A combinação de endereço MAC e endereço IP dá a cada dispositivo uma ID exclusiva que os roteadores entendem. Por isso, os roteadores desempenham um papel essencial em levar os dados para onde eles precisam ir.<br/>
@@ -105,10 +110,21 @@ Caracterização de uma rede:
   - Um rádio, que envia e recebe informações em ondas sonoras eletromagnéticas.
   - E o **NIC**, que é uma peça de um dispositivo computacional que transmite e recebe os dados através de um sistema sem fios de ondas ópticas que encaminha os dados para a rede de internet fornecida pelo provedor.
 
-  - **MODEM**: É a peça que conecta os dispositivos ao serviço de internet, podendo ser uma caixa externa ou um chip interno.<br/>
- Às vezes, engenheiros se referem ao hardware de rede usando o termo modem. Modem é uma junção das palavras modulador e demodulador. Esses termos técnicos se referem ao envio ou transmissão (modulação) de dados ou ao recebimento (demodulação) de dados.
+ - **GATEWAY**: É o dispositivo que contém os 2: 1 modem + 1 roteador. Um gateway é um dispositivo que serve como ponto de entrada e saída para redes diferentes. No contexto de internet residencial, ele normalmente combina modem e roteador, facilitando a conexão dos dispositivos à internet sem precisar de equipamentos separados. Operadoras de internet geralmente fornecem um gateway para simplificar a instalação. Usuários que querem menos cabos e equipamentos optam por um gateway, pois ele evita ter modem e roteador separados. Empresas utilizam gateways para conectar redes locais a redes externas, como VPNs por exemplo.<br/>
+Embora muitos gateways combinem modem e roteador, o termo *"gateway"* também é usado para equipamentos que fazem conversão de protocolos, segurança de rede, etc. Por exemplo, um gateway pode conectar uma rede local Ethernet a uma rede de telefonia VoIP.
 
- - **GATEWAY**: É o dispositivo que contém os 2: 1 modem + 1 roteador.
+| Característica | Modem                              | Roteador                                                                        | Gateway                        |
+|----------------|------------------------------------|---------------------------------------------------------------------------------|--------------------------------|
+| **Função**     | Conecta à internet                 | Criar, gerenciar e distribuir a internet da rede local para vários dispositivos | Conectar e Distribuir a internet da rede local  |
+| **Conexão**    | Apenas um dispositivo              | Vários dispositivos (Wi-Fi e cabo)                                              | Vários dispositivos (Wi-Fi e cabo) |
+| **Sinal**      | Não gera Wi-Fi                     | Gera Wi-Fi e conecta via cabo                                                   | Gera Wi-Fi e conecta via cabo |
+| **portas Ethernet | 1 porta | Várias portas | Várias portas |
+| **Uso**        | Necessário para acessar a internet | Necessário para distribuir a conexão                                            | Ambos |
+| **Suporte** | Precisa de um *roteador* | Precisa de um *modem* | Não |
+
+- **modem**: traz a internet até sua casa.
+- **roteador**: distribui essa conexão para vários dispositivos.
+- **gateway**: traz a internet e a distribui localmente.
 
 - **Redes de Acesso (wireless, wi-fi)**: Rede física que conecta um sistema final ao primeiro roteador de um caminho partindo de um sistema final até outro qualquer - Enlaces de comunicação.
 <pre>
@@ -423,63 +439,36 @@ Alguns dos mais comuns códigos de Status HTTP:
   - **RTCP (Real-time Transport Control Protocol)**: Um protocolo complementar ao RTP que fornece informações de controle e qualidade sobre a transmissão de dados.
 - **SMTP (Simple Mail Transfer Protocol)**: Protocolo usado para enviar mensagens de correio eletrônico dos computadores clientes para os servidores, e também para transferir mensagens entre servidores. O SMTP usa a porta TCP 25 por padrão para a comunicação entre servidores. No entanto, portas alternativas como 587 e 465 são usadas para comunicação com clientes de e-mail com suporte a autenticação e criptografia. Relacionados com este, existem também o IMAP (Internet Message Access Protocol), que permite a procura de mensagens por palavras chave no servidor e a seleção das mensagens a retirar, e o POP3 (Post Office Protocol Version 3), que retira mensagens do servidor para nosso computador (cliente). O cliente de e-mail (por exemplo, Outlook, Thunderbird) se conecta ao servidor SMTP na porta 25 (ou 587/465 para conexões seguras) para iniciar o envio do e-mail, então, o cliente SMTP envia comandos ao servidor SMTP para fornecer informações sobre o remetente, destinatário e conteúdo do e-mail, o servidor SMTP responde a esses comandos com códigos de status para confirmar a aceitação ou rejeição do e-mail, o servidor SMTP tenta entregar o e-mail ao servidor de e-mail do destinatário e, se o servidor de destino não estiver disponível, o servidor SMTP reterá a mensagem e tentará reenviá-la periodicamente. Se o servidor SMTP não puder entregar o e-mail diretamente ao destinatário, ele pode encaminhar a mensagem para outros servidores SMTP até alcançar o servidor de e-mail final.
 
-## 3. Segurança: Redes quanto ao seu alcance geográfico.
-A segurança em um mundo conectado se tornou uma prioridade para tecnólogos e usuários. De roubo de identidade a perda de receita, o custo humano de violações de dados e ataques cibernéticos é enorme.<br/>
-Ao ouvir o termo *segurança cibernética*, é fácil pensar imediatamente em criar senhas mais fortes e bloquear ataques de phishing, e isso é importante. Para um profissional de TI, a segurança cibernética precisa ser holística. Isso significa proteger o hardware de rede, bem como o software que as pessoas usam para acessar redes.<br/>
-Roteadores e modems podem ser protegidos de várias maneiras. Primeiro, os dispositivos físicos precisam ser protegidos, principalmente em ambientes onde muitas pessoas podem acessar o hardware. Câmeras de segurança, gaiolas com travas e até mesmo uma porta com trava ou senha podem impedir que indivíduos não autorizados acessem e instalem malware em um roteador ou modem. Modems sem fio, que tendem a funcionar melhor em espaços abertos, podem ser tornados mais seguros instalando-os em locais de difícil acesso.
+## Portas
+Os computadores usam portas para gerenciar tráfego e aplicativos. Portas são canais de comunicação usados para enviar e receber dados entre dispositivos e aplicativos. Cada porta é identificada por um número (de 0 a 65535) e é associada a um protocolo que define como os dados devem ser tratados.<br/>
+Quando um e-mail é enviado, os dados viajam por uma porta específica de rede para rede. O processo a seguir ilustra como um e-mail é transportado:
+1. Um e-mail é enviado de uma rede doméstica.
+2. O firewall tem a porta 25 aberta para tráfego de saída e envia o e-mail para servidores na internet.
+3. O e-mail é roteado para o provedor de e-mail de destino.
+  - **O PROVEDOR DE E-MAIL O ENVIA USANDO O PROTOCOLO SMTP, QUE USA A PORTA 25.**
+4. A porta 25 está aberta no computador de destino e o firewall permite a entrada de dados de e-mail da rede.
+5. O software de e-mail recebe o e-mail.
 
-### Segurança na Primeira Camada Firmware
-Hardware como roteadores e modems têm um tipo de sistema operacional chamado firmware. O firmware controla como o hardware opera e também inclui controles de interface de usuário para permitir que os técnicos modifiquem como o hardware funciona. Manter o firmware atualizado pode ajudar a tapar buracos de segurança e ajudar o hardware a ter um melhor desempenho para evitar certos tipos de ataques, como ataques de negação de serviço. Usar uma senha forte e o protocolo https ao acessar roteadores e modems remotamente é outra maneira de manter seu hardware de rede seguro.<br/>
-Infelizmente, muitas violações de segurança modernas não acontecem na camada de hardware. Muitos ataques acontecem quando as pessoas estão usando a rede. Mas há várias maneiras de se manter seguro online.
+O e-mail é entregue aos dispositivos na porta 25, e isso ajuda as redes a gerenciar o tráfego de e-mail em comparação com outros dispositivos de dados.
 
-### Segurança na Segunda Camada Autenticação
-As senhas têm uma má reputação, mas podem evitar violações de segurança devastadoras. Os profissionais de TI às vezes reclamam sobre senhas porque os usuários tendem a criar senhas fracas que abrem os sistemas para ataques. Os usuários não gostam de senhas porque as fortes podem ser difíceis de lembrar e tendem a haver muitas delas para lembrar.<br/>
-Usar um gerenciador de senhas pode resolver ambos os problemas. Quase todo navegador possui um gerenciador de senhas integrado. Os gerenciadores de senhas salvam as muitas senhas que criadas, ele é um programa de software para gerenciar, criar, armazenar e atualizar senhas, ajudando o usuário a fazer login nos sites com segurança. Eles geram senhas fortes para que não seja necessário inventá-las sozinho. Os profissionais de TI podem evitar muitas dores de cabeça para si mesmos e seus usuários educando os usuários sobre e, quando apropriado, exigindo que os usuários usem gerenciadores de senhas.<br/>
-A autenticação de dois fatores complementa o gerenciamento de senhas. Uma tecnologia que se tornou comum e que complementa a senha testada e comprovada é a autenticação de dois fatores (2FA). A autenticação de dois fatores exige que as pessoas insiram um código, escolham uma resposta de uma lista, respondam a uma chamada telefônica ou respondam a uma pergunta para confirmar sua identidade. Essa tecnologia ajuda a reforçar a força dos nomes de usuário e senhas ao exigir outra forma de verificação de identidade.<br/>
-Atualmente protegemos os celulares tanto quanto, se não mais, do que a carteira. Estamos cada vez mais carregando o celular o tempo todo. Os celulares podem ser profundamente pessoais e individualizados e os tecnólogos reconheceram isso, trazendo uma participação maior dos dispositivos móveis na segurança. A autenticação de dois fatores usando um dispositivo móvel requer que o usuário insira um código enviado ao seu dispositivo móvel para confirmar sua identidade. Outras implementações usam um aplicativo em um dispositivo móvel que cria um novo código a cada minuto, que é necessário copiar e usar para confirmar a identidade em outro aplicativo.<br/>
-Independentemente da forma que assuma, a segurança com senhas e autenticação de dois fatores pode parecer difícil, mas isso custa muito menos do que o impacto de dados perdidos, uma identidade roubada ou perda financeira devido a uma violação de segurança.
+### Tipos de portas
+- Portas Bem Conhecidas: 0–1023 - Usadas por serviços padrão.
+- Portas Registradas: 1024–49151 - Usadas por aplicativos específicos.
+- Portas Dinâmicas e Privadas: 49152–65535 - Usadas temporariamente por conexões.
 
-### Segurança na Terceira Camada Firewall
-O firewall é um sistema de segurança que monitora, controla e filtra o tráfego de rede com base em regras predefinidas. Seu principal objetivo é proteger dispositivos e redes contra acessos não autorizados, ataques cibernéticos e tráfego malicioso. Ele atua como uma barreira entre redes confiáveis e não confiáveis, exemplo: entre uma rede interna e a internet. Ele pode permitir ou bloquear pacotes de dados com base em critérios como:
-- Endereço IP de origem e destino.
-- Porta de origem e destino.
-- Tipo de protocolo TCP, UDP e ICMP.
-- Regras configuradas pelo administrador.
-
-Em resumo, um firewall é fundamental para a segurança de redes e dispositivos, funcionando como uma barreira contra ameaças externas.
-
-#### Tipos de Firewall:
-- **Firewall de Rede** – Protege redes inteiras, operando em roteadores ou servidores.
-- **Firewall de Host** – Instalado em um único dispositivo, como o Windows Defender Firewall.
-- **Firewall de Próxima Geração (NGFW)** – Combina funções avançadas, como inspeção profunda de pacotes e prevenção contra intrusões (IDS/IPS).
-- **Firewall baseado em Proxy** – Atua como intermediário entre dispositivos e a internet, filtrando tráfego e aumentando a segurança.
-
-##### proxy
-O proxy é um servidor intermediário que fica entre o seu dispositivo (cliente) e a internet, atuando como um "ponte" para encaminhar e filtrar solicitações. Ele pode ser usado para segurança, anonimato, controle de tráfego e otimização de desempenho.<br/>
-Quando você acessa um site usando um proxy:
-1. Seu dispositivo envia a solicitação para o servidor proxy.
-2. O proxy recebe a solicitação e a encaminha para o destino final.
-3. O site responde ao proxy, que repassa a resposta para você.
-
-Isso pode ocultar seu IP real, fornecer mais segurança e até acelerar a navegação.
-
-**Tipos de Proxy:**
-- **Proxy Transparente** – Não esconde o IP do usuário, geralmente usado em empresas para controle de acesso.
-- **Proxy Anônimo** – Oculta o IP real do usuário, aumentando a privacidade.
-- **Proxy Reverso** – Usado em servidores para otimizar o tráfego e proteger aplicações web.
-- **Proxy SOCKS** – Funciona em vários protocolos além do HTTP, sendo útil para jogos e P2P.
-- **Proxy VPN (Virtual Private Network)** – Criptografa o tráfego e oferece um nível maior de privacidade.
-
-**Vantagens do Uso de Proxy:**
-- **Privacidade**: Esconde seu IP real para maior anonimato.
-- **Segurança**: Pode bloquear sites maliciosos e filtrar tráfego indesejado.
-- **Acesso a Conteúdos Restritos**: Pode contornar bloqueios geográficos.
-- **Otimização de Rede**: Armazena em cache conteúdos acessados com frequência para melhorar a velocidade.
-
-O proxy é uma ferramenta útil para controle de acesso, anonimato e segurança na internet, sendo amplamente usado por empresas e usuários individuais.
-
-<!--
- 4. Redes de computadores: Evolução.
--->
+| Porta      | Protocolo        | Uso                              |
+|------------|------------------|----------------------------------|
+| **20, 21** | FTP              | Transferência de arquivos        |
+| **22**     | SSH              | Acesso remoto seguro             |
+| **23**     | Telnet           | Acesso remoto (não seguro)       |
+| **25**     | SMTP             | Envio de e-mails                 |
+| **53**     | DNS              | Resolução de nomes de domínio    |
+| **80**     | HTTP             | Navegação web (não segura)       |
+| **110**    | POP3             | Recebimento de e-mails           |
+| **143**    | IMAP             | Gerenciamento de e-mails         |
+| **443**    | HTTPS            | Navegação segura (criptografada) |
+| **3306**   | MySQL            | Banco de dados MySQL             |
+| **5432**   | PostgreSQL       | Banco de dados PostgreSQL        |
+| **8080**   | HTTP Alternativo | Servidores web alternativos      |
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#hardware_e_software">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.2-conceitos_basicos/logica_de_programacao.md">next</a>

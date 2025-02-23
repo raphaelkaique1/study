@@ -1,7 +1,8 @@
 # generic
 *~
 .*~
-./.*~
+*.~
+/.~
 
 # temp local backups
 *BACKUP-works.alg
