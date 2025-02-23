@@ -96,7 +96,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
         └─┴─────────────┘                                  └─┴─────────────┘
 </pre>
  De forma prática, podemos então imaginar o computador em 3 partes, sendo elas:
- 1. **RAM**: Componente responsável por direcionar o processador, enviando as instruções e informações necessárias para que os dados possam ser processados. Não guarda as informações fisicamente mas sim de forma local, ou seja, de forma virtual, o que significa que é preciso que haja energia no sistema para que ela possa manter a informação na memória, fazendo com que assim ela seja uma memória temporária. Os computadores precisam armazenar informações que eles processam. A memória de acesso aleatório é como uma mesa de trabalho que contém coisas que ela precisa ou está trabalhando diretamente, ela pode pegar um arquivo e deixá-lo na mesa para consultar durante o trabalho, e assim pegando documentos que precisa imediatamente e deixá-los em seu espaço de trabalho. Quando ela termina de usá-los, os guarda de volta no armazenamento de longo prazo — ou seja, na gaveta de arquivos. Dessa forma, a RAM retém informações temporariamente enquanto a CPU (ou a GPU) as usa. O processador obtém RAM de qualquer local de armazenamento, por isso é chamado de acesso aleatório.
+ 1. **RAM**: Componente responsável por direcionar o processador, enviando as instruções e informações necessárias para que os dados possam ser processados. Não guarda as informações fisicamente mas sim de forma local, ou seja, de forma virtual, o que significa que é preciso que haja energia no sistema para que ela possa manter a informação na memória, fazendo com que assim ela seja uma memória temporária. Os computadores precisam armazenar informações que eles processam. A memória de acesso aleatório é como uma mesa de trabalho que contém coisas que ela precisa ou está trabalhando diretamente, ela pode pegar um arquivo e deixá-lo na mesa para consultar durante o trabalho, e assim pegando documentos que precisa imediatamente e deixá-los em seu espaço de trabalho. Quando ela termina de usá-los, os guarda de volta no armazenamento de longo prazo — ou seja, na gaveta de arquivos. Dessa forma, a RAM retém informações temporariamente enquanto a CPU (ou a GPU) as usa. O processador obtém RAM de qualquer local de armazenamento, por isso é chamado de acesso aleatório. Sua principal função é facilitar o acesso e agilizar o processamento de dados por parte do processador, fazendo com que a busca dos dados recentemente acessados seja realizada em um curto espaço de tempo.
    - A RAM vem em uma placa ou chip dentro do computador. Em geral, dependendo do que sua CPU é capaz de lidar, quanto mais RAM você tiver, mais rápido verá os resultados em seu computador, e, quando o computador é desligado, a informação na RAM é apagada.
  2. **HD**: Guarda informações de forma física, ou seja, nele é escrito a informação de forma persistente para que ela seja armazenada mesmo que o sistema não esteja energizado. A única forma de se perder uma informação neste tipo de armazenamento é sobrescrevendo a memória no seu endereço físico ou danificando e corrompendo o HD. Então, o computador grava os dados permanentes no disco rígido, no disco estes dados são salvos mesmo que não haja energia no sistema. O sistema operacional, programas e arquivos são amrazenados nesta unidade. Os computadores usam 2 tipos de unidades de disco para armazenamento de longo prazo:
    - **HDD**: É uma unidade de disco rígido que contém um disco magnético giratório que armazena dados. Este prato tem compartimentos, e um braço se move pelos compartimentos para ler e gravar dados nestes compartimentos.
@@ -108,11 +108,23 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
    - **GPU**<br/>
    O processamento gráfico pode ser complexo, por isso muitos computadores têm uma unidade dedidaca ao processamento gráfico. A GPU cria o que vemos em uma tela no monitor. Ela é otimizada para o processamento gráfico, que é relativamente complexo. Enquanto a GPU e a CPU fazem um trabalho semelhante, a GPU tem um foco mais restrito, seu trabalho é produzir imagens em vez de executar todas as operações do sistema.<br/>
    As GPUs são muito rápidas, e, às vezes, chegam a ser mais rápidas que a própria CPU. As GPUs obtêm sua velocidade espalhando uma tarefa de processamento em muitos núcleos. Os núcleos de processamento em uma GPU são especializados principalmente para gráficos, mas também lidam com outras tarefas.<br/>
-   Podemos então nos perguntar, já que as GPUs são mais rápidas do que as CPUs, por que os computadores usam CPUs? Por que não construí-los com GPUs que são mais rápidas? Essa na verdade é uma boa pergunta. A resposta é que, a velocidade extra nas GPUs não é "grátis", as peças necessárias para fazer GPUs são mais caras e, se usadas em vez de uma CPU, aumentariam em muito o custo dos computadores. CPUs e GPUs, embora semelhantes em como fazem o que fazem, têm funções únicas. A CPU é construída para fazer o que faz, e o faz muito bem, e usar uma GPU para muitas dessas tarefas seria um exagero.
+   Podemos então nos perguntar, já que as GPUs são mais rápidas do que as CPUs, por que os computadores usam CPUs? Por que não construí-los com GPUs que são mais rápidas? Essa na verdade é uma boa pergunta. A resposta é que, a velocidade extra nas GPUs não é "grátis", as peças necessárias para fazer GPUs são mais caras e, se usadas em vez de uma CPU, aumentariam em muito o custo dos computadores. CPUs e GPUs, embora semelhantes em como fazem o que fazem, têm funções únicas. A CPU é construída para fazer o que faz, e o faz muito bem, e usar uma GPU para muitas dessas tarefas seria um exagero.<br/>
+   Existem 2 tipos de placas de vídeo:
+     - **onboard**<br/>
+     Placa embarcada, ou seja, a entreada de vídeo fica integrada, embutida com o restante dos componentes. Costumam ter um baixo desempenho comparadas às placas *offboard*, pois são placas usadas para taferas simples.
+     - **offboard**<br/>
+     Placa vendida separadamente e conectada nos *slots*. Tem um desempenho extremamente superior e são direcionadas para uso de softwares que requerem maior processamento e qualidade.
+
+ Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.<br/>
 
  ##### Placa de Controle de Interface de Rede
  Os computadores precisam ser capazes de se comunicar entre si. O network interface controller, ou NIC, é a parte que lida com a comunicação. Ele envia dados do dispositivo e recupera dados de outras fontes para dar ao dispositivo para fazer o trabalho. Sem adaptadores de rede, tecnologias como a internet não seriam possíveis.<br/>
  Em um único computador, essas partes realizam quantidades incríveis de trabalho. Imagine processar um milhão de instruções a cada segundo. A rede e a computação em nuvem tornaram o poder da computação maior do que nunca.
+
+ ##### Chipset
+ Grupo de componentes eletrônicos de baixa capacidade em um circuito integrado, usado para gerenciar o fluxo de dados entre o processador, memória e periféricos. Todo *chipset* é dividido em 2 componentes:
+ - **ponte norte**: controla os componentes internos *mais rápidos* como o processador, memória, placa de vídeo e os pentes de RAM. Tais informações são enviadas ao disco rígido.
+ - **ponte sul**: controla os demais componentes, incluindo os dispositivos de entrada e saída, o disco rígido, as portas de comunicação e os *slots* de expansão.
 
  ##### I/O
  Os computadores recebem entradas e produzem saídas. Quando digitamos um endereço de site, estamos efetivamente fornecendo os dados de entrada: "Pegue isso!", e, quando o computador exibe a página inicial, isso é saída: "Aqui está!". Os computadores trabalham principalmente com entradas de dados, realizam trabalho e produzem saídas.<br/>
@@ -122,13 +134,57 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
    - Mouses e telas sensíveis ao toque permitem que você navegue por visuais como ícones para dizer ao computador o que você quer fazer sem ter que usar palavras.
    - Impressoras, telas e alto-falantes permitem que você veja, sinta e ouça as saídas de dispositivos de computação.
 
+ ##### Motherboard
+ É o componente que conecta todos os componentes internos e externos, os quais se comunicam com o computador a partir de portas como USB (dispositivos móveis e de armazenamento), PS2 (dispositivos de entrada como mouse e teclado), entradas de vídeo para uso de monitor e dispositívos de saída, como HDMI, VGA e etc.<br/>
+ Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
+
+ ###### Slots
+ Outro componente é o **slot**. Existem tipos diferentes de slots, eles inserem os componentes de acordo com a configuração disponível no barramento. Eles são classificados de acordo com a tecnologia suportada. Vejamos alguns exemplos:
+
+ **slots de memória**<br/>
+ Inserem a memória de acordo com a configuração do barramento. Algumas placas mães possuem slots para 2 tipos de memória, com configurações e barramentos diferentes, estabelecendo maior compatibilidade com o tipo de memória desenvolvida.<br/>
+ Uma observação importante a se fazer, é altamente **NÃO** recomendado utilizar 2 tipos de memórias diferentes ao mesmo tempo, pois essa ação pode causar problemas de reconhecimento e incompatibilidade, o que resulta em mau funcionamento do hardware.
+
+ **slots de expansão**<br/>
+ São usados para expandir as funções originais do computador, e suportam a maioria dos componentes de um computador. Podem ser classificados conforme a seguir:
+ - **ISA - Industry Standard Architecture**<br/>
+ Originalmente disponibilizados em 8 e 16 bits, foram projetados para controladores de jogos e impressoras nos primeiros computadores pessoais.
+ - **PCI - Peripheral Component Interconnect**<br/>
+ Substituíram o padrão ISA, tornando o uso da placa gráfica dedicada mais ágil.
+ - **AGP - Accelerated Graphics Port**<br/>
+ Possibilitaram o dobro de velocidade do barramento PCI, permitindo o uso de 2 placas, visando aumentar o desempenho de vídeo e processamento de imagens de um computador.
+ - **PCIe - Peripheral Component Interconnec express**<br/>
+ Slots instalados em pares que permitem alta velocidade com o uso de 2 placas, além de ter um menor custo. São os slots mais utilizados atualmente, compatíveis com a maioria das placas desenvolvidas por fabricantes como Intel e AMD.
+
+ ###### Socket
+ Do mesmo modo que os slots, o socket representa a conxeão do processador com a placa mãe, garantindo que os pinos estejam todos em contato com a placa, funcionando corretamente.
+ Uma curiosidade é que, nos primeiros computadores pessoais os processadores eram instalados em slots como o caso do Pentium III da Intel, porém com evolução da tencologia, sockets passaram a ser utilizados para a instalação do "cérebro do computador".
+
+ ##### Font
+ Componente responsável por alimentar todos os outros. Sua função é converter a tensão usada pela rede elétrica em tensões requidas pelos componentes internos.<br/>
+ Ela possui conectores de alimentação independentes, a fim de alimentar a placa, o disco, e etc por meio da placa mãe todos os demais componentes.
+
+ ##### BIOS
+ **Basic Input / Output System** é o sistema de configurações mais básico e essencial do hardware. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações (como luz de teclado em notebooks por exemplo) e desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo).
+
+ ##### Portas
+ As portas de comunicação podem ser físicas ou lógicas. São usadas para encaminhar os dados de comunicação entre diferentes partes de um sistema.<br/>
+ - **Físicas**<br/>
+ As portas físicas fazem parte dos hardwares e são responsáveis pela entrada de dados através de portas de comunicação como USB, serial (geralmente utilizadas por impressoras) e portas de vídeo.
+ - **Lógicas**<br/>
+ Por outro lado, as portas lógicas são portas virtuais necessárias para manter a comunicação com o sistema computacional, a exemplo das portas TCP e UDP, responsáveis por transportar informações dentro das aplicações.
+
+ ![Image](https://github.com/user-attachments/assets/a4a3f87b-0fc4-4a53-aeb5-05029b1288ef)
+
  ### Identidade do Hardware
  Todo hardware tem uma identificação especial chamada endereço de controle de acesso à mídia, ou simplesmente **MAC**. Endereços MAC são usados ​​para identificar exclusivamente o hardware. Eles são atribuídos na fábrica onde o dispositivo é produzido. Um fato interessante sobre endereços MAC é que eles são exclusivos para cada peça de hardware que já foi criada. Novos produtos não compartilharão um endereço MAC com nenhum outro produto, mesmo aqueles que são reciclados ou acabam em aterros sanitários.<br/>
  É uma coisa boa que os dispositivos tenham endereços MAC exclusivos porque, sem eles, os dados que viajam pela Internet podem não conseguir encontrar o lugar certo.
 
  ### Sistemas de Numeração
+ Tudo que inserimos, usamos, fazemos, processamos e recebemos em um computador, em essência é feito através da linguagem que essa máquina entede, a linguagem binária. O sistema de numeração computacional é um conjunto de regras e símbolos usados para representar e manipular números dentro de um computador. Como os computadores trabalham com circuitos eletrônicos que só entendem "ligado" = 1 e "desligado" = 0, eles utilizam sistemas numeŕicos baseados nestes estados.
 
- #### 1. Sistemas de Numeração<br/>Sistemas Numéricos Computacionais.
+ #### 1. Sistemas de Numeração<br/>
+ Sistemas Numéricos Computacionais.
   ##### Bits e Bytes
 
   * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 (aberto) ou 1 (fechado).<br/>

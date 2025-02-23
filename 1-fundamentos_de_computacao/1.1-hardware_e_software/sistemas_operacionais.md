@@ -45,7 +45,7 @@ Um sistema operacional visa abstrair o acesso e gerenciar os recursos de hardwar
  │  ┌───────────────────────────────┐  │
  │  │ ┌───────────────────────────┐ │  │
  │  │ │ ┌───────────────────────┐ │ │  │
- │  │ │ │         HARDWARE      │ │ │  │
+ │  │ │ │         FIRMWARE      │ │ │  │
  │  │ │ └───────────────────────┘ │ │  │
  │  │ │           KERNEL          │ │  │
  │  │ └───────────────────────────┘ │  │
