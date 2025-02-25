@@ -96,9 +96,12 @@ Caracterização de uma rede:
   Corresponde ao meio físico que será utilizado para realizar a comunicação entre hosts e aplicações (cabos, placas, modems, roteadores, servidores, etc).
 
   - **MODEM**: É a peça que conecta os dispositivos ao serviço de internet, ou seja, ele conecta uma casa à internet através do provedor de serviço, podendo ser uma caixa externa ou um chip interno.<br/>
- Às vezes, engenheiros se referem ao hardware de rede usando o termo modem. Modem é uma junção das palavras modulador e demodulador. Esses termos técnicos se referem ao envio ou transmissão (modulação) de dados ou ao recebimento (demodulação) de dados.<br/>
- Ele converte o sinal da operadora (fibra óptica, cabo, DSL) em um formato que pode ser usado pelos dispositivos. Normalmente, tem uma porta Ethernet para conectar-se a um roteador ou diretamente a um computador. Se conectarmos um computador diretamente ao modem, ele terá acesso à internet, mas apenas um dispositivo pode se conectar.
-
+  Às vezes, engenheiros se referem ao hardware de rede usando o termo modem. Modem é uma junção das palavras modulador e demodulador. Esses termos técnicos se referem ao envio ou transmissão (modulação) de dados ou ao recebimento (demodulação) de dados.<br/>
+  Ele converte o sinal da operadora (fibra óptica, cabo, DSL) em um formato que pode ser usado pelos dispositivos. Normalmente, tem uma porta Ethernet para conectar-se a um roteador ou diretamente a um computador. Se conectarmos um computador diretamente ao modem, ele terá acesso à internet, mas apenas um dispositivo pode se conectar.<br/>
+  Este é o método padrão de conexão com a Internet discada. A maioria dos computadores atuais já não vem com modem. Em seu lugar, está instalada uma placa de rede 10/100, que permite conexão com a Internet via banda larga.<br/>
+  O **Modem DSL — Digital Subscriber Line** é uma conexão de alta velocidade que trabalha em uma linha telefônica padrão, e usa a estrutura das operadoras de telefonia.<br/>
+  O tipo mais utilizado é o **Modem VDSL — Very high bit-rate DSL**, que é a versão mais nova do DSL, o modem VDSL requer que sua linha telefônica tenha *cabos de fibra ótica*.
+ 
   - **ROTEADOR**: É o aparelho que gerencia o tráfego de rede entre os dispositivos e a internet, ele distribui a conexão do modem para vários dispositivos via Wi-Fi ou cabo Ethernet. Ele cria uma rede local (LAN) e permite que dispositivos se comuniquem entre si e com a internet. **O roteador recebe o sinal do modem** e distribui para celulares, notebooks, smart TVs, etc. A tarefa do roteador é escolher o caminho para o tráfego de dados.<br/>
   O roteador é um dispositivo de hardware que envia dados. Ele encaminha dados da internet para os dispositivos na nossa rede, e geralmente está conectado a um provedor de serviços de internet — **ISP** através de um *modem*.<br/>
   Roteadores roteiam dados. Um roteador tem pontos de acesso de portas Ethernet e pelo menos uma antena. Embora a maioria dos roteadores suporte redes sem fio, eles não são verdadeiramente sem fio, eles precisam ser conectados a uma tomada com um cabo de alimentação.<br/>
