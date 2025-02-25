@@ -38,6 +38,16 @@ Um sistema operacional visa abstrair o acesso e gerenciar os recursos de hardwar
 - **Rede**: suporte à operações em rede, ou seja, a capacidade de oferecer às aplicações locais recursos que estejam localizados em outros computadores da rede, como arquivos e impressoras; Ele também deve disponibilizar seus recursos locais aos demais computadores, de forma controlada. A maioria dos SOs atuais oferece esse tipo de funcionalidade. Exemplos: Microsoft Windows Server, Linux Server, Novell NetWare e BSD (Berkeley Software Distribution).
 - **Embutido/Embarcado/Embedded/IoT**: construído para operar sobre um hardware com poucos recursos de processamento, armazenamento e energia. Projetados para realizar tarefas específicas e não podem ser facilmente adaptados para outras funções. Otimizado para recursos limitados e para executar tarefas de maneira eficiente. Normalmente, são incorporados diretamente ao hardware em que operam. Muitos sistemas embarcados operam em tempo real, respondendo a eventos em um prazo muito curto. Aplicações típicas desse tipo de sistema aparecem em máquinas industriais e automotivas, equipamentos eletrônicos de uso doméstico entre outros. IoT refere-se à interconexão de dispositivos através da internet, permitindo que eles coletem, enviem e recebam dados. Alguns exemplos são: Sensores Inteligentes: Como sensores de temperatura em um sistema de aquecimento, ventilação e ar condicionado (HVAC) que podem ser monitorados e ajustados remotamente, Wearables: Dispositivos como relógios inteligentes que monitoram a saúde e atividades físicas e podem enviar dados para uma aplicação na nuvem, Cidades Inteligentes: Sistemas de iluminação pública que ajustam a intensidade da luz com base no tráfego ou condições meteorológicas. Exemplos: Arduíno, RaspBerry Pi, Android e etc.
 
+Um sistema operacional executa muitas funções para que o computador funcione bem e eficientemente. Algumas das mais importantes são:
+- **Interpretador de Comandos**: traduz comandos para instruções que o processador entende.
+- **Gerente dos Usuários**: guarda separadas as tarefas de cada usuário.
+- **Gerente das Tarefas**: guarda separadamente as operações de cada tarefa.
+- **Gerente dos Recursos**: gerencia o uso de recursos de hardware entre usuários e tarefas usando-os a qualquer ponto do tempo.
+- **Gerente de Arquivos**: cria, deleta, edita arquivos e gerencia acesso de arquivos.
+- **User Interface**: gerencia acesso do usuário para o interpretador de comandos e o gerente de arquivos.
+
+![Image](https://github.com/user-attachments/assets/b89573b9-c295-46d1-b31b-f16df50323e6)
+
  O Linux possui várias características que o diferencia dos outros SOs e que o aproximam do Unix, sendo um dos motivos da sua escolha em várias aplicações nas quais são necessárias estabilidade e segurança.
 <pre>
             SISTEMA OPERACIONAL
@@ -185,7 +195,8 @@ A identificação de discos rígidos no GNU/Linux é feita da seguinte forma:
 </pre>
 
 ## Driver
-Um driver é um software que atua como uma ponte entre o sistema operacional e um hardware específico. Ele permite que o sistema operacional se comunique corretamente com dispositivos como impressoras, placas de vídeo, teclados, discos rígidos, entre outros. Quando um programa precisa interagir com um hardware, por exemplo, imprimir um documento, ele envia a solicitação ao sistema operacional, que repassa essa solicitação ao driver correspondente. O driver, por sua vez, traduz essa solicitação em comandos que o hardware entende e executa.
+Um driver é um software que atua como uma ponte entre o sistema operacional e um hardware específico. Ele permite que o sistema operacional se comunique corretamente com dispositivos como impressoras, placas de vídeo, teclados, discos rígidos, entre outros. Quando um programa precisa interagir com um hardware, por exemplo, imprimir um documento, ele envia a solicitação ao sistema operacional, que repassa essa solicitação ao driver correspondente. O driver, por sua vez, traduz essa solicitação em comandos que o hardware entende e executa.<br/>
+Ou seja, um driver é um software que permite que o computador se comunique com o hardware ou com os dispositivos. Sem drivers, o hardware conectado ao computador, por exemplo, uma placa de vídeo ou uma impressora, não funcionará corretamente. Na maioria das vezes, os drivers são fornecidos com o SO, mas também é possível instalá-los a partir de outras fontes na internet.
 
 1. **Drivers de dispositivo** – Controlam periféricos como teclados, mouses, impressoras e placas de vídeo.
 2. **Drivers de kernel** – Funcionam diretamente no núcleo do sistema operacional para controlar dispositivos de baixo nível.
@@ -216,6 +227,13 @@ Quando um pendrive é conectado ao computador, o sistema operacional usa um driv
 - **Windows NT Kernel**: O kernel usado em versões modernas do Windows, como Windows 10 e Windows Server, é um kernel híbrido.
 - **XNU (X is Not Unix)**: O kernel usado no macOS, que combina elementos de um microkernel (Mach) com um kernel monolítico (BSD Unix).
 - **FreeRTOS**: Um kernel de tempo real projetado para sistemas embarcados e aplicações de tempo real.
+
+### User Interface
+Existe 2 tipos de interfaces para a interação com o usuário:
+1. **Graphic User Interface**<br/>
+As **GUI**s usam principalmente o mouse para navegar e selecionar ícones, menus e janelas para acessar programas, armazenamento e executar comandos do sistema. Alguns GUIs não são sistemas operacionais propriamente, mas são extensões de um sistema operacional com uma interface de linha de comando.
+2. **Command Line Interface**<br/>
+Usa comandos alfanuméricos simples executados diretamente na interface de comandos para navegar entre os discos e pastas, para conseguir outras funções como copiar, formatar, deletar e etc, e executar aplicativos.
 
 ### Shell 
  O shell é um programa que fornece uma interface para interagir com o sistema operacional. Ele permite que os usuários executem comandos, scripts e programas, e também pode ser usado para gerenciar arquivos e processos. Em essência, o shell atua como um intermediário entre o usuário e o núcleo do sistema operacional.

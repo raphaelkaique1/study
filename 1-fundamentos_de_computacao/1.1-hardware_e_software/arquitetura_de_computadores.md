@@ -1,13 +1,14 @@
 # Arquitetura de Computadores
+Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador.
 
  ## 1. Conceito de Arquitetura de Computadores
  Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
 
  ## 2. Principais Partes de um Computador: Modelo de Von Neumann
  Os componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
-  - **Unidade de Controle - UC:** Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
-  - **Unidade Lógica e Aritmética - ULA:** Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
-  - **Memória (RAM e ROM):** Armazena dados e programas.
+  - **Unidade de Controle - UC**: Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
+  - **Unidade Lógica e Aritmética - ULA**: Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
+  - **Memória (RAM e ROM)**: Armazena dados e programas.
 
 	 * A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
 	 * A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. A memória RAM, volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM, não volátil, armazena informações permanentes, como a BIOS.
@@ -104,7 +105,7 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
     - **SWAP**<br/>
     Espaço no disco rígido usado para armazenar temporariamente dados da memória RAM, chaveando-os quando necessário. Quando a RAM está cheia, o sistema usa um arquivo no disco para simular memória adicional. O problema é que HDs e SSDs são muito mais lentos que a RAM, então o desempenho cai quando há muito uso da memória virtual. Em Linux, essa memória virtual é chamada de swap partition.
  2. **HD**: Guarda informações de forma física, ou seja, nele é escrito a informação de forma persistente para que ela seja armazenada mesmo que o sistema não esteja energizado. A única forma de se perder uma informação neste tipo de armazenamento é sobrescrevendo a memória no seu endereço físico ou danificando e corrompendo o HD. Então, o computador grava os dados permanentes no disco rígido, no disco estes dados são salvos mesmo que não haja energia no sistema. O sistema operacional, programas e arquivos são armazenados nesta unidade. Os computadores usam 2 tipos de unidades de disco para armazenamento de longo prazo:
-    - **HDD**: É uma unidade de disco rígido que contém um disco magnético giratório que armazena dados. Este prato tem compartimentos, e um braço se move pelos compartimentos para ler e gravar dados nestes compartimentos.
+    - **HDD**: O **Hard Disk Drive** é uma unidade de disco rígido que contém um disco magnético giratório que armazena dados. Este prato tem compartimentos, e um braço se move pelos compartimentos para ler e gravar dados nestes compartimentos. Existem vários tipos de interfaces para discos rígidos diferentes: IDE/ATA, Serial ATA, SCSI, Fibre channel, SAS entre outras.
     - **SSD**: Esta é uma unidade de estado sólido que não tem partes móveis. Possui memória flash como um pendrive e armazena dados em um chip de computador semelhante à RAM, mas os dados armazenados em SSDs são permanentes. Eles não são apagados quando a energia do sistema é desligada. Em relação ao sistema operacional, por exemplo, o SSD leva um milésimo de segundo para inicializar. O controlador, por sua vez, gerencia a forma como os dados são transferidos entre o computador e a memória flash do disco, administrando o cache para oferecer maior agilidade ao computador. A **memória flash** é uma memória baseada em um tipo de ROM chamada **EEPROM — Electrically Erasable Programmable Read-Only Memory**, ou *memória apenas de leitura programável e apagável eletricamente*, a memória Flash fornece armazenamento rápido e permanente. Os cartões CompactFlash, SmartMedia e PCMCIA são tipos de memória Flash.
  3. **PROCESSADOR**: Por que não usar somente o HD para que não haja risco de perder as informações? Pelo fato de que a memória RAM é muito mais rápida que o HD. As informações guardadas na memória (RAM ou HD) precisam ser processadas para serem manipuladas, e quem processa essas informações é a CPU. Vamos imaginar que queremos somar os valores 5 e 6, ambos os valores estão guardados em posições de memória aleatórias dentro da RAM. Para realizar a soma destes valores, os 2 números são levados até a CPU (entrada) onde serão somados (processados) e devolvidos para a memória juntamente com o resultado (saída) que é alocado em outra nova posição de memória. Ou seja, nenhuma das memórias não servem para processamento, apenas armazenar dados, e este tipo de transição entre a memória e a CPU acontece milhares de vezes dentro de um computador, daí a necessidade de se ter uma memória rápida para enviar e receber informações para a CPU. Visto que o HD precisa de um maior tempo de processamento já que seu processo de armazenamento de memória consome mais recursos, sua utilidade como memória auxiliar da CPU não é viável, tornando seu melhor uso como banco de dados.<br/>
  O **microprocessador**, geralmente chamado simplesmente de **processador**, é um circuito integrado que realiza as funções de cálculo e a tomada de decisões de um computador. Todos os computadores e equipamentos eletrônicos baseiam-se nele para executar suas funções. O processador incorpora as funções de uma *unidade central de processamento* de um computador em um único circuito integrado, ou no máximo alguns circuitos integrados. É um dispositivo multifuncional programável que aceita dados digitados como entrada, processa de acordo com as instruções armazenadas em sua memória e fornece resultados como saída. Processadores operam com números e símbolos representados no sistema binário.
@@ -133,7 +134,9 @@ Existem 2 tipos de placas de vídeo:
   - **offboard**<br/>
   Placa vendida separadamente e conectada nos *slots*. Tem um desempenho extremamente superior e são direcionadas para uso de softwares que requerem maior processamento e qualidade.
 
- Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.<br/>
+ Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.
+
+
 
  ##### NIC
  Os computadores precisam ser capazes de se comunicar entre si. O network interface controller, ou NIC, é a parte que lida com a comunicação. Ele envia dados do dispositivo e recupera dados de outras fontes para dar ao dispositivo para fazer o trabalho. Sem adaptadores de rede, tecnologias como a internet não seriam possíveis.<br/>
@@ -222,11 +225,50 @@ Existem 2 tipos de placas de vídeo:
  - **ISA - Industry Standard Architecture**<br/>
  Originalmente disponibilizados em 8 e 16 bits, foram projetados para controladores de jogos e impressoras nos primeiros computadores pessoais.
  - **PCI - Peripheral Component Interconnect**<br/>
- Substituíram o padrão ISA, tornando o uso da placa gráfica dedicada mais ágil.
+ Substituíram o padrão ISA, tornando o uso da placa gráfica dedicada mais ágil. O barramento PCI tinha taxa de transferência máxima de 133 MB/s —valor insuficiente para aplicações com gráficos 3D. A fim de suprir essa demanda de mercado, quatro anos mais tarde, a mesma Intel lançou o barramento AGP.
  - **AGP - Accelerated Graphics Port**<br/>
- É uma conexão rápida usada pela placa gráfica para fazer a interface com o computador. Possibilitaram o dobro de velocidade do barramento PCI, permitindo o uso de 2 placas, visando aumentar o desempenho de vídeo e processamento de imagens de um computador.
+ É uma conexão rápida usada pela placa gráfica para fazer a interface com o computador. Possibilitaram o dobro de velocidade do barramento PCI, permitindo o uso de 2 placas, visando aumentar o desempenho de vídeo e processamento de imagens de um computador. Além de ser mais veloz do que o PCI, o AGP não compartilha a mesma taxa de transferência com os demais periféricos ali plugados, como fazia o seu antecessor. No caso do AGP, apenas a placa de vídeo é conectada a ele. A primeira versão do AGP tinha capacidade máxima de transferência de 266 MB/s, mas essa taxa evoluiu na segunda e na terceira versão do barramento, chegando a 533 MB/s e 2.133 MB/s, respectivamente.
  - **PCIe - Peripheral Component Interconnec express**<br/>
- Slots instalados em pares que permitem alta velocidade com o uso de 2 placas, além de ter um menor custo. São os slots mais utilizados atualmente, compatíveis com a maioria das placas desenvolvidas por fabricantes como Intel e AMD.
+ Slots instalados em pares que permitem alta velocidade com o uso de 2 placas, além de ter um menor custo. São os slots mais utilizados atualmente, compatíveis com a maioria das placas desenvolvidas por fabricantes como Intel e AMD. Essa tecnologia permite o uso de uma ou mais conexões seriais, chamados de *caminhos* ou *"lanes"*, para transferência de dados. Se um determinado dispositivo usa apenas um caminho, então diz-se que este utiliza o barramento PCI Express 1x, se utiliza 4 conexões, sua denominação é PCI Express 4x e assim por diante — até chegar ao 16x. Sua taxa máxima de transferência chega a 4.266 MB/s.
+
+ **Terminologia**
+ - **Pixels**: pixel é o menor elemento da imagem. É portanto, a menor área da tela cuja cor e brilho podem ser controlados;
+ - **Resolução da Tela**: a resolução define a nitidez da imagem em uma tela em função do número de pixels;
+ - **Resolução de caractere**: um caractere é apresentado em um determinado modo de texto, o que significa que é feita a iluminação de determinados pixels dentro de áreas destes caracteres;
+ - **Razão de Imagem**: a razão de imagem é uma relação entre largura e altura da tela;
+ - **Resolução em Pixels**: o número de pixels pode ser calculado dividindo-se a dimensão da tela pelo passo dos pontos;
+ - **Modos de Vídeo**: os monitores de vídeo são capazes de operar em diversos modos de vídeo, sendo que cada um possui uma relação específica;
+ - **Modo Gráfico**: para poder transmitir linhas, círculos ou desenhos, o adaptador de vídeo tem que endereçar e controlar cada pixel em cada linha horizontal;
+ - **Modo Alfa – Numérico**: é o modo texto. O adaptador de vídeo tem que endereçar o conjunto de linhas necessárias para formar um caractere de texto. Por exemplo: se a resolução é 720 x 400 pixels e o box do caractere (área) é uma matriz de 9 x 16, então o formato do texto é 80 caracteres por linhas de texto e 25 linhas por tela.
+
+ Existem diversos padrões de monitor de vídeo, conforme sua resolução gráfica. Os modos de vídeo mais comuns são:
+ - **CGC**: Color Graphics Adapter.
+ - **EGA**: Enhanced Graphics Adapter.
+ - **MCGA**: Padrão Específico de Fabricante.
+ - **VGA**: Video Graphics Array.
+ - **MDA**: Adaptador de Vídeo Monocromático.
+ - **8514/A**: Micro Channel Architecture.
+ - **8515/A**: IBM.
+ - **PCG**: Professional Graphics Controller.
+
+ Os padrões mais utilizados são:
+ - **VGA**: possui uma resolução de 640 pontos horizontais por 480 linhas.
+ - **SVGA**: pode chegar a uma resolução de 1024 por 768 pontos.
+ - **HDMI**: é uma interface condutiva totalmente digital de áudio e vídeo capaz de transmitir dados não comprimidos, representando, por isso, uma alternativa melhorada aos padrões analógicos, tais como: Radio Frequência, Cabo coaxial, vídeo composto, S-Video, SCART, vídeo componente, Terminal D. No papel, o Super VGA foi substituído pelo Super XGA, mas na prática, a indústria logo abandonou a tentativa de fornecer um nome único para cada padrão de vídeo em alta resolução, e praticamente todos os sistemas de vídeo produzidos entre o fim dos anos 1990 e o início dos 2000 são classificados como Super VGA (SVGA). Fabricantes de monitores algumas vezes anunciam seus produtos como XGA ou Super XGA. Na prática, isso pouco significa, visto que todos os monitores Super VGA fabricados desde fins dos anos 1990 possuem ao menos capacidade XGA e geralmente, performance muito superior. O HDMI suporta através de um único cabo qualquer formato de vídeo TV ou PC, incluindo resoluções padrão (480i/p, 576i/p), alta definição (720p, 1080i/p) e na especificação 1.4, 4k x 2k (2160p), e até 8 canais de áudio digital, sendo o sinal (áudio/vídeo) codificado em TDMS (Transition Minimized Differential Signaling) para transmissão digital não comprimida através do cabo HDMI, de acordo com a norma do Consumer Electronics Control. O HDMI é também compatível com o High-bandwidth Digital Content Protection (HDCP) um sistema anti-pirataria.
+
+ **Varredura**: a tela é percorrida da esquerda para a direita e de cima para baixo, perfazendo a seguinte contagem de pixels por tela. (80 colunas, 25 linhas);
+   - **Frequência Horizontal**: durante cada período de varredura, o feixe de elétrons tem que fazer várias centenas de passagens horizontais pela tela.<br/>
+   Principais Valores de frequência horizontal:
+     - **MDA**: 18,43 Hz
+     - **CGA**: 15,70 Hz
+     - **EGA**: 15,70 Hz
+     - **VGA**: 31,46 Hz
+   - Frequência Vertical: em TV, a frequência é de 60Hz. No monitor de vídeo, a frequência vertical dependerá do modo de vídeo, conforme analisamos no link anterior.<br/>
+   Principais Valores da Frequência Vertical:
+     - **MDA**: 50,08 Hz
+     - **CGA**: 59,92 Hz
+     - **EGA**: 60,03 Hz
+     - **VGA**: 70,08 Hz
 
  ###### Socket
  Do mesmo modo que os slots, o socket representa a conxeão do processador com a placa mãe, garantindo que os pinos estejam todos em contato com a placa, funcionando corretamente.
