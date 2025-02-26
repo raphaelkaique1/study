@@ -1,5 +1,29 @@
 # Arquitetura de Computadores
-Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador.
+Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador. Aprofundando um pouco, é um equipamento composto por uma série de circuitos eletrônicos capaz de receber, armazenar, comparar, combinar, processar e exibir uma determinada informação com elevada velocidade.<br/>
+Basicamente tem a função de receber dados através de dispositivos de entrada, processar e retornar estes dados, agora denominados como Informação através de algum dispositivo de saída. Estes dados de entrada, processamento e o retorno da informação, normalmente se dão através de softwares que usam a capacidade do hardware para a execução de tais tarefas.
+
+## Hardware
+A definição do *hardware* é ser a parte física do computador, ou seja, o conjunto de componentes eletrônicos, circuitos integrados e placas, que se comunicam através de barramentos.
+
+## Software
+É a parte *lógica* do computador, podendo ser definido como um conjunto de instruções passo-a-passo que orientam o computador a executar determinadas funções para produzir um resultado desejado.
+
+## Tipos de computadores
+Atualmente existe uma grande quantidade de dispositivos que nos possibilitam utilizar suas funções como processadores de dados, variando de tamanho, poder de processamento, funcionalidades específicas. Os tipos mais comuns são:
+
+**Mainframes**: são computadores de grande porte, com grande capacidade de processamento e armazenamento. Normalmente são utilizados por grandes empresas ou organizações. Foram muito utilizados quando começaram a ser desenvolvidos os microcomputadores ou, antes disso, devido à necessidade de execução de programas que exigiam alto desempenho das máquinas, porém, os microcomputadores ainda não possuíam capacidade para esse tipo de processamento. Atualmente os microcomputadores podem executar programas que exigem alto desempenho dos computadores, e quase não dependem mais do processamento em mainframes, porém, ainda são bastante utilizados, por exemplo, onde é necessário grande acesso de usuários ou grandes bancos de dados como por exemplo em bancos.
+
+**Servidores**: Computadores preparados para fornecer determinados serviços aos usuários em uma rede de computadores. Os computadores utilizados para esta finalidade podem ser computadores com configurações normais, como um desktop por exemplo, ou computadores preparados para um desempenho melhor, dependendo da necessidade de performance como em um Servidor de Arquivos, ou de Impressão entre outros.
+
+**Microcomputadores**: Também chamados de **PC — Personal Computer** ou **Desktop**, são computadores de pequeno porte. Atualmente há uma grande variedade de marcas e modelos, sendo ainda possível a montagem de um computador pelo próprio usuário utilizando componentes adquiridos separados.
+
+**Computadores Portáteis**: São os computadores compactos que utilizam alta tecnologia. Em sua grande maioria, possuem características iguais ou superiores aos Desktops. Possuem a grande vantagem de possibilitar ao usuário o seu transporte devido ao tamanho e peso reduzidos, além de ocuparem pouco espaço físico para seu manuseio. Até algum tempo o seu valor era bem superior aos Desktops, porém, com o avanço tecnológico e aumento na sua comercialização, o seu valor tem caído, tornando os valores equivalentes aos computadores de mesa, são eles os Laptops, Notebooks e Ultrabooks.
+
+**Computadores de mão**: São Computadores projetados com tecnologia que visa compactar tanto os equipamentos quanto a forma de armazenar dados. Normalmente possuem várias funcionalidades executadas em um Desktop, como por exemplo, acesso à Internet em celulares, porém, com a grande facilidade de transporte e manuseio. São eles Handhelds ou PDAs, celulares, Smartphones, Tablets, Smartwatches e etc.
+
+## Arquitetura Aberta
+Em 1981 a empresa IBM lança um modelo de microcomputador, chamado **PC – Personal Computer** que revolucionou o mercado de microcomputadores, pois este novo padrão possibilitou o desenvolvimento de computadores montados com componentes de fabricantes diferentes. Portanto, hoje podemos dizer que a grande maioria das empresas do ramo de fabricação de computadores atua como “montadoras” de computadores. Daí o termo Arquitetura Aberta.<br/>
+Os diferentes fabricantes dos diversos componentes de um computador seguem padrões que possibilitam a conexão de um dispositivo de um determinado fabricante ao dispositivo de outro fabricante, como por exemplo, uma placa-mãe da marca ASUS utilizando um processador Intel ou AMD. Isso facilita muito caso o usuário queira adquirir um componente para aumentar o desempenho do seu computador, pois poderá adquirir um componente de menor preço equivalente ao de maior preço ou marca mais conhecida. Além da possibilidade de podermos montar nosso próprio computador adquirindo componentes avulsos.
 
  ## 1. Conceito de Arquitetura de Computadores
  Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
@@ -8,10 +32,10 @@ Um computador é uma ferramenta de propósito geral construída em torno de um m
  Os componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
   - **Unidade de Controle - UC**: Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
   - **Unidade Lógica e Aritmética - ULA**: Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
-  - **Memória (RAM e ROM)**: Armazena dados e programas.
+  - **Memória**: Armazena dados e programas.
 
-	 * A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
-	 * A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. A memória RAM, volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM, não volátil, armazena informações permanentes, como a BIOS.
+	 * A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM/HDD) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
+	 * A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. No computador existem alguns tipos de memória, como a memória RAM, que é volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM por exemplo, é "não volátil", armazenando informações permanentes, como a BIOS.
 	 * Os dispositivos de entrada e saída permitem a interação do usuário com o computador. Através do teclado e do mouse, inserimos dados e comandos, enquanto o monitor e a impressora nos fornecem a saída das informações processadas. Os dispositivos de entrada e saída (I/O) interagem com o modelo, mas não fazem parte dos componentes principais.
 <pre>
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -32,26 +56,37 @@ Um computador é uma ferramenta de propósito geral construída em torno de um m
    └───────── I ────────┘ └──────── O ───────┘ └─────────── CACHE ───────────┘
 *DrMips: simulador de funcionamento da CPU
 </pre>
- A ULA realiza operações lógicas e aritméticas sobre um ou mais operandos, ou seja, realiza ações indicadas nas instruções, executando operações númericas (aritméticas) e não numéricas (lógicas), além da preparação de informações para desvio do programa. As operações da ULA são geralmente muito simples, funções mais complexas, exigidas pelas instruções da máquina são realizadas pela ativação sequencial das várias operações básicas disponíveis. Exemplos de operações realizadas pela ULA:
-  - soma de dois operandos
-  - negação de um operando
-  - inversão de um operando
-  - AND ("E" lógico) de dois operandos
-  - OR ("OU" lógico) de dois operandos
-  - deslocamento de um operando para a esquerda ou para a direita
-  - rotação de um operando para a esquerda ou para a direita
+ A ULA realiza operações lógicas e aritméticas sobre um ou mais operandos, ou seja, realiza ações indicadas nas instruções, executando operações númericas (aritméticas) e não numéricas (lógicas), além da preparação de informações para desvio do programa. As operações da ULA são geralmente muito simples, funções mais complexas, exigidas pelas instruções da máquina são realizadas pela ativação sequencial das várias operações básicas disponíveis. De modo geral, a ULA é responsável por realizar cálculos matemáticos e operações lógicas dentro da CPU, por exemplo, ao somar dois números em um programa, essa operação ocorre na ULA. Exemplos de operações realizadas pela ULA:
+ - soma de dois operandos
+ - negação de um operando
+ - inversão de um operando
+ - AND ("E" lógico) de dois operandos
+ - OR ("OU" lógico) de dois operandos
+ - deslocamento de um operando para a esquerda ou para a direita
+ - rotação de um operando para a esquerda ou para a direita
+
+ Enquanto a ULA realiza as operações matemáticas e lógicas, a UC controla o fluxo de execução das instruções, coordenando a comunicação entre os componentes da UCP. A UC atua como o "cérebro" da CPU, garantindo que cada instrução seja processada corretamente. Ela decodifica instruções, controla a ULA e gerencia o fluxo de dados dentro da CPU. Suas principais funções incluem:
+ - controle e coordenação dos processos
+ - decodificar instruções da memória e enviar sinais de controle
+ - gerar sinais para a ULA, registradores e barramentos
 
  **Memória**<br/>
-  A memória de um sistema de computador tem a função de armazenar dados e instruções; é organizada em posições, que podem ser visualizadas como elementos em uma matriz. Cada elemento da memória tem um endereço, assim, pode-se falar de uma memória que tenha "x" posições: cada posição pode ser referenciada diretamente de acordo com a sua colocação na sequência. Por exemplo, se uma memória tem 4.096 posições, existem então posições de memória em 0, 1, 2, 3, ..., 4.094 e 4.095. Quando um endereço de memória aparece nos circuitos de controles conectados à memória, dependendo do trabalho associado com aquele endereço o conteúdo (o valor que está na posição) será trazido da memória para os circuitos da unidade de processamento ou a informação na unidade de processamento será armazada na memória. As instruções em um computador são executadas em uma sequência determinada por suas posições de memória. Há vários tipos específicos de memória em um computador. Como por exemplo a **RAM**, que é uma memória de armazenamento aleatória, ou seja, sua estrutura de armazenamento permite que o processador utilize qualquer endereço de memória para armazenar os dados com que está lidando. A **ROM** é outro exemplo, que é uma memória somente de leitura, é um tipo de memória que só permite a leitura de dados, que são gravados pelo fabricante e não podem ser alterados, ela é não volátil, ou seja, as informações são armazenadas permanentemente no chip, sem depender de corrente elétrica, e é muito usada para o armazenamento do firmware — software que é raramente alterado,  informações importantes e essenciais para o funcionamento dos componentes eletrônicos e os dados e instruções importantes do sistema que não se alteram. E também o **HD**, que é uma unidade de memória que armazena os dados de forma sequêncial — diferente da RAM que armazena os dados de uma forma "lógica" determinada pelo processador, ou seja, de forma virtual, o HD ocupa o espaço disponível logo após o último espaço preenchido, porque como as informações são gravadas de forma permanente, este formato permite um controle maior sobre os dados.
+  A memória de um sistema de computador tem a função de armazenar dados e instruções; é organizada em posições, que podem ser visualizadas como elementos em uma matriz. Cada elemento da memória tem um endereço, assim, pode-se falar de uma memória que tenha "x" posições: cada posição pode ser referenciada diretamente de acordo com a sua colocação na sequência. Por exemplo, se uma memória tem 4.096 posições, existem então posições de memória em 0, 1, 2, 3, ..., 4.094 e 4.095. Quando um endereço de memória aparece nos circuitos de controles conectados à memória, dependendo do trabalho associado com aquele endereço o conteúdo (o valor que está na posição) será trazido da memória para os circuitos da unidade de processamento ou a informação na unidade de processamento será armazada na memória. As instruções em um computador são executadas em uma sequência determinada por suas posições de memória. Há vários tipos específicos de memória em um computador. Como por exemplo a **RAM**, que é uma memória de armazenamento aleatória, ou seja, sua estrutura de armazenamento permite que o processador utilize qualquer endereço de memória para armazenar os dados com que está lidando. A **ROM** é outro exemplo, que é uma memória somente de leitura, é um tipo de memória que só permite a leitura de dados, que são gravados pelo fabricante e não podem ser alterados, ela é "não volátil", ou seja, as informações são armazenadas permanentemente no chip, sem depender de corrente elétrica, e é muito usada para o armazenamento do firmware — software que é raramente alterado,  informações importantes e essenciais para o funcionamento dos componentes eletrônicos e os dados e instruções importantes do sistema que não se alteram. E também o **HD**, que é uma unidade de memória que armazena os dados de forma sequêncial — diferente da RAM que armazena os dados de uma forma "lógica" determinada pelo processador, ou seja, de forma virtual, o HD ocupa o espaço disponível logo após o último espaço preenchido, porque como as informações são gravadas de forma permanente, este formato permite um controle maior sobre os dados.
 
- **Entrada e Saída (I/O)**<br/>
-  Dispositivos em que o usuário interage com a máquina inputando e manipulando dados para processamento e recebendo informação como resultado. Teclado e mouse são exemplos de dispositivos de entrada enquanto tela e impressora são exemplos de dispositivos de saída. Para que o computador possa processar as entradas e saídas existem os barramentos, que são circutos elétricos que carregam as energias através de pulsos elétricos equivalentes à cada informação.
+ **I/O**<br/>
+  Dispositivos em que o usuário interage com a máquina inputando e manipulando dados para processamento e recebendo informação como resultado. Teclado e mouse são exemplos de dispositivos de entrada enquanto tela e impressora são exemplos de dispositivos de saída. Para que o computador possa processar as entradas e saídas existem os barramentos, que são circutos elétricos que carregam as energias através de pulsos elétricos equivalentes à cada informação.<br/>
+  Os computadores recebem entradas e produzem saídas. Quando digitamos um endereço de site, estamos efetivamente fornecendo os dados de entrada: "Pegue isso!", e, quando o computador exibe a página inicial, isso é saída: "Aqui está!". Os computadores trabalham principalmente com entradas de dados, realizam trabalho e produzem saídas.<br/>
+  Algumas saídas de computador movem máquinas ou enviam dados para outros computadores. Os humanos não veem algumas saídas, mas para a maioria dos dispositivos são usados todos os dias possuem maneiras de criar uma intercafe de interação entre uma pessoa com seu dispositivo de computação. O humano fornece a entrada e vê, ouve ou sente a saída. Para a conexão dos periféricos, existem interfaces integradas ao computador que recebem e tratam os dados e os enviam de volta. Um exemplo é uma placa de vídeo, que transforma os dados de imagem oriundos do computador em um formato que pode ser exibido pelo monitor. Outro exemplo de interface pode ser dado com a placa de som, que é usada pelo computador para gravar e reproduzir áudio, convertendo som analógico em informações digitais e vice-versa.<br/>
+  - Periféricos são dispositivos que criam interfaces com dispositivos de computação.
+    - Teclados e microfones são periféricos comuns que fornecem entradas baseadas em linguagem.
+    - Mouses e telas sensíveis ao toque permitem que você navegue por visuais como ícones para dizer ao computador o que você quer fazer sem ter que usar palavras.
+    - Impressoras, telas e alto-falantes permitem que você veja, sinta e ouça as saídas de dispositivos de computação.
 <pre>
 Barramentos para dispositivos de entrada e saída:
 ┌─────────────┐        BARRAMENTOS        ┌─────────────┐
 |             ├─────────────────┬─────────┤   MEMÓRIA   |
-|     UCP     ├─────────────┬───|─────────┤  PRINCIPAL  |
-|             ├─────────┬───|───|─────────┤    (ROM)    |
+|     UCP     ├─────────────┬───|─────────┤             |
+|             ├─────────┬───|───|─────────┤  PRINCIPAL  |
 └─────────────┘         |   |   |         └─────────────┘
                 ┌───────┴───┴───┴───────┐
                 | DRIVERS CONTROLADORES |
@@ -61,7 +96,7 @@ Barramentos para dispositivos de entrada e saída:
                 └───────────────────────┘
 </pre>
  ### Ciclos de Execução da CPU
-  Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.
+  Após a entrada de dados, ocorre o processamento, função do processador, que irá efetuar o processamento de acordo com o objetivo final do processamento, por exemplo, se pressionarmos alguma tecla, será feito o processamento dos sinais elétricos emitidos pelo teclado, e depois exibido o caractere digitado. Quando a CPU quer ler uma palavra, ou da memória ou de uma porta de I/O, ela coloca o endereço necessário nas linhas de endereço do barramento e, então, envia um sinal READ em uma linha de controle do barramento. Uma segunda linha de sinal é usada para dizer se é necessário espaço de I/O ou espaço de memória. Se for espaço de memória, a memória responderá a requisição, se for espaço de I/O, é o dispositivo de I/O correspondente que responderá. Um programa se torna um processo quando um arquivo executável é carregado na memória.
 
  #### Processos na CPU
   - Novo: Um novo processo foi adicionado à fila de execuções, então a CPU deverá buscar os dados necessários para executar o processo;
@@ -96,18 +131,21 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
         | |             |                                  | |             |
         └─┴─────────────┘                                  └─┴─────────────┘
 </pre>
- De forma prática, podemos então imaginar o computador em 3 partes, sendo elas:
- 1. **MEMÓRIA**
-    - **CACHE**<br/>
-    É uma memória ultrarrápida embutida no processador (L1, L2, L3) para acelerar o acesso a dados frequentes. Ela armazena dados frequentemente acessados pela CPU para evitar buscas demoradas na RAM. Quanto maior o cache, mais rápido o processador pode acessar dados críticos.
-    - **RAM**<br/>
-    É a memória principal do computador, usada para armazenar dados temporários de programas e do sistema operacional enquanto estão em execução. Esta é uma área de armazenamento rápida usada para guardar dados. Ela tem de ser rápida porque se conecta diretamente ao microprocessador. Componente responsável por direcionar o processador, enviando as instruções e informações necessárias para que os dados possam ser processados. Não guarda as informações fisicamente mas sim de forma local, ou seja, de forma virtual, o que significa que é preciso que haja energia no sistema para que ela possa manter a informação na memória, fazendo com que assim ela seja uma memória temporária. Os computadores precisam armazenar informações que eles processam. A memória de acesso aleatório é como uma mesa de trabalho que contém coisas que ela precisa ou está trabalhando diretamente, ela pode pegar um arquivo e deixá-lo na mesa para consultar durante o trabalho, e assim pegando documentos que precisa imediatamente e deixá-los em seu espaço de trabalho. Quando ela termina de usá-los, os guarda de volta no armazenamento de longo prazo — ou seja, na gaveta de arquivos. Dessa forma, a RAM retém informações temporariamente enquanto a CPU (ou a GPU) as usa. O processador obtém RAM de qualquer posição de armazenamento, por isso é chamado de acesso aleatório. Sua principal função é facilitar o acesso e agilizar o processamento de dados por parte do processador, fazendo com que a busca dos dados recentemente acessados seja realizada em um curto espaço de tempo. A RAM vem em uma placa ou chip dentro do computador. Em geral, dependendo do que sua CPU é capaz de lidar, quanto mais RAM você tiver, mais rápido verá os resultados em seu computador, e, quando o computador é desligado, a informação na RAM é apagada.
-    - **SWAP**<br/>
-    Espaço no disco rígido usado para armazenar temporariamente dados da memória RAM, chaveando-os quando necessário. Quando a RAM está cheia, o sistema usa um arquivo no disco para simular memória adicional. O problema é que HDs e SSDs são muito mais lentos que a RAM, então o desempenho cai quando há muito uso da memória virtual. Em Linux, essa memória virtual é chamada de swap partition.
- 2. **HD**: Guarda informações de forma física, ou seja, nele é escrito a informação de forma persistente para que ela seja armazenada mesmo que o sistema não esteja energizado. A única forma de se perder uma informação neste tipo de armazenamento é sobrescrevendo a memória no seu endereço físico ou danificando e corrompendo o HD. Então, o computador grava os dados permanentes no disco rígido, no disco estes dados são salvos mesmo que não haja energia no sistema. O sistema operacional, programas e arquivos são armazenados nesta unidade. Os computadores usam 2 tipos de unidades de disco para armazenamento de longo prazo:
-    - **HDD**: O **Hard Disk Drive** é uma unidade de disco rígido que contém um disco magnético giratório que armazena dados. Este prato tem compartimentos, e um braço se move pelos compartimentos para ler e gravar dados nestes compartimentos. Existem vários tipos de interfaces para discos rígidos diferentes: IDE/ATA, Serial ATA, SCSI, Fibre channel, SAS entre outras.
-    - **SSD**: Esta é uma unidade de estado sólido que não tem partes móveis. Possui memória flash como um pendrive e armazena dados em um chip de computador semelhante à RAM, mas os dados armazenados em SSDs são permanentes. Eles não são apagados quando a energia do sistema é desligada. Em relação ao sistema operacional, por exemplo, o SSD leva um milésimo de segundo para inicializar. O controlador, por sua vez, gerencia a forma como os dados são transferidos entre o computador e a memória flash do disco, administrando o cache para oferecer maior agilidade ao computador. A **memória flash** é uma memória baseada em um tipo de ROM chamada **EEPROM — Electrically Erasable Programmable Read-Only Memory**, ou *memória apenas de leitura programável e apagável eletricamente*, a memória Flash fornece armazenamento rápido e permanente. Os cartões CompactFlash, SmartMedia e PCMCIA são tipos de memória Flash.
- 3. **PROCESSADOR**: Por que não usar somente o HD para que não haja risco de perder as informações? Pelo fato de que a memória RAM é muito mais rápida que o HD. As informações guardadas na memória (RAM ou HD) precisam ser processadas para serem manipuladas, e quem processa essas informações é a CPU. Vamos imaginar que queremos somar os valores 5 e 6, ambos os valores estão guardados em posições de memória aleatórias dentro da RAM. Para realizar a soma destes valores, os 2 números são levados até a CPU (entrada) onde serão somados (processados) e devolvidos para a memória juntamente com o resultado (saída) que é alocado em outra nova posição de memória. Ou seja, nenhuma das memórias não servem para processamento, apenas armazenar dados, e este tipo de transição entre a memória e a CPU acontece milhares de vezes dentro de um computador, daí a necessidade de se ter uma memória rápida para enviar e receber informações para a CPU. Visto que o HD precisa de um maior tempo de processamento já que seu processo de armazenamento de memória consome mais recursos, sua utilidade como memória auxiliar da CPU não é viável, tornando seu melhor uso como banco de dados.<br/>
+ De forma prática, podemos então imaginar o computador divido nas seguintes partes:
+ - **MEMÓRIA**: O armazenamento pode ocorrer de duas formas, temporariamente ou permanentemente, onde, o armazenamento temporário ou volátil ocorre na memória principal, onde os dados ainda estão sendo ou podem ser utilizados pelo processador, ou então, caso seja necessário, a informação poderá ser armazenada permanentemente, onde ocorre a gravação em algum dispositivo de armazenamento secundário, como por exemplo: Disco Rígido, Pendrive e etc.
+    1. **Memória Volátil**
+       - **MEMÓRIA PRINCIPAL**: É o sistema de memória que está em contato direto com a CPU, dando suporte na entrega dos dados e operações. Ela é responsável por armazenar temporariamente os dados e instruções que a CPU precisa para executar processos. Sua velocidade se deve por, diferentemente da memória permanente — que usa um sistema robusto de localização de espaços — a memória principal permite leitura e escrita em qualquer posição de memória com tempos de acesso praticamente iguais. Sua quantidade afeta diretamente o desempenho do sistema, pois define quantos processos podem rodar simultaneamente. A memória principal é essencial para o funcionamento do sistema operacional e dos programas, pois armazena: o código do SO e suas partes essenciais em uso, dados dos programas em execução, realiza o buffer temporário para transferência de arquivos e também as pilhas e heaps para o gerenciamento da memória dinâmica. Seus principais tipos são:
+         - **CACHE**<br/>
+         É uma memória auxiliar ultrarrápida embutida no processador (L1, L2, L3) para acelerar o acesso a dados frequentes. Ela armazena dados frequentemente acessados pela CPU para evitar buscas demoradas na RAM. Quanto maior o cache, mais rápido o processador pode acessar dados críticos.
+         - **RAM**<br/>
+         É a memória principal do computador, usada para armazenar dados temporários de programas e do sistema operacional enquanto estão em execução. Esta é uma área de armazenamento rápida usada para guardar dados. Ela tem de ser rápida porque se conecta diretamente ao microprocessador. Componente responsável por direcionar o processador, enviando as instruções e informações necessárias para que os dados possam ser processados. Não guarda as informações fisicamente mas sim de forma local, ou seja, de forma virtual, o que significa que é preciso que haja energia no sistema para que ela possa manter a informação na memória, fazendo com que assim ela seja uma memória temporária. Os computadores precisam armazenar informações que eles processam. A memória de acesso aleatório é como uma mesa de trabalho que contém coisas que ela precisa ou está trabalhando diretamente, ela pode pegar um arquivo e deixá-lo na mesa para consultar durante o trabalho, e assim pegando documentos que precisa imediatamente e deixá-los em seu espaço de trabalho. Quando ela termina de usá-los, os guarda de volta no armazenamento de longo prazo — ou seja, na gaveta de arquivos. Dessa forma, a RAM retém informações temporariamente enquanto a CPU (ou a GPU) as usa. O processador obtém RAM de qualquer posição de armazenamento, por isso é chamado de acesso aleatório. Sua principal função é facilitar o acesso e agilizar o processamento de dados por parte do processador, fazendo com que a busca dos dados recentemente acessados seja realizada em um curto espaço de tempo. A RAM vem em uma placa ou chip dentro do computador. Em geral, dependendo do que sua CPU é capaz de lidar, quanto mais RAM você tiver, mais rápido verá os resultados em seu computador, e, quando o computador é desligado, a informação na RAM é apagada.
+         - **SWAP**<br/>
+         Espaço no disco rígido usado para armazenar temporariamente dados da memória RAM, chaveando-os quando necessário. Quando a RAM está cheia, o sistema usa um arquivo no disco para simular memória adicional. O problema é que HDs e SSDs são muito mais lentos que a RAM, então o desempenho cai quando há muito uso da memória virtual. Em Linux, essa memória virtual é chamada de swap partition.
+    2. **Memória Secundária**
+       - **HDD**: Guarda informações de forma física, ou seja, nele é escrito a informação de forma persistente para que ela seja armazenada mesmo que o sistema não esteja energizado. A única forma de se perder uma informação neste tipo de armazenamento é sobrescrevendo a memória no seu endereço físico ou danificando e corrompendo o HD. Então, o computador grava os dados permanentes no disco rígido, no disco estes dados são salvos mesmo que não haja energia no sistema. O sistema operacional, programas e arquivos são armazenados nesta unidade. Os computadores usam 2 tipos de unidades de disco para armazenamento de longo prazo:
+         - **HD**: O **Hard Disk** é uma unidade de disco rígido que contém um disco magnético giratório que armazena dados. Este prato tem compartimentos, e um braço se move pelos compartimentos para ler e gravar dados nestes compartimentos. Existem vários tipos de interfaces para discos rígidos diferentes: IDE/ATA, Serial ATA, SCSI, Fibre channel, SAS entre outras.
+         - **SSD**: Esta é uma unidade de estado sólido que não tem partes móveis. Possui memória flash como um pendrive e armazena dados em um chip de computador semelhante à RAM, mas os dados armazenados em SSDs são permanentes. Eles não são apagados quando a energia do sistema é desligada. Em relação ao sistema operacional, por exemplo, o SSD leva um milésimo de segundo para inicializar. O controlador, por sua vez, gerencia a forma como os dados são transferidos entre o computador e a memória flash do disco, administrando o cache para oferecer maior agilidade ao computador. A **memória flash** é uma memória baseada em um tipo de ROM chamada **EEPROM — Electrically Erasable Programmable Read-Only Memory**, ou *memória apenas de leitura programável e apagável eletricamente*, a memória Flash fornece armazenamento rápido e permanente. Os cartões CompactFlash, SmartMedia e PCMCIA são tipos de memória Flash.
+ - **PROCESSADOR**: Por que não usar somente o HD para que não haja risco de perder as informações? Pelo fato de que a memória RAM é muito mais rápida que o HD. As informações guardadas na memória (RAM ou HD) precisam ser processadas para serem manipuladas, e quem processa essas informações é a CPU. Vamos imaginar que queremos somar os valores 5 e 6, ambos os valores estão guardados em posições de memória aleatórias dentro da RAM. Para realizar a soma destes valores, os 2 números são levados até a CPU (entrada) onde serão somados (processados) e devolvidos para a memória juntamente com o resultado (saída) que é alocado em outra nova posição de memória. Ou seja, nenhuma das memórias não servem para processamento, apenas armazenar dados, e este tipo de transição entre a memória e a CPU acontece milhares de vezes dentro de um computador, daí a necessidade de se ter uma memória rápida para enviar e receber informações para a CPU. Visto que o HD precisa de um maior tempo de processamento já que seu processo de armazenamento de memória consome mais recursos, sua utilidade como memória auxiliar da CPU não é viável, tornando seu melhor uso como banco de dados.<br/>
  O **microprocessador**, geralmente chamado simplesmente de **processador**, é um circuito integrado que realiza as funções de cálculo e a tomada de decisões de um computador. Todos os computadores e equipamentos eletrônicos baseiam-se nele para executar suas funções. O processador incorpora as funções de uma *unidade central de processamento* de um computador em um único circuito integrado, ou no máximo alguns circuitos integrados. É um dispositivo multifuncional programável que aceita dados digitados como entrada, processa de acordo com as instruções armazenadas em sua memória e fornece resultados como saída. Processadores operam com números e símbolos representados no sistema binário.
    1. A CPU primeiro busca dados no cache (se disponível).
    2. Se não estiver no cache, busca na RAM.
@@ -119,6 +157,8 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
    O próprio microprocessador subdivide-se em várias unidades, trabalhando em altas frequências. A ULA é a unidade responsável pelos cálculos aritméticos e lógicos e os registradores são parte integrante do microprocessador na família x86, por exemplo.<br/>
    Embora seja a essência do computador, o microprocessador diferente do micro controlador, está longe de ser um computador completo. Para que possa interagir com o usuário ele precisa de: memória, dispositivos de entrada e saída, um clock, controladores e conversores de sinais, entre outros. Cada um desses circuitos de apoio interage de modo peculiar com os programas e dessa forma, ajuda a moldar o funcionamento do computador.<br/>
    Desde a criação da primeira CPU a única coisa em que se pensava era em como aumentar a velocidade (em GHz) do processador, fazendo o mesmo operar a frequências cada vez mais altas. Depois de mais de vários anos usando essa técnica, ganhando em desempenho mas perdendo em altas temperaturas, os engenheiros começaram a estudar outras formas de potencializar os microchips, pois quanto maior era a velocidade mais energia era necessária para manter os elevados cálculos por segundo, sendo assim, os processadores atingiam temperaturas cada vez mais altas, exigindo dissipadores de calor maiores. Pensando nisso, foram criados os primeiros MULTI-CORES, que possuíam vários núcleos em um único chip. Com isso todas as tarefas do computador eram divididas em ambos os núcleos, fazendo com que não houvesse a necessidade de altas frequências para obter desempenho na CPU. Isso diminuiu a temperatura dos cores e também o consumo de energia, aumentando também a eficiência na dissipação de calor. Com o aprimoramento das técnicas de fabricação dos multi-cores, os processadores foram ficando cada vez menores e mais velozes, mas dessa vez aumentando também a quantidade de núcleos no mesmo chip. A família Core da Intel foi a primeira a inovar e trazer o desempenho multi-núcleo para os computadores, tanto desktop quanto notebooks, mas com o lançamento dos modelos I3, I5 e o mais potente para a época, o Core I7, superaram novamente as expectativas. Com 32nm e podendo atingir clocks de até 3,33GHz, além de possuir até 6 núcleos físicos (modelo I7 980X), os cores possuaim tecnologia Hyper-Threading, que simulavam núcleos virtuais para a CPU, podendo chegar até 12 núcleos (6 físicos e os outros 6 com hyper-threading), otimizando seu uso em múltiplas tarefas. Todos receberam também chip gráfico Intel e controlador de memória, deixando a CPU responsável também pelas memórias RAM e processamento gráfico.
+
+![Image](https://github.com/user-attachments/assets/fd520bf3-0d08-4b29-8543-05c7cf17b46e)
 
 ###### MICROCONTROLADOR — MCU
 Diferente de um processador — que é projetado para alto desempenho e processamento — que não possui memória interna e nenhum periférico integrado — e por isso requer componentes externos como RAM, ROM e periféricos para funcionar — o **micro controlador** é um circuito integrado projetado para tarefas específicas e sistemas embarcados que contém processador (CPU), memória (RAM, ROM) e periféricos (GPIO, ADC, PWM e etc) no mesmo chip.<br/>
@@ -136,8 +176,6 @@ Existem 2 tipos de placas de vídeo:
 
  Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.
 
-
-
  ##### NIC
  Os computadores precisam ser capazes de se comunicar entre si. O network interface controller, ou NIC, é a parte que lida com a comunicação. Ele envia dados do dispositivo e recupera dados de outras fontes para dar ao dispositivo para fazer o trabalho. Sem adaptadores de rede, tecnologias como a internet não seriam possíveis.<br/>
  Em um único computador, essas partes realizam quantidades incríveis de trabalho. Imagine processar um milhão de instruções a cada segundo. A rede e a computação em nuvem tornaram o poder da computação maior do que nunca.
@@ -147,16 +185,8 @@ Existem 2 tipos de placas de vídeo:
  - **ponte norte**: controla os componentes internos *mais rápidos* como o processador, memória, placa de vídeo e os pentes de RAM. Tais informações são enviadas ao disco rígido.
  - **ponte sul**: controla os demais componentes, incluindo os dispositivos de entrada e saída, o disco rígido, as portas de comunicação e os *slots* de expansão.
 
- ##### I/O
- Os computadores recebem entradas e produzem saídas. Quando digitamos um endereço de site, estamos efetivamente fornecendo os dados de entrada: "Pegue isso!", e, quando o computador exibe a página inicial, isso é saída: "Aqui está!". Os computadores trabalham principalmente com entradas de dados, realizam trabalho e produzem saídas.<br/>
- Algumas saídas de computador movem máquinas ou enviam dados para outros computadores. Os humanos não veem algumas saídas, mas para a maioria dos dispositivos são usados todos os dias possuem maneiras de criar uma intercafe de interação entre uma pessoa com seu dispositivo de computação. O humano fornece a entrada e vê, ouve ou sente a saída. Para a conexão dos periféricos, existem interfaces integradas ao computador que recebem e tratam os dados e os enviam de volta. Um exemplo é uma placa de vídeo, que transforma os dados de imagem oriundos do computador em um formato que pode ser exibido pelo monitor. Outro exemplo de interface pode ser dado com a placa de som, que é usada pelo computador para gravar e reproduzir áudio, convertendo som analógico em informações digitais e vice-versa.<br/>
- - Periféricos são dispositivos que criam interfaces com dispositivos de computação.
-   - Teclados e microfones são periféricos comuns que fornecem entradas baseadas em linguagem.
-   - Mouses e telas sensíveis ao toque permitem que você navegue por visuais como ícones para dizer ao computador o que você quer fazer sem ter que usar palavras.
-   - Impressoras, telas e alto-falantes permitem que você veja, sinta e ouça as saídas de dispositivos de computação.
-
  ##### Mainboard
- Ela é a placa de circuito principal à qual todos os outros componentes internos se conectam. A CPU e a memória estão em geral na placa-mãe. Outros sistemas podem ser encontrados diretamente na placa-mãe ou conectados a ela através de uma conexão secundária. Por exemplo, uma placa de som pode estar presente na placa-mãe ou a ela ser conectada através do barramento PCI. Assim, processador, memória, placa de vídeo, HD, teclado, mouse e etc, estão ligados diretamente à placa-mãe.<br/>
+ Ela é a placa de circuito principal à qual todos os outros componentes internos se conectam, por exemplo, é através de seus barramentos que o processador envia e recebe informações para a memória RAM, assim como entre todos os outros componentes como A CPU, a memória e outros componentes em geral. Outros sistemas podem ser encontrados diretamente na placa-mãe ou conectados a ela através de uma conexão secundária. Por exemplo, uma placa de som pode estar presente na placa-mãe ou a ela ser conectada através do barramento PCI. Assim, processador, memória, placa de vídeo, HD, teclado, mouse e etc, estão ligados diretamente à placa-mãe. Devido ao seu nível de complexidade, é um dos componentes que mais apresenta problemas no computador, por isso que o interessante é instalarmos um modelo de marcas conceituadas, pois a probabilidade de apresentar problemas será menor e, normalmente, terá um maior tempo na sua vida útil. Há uma grande quantidade de fabricantes deste componente, e cada fabricante possui uma grande variedade de modelos. Cada modelo é projetada para dar suporte a um determinado tipo de processador e memória RAM. Ao adquirir uma Placa-Mãe é aconselhável escolher um modelo de um fabricante conceituado e um modelo que de suporte a atualizações futuras de Hardware. Placas de baixa qualidade poderão influenciar no desempenho do computador, além de, normalmente, ter a vida útil bastante reduzida.<br/>
  Ela é o componente que conecta todos os componentes internos e externos, os quais se comunicam com o computador a partir de portas como USB (dispositivos móveis e de armazenamento), PS2 (dispositivos de entrada como mouse e teclado), entradas de vídeo para uso de monitor e dispositívos de saída, como HDMI, VGA e etc.<br/>
  Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
  Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos. A placa-mãe pode variar conforme o modelo e fabricante, mas há componentes que se mantêm:
@@ -186,6 +216,31 @@ Existem 2 tipos de placas de vídeo:
  As placas padrão LPX possuem uma característica que as torna facilmente identificáveis: Possui uma placa *"em pé"* que se encaixa em uma conexão específica da placa principal. Nesta placa é encaixada as demais placas do computador. Seu principal diferencial é **não ter slots**. *Os slots estão localizados em uma placa a parte*, também chamada **backplane**, que é encaixada à placa-mãe através de um conector especial. Seu tamanho padrão é de 22cm x 33cm. Existe ainda um padrão menor, chamado *Mini LPX*, que mede 25,4cm x 21,8cm. Esse padrão foi criado para permitir PCs mais "finos", já que as placas de expansão em vez de ficarem perpendiculares à placa-mãe — como é o normal, ficam paralelas. Após o padrão de placas-mãe ATX ter sido lançado, uma versão do LPX baseada no ATX foi lançada, chamada **NLX**. Visualmente falando é fácil diferenciar uma placa-mãe LPX de uma NLX.<br/>
  No padrão LPX o conector para a placa de expansão — *backplane* — está localizado no centro da placa-mãe e este é um conector parecido com um slot — conector "fêmea".<br/>
  Já no padrão NLX o conector para a placa de expansão está localizado em uma das laterais da placa, e é um contato de borda contendo 340 pinos, similar ao usado por placas de expansão — ou seja, é um conector "macho".
+
+ Quanto ao tipo de Placas-Mãe, existem vários modelos, porém, os modelos mais encontrados atualmente são: AT (Advanced Technology) e ATX (Advanced Technology Extended).
+
+ ###### Barramentos
+ Os barramentos são vias de comunicação entr os diversos componentes da placa-mãe. Houve uma grande evolução dos barramentos desde o surgimento com os slots ISA e as portas seriais até os slots PCI Express e portas USB 3.0.<br/>
+ O grande problema do surgimento de novos barramentos é que quase sempre os dispositivos são incompatíveis com a versão anterior, o que obriga o usuário a descartar um componente não por algum defeito, mas sim por simples problema de incompatibilidade. Um exemplo disso são as placas de vídeo para barramento AGP e as novas PCI Express 16x.<br/>
+ **Apesar de possuírem o mesmo nome, não podemos confundir _barramentos_ com _slots_:**
+ - **barramentos**: são as vias de comunicação entre os dispositivos através de impulsos elétricos.
+ - **slots**: são conectores ou encaixes para placas de expansão.
+
+ Os barramentos são divididos em 2 tipos: Barramento Local e Barramento de Expansão.
+ - **Barramento Local**<br/>
+ Também chamado de **FSB — Front Side Bus**, consiste em um barramento de alta velocidade que trabalha na mesma frequencia do processador. Responsável pela comunicação entre processador, Chipset Ponte Norte, Memória RAM e Barramento AGP ou PCI-Express.
+
+ - **Barramento de Expansão**<br/>
+ São os barramentos responsáveis por possibilitar a conexão de placas de expansão no computador, tais como: Placa de vídeo, Placa de Som, Placa de rede e etc. Existe uma grande variedade de barramentos. Os principais são:
+   - ISA (Industry Standard Architecture)
+   - EISA (Extend Industry Standard Architecture)
+   - VLB (Vesa Local Bus – VESA)
+   - AMR (Audio and Modem Riser) e CNR (Communications and network Riser)
+   - PCI (Peripherical Component Interconect)
+   - AGP (Accelerated Graphics Port)
+   - PCIe – Express
+   - USB – Universal Serial Bus
+   - Firewire (IEEE 1394)
 
  ###### Slots
  Outro componente é o **slot**. O barramento é a maneira mais comum de conectar componentes adicionais ao computador, o barramento usa uma série de slots na placa-mãe nos quais as placas e componentes se conectam. Existem tipos diferentes de slots, eles inserem os componentes de acordo com a configuração disponível no barramento. Eles são classificados de acordo com a tecnologia suportada. Vejamos alguns exemplos:
@@ -275,12 +330,33 @@ Existem 2 tipos de placas de vídeo:
  Uma curiosidade é que, nos primeiros computadores pessoais os processadores eram instalados em slots como o caso do Pentium III da Intel, porém com evolução da tencologia, sockets passaram a ser utilizados para a instalação do "cérebro do computador".
 
  ##### Font
- É um transformador elétrico regula a eletricidade usada pelo computador, este componente é responsável por alimentar todos os outros. Sua função é converter a tensão usada pela rede elétrica em tensões requidas pelos componentes internos.<br/>
- Ela possui conectores de alimentação independentes, a fim de alimentar a placa, o disco, e etc por meio da placa mãe todos os demais componentes.
+ É um transformador elétrico regula a eletricidade usada pelo computador, este componente é responsável por alimentar todos os outros. Sua função é converter a tensão usada pela rede elétrica em tensões requidas pelos componentes internos. Ela possui conectores de alimentação independentes, a fim de alimentar a placa, o disco, e etc por meio da placa mãe todos os demais componentes.<br/>
+ Sua função é receber a tensão fornecida pela rede elétrica (110 ou 220 volts) e converer essa tensão em uma voltagem que atenda as necessidades de cada dispositivo do computador, ou seja, em 3,3V, 5V ou 12V. São também chamadas de fontes chaveadas por fazerem a conversão de tensão alternada (AC) para tensão contínua (DC). Além de trabalhar também como estabilizador, atenuando os picos de energia na rede elétrica.<br/>
+ A fonte é um dos itens com maior probabilidade de falha, portanto, alguns cuidados devem ser tomados ao instalar e utilizar uma fonte de alimentação:
+ - Antes de mexer em um computador, primeiro desligue o cabo de energia da fonte.
+ - Verificar o seletor de voltagem 110 ou 220V.
+ - Sempre verificar a corrente elétrica local antes de ligar um computador e verificar se a fonte está de acordo com a voltagem.
+ - Instalar um tipo de fonte compatível com o modelo da placa-mãe.
+ - O ideal é que a caixa protetora da fonte seja blindada para evitar interferências eletromagnéticas.
+ - Verificar o consumo total dos componentes conectados a ela para instalar uma fonte com uma capacidade acima do necessário.
+ - Verificar se a ventoinha está funcionando normalmente (não está enroscando) devido ao acúmulo de pó, o que irá causar superaquecimento.
+
+ ###### Capacidade da Fonte
+ Cada dispositivo conectado ao computador consome uma determinada voltagem e a capacidade de fornecimento de energia elétrica varia entre os diversos tipos de fontes, portanto, antes de adquirirmos uma fonte, devemos fazer um levantamento do consumo total do computador e adquirir uma fonte com uma capacidade superior, para que não tenhamos problemas com o consumo de energia elétrica. As informações da capacidade da fonte, normalmente, vêm impressas em uma etiqueta fixada na fonte.
+
+ ###### Tipos de Fontes
+ Existem vários tipos de fontes, porém, os dois mais utilizados são os tipos AT (Advanced Technology) e ATX (Advanced Technology Extended), que são fontes específicas para gabinetes e placas-mãe AT. As fontes AT são os tipos mais antigos, muito utilizadas na década de 1990 e, apesar de ainda serem encontradas, caíram em desuso com o surgimento das fontes ATX. As fonts ATX são os modelos utilizadas atualmente, específicas para gabinetes e placas-mãe ATX. Possuem conectores de 20 ou 24 pinos, necessários conforme o modelo da placa-mãe. A fonte ATX possui várias vantagens em relação ao padrão AT:
+ - Possibilitam desligar o computador através de Hardware.
+ - O conector consiste em uma única peça, ao contrário do padrão AT, que era dividido em 2 peças, com algumas regras para a conexão.
+ - Os componentes internos são menores, isto possibilita uma redução também no seu peso.
+
+ Atualmente estão surgindo placas de vídeo cada vez mais avançadas, o que demanda um consumo de energia na mesma proporção. Os slots PCI Express podem fornecer até 75 watts de energia para a placa de vídeo. Para resolver este problema, as fontes com maior potência possuem um cabo específico para o fornecimento de energia para estas placas. Consiste em um conector auxiliar de 6 pinos que deve ser conectado à placa de vídeo para o funcionamento correto.
+
+ *Além destes componentes físicos, a placa-mãe possui também um firmware utilizado para a identificação dos dispositivos conectados a ela e também para configurações, denominado BIOS (Basic Input Output System).*
 
  ##### BIOS / UEFI
- **Basic Input / Output System** ou **Unified Extensible Firmware Interface** é o sistema de configurações mais básico e essencial do hardware especializado na placa-mãe. Ela é responsável por inicializar o hardware e carregar o sistema operacional. Ela tem como sua principal função identificar todos os componentes conectados à placa-mãe, as informações salvas no **CMOS** — que armazena os parâmetros de configuração da placa, acessíveis pelo setup, as unidades de disco e a ordem de *boot* dos dispositivos. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional, o **bootloader** que inicia o kernel. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações de memória ou funções do hardware (como luz de teclado em notebooks por exemplo), desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo). Assim, diferente do firmware — que não dá nenhum controle ao usuário sobre as funções do hardware, na BIOS o usuário tem todo o controle do hardware e suas configurações. Na maioria das vezes sua interface pode ser acessada de acordo com as especificações do fabricante quanto a tecla de entrada, mas sempre é feita durante a inicialização do sistema.<br/>
- Ele é armazenado em um chip na placa-mãe que contém uma memória tipo ROM. Nessa memória ROM da placa-mãe ainda existem 2 programas, chamados:
+ **Basic Input / Output System** ou **Unified Extensible Firmware Interface** é o sistema de configurações mais básico e essencial do hardware especializado na placa-mãe. O BIOS é um programa de computador pré-gravado em memória permanente (firmware) executado por um computador quando ligado. Ele é responsável pelo suporte básico de acesso ao hardware, bem como por iniciar a carga do sistema operacional. A BIOS fica gravada em uma memória ROM armazenado em um chip na placa-mãe, impedindo-a de ser desinstalada. Ela é responsável por inicializar o hardware e carregar o sistema operacional. Ela tem como sua principal função identificar todos os componentes conectados à placa-mãe, as informações salvas no **CMOS** — que armazena os parâmetros de configuração da placa, acessíveis pelo setup, as unidades de disco e a ordem de *boot* dos dispositivos. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional, o **bootloader** que inicia o kernel. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações de memória ou funções do hardware (como luz de teclado em notebooks por exemplo), configurar ou desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo). Assim, diferente do firmware — que não dá nenhum controle ao usuário sobre as funções do hardware, na BIOS o usuário tem todo o controle do hardware e suas configurações. Na maioria das vezes sua interface pode ser acessada de acordo com as especificações do fabricante quanto a tecla de entrada, mas sempre é feita durante a inicialização do sistema.<br/>
+ Quando o micro é ligado é comum nos referir a este procedimento como *Boot*, o BIOS realiza uma bateria de testes dos componentes conectados à placa-mãe, tais como: Memória, Processador, Dispositivos I/O, teclado e etc. A esse procedimento é dado o nome de **POST — Power On Self Test**, e, caso haja algum problema com um desses componentes é emitido mensagens de erro relativo ao componente com defeito. No caso de alguns componentes apresentar problemas, como processador, memória, placa de vídeo e etc, são emitidos bipes, que identificam qual componente está com problemas, mas em alguns casos, são emitidas mensagens na tela do computador. Caso esteja tudo em ordem, o BIOS passa o gerenciamento do micro para o Sistema Operacional. O BIOS possui ainda uma outra ferramenta denominada Setup, que é o responsável por uma grande variedade de configurações da placa-mãe, que possibilita várias alterações na sua configuração, por isso é necessário um mínimo de conhecimento das funcionalidades deste programa por parte do usuário, pois, alguma configuração errada ou indevida pode causar problemas na utilização do sistema. A configuração do Setup fica gravada em uma pequena área de uma memória volátil chamada memória **CMOS (Complementary Metal–Oxide–Semiconductor)**, que tem sua energia fornecida por uma pequena bateria fixada à placa-mãe, pois por ser uma memória volátil, precisa da bateria da placa-mãe para manter os dados quando o PC está desligado.
  1. **Setup**: usado para configurar algumas funções do BIOS.
  2. **POST**: é um atoteste de partida, que são diagnósticos e testes realizados nos componentes físicos como o disco rígido, processador e etc, ou seja,  serve para testar as peças do hardware e verificar se o sistema se encontra em estado operacional. Os problemas encontrados são comunicados ao usuário por uma combinação de sons de bipes numa determinada sequência e, se possível, exibidos na tela. O manual do fabricante permite a identificação do problema descrevendo a mensagem que cada sequência de sons representa.
 
@@ -304,11 +380,14 @@ Existem 2 tipos de placas de vídeo:
  Todo hardware tem uma identificação especial chamada endereço de controle de acesso à mídia, ou simplesmente **MAC**. Endereços MAC são usados ​​para identificar exclusivamente o hardware. Eles são atribuídos na fábrica onde o dispositivo é produzido. Um fato interessante sobre endereços MAC é que eles são exclusivos para cada peça de hardware que já foi criada. Novos produtos não compartilharão um endereço MAC com nenhum outro produto, mesmo aqueles que são reciclados ou acabam em aterros sanitários.<br/>
  É uma coisa boa que os dispositivos tenham endereços MAC exclusivos porque, sem eles, os dados que viajam pela Internet podem não conseguir encontrar o lugar certo.
 
- ### Sistemas de Numeração
- Já no que diz respeito à representação de dados, os computadores representam sistemas digitais e, por isso, são compostos por números binários, armazenando e manipulando as informações baseadas em zero e um, também denominados bits. Tudo que inserimos, usamos, fazemos, processamos e recebemos em um computador, em essência é feito através da linguagem que essa máquina entede, a linguagem binária. O sistema de numeração computacional é um conjunto de regras e símbolos usados para representar e manipular números dentro de um computador. Como os computadores trabalham com circuitos eletrônicos que só entendem "ligado" = 1 e "desligado" = 0, eles utilizam sistemas numeŕicos baseados nestes estados. De modo distinto aos seres humanos, que se comunicam pela fala, os computadores realizam essa troca de informações apenas considerando os números zero e um. Tais algarismos formam a linguagem da informática. A base binária é capaz de formar palavras, expressões matemáticas e diversas outras informações. Para formar um número decimal, por exemplo, um conjunto de oito *bits* é utilizado. Tal formação é denominada *byte*.
+ ### Representação da Informação
+ Já no que diz respeito à representação de dados, os computadores representam sistemas digitais e, por isso, são compostos por números binários, armazenando e manipulando as informações baseadas em zero e um, também denominados bits. Tudo que inserimos, usamos, fazemos, processamos e recebemos em um computador, em essência é feito através da linguagem que essa máquina entede, a linguagem binária. O sistema de numeração computacional é um conjunto de regras e símbolos usados para representar e manipular números dentro de um computador. Como os computadores trabalham com circuitos eletrônicos que só entendem "ligado" = 1 e "desligado" = 0, eles utilizam sistemas numeŕicos baseados nestes estados. De modo distinto aos seres humanos, que se comunicam pela fala, os computadores realizam essa troca de informações apenas considerando os números zero e um. Tais algarismos formam a linguagem da informática. A base binária é capaz de formar palavras, expressões matemáticas e diversas outras informações. O bit é a menor unidade de informação reconhecida pelo computador, e é representado pelos valores lógicos 0 ou 1. Para formar um número decimal, por exemplo, um conjunto de oito *bits* é utilizado, tal formação é denominada *byte*.<br/>
 
- #### 1. Sistemas de Numeração<br/>
- Sistemas Numéricos Computacionais.
+ #### 1. Sistemas de Numeração<br/>Sistemas Numéricos Computacionais
+ Os circuito integrados (CIs) possuem uma grande quantidade de chips compostos por milhões de transistores miniaturizados, interconectados em uma única pastilha de silício. Esses circuitos podem desempenhar diversas funções, como processamento de dados, armazenamento, amplificação de sinais e controle de dispositivos eletrônicos. Então, quando um destes transistores está carregado com uma determinada voltagem, é possível identificar referente à qual bit corresponde. Normalmente, a tensão de 5,0V corresponde ao bit 1 (ligado), e a falta de tensão, ou seja, 0V, corresponde ao bit 0 (desligado). Um único bit não é suficiente para representar uma informação, é necessário uma sequência de 8 bits dispostos em uma certa ordem, denominada Byte. O Byte pode representar até 256 caracteres (letra, número, símbolos, ou funções entendidas pelo computador). Quando pressionamos uma determinada tecla, é gerado um código que será interpretado pelo processador e então exibido o caractere respectivo na tela do computador. Por exemplo, quando pressionamos o número “1”, são emitidos sinais elétricos que formam uma sequência de bits (00110001), onde o CI do teclado enviará estes dados ao processador, será então processado e depois a informação será enviada ao CI da placa de vídeo para que possa ser exibida na tela do computador. Podemos ver abaixo a representação binária do número “1”:
+
+ ![Image](https://github.com/user-attachments/assets/c5cdb6cd-d123-430f-8227-134b7ceef266)
+
   ##### Bits e Bytes
 
   * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 (aberto) ou 1 (fechado).<br/>
@@ -338,6 +417,7 @@ Existem 2 tipos de placas de vídeo:
 └────────────┴────────────┘
 </pre>
  #### Grandezas de Armazenamento de Informação
+ A partir desta denominação foram criados termos de medidas para quantificar um tamanho ou capacidade de armazenamento, como por exemplo: a capacidade de armazenamento de um determinado dispositivo; o tamanho de um arquivo; taxas de transmissão entre dispositivos e etc.
 
  ##### Número de Bits:
   Se você tem um número de bytes, multiplicar o número de bytes por 8 dá o número de bits.
@@ -351,17 +431,95 @@ Existem 2 tipos de placas de vídeo:
     Exemplo: Se você tem 32 bits, o número de bytes é:<br/>
     32 / 8 = 4 bytes
 
-<pre>
-      ESPAÇO      UNIDADE DE MEDIDA   NÚMERO DE CARACTERES
-      8 Bits           1 BYTE                  1
-    1.024 Bytes      1 KILOBYTE              1.024
-  1.024 Kilobytes    1 MEGABYTE            1.048.576
-  1.024 Megabytes    1 GIGABYTE          1.073.741.824
-  1.024 Gigabytes    1 TERABYTE          1.099511628¹²
-</pre>
+<table border="1">
+  <tr>
+    <th>UNIDADE</th>
+    <th>ABREVIAÇÃO</th>
+    <th>VALOR</th>
+  </tr>
+  <tr>
+    <td>bit</td>
+    <td>b</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Byte</td>
+    <td>B</td>
+    <td>8 bits</td>
+  </tr>
+  <tr>
+    <td>KiloByte</td>
+    <td>KB</td>
+    <td>1024 KiloBytes</td>
+  </tr>
+  <tr>
+    <td>MegaByte</td>
+    <td>MB</td>
+    <td>1024 MegaBytes</td>
+  </tr>
+  <tr>
+    <td>GygaByte</td>
+    <td>GB</td>
+    <td>1024 GygaBytes</td>
+  </tr>
+  <tr>
+    <td>TeraByte</td>
+    <td>TB</td>
+    <td>1024 TeraBytes</td>
+  </tr>
+  <tr>
+    <td>PetaByte</td>
+    <td>PB</td>
+    <td>1024 PetaBytes</td>
+  </tr>
+  <tr>
+    <td>ExaByte</td>
+    <td>EB</td>
+    <td>1024 ExaBytes</td>
+  </tr>
+  <tr>
+    <td>ZettaByte</td>
+    <td>ZB</td>
+    <td>1024 ZettaBytes</td>
+  </tr>
+  <tr>
+    <td>YottaByte</td>
+    <td>YB</td>
+    <td>1024 YottaBytes</td>
+  </tr>
+  <tr>
+    <th>ESPAÇO</th>
+    <th>UNIDADE DE MEDIDA</th>
+    <th>NÚMERO DE CARACTERES</th>
+  </tr>
+  <tr>
+    <td>8 Bits</td>
+    <td>1 BYTE</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1.024 Bytes</td>
+    <td>1 KILOBYTE</td>
+    <td>1.024</td>
+  </tr>
+  <tr>
+    <td>1.024 Kilobytes</td>
+    <td>1 MEGABYTE</td>
+    <td>1.048.576</td>
+  </tr>
+  <tr>
+    <td>1.024 Megabytes</td>
+    <td>1 GIGABYTE</td>
+    <td>1.073.741.824</td>
+  </tr>
+  <tr>
+    <td>1.024 Gigabytes</td>
+    <td>1 TERABYTE</td>
+    <td>1.099.511.627.776</td>
+  </tr>
+</table>
 
  #### Sistemas Numéricos
-
  A quantidade de algarismos disponíveis num sistema de numeração designa-se de BASE, que significa que cada dígito representa uma potência:
   - **Binário (base 2)**: 0, 1
   - **Octal (base 8)**: 0, 1, 2, 3, 4, 5, 6, 7
@@ -554,7 +712,7 @@ Existem 2 tipos de placas de vídeo:
   └──────┘
 </pre>
  ##### Sistema Hexadecimal
-  Muito utilizado na programação de microprocessadores, especialmente nos equipamentos de estudo e sistemas de desenvolvimento. Uitliza os símbolos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9 do sistema decimal e as letras A = 10, B = 11, C = 12, D = 13, E = 14 e F = 15. Esse sistema é frequentemente usado em programação para representar endereços de memória e valores de cores em HTML/CSS (como #FF5733, que representa um tom específico de laranja), é útil para representar grandes números binários de uma maneira mais compacta.
+  Muito utilizado na programação de microprocessadores, especialmente nos equipamentos de estudo e sistemas de desenvolvimento. Uitliza os símbolos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9 do sistema decimal e as letras A = 10, B = 11, C = 12, D = 13, E = 14 e F = 15. Esse sistema é frequentemente usado em programação para representar endereços de memória e valores de cores em HTML/CSS (como `#FF5733`, que representa um tom específico de laranja), é útil para representar grandes números binários de uma maneira mais compacta.
 
   Exemplo: 10101100 em binário é AC em hexadecimal.
   
