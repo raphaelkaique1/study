@@ -98,37 +98,100 @@ Em termos de hardware, um SO é a porção de software que roda em modo núcleo 
                                     | CASCA |     | NÚCLEO |
                                     └───────┘     └────────┘
 </pre>
+### Particionamento
+**Os Discos rígidos possibilitam a divisão e criação de uma ou várias unidades de menor tamanho.** Quando criamos mais de uma partição, é como se existisse mais de 1 Disco instalado no computador e cada partição é representada por um identificador.<br/>
+Para que seja possível a formatação do Disco, é necessário primeiro a criação de *unidades lógicas*, que é o que possibilita o SO reconhecer o Disco como uma **unidade de armazenamento**. Neste processo, as informações referentes às partições como seu tipo, endereço de início e final de cada partição são gravadas na **primeira trilha do HD**, chamada *Trilha 0*, esta primeira trilha dentro do HD é responsável por armazenar informações de inicialização dos SOs, controle de boot, tabelas de partição, informações dos Sistemas de Arquivos e informações de endereçamento dos arquivos e programas gravados no HD, em uma área chamada **Tabela de Partições**.<br/>
+A necessidade da criação de várias partições pode ser pode ser para a instalação de mais de um SO ou para a organização dos arquivos por exemplo, onde em uma partição instalamos o SO e na outra ficam armazenados os arquivos, e a vantagem disso é que podemos formatar apenas a partição com o SO, caso seja necessário sua reinstalação, sem precisar fazer a formatação da outra partição e, consequentemente, apagar todos os dados.<br/>
+As unidades de instalação dos SOs possuem programas auxiliares que permitem o particionamento do HD, mas é possível também fazer o particionamento a partir de sofwares específicos, tais como: Partition Magic, Gparted (Linux) e etc.
+
+### Sistema de Arquivos
+Com o HD particionado, é necessário formatar a partição na qual será instalado o SO. **Formatar é o processo de dividir uma determinada partição em setores endereçáveis, de forma que seja possível gravar dados neste setores e posteriormente poder acessá-los de forma organizada.** O resultado final deste processo será a criação do **Sistema de Arquivos**, *que consiste em estruturas lógicas que possibilitam ao SO gerenciar a partição de forma organizada e otimizada*. Os mais comuns padrões de formatação de unidades de armazenamento de arquivos utilizados para SO são:
+- **ext2**: Para partições GNU/Linux usando o Extended File System versão 2 (a mais comum).
+- **ext3**: Para partições GNU/Linux usando o Extended File System versão 3, com suporte a journalig.
+- **ext4**: Para partições GNU/Linux usando o Extended File System versão 4, melhorias em relação ao ext3, como o delayed allocation para melhor desempenho e com suporte a journalig.
+- **XFS**: Melhor escalabilidade do que ext4, com suporte a journaling.
+- **Btrfs**: Snapshots nativos, permitindo rollback de alterações rapidamente, com RAID embutido, sem necessidade de hardware dedicado e Checksums para integridade de dados, evitando corrupção silenciosa. Particionamento flexível, permitindo redimensionamento dinâmico.
+- **reiserFS**: Para partições reiserFS, com suporte a journaling.
+- **iso9660**: Padrão para montar unidades de CD-ROM.
+- **FAT 12**: Utilizado por disquetes.
+- **FAT 15**: MS-DOS, Windows 95, Windows 95 osr/2, Windows 98 e Windows NT.
+- **FAT 32**: Windows 95 osr/2, Windows 98, Windows 98 SE, Windows ME e Windows 2000.
+- **NTFS**: Windows NT, Windows 2000, Windows XP, Windos Vista e Windows 7.
+- **vfat**: Para partições Windows 95 que utilizam nomes extensos de arquivos e diretórios.
+- **msdos**: Para partições DOS normais.
+- **HPFS**: OS/2 - IBM OS.
+
+**journaling: Serviço que coleta e armazena logs do sistema e mensagens de eventos, ele é parte do systemd, que é um sistema de gerenciamento de serviços e processos para Linux.*
+
+### Dispositivos
+Os dispositivos no sistema GNU/Linux são acessados através do diretório `/dev`, onde dispotivos físicos são tratados como um tipo especial de arquivos no Sistema de Arquivos Linux. Esses dispositivos incluem: discos rígidos, SSDs, portas seriais, dispositivos USB, áudio, vídeo e muito mais.
+
+| **Linux**             | **Windows** | **Descrição**                                |
+|-----------------------|-------------|----------------------------------------------|
+| **/dev/sda1**         | **C:**      | Primeira partição do primeiro disco SATA/SSD |
+| **/dev/sda2**         | **D:**      | Segunda partição do primeiro disco SATA/SSD  |
+| **/dev/nvme0n1p1**    | **C:**      | Primeira partição de um SSD NVMe             |
+| **/dev/ttyS0**        | **COM1**    | Porta serial 1                               |
+| **/dev/ttyS1**        | **COM2**    | Porta serial 2                               |
+| **/dev/lp0**          | **LPT1**    | Porta paralela (impressora)                  |
+| **/dev/snd/**         |             | Dispositivos de áudio gerenciados por ALSA   |
+| **/dev/input/mouse0** |             | Mouse conectado ao sistema                   |
+
+A identificação de discos rígidos no GNU/Linux é feita da seguinte forma:
+<pre>
+/dev/sda1 - Primary SATA/SCSI 1 partition disk    /dev/sdb1 - Primary SATA/SCSI 2 partition disk
+/dev/sda2 - Secondary SATA/SCSI 1 partition disk  /dev/sdb2 - Secondary SATA/SCSI 2 partition disk
+         ^                                            ^
+         └──────────────────┐      ┌──────────────────┘
+             ┌──────────────┼──────┼──────────────┐
+             │ PLACA MÃE  ┌─┴─┐  ┌─┴─┐            │
+             │            │   │  │   │            │
+             │    sda1<─┐ │   │  │   │ ┌─>sdb1    │
+             │          ├─┤   │  │   ├─┤          │
+             │    sda2<─┘ │   │  │   │ └─>sdb2    │
+             │            │   │  │   │            │
+             │            └───┘  └───┘            │
+             │            SATA1  SATA2            │
+             │                                    │
+     *Representação gráfica da placa mãe e barramentos SATA
+
+/dev/sda1
+ │   │ │└ Número que identifica a partição no HD/SSD
+ │   │ └ Letra que identifica o HD/SSD (a=primeiro, b=segundo, etc...)
+ │   └ Sigla que identifica o tipo do HD/SSD (hd=ide, sd=SCSI)
+ └ Diretório onde são armazenados os arquivos usados para acessar dispositivos existentes no sistema
+</pre>
 
 O sistema GNU/Linux possui a seguinte estrutura básica de diretórios:
 <pre>
                                                         ┌───┐
                                                         │ / │
                                                         └─┬─┘
-             ┌────────┬────────┬────────┬─────────┬───────┴────────┬────────┬─────────┬────────┬────────┐
-         ┌───┴──┐ ┌───┴──┐ ┌───┴──┐ ┌───┴───┐ ┌───┴──┐         ┌───┴──┐ ┌───┴───┐ ┌───┴──┐ ┌───┴──┐ ┌───┴──┐
-     ┌───┤ /bin │ │ /usr │ │ /etc │ │ /home │ │ /lib ├───┐     │ /mnt │ │ /sbin │ │ /tmp │ │ /dev │ │ /dev │
-     v   └──────┘ └───┬──┘ └──────┘ └───┬───┘ └──────┘   v     └──────┘ └───────┘ └──────┘ └──────┘ └───┬──┘
- /usr/bin        ┌────┴───┐         ┌───┴──┐          /usr/lib                                     ┌────┴─────┐
-                 │/usr/lib│         │ Name │                                                       │ /var/adm │
-                 └────┬───┘         └───┬──┘                                                       └────┬─────┘
-                ┌─────┴────┐      ┌─────┴─────┐                                                    ┌────┴─────┐
-                │/usr/local│      │ file.type │                                                    │ /var/tmp │
-                └─────┬────┘      └───────────┘                                                    └────┬─────┘
-              ┌───────┴──────┐                                                                    ┌─────┴──────┐
-              │/usr/local/bin│                                                                    │ /var/spool │
-              └───────┬──────┘                                                                    └─────┬──────┘
-              ┌───────┴──────┐                                                                 ┌────────┴────────┐
-              │/usr/local/lib│                                                                 │ /var/spool/cron │
-              └──────────────┘                                                                 └────────┬────────┘
-                                                                                               ┌────────┴────────┐
-                                                                                               │ /var/spool/lock │
-                                                                                               └────────┬────────┘
-                                                                                               ┌────────┴───────┐
-                                                                                               │ /var/spool/lpd │
-                                                                                               └────────┬───────┘
-                                                                                               ┌────────┴────────┐
-                                                                                               │ /var/spool/mail │
-                                                                                               └─────────────────┘
+             ┌────────┬────────┬────────┬─────────┬───────┴────────┬────────┬─────────┬───────┐
+         ┌───┴──┐ ┌───┴──┐ ┌───┴──┐ ┌───┴───┐ ┌───┴──┐         ┌───┴──┐ ┌───┴───┐ ┌───┴──┐┌───┴──┐
+     ┌───┤ /bin │ │ /usr │ │ /etc │ │ /home │ │ /lib ├───┐     │ /mnt │ │ /sbin │ │ /tmp ││ /dev │
+     v   └──────┘ └───┬──┘ └──────┘ └───┬───┘ └──────┘   v     └──────┘ └───────┘ └──────┘└───┬──┘
+ /usr/bin        ┌────┴───┐         ┌───┴──┐          /usr/lib                           ┌────┴─────┐
+                 │/usr/lib│         │ Name │                                             │ /var/adm │
+                 └────┬───┘         └───┬──┘                                             └────┬─────┘
+                ┌─────┴────┐      ┌─────┴─────┐                                          ┌────┴─────┐
+                │/usr/local│      │ file.type │                                          │ /var/tmp │
+                └─────┬────┘      └───────────┘                                          └────┬─────┘
+              ┌───────┴──────┐                                                          ┌─────┴──────┐
+              │/usr/local/bin│                                                          │ /var/spool │
+              └───────┬──────┘                                                          └─────┬──────┘
+              ┌───────┴──────┐                                                       ┌────────┴────────┐
+              │/usr/local/lib│                                                       │ /var/spool/cron │
+              └──────────────┘                                                       └────────┬────────┘
+                                                                                     ┌────────┴────────┐
+                                                                                     │ /var/spool/lock │
+                                                                                     └────────┬────────┘
+                                                                                     ┌────────┴───────┐
+                                                                                     │ /var/spool/lpd │
+                                                                                     └────────┬───────┘
+                                                                                     ┌────────┴────────┐
+                                                                                     │ /var/spool/mail │
+                                                                                     └─────────────────┘
 </pre>
 
 **/** - Diretório principal (raiz)<br/>
@@ -147,57 +210,7 @@ O sistema GNU/Linux possui a seguinte estrutura básica de diretórios:
 **/var** - Contém maior parte dos arquivos que são gravados com frequência pelos programas do sistema, e-mails, spool de impressora, cache, etc<br/>
 **/lib** - Bibliotecas compartilhadas pelos programas do sistema e módulos do kernel<br/>
 **/lost+found** - Local para a gravação de arquivos/diretórios recuperados pelo utilitário fsck.ext2, cada partição possui seu próprio diretório lost+found<br/>
-**/proc** - Sistema de arquivos do kernel, este diretório não existe em seu HD/SSD, ele é colocado lá pelo kernel e usado por diversos programas que fazem sua leitura, verificam configurações do sistema ou modificar o funcionamento de dispositivos do sistema através de alterações em seus arquivos
-
-### Sistema de arquivos
-- **ext2**: Para partições GNU/Linux usando o Extended File System versão 2 (a mais comum)
-- **ext3**: Para partições GNU/Linux usando o Extended File System versão 3, com suporte a journalig
-- **reiserfs**: Para partições resiserfs, com suporte a journaling
-- **vfat**: Para partições Windows 95 que utilizam nomes extensos de arquivos e diretórios
-- **msdos**: Para partições DOS normais
-- **iso9660**: Padrão para montar unidades de CD-ROM
-
-**journaling: Serviço que coleta e armazena logs do sistema e mensagens de eventos, ele é parte do systemd, que é um sistema de gerenciamento de serviços e processos para Linux*
-
-### Dispositivos
- Os nomes de dispositivos no sistema GNU/Linux são acessados através do diretório onde esses dispotivos físicos são tratados como arquivos. Estes arquivos são um tipo especial no sistema de arquivos Linux. Esses dispositivos são: impressoras, CD-ROMs, modems, entradas USB, mouse, HD/SSDs, etc.
-
-**Linux | Windows**<br/>
-**/dev/hda1 | C:** - Partição 1 da IDE primária Master<br/>
-**/dev/hda2 | D:** - Partição 2 da IDE primária Master<br/>
-**/dev/ttyS0 | COM1** - Porta serial 1<br/>
-**/dev/ttyS1 | COM2** - Porta serial 2<br/>
-**/dev/ttyS2 | COM3** - Porta serial 3<br/>
-**/dev/ttyS3 | COM4** - Porta serial 4<br/>
-**/dev/fd0 | disquete** - Drive A<br/>
-**/dev/lp0 | LPT1** - Porta parelela - impressora<br/>
-**/dev/dsp** - Acesso à placa de som pelo canal digital<br/>
-**/dev/mixer** - Acesso ao mixer da placa de som
-
-A identificação de discos rígidos no GNU/Linux é feita da seguinte forma:
-<pre>
-/dev/hda - Primary Master              /dev/hdc - Secundary Master
-/dev/hdb - Primary Slave               /dev/hdd - Secundary Slave
-         ^                                      ^
-         └──────────────────┐      ┌────────────┘
-             ┌──────────────┼──────┼──────────────┐
-             │ PLACA MÃE  ┌─┴─┐  ┌─┴─┐            │
-             │            │   │  │   │            │
-             │            │   │  │   │            │
-             │ hda <──┬───┤   │  │   ├──┬───> hdc │
-             │        v   │   │  │   │  v         │
-             │       hdb  │   │  │   │ hdd        │
-             │            └───┘  └───┘            │
-             │             IDE1   IDE2            │
-             │                                    │
-     *Representação gráfica da placa mãe e barramentos IDE
-
-/dev/hda1
- │   │ │└ Número que identifica a partição no HD/SSD
- │   │ └ Letra que identifica o HD/SSD (a=primeiro, b=segundo, etc...)
- │   └ Sigla que identifica o tipo do HD/SSD (hd=ide, sd=SCSI)
- └ Diretório onde são armazenados os arquivos usados para acessar dispositivos existentes no sistema
-</pre>
+**/proc** - Sistema de arquivos do kernel, este diretório não existe no HD/SSD, ele é colocado lá pelo kernel e usado por diversos programas que fazem sua leitura, verificam configurações do sistema ou modificar o funcionamento de dispositivos do sistema através de alterações em seus arquivos
 
 ## Driver
 Quando instalamos um novo Hardware no computador é necessário que o Sistema Operacional gerencie o funcionamento deste Hardware com todos os seus recursos. Esta responsabilidade é de um software especial denominado Driver, que tem a função de realizar a comunicação entre o Hardware e o SO. Um driver é um software que atua como uma ponte entre o sistema operacional e um hardware específico. Ele permite que o sistema operacional se comunique corretamente com dispositivos como impressoras, placas de vídeo, teclados, discos rígidos, entre outros. Quando um programa precisa interagir com um hardware, por exemplo, imprimir um documento, ele envia a solicitação ao sistema operacional, que repassa essa solicitação ao driver correspondente. O driver, por sua vez, traduz essa solicitação em comandos que o hardware entende e executa.<br/>
