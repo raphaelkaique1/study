@@ -302,7 +302,7 @@ Já no padrão NLX o conector para a placa de expansão está localizado em uma 
 Quanto ao tipo de Placas-Mãe, existem vários modelos, porém, os modelos mais encontrados atualmente são: AT (Advanced Technology) e ATX (Advanced Technology Extended).
 
 ##### Barramentos
-Os barramentos são vias de comunicação entr os diversos componentes da placa-mãe. Houve uma grande evolução dos barramentos desde o surgimento com os slots ISA e as portas seriais até os slots PCI Express e portas USB 3.0.<br/>
+Os barramentos, também chamados de trilhas eletrônicas, são vias de comunicação entre os diversos componentes da placa-mãe. Essa comunicação é feita usando de sinais em forma de pulsos elétricos que devem ser transmitidos através de um meio físico, neste caso, o **BUS**. Houve uma grande evolução dos barramentos desde o surgimento com os slots ISA e as portas seriais até os slots PCI Express e portas USB 3.0.<br/>
 O grande problema do surgimento de novos barramentos é que quase sempre os dispositivos são incompatíveis com a versão anterior, o que obriga o usuário a descartar um componente não por algum defeito, mas sim por simples problema de incompatibilidade. Um exemplo disso são as placas de vídeo para barramento AGP e as novas PCI Express 16x.<br/>
 **Apesar de possuírem o mesmo nome, não podemos confundir _barramentos_ com _slots_:**
 - **barramentos**: são as vias de comunicação entre os dispositivos através de impulsos elétricos.
@@ -318,7 +318,8 @@ São os barramentos responsáveis por possibilitar a conexão de placas de expan
   - ISA (Industry Standard Architecture)
   - EISA (Extend Industry Standard Architecture)
   - VLB (Vesa Local Bus – VESA)
-  - AMR (Audio and Modem Riser) e CNR (Communications and network Riser)
+  - AMR (Audio and Modem Riser)
+  - CNR (Communications and network Riser)
   - PCI (Peripherical Component Interconect)
   - AGP (Accelerated Graphics Port)
   - PCIe – Express
@@ -336,10 +337,10 @@ Outro componente é o **slot**. O barramento é a maneira mais comum de conectar
    - **DIMM — Dual/Double Inline Memory Module: RAM para Desktops**<br/>
    É o padrão de slot mais comum para PCs e servidores, usado para módulos de RAM de tamanho padrão. Ele possui pinos em ambos os lados para comunicação com a placa-mãe. São módulos com 168 vias, daí o nome **DIMM/168**, possuindo contatos nos dois lados do módulo, 84 de cada lado. Trabalham com uma taxa de transferência de 64 bits por ciclo. Possui módulo com capacidade de 32, 64, 128, 256 e 512 MB. Uma de suas características que permite identificar o formato é que possui dois chanfros que subdividem a linha de terminais. Os principais tipos de DIMM são os tipos *Double Data Rate*. São também chamadas **DIMM/184**. Possuem 92 terminais de cada lado. A partir deste formato, os módulos trabalham em sincronia com o processador, o que torna o processo mais rápido. Diferente do módulo de 168 vias, possui apenas um chanfro que separa a linha de terminais. Os tipos de **DIMM/240** são os módulos utilizados nas placas atuais, sendo que as mais recentes estão utilizando o padrão DDR3. Possuem módulos com capacidade que variam entre 256 e 2048 MB. Também possuem apenas um chanfro dividindo a linha de terminais:
      - **DDR - DIMM/168 & DIMM/184**: Primeira geração, já obsoleta.
-     - **DDR2 - DIMM/240**: Velocidade melhorada, mas ainda desatualizada.
+     - **DDR2 - DIMM/204**: Velocidade melhorada, mas ainda desatualizada.
      - **DDR3 - DIMM/240**: Frequências comuns: 1333 MHz a 2133 MHz.
-     - **DDR4 - DIMM/240**: Frequências comuns: 2133 MHz a 3200 MHz+.
-     - **DDR5 - DIMM/240**: Frequências comuns: 4800 MHz a 8400 MHz+.
+     - **DDR4 - DIMM/260**: Frequências comuns: 2133 MHz a 3200 MHz+.
+     - **DDR5 - DIMM/288**: Frequências comuns: 4800 MHz a 8400 MHz+.
    - **SO-DIMM — Small Outline DIMM: RAM para Notebooks**<br/>
    O SO-DIMM é uma versão menor do DIMM, projetada para notebooks, mini PCs e sistemas compactos. Suas versões funcionam igual ao DIMM, mas são produzidos em tamanho reduzido:
      - **DDR2 SO DIMM**
