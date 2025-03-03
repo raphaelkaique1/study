@@ -1,3 +1,66 @@
+# Eletricidade
+Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao invés disso, *eletricidade* está associada a vários fenomênos decorrentes da existência e do fluxo de cargas elétricas.
+
+## Matéria
+**É tudo aquilo que ocupa lugar no espaço**, ou seja, possui volume e massa. O termo *"espaço"* diz respeito a *qualquer lugar onde possa existir possa existir massa ou energia*. Ela pode existir em diferentes estados físicos, sendo sólida, líquida, gasosa ou plasmática, e pode ser composta por diferentes tipos de substâncias, por exemplo a madeira, vidro, água, rocha e ar.
+
+![Image](https://github.com/user-attachments/assets/2a668744-b6ad-4f4d-a659-0854ea7e3a91)
+
+### Substâncias
+Uma substância **é um tipo específico de matéria com composição química e propriedades bem definidas**. Pode ser uma substância pura composta por um único tipo de elemento ou composto químico, ou uma mistura formada por duas ou mais substâncias.
+- **Substância pura**: água destilada (H₂O), ferro (Fe) e oxigênio (O₂).
+- **Mistura**: água do mar (água + sais) e ar atmosférico (nitrogênio, oxigênio e gás carbônico).
+
+As substâncias são formadas por moléculas, e essas por sua vez, são constituídas por átomos. O que define as características de uma substância são os tipos e quantidades de átomos, assim como a forma como estão organizados para constituir as moléculas.
+
+#### Moléculas
+As moléculas são **a menor unidade de uma substância que ainda conserva suas propriedades químicas**. Elas são formadas por dois ou mais átomos ligados quimicamente. Dependendo da composição, podem ser:
+- **Moléculas simples**: compostas por átomos de um único elemento químico. Exemplo: O₂ (oxigênio molecular) e N₂ (nitrogênio molecular).
+- **Moléculas compostas**: formadas por diferentes elementos químicos. Exemplo: H₂O (água) e CO₂ (dióxido de carbono).
+
+A forma como os átomos estão ligados dentro das moléculas influencia diretamente suas propriedades físicas e químicas, como seu estado físico, solubilidade e reatividade.
+
+#### Átomos
+O átomo **é a menor unidade fundamental da matéria que ainda conserva as propriedades químicas de um elemento**. Ele é formado por 3 tipos de partículas subatômicas:
+- **Nêutrons**: Partículas sem carga elétrica localizadas no núcleo.
+- **Prótons**: Partículas com carga positiva (+), também localizadas no núcleo.
+- **Elétrons**: Partículas com carga negativa (-) que orbitam ao redor do núcleo.
+
+Quando um átomo possui um maior número de elétrons do que prótons, ele é considerado negativo, do contrário é considerado positivo, e, se o número de elétrons for igual ao de prótons ele é considerado neutro. É possível retirar ou acrescentar elétrons dos átomos, este processo é chamado de **ionização**. Quando isso ocorre, passará a existir uma diferença de cargas elétricas no átomo, e dessa forma ele estará *ionizado*, que é o mesmo que dizer **eletrizado**. Um átomo nunca poderá perder ou ganhar prótons, isso porque estão localizados no núclo do átomo, é possível alterar apenas os elétrons por estarem na **elestrosfera**.<br/>
+Os átomos se organizam na Tabela Periódica dos Elementos, onde cada elemento químico é definido pelo seu número atômico, que é a quantidade de prótons. Quando os átomos se ligam entre si, formam moléculas ou redes cristalinas, resultando na imensa diversidade de substâncias e materiais existentes na natureza.
+
+## Grandezas Elétricas
+Na eletricidade, existem algumas grandezas fundamentais que descrevem os fenômenos elétricos e suas interações. As principais são:
+- **Tensão**: A tensão elétrica, também chamada de **diferença de potencial — DDP** ou *voltagem*, é a força que impulsiona os elétrons pelo condutor. Ela é medida em volts (V) e pode ser gerada por fontes como pilhas, baterias e geradores. *Diferença de potencial* e *tensão elétrica* são a mesma coisa, ou seja, é a força que move os elétrons.
+- **Corrente**: A corrente elétrica é o fluxo ordenado de elétrons em um meio condutor. Para que este movimento possa existir, basta unir 2 corpos com cargas elétricas diferentes, um positivo e outro negativo. Quando ocorre essa diferença, há o que é chamado de *diferença de potencial*. A DDP ocorre quando há falta de elétrons (-) em um ponto e o excesso de elétrons (-) em outro. Para que possa existir corrente elétrica em um fio ou outro meio condutor, é necessário haver entre suas extremidades uma diferença de potencial, onde, a movimentação dos elétrons se dá do ponto de maior potencial para o ponto de menor potencial. A intensidade da corrente elétrica é a quantidade de elétrons, ou também *carga*, que se movimentam em um meio condutor por um período de tempo, essa medida é dada em ampères (A).
+- **Resistência**: A resistência elétrica é a oposição que as cargas elétricas encontram para atravessar o material do meio condutor, é a condutibilidade que ele oferece ao fluxo de corrente elétrica, dependendo do material pode ser de maior ou menor condutibilidade. Quanto maior a resistência, menor será a corrente que passará pelo condutor e menor também será a tensão (intensidade). A resistência é medida em ohms (Ω).
+- **Potência**: A relação entre a tensão (V), corrente (A) e resistência (Ω) é descrita pela Lei de Ohm: **`V = Ω x A`**. Essa equação mostra que a tensão aplicada a um circuito é proporcional à corrente que passa pelo condutor e à sua resistência. Quando fazemos um exercício físico, o corpo consome energia em forma de calorias, sem essas calorias nas quantidades necessárias, não será possível realizar com eficiência os exercícios, mas com a quantidade certa, podemos aumentar a potência do corpo para a realização das atividades. Assim também são os componentes eletrônicos, a diferença é que não consomem calorias, e sim, energia elétrica. Eles precisam de uma certa quantidade de energia elétrica para funcionar. A potência elétrica representa a quantidade de energia elétrica convertida em outra forma de energia como luz, calor ou movimento por unidade de tempo, e é calculada pela fórmula: **`W = V x A`**. A potência elétrica é um fator importante na determinação do consumo de energia de um dispositivo elétrico. Ela é medida em watts (W), que é a quantidade de energia em joule, que é convertido, usado ou dissipado em 1 segundo, ou seja, 1w é equivalente a 1 J/s.
+
+Em uma lâmpada conectada a uma tomada por exemplo, os elétrons vem do gerador e fluem pelo filamento, que possui dada resistencia, gerando uma quantidade de potência de luz e calor. Outro exemplo é um chuveiro elétrico, que é conectado à rede elétrica da casa e possui uma resistência que limita a passagem da corrente, convertendo energia elétrica em calor a uma certa potência para aquecer a água (e não fervê-la ou vaporizá-la).
+
+De forma resumida, podemos dizer que:
+- **Tensão — Volt (V)**: é a diferença de potencial entre 2 pontos.
+- **Corrente — Ampere (A)**: é o movimento ordenado dos elétrons. É a medida da intensidade da corrente.
+- **Resistência — Ohm (Ω)**: é a oposição oferecida à passagem da corrente elétrica.
+- **Potência — Watt (W)**: é a quantidade de energia elétrica que um componente eletrônico precisa para funcionar.
+
+![Image](https://github.com/user-attachments/assets/9ecf541e-d3ce-4839-b6f5-a3cc65f6e2c9)
+
+![Image](https://github.com/user-attachments/assets/9b6ef5a6-a48b-4179-aa68-cece5714f5d4)<br/>
+**Quanto maior a tensão, maior a corrente.*
+
+### Tipos de Corrente
+A corrente elétrica pode ser classificada de acordo com o seu comportamento ao longo do tempo. Os principais tipos são:
+1. **Contínua — DC ou CC**<br/>
+A corrente contínua é aquela cujo sentido de fluxo dos elétrons é sempre o mesmo, ou seja, não muda com o tempo e possui uma polaridade bem definida. Nesse tipo de corrente, a tensão elétrica também permanece constante (ou varia muito lentamente). Podemos ver alguns exemplos em pilhas e baterias, painés solares e fontes de alimentação para eletrônicos como por exemplo carregadores de celular.
+![Image](https://github.com/user-attachments/assets/e4d2875c-e0f7-4651-b791-0787928d4cc1)
+2. **Alternada — AC ou CA**<br/>
+A corrente alternada é caracterizada pela inversão periódica do sentido do fluxo dos elétrons. Isso significa que ela muda de direção em intervalos regulares constantes, geralmente em forma de uma onda senoidal. A tensão também oscila entre valores positivos e negativos. É ideal para transferência de energia a longas distâncias por oferecer menor perda de energia e a possibilidade de abaixar ou aumentar facilmente a tensão por meio dos transformadores, alguns exemplos no dia a dia está na energia elétrica distribuída pelas concessionárias para residências e indústrias (110V ou 220V em 60Hz no Brasil), geradores elétricos em usinas hidrelétricas e motores elétricos. Os custos envolvidos nestas operações são menores.
+![Image](https://github.com/user-attachments/assets/b667fb98-14f1-44c9-8274-edb109d2dcb4)
+3. **Pulsante**<br/>
+A corrente pulsante é uma forma intermediária entre a corrente contínua e a alternada. Ela não muda de direção como a corrente contínua, mas sua intensidade varia ao longo do tempo assim como a alternada, apresentando picos e quedas. O circuito elétrico de tensão responsável pela criação dessa corrente é o **circuito retificador**. Ele recebe a corrente alternada e a converte em corrente contínua pulsante, e para isso ser possível, este circuito conta com elementos semi-condutores tais como os diodos, um transformador entre outros. É principalmente usada em circuitos de alimentação de alguns dispositivos eletrônicos.
+![Image](https://github.com/user-attachments/assets/06f236ed-e4ba-43e4-9fe4-27d20ccc1ae6)
+
 # Arquitetura de Computadores
 Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador. Aprofundando um pouco, é um equipamento composto por uma série de circuitos eletrônicos capaz de receber, armazenar, comparar, combinar, processar e exibir uma determinada informação com elevada velocidade.<br/>
 Basicamente tem a função de receber dados através de dispositivos de entrada, processar e retornar estes dados, agora denominados como Informação através de algum dispositivo de saída. Estes dados de entrada, processamento e o retorno da informação, normalmente se dão através de softwares que usam a capacidade do hardware para a execução de tais tarefas.
@@ -25,17 +88,19 @@ Atualmente existe uma grande quantidade de dispositivos que nos possibilitam uti
 Em 1981 a empresa IBM lança um modelo de microcomputador, chamado **PC – Personal Computer** que revolucionou o mercado de microcomputadores, pois este novo padrão possibilitou o desenvolvimento de computadores montados com componentes de fabricantes diferentes. Portanto, hoje podemos dizer que a grande maioria das empresas do ramo de fabricação de computadores atua como “montadoras” de computadores. Daí o termo Arquitetura Aberta.<br/>
 Os diferentes fabricantes dos diversos componentes de um computador seguem padrões que possibilitam a conexão de um dispositivo de um determinado fabricante ao dispositivo de outro fabricante, como por exemplo, uma placa-mãe da marca ASUS utilizando um processador Intel ou AMD. Isso facilita muito caso o usuário queira adquirir um componente para aumentar o desempenho do seu computador, pois poderá adquirir um componente de menor preço equivalente ao de maior preço ou marca mais conhecida. Além da possibilidade de podermos montar nosso próprio computador adquirindo componentes avulsos.
 
- ## 1. Conceito de Arquitetura de Computadores
- Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
+## 1. Conceito de Arquitetura de Computadores
+Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
 
- ## 2. Principais Partes de um Computador: Modelo de Von Neumann
- Os componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
-  - **Unidade de Controle - UC**: Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
-  - **Unidade Lógica e Aritmética - ULA**: Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
-  - **Memória**: Armazena dados e programas.
-	 * A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM/HDD) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
-	 * A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. No computador existem alguns tipos de memória, como a memória RAM, que é volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM por exemplo, é "não volátil", armazenando informações permanentes, como a BIOS.
-	 * Os dispositivos de entrada e saída permitem a interação do usuário com o computador. Através do teclado e do mouse, inserimos dados e comandos, enquanto o monitor e a impressora nos fornecem a saída das informações processadas. Os dispositivos de entrada e saída (I/O) interagem com o modelo, mas não fazem parte dos componentes principais.
+## 2. Principais Partes de um Computador: Modelo de Von Neumann
+s componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
+- **Unidade de Controle - UC**: Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
+- **Unidade Lógica e Aritmética - ULA**: Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
+- **Memória**: Armazena dados e programas.
+
+* A unidade de Controle (UC) e a Unidade Lógica e Aritmética (ULA) formam a Unidade Central de Processamento (UCP), ou simplesmente "processador". A Unidade Lógica e Aritmética (ULA), a Unidade de Controle (UC) e a Memória (RAM/ROM/HDD) trabalham em conjunto para executar instruções, processar dados e armazenar informações.
+* A memória - componente crucial nesse processo - guarda os dados e as instruções que serão processados pela CPU. No computador existem alguns tipos de memória, como a memória RAM, que é volátil e rápida, armazena as informações temporariamente enquanto o computador está ligado, enquanto a memória ROM por exemplo, é "não volátil", armazenando informações permanentes, como a BIOS.
+* Os dispositivos de entrada e saída permitem a interação do usuário com o computador. Através do teclado e do mouse, inserimos dados e comandos, enquanto o monitor e a impressora nos fornecem a saída das informações processadas. Os dispositivos de entrada e saída (I/O) interagem com o modelo, mas não fazem parte dos componentes principais.
+
 <pre>
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ SISTEMA CENTRAL                                                              │
@@ -186,90 +251,82 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 
 ![Image](https://github.com/user-attachments/assets/fd520bf3-0d08-4b29-8543-05c7cf17b46e)
 
-###### MICROCONTROLADOR — MCU
+##### MICROCONTROLADOR — MCU
 Diferente de um processador — que é projetado para alto desempenho e processamento — que não possui memória interna e nenhum periférico integrado — e por isso requer componentes externos como RAM, ROM e periféricos para funcionar — o **micro controlador** é um circuito integrado projetado para tarefas específicas e sistemas embarcados que contém processador (CPU), memória (RAM, ROM) e periféricos (GPIO, ADC, PWM e etc) no mesmo chip.<br/>
 É usado em automação e IoT, suas plataformas incluem o ESP32 e STM32 voltados para IoT e automação, e Arduíno ou Raspberry Pi para sistemas embarcados.
 
-##### GPU
+#### GPU
 O processamento gráfico pode ser complexo, por isso muitos computadores têm uma unidade dedidaca ao processamento gráfico. A GPU cria o que vemos em uma tela no monitor. Ela é otimizada para o processamento gráfico, que é relativamente complexo. Enquanto a GPU e a CPU fazem um trabalho semelhante, a GPU tem um foco mais restrito, seu trabalho é produzir imagens em vez de executar todas as operações do sistema.<br/>
 As GPUs são muito rápidas, e, às vezes, chegam a ser mais rápidas que a própria CPU. As GPUs obtêm sua velocidade espalhando uma tarefa de processamento em muitos núcleos. Os núcleos de processamento em uma GPU são especializados principalmente para gráficos, mas também lidam com outras tarefas.<br/>
 Podemos então nos perguntar, já que as GPUs são mais rápidas do que as CPUs, por que os computadores usam CPUs? Por que não construí-los com GPUs que são mais rápidas? Essa na verdade é uma boa pergunta. A resposta é que, a velocidade extra nas GPUs não é "grátis", as peças necessárias para fazer GPUs são mais caras e, se usadas em vez de uma CPU, aumentariam em muito o custo dos computadores. CPUs e GPUs, embora semelhantes em como fazem o que fazem, têm funções únicas. A CPU é construída para fazer o que faz, e o faz muito bem, e usar uma GPU para muitas dessas tarefas seria um exagero.<br/>
 Existem 2 tipos de placas de vídeo:
-  - **onboard**<br/>
-  Placa embarcada, ou seja, a entreada de vídeo fica integrada, embutida com o restante dos componentes. Costumam ter um baixo desempenho comparadas às placas *offboard*, pois são placas usadas para taferas simples.
-  - **offboard**<br/>
-  Placa vendida separadamente e conectada nos *slots*. Tem um desempenho extremamente superior e são direcionadas para uso de softwares que requerem maior processamento e qualidade.
+- **onboard**<br/>
+Placa embarcada, ou seja, a entreada de vídeo fica integrada, embutida com o restante dos componentes. Costumam ter um baixo desempenho comparadas às placas *offboard*, pois são placas usadas para taferas simples.
+- **offboard**<br/>
+Placa vendida separadamente e conectada nos *slots*. Tem um desempenho extremamente superior e são direcionadas para uso de softwares que requerem maior processamento e qualidade.
 
- Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.
+Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.
 
- ##### NIC
- Os computadores precisam ser capazes de se comunicar entre si. O network interface controller, ou NIC, é a parte que lida com a comunicação. Ele envia dados do dispositivo e recupera dados de outras fontes para dar ao dispositivo para fazer o trabalho. Sem adaptadores de rede, tecnologias como a internet não seriam possíveis.<br/>
- Em um único computador, essas partes realizam quantidades incríveis de trabalho. Imagine processar um milhão de instruções a cada segundo. A rede e a computação em nuvem tornaram o poder da computação maior do que nunca.
+#### Mainboard
+Ela é a placa de circuito principal à qual todos os outros componentes internos se conectam, por exemplo, é através de seus barramentos que o processador envia e recebe informações para a memória RAM, assim como entre todos os outros componentes como A CPU, a memória e outros componentes em geral. Outros sistemas podem ser encontrados diretamente na placa-mãe ou conectados a ela através de uma conexão secundária. Por exemplo, uma placa de som pode estar presente na placa-mãe ou a ela ser conectada através do barramento PCI. Assim, processador, memória, placa de vídeo, HD, teclado, mouse e etc, estão ligados diretamente à placa-mãe. Devido ao seu nível de complexidade, é um dos componentes que mais apresenta problemas no computador, por isso que o interessante é instalarmos um modelo de marcas conceituadas, pois a probabilidade de apresentar problemas será menor e, normalmente, terá um maior tempo na sua vida útil. Há uma grande quantidade de fabricantes deste componente, e cada fabricante possui uma grande variedade de modelos. Cada modelo é projetada para dar suporte a um determinado tipo de processador e memória RAM. Ao adquirir uma Placa-Mãe é aconselhável escolher um modelo de um fabricante conceituado e um modelo que de suporte a atualizações futuras de Hardware. Placas de baixa qualidade poderão influenciar no desempenho do computador, além de, normalmente, ter a vida útil bastante reduzida.<br/>
+Ela é o componente que conecta todos os componentes internos e externos, os quais se comunicam com o computador a partir de portas como USB (dispositivos móveis e de armazenamento), PS2 (dispositivos de entrada como mouse e teclado), entradas de vídeo para uso de monitor e dispositívos de saída, como HDMI, VGA e etc.<br/>
+Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
+Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos. A placa-mãe pode variar conforme o modelo e fabricante, mas há componentes que se mantêm:
+- Processador conectado ao *socket*.
+- Memória RAM.
+- Conector IDE/SATA.
+- Bios, armazenado na memória ROM.
+- Chipset: pontes norte e sul.
+- Conectores I/O.
+- Slots de expansão como PCI, ISA, AGP e etc.
+- Bateria.
 
- ##### Chipset
- Grupo de componentes eletrônicos de baixa capacidade em um circuito integrado, usado para gerenciar o fluxo de dados entre o processador, memória e periféricos. Todo *chipset* é dividido em 2 componentes:
- - **ponte norte**: controla os componentes internos *mais rápidos* como o processador, memória, placa de vídeo e os pentes de RAM. Tais informações são enviadas ao disco rígido.
- - **ponte sul**: controla os demais componentes, incluindo os dispositivos de entrada e saída, o disco rígido, as portas de comunicação e os *slots* de expansão.
+Existem alguns diferente tipos e modelos de padrões de placa-mãe:
+- **AT**<br/>
+AT é a sigla para **Advanced Technology**. Trata-se de um tipo de placa mãe já antiga, sendo muito usada entre o início dos anos 80 e final dos anos 90. Um dos fatores que contribuíram para que este padrão deixasse de ser usado — e o ATX fosse criado — foi seu espaço interno reduzido, que, com a instalação dos vários cabos do computador como o *flat cable*, alimentação e etc, dificultavam a circulação de ar, acarretando em alguns casos de dano permanentes à máquina, devido ao super aquecimento. Era exigida grande habilidade do técnico montador para aproveitar o espaço disponível da melhor maneira. Além disso, o conector de alimentação da fonte AT, que é ligado à placa-mãe, é composto por 2 plugs semelhantes, cada um contendo 6 pinos, que devem ser encaixados lado a lado, sendo que os fios de cor preta de cada um devem estar localizados no meio. Caso esse conectores fossem invertidos e a fonte de alimentação ligada, a placa-mãe era fatalmente danificada. Com o padrão AT, é necessário desligar o computador pelo SO, aguardar um alerta informando que o computador já pode ser desligado e clicar no botão "Power". Somente assim o equipamento era desligado, e isso se devia à uma limitação das fontes AT, que não foram projetadas para fazer o uso do recurso de desligamento automático.<br/>
+Estes modelos de placa-mãe são encontrados com sltos ISA, EISA, VESA em seus primeiros modelos, e ISA e PCI nos mais novos, chamados de **baby AT**, por que a placa apresentava um tamanho ainda menor que dos primeiros modelos AT. Havia somente um conector "soldado" na própria placa-mãe, que no caso, é o do teclado que segue o padrão DIN e o mouse utiliza a conexão serial. Posição dos slots de memória RAM e soquete de CPU sempre em uma mesma região na placa-mãe, mesmo quando placas de fabricantes diferentes. Nas placas AT são comuns os slots de memória SIMM ou SDRAM, podendo vir com mais de um dos padrões na mesma placa-mãe. Embora cada um destes tenha de ser utilizado individualmente
+- **ATX**<br/>
+ATX é a sigla para **Advanced Technology Extendend**. Pelo nome, é possível notar que se trata do padrão AT aperfeiçoado. Um dos principais desenvolvedores do ATX foi a Intel. O objetivo do ATX foi de solucionar os problemas citados anteriormente do padrão AT, este novo padrão apresenta uma série de melhorias em relação ao anterior. Atualmente a maioria dos computadores novos vêm baseados neste padrão. Quanto à fonte de alimentação, foram feitas melhoras significativas, a começar pelo conector de energia ligado à placa-mãe. Ao contrário do padrão AT, neste padrão não é possível encaixar o plug de forma invertida, cada orifício do conector possui um formato, o que dificulta o encaixe errado, e, se a placa mãe for alimentada por uma fonte com padrão ATX é possível ligar o computador utilizando um sinal externo como, por exemplo, uma chamada telefônica recebida pelo modem instalado. A posição dos slots de memória RAM e socket de CPU variam a posição conforme o fabricante. Nestas placas serão encontrados slots de memória SDRAM, Rambus, DDR, DDR2 ou DDR3, podendo vir com mais de um dos padrões na mesma placa-mãe. Geralmente os slots de expansão mais encontrados são os PCI, AGP, AMR/CNR e PCI-Express.<br/>
+As placas mais novas vêm com entrada na própria placa-mãe para padrões de disco rígido IDE, Serial ATA ou NVMe, e o gerenciamento de energia quando desligado o micro suporta o uso do comando "shutdown", que permite o desligamento automático do micro sem o uso da chave de desligamento encontrada no gabinete. Entre as principais características do ATX, estão:
+  - Maior espaço interno, proporcionando uma ventilação adequada.
+  - Conectores menores de teclado e mouse no formato mini-DIN PS/2.
+  - Conectores serial e paralelo ligados diretamente na placa-mãe, sem a necessidade de cabos.
+  - Melhor posicionamento do processador, evitando que o mesmo impeça a instalação de placas de expansão por falta de espaço.
+- **ITX**<br/>
+É destinada a computadores altamente integrados e compactados, com a filosofia de oferecer não o computador mais rápido do mercado, mas sim o mais barato, já que na maioria das vezes as pessoas usam um computador para poder navegar na Internet e editar textos. A intenção da placa ITX é ter tudo on-board, ou seja, vídeo, áudio, modem e rede integrados na placa-mãe. Outra diferença dessa placa-mãe está em sua fonte de alimentação. Como possui menos periféricos, reduzindo assim o consumo de energia, sua fonte de alimentação pode ser fisicamente menor, possibilitando montar um computador mais compacto
+- **LPX**<br/>
+As placas padrão LPX possuem uma característica que as torna facilmente identificáveis: Possui uma placa *"em pé"* que se encaixa em uma conexão específica da placa principal. Nesta placa é encaixada as demais placas do computador. Seu principal diferencial é **não ter slots**. *Os slots estão localizados em uma placa a parte*, também chamada **backplane**, que é encaixada à placa-mãe através de um conector especial. Seu tamanho padrão é de 22cm x 33cm. Existe ainda um padrão menor, chamado *Mini LPX*, que mede 25,4cm x 21,8cm. Esse padrão foi criado para permitir PCs mais "finos", já que as placas de expansão em vez de ficarem perpendiculares à placa-mãe — como é o normal, ficam paralelas. Após o padrão de placas-mãe ATX ter sido lançado, uma versão do LPX baseada no ATX foi lançada, chamada **NLX**. Visualmente falando é fácil diferenciar uma placa-mãe LPX de uma NLX.<br/>
+No padrão LPX o conector para a placa de expansão — *backplane* — está localizado no centro da placa-mãe e este é um conector parecido com um slot — conector "fêmea".<br/>
+Já no padrão NLX o conector para a placa de expansão está localizado em uma das laterais da placa, e é um contato de borda contendo 340 pinos, similar ao usado por placas de expansão — ou seja, é um conector "macho".
 
- ##### Mainboard
- Ela é a placa de circuito principal à qual todos os outros componentes internos se conectam, por exemplo, é através de seus barramentos que o processador envia e recebe informações para a memória RAM, assim como entre todos os outros componentes como A CPU, a memória e outros componentes em geral. Outros sistemas podem ser encontrados diretamente na placa-mãe ou conectados a ela através de uma conexão secundária. Por exemplo, uma placa de som pode estar presente na placa-mãe ou a ela ser conectada através do barramento PCI. Assim, processador, memória, placa de vídeo, HD, teclado, mouse e etc, estão ligados diretamente à placa-mãe. Devido ao seu nível de complexidade, é um dos componentes que mais apresenta problemas no computador, por isso que o interessante é instalarmos um modelo de marcas conceituadas, pois a probabilidade de apresentar problemas será menor e, normalmente, terá um maior tempo na sua vida útil. Há uma grande quantidade de fabricantes deste componente, e cada fabricante possui uma grande variedade de modelos. Cada modelo é projetada para dar suporte a um determinado tipo de processador e memória RAM. Ao adquirir uma Placa-Mãe é aconselhável escolher um modelo de um fabricante conceituado e um modelo que de suporte a atualizações futuras de Hardware. Placas de baixa qualidade poderão influenciar no desempenho do computador, além de, normalmente, ter a vida útil bastante reduzida.<br/>
- Ela é o componente que conecta todos os componentes internos e externos, os quais se comunicam com o computador a partir de portas como USB (dispositivos móveis e de armazenamento), PS2 (dispositivos de entrada como mouse e teclado), entradas de vídeo para uso de monitor e dispositívos de saída, como HDMI, VGA e etc.<br/>
- Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
- Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos. A placa-mãe pode variar conforme o modelo e fabricante, mas há componentes que se mantêm:
- - Processador conectado ao *socket*.
- - Memória RAM.
- - Conector IDE/SATA.
- - Bios, armazenado na memória ROM.
- - Chipset: pontes norte e sul.
- - Conectores I/O.
- - Slots de expansão como PCI, ISA, AGP e etc.
- - Bateria.
+Quanto ao tipo de Placas-Mãe, existem vários modelos, porém, os modelos mais encontrados atualmente são: AT (Advanced Technology) e ATX (Advanced Technology Extended).
 
- Existem alguns diferente tipos e modelos de padrões de placa-mãe:
- - **AT**<br/>
- AT é a sigla para **Advanced Technology**. Trata-se de um tipo de placa mãe já antiga, sendo muito usada entre o início dos anos 80 e final dos anos 90. Um dos fatores que contribuíram para que este padrão deixasse de ser usado — e o ATX fosse criado — foi seu espaço interno reduzido, que, com a instalação dos vários cabos do computador como o *flat cable*, alimentação e etc, dificultavam a circulação de ar, acarretando em alguns casos de dano permanentes à máquina, devido ao super aquecimento. Era exigida grande habilidade do técnico montador para aproveitar o espaço disponível da melhor maneira. Além disso, o conector de alimentação da fonte AT, que é ligado à placa-mãe, é composto por 2 plugs semelhantes, cada um contendo 6 pinos, que devem ser encaixados lado a lado, sendo que os fios de cor preta de cada um devem estar localizados no meio. Caso esse conectores fossem invertidos e a fonte de alimentação ligada, a placa-mãe era fatalmente danificada. Com o padrão AT, é necessário desligar o computador pelo SO, aguardar um alerta informando que o computador já pode ser desligado e clicar no botão "Power". Somente assim o equipamento era desligado, e isso se devia à uma limitação das fontes AT, que não foram projetadas para fazer o uso do recurso de desligamento automático.<br/>
- Estes modelos de placa-mãe são encontrados com sltos ISA, EISA, VESA em seus primeiros modelos, e ISA e PCI nos mais novos, chamados de **baby AT**, por que a placa apresentava um tamanho ainda menor que dos primeiros modelos AT. Havia somente um conector "soldado" na própria placa-mãe, que no caso, é o do teclado que segue o padrão DIN e o mouse utiliza a conexão serial. Posição dos slots de memória RAM e soquete de CPU sempre em uma mesma região na placa-mãe, mesmo quando placas de fabricantes diferentes. Nas placas AT são comuns os slots de memória SIMM ou SDRAM, podendo vir com mais de um dos padrões na mesma placa-mãe. Embora cada um destes tenha de ser utilizado individualmente
- - **ATX**<br/>
- ATX é a sigla para **Advanced Technology Extendend**. Pelo nome, é possível notar que se trata do padrão AT aperfeiçoado. Um dos principais desenvolvedores do ATX foi a Intel. O objetivo do ATX foi de solucionar os problemas citados anteriormente do padrão AT, este novo padrão apresenta uma série de melhorias em relação ao anterior. Atualmente a maioria dos computadores novos vêm baseados neste padrão. Quanto à fonte de alimentação, foram feitas melhoras significativas, a começar pelo conector de energia ligado à placa-mãe. Ao contrário do padrão AT, neste padrão não é possível encaixar o plug de forma invertida, cada orifício do conector possui um formato, o que dificulta o encaixe errado, e, se a placa mãe for alimentada por uma fonte com padrão ATX é possível ligar o computador utilizando um sinal externo como, por exemplo, uma chamada telefônica recebida pelo modem instalado. A posição dos slots de memória RAM e socket de CPU variam a posição conforme o fabricante. Nestas placas serão encontrados slots de memória SDRAM, Rambus, DDR, DDR2 ou DDR3, podendo vir com mais de um dos padrões na mesma placa-mãe. Geralmente os slots de expansão mais encontrados são os PCI, AGP, AMR/CNR e PCI-Express.<br/>
- As placas mais novas vêm com entrada na própria placa-mãe para padrões de disco rígido IDE, Serial ATA ou NVMe, e o gerenciamento de energia quando desligado o micro suporta o uso do comando "shutdown", que permite o desligamento automático do micro sem o uso da chave de desligamento encontrada no gabinete. Entre as principais características do ATX, estão:
-   - Maior espaço interno, proporcionando uma ventilação adequada.
-   - Conectores menores de teclado e mouse no formato mini-DIN PS/2.
-   - Conectores serial e paralelo ligados diretamente na placa-mãe, sem a necessidade de cabos.
-   - Melhor posicionamento do processador, evitando que o mesmo impeça a instalação de placas de expansão por falta de espaço.
- - **ITX**<br/>
- É destinada a computadores altamente integrados e compactados, com a filosofia de oferecer não o computador mais rápido do mercado, mas sim o mais barato, já que na maioria das vezes as pessoas usam um computador para poder navegar na Internet e editar textos. A intenção da placa ITX é ter tudo on-board, ou seja, vídeo, áudio, modem e rede integrados na placa-mãe. Outra diferença dessa placa-mãe está em sua fonte de alimentação. Como possui menos periféricos, reduzindo assim o consumo de energia, sua fonte de alimentação pode ser fisicamente menor, possibilitando montar um computador mais compacto
- - **LPX**<br/>
- As placas padrão LPX possuem uma característica que as torna facilmente identificáveis: Possui uma placa *"em pé"* que se encaixa em uma conexão específica da placa principal. Nesta placa é encaixada as demais placas do computador. Seu principal diferencial é **não ter slots**. *Os slots estão localizados em uma placa a parte*, também chamada **backplane**, que é encaixada à placa-mãe através de um conector especial. Seu tamanho padrão é de 22cm x 33cm. Existe ainda um padrão menor, chamado *Mini LPX*, que mede 25,4cm x 21,8cm. Esse padrão foi criado para permitir PCs mais "finos", já que as placas de expansão em vez de ficarem perpendiculares à placa-mãe — como é o normal, ficam paralelas. Após o padrão de placas-mãe ATX ter sido lançado, uma versão do LPX baseada no ATX foi lançada, chamada **NLX**. Visualmente falando é fácil diferenciar uma placa-mãe LPX de uma NLX.<br/>
- No padrão LPX o conector para a placa de expansão — *backplane* — está localizado no centro da placa-mãe e este é um conector parecido com um slot — conector "fêmea".<br/>
- Já no padrão NLX o conector para a placa de expansão está localizado em uma das laterais da placa, e é um contato de borda contendo 340 pinos, similar ao usado por placas de expansão — ou seja, é um conector "macho".
+##### Barramentos
+Os barramentos são vias de comunicação entr os diversos componentes da placa-mãe. Houve uma grande evolução dos barramentos desde o surgimento com os slots ISA e as portas seriais até os slots PCI Express e portas USB 3.0.<br/>
+O grande problema do surgimento de novos barramentos é que quase sempre os dispositivos são incompatíveis com a versão anterior, o que obriga o usuário a descartar um componente não por algum defeito, mas sim por simples problema de incompatibilidade. Um exemplo disso são as placas de vídeo para barramento AGP e as novas PCI Express 16x.<br/>
+**Apesar de possuírem o mesmo nome, não podemos confundir _barramentos_ com _slots_:**
+- **barramentos**: são as vias de comunicação entre os dispositivos através de impulsos elétricos.
+- **slots**: são conectores ou encaixes para placas de expansão.
 
- Quanto ao tipo de Placas-Mãe, existem vários modelos, porém, os modelos mais encontrados atualmente são: AT (Advanced Technology) e ATX (Advanced Technology Extended).
+Os barramentos são divididos em 2 tipos: Barramento Local e Barramento de Expansão.
 
- ###### Barramentos
- Os barramentos são vias de comunicação entr os diversos componentes da placa-mãe. Houve uma grande evolução dos barramentos desde o surgimento com os slots ISA e as portas seriais até os slots PCI Express e portas USB 3.0.<br/>
- O grande problema do surgimento de novos barramentos é que quase sempre os dispositivos são incompatíveis com a versão anterior, o que obriga o usuário a descartar um componente não por algum defeito, mas sim por simples problema de incompatibilidade. Um exemplo disso são as placas de vídeo para barramento AGP e as novas PCI Express 16x.<br/>
- **Apesar de possuírem o mesmo nome, não podemos confundir _barramentos_ com _slots_:**
- - **barramentos**: são as vias de comunicação entre os dispositivos através de impulsos elétricos.
- - **slots**: são conectores ou encaixes para placas de expansão.
+- **Barramento Local**<br/>
+Também chamado de **FSB — Front Side Bus**, consiste em um barramento de alta velocidade que trabalha na mesma frequencia do processador. Responsável pela comunicação entre processador, Chipset Ponte Norte, Memória RAM e Barramento AGP ou PCI-Express.
 
- Os barramentos são divididos em 2 tipos: Barramento Local e Barramento de Expansão.
- - **Barramento Local**<br/>
- Também chamado de **FSB — Front Side Bus**, consiste em um barramento de alta velocidade que trabalha na mesma frequencia do processador. Responsável pela comunicação entre processador, Chipset Ponte Norte, Memória RAM e Barramento AGP ou PCI-Express.
+- **Barramento de Expansão**<br/>
+São os barramentos responsáveis por possibilitar a conexão de placas de expansão no computador, tais como: Placa de vídeo, Placa de Som, Placa de rede e etc. Existe uma grande variedade de barramentos. Os principais são:
+  - ISA (Industry Standard Architecture)
+  - EISA (Extend Industry Standard Architecture)
+  - VLB (Vesa Local Bus – VESA)
+  - AMR (Audio and Modem Riser) e CNR (Communications and network Riser)
+  - PCI (Peripherical Component Interconect)
+  - AGP (Accelerated Graphics Port)
+  - PCIe – Express
+  - USB – Universal Serial Bus
+  - Firewire (IEEE 1394)
 
- - **Barramento de Expansão**<br/>
- São os barramentos responsáveis por possibilitar a conexão de placas de expansão no computador, tais como: Placa de vídeo, Placa de Som, Placa de rede e etc. Existe uma grande variedade de barramentos. Os principais são:
-   - ISA (Industry Standard Architecture)
-   - EISA (Extend Industry Standard Architecture)
-   - VLB (Vesa Local Bus – VESA)
-   - AMR (Audio and Modem Riser) e CNR (Communications and network Riser)
-   - PCI (Peripherical Component Interconect)
-   - AGP (Accelerated Graphics Port)
-   - PCIe – Express
-   - USB – Universal Serial Bus
-   - Firewire (IEEE 1394)
-
- ###### Slots
- Outro componente é o **slot**. O barramento é a maneira mais comum de conectar componentes adicionais ao computador, o barramento usa uma série de slots na placa-mãe nos quais as placas e componentes se conectam. Existem tipos diferentes de slots, eles inserem os componentes de acordo com a configuração disponível no barramento. Eles são classificados de acordo com a tecnologia suportada. Vejamos alguns exemplos:
+###### Slots
+Outro componente é o **slot**. O barramento é a maneira mais comum de conectar componentes adicionais ao computador, o barramento usa uma série de slots na placa-mãe nos quais as placas e componentes se conectam. Existem tipos diferentes de slots, eles inserem os componentes de acordo com a configuração disponível no barramento. Eles são classificados de acordo com a tecnologia suportada. Vejamos alguns exemplos:
 
  **slots de memória**<br/>
  Inserem a memória de acordo com a configuração do barramento. Algumas placas mães possuem slots para 2 tipos de memória, com configurações e barramentos diferentes, estabelecendo maior compatibilidade com o tipo de memória desenvolvida.<br/>
@@ -351,76 +408,86 @@ Existem 2 tipos de placas de vídeo:
      - **EGA**: 60,03 Hz
      - **VGA**: 70,08 Hz
 
- ###### Socket
- Do mesmo modo que os slots, o socket representa a conxeão do processador com a placa mãe, garantindo que os pinos estejam todos em contato com a placa, funcionando corretamente.
- Uma curiosidade é que, nos primeiros computadores pessoais os processadores eram instalados em slots como o caso do Pentium III da Intel, porém com evolução da tencologia, sockets passaram a ser utilizados para a instalação do "cérebro do computador".
+###### Socket
+Do mesmo modo que os slots, o socket representa a conxeão do processador com a placa mãe, garantindo que os pinos estejam todos em contato com a placa, funcionando corretamente.
+Uma curiosidade é que, nos primeiros computadores pessoais os processadores eram instalados em slots como o caso do Pentium III da Intel, porém com evolução da tencologia, sockets passaram a ser utilizados para a instalação do "cérebro do computador".
 
- ##### Font
- É um transformador elétrico regula a eletricidade usada pelo computador, este componente é responsável por alimentar todos os outros. Sua função é converter a tensão usada pela rede elétrica em tensões requidas pelos componentes internos. Ela possui conectores de alimentação independentes, a fim de alimentar a placa, o disco, e etc por meio da placa mãe todos os demais componentes.<br/>
- Sua função é receber a tensão fornecida pela rede elétrica (110 ou 220 volts) e converer essa tensão em uma voltagem que atenda as necessidades de cada dispositivo do computador, ou seja, em 3,3V, 5V ou 12V. São também chamadas de fontes chaveadas por fazerem a conversão de tensão alternada (AC) para tensão contínua (DC). Além de trabalhar também como estabilizador, atenuando os picos de energia na rede elétrica.<br/>
- A fonte é um dos itens com maior probabilidade de falha, portanto, alguns cuidados devem ser tomados ao instalar e utilizar uma fonte de alimentação:
- - Antes de mexer em um computador, primeiro desligue o cabo de energia da fonte.
- - Verificar o seletor de voltagem 110 ou 220V.
- - Sempre verificar a corrente elétrica local antes de ligar um computador e verificar se a fonte está de acordo com a voltagem.
- - Instalar um tipo de fonte compatível com o modelo da placa-mãe.
- - O ideal é que a caixa protetora da fonte seja blindada para evitar interferências eletromagnéticas.
- - Verificar o consumo total dos componentes conectados a ela para instalar uma fonte com uma capacidade acima do necessário.
- - Verificar se a ventoinha está funcionando normalmente (não está enroscando) devido ao acúmulo de pó, o que irá causar superaquecimento.
+##### Chipset
+É o componente que permite ao processador executar todos os processos, isso porque é o chipset que gera os controles necessários para o trabalho do processador, e é graças também a ele que o processador se comunica com os demais circuitos, no geral, o chipset é quem dita as características que o micro irá ter como o tipo de memória, processador, recursos como USB ou PCI, enfim, determina os padrões de entrada de dados dos componentes que poderão ser instalados no sistema, velocidade do fluxo de dados e etc, e além disso, também determina a quantidade máxima de memória RAM suportada. É o grupo de componentes eletrônicos de baixa capacidade em um circuito integrado, usado para gerenciar o fluxo de dados entre o processador, memória e periféricos. Todo *chipset* é dividido em 2 componentes:
+- **ponte norte**: controla os componentes internos *mais rápidos* como o processador, memória, placa de vídeo e os pentes de RAM. Tais informações são enviadas ao disco rígido. O processador é ligado diretamente ao ponte norte, através do barramento local FSB, pois ele é quem controla o fluxo de dados entre o processador e a memória, e também as informações provenientes das interfaces e barramento de expansão.
+- **ponte sul**: controla os demais componentes e é responsável pela comunicação dos dispositivos periféricos através das portas de comunicação e cabos, os componentes de entrada e saída, os *slots* de expansão e disco rígido.
 
- ###### Capacidade da Fonte
- Cada dispositivo conectado ao computador consome uma determinada voltagem e a capacidade de fornecimento de energia elétrica varia entre os diversos tipos de fontes, portanto, antes de adquirirmos uma fonte, devemos fazer um levantamento do consumo total do computador e adquirir uma fonte com uma capacidade superior, para que não tenhamos problemas com o consumo de energia elétrica. As informações da capacidade da fonte, normalmente, vêm impressas em uma etiqueta fixada na fonte.
+##### NIC
+Os computadores precisam ser capazes de se comunicar entre si. O network interface controller, ou NIC, é a parte que lida com a comunicação. Ele envia dados do dispositivo e recupera dados de outras fontes para dar ao dispositivo para fazer o trabalho. Sem adaptadores de rede, tecnologias como a internet não seriam possíveis.<br/>
+Em um único computador, essas partes realizam quantidades incríveis de trabalho. Imagine processar um milhão de instruções a cada segundo. A rede e a computação em nuvem tornaram o poder da computação maior do que nunca.
 
- ###### Tipos de Fontes
- Existem vários tipos de fontes, porém, os dois mais utilizados são os tipos AT (Advanced Technology) e ATX (Advanced Technology Extended), que são fontes específicas para gabinetes e placas-mãe AT. As fontes AT são os tipos mais antigos, muito utilizadas na década de 1990 e, apesar de ainda serem encontradas, caíram em desuso com o surgimento das fontes ATX. As fonts ATX são os modelos utilizadas atualmente, específicas para gabinetes e placas-mãe ATX. Possuem conectores de 20 ou 24 pinos, necessários conforme o modelo da placa-mãe. A fonte ATX possui várias vantagens em relação ao padrão AT:
- - Possibilitam desligar o computador através de Hardware.
- - O conector consiste em uma única peça, ao contrário do padrão AT, que era dividido em 2 peças, com algumas regras para a conexão.
- - Os componentes internos são menores, isto possibilita uma redução também no seu peso.
+##### Font
+É um transformador elétrico regula a eletricidade usada pelo computador, este componente é responsável por alimentar todos os outros. Sua função é converter a tensão usada pela rede elétrica em tensões requidas pelos componentes internos. Ela possui conectores de alimentação independentes, a fim de alimentar a placa, o disco, e etc por meio da placa mãe todos os demais componentes.<br/>
+Sua função é receber a tensão fornecida pela rede elétrica (110 ou 220 volts) e converer essa tensão em uma voltagem que atenda as necessidades de cada dispositivo do computador, ou seja, em 3,3V, 5V ou 12V. São também chamadas de fontes chaveadas por fazerem a conversão de tensão alternada (AC) para tensão contínua (DC). Além de trabalhar também como estabilizador, atenuando os picos de energia na rede elétrica.<br/>
+A fonte é um dos itens com maior probabilidade de falha, portanto, alguns cuidados devem ser tomados ao instalar e utilizar uma fonte de alimentação:
+- Antes de mexer em um computador, primeiro desligue o cabo de energia da fonte.
+- Verificar o seletor de voltagem 110 ou 220V.
+- Sempre verificar a corrente elétrica local antes de ligar um computador e verificar se a fonte está de acordo com a voltagem.
+- Instalar um tipo de fonte compatível com o modelo da placa-mãe.
+- O ideal é que a caixa protetora da fonte seja blindada para evitar interferências eletromagnéticas.
+- Verificar o consumo total dos componentes conectados a ela para instalar uma fonte com uma capacidade acima do necessário.
+- Verificar se a ventoinha está funcionando normalmente (não está enroscando) devido ao acúmulo de pó, o que irá causar superaquecimento.
 
- Atualmente estão surgindo placas de vídeo cada vez mais avançadas, o que demanda um consumo de energia na mesma proporção. Os slots PCI Express podem fornecer até 75 watts de energia para a placa de vídeo. Para resolver este problema, as fontes com maior potência possuem um cabo específico para o fornecimento de energia para estas placas. Consiste em um conector auxiliar de 6 pinos que deve ser conectado à placa de vídeo para o funcionamento correto.
+###### Capacidade da Fonte
+Cada dispositivo conectado ao computador consome uma determinada voltagem e a capacidade de fornecimento de energia elétrica varia entre os diversos tipos de fontes, portanto, antes de adquirirmos uma fonte, devemos fazer um levantamento do consumo total do computador e adquirir uma fonte com uma capacidade superior, para que não tenhamos problemas com o consumo de energia elétrica. As informações da capacidade da fonte, normalmente, vêm impressas em uma etiqueta fixada na fonte.
 
- *Além destes componentes físicos, a placa-mãe possui também um firmware utilizado para a identificação dos dispositivos conectados a ela e também para configurações, denominado BIOS (Basic Input Output System).*
+###### Tipos de Fontes
+Existem vários tipos de fontes, porém, os dois mais utilizados são os tipos AT (Advanced Technology) e ATX (Advanced Technology Extended), que são fontes específicas para gabinetes e placas-mãe AT. As fontes AT são os tipos mais antigos, muito utilizadas na década de 1990 e, apesar de ainda serem encontradas, caíram em desuso com o surgimento das fontes ATX. As fonts ATX são os modelos utilizadas atualmente, específicas para gabinetes e placas-mãe ATX. Possuem conectores de 20 ou 24 pinos, necessários conforme o modelo da placa-mãe. A fonte ATX possui várias vantagens em relação ao padrão AT:
+- Possibilitam desligar o computador através de Hardware.
+- O conector consiste em uma única peça, ao contrário do padrão AT, que era dividido em 2 peças, com algumas regras para a conexão.
+- Os componentes internos são menores, isto possibilita uma redução também no seu peso.
 
- ##### BIOS / UEFI
- **Basic Input / Output System** ou **Unified Extensible Firmware Interface** é o sistema de configurações mais básico e essencial do hardware especializado na placa-mãe. O BIOS é um programa de computador pré-gravado em memória permanente (firmware) executado por um computador quando ligado. Ele é responsável pelo suporte básico de acesso ao hardware, bem como por iniciar a carga do sistema operacional. A BIOS fica gravada em uma memória ROM armazenado em um chip na placa-mãe, impedindo-a de ser desinstalada. Ela é responsável por inicializar o hardware e carregar o sistema operacional. Ela tem como sua principal função identificar todos os componentes conectados à placa-mãe, as informações salvas no **CMOS** — que armazena os parâmetros de configuração da placa, acessíveis pelo setup, as unidades de disco e a ordem de *boot* dos dispositivos. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional, o **bootloader** que inicia o kernel. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações de memória ou funções do hardware (como luz de teclado em notebooks por exemplo), configurar ou desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo). Assim, diferente do firmware — que não dá nenhum controle ao usuário sobre as funções do hardware, na BIOS o usuário tem todo o controle do hardware e suas configurações. Na maioria das vezes sua interface pode ser acessada de acordo com as especificações do fabricante quanto a tecla de entrada, mas sempre é feita durante a inicialização do sistema.<br/>
- Quando o micro é ligado é comum nos referir a este procedimento como *Boot*, o BIOS realiza uma bateria de testes dos componentes conectados à placa-mãe, tais como: Memória, Processador, Dispositivos I/O, teclado e etc. A esse procedimento é dado o nome de **POST — Power On Self Test**, e, caso haja algum problema com um desses componentes é emitido mensagens de erro relativo ao componente com defeito. No caso de alguns componentes apresentar problemas, como processador, memória, placa de vídeo e etc, são emitidos bipes, que identificam qual componente está com problemas, mas em alguns casos, são emitidas mensagens na tela do computador. Caso esteja tudo em ordem, o BIOS passa o gerenciamento do micro para o Sistema Operacional. O BIOS possui ainda uma outra ferramenta denominada Setup, que é o responsável por uma grande variedade de configurações da placa-mãe, que possibilita várias alterações na sua configuração, por isso é necessário um mínimo de conhecimento das funcionalidades deste programa por parte do usuário, pois, alguma configuração errada ou indevida pode causar problemas na utilização do sistema. A configuração do *Setup* fica gravada em uma pequena área de uma memória volátil chamada memória **CMOS (Complementary Metal–Oxide–Semiconductor)** — trata-se de um circuito de memória volátil presente na placa-mãe de computador, a qual permite armazenar muitas informações importantes da máquina, como as configurações da BIOS, data e hora, ajustes de hardware do sistema, entre outras. É também conhecida como CMOS-RAM ou NVRAM (Non-Volatile RAM / RAM Não-Volátil), e comumente armazena até 256 bytes de dados, podendo ser encontrada dentro do *chipset ponte sul*. Quando falamos em “resetar a BIOS”, na verdade o que queremos é apagar o conteúdo da memória CMOS, para que seja possível refazer a configuração de hardware do sistema, ou simplesmente apagar a senha de inicialização. É importante frisar que a BIOS em si é um programa que lê configurações de hardware e sistema armazenadas na memória CMOS durante a inicialização do computador, e não está localizada na CMOS em si, a BIOS é encontrada em outro chip da placa-mãe, notadamente a **memória ROM** — pois por ser uma memória volátil, precisa da bateria da placa-mãe para manter os dados quando o PC está desligado — esta bateria é chamada *bateria de CMOS* ou então *CR-2032*, e além de fornecer a energia necessária para manter as configurações do sistema, é a responsável também por manter o relógio de tempo real (real time clock), um relógio digital normal, responsável por manter a hora do sistema atualizada.
- 1. **SETUP**: usado para configurar algumas funções do BIOS.
- 2. **POST**: é um atoteste de partida, que são diagnósticos e testes realizados nos componentes físicos como o disco rígido, processador e etc, ou seja,  serve para testar as peças do hardware e verificar se o sistema se encontra em estado operacional. Os problemas encontrados são comunicados ao usuário por uma combinação de sons de bipes numa determinada sequência e, se possível, exibidos na tela. O manual do fabricante permite a identificação do problema descrevendo a mensagem que cada sequência de sons representa.
+Atualmente estão surgindo placas de vídeo cada vez mais avançadas, o que demanda um consumo de energia na mesma proporção. Os slots PCI Express podem fornecer até 75 watts de energia para a placa de vídeo. Para resolver este problema, as fontes com maior potência possuem um cabo específico para o fornecimento de energia para estas placas. Consiste em um conector auxiliar de 6 pinos que deve ser conectado à placa de vídeo para o funcionamento correto.
 
- Quando o computador é ligado, a BIOS (ou UEFI) que está armazenada na memória ROM ou flash da placa-mãe é carregada e executada a partir daí, tomando assim o controle e então realizando os procedimentos de inicialização. Então executa testes básicos de hardware, verificando memória RAM, processador, armazenamento e outros componentes essenciais. Após o POST, o BIOS/UEFI procura um dispositivo de inicialização, podendo ser o HDD, SSD, pendrive, memory card e etc, que contem um sistema operacional. Então é carregado o **bootloader**, como o GRUB no Linux ou o Windows Boot Manager, que carrega o sistema operacional na RAM finalizando o processo do BIOS que entrega ao SO o controle do sistema.<br/>
- Apesar de finalizar seu papel, está sempre de prontidão para atender sempre que for preciso, por exemplo para o uso dos periféricos como câmeras, pendrives, impressoras e acessórios. **O BIOS é que se encarrega das tarefas mais básicas de entrada e saída de dados do computador para seus periféricos. Por isso BIOS: é um sistema básico de entrada e saída.**
+*Além destes componentes físicos, a placa-mãe possui também um firmware utilizado para a identificação dos dispositivos conectados a ela e também para configurações, denominado BIOS (Basic Input Output System).*
 
- ##### Portas
- As portas de comunicação podem ser físicas ou lógicas. São usadas para encaminhar os dados de comunicação entre diferentes partes de um sistema.
- - **Físicas**<br/>
- As portas físicas fazem parte dos hardwares e são responsáveis pela entrada de dados através de portas de comunicação como USB, serial (geralmente utilizadas por impressoras) e portas de vídeo.
-   - **USB (Universal Serial Bus)**: Este barramento rapidamente se tornou a conexão externa mais popular porque as portas USB oferecem versatilidade, velocidade e são muito fáceis de usar.
-   - **Paralela**: esta porta é geralmente usada para conectar uma impressora. Atualmente, as portas paralelas já não são mais a interface padrão das impressoras e dos computadores. Elas foram substituídas pela conexão USB, que permite transferência de dados mais rápida.
-   - **Serial**: esta porta é geralmente usada para conectar um modem externo.
-   - **FireWire (IEEE 1394)**: O FireWire é um método popular de conectar dispositivos de vídeo digital, como filmadoras e câmeras digitais, ao computador.
- - **Lógicas**<br/>
- Por outro lado, as portas lógicas são portas virtuais necessárias para manter a comunicação com o sistema computacional, a exemplo das portas TCP e UDP, responsáveis por transportar informações dentro das aplicações.
+##### BIOS / UEFI
+**Basic Input / Output System** ou **Unified Extensible Firmware Interface** é o sistema de configurações mais básico e essencial do hardware especializado na placa-mãe. O BIOS é um programa de computador pré-gravado em memória permanente (firmware) executado por um computador quando ligado. Ele é responsável pelo suporte básico de acesso ao hardware, bem como por iniciar a carga do sistema operacional. A BIOS fica gravada em uma memória ROM armazenado em um chip na placa-mãe, impedindo-a de ser desinstalada. Ela é responsável por inicializar o hardware e carregar o sistema operacional. Ela tem como sua principal função identificar todos os componentes conectados à placa-mãe, as informações salvas no **CMOS** — que armazena os parâmetros de configuração da placa, acessíveis pelo setup, as unidades de disco e a ordem de *boot* dos dispositivos. Com a BIOS é possível configurar os componentes e a inicialização do sistema operacional, o **bootloader** que inicia o kernel. Nela é possível escolher a sequência em que os equipamentos pode ser utilizados para realizar o *boot* no sistema, ou seja, instalar o sistema, como um USB ou HD. É possível também desabilitar dispositivos e componentes, definir configurações de memória ou funções do hardware (como luz de teclado em notebooks por exemplo), configurar ou desabilitar funcionalidades do sistema (como manter a fan sempre no seu rpm máximo por exemplo). Assim, diferente do firmware — que não dá nenhum controle ao usuário sobre as funções do hardware, na BIOS o usuário tem todo o controle do hardware e suas configurações. Na maioria das vezes sua interface pode ser acessada de acordo com as especificações do fabricante quanto a tecla de entrada, mas sempre é feita durante a inicialização do sistema.<br/>
+Quando o micro é ligado é comum nos referir a este procedimento como *Boot*, o BIOS realiza uma bateria de testes dos componentes conectados à placa-mãe, tais como: Memória, Processador, Dispositivos I/O, teclado e etc. A esse procedimento é dado o nome de **POST — Power On Self Test**, e, caso haja algum problema com um desses componentes é emitido mensagens de erro relativo ao componente com defeito. No caso de alguns componentes apresentar problemas, como processador, memória, placa de vídeo e etc, são emitidos bipes, que identificam qual componente está com problemas, mas em alguns casos, são emitidas mensagens na tela do computador. Caso esteja tudo em ordem, o BIOS passa o gerenciamento do micro para o Sistema Operacional. O BIOS possui ainda uma outra ferramenta denominada Setup, que é o responsável por uma grande variedade de configurações da placa-mãe, que possibilita várias alterações na sua configuração, por isso é necessário um mínimo de conhecimento das funcionalidades deste programa por parte do usuário, pois, alguma configuração errada ou indevida pode causar problemas na utilização do sistema. A configuração do *Setup* fica gravada em uma pequena área de uma memória volátil chamada memória **CMOS (Complementary Metal–Oxide–Semiconductor)** — trata-se de um circuito de memória volátil presente na placa-mãe de computador, a qual permite armazenar muitas informações importantes da máquina, como as configurações da BIOS, data e hora, ajustes de hardware do sistema, entre outras. É também conhecida como CMOS-RAM ou NVRAM (Non-Volatile RAM / RAM Não-Volátil), e comumente armazena até 256 bytes de dados, podendo ser encontrada dentro do *chipset ponte sul*. Quando falamos em “resetar a BIOS”, na verdade o que queremos é apagar o conteúdo da memória CMOS, para que seja possível refazer a configuração de hardware do sistema, ou simplesmente apagar a senha de inicialização. É importante frisar que a BIOS em si é um programa que lê configurações de hardware e sistema armazenadas na memória CMOS durante a inicialização do computador, e não está localizada na CMOS em si, a BIOS é encontrada em outro chip da placa-mãe, notadamente a **memória ROM** — pois por ser uma memória volátil, precisa da bateria da placa-mãe para manter os dados quando o PC está desligado — esta bateria é chamada *bateria de CMOS* ou então *CR-2032*, e além de fornecer a energia necessária para manter as configurações do sistema, é a responsável também por manter o relógio de tempo real (real time clock), um relógio digital normal, responsável por manter a hora do sistema atualizada.
+1. **SETUP**: usado para configurar algumas funções do BIOS.
+2. **POST**: é um atoteste de partida, que são diagnósticos e testes realizados nos componentes físicos como o disco rígido, processador e etc, ou seja,  serve para testar as peças do hardware e verificar se o sistema se encontra em estado operacional. Os problemas encontrados são comunicados ao usuário por uma combinação de sons de bipes numa determinada sequência e, se possível, exibidos na tela. O manual do fabricante permite a identificação do problema descrevendo a mensagem que cada sequência de sons representa.
 
- ![Image](https://github.com/user-attachments/assets/a4a3f87b-0fc4-4a53-aeb5-05029b1288ef)
+Quando o computador é ligado, a BIOS (ou UEFI) que está armazenada na memória ROM ou flash da placa-mãe é carregada e executada a partir daí, tomando assim o controle e então realizando os procedimentos de inicialização. Então executa testes básicos de hardware, verificando memória RAM, processador, armazenamento e outros componentes essenciais. Após o POST, o BIOS/UEFI procura um dispositivo de inicialização, podendo ser o HDD, SSD, pendrive, memory card e etc, que contem um sistema operacional. Então é carregado o **bootloader**, como o GRUB no Linux ou o Windows Boot Manager, que carrega o sistema operacional na RAM finalizando o processo do BIOS que entrega ao SO o controle do sistema.<br/>
+Apesar de finalizar seu papel, está sempre de prontidão para atender sempre que for preciso, por exemplo para o uso dos periféricos como câmeras, pendrives, impressoras e acessórios. **O BIOS é que se encarrega das tarefas mais básicas de entrada e saída de dados do computador para seus periféricos. Por isso BIOS: é um sistema básico de entrada e saída.**
 
- ### Identidade do Hardware
- Todo hardware tem uma identificação especial chamada endereço de controle de acesso à mídia, ou simplesmente **MAC**. Endereços MAC são usados ​​para identificar exclusivamente o hardware. Eles são atribuídos na fábrica onde o dispositivo é produzido. Um fato interessante sobre endereços MAC é que eles são exclusivos para cada peça de hardware que já foi criada. Novos produtos não compartilharão um endereço MAC com nenhum outro produto, mesmo aqueles que são reciclados ou acabam em aterros sanitários.<br/>
- É uma coisa boa que os dispositivos tenham endereços MAC exclusivos porque, sem eles, os dados que viajam pela Internet podem não conseguir encontrar o lugar certo.
+##### Portas
+As portas de comunicação podem ser físicas ou lógicas. São usadas para encaminhar os dados de comunicação entre diferentes partes de um sistema.
+- **Físicas**<br/>
+As portas físicas fazem parte dos hardwares e são responsáveis pela entrada de dados através de portas de comunicação como USB, serial (geralmente utilizadas por impressoras) e portas de vídeo.
+  - **USB (Universal Serial Bus)**: Este barramento rapidamente se tornou a conexão externa mais popular porque as portas USB oferecem versatilidade, velocidade e são muito fáceis de usar.
+  - **Paralela**: esta porta é geralmente usada para conectar uma impressora. Atualmente, as portas paralelas já não são mais a interface padrão das impressoras e dos computadores. Elas foram substituídas pela conexão USB, que permite transferência de dados mais rápida.
+  - **Serial**: esta porta é geralmente usada para conectar um modem externo.
+  - **FireWire (IEEE 1394)**: O FireWire é um método popular de conectar dispositivos de vídeo digital, como filmadoras e câmeras digitais, ao computador.
+- **Lógicas**<br/>
+Por outro lado, as portas lógicas são portas virtuais necessárias para manter a comunicação com o sistema computacional, a exemplo das portas TCP e UDP, responsáveis por transportar informações dentro das aplicações.
 
- ### Representação da Informação
+![Image](https://github.com/user-attachments/assets/a4a3f87b-0fc4-4a53-aeb5-05029b1288ef)
+
+### Identidade do Hardware
+Todo hardware tem uma identificação especial chamada endereço de controle de acesso à mídia, ou simplesmente **MAC**. Endereços MAC são usados ​​para identificar exclusivamente o hardware. Eles são atribuídos na fábrica onde o dispositivo é produzido. Um fato interessante sobre endereços MAC é que eles são exclusivos para cada peça de hardware que já foi criada. Novos produtos não compartilharão um endereço MAC com nenhum outro produto, mesmo aqueles que são reciclados ou acabam em aterros sanitários.<br/>
+É uma coisa boa que os dispositivos tenham endereços MAC exclusivos porque, sem eles, os dados que viajam pela Internet podem não conseguir encontrar o lugar certo.
+
+ ## Representação da Informação
  Já no que diz respeito à representação de dados, os computadores representam sistemas digitais e, por isso, são compostos por números binários, armazenando e manipulando as informações baseadas em zero e um, também denominados bits. Tudo que inserimos, usamos, fazemos, processamos e recebemos em um computador, em essência é feito através da linguagem que essa máquina entede, a linguagem binária. O sistema de numeração computacional é um conjunto de regras e símbolos usados para representar e manipular números dentro de um computador. Como os computadores trabalham com circuitos eletrônicos que só entendem "ligado" = 1 e "desligado" = 0, eles utilizam sistemas numeŕicos baseados nestes estados. De modo distinto aos seres humanos, que se comunicam pela fala, os computadores realizam essa troca de informações apenas considerando os números zero e um. Tais algarismos formam a linguagem da informática. A base binária é capaz de formar palavras, expressões matemáticas e diversas outras informações. O bit é a menor unidade de informação reconhecida pelo computador, e é representado pelos valores lógicos 0 ou 1. Para formar um número decimal, por exemplo, um conjunto de oito *bits* é utilizado, tal formação é denominada *byte*.<br/>
 
- #### 1. Sistemas de Numeração<br/>Sistemas Numéricos Computacionais
- Os circuito integrados (CIs) possuem uma grande quantidade de chips compostos por milhões de transistores miniaturizados, interconectados em uma única pastilha de silício. Esses circuitos podem desempenhar diversas funções, como processamento de dados, armazenamento, amplificação de sinais e controle de dispositivos eletrônicos. Então, quando um destes transistores está carregado com uma determinada voltagem, é possível identificar referente à qual bit corresponde. Normalmente, a tensão de 5,0V corresponde ao bit 1 (ligado), e a falta de tensão, ou seja, 0V, corresponde ao bit 0 (desligado). Um único bit não é suficiente para representar uma informação, é necessário uma sequência de 8 bits dispostos em uma certa ordem, denominada Byte. O Byte pode representar até 256 caracteres (letra, número, símbolos, ou funções entendidas pelo computador). Quando pressionamos uma determinada tecla, é gerado um código que será interpretado pelo processador e então exibido o caractere respectivo na tela do computador. Por exemplo, quando pressionamos o número “1”, são emitidos sinais elétricos que formam uma sequência de bits (00110001), onde o CI do teclado enviará estes dados ao processador, será então processado e depois a informação será enviada ao CI da placa de vídeo para que possa ser exibida na tela do computador. Podemos ver abaixo a representação binária do número “1”:
+ ### Sistemas de Numeração<br/>Sistemas Numéricos Computacionais
+ Os circuito integrados (CIs) possuem uma grande quantidade de chips compostos por milhões de transistores miniaturizados, interconectados em uma única pastilha de silício. Esses circuitos podem desempenhar diversas funções, como processamento de dados, armazenamento, amplificação de sinais e controle de dispositivos eletrônicos. Então, quando um destes transistores está carregado com uma determinada voltagem, é possível identificar referente à qual bit corresponde. Normalmente, a tensão de 5,0V corresponde ao bit 1 (ligado), e a falta de tensão, ou seja, 0V, corresponde ao bit 0 (desligado). Quando pressionamos uma determinada tecla, é gerado um código que será interpretado pelo processador e então exibido o caractere respectivo na tela do computador. Por exemplo, quando pressionamos o número “1”, são emitidos sinais elétricos que formam uma sequência de 1 byte composto por 8 bits `00110001`, onde o CI do teclado enviará estes dados ao processador, será então processado e depois a informação será enviada ao CI da placa de vídeo para que possa ser exibida na tela do computador. Podemos ver abaixo a representação binária do número “1”:
 
  ![Image](https://github.com/user-attachments/assets/c5cdb6cd-d123-430f-8227-134b7ceef266)
 
-  ##### Bits e Bytes
+ #### Bits e Bytes
+ Um único bit não é suficiente para representar uma informação, é necessário uma sequência de 8 bits dispostos em uma certa ordem, denominada Byte. O Byte pode representar até 256 caracteres (letra, número, símbolos, ou funções entendidas pelo computador).
 
-  * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 (aberto) ou 1 (fechado).<br/>
-  *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.
+ * **Bit** = "0" ou "1" - É a menor unidade de dados em computação e pode ter o valor 0 (aberto) ou 1 (fechado).<br/>
+ *Com origem no estudo de circuitos elétricos, o termo "aberto" representa um circuito onde não há contato/conexão/ligação entre os condutores de energia, fazendo com que não corra eletricidade no sistema, ou seja, significa que o sistema está desligado, enquanto que "fechado" significa que o contato entre os condutores de energia está conectado (fechado), ou seja, o sistema está ligado. Computadores utilizam o sistema binário porque os circuitos eletrônicos têm dois estados possíveis: ligado (1) e desligado (0). Isso facilita a construção e a operação dos dispositivos digitais. Em termos lógicos isso representa VERDADEIRO ou FALSO.
 
-  * **Byte** = 8 x Bit - Um byte corresponde a 8 bits, mas um byte consegue armazenar um código que corresponde somente a um único número, letra ou símbolo. A combinação de cadeias de bits é que permite representar diferentes números agrupando-se na forma de bytes.<br/>
-  Exemplos:
+ * **Byte** = 8 x Bit - Um byte corresponde a 8 bits, mas um byte consegue armazenar um código que corresponde somente a um único número, letra ou símbolo. A combinação de cadeias de bits é que permite representar diferentes números agrupando-se na forma de bytes.<br/>
+ Exemplos:
 <pre>
 ┌────────────┬────────────┐
 │    BYTE    │  DECIMAL   │
@@ -801,7 +868,7 @@ Existem 2 tipos de placas de vídeo:
 └─────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 
- ## 3. Tabela ASCII e Conversores.
+ ###### Tabela ASCII e Conversores.
  A tabela ASCII ([American Standard Code for Information Interchange](https://www.ascii-code.com/pt)) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
 
 <a href="https://github.com/raphaelkaique1/study#conceitos_basicos">back</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/sistemas_operacionais.md">next</a>
