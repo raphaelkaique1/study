@@ -9,6 +9,17 @@ Quando instalamos o Sistema Operacional, normalmente, são instalados automatica
 Os computadores usam uns e zeros para representar informações, isso é chamado de modelo de Turing. Podemos pensar no hardware como tendo bilhões de interruptores para serem desligados (zero) ou ligados (um). Com base na combinação desses bilhões de interruptores, o computador faz certas coisas, como enviar uma mensagem de texto ou adicionar números em uma planilha. O programa de software diz ao computador quais interruptores desligar, quais ligar, em qual ordem e em que momento.<br/>
 Por exemplo, se quisermos criar um documento, podemos usar o computador para executar um programa — um conjunto de instruções — chamado processador de texto. Este programa é composto de código de computador que é carregado na RAM do seu computador e diz à CPU o que mostrar na tela. O programa, quando carregado, pode mostrar uma página em branco na qual criamos o documento. Quando começamos a digitar, o programa diz à CPU para enviar instruções à GPU para mostrar as palavras que estão sendo digitadas na tela. Tudo isso é possível porque o software diz ao hardware o que fazer.
 
+## Modelo de Von Neumann
+Um computador é uma máquina de uso geral composta por hardware e software, porém, apesar de o conceito ser simples um sistema computacional é muito complexo. O Modelo de Von Neumann nos ajuda a entender melhor dividindo em partes. **Os componentes do modelo de Von Neumann são:**
+- **Unidade de Controle - UC**: busca cada instrução dos programas na memória e executa sobre os dados de entrada;
+- **Unidade Lógica e Aritmética - ULA**: parte da unidade central de processamento (CPU) que realiza a operação computacional;
+- **Memória (permanente e/ou volátil)**: armazena dados e programas;
+- **Dispositivos de Entrada e Saída**: interagem com o modelo, mas não fazem parte dos componentes principais;
+  - **Entrada**: Permite a comunicação do usuário com o computador. São dispositivos que enviam dados ao computador para processamento. Exemplos: teclado, mouse, scanner...
+    - *O dispositivo de entrada padrão (stdin) em sistemas GNU/Linux é o teclado.*
+  - **Saída**: Permite a comunicação do computador com o usuário. São dispositivos que permitem o usuário visualizar o resultado do processamento enviado ao computador. Exemplos: monitor, som, impressora...
+    - *O dispositivo de saída padrão (stdout) em sistemas GNU/Linux é o monitor.*
+
 ## Firmware
 Todos os dispositivos eletrônicos possuem um firmware. É a primeira camada de integração do hardware com o usuário. O firmware é um tipo de software de baixo nível que fica armazenado diretamente no hardware de um dispositivo e é responsável por controlar suas funções básicas. Ele atua como uma ponte entre o hardware e o software do sistema operacional, garantindo que o equipamento funcione corretamente. Um software essencialmente, é um conjunto de instruções que dizem ao computador (hardware) o que fazer, o firmware é uma *espécie de software*, ele difere de um "software padrão" na forma como ele é executado no hardware. Ele normalmente é armazenado em um chip especial dentro do dispositivo e controla as funções mais básicas do hardware, ele é um gerenciador sempre ativo em segundo plano, garantindo que as coisas funcionem da maneira que deveriam.<br/>
 Como qualquer outro software, ele pode também ser atualizado, mas isso requer algumas instruções especiais pois, como controla *diretamente* as principais funções do hardware, ele necessita por exemplo que, durante sua atualização o sistema tenha energia constante até o fim da sua atualização, caso contrário, ele será corrimpido e, como um HDD danificado, o firmware é extremamente difícil de recuperar.
@@ -21,17 +32,6 @@ O firmware é essencial para o funcionamento de praticamente todos os dispositiv
 - **Celulares e Eletrônicos**: Firmware de smartphones, smart TVs e roteadores.
 - **Dispositivos Embarcados**: Impressoras, câmeras digitais, eletrodomésticos inteligentes.
 - **Automotivo**: Controle de injeção eletrônica, sistemas ABS e etc.
-
-## Modelo de Von Neumann
-**Os componentes do modelo de Von Neumann são:**
-- **Unidade de Controle - UC**: busca cada instrução dos programas na memória e executa sobre os dados de entrada;
-- **Unidade Lógica e Aritmética - ULA**: parte da unidade central de processamento (CPU);
-- **Memória (permanente e/ou volátil)**: armazena dados e programas;
-- **Dispositivos de Entrada e Saída**: interagem com o modelo, mas não fazem parte dos componentes principais;
-  - **Entrada**: Permite a comunicação do usuário com o computador. São dispositivos que enviam dados ao computador para processamento. Exemplos: teclado, mouse, scanner...
-    - *O dispositivo de entrada padrão (stdin) em sistemas GNU/Linux é o teclado.*
-  - **Saída**: Permite a comunicação do computador com o usuário. São dispositivos que permitem o usuário visualizar o resultado do processamento enviado ao computador. Exemplos: monitor, som, impressora...
-    - *O dispositivo de saída padrão (stdout) em sistemas GNU/Linux é o monitor.*
 
 ## Sistema Operacional
 Os sistemas operacionais são softwares que atuam como hosts para outros softwares e gerenciam todo o hardware.<br/>
@@ -53,7 +53,7 @@ Um sistema operacional executa muitas funções para que o computador funcione b
 
 ![Image](https://github.com/user-attachments/assets/b89573b9-c295-46d1-b31b-f16df50323e6)
 
- O Linux possui várias características que o diferencia dos outros SOs e que o aproximam do Unix, sendo um dos motivos da sua escolha em várias aplicações nas quais são necessárias estabilidade e segurança.
+O Linux possui várias características que o diferencia dos outros SOs e que o aproximam do Unix, sendo um dos motivos da sua escolha em várias aplicações nas quais são necessárias estabilidade e segurança.
 <pre>
             SISTEMA OPERACIONAL
  ┌─────────────────────────────────────┐
@@ -194,25 +194,25 @@ O sistema GNU/Linux possui a seguinte estrutura básica de diretórios:
                                                                                      └─────────────────┘
 </pre>
 
-**/** - Diretório principal (raiz)<br/>
-**/home** - Diretório contendo os arquivos do usuário<br/>
-**/bin** - Contém arquivos de programas (binários) do sistema que são usados com frequência pelos usuários<br/>
-**/root** - Diretório do usuário root<br/>
-**/sbin** - Diretório de programas usados pelo superuser (root) para administração e controle do funcionamento do sistema<br/>
-**/boot** - Contém arquivos necessários para a inicialização do sistema<br/>
-**/cdrom** - Ponto de montagem da unidade CD-ROM<br/>
-**/floopy** - Ponto de montagem de unidade de disquetes<br/>
-**/mnt** - Ponto de montagem temporário<br/>
-**/dev** - Contém arquivos usados para acessar dispositivos (periféricos) existentes no computador<br/>
-**/etc** - Contém arquivos de configuração do computador local<br/>
-**/tmp** - Diretório para armazenamento de arquivos temporários criados por programas<br/>
-**/usr** - Contém maior parte de seus programas, normalmente acessível somente em modo leitura<br/>
-**/var** - Contém maior parte dos arquivos que são gravados com frequência pelos programas do sistema, e-mails, spool de impressora, cache, etc<br/>
-**/lib** - Bibliotecas compartilhadas pelos programas do sistema e módulos do kernel<br/>
-**/lost+found** - Local para a gravação de arquivos/diretórios recuperados pelo utilitário fsck.ext2, cada partição possui seu próprio diretório lost+found<br/>
-**/proc** - Sistema de arquivos do kernel, este diretório não existe no HD/SSD, ele é colocado lá pelo kernel e usado por diversos programas que fazem sua leitura, verificam configurações do sistema ou modificar o funcionamento de dispositivos do sistema através de alterações em seus arquivos
+**/** - Diretório principal (raiz).<br/>
+**/home** - Diretório contendo os arquivos do usuário.<br/>
+**/bin** - Contém arquivos de programas (binários) do sistema que são usados com frequência pelos usuários.<br/>
+**/root** - Diretório do usuário root.<br/>
+**/sbin** - Diretório de programas usados pelo superuser (root) para administração e controle do funcionamento do sistema.<br/>
+**/boot** - Contém arquivos necessários para a inicialização do sistema.<br/>
+**/cdrom** - Ponto de montagem da unidade CD-ROM.<br/>
+**/floopy** - Ponto de montagem de unidade de disquetes.<br/>
+**/mnt** - Ponto de montagem temporário.<br/>
+**/dev** - Contém arquivos usados para acessar dispositivos (periféricos) existentes no computador.<br/>
+**/etc** - Contém arquivos de configuração do computador local.<br/>
+**/tmp** - Diretório para armazenamento de arquivos temporários criados por programas.<br/>
+**/usr** - Contém maior parte de seus programas, normalmente acessível somente em modo leitura.<br/>
+**/var** - Contém maior parte dos arquivos que são gravados com frequência pelos programas do sistema, e-mails, spool de impressora, cache e etc.<br/>
+**/lib** - Bibliotecas compartilhadas pelos programas do sistema e módulos do kernel.<br/>
+**/lost+found** - Local para a gravação de arquivos/diretórios recuperados pelo utilitário fsck.ext2, cada partição possui seu próprio diretório lost+found.<br/>
+**/proc** - Sistema de arquivos do kernel, este diretório não existe no HD/SSD, ele é colocado lá pelo kernel e usado por diversos programas que fazem sua leitura, verificam configurações do sistema ou modificar o funcionamento de dispositivos do sistema através de alterações em seus arquivos.
 
-## Driver
+### Driver
 Quando instalamos um novo Hardware no computador é necessário que o Sistema Operacional gerencie o funcionamento deste Hardware com todos os seus recursos. Esta responsabilidade é de um software especial denominado Driver, que tem a função de realizar a comunicação entre o Hardware e o SO. Um driver é um software que atua como uma ponte entre o sistema operacional e um hardware específico. Ele permite que o sistema operacional se comunique corretamente com dispositivos como impressoras, placas de vídeo, teclados, discos rígidos, entre outros. Quando um programa precisa interagir com um hardware, por exemplo, imprimir um documento, ele envia a solicitação ao sistema operacional, que repassa essa solicitação ao driver correspondente. O driver, por sua vez, traduz essa solicitação em comandos que o hardware entende e executa.<br/>
 Ou seja, um driver é um software que permite que o computador se comunique com o hardware ou com os dispositivos. Sem drivers, o hardware conectado ao computador, por exemplo, uma placa de vídeo ou uma impressora, não funcionará corretamente. Na maioria das vezes, os drivers são fornecidos com o SO, mas também é possível instalá-los a partir de outras fontes na internet.
 
@@ -223,7 +223,7 @@ Ou seja, um driver é um software que permite que o computador se comunique com 
 Quando um pendrive é conectado ao computador, o sistema operacional usa um driver USB para reconhecer, acessar e permitir a leitura e escrita de arquivos no dispositivo. Sem drivers, o sistema não conseguiria reconhecer ou controlar adequadamente o hardware.
 
 ### Kernel
- O kernel é o núcleo do sistema operacional. Ele é responsável por criar uma ponte com os comando do usuário e o hardware do computador, ele fornece uma interface entre o hardware e o software do sistema. O kernel é essencial para o funcionamento de qualquer sistema operacional, e suas principais funções incluem:
+O kernel é o núcleo do sistema operacional. Ele é responsável por criar uma ponte com os comando do usuário e o hardware do computador, ele fornece uma interface entre o hardware e o software do sistema. O kernel é essencial para o funcionamento de qualquer sistema operacional, e suas principais funções incluem:
 
 - **Gerenciamento de Processos**: O kernel gerencia a criação, execução e terminação de processos. Ele garante que os processos sejam alocados recursos de forma justa e eficiente e lida com a troca de contexto entre processos.
 - **Gerenciamento de Memória**: O kernel controla o uso da memória RAM, alocando e liberando espaço conforme necessário. Ele também gerencia a memória virtual e a paginação, permitindo que o sistema use mais memória do que fisicamente disponível.
@@ -234,7 +234,7 @@ Quando um pendrive é conectado ao computador, o sistema operacional usa um driv
 - **Sistema de Arquivos**: O kernel fornece uma interface para o sistema de arquivos, permitindo a criação, leitura, escrita e exclusão de arquivos e diretórios.
 
 #### Tipos de Kernel
- Existem diferentes tipos de kernels, cada um com suas características e arquitetura:
+Existem diferentes tipos de kernels, cada um com suas características e arquitetura:
 - **Monolítico**: Um kernel monolítico tem todas as suas funções essenciais, como gerenciamento de processos e sistema de arquivos, rodando no mesmo espaço de memória, o que pode resultar em maior desempenho, mas também em maior complexidade e risco de falhas. Exemplo: Linux.
 - **Microkernel**: Um microkernel mantém o núcleo do sistema operacional minimalista e delega muitas funções para processos no espaço do usuário. Isso pode aumentar a modularidade e a estabilidade, mas pode ter um impacto no desempenho. Exemplo: Minix.
 - **Kernel Híbrido**: Combina características de kernels monolíticos e microkernels, tentando equilibrar desempenho e modularidade. Exemplo: Windows NT.
@@ -254,7 +254,7 @@ As **GUI**s usam principalmente o mouse para navegar e selecionar ícones, menus
 Usa comandos alfanuméricos simples executados diretamente na interface de comandos para navegar entre os discos e pastas, para conseguir outras funções como copiar, formatar, deletar e etc, e executar aplicativos.
 
 ### Shell 
- O shell é um programa que fornece uma interface para interagir com o sistema operacional. Ele permite que os usuários executem comandos, scripts e programas, e também pode ser usado para gerenciar arquivos e processos. Em essência, o shell atua como um intermediário entre o usuário e o núcleo do sistema operacional.
+O shell é um programa que fornece uma interface para interagir com o sistema operacional. Ele permite que os usuários executem comandos, scripts e programas, e também pode ser usado para gerenciar arquivos e processos. Em essência, o shell atua como um intermediário entre o usuário e o núcleo do sistema operacional.
 
 Existem diferentes tipos de shells, e eles podem ser classificados principalmente em duas categorias:
 - **Shells de Linha de Comando**: Interagem com o usuário por meio de uma interface de linha de comando (CLI), onde comandos são digitados e executados.
@@ -268,15 +268,20 @@ Existem diferentes tipos de shells, e eles podem ser classificados principalment
 - **Dash (Debian Almquist Shell)**: Um shell muito leve e rápido, projetado para ser compatível com o POSIX e usado como shell de script em algumas distribuições Linux, como o Debian.
 
 ### Desktop x Server
- #### Modelo Cliente-Servidor
- A arquitetura cliente-servidor é uma estrutura de aplicação que distribui as tarefas e cargas de trabalho entre os fornecedores de um recurso uo serviço, designados como servidores, e os requerentes dos serviços designados como clientes. Quando uma máquina solicita uma informação / realizando uma consulta é consierada "cliente", mas quando ela está fornecendo a informação / sendo a fonte da consulta considera-se um "servidor".<br/>
- Existem diferenças significativas entre SO para desktop e servidores, além da diferença da arquitetura entre os hardwares dessas máquinas, elas possuem finalidades diferentes, o que faz com que o SO tenha de ser específico e adaptado para cada serviço. Ou seja, temos máquinas na rede próprias apenas para entregar serviços, que estão sempre ouvindo as requisições (trata-se de um grande conjunto de máquinas, organizadas em Data Centers com a função de entregar serviços na rede, para este tipo de utilização é necessário um SO específico que desempenhe bem a gerência dos processos e o melhor uso dos recursos da máquina para que seja possível por exemplo a entrega dos serviços de servidor web, servidor de arquivos/banco de dados, contâiners, etc) e máquinas que utilizam e consomem estes serviços (desktops, smartphones, IOT, etc).
+Dependendo da finalidade do sistema, existe um sistema operacional mais indicado, como por exemplo um notebook que o usuário usa no dia a dia para estudar, navegar na internet e ouvir suas músicas possui um sistema operacional que dá suporte para todas as aplicações que realizam estas atividades, enquanto um servidor de páginas web possui um sistema operacional dedicado a aumentar a sua eficiência e disponibilidade.
 
- #### Desktop
- Um SO desktop é voltado ao atendimento do usuário "comum"/final (cliente) para a realização das suas atividades necessárias. Suas principais características são a GUI, suporte a interatividade e a operação em rede.
+#### Modelo Cliente-Servidor
+A arquitetura cliente-servidor é uma estrutura de aplicação que distribui as tarefas e cargas de trabalho entre os fornecedores de um recurso uo serviço, designados como servidores, e os requerentes dos serviços designados como clientes. Quando uma máquina solicita uma informação / realizando uma consulta é consierada "cliente", mas quando ela está fornecendo a informação / sendo a fonte da consulta considera-se um "servidor".<br/>
+Existem diferenças significativas entre SO para desktop e servidores, além da diferença da arquitetura entre os hardwares dessas máquinas, elas possuem finalidades diferentes, o que faz com que o SO tenha de ser específico e adaptado para cada serviço. Ou seja, temos máquinas na rede próprias apenas para entregar serviços, que estão sempre ouvindo as requisições (trata-se de um grande conjunto de máquinas, organizadas em Data Centers com a função de entregar serviços na rede, para este tipo de utilização é necessário um SO específico que desempenhe bem a gerência dos processos e o melhor uso dos recursos da máquina para que seja possível por exemplo a entrega dos serviços de servidor web, servidor de arquivos/banco de dados, contâiners, etc) e máquinas que utilizam e consomem estes serviços (desktops, smartphones, IOT, etc).
 
- #### Servidor
- Um servidor é projetado para centralizar e fornecer serviços de forma eficiente a outros dispositivos ou usuários, facilitando a comunicação, o armazenamento e a gestão de recursos dentro de uma rede. O objetivo de um servidor é fornecer serviços, recursos ou dados a outros dispositivos - conhecidos como clientes - em uma rede. Este tipo de SO permite o gerenciamento eficiente de grandes quantidades de recursos (disco, memória, processadores, etc), impondo prioridades e limites sobre o uso dos recursos pelos usuários e seus aplicativos. Normalmente um SO server também tem suporte à rede e multiusuários. Em termos mais específicos, os servidores podem ter várias funções, dependendo do tipo:
+##### Desktop
+Um SO desktop é voltado ao atendimento do usuário "comum"/final (cliente) para a realização das suas atividades necessárias. Suas principais características são a GUI, suporte a interatividade e a operação em rede.
+
+###### SO Desktop
+Normalmente o tipo de SO destinado a estes usuários são os que oferecem maior suporte a GUIs e também compatibilidade com uma gama ampla de softwares multiplataforma. São SO bons, porém bons para este uso mais "simples", onde o usuário tem controle sobre as configurações do hardware mas dificilmente sobre a manipulação do hardware em si, evitando que o usuário comum cause danos ao sistema realizando uma alteração indevida por exemplo.
+
+##### Servidor
+Um servidor é projetado para centralizar e fornecer serviços de forma eficiente a outros dispositivos ou usuários, facilitando a comunicação, o armazenamento e a gestão de recursos dentro de uma rede. O objetivo de um servidor é fornecer serviços, recursos ou dados a outros dispositivos - conhecidos como clientes - em uma rede. Este tipo de SO permite o gerenciamento eficiente de grandes quantidades de recursos (disco, memória, processadores, etc), impondo prioridades e limites sobre o uso dos recursos pelos usuários e seus aplicativos. Normalmente um SO server também tem suporte à rede e multiusuários. Em termos mais específicos, os servidores podem ter várias funções, dependendo do tipo:
  - **Servidores de Arquivos**: Armazenam e gerenciam arquivos para acesso e compartilhamento na rede.
  - **Servidores Web**: Hospedam e gerenciam arquivos que contém o código fonte de websites, tornando-os acessíveis para os usuários através da internet ou intranet.
  - **Servidores de e-mail**: Gerenciam o envio, recebimento e armazenamento de e-mails.
@@ -286,8 +291,8 @@ Existem diferentes tipos de shells, e eles podem ser classificados principalment
  - **Servidores de Autenticação**: Gerenciam o acesso a recursos de rede, verificando a identidade dos usuários.
  - **Servidores de Impressão**: Gerenciam e coordenam o envio de trabalhos de impressão para impressoras compartilhadas na rede.
 
- #### SO Server
- Um sistema operacional de servidor é um tipo de sistema operacional projetado para gerenciar e otimizar o funcionamento de um servidor. Ele é diferente dos sistemas operacionais de desktop em vários aspectos, pois é projetado para lidar com cargas de trabalho mais intensas, garantir alta disponibilidade, e oferecer recursos avançados de gerenciamento e segurança. Esses sistemas operacionais são projetados para suportar operações de missão crítica e atender a uma variedade de necessidades em ambientes corporativos e de rede. Aqui estão algumas características e funções comuns de um sistema operacional de servidor:
+###### SO Server
+Um sistema operacional de servidor é um tipo de sistema operacional projetado para gerenciar e otimizar o funcionamento de um servidor. Ele é diferente dos sistemas operacionais de desktop em vários aspectos, pois é projetado para lidar com cargas de trabalho mais intensas, garantir alta disponibilidade, e oferecer recursos avançados de gerenciamento e segurança. Esses sistemas operacionais são projetados para suportar operações de missão crítica e atender a uma variedade de necessidades em ambientes corporativos e de rede. Aqui estão algumas características e funções comuns de um sistema operacional de servidor:
  - **Gerenciamento de Recursos**: Otimiza o uso de recursos do hardware, como CPU, memória e armazenamento, para suportar múltiplas conexões e processos simultâneos de forma eficiente.
  - **Segurança e Controle de Acesso**: Fornece ferramentas avançadas para controlar o acesso aos recursos do servidor, proteger dados e gerenciar permissões e autenticações.
  - **Redundância e Alta Disponibilidade**: Oferece recursos para garantir que o servidor permaneça operacional mesmo em caso de falhas de hardware ou software, incluindo backups, failover e clustering.
@@ -313,5 +318,20 @@ Existem diferentes tipos de shells, e eles podem ser classificados principalment
  2. **Máquina Virtual/Nuvem**
      - Acesso ssh cliente Windows x Linux Server: puttygen: pem -> ppk > putty Auth
      - Acesso ssh cliente Linux x Linux Server: sudo chmod 600 file.pem && ssh -i file.pem user_name@0.0.0.0 -y
+
+<!--
+- MORIMOTO, Carlos Eduardo. Hardware: O guia definitivo. Porto Alegre: Sulina, 2007.
+- TANENBAUM, A. Organização Estruturada de Computadores. 3. ed. Rio de Janeiro: Prentice- Hall, 1992.
+- TORRES, Gabriel. Hardware: Curso Completo. 2. ed. Axcel Books, 1998.
+- VALCONCELOS, Laércio. Hardware na Prática. 3. ed. Rio de Janeiro: Laércio Vasconcelos Computação, 2009.
+- VALCONCELOS, Laércio. Manutenção de Micros na Prática. 2. ed. Rio de Janeiro: Laércio Vasconcelos Computação, 2008.
+- Intel Corporation. Desktop Boards: soluções de problemas do BIOS. Disponível em: <http://www.intel.com/support/pt/motherboards/desktop/sb/cs-028780.htm>. Acessado em: 12/01/2012.
+- Clube do Hardware. Trocando a Bateria da Placa-mãe. Disponível em: <http://www.clubedoHardware.com.br/artigos/Trocando-a-Bateria-da-Placa-Mae/745/1>. Acessado em 30/01/2012.
+- GdH Press. Formatação. Disponível em: <http://www.gdhpress.com.br/hmc/leia/index.php?p=cap5-10>. Acessado em 30/01/2012.
+- Clube do Hardware. Tudo o Que Você Precisa Saber Sobre Chipsets. Disponível em: <http://www.clubedoHardware.com.br/printpage/Tudo-o-Que-Voce-Precisa-Saber-Sobre-Chipsets/568>. Acessado em 30/01/2012.
+- LEAL. A. R. Barramentos em Microcomputadores. Disponível em: <http://www.lee.eng.uerj.br/downloads/graduacao/microprocessadores/artigos_saber/a_publicar/barramento1.pdf>. Acessado em 30/01/2012.
+- GdH Press. Placas-Mãe e Barramentos. Disponível em: <http://www.Hardware.com.br/guias/placas-mae-barramentos/vida-morte-agp.html> Acessado em 01/02/2012.
+- InfoWester. Tecnologia USB (Universal Serial Bus). Disponível em: <http://www.infowester.com/usb.php>. Acessado em: 06/01/2012.
+-->
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/arquitetura_de_computadores.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#hardware_e_software">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/conhecimentos_de_prompt_de_comando_e_terminal.md">next</a>
