@@ -407,7 +407,7 @@ Os barramentos são divididos em 2 tipos: Barramento Local e Barramento de Expan
 Barramentos são elos de comunicação que consistem em um conjunto de vias que interligam as diferentes partes de um sistema de hardware, sobre o qual os dados — que são impulsos elétricos — são transmitidos e recebidos por vários circuitos.<br/>
 O barramento é a tecnologia usada para conectar os componentes uns aos outros através da placa-mãe, permitindo assim a comunicação entre eles no sistema. O barramento local é a via principal de conexão do processador ao sistema, e podem apresentar diferentes formas de comunicação entre a CPU e demais componentes:
   - **FSB — Front Side Bus**: consiste em um barramento de alta velocidade que trabalha na mesma frequencia do processador — ou seja, o desempenho do processador acaba limitado pela frequência do barramento, e, quanto maior a frequência do FSB, maior a velocidade da comunicação. Com uma arquitetura de barramento compartilhado, ele é o responsável pela conexão entre processador (CPU) e o Chipset Ponte Norte, que gerencia o acesso à Memória RAM e Barramento AGP ou PCI-Express.
-  - **QPI — QuickPath Interconnect**: é um barramento de alta velocidade que conecta diretamente a CPU com outros componentes, sem necessidade de um chipset intermediário como o Northbridge. Por conta da arquitetura *ponto a ponto*, a comunicação direta entre a CPU e a RAM elimina gargalos do FSB, aumentando a larga de banda e diminuindo a latência da transferência de dados. Este tipo de barramento usa o sistema de chipset PCH.
+  - **QPI — QuickPath Interconnect**: é um barramento de alta velocidade que conecta diretamente a CPU com outros componentes, sem necessidade de um chipset intermediário como o Northbridge. Por conta da arquitetura *ponto a ponto*, o processador passa a ter um controlador de memória RAM integrado, o que significa que a comunicação entre a CPU e a RAM é direta, o que elimina gargalos do FSB e aumenta a largura de banda, diminuindo a latência da transferência de dados. Este tipo de barramento QPI usa o sistema de chipset PCH.
 
 O barramento local é dividido em 3 sub-barramentos:
 1. **Barramento de endereço**: usado para identificar qual interface quer transmitir ou receber dados e endereçamento na memória.
@@ -524,9 +524,10 @@ Chipsets são circuitos de apoio da placa-mãe que executam as mais variadas fun
 
 ![Image](https://github.com/user-attachments/assets/ae9553cc-5a12-4aac-af21-a8970dad5a9f)
 
-Todo *chipset* é dividido em 2 componentes:
+Todo *chipset* é dividido em:
 - **ponte norte**: controla os componentes internos *mais rápidos* como o processador, memória, placa de vídeo e os pentes de RAM. Tais informações são enviadas ao disco rígido. O processador é ligado diretamente ao ponte norte, através do barramento local FSB, pois ele é quem controla o fluxo de dados entre o processador e a memória, e também as informações provenientes das interfaces e barramento de expansão.
 - **ponte sul**: controla os demais componentes e é responsável pela comunicação dos dispositivos periféricos através das portas de comunicação e cabos, os componentes de entrada e saída, os *slots* de expansão e disco rígido.
+
 - **PCH**: Com a evolução dos processadores, **onde as funções do Northbridge foram _absorvidas_ pelo processador**, ele foi integrado à CPU, **e o Southbridge evoluiu para o PCH – Platform Controller Hub**, concentrando todas as funções restantes.
 
 ![Image](https://github.com/user-attachments/assets/21aa29bc-8e9c-47bd-bd8d-6a60b66dbe4a)
