@@ -120,7 +120,7 @@ s componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipame
    └───────── I ────────┘ └──────── O ───────┘ └─────────── CACHE ───────────┘
 *DrMips: simulador de funcionamento da CPU
 </pre>
- A ULA realiza operações lógicas e aritméticas sobre um ou mais operandos, ou seja, realiza ações indicadas nas instruções, executando operações númericas (aritméticas) e não numéricas (lógicas), além da preparação de informações para desvio do programa. As operações da ULA são geralmente muito simples, funções mais complexas, exigidas pelas instruções da máquina são realizadas pela ativação sequencial das várias operações básicas disponíveis. De modo geral, a ULA é responsável por realizar cálculos matemáticos e operações lógicas dentro da CPU, por exemplo, ao somar dois números em um programa, essa operação ocorre na ULA. Exemplos de operações realizadas pela ULA:
+ A ULA realiza operações lógicas e aritméticas sobre um ou mais operandos, ou seja, cuida dos cálculos e realiza ações indicadas nas instruções, executando operações númericas (aritméticas) e não numéricas (lógicas), além da preparação de informações para desvio do programa. As operações da ULA são geralmente muito simples, funções mais complexas, exigidas pelas instruções da máquina são realizadas pela ativação sequencial das várias operações básicas disponíveis. De modo geral, a ULA é responsável por realizar cálculos matemáticos e operações lógicas dentro da CPU, por exemplo, ao somar dois números em um programa, essa operação ocorre na ULA. Exemplos de operações realizadas pela ULA:
  - soma de dois operandos
  - negação de um operando
  - inversão de um operando
@@ -141,7 +141,7 @@ s componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipame
   Dispositivos em que o usuário interage com a máquina inputando e manipulando dados para processamento e recebendo informação como resultado. Teclado e mouse são exemplos de dispositivos de entrada enquanto tela e impressora são exemplos de dispositivos de saída. Para que o computador possa processar as entradas e saídas existem os barramentos, que são circutos elétricos que carregam as energias através de pulsos elétricos equivalentes à cada informação.<br/>
   Os computadores recebem entradas e produzem saídas. Quando digitamos um endereço de site, estamos efetivamente fornecendo os dados de entrada: "Pegue isso!", e, quando o computador exibe a página inicial, isso é saída: "Aqui está!". Os computadores trabalham principalmente com entradas de dados, realizam trabalho e produzem saídas.<br/>
   Algumas saídas de computador movem máquinas ou enviam dados para outros computadores. Os humanos não veem algumas saídas, mas para a maioria dos dispositivos são usados todos os dias possuem maneiras de criar uma intercafe de interação entre uma pessoa com seu dispositivo de computação. O humano fornece a entrada e vê, ouve ou sente a saída. Para a conexão dos periféricos, existem interfaces integradas ao computador que recebem e tratam os dados e em seguida os enviam de volta. Um exemplo é uma placa de vídeo, que transforma os dados de imagem oriundos do computador em um formato que pode ser exibido pelo monitor. Outro exemplo de interface pode ser dado com a placa de som, que é usada pelo computador para gravar e reproduzir áudio, convertendo som analógico em informações digitais e vice-versa. Ou mesmo a placa de rede, que vem embarcada na placa-mãe para a conexão do computador à rede.<br/>
-  O principal componente do sistema que fornece o suporte e estrutura para a entrada e saída de dados é o **Super I/O**. Este é um chipset auxiliar presente na placa-mãe que controla diversos dispositivos de entrada e saída, e é o responsável por integrar funções que anteriormente eram gerenciadas por chips separados. Ele geralmente é encontrado entre o Ponte Sul (PCH em componentes mais novos onde as funções do Ponte Norte foram absorvidas pelo processador e o Ponte Sul passou a ser chamado de Platform Controller Hub) e os dispositivos periféricos, sendo conectado ao barramento LPC. Nos sistemas modernos muitas de suas funções foram integradas à CPU ou ao chipset principal. Tanto o Super I/O quanto o Chipset Ponte Sul (Southbridge) são componentes fundamentais nas placas-mãe, mas é importante destacar que cada um tem funções distintas. Enquanto o Super I/O controla os dispositivos de entrada e saída se comunicando com o Ponte Sul, o Ponte Sul é o cotnrolador central gerencia a comunicação entre a CPU, os periféricos e o armazenamento, podendo se comunicar com o Ponte Norte ou diretamente à CPU.
+  O principal componente do sistema que fornece o suporte e estrutura para a entrada e saída de dados é o **Super I/O**. Este é um chipset auxiliar presente na placa-mãe que controla diversos dispositivos de entrada e saída, e é o responsável por integrar funções que anteriormente eram gerenciadas por chips separados. Ele geralmente é encontrado entre o Ponte Sul e os dispositivos periféricos, sendo conectado ao barramento LPC. Nos sistemas modernos muitas de suas funções foram integradas à CPU ou ao chipset principal. Tanto o Super I/O quanto o Chipset Ponte Sul (Southbridge) são componentes fundamentais nas placas-mãe, mas é importante destacar que cada um tem funções distintas. Enquanto o Super I/O controla os dispositivos de entrada e saída se comunicando com o Ponte Sul, o Ponte Sul é o cotnrolador central gerencia a comunicação entre a CPU, os periféricos e o armazenamento, podendo se comunicar com o Ponte Norte ou diretamente à CPU.
   - Periféricos são dispositivos que criam interfaces com dispositivos de computação.
     - Teclados e microfones são periféricos comuns que fornecem entradas baseadas em linguagem.
     - Mouses e telas sensíveis ao toque permitem que você navegue por visuais como ícones para dizer ao computador o que você quer fazer sem ter que usar palavras.
@@ -149,13 +149,14 @@ s componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipame
 <pre>
 Barramentos para dispositivos de entrada e saída:
 ┌─────────────┐        BARRAMENTOS        ┌─────────────┐
-|             ├─────────────────┬─────────┤   MEMÓRIA   |
-|     UCP     ├─────────────┬───|─────────┤             |
-|             ├─────────┬───|───|─────────┤  PRINCIPAL  |
+|             ├<────────────────┬─1──────>┤   MEMÓRIA   |
+|     UCP     ├<────────────┬─2─|────────>┤             |
+|             ├─────────┬─3─|───|────────>|  PRINCIPAL  |
 └─────────────┘         |   |   |         └─────────────┘
-                ┌───────┴───┴───┴───────┐
-                | DRIVERS CONTROLADORES |
-                └───────────┬───────────┘
+                        v   v   v
+                ┌───────┴───┴───┴───────┐  1 - DADOS
+                | DRIVERS CONTROLADORES |  2 - CONTROLE
+                └───────────┬───────────┘  3 - ENDEREÇO
                 ┌───────────┴───────────┐
                 | ENTRADA E SAÍDA (I/O) |
                 └───────────────────────┘
@@ -272,7 +273,7 @@ Para que os monitores sejam conectados na placa mãe, são utilizados adaptadore
 Ela é a placa de circuito principal à qual todos os outros componentes internos se conectam, por exemplo, é através de seus barramentos que o processador envia e recebe informações para a memória RAM, assim como entre todos os outros componentes como A CPU, a memória e outros componentes em geral. Outros sistemas podem ser encontrados diretamente na placa-mãe ou conectados a ela através de uma conexão secundária. Por exemplo, uma placa de som pode estar presente na placa-mãe ou a ela ser conectada através do barramento PCI. Assim, processador, memória, placa de vídeo, HD, teclado, mouse e etc, estão ligados diretamente à placa-mãe. Devido ao seu nível de complexidade, é um dos componentes que mais apresenta problemas no computador, por isso que o interessante é instalarmos um modelo de marcas conceituadas, pois a probabilidade de apresentar problemas será menor e, normalmente, terá um maior tempo na sua vida útil. Há uma grande quantidade de fabricantes deste componente, e cada fabricante possui uma grande variedade de modelos. Cada modelo é projetada para dar suporte a um determinado tipo de processador e memória RAM. Ao adquirir uma Placa-Mãe é aconselhável escolher um modelo de um fabricante conceituado e um modelo que de suporte a atualizações futuras de Hardware. Placas de baixa qualidade poderão influenciar no desempenho do computador, além de, normalmente, ter a vida útil bastante reduzida.<br/>
 Ela é o componente que conecta todos os componentes internos e externos, os quais se comunicam com o computador a partir de portas como USB (dispositivos móveis e de armazenamento), PS2 (dispositivos de entrada como mouse e teclado), entradas de vídeo para uso de monitor e dispositívos de saída, como HDMI, VGA e etc.<br/>
 Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
-Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos. 
+Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos.
 
 - **Capacitores — C**<br/>
 A principal característica de um capacitor é armazenar energia, e essa energia só é armazenada por um determiado período de tempo.<br/>
@@ -371,6 +372,8 @@ A placa-mãe pode variar conforme o modelo e fabricante, mas há componentes que
 - Slots de expansão como PCI, ISA, AGP e etc.
 - Bateria.
 
+![Image](https://github.com/user-attachments/assets/21aa29bc-8e9c-47bd-bd8d-6a60b66dbe4a)
+
 Existem alguns diferente tipos e modelos de padrões de placa-mãe:
 - **AT**<br/>
 AT é a sigla para **Advanced Technology**. Trata-se de um tipo de placa mãe já antiga, sendo muito usada entre o início dos anos 80 e final dos anos 90. Um dos fatores que contribuíram para que este padrão deixasse de ser usado — e o ATX fosse criado — foi seu espaço interno reduzido, que, com a instalação dos vários cabos do computador como o *flat cable*, alimentação e etc, dificultavam a circulação de ar, acarretando em alguns casos de dano permanentes à máquina, devido ao super aquecimento. Era exigida grande habilidade do técnico montador para aproveitar o espaço disponível da melhor maneira. Além disso, o conector de alimentação da fonte AT, que é ligado à placa-mãe, é composto por 2 plugs semelhantes, cada um contendo 6 pinos, que devem ser encaixados lado a lado, sendo que os fios de cor preta de cada um devem estar localizados no meio. Caso esse conectores fossem invertidos e a fonte de alimentação ligada, a placa-mãe era fatalmente danificada. Com o padrão AT, é necessário desligar o computador pelo SO, aguardar um alerta informando que o computador já pode ser desligado e clicar no botão "Power". Somente assim o equipamento era desligado, e isso se devia à uma limitação das fontes AT, que não foram projetadas para fazer o uso do recurso de desligamento automático.<br/>
@@ -401,9 +404,17 @@ O grande problema do surgimento de novos barramentos é que quase sempre os disp
 Os barramentos são divididos em 2 tipos: Barramento Local e Barramento de Expansão.
 
 - **Barramento Local**<br/>
+Barramentos são elos de comunicação que consistem em um conjunto de vias que interligam as diferentes partes de um sistema de hardware, sobre o qual os dados — que são impulsos elétricos — são transmitidos e recebidos por vários circuitos.<br/>
 O barramento é a tecnologia usada para conectar os componentes uns aos outros através da placa-mãe, permitindo assim a comunicação entre eles no sistema. O barramento local é a via principal de conexão do processador ao sistema, e podem apresentar diferentes formas de comunicação entre a CPU e demais componentes:
   - **FSB — Front Side Bus**: consiste em um barramento de alta velocidade que trabalha na mesma frequencia do processador — ou seja, o desempenho do processador acaba limitado pela frequência do barramento, e, quanto maior a frequência do FSB, maior a velocidade da comunicação. Com uma arquitetura de barramento compartilhado, ele é o responsável pela conexão entre processador (CPU) e o Chipset Ponte Norte, que gerencia o acesso à Memória RAM e Barramento AGP ou PCI-Express.
-  - **QPI — QuickPath Interconnect**: é um barramento de alta velocidade que conecta diretamente a CPU com outros componentes, sem necessidade de um chipset intermediário como o Northbridge. Por conta da arquitetura *ponto a ponto*, a comunicação direta entre a CPU e a RAM elimina gargalos do FSB, aumentando a larga de banda e diminuindo a latência da transferência de dados.
+  - **QPI — QuickPath Interconnect**: é um barramento de alta velocidade que conecta diretamente a CPU com outros componentes, sem necessidade de um chipset intermediário como o Northbridge. Por conta da arquitetura *ponto a ponto*, a comunicação direta entre a CPU e a RAM elimina gargalos do FSB, aumentando a larga de banda e diminuindo a latência da transferência de dados. Este tipo de barramento usa o sistema de chipset PCH.
+
+O barramento local é dividido em 3 sub-barramentos:
+1. **Barramento de endereço**: usado para identificar qual interface quer transmitir ou receber dados e endereçamento na memória.
+2. **Barramento de controle**: faz o controle do tráfego de dados no *barramento de dados*.
+3. **Barramento de dados**: serve para enviar ou receber dados entre a memória e os periféricos.
+
+![Image](https://github.com/user-attachments/assets/30cd478d-82f9-44e3-8fcf-388185f7b3dd)
 
 - **Barramento de Expansão**<br/>
 São os barramentos responsáveis por possibilitar a conexão de placas de expansão no computador, tais como: Placa de vídeo, Placa de Som, Placa de rede e etc. Existe uma grande variedade de barramentos. Os principais são:
@@ -509,9 +520,16 @@ Uma curiosidade é que, nos primeiros computadores pessoais os processadores era
 - **BGA – Ball Grid Array**: pode-se dizer que é uma variante do PGA, a montagem neste padrão é feita soldado o processador diretamente à placa-mãe, utilizando para isso pequenas esferas de solda ao invés de pinos ou contatos, o que melhora a eficiência térmica e elétrica. Muito usado em Chipsets, notebooks e dispositivos embarcados. O termo *Reballing BGA* refere-se ao processo de refazer a solda deste tipo de contato em caso de necesssidade de manutenção.
 
 ##### Chipset
-É o componente que permite ao processador executar todos os processos, isso porque é o chipset que gera os controles necessários para o trabalho do processador, e é graças também a ele que o processador se comunica com os demais circuitos, no geral, o chipset é quem dita as características que o micro irá ter como o tipo de memória, processador, recursos como USB ou PCI, enfim, determina os padrões de entrada de dados dos componentes que poderão ser instalados no sistema, velocidade do fluxo de dados e etc, e além disso, também determina a quantidade máxima de memória RAM suportada. É o grupo de componentes eletrônicos de baixa capacidade em um circuito integrado, usado para gerenciar o fluxo de dados entre o processador, memória e periféricos. Todo *chipset* é dividido em 2 componentes:
+Chipsets são circuitos de apoio da placa-mãe que executam as mais variadas funções. É o componente que permite ao processador executar todos os processos, isso porque é o chipset que gera os controles necessários para o trabalho do processador, e é graças também a ele que o processador se comunica com os demais circuitos, no geral, o chipset é quem dita as características que o micro irá ter como o tipo de memória, processador, recursos como USB ou PCI, enfim, determina os padrões de entrada de dados dos componentes que poderão ser instalados no sistema, velocidade do fluxo de dados e etc, e além disso, também determina a quantidade máxima de memória RAM suportada. É o grupo de componentes eletrônicos de baixa capacidade em um circuito integrado, usado para gerenciar o fluxo de dados entre o processador, memória e periféricos. O PCH é basicamente o "cérebro" da placa-mãe, cuidando de todas as conexões com dispositivos periféricos e repassando informações para a CPU. Ele permite que o sistema funcione corretamente, garantindo que os componentes interajam sem gargalos.
+
+![Image](https://github.com/user-attachments/assets/ae9553cc-5a12-4aac-af21-a8970dad5a9f)
+
+Todo *chipset* é dividido em 2 componentes:
 - **ponte norte**: controla os componentes internos *mais rápidos* como o processador, memória, placa de vídeo e os pentes de RAM. Tais informações são enviadas ao disco rígido. O processador é ligado diretamente ao ponte norte, através do barramento local FSB, pois ele é quem controla o fluxo de dados entre o processador e a memória, e também as informações provenientes das interfaces e barramento de expansão.
 - **ponte sul**: controla os demais componentes e é responsável pela comunicação dos dispositivos periféricos através das portas de comunicação e cabos, os componentes de entrada e saída, os *slots* de expansão e disco rígido.
+- **PCH**: Com a evolução dos processadores, **onde as funções do Northbridge foram _absorvidas_ pelo processador**, ele foi integrado à CPU, **e o Southbridge evoluiu para o PCH – Platform Controller Hub**, concentrando todas as funções restantes.
+
+![Image](https://github.com/user-attachments/assets/21aa29bc-8e9c-47bd-bd8d-6a60b66dbe4a)
 
 ##### NIC
 Os computadores precisam ser capazes de se comunicar entre si. O network interface controller, ou NIC, é a parte que lida com a comunicação. Ele envia dados do dispositivo e recupera dados de outras fontes para dar ao dispositivo para fazer o trabalho. Sem adaptadores de rede, tecnologias como a internet não seriam possíveis.<br/>
@@ -567,7 +585,7 @@ As portas físicas fazem parte dos hardwares e são responsáveis pela entrada d
 - **Lógicas**<br/>
 Por outro lado, as portas lógicas são portas virtuais necessárias para manter a comunicação com o sistema computacional, a exemplo das portas TCP e UDP, responsáveis por transportar informações dentro das aplicações.
 
-![Image](https://github.com/user-attachments/assets/a4a3f87b-0fc4-4a53-aeb5-05029b1288ef)
+![Image](https://github.com/user-attachments/assets/b13cfd4f-8337-4782-85d3-262fba52a938)
 
 ### Identidade do Hardware
 Todo hardware tem uma identificação especial chamada endereço de controle de acesso à mídia, ou simplesmente **MAC**. Endereços MAC são usados ​​para identificar exclusivamente o hardware. Eles são atribuídos na fábrica onde o dispositivo é produzido. Um fato interessante sobre endereços MAC é que eles são exclusivos para cada peça de hardware que já foi criada. Novos produtos não compartilharão um endereço MAC com nenhum outro produto, mesmo aqueles que são reciclados ou acabam em aterros sanitários.<br/>
