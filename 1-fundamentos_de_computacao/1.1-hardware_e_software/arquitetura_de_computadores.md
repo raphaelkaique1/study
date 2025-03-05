@@ -969,7 +969,17 @@ Todo hardware tem uma identificação especial chamada endereço de controle de 
 └─────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 
- ###### Tabela ASCII e Conversores.
- A tabela ASCII ([American Standard Code for Information Interchange](https://www.ascii-code.com/pt)) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
+###### Tabela ASCII e Conversores.
+A tabela ASCII ([American Standard Code for Information Interchange](https://www.ascii-code.com/pt)) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
+
+## SIMBOLOGIA E DIAGRAMAS
+A *simbologia* é usada para representar dispositivos, componentes ou funções elétricas e eletrônicas através de *símbolos*. Além disso, o uso de símbolos gráficos serve para representar as relações entre eles e os efeitos físicos que integram os seus funcionamentos completos ou parciais. O uso de símbolos gráficos em desenhos de esquemas elétricos e eletrônicos serve para representar os componentes, os equipamentos, as relações entre estes e os efeitos físicos que integram o funcionamento completo ou parcial dos mesmos. Estes simbolos gráficos de circuitos são usados em projetos e aplicações que precisem de uma esquematização visual. A representação dos elementos segue padrões pré-definidos, ou seja, simbolos gráficos padronizados estabelecidos pelas normas NBRs da ABNT, ANSI e IEC. Essa simbologia permite a criação do que chamamos de **diagrama**.<br/>
+O diagrama representa o esquema gráfico exato pelo qual os diversos componentes de um dado circuito eletrônico estão interligados. Podem ser chamados de *diagramas esquemáticos* ou simplesmente *esquemas*. Existem alguns tipos de diagramas:
+- **Diagrama chapeado**: exibe a conexão de cada elemento de algum dispositivo ou circuito através de desenhos extremamente similares aos formatos físicos dos componentes reais.<br/>
+![Image](https://github.com/user-attachments/assets/5ea2d1fc-9e5c-4b38-85f6-6dcb41e71eb0)
+- **Diagrama em blocos**: neste caso, o circuito é dividido em blocos, onde cada bloco representa uma funcionalidade, este tipo de diagrama é ideal para representação de circuitos complexos, onde a quantidade de simbolos é tão grande que torna a interpretação difícil.<br/>
+![Image](https://github.com/user-attachments/assets/4b459e48-921f-401b-aa59-4cf4b28b9338)
+- **Diagrama Esquemático**: o circuito é representado por símbolos, obedecendo as normas (nacionais ou internacionais), neste caso o diagrama representa todos os elementos e suas respectivas conexões e interações realizadas entre eles.<br/>
+![Image](https://github.com/user-attachments/assets/efc84ff5-d72f-469c-8a47-ddb5f795e298)
 
 <a href="https://github.com/raphaelkaique1/study#conceitos_basicos">back</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/1-fundamentos_de_computacao/1.1-hardware_e_software/sistemas_operacionais.md">next</a>
