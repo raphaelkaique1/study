@@ -970,9 +970,9 @@ Todo hardware tem uma identificação especial chamada endereço de controle de 
 </pre>
 
 ###### Tabela ASCII e Conversores.
-A tabela ASCII ([American Standard Code for Information Interchange](https://www.ascii-code.com/pt)) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
+A tabela [ASCII American Standard Code for Information Interchange](https://www.ascii-code.com/pt) é um padrão que representa caracteres alfanuméricos e símbolos em forma de códigos numéricos para garantir a compatibilidade entre sistemas e dispositivos.
 
-## SIMBOLOGIA E DIAGRAMAS
+## [SIMBOLOGIA E DIAGRAMAS](https://drive.google.com/drive/folders/1g9eHCGX3Dvape75J6APOhkgKp1ZIwtO0)
 A *simbologia* é usada para representar dispositivos, componentes ou funções elétricas e eletrônicas através de *símbolos*. Além disso, o uso de símbolos gráficos serve para representar as relações entre eles e os efeitos físicos que integram os seus funcionamentos completos ou parciais. O uso de símbolos gráficos em desenhos de esquemas elétricos e eletrônicos serve para representar os componentes, os equipamentos, as relações entre estes e os efeitos físicos que integram o funcionamento completo ou parcial dos mesmos. Estes simbolos gráficos de circuitos são usados em projetos e aplicações que precisem de uma esquematização visual. A representação dos elementos segue padrões pré-definidos, ou seja, simbolos gráficos padronizados estabelecidos pelas normas NBRs da ABNT, ANSI e IEC. Essa simbologia permite a criação do que chamamos de **diagrama**.<br/>
 O diagrama representa o esquema gráfico exato pelo qual os diversos componentes de um dado circuito eletrônico estão interligados. Podem ser chamados de *diagramas esquemáticos* ou simplesmente *esquemas*. Existem alguns tipos de diagramas:
 - **Diagrama chapeado**: exibe a conexão de cada elemento de algum dispositivo ou circuito através de desenhos extremamente similares aos formatos físicos dos componentes reais.<br/>
