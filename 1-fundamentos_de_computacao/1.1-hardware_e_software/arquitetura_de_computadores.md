@@ -977,7 +977,7 @@ A *simbologia* é usada para representar dispositivos, componentes ou funções 
 O diagrama representa o esquema gráfico exato pelo qual os diversos componentes de um dado circuito eletrônico estão interligados. Podem ser chamados de *diagramas esquemáticos* ou simplesmente *esquemas*. Existem alguns tipos de diagramas:
 - **Diagrama chapeado**: exibe a conexão de cada elemento de algum dispositivo ou circuito através de desenhos extremamente similares aos formatos físicos dos componentes reais.<br/>
 ![Image](https://github.com/user-attachments/assets/5ea2d1fc-9e5c-4b38-85f6-6dcb41e71eb0)
-- **Diagrama em blocos**: neste caso, o circuito é dividido em blocos, onde cada bloco representa uma funcionalidade, este tipo de diagrama é ideal para representação de circuitos complexos, onde a quantidade de simbolos é tão grande que torna a interpretação difícil.<br/>
+- **Diagrama em blocos**: neste caso, o circuito é dividido em blocos, onde cada bloco representa uma funcionalidade, este tipo de diagrama é ideal para representação de circuitos complexos, onde a quantidade de simbolos é tão grande que torna a interpretação difícil. Um fluxograma é um exemplo de diagrama em bloco, na programação, este diagrama é usado para representar os passos lógicos de um determinado processo, ou seja, **algoritmos**.<br/>
 ![Image](https://github.com/user-attachments/assets/4b459e48-921f-401b-aa59-4cf4b28b9338)
 - **Diagrama Esquemático**: o circuito é representado por símbolos, obedecendo as normas (nacionais ou internacionais), neste caso o diagrama representa todos os elementos e suas respectivas conexões e interações realizadas entre eles.<br/>
 ![Image](https://github.com/user-attachments/assets/efc84ff5-d72f-469c-8a47-ddb5f795e298)
