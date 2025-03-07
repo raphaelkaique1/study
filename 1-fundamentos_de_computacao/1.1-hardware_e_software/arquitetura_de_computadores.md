@@ -275,10 +275,36 @@ Ela é o componente que conecta todos os componentes internos e externos, os qua
 Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
 Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos.
 
+###### Circuito RLC
+Os capacitores são considerados um dos 3 grandes componentes passivos, acompanhdo de resistores e indutores. Componentes passivos são dispositivos eletrônicos que consomem, armazenam e liberam eletricidade. Estes 3 componentes passivos quando usados juntos em um circuito, formam o que chamamos de circuito **RLC**. Embora pareçam menos importantes que os *componentes ativos*, os componentes passivos são fundamentais para garantir a precisão das operações ativas executadas pelos circuitos eletrônicos.<br/>
+Os componentes neste circuito podem estar conectados em *série* ou em *paralelo*.<br/>
+![Image](https://github.com/user-attachments/assets/106af746-106c-4535-9eb6-67640b6340f6)
+
+Já os componentes ativos são capazes de transformar a energia recebida de uma fonte de alimentação, gerar energia para algum circuito, amplificar a baixa potência para a potência de saída de forma contínua e manipular a direção da corrente dentro dos circuitos. Alguns exemplos de componentes ativos são diodos, transistores, SCR (Silicon Controlled Rectfier), triacs, CIs e microcontroladores.
+
+- **Resistores — R**<br/>
+Os resistores são componentes eletrônicos que limitam ou controlam a corrente elétrica em um circuito. Como seu nome sugere, em um circuito eles provocam *resistência* à passagem de uma corrente elétrica. Existem 2 tipos de resistores, os fixos e os variáveis, dependendo se sua resistência pode ou não ser ajustada. Por exemplo um resistor de 1kΩ limitando a corrente para um LED, evitando que ele queime.<br/>
+![Image](https://github.com/user-attachments/assets/072763ca-8aee-40a3-a867-5e33ac305894)
+  - **Fixos**: fornecem uma resistência **constante e conhecida** para controlar a corrente elétrica no circuito. Seu papel é definir os níveis de tensão e corrente em circuitos eletrônicos, proteger componentes sensíveis ao limitar a corrente que passa por eles e atuar como divisores de tensão, ajustando os níveis de tensão em diferentes partes do circuito. O tipo mais comum é o filme carbono, mas também podem ser de filme metálico, fio de precisão e SMD.<br/>
+  ![Image](https://github.com/user-attachments/assets/3bb02b59-02a2-4e5b-b770-803e9735379d)
+  - **Variáveis**: **permitem o ajuste da resistência dentro de um determinado intervalo.** Eles ajustam a intensidade de corrente elétrica conforme necessário e controlam os sinais elétricos em circuitos, como em reguladores de volume e brilho. Temos como exemplo o botão de volume de um rádio, que usa um potenciômetro para aumentar ou diminuir a resistência e, consequentemente, controlar o volume do som. Além deste existem também o Trimpot e o Reostato.<br/>
+  ![Image](https://github.com/user-attachments/assets/2fa2e1c4-f1e9-4dd9-a4f6-cf1044a5890b)
+
+- **Bobinas — L**<br/>
+Também chamadas de **indutores**, são componentes eletrônicos que armazenam energia na forma de um campo magnético quando uma corrente elétrica passa por elas. Elas desempenham um papel fundamental nas placas-mãe, ajudando na regulação de tensão, filtragem de ruído e armazenamento de energia para processadores, memórias e outros componentes. Elas fazem parte do circuito VRM (Voltage Regulator Module), que regula a tensão fornecida ao processador e outros chips.<br/>
+![Image](https://github.com/user-attachments/assets/e40b32dc-6e1c-4ec7-ae84-2f3ae431593e)<br/>
+Os principais tipos são:
+  - **Bobinas de Ferrite — Indutores de Potência SMD**: filtram ruídos elétricos e estabilizam a tensão para a CPU, GPU e memória RAM. São normalmente feitas de um fio de cobre enrolado em um núcleo de ferrite, sendo compactas e soldadas diretamente na superfície da PCB. Projetadas para suportar altas correntes e baixas frequências. São encontradas no circuito VRM da CPU/GPU e na alimentação da RAM e do chipset.
+  - **Bobinas de Choque — Choke Coils**: filtram e suavizam a corrente elétrica para evitar oscilações e interferências. Possuem um núcleo de ferrite ou ferro em formato toroidal, e são encontradas em torno do socket da CPU para regulação de tensão do processador, e também perto dos conectores de alimentação da placa-mãe. Elas impedem que ruídos de alta frequência prejudiquem o funcionamento do sistema.
+  - **Bobinas Toroidais**: elas melhoram a eficiência energética e reduzem interferências eletromagnéticas (EMI), funcionando como filtros de ruído e reguladores de tensão. Tem um formato de anel, conhecido como *toroide*, geralmente revestido por um material isolante. Ficam posicionadas no circuito VRM da CPU e GPU e nas fontes de alimentação embutidas em notebooks e placas-mãe compactas.
+  - **Bobinas SMD**: fazm a filtragem de corrente e estabilização de sinais em circuitos eletrônicos sensíveis. São pequenas e planas, soldadas diretamente na superfície da placa-mãe e podem ser encapsuladas em blocos de ferrite. Ficam localizadas nos circuitos de alimentação da RAM e do chipset e nas áreas de comunicação de dados, como portas USB e PCIe.<br/>
+  ![Image](https://github.com/user-attachments/assets/dc504b1a-41ea-4d6f-9b66-663071813970)
+
 - **Capacitores — C**<br/>
-A principal característica de um capacitor é armazenar energia, e essa energia só é armazenada por um determiado período de tempo.<br/>
+A principal característica de um capacitor é receber e armazenar energia, e essa energia só é armazenada por um determiado período de tempo e, então, é fornecida para o componente necessário. Aleḿ disso, também realiza a função de filtrar energia, mantendo o sistema operacional durante interrupções momentâneas de energia. Existem vários tipos de capacitores, e, o que define cada um é o seu *dielétrico*, que é o material isolante que separa 2 placas condutoras denominadas *armaduras*.<br/>
+A capacidade de um capacitor armazenar energia — carga elétrica — se chama *capacitância*.<br/>
 ![Image](https://github.com/user-attachments/assets/2cfcaab8-b2a0-452c-bc5d-e420a672b099)
-   - **Capacitor Eletrolítico**: ideal para aplicações que exigem armazenamento de energia e filtragem de sinais, este é um tipo de capacitor que utiliza um líquido eletrolítico como um de seus condutores internos para armazenar energia elétrica. Ele é amplamente utilizado em circuitos eletrônicos devido à sua alta capacitância, o que permite armazenar grandes quantidades de carga elétrica em um espaço relativamente pequeno. Possui um terminal positivo (+) e um terminal negativo (-), e deve ser conectado corretamente para evitar danos.<br/>
+   - **Capacitor Eletrolítico**: ideal pcara aplicações que exigem armazenamento de energia e filtragem de sinais, este é um tipo de capacitor que utiliza um líquido eletrolítico como um de seus condutores internos para armazenar energia elétrica. Ele é amplamente utilizado em circuitos eletrônicos devido à sua alta capacitância, o que permite armazenar grandes quantidades de carga elétrica em um espaço relativamente pequeno. Possui um terminal positivo (+) e um terminal negativo (-), e deve ser conectado corretamente para evitar danos.<br/>
    ![Image](https://github.com/user-attachments/assets/2cb9f6be-d81f-41eb-88aa-0e8de9f06409)
    - **Capacitor Eletrolítico Sólido**: este é um tipo avançado de capacitor eletrolítico que utiliza um eletrólito de polímero condutor em vez de um eletrólito líquido convencional.<br/>
    ![Image](https://github.com/user-attachments/assets/3944f993-da30-4627-9a3d-e2bddad8213c)<br/>
@@ -291,14 +317,6 @@ A principal característica de um capacitor é armazenar energia, e essa energia
       ![Image](https://github.com/user-attachments/assets/88ed38c6-7972-411d-a87f-842a4a58e55a)
       - **Capacitor SMD Tântalo**: **são polarizados** e costumam ter capacitâncias mais altas do que os capacitores cerâmicos de tamanho semelhante. São conhecidos por sua estabilidade em termos de tolerância e desempenho em variações de temperatura e por oferecerem uma vida útil mais longa.<br/>
       ![Image](https://github.com/user-attachments/assets/1a7601eb-efa6-4f84-90b4-cedfe9a701b4)
-
-- **Resistores — R**<br/>
-Os resistores são componentes eletrônicos que limitam ou controlam a corrente elétrica em um circuito. Como seu nome sugere, em um circuito eles provocam *resistência* à passagem de uma corrente elétrica. Existem 2 tipos de resistores, os fixos e os variáveis, dependendo se sua resistência pode ou não ser ajustada. Por exemplo um resistor de 1kΩ limitando a corrente para um LED, evitando que ele queime.<br/>
-![Image](https://github.com/user-attachments/assets/072763ca-8aee-40a3-a867-5e33ac305894)
-  - **Fixos**: fornecem uma resistência **constante e conhecida** para controlar a corrente elétrica no circuito. Seu papel é definir os níveis de tensão e corrente em circuitos eletrônicos, proteger componentes sensíveis ao limitar a corrente que passa por eles e atuar como divisores de tensão, ajustando os níveis de tensão em diferentes partes do circuito. O tipo mais comum é o filme carbono, mas também podem ser de filme metálico, fio de precisão e SMD.<br/>
-  ![Image](https://github.com/user-attachments/assets/3bb02b59-02a2-4e5b-b770-803e9735379d)
-  - **Variáveis**: **permitem o ajuste da resistência dentro de um determinado intervalo.** Eles ajustam a intensidade de corrente elétrica conforme necessário e controlam os sinais elétricos em circuitos, como em reguladores de volume e brilho. Temos como exemplo o botão de volume de um rádio, que usa um potenciômetro para aumentar ou diminuir a resistência e, consequentemente, controlar o volume do som. Além deste existem também o Trimpot e o Reostato.<br/>
-  ![Image](https://github.com/user-attachments/assets/2fa2e1c4-f1e9-4dd9-a4f6-cf1044a5890b)
 
 - **Diodos — D**<br/>
 **Os diodos são componentes eletrônicos semicondutores que permitem a passagem de corrente elétrica em apenas 1 sentido.** É formado por 2 terminais: **Ânodo (A)** que é *Positivo (P)*, e o **Cátodo (K)**, que é *Negativo (N)*. Quando o ânodo está com uma tensão maior que o cátodo chamada de *polarização direta*, o diodo conduz conrrente. Quando a tensão do cátodo é maior, chamamos de *polarização indireta (reversa)*, então o diodo bloqueia a passagem de corrente. Geralmente, este dispositivo é construído de cristais dopados de silício e germânio.<br/>
@@ -325,16 +343,6 @@ Os principais tipos de transistores são:
 <!-- - **FET — Field Effect Transistor**: Possui 3 terminais: Gate (G), Drain (D) e Source (S). Controla a corrente entre dreno e fonte por meio de uma tensão no gate.
   - **JFET — Junction FET**: Menos usado hoje, mas útil em circuitos analógicos.
   - **MOSFET — Metal-Oxide Semiconductor FET**: O mais popular, usado em fontes chaveadas e amplificadores de alta potência. -->
-
-- **Bobinas — L**<br/>
-Também chamadas de **indutores**, são componentes eletrônicos que armazenam energia na forma de um campo magnético quando uma corrente elétrica passa por elas. Elas desempenham um papel fundamental nas placas-mãe, ajudando na regulação de tensão, filtragem de ruído e armazenamento de energia para processadores, memórias e outros componentes. Elas fazem parte do circuito VRM (Voltage Regulator Module), que regula a tensão fornecida ao processador e outros chips.<br/>
-![Image](https://github.com/user-attachments/assets/e40b32dc-6e1c-4ec7-ae84-2f3ae431593e)<br/>
-Os principais tipos são:
-  - **Bobinas de Ferrite — Indutores de Potência SMD**: filtram ruídos elétricos e estabilizam a tensão para a CPU, GPU e memória RAM. São normalmente feitas de um fio de cobre enrolado em um núcleo de ferrite, sendo compactas e soldadas diretamente na superfície da PCB. Projetadas para suportar altas correntes e baixas frequências. São encontradas no circuito VRM da CPU/GPU e na alimentação da RAM e do chipset.
-  - **Bobinas de Choque — Choke Coils**: filtram e suavizam a corrente elétrica para evitar oscilações e interferências. Possuem um núcleo de ferrite ou ferro em formato toroidal, e são encontradas em torno do socket da CPU para regulação de tensão do processador, e também perto dos conectores de alimentação da placa-mãe. Elas impedem que ruídos de alta frequência prejudiquem o funcionamento do sistema.
-  - **Bobinas Toroidais**: elas melhoram a eficiência energética e reduzem interferências eletromagnéticas (EMI), funcionando como filtros de ruído e reguladores de tensão. Tem um formato de anel, conhecido como *toroide*, geralmente revestido por um material isolante. Ficam posicionadas no circuito VRM da CPU e GPU e nas fontes de alimentação embutidas em notebooks e placas-mãe compactas.
-  - **Bobinas SMD**: fazm a filtragem de corrente e estabilização de sinais em circuitos eletrônicos sensíveis. São pequenas e planas, soldadas diretamente na superfície da placa-mãe e podem ser encapsuladas em blocos de ferrite. Ficam localizadas nos circuitos de alimentação da RAM e do chipset e nas áreas de comunicação de dados, como portas USB e PCIe.<br/>
-  ![Image](https://github.com/user-attachments/assets/dc504b1a-41ea-4d6f-9b66-663071813970)
 
 - **Fusível — F**<br/>
 Os fusíveis em circuitos eletrônicos, especialmente em placas-mãe, desempenham um papel crucial na proteção contra sobrecargas e curtos-circuitos limitando os grandes picos de corrente. Se o fusível queimou, pode ser sinal de curto-circuito na placa. Nesses casos, vale a pena investigar componentes como MOSFETs, capacitores e circuitos integrados antes de substituir o fusível. Eles evitam danos aos componentes ao interromper a corrente elétrica quando ocorre um problema.<br/>
