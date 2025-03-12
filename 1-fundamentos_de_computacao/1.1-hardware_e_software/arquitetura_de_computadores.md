@@ -1,10 +1,17 @@
 # Eletricidade
-Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao invés disso, *eletricidade* está associada a vários fenomênos decorrentes da existência e do fluxo de cargas elétricas.
+Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao invés disso, *eletricidade* está associada a vários fenomênos decorrentes da existência e do fluxo de cargas elétricas. A energia está sempre associada a um trabalho, por isso dizemos que energia é a capacidade de realizar trabalho. Energia não pode ser criada, nem destruída, portanto nunca desaparece, apenas se transforma, passando de um forma para outra, manifestando-se por seus efeitos:
+- **magnéticos**: a rotação de um motor de indução.
+- **térmicos**: resistência para esquentar a água do chuveiro.
+- **luminosos**: o ascender de uma lâmpada.
+- **químicos**: a eletrólise da água.
+- **fisiológicos**: a contração muscular.
 
 ## Matéria
 **É tudo aquilo que ocupa lugar no espaço**, ou seja, possui volume e massa. O termo *"espaço"* diz respeito a *qualquer lugar onde possa existir possa existir massa ou energia*. Ela pode existir em diferentes estados físicos, sendo sólida, líquida, gasosa ou plasmática, e pode ser composta por diferentes tipos de substâncias, por exemplo a madeira, vidro, água, rocha e ar.
 
 ![Image](https://github.com/user-attachments/assets/2a668744-b6ad-4f4d-a659-0854ea7e3a91)
+
+Na composição da matéria, temos as moléculas, que por sua vez são formadas por átomos, que são a menor partícula em que se pode dividir um elemento e que é formado por uma parte central chamada núcleo e uma parte periférica formada pelos elétrons. O núcleo é constituído por dois tipos de partículas: os prótons, com carga positiva, e os nêutrons, que são eletricamente neutros, enquanto os elétrons possuem carga negativa, giram ao redor do núcleo.
 
 ### Substâncias
 Uma substância **é um tipo específico de matéria com composição química e propriedades bem definidas**. Pode ser uma substância pura composta por um único tipo de elemento ou composto químico, ou uma mistura formada por duas ou mais substâncias.
