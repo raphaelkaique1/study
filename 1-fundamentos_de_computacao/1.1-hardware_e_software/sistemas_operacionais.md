@@ -100,9 +100,16 @@ Em termos de hardware, um SO é a porção de software que roda em modo núcleo 
 </pre>
 ### Particionamento
 **Os Discos rígidos possibilitam a divisão e criação de uma ou várias unidades de menor tamanho.** Quando criamos mais de uma partição, é como se existisse mais de 1 Disco instalado no computador e cada partição é representada por um identificador.<br/>
-Para que seja possível a formatação do Disco, é necessário primeiro a criação de *unidades lógicas*, que é o que possibilita o SO reconhecer o Disco como uma **unidade de armazenamento**. Neste processo, as informações referentes às partições como seu tipo, endereço de início e final de cada partição são gravadas na **primeira trilha do HD**, chamada *Trilha 0*, esta primeira trilha dentro do HD é responsável por armazenar informações de inicialização dos SOs, controle de boot, tabelas de partição, informações dos Sistemas de Arquivos e informações de endereçamento dos arquivos e programas gravados no HD, em uma área chamada **Tabela de Partições**.<br/>
+Para que seja possível a formatação do Disco, é necessário primeiro a criação de *unidades lógicas*, que é o que possibilita o SO reconhecer o Disco como uma **unidade de armazenamento**. Neste processo, as informações referentes às partições como seu tipo, endereço de início e final de cada partição são gravadas na **primeira trilha do HD**, chamada *Trilha 0*, esta primeira trilha dentro do HD é responsável por armazenar informações de inicialização dos SOs, controle de boot, tabelas de partição, informações dos Sistemas de Arquivos e informações de endereçamento dos arquivos e programas gravados no HD, no caso de SSD, essas informações são armazenadas na **DRAM** onde o controlador tem acesso aos dados de metadados e buffers temporários além das tabelas de mapeamento, em uma área dedicada chamada **Tabela de Partições**.<br/>
+A tabela de partição é uma estrutura de dados que fica armazenada no próprio dispositivo de armazenamento especificamente na área reservada para informações de configurações do dispositivo. Essa tabela é uma estrutura de dados que contém informações sobre o layout das partições no dispositivo, incluindo o tamanho de cada partição, seu tipo (FAT 32, NTFS ext4 e etc) e o ponto de montagem associado à unidade. Existem diferentes formatos de tabela de partição, sendo os mais comuns o **Master Boot Record** e o **GUID Partition Table**.
+- **MBR**: formato antigo, localizado no primeiro setor do dispositivo de armazenamento, contendo informações de até 4 partições primárias ou 3 partições primárias e uma partição extendida (que pode conter várias partições lógicas).
+- **GPT**: formato moderno e mais flexível, é uma estrutura de dados mais robusta, que permite um número maior de partições (teoricamente até 128 partições) e suporta dsipostivios com capacidades gigantescas. Este padrão oferece recursos de integridade de dados e redundância, para aumentar a confiabilidade.
+
 A necessidade da criação de várias partições pode ser pode ser para a instalação de mais de um SO ou para a organização dos arquivos por exemplo, onde em uma partição instalamos o SO e na outra ficam armazenados os arquivos, e a vantagem disso é que podemos formatar apenas a partição com o SO, caso seja necessário sua reinstalação, sem precisar fazer a formatação da outra partição e, consequentemente, apagar todos os dados.<br/>
-As unidades de instalação dos SOs possuem programas auxiliares que permitem o particionamento do HD, mas é possível também fazer o particionamento a partir de sofwares específicos, tais como: Partition Magic, Gparted (Linux) e etc.
+As unidades de instalação dos SOs possuem programas auxiliares que permitem o particionamento do HD, mas é possível também fazer o particionamento a partir de sofwares específicos, tais como: Partition Magic, Gparted (Linux) e etc.<br/>
+Existem 2 tipos de formatação:
+1. **Física**: envolve a criação das trilhas e setores no caso de HDD e em blocos e páginas no caso de SSD, com os dados de endereçamento, e é realizada apenas uma vez, durante o processo de fabricação do dispositivo de armazenamento.
+2. **Lógica**: realizada através do SO, trata-se da preparação da unidade de armazenamento para os padrões do SO, fazendo com que seja reconhecido. Caso seja feita a formatação durante a instalação do SO, é realizada a gravação do setor de *boot* (trilha MBR) e da *FAT* (tabela de alocação de arquivos). São feitas também a gravação do volume, gravação do sistema e gravação do diretório raiz, o *root*. Todo esse processo de preparação da unidade de armazenamento para os padrões do SO é chamado de *sistema de arquivos*.
 
 ### Sistema de Arquivos
 Com o HD particionado, é necessário formatar a partição na qual será instalado o SO. **Formatar é o processo de dividir uma determinada partição em setores endereçáveis, de forma que seja possível gravar dados neste setores e posteriormente poder acessá-los de forma organizada.** O resultado final deste processo será a criação do **Sistema de Arquivos**, *que consiste em estruturas lógicas que possibilitam ao SO gerenciar a partição de forma organizada e otimizada*. Os mais comuns padrões de formatação de unidades de armazenamento de arquivos utilizados para SO são:
@@ -111,12 +118,11 @@ Com o HD particionado, é necessário formatar a partição na qual será instal
 - **ext4**: Para partições GNU/Linux usando o Extended File System versão 4, melhorias em relação ao ext3, como o delayed allocation para melhor desempenho e com suporte a journalig.
 - **XFS**: Melhor escalabilidade do que ext4, com suporte a journaling.
 - **Btrfs**: Snapshots nativos, permitindo rollback de alterações rapidamente, com RAID embutido, sem necessidade de hardware dedicado e Checksums para integridade de dados, evitando corrupção silenciosa. Particionamento flexível, permitindo redimensionamento dinâmico.
-- **reiserFS**: Para partições reiserFS, com suporte a journaling.
+- **ReiserFS**: Para partições ReiserFS, com suporte a journaling.
 - **iso9660**: Padrão para montar unidades de CD-ROM.
-- **FAT 12**: Utilizado por disquetes.
-- **FAT 15**: MS-DOS, Windows 95, Windows 95 osr/2, Windows 98 e Windows NT.
+- **FAT 16**: MS-DOS, Windows 95, Windows 95 osr/2, Windows 98 e Windows NT.
 - **FAT 32**: Windows 95 osr/2, Windows 98, Windows 98 SE, Windows ME e Windows 2000.
-- **NTFS**: Windows NT, Windows 2000, Windows XP, Windos Vista e Windows 7.
+- **NTFS**: Windows NT, Windows XP, Windows 2000, Windows Vista, Windows 7, 8, 10 e 11.
 - **vfat**: Para partições Windows 95 que utilizam nomes extensos de arquivos e diretórios.
 - **msdos**: Para partições DOS normais.
 - **HPFS**: OS/2 - IBM OS.
