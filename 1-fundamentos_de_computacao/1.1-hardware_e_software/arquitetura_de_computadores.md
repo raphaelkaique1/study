@@ -11,7 +11,7 @@ Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao i
 
 ![Image](https://github.com/user-attachments/assets/2a668744-b6ad-4f4d-a659-0854ea7e3a91)
 
-Na composição da matéria, temos as moléculas, que por sua vez são formadas por átomos, que são a menor partícula em que se pode dividir um elemento e que é formado por uma parte central chamada núcleo e uma parte periférica formada pelos elétrons. O núcleo é constituído por dois tipos de partículas: os prótons, com carga positiva, e os nêutrons, que são eletricamente neutros, enquanto os elétrons possuem carga negativa, giram ao redor do núcleo.
+Na composição da matéria, temos as moléculas, que por sua vez são formadas por átomos, que são a menor partícula em que se pode dividir um elemento e que é formado por uma parte central chamada núcleo e uma parte periférica formada pelos elétrons. O núcleo é constituído por dois tipos de partículas: os prótons, com carga positiva, e os nêutrons, que são eletricamente neutros, enquanto os elétrons possuem carga negativa, giram ao redor do núcleo na camada chamada *eletroesfera*.
 
 ### Substâncias
 Uma substância **é um tipo específico de matéria com composição química e propriedades bem definidas**. Pode ser uma substância pura composta por um único tipo de elemento ou composto químico, ou uma mistura formada por duas ou mais substâncias.
@@ -28,20 +28,35 @@ As moléculas são **a menor unidade de uma substância que ainda conserva suas 
 A forma como os átomos estão ligados dentro das moléculas influencia diretamente suas propriedades físicas e químicas, como seu estado físico, solubilidade e reatividade.
 
 #### Átomos
-O átomo **é a menor unidade fundamental da matéria que ainda conserva as propriedades químicas de um elemento**. Ele é formado por 3 tipos de partículas subatômicas:
-- **Nêutrons**: Partículas sem carga elétrica localizadas no núcleo.
-- **Prótons**: Partículas com carga positiva (+), também localizadas no núcleo.
-- **Elétrons**: Partículas com carga negativa (-) que orbitam ao redor do núcleo.
+O átomo **é a menor unidade fundamental da matéria que ainda conserva as propriedades químicas de um elemento**. Pode ser dividido em duas partes distintas: o **núcleo** e o **orbital de elétrons (_eletroesfera_)**. sendo formado por 3 tipos de partículas subatômicas:
+- **Nêutrons**: Partículas sem carga elétrica localizadas no **núcleo**.
+- **Prótons**: Partículas com carga positiva (+), também localizadas no **núcleo**.
+- **Elétrons**: Partículas com carga negativa (-) que orbitam ao redor do núcleo, ou seja, na **eletroesfera**.
 
+O núcleo é formado basicamente por partículas carregadas positivamente (os prótons) e por partículas sem carga relevante, também chamadas neutras (os neutrons). O orbital de elétrons, ou simplesmente eletrosfera, é composta pelos elétrons que são partículas carregadas negativamente. É basicamente na eletrosfera que está a diferença entre, por exemplo, um material condutor e um material isolante.<br/>
+Em um material isolante os átomos estão fortemente ligados ao núcleo por uma força de atração, de modo que não existem elétrons circulando pela estrutura do material. Para romper-se com essa ligação entre elétron e núcleo é necessário fornecer à estrutura muita energia, por exemplo na forma de calor ou potencial elétrico. Quanto mais perto do núcleo está o elétron, mais forte é a força que os une. Do mesmo modo, quanto mais forte a atração entre elétron e núcleo, melhor o isolante (com algumas ressalvas). Dizemos nesse caso que os elétrons têm um nível de energia muito baixo. No material condutor, os átomos das camadas superiores possuem níveis de energia relativamente altos, desprendendo-se facilmente do "laço" com o núcleo. Normalmente os metais possuem em sua última camada (chamada *camada de valência*) elétrons livres que dão ao material propriedades condutoras. Da mesma forma que no material isolante, mas de maneira inversa, quanto mais afastado do núcleo está o elétron, melhor condutor será o material. Em qualquer material sólido, podemos descriminar esta "distância" assumida pelos elétrons (que são os níveis de energia) como o que chamaremos de bandas de energia.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica2.jpg)
+
+Podemos observar que na estrutura de bandas acima, os elétrons podem assumir 2 níveis:
+1. O nível inferior onde o elétron está preso por ação de uma força ao núcleo.
+2. O nível superior onde o elétron pode circular livremente de modo a tornar o material um condutor.
+
+**Existe entre estes níveis uma região onde o elétron não pode permanecer, é a chamada região proibida ou simplesmente GAP. Quanto maior o gap do material, menor a possibilidade do material de tornar-se condutor.**<br/>
+São claras as diferenças entre um isolante e um condutor:<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica3.jpg)
+
+Como podemos notar, nos materiais condutores praticamente não existe um gap definido, porque as bandas de condução e valência se confundem umas nas outras. Já nos materiais isolantes o gap é muito grande e os elétrons que estão na banda de valência têm que superar um obstáculo muito grande para atingir a banda de condução. Este aspecto basicamente define as diferenças entre as propriedades condutoras ou isolantes de um sólido qualquer.<br/>
 Quando um átomo possui um maior número de elétrons do que prótons, ele é considerado negativo, do contrário é considerado positivo, e, se o número de elétrons for igual ao de prótons ele é considerado neutro. É possível retirar ou acrescentar elétrons dos átomos, este processo é chamado de **ionização**. Quando isso ocorre, passará a existir uma diferença de cargas elétricas no átomo, e dessa forma ele estará *ionizado*, que é o mesmo que dizer **eletrizado**. Um átomo nunca poderá perder ou ganhar prótons, isso porque estão localizados no núclo do átomo, é possível alterar apenas os elétrons por estarem na **elestrosfera**.<br/>
 Os átomos se organizam na Tabela Periódica dos Elementos, onde cada elemento químico é definido pelo seu número atômico, que é a quantidade de prótons. Quando os átomos se ligam entre si, formam moléculas ou redes cristalinas, resultando na imensa diversidade de substâncias e materiais existentes na natureza.
 
-## Grandezas Elétricas
+## Grandezas
+Pode ser definido como grandeza, de um modo geral tudo aquilo que pode ser atribuído a uma certa quantidade e dessa forma tornar-se mensurável, ou seja, qualquer coisa que represente um valor ou uma quantidade definida em uma certa unidade de medição é uma grandeza.<br/>
 Na eletricidade, existem algumas grandezas fundamentais que descrevem os fenômenos elétricos e suas interações. As principais são:
 - **Tensão**: A tensão elétrica, também chamada de **diferença de potencial — DDP** ou *voltagem*, é a força que impulsiona os elétrons pelo condutor. Ela é medida em volts (V) e pode ser gerada por fontes como pilhas, baterias e geradores. *Diferença de potencial* e *tensão elétrica* são a mesma coisa, ou seja, é a força que move os elétrons.
-- **Corrente**: A corrente elétrica é o fluxo ordenado de elétrons em um meio condutor. Para que este movimento possa existir, basta unir 2 corpos com cargas elétricas diferentes, um positivo e outro negativo. Quando ocorre essa diferença, há o que é chamado de *diferença de potencial*. A DDP ocorre quando há falta de elétrons (-) em um ponto e o excesso de elétrons (-) em outro. Para que possa existir corrente elétrica em um fio ou outro meio condutor, é necessário haver entre suas extremidades uma diferença de potencial, onde, a movimentação dos elétrons se dá do ponto de maior potencial para o ponto de menor potencial. A intensidade da corrente elétrica é a quantidade de elétrons, ou também *carga*, que se movimentam em um meio condutor por um período de tempo, essa medida é dada em ampères (A).
+- **Corrente**: A corrente elétrica é o fluxo ordenado de elétrons em um meio condutor. Para que este movimento possa existir, basta unir 2 corpos com cargas elétricas diferentes, um positivo e outro negativo. Quando ocorre essa diferença, há o que é chamado de *diferença de potencial*. A DDP ocorre quando há falta de elétrons (-) em um ponto e o excesso de elétrons (-) em outro. Para que possa existir corrente elétrica em um fio ou outro meio condutor, é necessário haver entre suas extremidades uma diferença de potencial, onde, a movimentação dos elétrons se dá do ponto de maior potencial para o ponto de menor potencial. Assim se comporta a corrente elétrica, também chamada de amperagem. A seção dos condutores elétricos (cabos e fios) deve ser devidamente compatível para permitir a passagem de corrente sem provocar aquecimento. A intensidade da corrente elétrica é a quantidade de elétrons, ou também *carga*, que se movimentam em um meio condutor por um período de tempo, por exemplo, no caso de um sistema de água encanada, a unidade de medida em relação ao tempo é litros por segundos, ou seja, a quantidade de litros que estiver passando num determinado ponto do encanamento durante um segundo. Toda vez que passar uma corrente de elétrons em um circuito elétrico ela poderá também ser medida, essa medida é dada em ampères (A). Esta unidade define a intensidade elétrica de cargas (elétrons) que fluem através dos condutores elétricos.
 - **Resistência**: A resistência elétrica é a oposição que as cargas elétricas encontram para atravessar o material do meio condutor, é a condutibilidade que ele oferece ao fluxo de corrente elétrica, dependendo do material pode ser de maior ou menor condutibilidade. Quanto maior a resistência, menor será a corrente que passará pelo condutor e menor também será a tensão (intensidade). A resistência é medida em ohms (Ω).
 - **Potência**: A relação entre a tensão (V), corrente (A) e resistência (Ω) é descrita pela Lei de Ohm: **`V = Ω x A`**. Essa equação mostra que a tensão aplicada a um circuito é proporcional à corrente que passa pelo condutor e à sua resistência. Quando fazemos um exercício físico, o corpo consome energia em forma de calorias, sem essas calorias nas quantidades necessárias, não será possível realizar com eficiência os exercícios, mas com a quantidade certa, podemos aumentar a potência do corpo para a realização das atividades. Assim também são os componentes eletrônicos, a diferença é que não consomem calorias, e sim, energia elétrica. Eles precisam de uma certa quantidade de energia elétrica para funcionar. A potência elétrica representa a quantidade de energia elétrica convertida em outra forma de energia como luz, calor ou movimento por unidade de tempo, e é calculada pela fórmula: **`W = V x A`**. A potência elétrica é um fator importante na determinação do consumo de energia de um dispositivo elétrico. Ela é medida em watts (W), que é a quantidade de energia em joule, que é convertido, usado ou dissipado em 1 segundo, ou seja, 1w é equivalente a 1 J/s.
+- **Aterramento**: Toda máquina e dispositivo metálico com acionamento e automatização elétrica tem que ser aterrado conforme a norma da ABNT. Sua finalidade é proteger as pessoas que estiverem em contato físico com a máquina ou equipamento. O aterramento é feito com hastes de cobre fincadas no solo, que de acordo com as necessidades e condições do solo, estas podem ser em malha fechada ou aberta, e sua resistência é medida com aparelho próprio para esta finalidade chamado de *terrômetro*.
 
 Em uma lâmpada conectada a uma tomada por exemplo, os elétrons vem do gerador e fluem pelo filamento, que possui dada resistencia, gerando uma quantidade de potência de luz e calor. Outro exemplo é um chuveiro elétrico, que é conectado à rede elétrica da casa e possui uma resistência que limita a passagem da corrente, convertendo energia elétrica em calor a uma certa potência para aquecer a água (e não fervê-la ou vaporizá-la).
 
@@ -56,13 +71,65 @@ De forma resumida, podemos dizer que:
 ![Image](https://github.com/user-attachments/assets/9b6ef5a6-a48b-4179-aa68-cece5714f5d4)<br/>
 **Quanto maior a tensão, maior a corrente.*
 
+### Múltiplos e Submúltiplos de Grandezas
+Muitas vezes uma grandeza assume valores muito grandes ou muito pequenos, tornando inviável a sua representação na unidade corrente. Dessa maneira, existem alguns "multiplicadores " que ajudam a representar os valores das grandezas de forma mais "legível". Vejamos alguns múltiplos e submúltiplos fundamentais em eletrônica:
+<table border="1">
+  <tr>
+    <th></th>
+    <th>UNIDADE</th>
+    <th>SÍMBOLO</th>
+    <th>MULTIPLICADOR</th>
+  </tr>
+  <tr>
+    <th rowspan="4">MÚLTIPLOS</th>
+  </tr>
+  <tr>
+    <td>Kilo</td>
+    <td>K</td>
+    <td>1.000</td>
+  </tr>
+  <tr>
+    <td>Mega</td>
+    <td>M</td>
+    <td>1.000.000</td>
+  </tr>
+  <tr>
+    <td>Giga</td>
+    <td>G</td>
+    <td>1.000.000.000</td>
+  </tr>
+  <tr>
+    <th rowspan="5">SUBMÚLTIPLOS</th>
+  </tr>
+    <tr>
+    <td>mili</td>
+    <td>m</td>
+    <td>0,001</td>
+  </tr>
+  <tr>
+    <td>micro</td>
+    <td>µ</td>
+    <td>0,000 001</td>
+  </tr>
+  <tr>
+    <td>nano</td>
+    <td>n</td>
+    <td>0,000 000 001</td>
+  </tr>
+  <tr>
+    <td>pico</td>
+    <td>p</td>
+    <td>0,000 000 000 001</td>
+  </tr>
+</table>
+
 ### Tipos de Corrente
 A corrente elétrica pode ser classificada de acordo com o seu comportamento ao longo do tempo. Os principais tipos são:
 1. **Contínua — DC ou CC**<br/>
-A corrente contínua é aquela cujo sentido de fluxo dos elétrons é sempre o mesmo, ou seja, não muda com o tempo e possui uma polaridade bem definida. Nesse tipo de corrente, a tensão elétrica também permanece constante (ou varia muito lentamente). Podemos ver alguns exemplos em pilhas e baterias, painés solares e fontes de alimentação para eletrônicos como por exemplo carregadores de celular.<br/>
+A corrente contínua é aquela cujo sentido de fluxo dos elétrons é sempre o mesmo, ou seja, não muda com o tempo e possui uma polaridade bem definida, por isso não possui frequência. Nesse tipo de corrente, a tensão elétrica também permanece constante (ou varia muito lentamente). Podemos ver alguns exemplos em pilhas e baterias, painés solares e fontes de alimentação para eletrônicos como por exemplo carregadores de celular.<br/>
 ![Image](https://github.com/user-attachments/assets/e4d2875c-e0f7-4651-b791-0787928d4cc1)
 2. **Alternada — AC ou CA**<br/>
-A corrente alternada é caracterizada pela inversão periódica do sentido do fluxo dos elétrons. Isso significa que ela muda de direção em intervalos regulares constantes, geralmente em forma de uma onda senoidal. A tensão também oscila entre valores positivos e negativos. É ideal para transferência de energia a longas distâncias por oferecer menor perda de energia e a possibilidade de abaixar ou aumentar facilmente a tensão por meio dos transformadores, alguns exemplos no dia a dia está na energia elétrica distribuída pelas concessionárias para residências e indústrias (110V ou 220V em 60Hz no Brasil), geradores elétricos em usinas hidrelétricas e motores elétricos. Os custos envolvidos nestas operações são menores.<br/>
+É o movimento ordenado de cargas elétricas, porém, com sentido que muda de um instante para o outro, ou seja, a corrente alternada é caracterizada pela inversão periódica do sentido do fluxo dos elétrons. Isso significa que ela muda de direção em intervalos regulares constantes, geralmente em forma de uma onda senoidal. A tensão também oscila entre valores positivos e negativos. A quantidade de vezes em que este sentido de uma corrente elétrica muda dentro de um determinado tempo é denominado de *frequência*. Frequência é igual ao número de oscilação (período) em um segundo. A unidade de medida da frequência é o Hertz. No Brasil a frequência de 60 Hertz, significa que, em um segundo a tensão elétrica muda de polarização 119 vezes. É ideal para transferência de energia a longas distâncias por oferecer menor perda de energia e a possibilidade de abaixar ou aumentar facilmente a tensão por meio dos transformadores, alguns exemplos no dia a dia está na energia elétrica distribuída pelas concessionárias para residências e indústrias (110V ou 220V em 60Hz no Brasil), geradores elétricos em usinas hidrelétricas e motores elétricos. Os custos envolvidos nestas operações são menores.<br/>
 ![Image](https://github.com/user-attachments/assets/b667fb98-14f1-44c9-8274-edb109d2dcb4)
 3. **Pulsante**<br/>
 A corrente pulsante é uma forma intermediária entre a corrente contínua e a alternada. Ela não muda de direção como a corrente contínua, mas sua intensidade varia ao longo do tempo assim como a alternada, apresentando picos e quedas. O circuito elétrico de tensão responsável pela criação dessa corrente é o **circuito retificador**. Ele recebe a corrente alternada e a converte em corrente contínua pulsante, e para isso ser possível, este circuito conta com elementos semi-condutores tais como os diodos, um transformador entre outros. É principalmente usada em circuitos de alimentação de alguns dispositivos eletrônicos.<br/>
@@ -264,6 +331,45 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 Diferente de um processador — que é projetado para alto desempenho e processamento — que não possui memória interna e nenhum periférico integrado — e por isso requer componentes externos como RAM, ROM e periféricos para funcionar — o **micro controlador** é um circuito integrado projetado para tarefas específicas e sistemas embarcados que contém processador (CPU), memória (RAM, ROM) e periféricos (GPIO, ADC, PWM e etc) no mesmo chip.<br/>
 É usado em automação e IoT, suas plataformas incluem o ESP32 e STM32 voltados para IoT e automação, e Arduíno ou Raspberry Pi para sistemas embarcados.
 
+###### Sensores
+Um sensor é um dispositivo que detecta e responde a estímulos físicos ou químicos do ambiente, convertendo essas informações em sinais elétricos ou digitais que podem ser processados por sistemas eletrônicos. O sensor percebe uma grandeza física (como temperatura, luz, pressão) e a capta, então a converte, transformando essa grandeza em um sinal elétrico ou digital para ser processado após ser enviado para um microcontrolador, computador ou outro sistema para análise.
+
+ ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade11.jpg)
+
+- **Indutivos**: Sensores de proximidade indutivos são equipamentos eletrônicos capazes de detectar a aproximação de peças, componentes, elementos de máquinas e etc. O princípio de funcionamento baseia-se na geração de um campo eletromagnético de alta frequência, que é desenvolvido por uma bobina ressonante instalada na face sensora. A bobina faz parte de um circuito oscilador, que em condições normal, ou seja, *desacionada*, gera um sinal senoidal. Quando um metal aproxima-se do campo, este por correntes de superfície absorve a energia do campo diminuindo a amplitude do sinal gerado no oscilador. A variação de amplitude deste sinal é convertida em uma variação contínua, que comparada com um valor padrão, passa a atuar no estágio de saída. A **face sensora** é a superfície onde emerge o campo magnético e a **distância sensora** é a distância em que se aproximando o acionador da face sensora, o sensor muda o estado de saída.
+- **Fotoelétricos**: Também conhecidos por sensores ópticos, manipulam a luz de forma a detectar a presença do acionador, que na maioria das aplicações é o próprio produto. Baseiam-se na transmissão e recepção de luz infravermelho — invisível ao ser humano — que pode ser refletida ou interrompida por um objeto a ser detectado. São compostos por 2 circuitos básicos: um responsável pela *emissão* do feixe de luz, denominado **transmissor**, e outro responsável pela *recepção* do feixe de luz, denominado **receptor**. O transmissor envia o feixe de luz através de um fotodiodo, que emite flashes com alta potência e curta duração para evitar que o receptor confunda a luz emitida pelo transmissor com a iluminação ambiente. O receptor é composto por um fototransistor sensível a luz, que, em conjunto com um filtro sintonizado na mesma frequência de pulsação dos flashes do transmissor, faz com que o receptor compreenda somente a luz vinda do transmissor.
+
+**Sistemas Sensoriais**
+- **Barreira**<br/>
+O transmissor e o receptor estão em unidades distintas e devem ser dispostos um em frente do outro, de modo que o receptor possa constantemente receber luz do transmissor. O acionamento da saída ocorrerá quando o objeto a ser detectado interromper o feixe de luz.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade13.jpg)
+- **Difusão**<br/>
+Neste sistema o transmissor e o receptor são montados na mesma unidade. Sendo que o acionamento da saída ocorre quando o objeto a ser detectado entra na região de sensibilidade e reflete para o receptor o feixe de luz emitido pelo transmissor.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade14.jpg)
+- **Reflexivo**<br/>
+Este sistema apresenta o transmissor e o receptor em uma única unidade. O feixe de luz chega ao receptor somente após ser refletido por um espelho prismático, e o acionamento da saída ocorrerá quando o objeto a ser detectado interromper este feixe.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade15.jpg)
+- **Prismático**<br/>
+O espelho prismático permite que o feixe de luz refletido para o receptor seja paralelo ao feixe transmitido pelo transmissor, devido às superfícies inclinadas a 45º, o que não acontece quando a luz é refletida diretamente por um objeto, onde a luz se espalha em vários ângulos. A distância sensora para os modelos reflexivos é em função do tamanho (área de reflexão) e, o tipo de espelho prismático utilizado.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade16.jpg)
+- **Termopar**<br/>
+Dentro de um processo de produção às vezes temos a necessidade de controlar a temperatura, e neste caso temos que usar um dispositivo que consiga manter a temperatura da qual o produto necessita. Tais dispositivos que controlam a temperatura são chamados de Pirômetro e trabalham em conjunto com sensores chamados termoelemento que fazem a leitura da temperatura; normalmente é utilizado o termopar ou termoresistência. É através da leitura do termoelemento e a programação feita no pirômetro, que é possível acionar tanto o comando para ligar a resistência, como também, através do programa pode-se acionar o resfriamento através de ventiladores ou ventoinhas. O termopar, é usado para medir temperatura com base na diferença de potencial gerada entre 2 metais diferentes, é baseado no efeito Seebeck, que ocorre quando este metais estão unidos em um ponto e expostos a diferentes temperaturas. Isso gera uma diferença de potencial (em milivolts), proporcional à temperatura. O termpopar ao ser aquecido acelera a movimentação dos elétrons livres fazendo com que os elétrons circulem passando de um material para outro, causando uma diferença de potencial da ordem de milivolts, estes milivolts identificados na entrada do pirômetro são lidos como temperatura e convertidos em um sinal digital que é identificado no display.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade19.jpg)
+- **Detecção de transparente**<br/>
+A detecção de objetos transparentes, tais como: garrafas de vidros, vidros planos, etc; podem ser detectados com angulação do feixe em relação ao objeto, ou através de potenciômetros de ajuste de sensibilidade, mas sempre se aconselha um teste prático. A detecção de garrafas plásticas tipo PET, requerem sensores especiais para esta finalidade.
+- **Detecção de objetos brilhantes**<br/>
+Quando o sistema reflexivo for utilizado na detecção de objetos brilhantes ou com superfície polidas, tais como: engradados plásticos para vasilhame, etiquetas brilhantes, etc, cuidados especiais devem ser tomados, pois o objeto neste caso pode refletir o feixe de luz. Atuando assim, como se fosse o espelho prismático, ocasionando a não interrupção do feixe, confundindo o receptor que não aciona a saída, acasionando uma falha de detecção. A fim de evitar que isto ocorra, aconselha-se utilizar um dos métodos:
+  1. Montagem angular em relação ao produto.
+  2. Filtro polarizado, que serve para direcionar mecanicamente o feixe de luz.
+
+###### Chaves
+- **fim-de-curso**<br/>
+Têm como finalidade limitar uma ação dentro de um comando elétrico, ou comandar uma nova operação dentro de um comando elétrico. Normalmente a chave FDC tem dois jogos de contatos, um NF e um NA. Também existem chaves FDC com mais de dois jogos de contatos.<br/>
+![Image](https://github.com/user-attachments/assets/da30e557-52e6-4cf5-af8b-3b3da32c5537)
+- **seccionadoras**<br/>
+São dispositivos de manobra que servem para abrir ou fechar um circuito geral do painel de comando. Existem chaves seccionadoras simples, em que somente servem para fechar ou abrir um circuito manualmente.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade28.jpg)
+
 #### GPU
 O processamento gráfico pode ser complexo, por isso muitos computadores têm uma unidade dedidaca ao processamento gráfico. A GPU cria o que vemos em uma tela no monitor. Ela é otimizada para o processamento gráfico, que é relativamente complexo. Enquanto a GPU e a CPU fazem um trabalho semelhante, a GPU tem um foco mais restrito, seu trabalho é produzir imagens em vez de executar todas as operações do sistema.<br/>
 As GPUs são muito rápidas, e, às vezes, chegam a ser mais rápidas que a própria CPU. As GPUs obtêm sua velocidade espalhando uma tarefa de processamento em muitos núcleos. Os núcleos de processamento em uma GPU são especializados principalmente para gráficos, mas também lidam com outras tarefas.<br/>
@@ -360,13 +466,17 @@ Os principais tipos de transistores são:
   - **MOSFET — Metal-Oxide Semiconductor FET**: O mais popular, usado em fontes chaveadas e amplificadores de alta potência. -->
 
 - **Fusível — F**<br/>
-Os fusíveis em circuitos eletrônicos, especialmente em placas-mãe, desempenham um papel crucial na proteção contra sobrecargas e curtos-circuitos limitando os grandes picos de corrente. Se o fusível queimou, pode ser sinal de curto-circuito na placa. Nesses casos, vale a pena investigar componentes como MOSFETs, capacitores e circuitos integrados antes de substituir o fusível. Eles evitam danos aos componentes ao interromper a corrente elétrica quando ocorre um problema.<br/>
+O fusível é um elemento de proteção que abre o circuito toda vez que a corrente elétrica que passa por ele ultrapassa a corrente nominal do fusível; isso devido ao fio que está dentro dele que se funde e rompe-se, impedindo então, a passagem da corrente elétrica. O fusível é utilizado para proteção contra curtos-circuitos, não sendo uma proteção ideal à sobrecargas. Os fusíveis em circuitos eletrônicos, especialmente em placas-mãe, desempenham um papel crucial na proteção contra sobrecargas e curtos-circuitos limitando os grandes picos de corrente. Se o fusível queimou, pode ser sinal de curto-circuito na placa. Nesses casos, vale a pena investigar componentes como MOSFETs, capacitores e circuitos integrados antes de substituir o fusível. Eles evitam danos aos componentes ao interromper a corrente elétrica quando ocorre um problema.<br/>
 ![Image](https://github.com/user-attachments/assets/179c646e-5710-434b-94ff-b38c34c97323)<br/>
 Os principais tipos são:
-  - **vidro ou cerâmica**: mais comuns em fontes de alimentação.
   - **PTC – Resetáveis**: se aquecem e aumentam sua resistência, reduzindo a corrente sem queima permanente.
   - **SMD**: são pequenos e soldados diretamente na placa, comuns em circuitos modernos.<br/>
   ![Image](https://github.com/user-attachments/assets/b4d628c7-079d-459d-9006-5bf264c4f8cc)
+  - **DIAZED**: é constituído de um corpo de porcelana em cujos extremos metálicos se fixa um fio de cobre puro ou recoberto com uma camada de zinco, imerso em areia especial de granulação adequada, que funciona como meio extintor do arco voltaico.
+  - **NH**: é constituído de Base e Fusível. A base é construída de material termoplástico, possuindo meios de fixação para quadros ou placas. Possuem contatos em forma de garras prateadas, que garantem o contato elétrico. O fusível possui um corpo de porcelana onde se aloja o elemento fusível e o elo indicador de queima imersos em areia e nas extremidades contatos do tipo faca prateados.
+  - **Disjuntor**: dispositivos de manobra e proteção, capazes de estabelecer, conduzir e interromper correntes em condições normais do circuito, assim como estabelecer, conduzir por tempo especificado e interromper correntes em condições anormais especificadas do circuito, tais como as de curto-circuito e sobrecarga.
+  - **Contatores**: são dispositivos de manobra eletromecânica, construídos para um elevado número de manobras. De acordo com a potência (carga), o contator é um dispositivo de comando do motor e pode ser usado individualmente, acoplado a relês de sobrecarga (relê térmico), na proteção de sobrecorrente. Certos tipos de contatores têm a capacidade de estabelecer e interromper correntes de curto-circuito.
+  - **Relé Térmico**:  são elementos de proteção, porém com funções diferenciadas de um fusível comum, pois enquanto o fusível é utilizado principalmente na proteção contra curto-circuito, o relê térmico é utilizado em casos de sobrecarga. O relê térmico funciona com o princípio de bimetais (normalmente ferro e níquel), assim, se houver uma elevação de corrente por um determinado tempo, devido a uma sobrecarga, haverá um aquecimento do bimetálico e o relê térmico comuta desligando o circuito.
 
 - **Cristais — Y**<br/>
 Este componente é usado como referencia e faz parte do circuito que possui a função de gerar uma certa quantidade de pulsos por segundo, a quantidade de vezes que esse pulso se repete por segundo define a unidade de medida do relógio, denominada *frequência*. Essa frequência é usada para medir o tempo, e, a partir daí podemos temporizar todas as ações de processamento com precisão. Os cristais em circuitos eletrônicos, especialmente em placas-mãe, são componentes responsáveis por gerar sinais de clock, essenciais para a sincronização do funcionamento dos circuitos. Geralmente, os cristais responsáveis pela geração do clock do sistema ficam localizados próximos ao chipset ou processador, já o cristal responsávelo para manter a hora do sistema fica localizado perto do RTC – Real Time Clock, enquanto os demais cristais ficam localizados ao lado de interfaces de comunicação como USB, Ethernet e PCIe.<br/>
