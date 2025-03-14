@@ -476,6 +476,30 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 Diferente de um processador — que é projetado para alto desempenho e processamento — que não possui memória interna e nenhum periférico integrado — e por isso requer componentes externos como RAM, ROM e periféricos para funcionar — o **micro controlador** é um circuito integrado projetado para tarefas específicas e sistemas embarcados que contém processador (CPU), memória (RAM, ROM) e periféricos (GPIO, ADC, PWM e etc) no mesmo chip.<br/>
 É usado em automação e IoT, suas plataformas incluem o ESP32 e STM32 voltados para IoT e automação, e Arduíno ou Raspberry Pi para sistemas embarcados.
 
+###### Variáveis de Controle
+Para controlar um processo o CLP usa de informações vindas de sensores. Através das instruções gravadas em sua memória interna ela comanda os atuadores, que exercem o trabalho sobre o sistema.<br/>
+Conceitualmente designa-se os sensores de entradas e os atuadores de saídas, sendo que ambas podem ser representadas matematicamente por variáveis. Em automação, estas podem ser divididas em analógicas e digitais. O primeiro tipo englobar variáveis discretas, consistindo assim em um conceito mais amplo.<br/>
+As variáveis **discretas**, ou **digitais**, são aquelas que variam discretamente com o tempo, como pode ser visto na figura (b).<br/>
+As variáveis **analógicas** são aquelas que variam continuamente com o tempo, conforme mostra a figura (a). Elas são comumente encontradas em processos químicos advindas de sensores de pressão, temperatura e outras variáveis físicas. Ainda no controle analógico podemos separar entradas convencionais tais como comandos do operador, ou variáveis discretas gerais, das entradas analógicas advindas de sensores ligados diretamente as saídas do processo. Estas últimas serão comparadas a uma referência que consiste no valor estável desejado para o controle. Essa referência também é conhecida como **set-point**. Neste tipo de controle, onde as saídas são medidas para cálculo da estratégia de controle, dizemos que há uma *“realimentação”*. Esse sistema é conhecido como sistema em “malha fechada”. Se não há a medição das saídas dizemos que o sistema tem “malha aberta”.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind12.jpg)
+
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind13.jpg)
+
+###### I/O
+O comportamento do controlador em um ambiente automatizado é definido através de um programa do usuário e do comportamento das entradas e em alguns casos também das saídas, que podem influenciar no comportamento do controlador.
+
+- **entradas discretas**: são aquelas que fornecem apenas um pulso ao controlador, ou seja, elas têm apenas um estado ligado ou desligado, nível alto ou nível baixo, remontando a álgebra boolena que trabalha com uns e zeros. Alguns exemplos são mostrados na figura abaixo, dentre elas: as botoeiras (a), válvulas eletro-pneumáticas (b) , os pressostatos (c) e os termostatos (d).<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind14.jpg)
+- **entradas multi-bits**: são intermediárias às entradas discretas e as analógicas. Estas destinam-se a controles mais precisos como no caso do motor de passo ou servomotores. A diferença para as entradas analógicas é que estas não exigem um conversor analógico digital na entrada do controlador. Um exemplo clássico é o dos Encoders, utilizados para medição de velocidade e posicionamento.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind15.jpg)
+- **entradas analógicas**: como o próprio nome já diz elas medem as grandezas de forma analógica. Para trabalhar com este tipo de entrada os controladores tem conversores analógico-digitais (A/D). Atualmente no mercado os conversores de 10 bits são os mais populares. As principais medidas feitas de forma analógica são a temperatura e pressão. Na figura a seguir tem-se o exemplo de sensores de pressão ou termopares.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind16.jpg)
+- **saídas discretas**: são aquelas que exigem do controlador apenas um pulso que determinará o seu acionamento ou desacionamento. Como exemplo têm-se elementos mostrados na figura os Contatores (a) que acionam os Motores de Indução (b) e as Válvulas Eletro-pneumáticas (c).<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind17.jpg)
+- **saídas multi-bits**: têm o conceito de operação semelhante as entradas da mesma categoria. Como principais exemplos têm-se os drivers dos Motores de Passo (a) e os servomotores (b).<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind18.jpg)
+- **saídas analógicas**: como dito anteriormente, de forma similar o controlador necessita de um conversor digital para analógico (D/A), para trabalhar com este tipo de saída. Os exemplos mais comuns são: válvula proporcional, acionamento de motores DC, displays gráficos, entre outros.
+
 ###### Sensores
 Um sensor é um dispositivo que detecta e responde a estímulos físicos ou químicos do ambiente, convertendo essas informações em sinais elétricos ou digitais que podem ser processados por sistemas eletrônicos. O sensor percebe uma grandeza física (como temperatura, luz, pressão) e a capta, então a converte, transformando essa grandeza em um sinal elétrico ou digital para ser processado após ser enviado para um microcontrolador, computador ou outro sistema para análise. Todo seu comportamento é previsto através de efeitos físicos, e, a disciplina *“Instrumentação”* possui objetivo de estudar estes elementos.
 
