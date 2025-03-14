@@ -1,10 +1,6 @@
-# Eletricidade
-Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao invés disso, *eletricidade* está associada a vários fenomênos decorrentes da existência e do fluxo de cargas elétricas. A energia está sempre associada a um trabalho, por isso dizemos que energia é a capacidade de realizar trabalho. Energia não pode ser criada, nem destruída, portanto nunca desaparece, apenas se transforma, passando de um forma para outra, manifestando-se por seus efeitos:
-- **magnéticos**: a rotação de um motor de indução.
-- **térmicos**: resistência para esquentar a água do chuveiro.
-- **luminosos**: o ascender de uma lâmpada.
-- **químicos**: a eletrólise da água.
-- **fisiológicos**: a contração muscular.
+# Fundamentos Físicos
+A Física pode ser considerada a ciência mais fundamental de todas, pois tudo no universo, desde as menores partículas até os maiores corpos celestes, segue leis físicas. A Matemática é a linguagem que a Física usa para descrever a realidade. Ela não apenas explica o funcionamento do universo, mas também permite criar novas tecnologias, como eletrônicos, computadores, motores, telecomunicações, energia nuclear e inteligência artificial.<br/>
+A Física é a ciência que estuda as leis fundamentais da natureza, buscando compreender e descrever os fenômenos naturais que governam o universo. Ela investiga a matéria, a energia e suas interações, utilizando conceitos matemáticos e experimentais para explicar o funcionamento do mundo, desde partículas subatômicas até galáxias. É a base de todas as ciências naturais e tecnológicas, pois todas as áreas do conhecimento científico dependem, direta ou indiretamente, dos princípios físicos.
 
 ## Matéria
 **É tudo aquilo que ocupa lugar no espaço**, ou seja, possui volume e massa. O termo *"espaço"* diz respeito a *qualquer lugar onde possa existir possa existir massa ou energia*. Ela pode existir em diferentes estados físicos, sendo sólida, líquida, gasosa ou plasmática, e pode ser composta por diferentes tipos de substâncias, por exemplo a madeira, vidro, água, rocha e ar.
@@ -47,7 +43,18 @@ São claras as diferenças entre um isolante e um condutor:<br/>
 
 Como podemos notar, nos materiais condutores praticamente não existe um gap definido, porque as bandas de condução e valência se confundem umas nas outras. Já nos materiais isolantes o gap é muito grande e os elétrons que estão na banda de valência têm que superar um obstáculo muito grande para atingir a banda de condução. Este aspecto basicamente define as diferenças entre as propriedades condutoras ou isolantes de um sólido qualquer.<br/>
 Quando um átomo possui um maior número de elétrons do que prótons, ele é considerado negativo, do contrário é considerado positivo, e, se o número de elétrons for igual ao de prótons ele é considerado neutro. É possível retirar ou acrescentar elétrons dos átomos, este processo é chamado de **ionização**. Quando isso ocorre, passará a existir uma diferença de cargas elétricas no átomo, e dessa forma ele estará *ionizado*, que é o mesmo que dizer **eletrizado**. Um átomo nunca poderá perder ou ganhar prótons, isso porque estão localizados no núclo do átomo, é possível alterar apenas os elétrons por estarem na **elestrosfera**.<br/>
-Os átomos se organizam na Tabela Periódica dos Elementos, onde cada elemento químico é definido pelo seu número atômico, que é a quantidade de prótons. Quando os átomos se ligam entre si, formam moléculas ou redes cristalinas, resultando na imensa diversidade de substâncias e materiais existentes na natureza.
+Os átomos se organizam na Tabela Periódica dos Elementos, onde cada elemento químico é definido pelo seu número atômico, que é a quantidade de prótons. Quando os átomos se ligam entre si, formam moléculas ou redes cristalinas, resultando na imensa diversidade de *substâncias* e *materiais* existentes na natureza.
+
+# Mecânica
+A Mecânica é considerada a base da física clássica e moderna, pois todas as outras ciências naturais e aplicadas dependem dela. Desde os movimentos dos planetas, passando pela engenharia estrutural, até o funcionamento de motores e circuitos, tudo pode ser descrito por princípios mecânicos. Ela é a linguagem fundamental do universo físico, pois qualquer fenômeno natural ou artificial pode ser analisado sob o ponto de vista mecânico. A Mecânica é o ramo da física que estuda o movimento dos corpos, as forças que atuam sobre eles e os efeitos dessas forças. Ela é uma das ciências mais fundamentais da natureza e serve como base para diversas áreas do conhecimento, incluindo a engenharia, a astronomia, a eletromecânica, a automação e até a computação física. A Mecânica busca descrever, prever e explicar fenômenos naturais e artificiais relacionados ao movimento, equilíbrio, forças e energia, utilizando princípios matemáticos e experimentais.
+
+# Eletricidade
+Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao invés disso, *eletricidade* está associada a vários fenomênos decorrentes da existência e do fluxo de *cargas elétricas*. A energia está sempre associada a um trabalho, por isso dizemos que energia é a capacidade de realizar trabalho. Energia não pode ser criada, nem destruída, portanto nunca desaparece, apenas se transforma, passando de um forma para outra, manifestando-se por seus efeitos:
+- **magnéticos**: a rotação de um motor de indução.
+- **térmicos**: resistência para esquentar a água do chuveiro.
+- **luminosos**: o ascender de uma lâmpada.
+- **químicos**: a eletrólise da água.
+- **fisiológicos**: a contração muscular.
 
 ## Grandezas
 Pode ser definido como grandeza, de um modo geral tudo aquilo que pode ser atribuído a uma certa quantidade e dessa forma tornar-se mensurável, ou seja, qualquer coisa que represente um valor ou uma quantidade definida em uma certa unidade de medição é uma grandeza.<br/>
@@ -134,7 +141,7 @@ Muitas vezes uma grandeza assume valores muito grandes ou muito pequenos, tornan
   </tr>
 </table>
 
-### Tipos de Corrente e Tensão
+### Tipos de Circuitos Elétricos
 Podem ser classificadas de acordo com o seu comportamento ao longo do tempo. Os principais tipos são:
 - **Contínua — DC ou CC**<br/>
 É aquela cujo sentido de fluxo dos elétrons é sempre o mesmo, ou seja, não muda com o tempo e possui uma polaridade bem definida, por isso não possui frequência. Nesse tipo de corrente, a tensão elétrica também permanece constante (ou varia muito lentamente). Podemos ver alguns exemplos em pilhas e baterias, painés solares e fontes de alimentação para eletrônicos como por exemplo carregadores de celular.<br/>
@@ -152,12 +159,14 @@ Um circuito trifásico senoidal é um tipo de circuito elétrico que utiliza tr�
   - **Deslocamento de 120°**: As 3 tensões alternadas no circuito estão defasadas entre si por 120°, o que significa que, em qualquer momento, a soma das 3 tensões em um ponto de consumo resulta em uma potência mais constante e eficiente, com menor variação no tempo.
 
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica6.jpg)
+
+#### Valores
 - **Pico**<br/>
 O valor de pico é o máximo atingido em cada semiciclo, este valor de pico de um sinal é a diferença enrte o seu máximo e mínimo. Para a senóide abaixo, o valor de pico a pico da onda senoidal é o dobro do valor de pico.<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica5.jpg)
 - **Eficaz (RMS)**<br/>
 Se uma tensão senoidal surgir através de um resistor, ela produzirá uma corrente senoidal em fase através do resistor. O produto da tensão instantânea pela corrente dá a potência instantânea, cuja média durante um ciclo resulta numa dissipação média de potência. Em outras palavras, o resistor dissipa uma quantidade constante de calor como se houvesse uma tensão contínua através dele. **Podemos definir o valor RMS de uma onda senoidal, também chamado de valor eficaz ou valor de aquecimento, como a tensão contínua que produz a mesma quanitdade de calor que a onda senoidal.**
-- **Valor Médio**<br/>
+- **Médio**<br/>
 O valor médio de uma onda senoidal ao longo de um ciclo é zero, porque a onda senoidal é simétrica, ou seja, cada valor positivo da primeira metade é compensado por um valor igual negativo.
 - **Ideal**<br/>
 Uma fonte de tensão ideal ou perfeita produz uma tensão de saída que não depende do valor da resistência de carga. Desse modo, uma fonte de tensão ideal é aquela que tem uma resistência interna igual a zero. Nas fontes de tensão reais, no entanto, não é possível obter-se uma resistência interna nula. A resistência interna de uma fonte chamamos de resistência intrínseca, dependendo da aplicação que faremos de uma determinada fonte, sua resistência intrínseca deve ser levada em conta. Esquematicamente a resistência intrínseca deve ser colocada em série com a bateria.<br/>
@@ -165,10 +174,113 @@ Uma fonte de tensão ideal ou perfeita produz uma tensão de saída que não dep
 Analogamente à tensão, uma fonte de corrente ideal ou perfeita produz uma corrente de saída que não depende do valor da resistência de carga. Desse modo, uma fonte de corrente ideal é aquela que tem uma resistência interna infinita. Nas fontes reais, contudo, não é possível obter-se uma resistência interna infinita. Podemos dizer que uma fonte de corrente real possui uma condutância intrínseca.<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica9.jpg)
 
-#### Potência
-Os valores de potência rms, média ou de pico, normalmente devem estar relacionados a níveis de tensão e de corrente medidos na mesma forma, ou seja, um valor de potência rms deve ser o produto de uma tensão e uma corrente rms, enquanto que uma potência média deve ser dada pelo produto de uma tensão e de uma corrente média. O mesmo deve acontecer com a potência de pico. E do mesmo modo que podemos verificar para a tensão e corrente em circuitos trifásicos, a potência nesses circuitos deve levar em conta a "raiz de três".
+**_Potência_**<br/>
+**Os valores de potência rms, média ou de pico, normalmente devem estar relacionados a níveis de tensão e de corrente medidos na mesma forma, ou seja, um valor de potência rms deve ser o produto de uma tensão e uma corrente rms, enquanto que uma potência média deve ser dada pelo produto de uma tensão e de uma corrente média. O mesmo deve acontecer com a potência de pico. E do mesmo modo que podemos verificar para a tensão e corrente em circuitos trifásicos, a potência nesses circuitos deve levar em conta a "raiz de 3".*
 
-# Arquitetura de Computadores
+# Eletromecânica
+A Eletromecânica é o campo multidisciplinar que integra princípios da Eletricidade e da Mecânica para criar sistemas híbridos que realizam trabalho mecânico a partir da energia elétrica. A Eletromecânica é a área da engenharia que combina Eletricidade e Mecânica para projetar, desenvolver e manter sistemas que envolvem componentes elétricos e mecânicos trabalhando juntos. Ela está presente em diversos setores, como automação industrial, robótica, motores elétricos, elevadores, aeronáutica e até na indústria automotiva.
+
+## Eletrônica
+A Eletrônica é a área da ciência e da engenharia que estuda, desenvolve e aplica dispositivos e **circuitos *elétricos*** que controlam o fluxo de elétrons para *processar*, *transmitir* e *armazenar informações*. Ela está baseada no uso de componentes eletrônicos como resistores, capacitores, diodos, transistores e circuitos integrados. **A Eletrônica pode ser definida como o ramo da física e da tecnologia que trata do comportamento e controle de cargas elétricas em materiais semicondutores e dispositivos eletrônicos.**<br/>
+Em termos de uso prático, a eletrônica surgiu antes da Automação, seu conceito e componentes começaram a se desenvolver no final do século XIX e início do século XX, enquanto a **Automação Industrial** começou a ganhar força a partir da Revolução Industrial e se consolidou no século XX com o avanço dos *computadores* e *controladores lógicos programáveis (CLPs)*. A Eletrônica fornece os componentes essenciais para a Automação como conhecemos atualmente, como sensores, processadores, microcontroladores e atuadores. Mas em termos históricos, a automação é bem mais antiga, pois surgiu a partir da criação de sistemas automatizados utilizando a *mecânica* para dar seus primeiros passos na automação de tarefas e sistemas automatizados (por exemplo os *automatos*).
+
+## Automação
+Podemos descrever automação como qualquer sistema, apoiado em computadores, que substitui o trabalho humano, em favor da segurança das pessoas, da qualidade dos produtos, rapidez da produção ou da redução de custos, assim aperfeiçoando os complexos objetivos das indústrias, dos serviços ou bem estar. A palavra automação está diretamente ligada ao controle automático e sistemas automatizados, ou seja ações que não dependem da intervenção humana. Historicamente, o surgimento da automação está ligado com a *mecanização*, sendo muito antigo, remontando da época de 3500 e 3200 a.C., com a utilização da roda. **O objetivo era sempre o mesmo, o de simplificar o trabalho do homem, de forma a substituir o esforço braçal por outros meios e mecanismos, liberando o tempo disponível para outros afazeres**, valorizando o tempo útil para as atividades do intelecto, das artes, lazer ou simplesmente entretenimento (Silveira & Santos, 1998). *Enfim, nos tempos modernos, entende-se por automação qualquer sistema apoiado em **microprocessadores** que substitua o trabalho humano.* A Automação utiliza a *Eletrônica* para controlar processos industriais, sistemas embarcados, robótica e IoT. Atualmente a automação industrial é muito aplicada para melhorar a produtividade e qualidade nos processos considerados repetitivos.<br/>
+Sob o ponto de vista produtivo, a automação industrial pode ser dividida em 3 classes, aplicadas a grandes, médios e pequenos lotes de fabricação, respectivamente, são elas: a **rígida**, a **flexível** e a **programável**.<br/>
+A automação industrial pode ser entendida como uma tecnologia integradora de 4 áreas:
+- **mecânica**: através dos dispositivos mecânicos e máquinas que possibilitam transformar matérias primas em produtos “acabados”, como por exemplo os atuadores.
+- **elétrica**: fornecendo fontes de energia de trabalho para o funcionamento dos sistemas, como os motores através de seus acionamentos.
+- **eletrônica**: responsável pelo hardware e indispensável para o controle e automação das malhas de produção.
+- **informática**: responsável pelo software que irá controlar todo o sistema através das arquiteturas de bancos de dados e redes de comunicação permitem disponibilizar as informações a todos os níveis de uma empresa.
+
+Recentemente, para formar profissionais aptos ao trabalho com automação, surgiu a disciplina **mecatrônica**. Entretanto é uma tarefa muito difícil a absorção de forma completa todos os conhecimentos necessários, e este profissional com certeza se torna um “generalista” que eventualmente pode precisar da ajuda de especialistas de outras áreas.
+
+A Automação é um conceito e um conjunto de técnicas por meio das quais se constroem sistemas ativos capazes de atuar com eficiência ótima pelo uso de informações recebidas do meio sobre o qual atuam. Criada para facilitar a realização das mais diversas atividades humanas, a automação pode ser observada:
+
+- **residências**: nas lavadoras de roupas e de louças automáticas; nos microondas; nos controles remotos de portões de garagem e etc.
+- **cotidiano**: nos caixas de bancos automáticos; nos controladores de velocidades de automovóeis; nos trens do metrô; nos cartões de crédito e etc.
+- **industria**: nos registradores de ponto automático; nos robôs industriais; no recebimento de matéria-prima através de um sistema automático de transporte de carga; na armazenagem do produto final num depósito automatizado; no controle de qualidade através de sistemas de medição e aferição; no controle de temperatura ambiente ou de uma coluna de fracionamento de petróleo; nos sistemas de combate à incêndios e etc.
+- **lazer**: em máquinas automáticas de refrigerantes ; em esteiras automáticas de academia; nos aparelhos de reprodução de vídeo ou DVD players; nos videogames e etc.
+
+**Arquitetura da automação industrial**<br/>
+Segundo o grau de complexidade e meios de realização física, a automação industrial pode ser classificada em:
+- **Automações especializadas**: menor complexidade.<br/>
+Emprega microprocessadores com programação normalmente em linguagem de máquina e memórias do tipo ROM. Por exemplo a automação interna aos aparelhos eletrônicos, telefones, computadores, eletrodomésticos, automóveis.
+- **Automações Industriais de âmbito local**: média complexidade.<br/>
+Baseia-se no uso dos CLP’s isolados ou em redes. Como por exemplo em transportadores, processos químicos, térmicos, gerenciadores de energia e de edifícios. Corresponde à grande maioria das aplicações existentes.
+- **Grandes sistemas de automação**: maior complexidade.<br/>
+Utiliza programação comercial e científica em software de tempo real. Por exemplo os controladores de vôos nos aeroportos, controle metroviário, sistemas militares entre outros.
+
+O esquema a seguir mostra os níveis hierarquicos de um processo de automação indutrial, representado pela **Pirâmide de Automação**. Para cada nível está associado um formato de comunicação de dados que pode diferir daquele adotado para a comunicação entre níveis.<br/>
+Na base da pirâmide aparece o Controlador Lógico Programável, responsável por acionar as máquinas, motores e outros processos produtivos, equanto no topo da pirâmide, destaca-se a informatização ligada ao setor corporativo da empresa.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind8.jpg)<br/>
+1. **E/S**<br/>
+Na base tem-se o nível responsável pelas ligações físicas da rede. Neste nível encontram-se as máquinas, dispositivos e componentes, sendo eles sensores discretos, as bombas, as válvulas, os contatores, os CLPs e os blocos de E/S. Seu principal objetivo é o de transferir dados entre o processo e o sistema de controle. Estes dados podem ser binários ou analógicos e a comunicação pode ser feita horizontalmente (entre os dispositivos de campo) e verticalmente, em direção ao nível superior. É neste nível, comumente referenciado como *chão de fábrica*, que as redes industriais têm provocado grandes revoluções.
+2. **IHMs**<br/>
+É o nível dos controladores digitais, dinâmicos e lógicos e de algum tipo de supervisão associada ao processo. Concentra as informações sobre o nível 1.
+3. **PROCESS CONTROL**<br/>
+Permite o controle da planta, sendo constituído por bancos de dados com informações dos índices de qualidade da produção, relatórios e estatísticas de processo, índices de produtividade e etc. Um exemplo é a avaliação e controle da qualidade em processo alimentício e supervisão de laminadores.
+4. **SUPPLY CHAIN**<br/>
+Nnível responsável pela programação e pelo planejamento da produção, como o controle de suprimentos e estoques em função da sazonalidade.
+5. **BUSINESS INTELIGENCE**<br/>
+É o nível responsável pela administração dos recursos da empresa. Do ponto de vista da comunicação das informações, no topo da pirâmide encontrase o nível de informação da rede (gerenciamento). Este nível é gerenciado por um computador central que processa o escalonamento da produção da planta e permite operações de monitoramento estatístico da planta sendo implementado, na sua maioria, por softwares gerenciais corporativos, os **ERPs**.<br/>
+No nível imediatamente abaixo, localiza-se a rede central, a qual incorpora os DCSs (Sistemas de Controle Discreto) e PCs. A informação trafega em tempo real para garantir a atualização dos dados nos softwares que realizam a supervisão da aplicação.<br/>
+Uma das dificuldades dos primeiros processos de automação industrial baseava-se no “ilhamento” das informações dentro do seu respectivo nível da pirâmide. Poucas informações fluíam do nível de supervisão e controle para o nível de controle discreto e praticamente nenhuma informação fluía para o topo da pirâmide, onde se encontram os softwares de gerenciamento da empresa. Nos projetos de automação modernos as informações fluem entre todas as camadas. Esta característica é tão importante para as indústrias, hoje em dia, que muitas delas estão atualizando suas plantas industriais, ou incorporando novas tecnologias em sistemas antigos (conhecido por RETROFIT).
+
+Os sistemas automatizados podem ser aplicados em uma simples máquina ou em toda indústria, como é o caso das usinas de cana e açúcar. A diferença está no número de elementos monitorados e controlados, denominados de *“pontos”*. Estes podem ser simples válvulas ou servomotores, cuja eletrônica de controle é bem complexa. De uma forma geral o processo sob controle tem o diagrama semelhante ao mostrado na abaixo, onde os citados pontos correspondem tanto aos atuadores quanto aos sensores. Formalmente, um sistema automatizado possui os seguintes componentes básicos: *sensoriamento*, *comparação*, *controle* e *atuação*. Seja o sistema de pequeno, médio ou grande porte, a completa automatização de um sistema envolve o estudo detes quatro elementos:<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind1.jpg)<br/>
+- **sensores**: são os elementos que fornecem informações sobre o sistema, correspondendo as entradas do controlador. Esses podem indicar variáveis físicas, tais como pressão e temperatura, ou simples estados, tal como um fim-de-curso posicionado em um cilindro pneumático.
+- **atuadores**: são os dispositivos responsáveis pela realização de trabalho no processo ao qual está se aplicando a automação. Podem ser magnéticos, hidráulicos, pneumáticos, elétricos, ou de acionamento misto.
+- **controlador**: é o elemento responsável pelo acionamento dos *atuadores*, levando em conta o estado das entradas, ou seja dos *sensores*, e as instruções do *programa* inserido em sua memória. Esse elemento é denominado de **Controlador Lógico Programável (CLP)**.
+- **processo**: é o objeto que requer o controle que é acionado através do distúrbio externo e a lógica do software após comparar os dados e tomar a decisão de ação (ou acionamento).
+
+Estes sistemas podem atingir uma a complexidade e tamanho tais que, para o seu controle, deve-se dividir o problema de controle em camadas, onde a comunicação e “hierarquia” dos elementos é similar a uma estrutura organizacional do tipo funcional. A figura a seguir mostra de forma simplificada este tipo de organização.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind2.jpg)<br/>
+Nota-se que os elementos mostrados no diagrama simplificado de um sistema de controle automático pertencem a 1ª e 2ª camadas. Na 3ª camada estão os sistemas supervisórios, operados pela “mão humana”, onde são tomadas decisões importantes no processo, tal como paradas programadas de máquina e alterações no volume de produção. Esses também estão integrados com os sistemas gerenciais, responsáveis pela contabilidade dos produtos e recursos fabris.
+
+A cadeia de automação consiste na comunicação de dados entre os elementos, o que leva um estudo das chamadas *redes industriais*. Algum tempo atrás, principalmente nas indústrias químicas, existia o esquema de controle centralizado, possível com a introdução da instrumentação eletrônica. Neste conceito existia uma sala localizada a grandes distâncias do núcleo operacional. Esta destinava-se a centralizar todo o controle efetuado ao longo do parque fabril. Atualmente existem diversas outras salas de controle, distribuídas geograficamente, interligadas entre si e a uma sala central de supervisão. Surgiu então o conceito do *controle distribuído*. Uma das derivações da estratégia de controle distribuído é a do **SDCD – Sistema Digital de Controle Distribuído**. Este se caracteriza pelos diferentes níveis hierárquicos estabelecidos pela comunicabilidade entre uma máquina de estado (processo propriamente dito) e as demais.
+
+O controle da temperatura de um áquario é um exemplo de um sistema automatizado. Num aquário deve-se manter a água em torno da temperatura ambiente (25°C). Não é necessário ser muito rigoroso sendo que a temperatura pode variar de 23 a 28°C. Nota-se que a temperatura da água pode variar e deve ser ajustada de acordo com a necessidade.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind3.jpg)<br/>
+Neste exemplo podem ser identificados os componentes básicos da automação (processo, sensor, atuador, controle e distúrbio):
+- **processo (aquário)**: que requer o controle da temperatura.
+- **sensor de temperatura**: constituído pelo termômetro de mercúrio;
+- **controlador**: estabelecido pelo acoplamento de um sistema mecânico de ajuste ao termômetro. Este sistema mecânico movimenta um contato metálico ao longo do corpo do termômetro que permite ao controlador fazer uma comparação com um valor pré-ajustado (*ponto de ajuste*) e tomar a decisão de ligar ou desligar o atuador (resistência), mantendo a temperatura dentro de um limite considerado aceitável.
+- O distúrbio é representado pelas condições externas que podem influenciar na temperatura da água. A temperatura do ambiente externo influencia diretamente no controle, determinando uma condição diferente de atuação no processo.
+- O atuador formado pelo relé elétrico e a resistência. Quando o deslocamento do mercúrio alcança o ponto de ajuste, um contato elétrico é fechado, sendo ele ligado ao relé que, usando a alimentação da rede, desliga a resistência responsável pelo aquecimento da água. Então, em forma de diagrama, nesse sistema temos:<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind4.jpg)<br/>
+Observa-se que existe uma influência da ação de aquecimento da água no valor medido pelo sensor de temperatura. Este ciclo fechado é chamado de **malha fechada de controle**, ou ***sistema de realimentação***, no qual a saída do sistema influencia diretamente na situação de sua entrada.<br/>
+Em alguns processos, não existe a realimentação, isto é, a ação do atuador comandada pelo controlador não é observada por um sensor que realimenta o sistema. Um exemplo típico é o de uma máquina de lavar roupa, que por não possuir um sensor de roupa limpa, funciona em um ciclo aberto de controle, chamado de **malha aberta**.<br/>
+O controle apresentado no exemplo do aquário não possui precisão, isto é, nada garante que a temperatura permaneça exatamente no ponto ajustado, ou que fique oscilando em torno do valor ajustado. Este tipo de controle é chamado de **Liga/Desliga** (ou ON/OFF). O atuador (resistência) permanece em dois estados bem definidos (nenhuma corrente = desligado e máxima corrente = ligado). É considerado então um **controle descontínuo**.<br/>
+Em um tanque de combustível por exemplo, pode-se abordar 2 situações de **controle automatizado**:
+- **medição descontínua**: neste sistema, é usada para garantir segurança evitando o transbordamento ou esvaziamento abaixo de determinada posição mínima. A medição descontínua normalmente é feita por sensores do tipo chave com dois estados, *ativo* ou *não ativo*. Considerando um contato elétrico, esse poderá estar **aberto** *possibilitando passagem de corrente* ou **fechado** *impedindo a passagem de corrente*.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind5.jpg)
+- **medição contínua**: usada aqui para determinar a quantidade de combustível armazenado. Além do sistema de segurança mostrado anteriormente, tem-se a necessidade de determinar a quantidade armazenada de um certo combustível dentro deste tanque. Nesse caso é necessário empregar um medidor que "observe" continuamente as variações da altura da coluna líquida no interior do tanque. Este medidor deve fornecer um sinal de saída contínuo, proporcional à altura do tanque. Tendo o valor da altura dada pelo medidor e conhecendo a capacidade do tanque dada pelo formato do próprio tanque, é possível calcular a quantidade de combustível do tanque para cada condição de nível.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind6.jpg)
+
+Observando os exemplos acima, conclui-se que é possível ter sensores **descontínuos (Liga/Desliga)** e **contínuos (chamados analógicos)**. A escolha do tipo de medição vai depender do que se pretende na automação. No caso do tanque, os dois controles podem estar presentes, cada um cuidando de sua parte no controle do sistema como um todo.
+
+**Tipos de sistemas de processos**<br/>
+Em automação tem se tornado necessário classificar os sistemas em função de suas ocorrências mais comuns e importância. Além dos **sistemas dinâmicos acionados pelo tempo**, exemplo típico dos fenômenos químicos, físicos, térmicos, *regidos por equações diferenciais*, também aparecem em grande quantidade os **sistemas de chaveamento manual, automático, as manufaturas, as filas de serviços e etc**, que *são acionados por eventos, e não são regidos por equações diferenciais*. Estes últimos são conhecidos como **sistemas dinâmicos a eventos discretos (SED’s)** e *são sistemas cuja evolução decorre unicamente de eventos instantâneos, repetitivos ou esporádicos*.
+
+**Tipos de controle**<br/>
+Pode-se classificar o controle em 2 grandes grupos:
+- **Controle Dinâmico**<br/>
+Procura estabelecer o comportamento estático e dinâmico dos sistemas físicos, tornando-os mais obedientes aos operadores e mais imunes às perturbações dentro de certos limites. Utiliza as medidas das saídas do sistema a fim de melhorar o seu desempenho operacional através de realimentação. Possui um incalculável poder tecnológico, permitindo o aperfeiçoamento de processos, aumento de velocidade e precisão. É característico da automação industrial de controle de processos (automação contínua), sendo tradicionalmente empregado o controle do tipo P + I + D (proporcional + integral + derivativo), entre outras escolhas. Um exemplo de aplicação seria o controle de temperatura de um aquário.
+- **Controle Lógico/Eventos**<br/>
+Complementa os sistemas lógicos permitindo que eles respondam a eventos externos ou internos de acordo com novas regras que são desejáveis de um ponto de vista utilitário. Utiliza sinais sempre discretos em amplitude, geralmente *binários* e *operações não-lineares* e se apresenta na forma de **circuitos** (elétricos, hidráulicos, pneumáticos, entre outros) de:
+  - **redes lógicas combinatórias** *sem memórias ou temporizações*, cujos projetos são construídos com **álgebra booleana** *que descreve, analisa e simplifica as redes com auxílio de Tabelas Verdade e Diagramas*
+  - ou em **redes sequenciais** *que possuem memória, temporizadores e entrada de sinais em instantes aleatórios*, cujo projeto utiliza a **teoria dos autômatos finitos**, **redes de Petri**, **cadeias de Markov** ou em **simulações computadorizas**. É característico da automação industrial de manufatura (automação discreta), um exemplo de aplicação são os botões de segurança de uma prensa de alavanca.
+
+Os 2 tipos de controle (dinâmico e lógico) são empregados em proporções extremamente variáveis, conforme o processo, e misturam-se nos controladores lógicos programáveis (CLPs) e PCs. No entanto, as teorias do controle dinâmico e do controle lógico desenvolvem-se independentes uma da outra. O controle dinâmico busca evitar a instabilidade do sistema, enquanto o controle lógico procura evitar o conflito ou a parada total da evolução dos sinais.
+
+**Tendências**
+Tecnologia Wireless: de lenta, cara e insegura tornou-se mais rápida e econômica. Chips de menor capacidade residirão inteligência diretamente em sensores e atuadores – softwares serão parte do produto. Controles baseados em PLC ou PC serão obsoletos e caros. A propriedade da solução tecnológica será medida em meses em vez de anos Sistemas microeletromecânicos serão usados para miniaturizar sensores, atuadores, motores, engrenagens displays para equipamentos digitais.
+
+## Computação
+A Computação é a área do conhecimento que estuda os fundamentos teóricos e práticos do **processamento**, **armazenamento** e **transmissão de informações**, utilizando dispositivos eletrônicos e sistemas digitais. A Computação pode ser definida como o campo da ciência e engenharia dedicado ao estudo de sistemas de processamento de dados, abrangendo desde a teoria matemática dos algoritmos até a construção de sistemas computacionais complexos.
+
+## Arquitetura de Computadores
 Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador. Aprofundando um pouco, é um equipamento composto por uma série de circuitos eletrônicos capaz de receber, armazenar, comparar, combinar, processar e exibir uma determinada informação com elevada velocidade.<br/>
 Basicamente tem a função de receber dados através de dispositivos de entrada, processar e retornar estes dados, agora denominados como Informação através de algum dispositivo de saída. Estes dados de entrada, processamento e o retorno da informação, normalmente se dão através de softwares que usam a capacidade do hardware para a execução de tais tarefas.
 
@@ -365,9 +477,9 @@ Diferente de um processador — que é projetado para alto desempenho e processa
 É usado em automação e IoT, suas plataformas incluem o ESP32 e STM32 voltados para IoT e automação, e Arduíno ou Raspberry Pi para sistemas embarcados.
 
 ###### Sensores
-Um sensor é um dispositivo que detecta e responde a estímulos físicos ou químicos do ambiente, convertendo essas informações em sinais elétricos ou digitais que podem ser processados por sistemas eletrônicos. O sensor percebe uma grandeza física (como temperatura, luz, pressão) e a capta, então a converte, transformando essa grandeza em um sinal elétrico ou digital para ser processado após ser enviado para um microcontrolador, computador ou outro sistema para análise.
+Um sensor é um dispositivo que detecta e responde a estímulos físicos ou químicos do ambiente, convertendo essas informações em sinais elétricos ou digitais que podem ser processados por sistemas eletrônicos. O sensor percebe uma grandeza física (como temperatura, luz, pressão) e a capta, então a converte, transformando essa grandeza em um sinal elétrico ou digital para ser processado após ser enviado para um microcontrolador, computador ou outro sistema para análise. Todo seu comportamento é previsto através de efeitos físicos, e, a disciplina *“Instrumentação”* possui objetivo de estudar estes elementos.
 
- ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade11.jpg)
+![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade11.jpg)
 
 - **Indutivos**: Sensores de proximidade indutivos são equipamentos eletrônicos capazes de detectar a aproximação de peças, componentes, elementos de máquinas e etc. O princípio de funcionamento baseia-se na geração de um campo eletromagnético de alta frequência, que é desenvolvido por uma bobina ressonante instalada na face sensora. A bobina faz parte de um circuito oscilador, que em condições normal, ou seja, *desacionada*, gera um sinal senoidal. Quando um metal aproxima-se do campo, este por correntes de superfície absorve a energia do campo diminuindo a amplitude do sinal gerado no oscilador. A variação de amplitude deste sinal é convertida em uma variação contínua, que comparada com um valor padrão, passa a atuar no estágio de saída. A **face sensora** é a superfície onde emerge o campo magnético e a **distância sensora** é a distância em que se aproximando o acionador da face sensora, o sensor muda o estado de saída.
 - **Fotoelétricos**: Também conhecidos por sensores ópticos, manipulam a luz de forma a detectar a presença do acionador, que na maioria das aplicações é o próprio produto. Baseiam-se na transmissão e recepção de luz infravermelho — invisível ao ser humano — que pode ser refletida ou interrompida por um objeto a ser detectado. São compostos por 2 circuitos básicos: um responsável pela *emissão* do feixe de luz, denominado **transmissor**, e outro responsável pela *recepção* do feixe de luz, denominado **receptor**. O transmissor envia o feixe de luz através de um fotodiodo, que emite flashes com alta potência e curta duração para evitar que o receptor confunda a luz emitida pelo transmissor com a iluminação ambiente. O receptor é composto por um fototransistor sensível a luz, que, em conjunto com um filtro sintonizado na mesma frequência de pulsação dos flashes do transmissor, faz com que o receptor compreenda somente a luz vinda do transmissor.
@@ -394,6 +506,10 @@ A detecção de objetos transparentes, tais como: garrafas de vidros, vidros pla
 Quando o sistema reflexivo for utilizado na detecção de objetos brilhantes ou com superfície polidas, tais como: engradados plásticos para vasilhame, etiquetas brilhantes, etc, cuidados especiais devem ser tomados, pois o objeto neste caso pode refletir o feixe de luz. Atuando assim, como se fosse o espelho prismático, ocasionando a não interrupção do feixe, confundindo o receptor que não aciona a saída, acasionando uma falha de detecção. A fim de evitar que isto ocorra, aconselha-se utilizar um dos métodos:
   1. Montagem angular em relação ao produto.
   2. Filtro polarizado, que serve para direcionar mecanicamente o feixe de luz.
+
+###### Controlador
+
+###### Atuador
 
 ###### Chaves
 - **fim-de-curso**<br/>
