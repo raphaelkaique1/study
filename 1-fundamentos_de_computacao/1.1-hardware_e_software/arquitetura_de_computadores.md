@@ -160,8 +160,8 @@ Podem ser classificadas de acordo com o seu comportamento ao longo do tempo. Os 
 É uma forma intermediária entre a contínua e a alternada. Ela não muda de direção como a corrente contínua, mas sua intensidade varia ao longo do tempo assim como a alternada, apresentando picos e quedas. O circuito elétrico de tensão responsável pela criação dessa corrente é o **circuito retificador**. Ele recebe a corrente alternada e a converte em corrente contínua pulsante, e para isso ser possível, este circuito conta com elementos semi-condutores tais como os diodos, um transformador entre outros. É principalmente usada em circuitos de alimentação de alguns dispositivos eletrônicos.<br/>
 ![Image](https://github.com/user-attachments/assets/06f236ed-e4ba-43e4-9fe4-27d20ccc1ae6)
 - **Circuitos Trifásicos Senoidais**<br/>
-Um circuito trifásico senoidal é um tipo de circuito elétrico que utiliza três tensões alternadas, chamadas de fasores, com uma defasagem de 120° entre elas. Essas tensões alternadas seguem uma forma de onda senoidal, ou seja, uma variação suave e periódica, que é a forma de onda mais comum na geração e distribuição de energia elétrica. Em outras palavras, é um arranjo de três tensões alternadas senoidais, com 120° de defasagem entre elas, proporcionando uma transmissão de energia elétrica mais equilibrada e eficiente. Esse tipo de sistema é utilizado em grande parte da geração e distribuição de eletricidade. Em um circuito trifásico, quando a corrente circula por um circuito equilibrado, puramente resistivo, ela estará em fase com a tensão em seu ramo, de modo que permanecerá entre elas um defasagem de 120°. Os principais pontos que caracterizam um circuito trifásico senoidal são:
-  - **3 fases**: Em vez de ter uma única tensão alternada, o circuito trifásico tem três tensões alternadas separadas, cada uma representando uma *"fase"* da energia elétrica. As tensões variam sinusoidalmente com o tempo, mas cada uma tem um deslocamento de 120° em relação à outra.
+Um circuito trifásico senoidal é um tipo de circuito elétrico que utiliza 3 tensões alternadas, chamadas de fasores, com uma defasagem de 120° entre elas. Essas tensões alternadas seguem uma forma de onda senoidal, ou seja, uma variação suave e periódica, que é a forma de onda mais comum na geração e distribuição de energia elétrica. Em outras palavras, é um arranjo de 3 tensões alternadas senoidais, com 120° de defasagem entre elas, proporcionando uma transmissão de energia elétrica mais equilibrada e eficiente. Esse tipo de sistema é utilizado em grande parte da geração e distribuição de eletricidade. Em um circuito trifásico, quando a corrente circula por um circuito equilibrado, puramente resistivo, ela estará em fase com a tensão em seu ramo, de modo que permanecerá entre elas um defasagem de 120°. Os principais pontos que caracterizam um circuito trifásico senoidal são:
+  - **3 fases**: Em vez de ter uma única tensão alternada, o circuito trifásico tem 3 tensões alternadas separadas, cada uma representando uma *"fase"* da energia elétrica. As tensões variam sinusoidalmente com o tempo, mas cada uma tem um deslocamento de 120° em relação à outra.
   - **Forma de onda senoidal**: Cada fase tem uma forma de onda senoidal, que é uma curva suave, contínua e oscilante.
   - **Deslocamento de 120°**: As 3 tensões alternadas no circuito estão defasadas entre si por 120°, o que significa que, em qualquer momento, a soma das 3 tensões em um ponto de consumo resulta em uma potência mais constante e eficiente, com menor variação no tempo.
 
@@ -490,7 +490,64 @@ Um **PLC - Programmable Logic Controller** é um controlador robusto e modular, 
 - **Controladores Proporcionais:** Ajustam a saída continuamente de acordo com o erro detectado.  
 - **Controladores PID (Proporcional, Integral, Derivativo):** Usados em processos industriais para manter um sistema estável e eficiente, ajustando continuamente os parâmetros para minimizar erros.
 
-Os controladores industriais, como **CLPs** e **DCSs** (Sistemas de Controle Distribuído), são amplamente usados em fábricas e automação, garantindo a precisão e a confiabilidade dos processos.
+A tecnologia dos CLPs só foi possível com o advento dos chamados Circuitos Integrados e da evolução da lógica digital. Os controladores industriais, como **CLPs** e **DCSs** (Sistemas de Controle Distribuído), são amplamente usados em fábricas e automação, garantindo a precisão e a confiabilidade dos processos. Historicamente os CLPs podem ser classificados nas seguintes categorias:
+- **1ª geração**: Programação em Assembly. Era necessário conhecer o hardware do equipamento, ou seja, a eletrônica do projeto do CLP.
+- **2ª geração**: Surgem as linguagens de programação de nível médio. Foi desenvolvido o “Programa Monitor” que transformava para linguagem de máquina o programa inserido pelo usuário.
+- **3ª geração**: Os CLPs passam a ter uma entrada de programação que era feita através de um teclado, ou programador portátil, conectado ao mesmo.
+- **4ª geração**: É introduzida uma entrada para comunicação serial, e a programação passa a ser feita através de microcomputadores. Com este advento surgiu a possibilidade de testar o programa antes do mesmo ser transferido ao módulo do CLP, propriamente dito.
+- **5ª geração**: Os CLPs de quinta geração vem com padrões de protocolo de comunicação para facilitar a interface com equipamentos de outros fabricantes, e também com Sistemas Supervisórios e Redes Internas de comunicação.
+
+Além da classificação histórica, os CLPs podem ser classificados também segundo a sua capacidade, como descrito abaixo.
+- **Nano e micro CLPs**: possuem até 16 entradas e a saídas. Normalmente são compostos por um único módulo com capacidade de memória máxima de 512 passos.
+- **CLPs de médio porte**: capacidade de entrada e saída em até 256 pontos digitais e analógicas. Permitem até 2048 passos de memória.
+- **CLPs de grande porte**: construção modular com CPU principal e auxiliares. Módulos de entrada e saída digitais e analógicas, módulos especializados, módulos para redes locais. Permitem a utilização de até 4096 pontos. A memória pode ser otimizada para o tamanho requerido pelo usuário.
+
+**Como pode ser visto na figura, o CLP funciona de forma sequencial, fazendo um ciclo de varredura em algumas etapas. É importante observar que quando cada etapa do ciclo é executada, as outras etapas ficam inativas. O tempo total para realizar o ciclo é denominado CLOCK. A não simultaneidade das operações justifica a exigência de processadores com velocidades cada vez mais altas.** Em cada etapa o CLP realiza as tarefas descritas como:
+- **Início**<br/>
+Verifica o funcionamento da CPU, memórias, circuitos auxiliares, estado das chaves, existência de um programa de usuário, emite aviso de erro em caso de falha. Desativa todas as saídas.
+- **Verifica o estado das entradas**<br/>
+Lê cada uma das entradas, verificando se houve acionamento. O processo é chamado de *ciclo de varredura*.
+- **Compara com o programa do usuário**<br/>
+Através das instruções do usuário sobre qual ação tomar em caso de acionamento das entradas o CLP atualiza a memória imagem das saídas.
+- **Atualiza as saídas**<br/>
+As saídas são acionadas ou desativadas conforme a determinação da CPU, então um novo ciclo é iniciado.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind38.jpg)
+
+Sua estrutura básica constitui de:
+- **Fonte de alimentação**<br/>
+Converte a tensão da rede de 110 ou 220 VCA em +5VCC, +12VCC ou +24VCC para alimentar os circuitos eletrônicos, as entradas e as saídas.
+- **Unidade de processamento**<br/>
+Também conhecida por *CPU*, é composta por *microcontroladores* ou *microprocessadores* (Intel 80xx, motorola 68xx, PIC 16xx e etc). Endereçamento de memória de até 1MB, velocidades de clock de 4 a 30 MHz, manipulação de dados decimais, octais e hexadecimais.
+- **Bateria**<br/>
+Utilizada para manter o circuito do relógio em tempo real. Normalmente são utilizadas baterias recarregáveis do tipo Ni - Ca.
+- **Memória do programa supervisor**<br/>
+O *programa supervisor* é responsável pelo gerenciamento de todas as atividades do CLP. Não pode ser modificado pelo usuário e fica normalmente em memórias do tipo PROM, EPROM, EEPROM.
+- **Memória do usuário**<br/>
+Espaço reservado ao *programa do usuário*. Constituída por memórias do tipo RAM, EEPROM ou FLASH-EPROM. Também pode-se utilizar cartuchos de memória, para proporcionar agilidade e flexibilidade.
+- **Memória de dados**<br/>
+*Armazena valores do programa do usuário*, tais como valores de temporizadores, contadores, códigos de erros, senhas e etc. Nesta região se encontra também a memória imagem das entradas e saídas. Esta funciona como uma tabela virtual onde a CPU busca informações para o processo decisório.
+
+Os circuitos auxiliares atuam em caso de falha do CLP, são:
+- **POWER ON RESET**: desliga todas as saídas assim que o equipamento é ligado, isso evita que possíveis danos venham a acontecer.
+- **POWER DOWN**: monitora a tensão de alimentação salvando o conteúdo das memórias antes que alguma queda de energia possa acontecer.
+- **WATCH DOG TIMER**: o cão de guarda deve ser acionado em intervalos periódicos, isso evita que o programa entre em “loop”.
+
+**Linguagens de Programação**<br/>
+Basicamente existem 3 tipos de linguagens para programação dos CLPs: **Ladder**, **Blocos Lógicos** e **Lista de instruções**. Alguns fabricantes como a Siemens juntaram as 3 linguagens em uma única, denominada comercialmente de **STEP7**.
+- A linguagem **Ladder**, ou **diagrama de contatos**, foi a primeira a surgir pois se assemelhava muito aos diagramas elétricos, facilitando assim o entendimentos dos técnicos e engenheiros da época.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind39.jpg)
+- Os **blocos lógicos (também conhecida como Function Block Diagram - FBD)** correspondem a uma linguagem de nível intermediário e muito prática pois traz consigo várias funções de temporização pré-definidas, facilitando assim a confecção de programas. Ela utiliza blocos gráficos para representar operações lógicas e matemáticas em um CLP. É uma abordagem visual onde os blocos são conectados por linhas, tornando o entendimento mais intuitivo, especialmente para quem trabalha com circuitos elétricos.<br/>
+```markdown
+I0.0  ────────┐
+              | AND ───────► Q0.0
+I0.1  ────────┘
+```
+- **Lista de Instruções (IL - Instruction List)** é baseada em comandos sequenciais, semelhante a uma linguagem de montagem. Exige um conhecimento mais aprofundado do funcionamento do CLP, tornando-se menos intuitiva para iniciantes. Ela é composta por um conjunto de instruções escritas em texto, que representam operações lógicas e matemáticas a serem executadas pelo controlador. Utiliza uma estrutura linear, onde cada instrução é processada de cima para baixo, de forma sequencial. Possui uma sintaxe compacta e eficiente, permitindo programas menores e de alto desempenho. As operações são representadas por códigos mnemônicos curtos, como LD (Load), AND, OR, ST (Store), entre outros.<br/>
+```cpp
+LD  I0.0      // Carrega a entrada I0.0
+AND I0.1      // Faz uma operação lógica AND com a entrada I0.1
+ST  Q0.0      // Armazena o resultado na saída Q0.0
+```
 
 ###### Comandos Elétricos
 São circuitos responsáveis por controlar, proteger e automatizar o funcionamento de máquinas e equipamentos elétricos. Eles permitem ligar, desligar, inverter rotações, variar velocidades e proteger motores e outros dispositivos elétricos em indústrias e sistemas automáticos. Em um painel de comando, as botoeiras, sinaleiras e controladores diversos ficam no circuito de comando. São compostos por 2 tipos de circuitos:
@@ -672,7 +729,7 @@ Outro diferença entre os materiais está relacionada à *resistividade* de cada
 Estes valores para os semicondutores, contudo, estão relacionados aos cristais com um certo grau de pureza que são chamados de materiais intrínsecos. Quando se adiciona algum tipo de impureza no cristal, suas características semicondutoras podem ser alteradas totalmente. Os tipos de semicondutores existentes são o **N** e o **P**. Os materiais `tipo n` e `tipo p` constituem, na verdade, o bloco básico dos dispositivos semicondutores. Ambos os semicondutores, `tipo n` e `tipo p`, são formados acrescentando-se um número predeterminado de átomos de impureza em uma base de germânio ou de silício. As impurezas nestes tipos alteram as características do material semicondutor. Convencionaremos que no material `tipo p`, as lacunas serão chamadas de portadores majoritários (por estarem em maior número que os elétrons) e os elétrons de portadores minoritários, enquanto que nos materiais `tipo n`, os elétrons serão chamados de portadores majoritários e as lacunas minoritários.
 - **`Tipo N`**: é feito com elementos de impureza que possuem 5 elétrons na camada de valência (impureza pentavalente), tais como antimônio, arsênio e fósforo. Dos 5 átomos da impureza, 4 ficam ligados por ligação covalente, e um quinto elétron fica desassociado de qualquer ligação, permanecendo relativamente livre dentro da estrutura. A figura abaixo ilustra na estrutura, a influência da impureza de antimônio em um material `tipo n`:
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica27.jpg)
-- **`Tipo P`**: é formado pela dopagem de um cristal puro de germânio ou silício, com átomos de impurezas com três elétrons de valência (tetravalentes). Os elementos mais utilizados para este fim são o boro, o gálio e o índio. Agora, como o elemento de impureza possui somente três elétrons, há um número insuficiente de elétrons para completar as ligações covalentes. A vaga resultante é chamada lacuna . Como a vaga resultante aceita facilmente um elétron "livre", as impurezas acrescentadas são chamadas de átomos receptores. A figura abaixo ilustra uma impureza em um cristal de silício:
+- **`Tipo P`**: é formado pela dopagem de um cristal puro de germânio ou silício, com átomos de impurezas com 3 elétrons de valência (tetravalentes). Os elementos mais utilizados para este fim são o boro, o gálio e o índio. Agora, como o elemento de impureza possui somente 3 elétrons, há um número insuficiente de elétrons para completar as ligações covalentes. A vaga resultante é chamada lacuna . Como a vaga resultante aceita facilmente um elétron "livre", as impurezas acrescentadas são chamadas de átomos receptores. A figura abaixo ilustra uma impureza em um cristal de silício:
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica28.jpg)
 
 ##### Circuito Retificador
