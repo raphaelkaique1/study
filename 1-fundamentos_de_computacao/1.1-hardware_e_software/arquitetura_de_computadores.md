@@ -485,7 +485,12 @@ Diferente de um processador — que é projetado para alto desempenho e processa
 
 ##### CONTROLADOR LÓGICO PROGRAMÁVEL - CLP
 MCUs (Microcontroladores) e CLPs (Controladores Lógicos Programáveis) possuem funções semelhantes, mas são projetados para aplicações diferentes. Um MCU pode ser usado como um CLP em certas aplicações, mas um CLP é uma solução mais robusta e específica para controle industrial.<br/>
-Um **PLC - Programmable Logic Controller** é um controlador robusto e modular, projetado para ambientes industriais, com entrada e saída para sensores e atuadores e uma programação voltada para controle de máquinas e processos.
+Um **PLC - Programmable Logic Controller** é um controlador robusto e modular, projetado para ambientes industriais, com entrada e saída para sensores e atuadores e uma programação voltada para controle de máquinas e processos. É um dispositivo ou sistema que recebe informações dos sensores, processa os dados e toma decisões para controlar um processo ou sistema. Ele pode ser baseado em lógica programável, como um **CLP**, um **MCU** ou um **microprocessador** dedicado. Os controladores podem ser classificados de acordo com seu tipo de operação e aplicação:
+- **Controladores On-Off (Liga-Desliga):** Operam alternando entre dois estados, como termostatos e relés de nível.  
+- **Controladores Proporcionais:** Ajustam a saída continuamente de acordo com o erro detectado.  
+- **Controladores PID (Proporcional, Integral, Derivativo):** Usados em processos industriais para manter um sistema estável e eficiente, ajustando continuamente os parâmetros para minimizar erros.
+
+Os controladores industriais, como **CLPs** e **DCSs** (Sistemas de Controle Distribuído), são amplamente usados em fábricas e automação, garantindo a precisão e a confiabilidade dos processos.
 
 ###### Comandos Elétricos
 São circuitos responsáveis por controlar, proteger e automatizar o funcionamento de máquinas e equipamentos elétricos. Eles permitem ligar, desligar, inverter rotações, variar velocidades e proteger motores e outros dispositivos elétricos em indústrias e sistemas automáticos. Em um painel de comando, as botoeiras, sinaleiras e controladores diversos ficam no circuito de comando. São compostos por 2 tipos de circuitos:
@@ -516,7 +521,12 @@ Os tipos de comandos elétricos são:
 - **Reversão**: permite inverter o sentido de rotação de um motor trifásico. Esta manobra destina-se ao acionamento do motor com possibilidade de reversão do sentido de giro de seu eixo. Para fazer isso deve-se trocar duas fases, de forma automática. Portanto utiliza-se 2 contatores, um para o sentido horário e outro para o sentido antihorário (K1 e K2). A figura a seguir mostra os circuitos de comando e potência para este tipo de partida. Pode-se observar que no contator K1 as fases R, S e T entram nos terminais 3, 2 e 1 do motor, repectivamente. Já em K2 as fases R, S e T entram nos terminais 1, 2 e 3, ou seja houve a inversão das fases R e T, provocando a mudança no sentido de rotação. É importante observar que os fios passando pelos contatores K1 e K2 ligam as fases S e T diretamente sem haver passagem por uma carga. Desse modo estes contatores não podem ser ligados simultaneamente, pois isso causaria um curto-circuito no sistema. Para evitar isso introduz-se no comando dois contatos NF, um de K1 antes da bobina de K2 e outro de K2 antes da bobina de K1. Esse procedimento é denominado de *intertravamento* sendo muito comum nos comandos elétricos. Ao pressionar o botão S1 permite-se a passagem de corrente pela bobina de K1. Automaticamente os contatos 1-2, 3-4 e 5-6 se fecham ligando o motor. O contato 13-14 de K1 também se fecha “selando” a passagem de corrente. O contato 21-22 de K1 se abre, impedindo a passagem de corrente pela bobina de K2, mesmo que o operador pressione a botoeira S2 tentando reverter a velocidade de rotação. Desse modo é necessária a parada do motor para inverter o sentido de giro, por isso o circuito é denominado de “partida com reversão de parada obrigatória”. O funcionamento do circuito quando se liga o motor no outro sentido de rotação através da botoeira S2 é similar e por isso não será descrito. Em alguns casos, dependendo da carga manobrada, adiciona-se ainda temporizadores de modo a contar um tempo antes que a velocidade possa ser invertida. Evita-se assim os famosos “trancos” extremamente prejudiciais ao sistema mecânico e elétrico. A segurança também pode ser aumentada convenientemente através da adição de mais dois contatos de intertravamento, garantido assim a inexistência de curtos, caso um dos contatos esteja danificado.<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind32.jpg)<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind33.jpg)
-- **Estrela-Triângulo**: reduz a corrente de partida de motores de grande porte.
+- **Estrela-Triângulo**: reduz a corrente de partida de motores de grande porte. Normalmente os motores de indução exigem, durante a partida, uma corrente maior que pode variar de cinco a sete vezes o valor de sua corrente nominal. Esta característica é extremamente indesejável pois além de exigir um super-dimensionamento dos cabos, ainda causa quedas no fator de potência da rede, provocando possíveis multas da concessionária de energia elétrica. Uma das estratégias para se evitar isso é a Partida Estrela-triângulo (U/D), cujo princípio é o de ligar o motor na configuração estrela (U), reduzindo a corrente e posteriormente comutá-lo para triângulo (D) atingindo sua potência nominal. Outra estratégia é o uso de Chaves compensadoras. A carga sobre a qual o motor está sujeito deve ser bem estudada para definir qual tipo de limitação de corrente é o mais adequado. Através do desenvolvimento da *tecnologia do estado sólido*, também são utilizados os *Soft-Starters* e os *Inversores de Frequência*. Para entender como a partida U/D reduz a corrente de partida basta analisar a figura a seguir, onde Uf e UL são as tensões de fase e linha, respectivamente. Já If e IL correspondem as correntes de fase e linha. Na configuração Y é válida a relação dada na equação (6.1), ou seja a Uf é 3 vezes menor que UL. Desse modo, se ambas configurações forem alimentadas coma mesma tensão de linha, a corrente de fase na configuração Y também será menor, promovendo assim a esperada redução na corrente de partida.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind34.jpg)<br/>
+As figuras a aseguir mostram os circuitos de comando e potência para a partida U/D, respectivamente. Para funcionar de forma automática, o fechamento do motor, antes feito no próprio, é realizado agora através da combinação dos contatores K1-K2 e K1-K3. Desse modo K2 e K3 não podem funcionar simultaneamente pois ocorreria curto-circuito, pela mesma razão já explicada na partida com reversão. O intertravamento destes dois contatores pode ser observado no circuito de comando. Introduz-se nesta partida o relê temporizador (K6), responsável pela comutação do motor de estrela para triângulo.<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind35.jpg)<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind36.jpg)<br/>
+![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind37.jpg)
 - **Temporizador**: automatiza operações com base no tempo.
 - **Sensores**: aciona dispositivos automaticamente de acordo com sinais captados.
 
@@ -618,10 +628,15 @@ Quando o sistema reflexivo for utilizado na detecção de objetos brilhantes ou 
   1. Montagem angular em relação ao produto.
   2. Filtro polarizado, que serve para direcionar mecanicamente o feixe de luz.
 
-###### Controlador
+##### Atuador
+O **atuador** é um dispositivo que converte sinais de controle elétricos, pneumáticos ou hidráulicos em ação mecânica, térmica ou óptica, movendo ou ajustando componentes físicos do sistema. Ele recebe comandos do **controlador** e executa a ação necessária para manter ou alterar o estado de um processo. Os principais tipos de atuadores incluem:
+- **Eletromecânicos:** Motores elétricos (de passo, servomotores, motores de indução).
+- **Eletromagnéticos:** Solenoides usados para travamento, válvulas e interruptores mecânicos.
+- **Pneumáticos:** Cilindros de ar comprimido para movimentação linear e rotativa.
+- **Hidráulicos:** Utilizados para movimentação de cargas pesadas em máquinas industriais e sistemas automotivos.
+- **Térmicos:** Resistências elétricas para aquecimento controlado em sistemas industriais.
 
-###### Atuador
-
+O desempenho dos atuadores depende da precisão do controlador e da resposta dos sensores, garantindo um funcionamento eficiente e seguro do sistema automatizado.
 
 ### GPU
 O processamento gráfico pode ser complexo, por isso muitos computadores têm uma unidade dedidaca ao processamento gráfico. A GPU cria o que vemos em uma tela no monitor. Ela é otimizada para o processamento gráfico, que é relativamente complexo. Enquanto a GPU e a CPU fazem um trabalho semelhante, a GPU tem um foco mais restrito, seu trabalho é produzir imagens em vez de executar todas as operações do sistema.<br/>
