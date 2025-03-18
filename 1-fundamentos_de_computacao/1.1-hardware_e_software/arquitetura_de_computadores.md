@@ -544,9 +544,9 @@ I0.1  ────────┘
 ```
 - **Lista de Instruções (IL - Instruction List)** é baseada em comandos sequenciais, semelhante a uma linguagem de montagem. Exige um conhecimento mais aprofundado do funcionamento do CLP, tornando-se menos intuitiva para iniciantes. Ela é composta por um conjunto de instruções escritas em texto, que representam operações lógicas e matemáticas a serem executadas pelo controlador. Utiliza uma estrutura linear, onde cada instrução é processada de cima para baixo, de forma sequencial. Possui uma sintaxe compacta e eficiente, permitindo programas menores e de alto desempenho. As operações são representadas por códigos mnemônicos curtos, como LD (Load), AND, OR, ST (Store), entre outros.<br/>
 ```cpp
-LD  I0.0      // Carrega a entrada I0.0
-AND I0.1      // Faz uma operação lógica AND com a entrada I0.1
-ST  Q0.0      // Armazena o resultado na saída Q0.0
+LD  I0.0  // Carrega a entrada I0.0
+AND I0.1  // Faz uma operação lógica AND com a entrada I0.1
+ST  Q0.0  // Armazena o resultado na saída Q0.0
 ```
 
 ###### Comandos Elétricos
