@@ -56,6 +56,13 @@ Esta palavra é um termo geral, e que não se aplica somente a 1 fenômeno. Ao i
 - **químicos**: a eletrólise da água.
 - **fisiológicos**: a contração muscular.
 
+Conceitualmente, o estudo da eletricidade é dividido em 3 grandes áreas:
+- **geração**
+- **distribuição**
+- **uso**
+
+Dentre elas, a disciplina de **comandos elétricos** está direcionada ao *uso* da energia. Por definição, os comandos elétricos tem como finalidade a manobra de motores e controladores elétricos, que são os elementos finais de potência em um circuito automatizado. Entende-se por manobra o estabelecimento e condução, ou a interrupção de corrente elétrica em condições normais e de sobre-carga.
+
 ## Grandezas
 Pode ser definido como grandeza, de um modo geral tudo aquilo que pode ser atribuído a uma certa quantidade e dessa forma tornar-se mensurável, ou seja, qualquer coisa que represente um valor ou uma quantidade definida em uma certa unidade de medição é uma grandeza.<br/>
 Na eletricidade, existem algumas grandezas fundamentais que descrevem os fenômenos elétricos e suas interações. As principais são:
@@ -277,18 +284,25 @@ Os 2 tipos de controle (dinâmico e lógico) são empregados em proporções ext
 **Tendências**
 Tecnologia Wireless: de lenta, cara e insegura tornou-se mais rápida e econômica. Chips de menor capacidade residirão inteligência diretamente em sensores e atuadores – softwares serão parte do produto. Controles baseados em PLC ou PC serão obsoletos e caros. A propriedade da solução tecnológica será medida em meses em vez de anos Sistemas microeletromecânicos serão usados para miniaturizar sensores, atuadores, motores, engrenagens displays para equipamentos digitais.
 
-## Computação
+# Computação
 A Computação é a área do conhecimento que estuda os fundamentos teóricos e práticos do **processamento**, **armazenamento** e **transmissão de informações**, utilizando dispositivos eletrônicos e sistemas digitais. A Computação pode ser definida como o campo da ciência e engenharia dedicado ao estudo de sistemas de processamento de dados, abrangendo desde a teoria matemática dos algoritmos até a construção de sistemas computacionais complexos.
-
-## Arquitetura de Computadores
-Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador. Aprofundando um pouco, é um equipamento composto por uma série de circuitos eletrônicos capaz de receber, armazenar, comparar, combinar, processar e exibir uma determinada informação com elevada velocidade.<br/>
-Basicamente tem a função de receber dados através de dispositivos de entrada, processar e retornar estes dados, agora denominados como Informação através de algum dispositivo de saída. Estes dados de entrada, processamento e o retorno da informação, normalmente se dão através de softwares que usam a capacidade do hardware para a execução de tais tarefas.
 
 ## Hardware
 A definição do *hardware* é ser a parte física do computador, ou seja, o conjunto de componentes eletrônicos, circuitos integrados e placas, que se comunicam através de barramentos.
 
 ## Software
 É a parte *lógica* do computador, podendo ser definido como um conjunto de instruções passo-a-passo que orientam o computador a executar determinadas funções para produzir um resultado desejado.
+
+## Conceito de Arquitetura de Computadores
+Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
+
+## Arquitetura de Computadores
+Um computador é uma ferramenta de propósito geral construída em torno de um microprocessador. Aprofundando um pouco, é um equipamento composto por uma série de circuitos eletrônicos capaz de receber, armazenar, comparar, combinar, processar e exibir uma determinada informação com elevada velocidade.<br/>
+Basicamente tem a função de receber dados através de dispositivos de entrada, processar e retornar estes dados, agora denominados como Informação através de algum dispositivo de saída. Estes dados de entrada, processamento e o retorno da informação, normalmente se dão através de softwares que usam a capacidade do hardware para a execução de tais tarefas.
+
+## Arquitetura Aberta
+Em 1981 a empresa IBM lança um modelo de microcomputador, chamado **PC – Personal Computer** que revolucionou o mercado de microcomputadores, pois este novo padrão possibilitou o desenvolvimento de computadores montados com componentes de fabricantes diferentes. Portanto, hoje podemos dizer que a grande maioria das empresas do ramo de fabricação de computadores atua como “montadoras” de computadores. Daí o termo Arquitetura Aberta.<br/>
+Os diferentes fabricantes dos diversos componentes de um computador seguem padrões que possibilitam a conexão de um dispositivo de um determinado fabricante ao dispositivo de outro fabricante, como por exemplo, uma placa-mãe da marca ASUS utilizando um processador Intel ou AMD. Isso facilita muito caso o usuário queira adquirir um componente para aumentar o desempenho do seu computador, pois poderá adquirir um componente de menor preço equivalente ao de maior preço ou marca mais conhecida. Além da possibilidade de podermos montar nosso próprio computador adquirindo componentes avulsos.
 
 ## Tipos de computadores
 Atualmente existe uma grande quantidade de dispositivos que nos possibilitam utilizar suas funções como processadores de dados, variando de tamanho, poder de processamento, funcionalidades específicas. Os tipos mais comuns são:
@@ -303,14 +317,7 @@ Atualmente existe uma grande quantidade de dispositivos que nos possibilitam uti
 
 **Computadores de mão**: São Computadores projetados com tecnologia que visa compactar tanto os equipamentos quanto a forma de armazenar dados. Normalmente possuem várias funcionalidades executadas em um Desktop, como por exemplo, acesso à Internet em celulares, porém, com a grande facilidade de transporte e manuseio. São eles Handhelds ou PDAs, celulares, Smartphones, Tablets, Smartwatches e etc.
 
-## Arquitetura Aberta
-Em 1981 a empresa IBM lança um modelo de microcomputador, chamado **PC – Personal Computer** que revolucionou o mercado de microcomputadores, pois este novo padrão possibilitou o desenvolvimento de computadores montados com componentes de fabricantes diferentes. Portanto, hoje podemos dizer que a grande maioria das empresas do ramo de fabricação de computadores atua como “montadoras” de computadores. Daí o termo Arquitetura Aberta.<br/>
-Os diferentes fabricantes dos diversos componentes de um computador seguem padrões que possibilitam a conexão de um dispositivo de um determinado fabricante ao dispositivo de outro fabricante, como por exemplo, uma placa-mãe da marca ASUS utilizando um processador Intel ou AMD. Isso facilita muito caso o usuário queira adquirir um componente para aumentar o desempenho do seu computador, pois poderá adquirir um componente de menor preço equivalente ao de maior preço ou marca mais conhecida. Além da possibilidade de podermos montar nosso próprio computador adquirindo componentes avulsos.
-
-## 1. Conceito de Arquitetura de Computadores
-Arquitetura se refere a um projeto de uma construção. Ela vai adotar uma série de ações para organizar e criar espaços que possam dar condições a diferentes atividades humanas. Em termos de Tecnologia da Informação, a arquitetura da computação trata-se de um projeto que define os parâmetros e o modo em que os diversos componenetes de um computador devem ser organizados para não apenas entrar em operação, mas também para alcançar a qualidade e o desempenho necessários, a fim de ser aplicado na função que foi designado.
-
-## 2. Principais Partes de um Computador: Modelo de Von Neumann
+## Principais Partes de um Computador: Modelo de Von Neumann
 s componentes do modelo de Von Neumann são usados até hoje, mesmo nos equipamentos mais modernos, e constitui-se por:
 - **Unidade de Controle - UC**: Busca cada instrução dos programas na memória e executa sobre os dados de entrada. Em outras palavras, é o "centro nervoso" do computador, pois assume todas as tarefas de controle das ações a serem realizadas pelo computador, comandando os demais componentes de sua arquitetura.
 - **Unidade Lógica e Aritmética - ULA**: Parte da unidade central de processamento (UCP), é onde ocorrem as operaçõe aritméticas, cálculos e operações lógicas.
@@ -473,20 +480,53 @@ VOLÁTIL ┤ |             |   OPERACIONAL            VOLÁTIL | | OPERACIONAL |
 ![Image](https://github.com/user-attachments/assets/fd520bf3-0d08-4b29-8543-05c7cf17b46e)
 
 ##### MICROCONTROLADOR — MCU
-Diferente de um processador — que é projetado para alto desempenho e processamento — que não possui memória interna e nenhum periférico integrado — e por isso requer componentes externos como RAM, ROM e periféricos para funcionar — o **micro controlador** é um circuito integrado projetado para tarefas específicas e sistemas embarcados que contém processador (CPU), memória (RAM, ROM) e periféricos (GPIO, ADC, PWM e etc) no mesmo chip.<br/>
-É usado em automação e IoT, suas plataformas incluem o ESP32 e STM32 voltados para IoT e automação, e Arduíno ou Raspberry Pi para sistemas embarcados.
+Diferente de um processador — que é projetado para alto desempenho e processamento — que não possui memória interna e nenhum periférico integrado — e por isso requer componentes externos como RAM, ROM e periféricos para funcionar — o **micro controlador** é um circuito integrado (chip) projetado para tarefas específicas e sistemas embarcados que contém processador (CPU), memória (RAM, ROM) e periféricos (GPIO, ADC, PWM e etc) no mesmo chip.<br/>
+É usado em automação e IoT, suas plataformas incluem o ESP32 e STM32 voltados para IoT e automação, e Arduíno ou Raspberry Pi para sistemas embarcados.<br/>
+
+##### CONTROLADOR LÓGICO PROGRAMÁVEL - CLP
+MCUs (Microcontroladores) e CLPs (Controladores Lógicos Programáveis) possuem funções semelhantes, mas são projetados para aplicações diferentes. Um MCU pode ser usado como um CLP em certas aplicações, mas um CLP é uma solução mais robusta e específica para controle industrial.<br/>
+Um **PLC - Programmable Logic Controller** é um controlador robusto e modular, projetado para ambientes industriais, com entrada e saída para sensores e atuadores e uma programação voltada para controle de máquinas e processos.
+
+###### Comandos Elétricos
+São circuitos responsáveis por controlar, proteger e automatizar o funcionamento de máquinas e equipamentos elétricos. Eles permitem ligar, desligar, inverter rotações, variar velocidades e proteger motores e outros dispositivos elétricos em indústrias e sistemas automáticos. São compostos por 2 tipos de circuitos:
+
+- **Circuito de Potência**<br/>
+Trabalha com tensões e correntes elevadas, e é o responsável por fornecer energia elétrica para motores e outros equipamentos. É composto por:
+  - **Disjuntores**: para proteger contra sobrecorrente e curto-circuito.
+  - **Contatores**: que são dispositivos eletromagnéticos que acionam cargas elétricas.
+  - **Relés Térmicos**: para proteger motores contra sobreaquecimento.
+  - **Motores Elétricos**: que transformam energia elétrica em movimento mecânico. Os principais tipos de motores são:
+    - Motor de Indução
+    - Motor de corrente contínua
+    - Motores síncronos
+    - Motores de Passo
+    - Servomotores
+
+- **Circuito de Comando**<br/>
+Controla o funcionamento do circuito de potência, acionando e desligando cargas elétricas de maneira automática ou manual pelo operador. Composto por:
+  - **Botões de Comando**: que ligam e desligam os equipamentos, por como exemplo o botão pulsador.
+  - **Chaves Seletoras**: permitem a seleção de diferentes modos de operação.
+  - **Sensores**: detectam presença, temperatura, posição e etc.
+  - **Relés e Temporizadores**: automatizam operações com base no tempo ou em condições específicas.
+
+Os tipos de comandos elétricos são:
+- **Simples**: liga e desliga motores ou dispositivos elétricos.
+- **Reversão**: permite inverter o sentido de rotação de um motor trifásico.
+- **Estrela-Triângulo**: reduz a corrente de partida de motores de grande porte.
+- **Temporizador**: automatiza operações com base no tempo.
+- **Sensores**: aciona dispositivos automaticamente de acordo com sinais captados.
 
 ###### Variáveis de Controle
-Para controlar um processo o CLP usa de informações vindas de sensores. Através das instruções gravadas em sua memória interna ela comanda os atuadores, que exercem o trabalho sobre o sistema.<br/>
-Conceitualmente designa-se os sensores de entradas e os atuadores de saídas, sendo que ambas podem ser representadas matematicamente por variáveis. Em automação, estas podem ser divididas em analógicas e digitais. O primeiro tipo englobar variáveis discretas, consistindo assim em um conceito mais amplo.<br/>
-As variáveis **discretas**, ou **digitais**, são aquelas que variam discretamente com o tempo, como pode ser visto na figura (b).<br/>
-As variáveis **analógicas** são aquelas que variam continuamente com o tempo, conforme mostra a figura (a). Elas são comumente encontradas em processos químicos advindas de sensores de pressão, temperatura e outras variáveis físicas. Ainda no controle analógico podemos separar entradas convencionais tais como comandos do operador, ou variáveis discretas gerais, das entradas analógicas advindas de sensores ligados diretamente as saídas do processo. Estas últimas serão comparadas a uma referência que consiste no valor estável desejado para o controle. Essa referência também é conhecida como **set-point**. Neste tipo de controle, onde as saídas são medidas para cálculo da estratégia de controle, dizemos que há uma *“realimentação”*. Esse sistema é conhecido como sistema em “malha fechada”. Se não há a medição das saídas dizemos que o sistema tem “malha aberta”.<br/>
+Para controlar um processo, o CLP usa de informações vindas de sensores. Através das instruções gravadas em sua memória interna ele comanda os atuadores, que exercem o trabalho sobre o sistema.<br/>
+Conceitualmente designa-se os **sensores** de *entradas* e os **atuadores** de *saídas*, sendo que ambas podem ser representadas matematicamente por variáveis. Em automação, estas podem ser divididas em **analógicas** e **digitais**. O primeiro tipo engloba variáveis discretas, consistindo assim em um conceito mais amplo.<br/>
+As variáveis **discretas**, ou *digitais*, são aquelas que variam discretamente com o tempo, como pode ser visto na figura (b).<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind12.jpg)
 
+As variáveis **analógicas** são aquelas que variam continuamente com o tempo, conforme mostra a figura (a). Elas são comumente encontradas em processos advindas de sensores de pressão, temperatura e outras variáveis físicas. Ainda no controle analógico podemos separar entradas convencionais tais como comandos do operador ou variáveis discretas gerais, das entradas analógicas advindas de sensores ligados diretamente as saídas do processo. Estas últimas serão comparadas a uma referência que consiste no valor estável desejado para o controle. Essa referência também é conhecida como **set-point**. Neste tipo de controle, onde as saídas são medidas para cálculo da estratégia de controle, dizemos que há uma *“realimentação”*. Esse sistema é conhecido como sistema em *malha fechada*. Se não há a medição das saídas dizemos que o sistema tem *malha aberta*.<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind13.jpg)
 
 ###### I/O
-O comportamento do controlador em um ambiente automatizado é definido através de um programa do usuário e do comportamento das entradas e em alguns casos também das saídas, que podem influenciar no comportamento do controlador.
+O comportamento do controlador em um ambiente automatizado é definido através de um programa do usuário e do comportamento das entradas, e em alguns casos também das saídas, que podem influenciar no comportamento do controlador.
 
 - **entradas discretas**: são aquelas que fornecem apenas um pulso ao controlador, ou seja, elas têm apenas um estado ligado ou desligado, nível alto ou nível baixo, remontando a álgebra boolena que trabalha com uns e zeros. Alguns exemplos são mostrados na figura abaixo, dentre elas: as botoeiras (a), válvulas eletro-pneumáticas (b) , os pressostatos (c) e os termostatos (d).<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind14.jpg)
@@ -496,7 +536,7 @@ O comportamento do controlador em um ambiente automatizado é definido através 
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind16.jpg)
 - **saídas discretas**: são aquelas que exigem do controlador apenas um pulso que determinará o seu acionamento ou desacionamento. Como exemplo têm-se elementos mostrados na figura os Contatores (a) que acionam os Motores de Indução (b) e as Válvulas Eletro-pneumáticas (c).<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind17.jpg)
-- **saídas multi-bits**: têm o conceito de operação semelhante as entradas da mesma categoria. Como principais exemplos têm-se os drivers dos Motores de Passo (a) e os servomotores (b).<br/>
+- **saídas multi-bits**: têm o conceito de operação semelhante as entradas da mesma categoria. Como principais exemplos têm-se os drivers dos Motores de Passo (a) e os Servomotores (b).<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2013/07/automacaoind18.jpg)
 - **saídas analógicas**: como dito anteriormente, de forma similar o controlador necessita de um conversor digital para analógico (D/A), para trabalhar com este tipo de saída. Os exemplos mais comuns são: válvula proporcional, acionamento de motores DC, displays gráficos, entre outros.
 
@@ -543,7 +583,7 @@ Têm como finalidade limitar uma ação dentro de um comando elétrico, ou coman
 São dispositivos de manobra que servem para abrir ou fechar um circuito geral do painel de comando. Existem chaves seccionadoras simples, em que somente servem para fechar ou abrir um circuito manualmente.<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/09/eletricidade28.jpg)
 
-#### GPU
+### GPU
 O processamento gráfico pode ser complexo, por isso muitos computadores têm uma unidade dedidaca ao processamento gráfico. A GPU cria o que vemos em uma tela no monitor. Ela é otimizada para o processamento gráfico, que é relativamente complexo. Enquanto a GPU e a CPU fazem um trabalho semelhante, a GPU tem um foco mais restrito, seu trabalho é produzir imagens em vez de executar todas as operações do sistema.<br/>
 As GPUs são muito rápidas, e, às vezes, chegam a ser mais rápidas que a própria CPU. As GPUs obtêm sua velocidade espalhando uma tarefa de processamento em muitos núcleos. Os núcleos de processamento em uma GPU são especializados principalmente para gráficos, mas também lidam com outras tarefas.<br/>
 Podemos então nos perguntar, já que as GPUs são mais rápidas do que as CPUs, por que os computadores usam CPUs? Por que não construí-los com GPUs que são mais rápidas? Essa na verdade é uma boa pergunta. A resposta é que, a velocidade extra nas GPUs não é "grátis", as peças necessárias para fazer GPUs são mais caras e, se usadas em vez de uma CPU, aumentariam em muito o custo dos computadores. CPUs e GPUs, embora semelhantes em como fazem o que fazem, têm funções únicas. A CPU é construída para fazer o que faz, e o faz muito bem, e usar uma GPU para muitas dessas tarefas seria um exagero.<br/>
@@ -555,13 +595,13 @@ Placa vendida separadamente e conectada nos *slots*. Tem um desempenho extremame
 
 Para que os monitores sejam conectados na placa mãe, são utilizados adaptadores de vídeo. Os mais comuns são VGA, HDMI, DVI e DP, que diferem quanto à qualidade de imagem, resolução e tipo de conectores utilizados para garantir a projeção da imagem.
 
-#### Mainboard
+### Mainboard
 Ela é a placa de circuito principal à qual todos os outros componentes internos se conectam, por exemplo, é através de seus barramentos que o processador envia e recebe informações para a memória RAM, assim como entre todos os outros componentes como A CPU, a memória e outros componentes em geral. Outros sistemas podem ser encontrados diretamente na placa-mãe ou conectados a ela através de uma conexão secundária. Por exemplo, uma placa de som pode estar presente na placa-mãe ou a ela ser conectada através do barramento PCI. Assim, processador, memória, placa de vídeo, HD, teclado, mouse e etc, estão ligados diretamente à placa-mãe. Devido ao seu nível de complexidade, é um dos componentes que mais apresenta problemas no computador, por isso que o interessante é instalarmos um modelo de marcas conceituadas, pois a probabilidade de apresentar problemas será menor e, normalmente, terá um maior tempo na sua vida útil. Há uma grande quantidade de fabricantes deste componente, e cada fabricante possui uma grande variedade de modelos. Cada modelo é projetada para dar suporte a um determinado tipo de processador e memória RAM. Ao adquirir uma Placa-Mãe é aconselhável escolher um modelo de um fabricante conceituado e um modelo que de suporte a atualizações futuras de Hardware. Placas de baixa qualidade poderão influenciar no desempenho do computador, além de, normalmente, ter a vida útil bastante reduzida.<br/>
 Ela é o componente que conecta todos os componentes internos e externos, os quais se comunicam com o computador a partir de portas como USB (dispositivos móveis e de armazenamento), PS2 (dispositivos de entrada como mouse e teclado), entradas de vídeo para uso de monitor e dispositívos de saída, como HDMI, VGA e etc.<br/>
 Dessa forma, pode-se concluir que a placa mãe permite a conexão dos discos rígidos, das fontes de alimentação, do processador, das memórias, entre outros.<br/>
 Ela possui diversos componentes eletrônicos: circuitos integrados, capacitores, resistores, e etc; e entradas especiais chamadas *slots* para que seja possível conectar os vários dispositivos.
 
-##### Condutor, Semicondutor e Isolante
+#### Condutor, Semicondutor e Isolante
 O termo semicondutor sugere algo em relação às suas características. O prefixo semi é normalmente aplicável a algo intermediário, entre dois limites. O termo condutor é aplicado a qualquer material que permite um fluxo de corrente elétrica. Portanto, um semicondutor é um material que possui um nível de condutividade entre algum extremo de um isolante e um condutor.<br/>
 Alguns materiais como silício e o germânio, têm uma estrutura interna de forma geométrica bem definida, as quais chamamos de estruturas cristalinas. Qualquer material que seja composto apenas de estruturas cristalinas repetidas é chamado de monocristal. Os materiais semicondutores de aplicação prática no campo da eletrônica possuem essa característica de monocristal, e além disso, a periodicidade da estrutura não muda significativamente com a adição de impurezas no processo de dopagem. Ao processo de inserção de impurezas no cristal damos o nome de **dopagem**. A dopagem do cristal influencia também na resistividade do material semicondutor, e altera o potencial do Gap entre as bandas de energia de condução e de valência da estrutura semicondutora.<br/>
 Os monocristais silício e germânio apresentam, na sua camada de valência, 4 elétrons que estão "presos" à estrutura por uma ligação covalente. Com um certo acréscimo de energia, contudo, os elétrons da banda de valência podem passar para a banda de condução.<br/>
@@ -580,20 +620,21 @@ Estes valores para os semicondutores, contudo, estão relacionados aos cristais 
 - **`Tipo P`**: é formado pela dopagem de um cristal puro de germânio ou silício, com átomos de impurezas com três elétrons de valência (tetravalentes). Os elementos mais utilizados para este fim são o boro, o gálio e o índio. Agora, como o elemento de impureza possui somente três elétrons, há um número insuficiente de elétrons para completar as ligações covalentes. A vaga resultante é chamada lacuna . Como a vaga resultante aceita facilmente um elétron "livre", as impurezas acrescentadas são chamadas de átomos receptores. A figura abaixo ilustra uma impureza em um cristal de silício:
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica28.jpg)
 
-###### Circuito Retificador
+##### Circuito Retificador
 Os circuitos retificadores são circuitos eletrônicos que convertem corrente alternada (CA) em corrente contínua (CC). A corrente alternada muda de polaridade ao longo do tempo. Os circuitos retificadores utilizam diodos (componentes que permitem a passagem de corrente em apenas uma direção) para transformar essa corrente alternada em pulsos unidirecionais de corrente contínua. Eles são amplamente utilizados em fontes de alimentação para dispositivos eletrônicos, pois a maioria dos equipamentos eletrônicos funciona com CC.
 
 - **meia onda**: um diodo é colocado em série com a carga, de modo que somente um semiciclo da senóide possa passar pelo diodo. Esse tipo de circuito, embora econômico, apresenta algumas desvantagens, como por exemplo, o baixo rendimento da energia fornecida pelo circuito de AC (no caso o transformador) pois só é utilizado metade de cada ciclo.
 - **onda completa com derivação central**: cada semiciclo passa por um diodo, resultando em uma tensão na carga que encorpora os dois semiciclos. Esse tipo de circuito, normalmente requer um transformador para o dobro da tensão eficaz especificada para a tensão de saída, pois cada semiciclo opera em uma metade do enrolamento. Dessa maneira, para uma tensão de 12V, por exemplo, o transformador deve apresentar um enrolamento de 12 + 12 V, ou seja, 24 V de ponta a ponta. Esse tipo de construção, portanto, utiliza apenas metade da potência nominal do transformador.
 - **ponte**: melhor e mais fácil forma de retificar, pois alcança a tensão de pico completa de um retificador de meia onda e o valor médio mais alto de um retificador de onda completa.
 
-###### Circuito RLC
+##### Circuito RLC
 Os capacitores são considerados um dos 3 grandes componentes passivos, acompanhdo de resistores e indutores. Componentes passivos são dispositivos eletrônicos que consomem, armazenam e liberam eletricidade. Estes 3 componentes passivos quando usados juntos em um circuito, formam o que chamamos de circuito **RLC**. Embora pareçam menos importantes que os *componentes ativos*, os componentes passivos são fundamentais para garantir a precisão das operações ativas executadas pelos circuitos eletrônicos.<br/>
 Os componentes neste circuito podem estar conectados em *série* ou em *paralelo*.<br/>
 ![Image](https://github.com/user-attachments/assets/106af746-106c-4535-9eb6-67640b6340f6)
 
 Já os componentes ativos são capazes de transformar a energia recebida de uma fonte de alimentação, gerar energia para algum circuito, amplificar a baixa potência para a potência de saída de forma contínua e manipular a direção da corrente dentro dos circuitos. Alguns exemplos de componentes ativos são diodos, transistores, SCR (Silicon Controlled Rectfier), triacs, CIs e microcontroladores.
 
+#### Componentes Eletrônicos
 - **Resistores — R**<br/>
 Os resistores são componentes eletrônicos que limitam ou controlam a corrente elétrica em um circuito. Como seu nome sugere, em um circuito eles provocam *resistência* à passagem de uma corrente elétrica. Existem 2 tipos de resistores, os fixos e os variáveis, dependendo se sua resistência pode ou não ser ajustada. Por exemplo um resistor de 1kΩ limitando a corrente para um LED, evitando que ele queime. Os valores dos resistores obedecem a uma gama de números que são os valores comerciais do tipos comuns. De um modo geral os resistores podem apresentar os seguintes valores de década: 10 - 11 - 12 - 13 - 15 - 16 - 18 - 20 - 22 - 24 - 27 - 30 - 33 - 36 - 39 - 43 - 47 - 51 - 56 - 62 - 68 - 75 - 82 - 91, também utilizando-se seus múltiplos e submúltiplos, ou seja, esses valores podem variar de cerca de 0,01 a 10 MΩ, usualmente. A definição dos resistores normalmente é feita utilizando-se um código de cores impresso na forma de listas no corpo do mesmo.<br/>
 ![Image](https://www.primecursos.com.br/arquivos/uploads/2012/03/eletronica18.jpg)<br/>
