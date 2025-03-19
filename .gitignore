@@ -15,10 +15,11 @@ BACKUP.alg
 test.alg
 
 # cs build files
-./+/csharp/bin/
-./+/csharp/obj/
-./+/csharp/bin/*
-./+/csharp/obj/*
+GitHub/study/coding/scripts/csharp
+./coding/scripts/csharp/bin/
+./coding/scripts/csharp/obj/
+./coding/scripts/csharp/bin/*
+./coding/scripts/csharp/obj/*
 /csharp/bin/
 /csharp/obj/
 */csharp/bin/
@@ -46,3 +47,12 @@ yarn-error.log*
 .vscode/
 .DS_Store
 .idea/
+
+# ino
+./coding/scripts/ino/include/
+./coding/scripts/ino/lib/
+./coding/scripts/ino/test/
+./coding/scripts/ino/*.json
+./coding/scripts/ino/.gitignore
+./coding/scripts/ino/platformio.ini
+./coding/scripts/ino/wokwi.toml
