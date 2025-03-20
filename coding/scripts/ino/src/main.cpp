@@ -213,4 +213,71 @@ void loop() {
   }
 } */
 
-/* alarme */
+/* alarme
+int alarm = 0;
+int led = 1;
+int buzzer = 5;
+int B = 9;
+int G = 10;
+int R = 11;
+
+void setColor(int, int, int, int);
+void Alarm();
+
+void setup() {
+  pinMode(alarm, INPUT_PULLUP);
+  pinMode(led, INPUT_PULLUP);
+  pinMode(buzzer, OUTPUT);
+  pinMode(R, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(B, OUTPUT);
+}
+
+void loop() {
+  int alarmStatus = digitalRead(alarm);
+  int ledStatus = digitalRead(led);
+
+  if(alarmStatus != 0 && ledStatus == 0) {
+    Alarm();
+    setColor(0, 0, 0, 0);
+  } else if (alarmStatus == 0 && ledStatus != 0) {
+    setColor(255, 0, 0, 350);
+    setColor(0, 0, 255, 350);
+  } else if(alarmStatus == 0 && ledStatus == 0) {
+    analogWrite(R, 255);
+    analogWrite(G, 0);
+    analogWrite(B, 0);
+    tone(buzzer, 3000, 350);
+    delay(350);
+    analogWrite(R, 0);
+    analogWrite(G, 0);
+    analogWrite(B, 255);
+    tone(buzzer, 1500, 350);
+    delay(300);
+    analogWrite(R, 0);
+    analogWrite(G, 0);
+    analogWrite(B, 0);
+    delay(100);
+  }
+}
+
+void setColor(int r, int g, int b, int t) {
+  analogWrite(R, r);
+  analogWrite(G, g);
+  analogWrite(B, b);
+  delay(t);
+  // default
+  analogWrite(R, 0);
+  analogWrite(G, 0);
+  analogWrite(B, 0);
+  delay(100);
+}
+
+void Alarm() {
+  tone(buzzer, 3000, 350);
+  delay(350);
+  tone(buzzer, 1500, 350);
+  delay(300);
+} */
+
+/* potenciometro */
