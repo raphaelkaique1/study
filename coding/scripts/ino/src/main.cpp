@@ -58,7 +58,7 @@ void led_normal() {
   delay(1000);
 } */
 
-/* semáforo */
+/* semáforo
 
 int l1_g = 0;
 int l1_y = 1;
@@ -167,4 +167,50 @@ void traffic_light() {
   digitalWrite(G, 255);
   digitalWrite(B, 0);
   delay(1000);
+} */
+
+/* botão
+int red = 9;
+int green = 10;
+int blue = 11;
+int button = 3;
+int pressed = 0;
+int handle = 0;
+
+void setup() {
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(button, INPUT);
 }
+
+void loop() {
+  pressed = digitalRead(button);
+  if(pressed == HIGH && handle == 0) {
+    delay(250);
+    handle = 1;
+    analogWrite(red, 255);
+    analogWrite(green, 0);
+    analogWrite(blue, 0);
+  } else if (pressed == HIGH && handle == 1) {
+    delay(250);
+    handle = 2;
+    analogWrite(red, 0);
+    analogWrite(green, 255);
+    analogWrite(blue, 0);
+  } else if (pressed == HIGH && handle == 2) {
+    delay(250);
+    handle = 3;
+    analogWrite(red, 0);
+    analogWrite(green, 0);
+    analogWrite(blue, 255);
+  } else if (pressed == HIGH && handle == 3) {
+    delay(250);
+    handle = 0;
+    analogWrite(red, 0);
+    analogWrite(green, 0);
+    analogWrite(blue, 0);
+  }
+} */
+
+/* alarme */
