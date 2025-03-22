@@ -58,8 +58,7 @@ void led_normal() {
   delay(1000);
 } */
 
-/* semáforo
-
+/* traffic light
 int l1_g = 0;
 int l1_y = 1;
 int l1_r = 2;
