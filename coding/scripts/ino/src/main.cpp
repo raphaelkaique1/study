@@ -383,3 +383,117 @@ void shiftWrite(int desiredPin, boolean desiredState){
 int ledBar() {
   return getLevel = map(pinA0, 0, 1023, 0, 7);
 } */
+
+/* led 7
+//            a, b, c, d, e, f, g
+const int A_G[7] = {2, 3, 4, 5, 6, 7, 8};
+//            0, 1, 2, 3, 4, 5, 6
+int button;
+int handle = 0;
+int status = -1;
+boolean way = true;
+
+
+const int Numbers[10][7] = {
+  {A_G[0], A_G[1], A_G[2], A_G[3], A_G[4], A_G[5], 9}, // 0
+  {9, A_G[1], A_G[2], 9, 9, 9, 9}, // 1
+  {A_G[0], A_G[1], 9, A_G[3], A_G[4], 9, A_G[6]}, // 2
+  {A_G[0], A_G[1], A_G[2], A_G[3], 9, 9, A_G[6]}, // 3
+  {9, A_G[1], A_G[2], 9, 9, A_G[5], A_G[6]}, // 4
+  {A_G[0], 9, A_G[2], A_G[3], 9, A_G[5], A_G[6]}, // 5
+  {A_G[0], 9, A_G[2], A_G[3], A_G[4], A_G[5], A_G[6]}, // 6
+  {A_G[0], A_G[1], A_G[2], 9, 9, 9, 9}, // 7
+  {A_G[0], A_G[1], A_G[2], A_G[3], A_G[4], A_G[5], A_G[6]}, // 8
+  {A_G[0], A_G[1], A_G[2], 9, 9, A_G[5], A_G[6]} // 9
+};
+
+// functions
+void check();
+void off();
+void Number(int, int);
+void automatic_counter(int);
+void manual_counter(boolean);
+
+void setup() {
+  for(int i = 0; i < 7; i++) {
+    pinMode(A_G[i], OUTPUT);
+    digitalWrite(A_G[i], LOW);
+  }
+  pinMode(9, INPUT);
+}
+
+void loop() {
+  manual_counter(way);
+}
+
+void check() {
+  for(int i = 0; i < 7; i++) {
+    digitalWrite(A_G[i], HIGH);
+    delay(100);
+    digitalWrite(A_G[i], LOW);
+  }
+}
+
+void off() {
+  for(int i = 0; i < 7; i++) {
+    digitalWrite(A_G[i], LOW);
+  }
+}
+
+// a linha representa o número que será exibido
+void Number(int line, int time) {
+  off();
+  for(int column = 0; column <= 6; column++) { // na coluna estão os pinos em A_G a serem ligados/desligados
+    if(Numbers[line][column] != 9) {
+      digitalWrite(Numbers[line][column], HIGH);
+    }
+  }
+  delay(time);
+}
+
+void automatic_counter(int order) {
+  if(order == 0) {
+    for(int number = 0; number <= 9; number++) {
+      Number(number, 1000);
+    }
+  } else {
+    for(int number = 9; number >= 0; number--) {
+      Number(number, 1000);
+    }
+  }
+}
+
+void manual_counter(boolean WAY) {
+  button = digitalRead(9);
+  delay(150);
+  if(WAY == true) {
+    // normal counter
+    if(button == HIGH) {
+      if(status < 9) {
+        status++;
+      } else {
+        status = 0;
+      }
+      Number(status, 0);
+    }
+  } else {
+    // reverse counter
+    if(button == HIGH && handle == 0) {
+      if(status < 9) {
+        status++;
+      } else {
+        handle = 1;
+        status--;
+      }
+      Number(status, 0);
+    } else if(button == HIGH && handle == 1) {
+      if(status > 0) {
+        status--;
+      } else {
+        handle = 0;
+        status++;
+      }
+      Number(status, 0);
+    }
+  }
+} */
