@@ -497,3 +497,87 @@ void manual_counter(boolean WAY) {
     }
   }
 } */
+
+/* sensor */
+#include "../lib/LiquidCrystal/src/LiquidCrystal.h"
+#include <../lib/Thermistor/Thermistor.h>
+LiquidCrystal lcd(13, 12, 7, 6, 5, 4);
+Thermistor temp(A1);
+// manual read: const float BETA = 3950;
+int LDR_value = 0;
+int RGB[] = {9, 10, 11};
+int led = 3;
+
+/* values
+temp monitoring
+*/
+int temperature = 0;
+struct Color {
+  int red;
+  int green;
+  int blue;
+};
+
+Color great = {0, 255, 0};
+Color good = {0, 100, 240};
+Color normal = {100, 0, 240};
+Color attention = {255, 255, 0};
+Color limit = {240, 140, 0};
+Color danger = {255, 0, 0};
+
+// functions
+void tmp();
+void lux();
+void setColor(Color);
+
+void setup() {
+  Serial.begin(9600);
+  for(int pin = 0; pin <= 2; pin++) {
+    pinMode(RGB[pin], OUTPUT);
+  }
+  pinMode(led, OUTPUT);
+  lcd.begin(16, 2);
+}
+
+void loop() {
+  tmp();
+  lux();
+}
+
+void tmp() {
+  int temperature = temp.getTemp();
+  /* manual read: int analogValue = analogRead(A1);
+  float temperature = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15;*/
+  lcd.clear();
+  lcd.print("Temperatura: ");
+  lcd.setCursor(0, 1);
+  lcd.print(temperature);
+  lcd.print(" \xDF""C");
+  if(temperature >= 0 && temperature <= 35) {
+    setColor(great);
+  } else if(temperature > 35 && temperature <= 45) {
+    setColor(good);
+  } else if(temperature > 45 && temperature <= 65) {
+    setColor(normal);
+  } else if(temperature > 65 && temperature <= 80) {
+    setColor(attention);
+  } else if(temperature > 80 && temperature <= 85) {
+    setColor(limit);
+  } else {
+    setColor(danger);
+  }
+  delay(250);
+}
+
+void lux() {
+  LDR_value = analogRead(A0);
+  int lightness = map(LDR_value, 0, 1015, 0, 255);
+  analogWrite(led, lightness);
+  delay(250);
+}
+
+void setColor(Color color) {
+  analogWrite(RGB[0], color.red);
+  analogWrite(RGB[1], color.green);
+  analogWrite(RGB[2], color.blue);
+}
