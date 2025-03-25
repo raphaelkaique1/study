@@ -622,6 +622,42 @@ void loop() {
   }
 } */
 
+/* serial read 
+int received = 0;
+int R = LOW;
+int G = LOW;
+int B = LOW;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+void loop() {
+  if(Serial.available() > 0){
+    received = Serial.read();
+    switch(received){
+      case '1':
+        R == HIGH ? R = LOW : R = HIGH;
+        digitalWrite(9, R);
+        break;
+      case '2':
+        G == HIGH ? G = LOW : G = HIGH;
+        digitalWrite(10, G);
+        break;
+      case '3':
+        B == HIGH ? B = LOW : B = HIGH;
+        digitalWrite(11, B);
+        break;
+      default:
+        break;
+    }
+  }
+}*/
+
+
 void setup() {}
 
 void loop() {}
