@@ -498,20 +498,24 @@ void manual_counter(boolean WAY) {
   }
 } */
 
-/* sensor */
+/* sensor
 #include "../lib/LiquidCrystal/src/LiquidCrystal.h"
 #include <../lib/Thermistor/Thermistor.h>
+#include <Stepper.h>
 LiquidCrystal lcd(13, 12, 7, 6, 5, 4);
 Thermistor temp(A1);
-// manual read: const float BETA = 3950;
+//manual read:
+//const float BETA = 3950;
 int LDR_value = 0;
 int RGB[] = {9, 10, 11};
 int led = 3;
+int stepsPerRevolution = 0;
+Stepper myStepper(stepsPerRevolution, 0, 1, 2, 8);
 
-/* values
-temp monitoring
-*/
+// values
+// temp monitoring
 int temperature = 0;
+String status = "";
 struct Color {
   int red;
   int green;
@@ -537,6 +541,7 @@ void setup() {
   }
   pinMode(led, OUTPUT);
   lcd.begin(16, 2);
+  myStepper.setSpeed(200);
 }
 
 void loop() {
@@ -546,33 +551,51 @@ void loop() {
 
 void tmp() {
   int temperature = temp.getTemp();
-  /* manual read: int analogValue = analogRead(A1);
-  float temperature = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15;*/
+  stepsPerRevolution = map(temperature, -16, 96, 0, 400);
+  // manual read:
+  //int analogValue = analogRead(A1);
+  // float temperature = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15;
+  if(temperature >= 0 && temperature <= 35) {
+    setColor(great);
+    status = "otimo";
+  } else if(temperature > 35 && temperature <= 45) {
+    setColor(good);
+    status = "bom";
+  } else if(temperature > 45 && temperature <= 65) {
+    setColor(normal);
+    status = "normal";
+  } else if(temperature > 65 && temperature <= 80) {
+    setColor(attention);
+    status = "cuidado";
+  } else if(temperature > 80 && temperature <= 85) {
+    setColor(limit);
+    status = "limite";
+  } else {
+    if(temperature < 0) stepsPerRevolution = 0;
+    setColor(danger);
+    status = "PERIGO!!!";
+  }
   lcd.clear();
   lcd.print("Temperatura: ");
   lcd.setCursor(0, 1);
   lcd.print(temperature);
-  lcd.print(" \xDF""C");
-  if(temperature >= 0 && temperature <= 35) {
-    setColor(great);
-  } else if(temperature > 35 && temperature <= 45) {
-    setColor(good);
-  } else if(temperature > 45 && temperature <= 65) {
-    setColor(normal);
-  } else if(temperature > 65 && temperature <= 80) {
-    setColor(attention);
-  } else if(temperature > 80 && temperature <= 85) {
-    setColor(limit);
-  } else {
-    setColor(danger);
-  }
+  lcd.print(" \xDF""C - ");
+  lcd.print(status);
+  Serial.print("Temperatura: ");
+  Serial.print(temperature);
+  Serial.print(" °C - Status: ");
+  Serial.println(status);
   delay(250);
+  myStepper.step(stepsPerRevolution);
 }
 
 void lux() {
   LDR_value = analogRead(A0);
   int lightness = map(LDR_value, 0, 1015, 0, 255);
   analogWrite(led, lightness);
+  Serial.print("Brilho (RGB): ");
+  Serial.print(lightness);
+  Serial.println("%");
   delay(250);
 }
 
@@ -580,4 +603,21 @@ void setColor(Color color) {
   analogWrite(RGB[0], color.red);
   analogWrite(RGB[1], color.green);
   analogWrite(RGB[2], color.blue);
+} */
+
+/* servo_motor  
+#include <Servo.h>
+
+Servo motor1;
+int position = 0;
+
+void setup() {
+  motor1.attach(3);
 }
+
+void loop() {
+  for(int position = 0; position <= 180; position+=45) {
+    motor1.write(position);
+    delay(500);
+  }
+} */
