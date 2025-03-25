@@ -56,7 +56,7 @@ void led_normal() {
   digitalWrite(1, LOW);
   digitalWrite(2, LOW);
   delay(1000);
-} */
+}*/
 
 /* traffic light
 int l1_g = 0;
@@ -166,7 +166,7 @@ void traffic_light() {
   digitalWrite(G, 255);
   digitalWrite(B, 0);
   delay(1000);
-} */
+}*/
 
 /* button
 int red = 9;
@@ -210,7 +210,7 @@ void loop() {
     analogWrite(green, 0);
     analogWrite(blue, 0);
   }
-} */
+}*/
 
 /* alarm
 int alarm = 0;
@@ -277,7 +277,7 @@ void Alarm() {
   delay(350);
   tone(buzzer, 1500, 350);
   delay(300);
-} */
+}*/
 
 /* potentiometer
 // values set
@@ -382,7 +382,7 @@ void shiftWrite(int desiredPin, boolean desiredState){
 
 int ledBar() {
   return getLevel = map(pinA0, 0, 1023, 0, 7);
-} */
+}*/
 
 /* led 7
 //            a, b, c, d, e, f, g
@@ -496,7 +496,7 @@ void manual_counter(boolean WAY) {
       Number(status, 0);
     }
   }
-} */
+}*/
 
 /* sensor
 #include "../lib/LiquidCrystal/src/LiquidCrystal.h"
@@ -603,7 +603,7 @@ void setColor(Color color) {
   analogWrite(RGB[0], color.red);
   analogWrite(RGB[1], color.green);
   analogWrite(RGB[2], color.blue);
-} */
+}*/
 
 /* servo_motor  
 #include <Servo.h>
@@ -620,7 +620,7 @@ void loop() {
     motor1.write(position);
     delay(500);
   }
-} */
+}*/
 
 /* serial read 
 int received = 0;
@@ -657,6 +657,27 @@ void loop() {
   }
 }*/
 
+/* EEPROM 
+#include <EEPROM.h>
+int i = 0;
+
+void setup() {
+  Serial.begin(9600);
+  if(EEPROM[0] != 9) {
+    EEPROM[0] = 9;
+    EEPROM[1] = i;
+  } else {
+    i = EEPROM[1];
+  }
+}
+
+void loop() {
+  Serial.println(i);
+  i++;
+
+  EEPROM[1] = i;
+  delay(1000);
+}*/
 
 void setup() {}
 
