@@ -597,46 +597,32 @@ O gerenciamento de projetos é uma disciplina que existe há milênios, com regi
 Um **gerenciador de projetos** é uma ferramenta ou software projetado para auxiliar na organização, planejamento, execução, monitoramento e controle de projetos. Essas ferramentas permitem que equipes e gestores acompanhem o progresso das atividades, aloque recursos de forma eficiente, estabeleçam cronogramas, identifiquem riscos e garantam que os objetivos do projeto sejam alcançados dentro dos parâmetros estabelecidos.
 
 **Principais funcionalidades de um gerenciador de projetos:**
-
 - **Planejamento e agendamento:** Criação de cronogramas detalhados, definição de marcos e prazos para as entregas.
-
 - **Atribuição de tarefas:** Distribuição de responsabilidades entre os membros da equipe, garantindo clareza nas funções e prazos.
-
 - **Monitoramento de progresso:** Acompanhamento em tempo real do status das tarefas, identificando possíveis atrasos ou obstáculos.
-
 - **Gestão de recursos:** Alocação eficiente de recursos humanos, financeiros e materiais, evitando desperdícios e sobrecargas.
-
 - **Comunicação e colaboração:** Facilitação da interação entre os membros da equipe, promovendo uma comunicação clara e contínua.
-
 - **Análise e relatórios:** Geração de relatórios detalhados sobre o desempenho do projeto, auxiliando na tomada de decisões informadas.
 
 A adoção de um gerenciador de projetos eficaz contribui para a melhoria da eficiência operacional, redução de custos, aumento da satisfação dos stakeholders e maior probabilidade de sucesso na entrega dos projetos.<br/>
 O **Trac**, **Kanboard**, **Trello** e **Taiga.io** são algumas ferramentas de gerenciamento de projetos que auxiliam equipes na organização e acompanhamento de tarefas. Abaixo, apresento uma visão geral de cada uma delas:
 
-**[Trac](https://trac.edgewall.org/):**
-
+**[Trac](https://trac.edgewall.org/):**<br/>
 O Trac é uma plataforma de gerenciamento de projetos baseada na web, projetada para equipes de desenvolvimento de software. Ele oferece recursos como rastreamento de problemas, gerenciamento de código-fonte e integração com sistemas de controle de versão. Sua interface simples e recursos focados no desenvolvimento tornam-no adequado para equipes que utilizam metodologias ágeis.
 
-**[Kanboard](https://kanboard.org/):**
-
+**[Kanboard](https://kanboard.org/):**<br/>
 O Kanboard é uma ferramenta de gerenciamento de projetos de código aberto que utiliza o método Kanban. Ele permite a visualização do fluxo de trabalho por meio de quadros Kanban, facilitando o acompanhamento de tarefas e a identificação de gargalos. Além disso, oferece recursos como automação de tarefas, integração com outras ferramentas e suporte a plugins.
 
-**[Trello](https://trello.com/):**
-
+**[Trello](https://trello.com/):**<br/>
 O Trello é uma plataforma de gerenciamento de projetos baseada na web que utiliza quadros Kanban para organizar tarefas. Sua interface intuitiva permite a criação de listas e cartões, facilitando a colaboração entre equipes. O Trello oferece integrações com diversas ferramentas e possui uma versão gratuita com recursos limitados, além de planos pagos com funcionalidades adicionais.
 
-**[Taiga](https://taiga.io/):**
-
+**[Taiga](https://taiga.io/):**<br/>
 O Taiga.io é uma plataforma de gerenciamento de projetos de código aberto focada em metodologias ágeis, como Scrum e Kanban. Ele oferece recursos como planejamento de sprints, rastreamento de problemas, integração com sistemas de controle de versão e uma interface limpa e intuitiva. O Taiga.io está disponível tanto como serviço hospedado quanto para instalação local.
 
 **Comparação entre Taiga.io e Trello:**
-
 - **Personalização e Flexibilidade:** O Taiga.io oferece mais opções de personalização, permitindo que equipes adaptem a plataforma às suas necessidades específicas.
-
 - **Gerenciamento Ágil de Projetos:** O Taiga.io é projetado especificamente para gerenciamento ágil, oferecendo ferramentas dedicadas para processos como Scrum e Kanban.
-
 - **Modelo de Preços:** O Trello segue um modelo freemium, oferecendo uma versão gratuita com recursos limitados e planos pagos para funcionalidades adicionais. O Taiga.io, sendo de código aberto, pode ser auto-hospedado gratuitamente, com opções pagas para serviços hospedados.
-
 - **Integrações:** O Trello possui uma ampla gama de integrações com outras ferramentas, facilitando a colaboração e a automação de processos. O Taiga.io também oferece integrações, mas pode ter uma seleção mais limitada em comparação.
 
 Em resumo, a escolha entre essas ferramentas depende das necessidades específicas da equipe ou organização, considerando fatores como a metodologia de trabalho, requisitos de personalização, orçamento e preferências de integração.
@@ -647,23 +633,15 @@ Portanto, o gerenciamento de projetos como disciplina formal precede as metodolo
 As **metodologias ágeis** são abordagens de gerenciamento de projetos que enfatizam a entrega incremental e iterativa de produtos, promovendo a colaboração contínua entre equipes multifuncionais e clientes. Essas metodologias visam aumentar a flexibilidade, a eficiência e a capacidade de adaptação às mudanças durante o ciclo de vida do projeto.
 
 **Princípios fundamentais das metodologias ágeis:**
-
 - **Entrega contínua de valor:** Foco na entrega frequente de incrementos funcionais do produto, permitindo que os stakeholders avaliem e forneçam feedback regularmente.
-
 - **Adaptação às mudanças:** Capacidade de ajustar planos e prioridades conforme novas informações ou mudanças nas necessidades do cliente surgem.
-
 - **Colaboração entre equipes e clientes:** Promoção de uma comunicação aberta e constante entre todos os envolvidos no projeto, garantindo alinhamento e compreensão mútuos.
-
 - **Simplicidade e eficiência:** Busca por soluções simples e eficazes, evitando complexidade desnecessária e desperdício de recursos.
 
 **Principais metodologias ágeis:**
-
 - **Scrum:** Foca na organização do trabalho em ciclos chamados "sprints", com papéis bem definidos como Product Owner, Scrum Master e a equipe de desenvolvimento.
-
 - **Kanban:** Utiliza um sistema visual de cartões para gerenciar o fluxo de trabalho, permitindo que as equipes visualizem o progresso e identifiquem gargalos.
-
 - **Extreme Programming (XP):** Enfatiza práticas técnicas como programação em par, desenvolvimento orientado a testes e integração contínua para melhorar a qualidade do código.
-
 - **Lean:** Baseado nos princípios de manufatura enxuta, busca eliminar desperdícios e otimizar processos para entregar valor ao cliente de forma mais eficiente.
 
 A adoção de metodologias ágeis tem se expandido além do desenvolvimento de software, sendo aplicadas em diversas áreas como marketing, recursos humanos e gestão de projetos em geral, devido à sua eficácia em ambientes dinâmicos e de rápida mudança.
@@ -673,20 +651,17 @@ Os scripts automatizados e templates padrões podem aumentar a produtividade em 
 Além de templates de documentos e scripts, existem as variáveis de ambientes, que também são valores que usamos tanto no ambiente quanto no código fonte independente do projeto. Consistem em pares de chave-valor que armazenam informações de configuração acessíveis por processos em execução em um sistema operacional. Elas pares de chave-valor que armazenam informações de configuração acessíveis por processos em execução em um sistema operacional. Elas permitem que aplicações ajustem seu comportamento sem a necessidade de alterar o código-fonte, facilitando a adaptação a diferentes ambientes, como desenvolvimento, teste e produção.
 
 **Principais usos das variáveis de ambiente:**
-
 - **Configuração de sistemas:** Definir parâmetros como diretórios de instalação, caminhos de execução e locais de arquivos temporários.
 - **Armazenamento de credenciais:** Guardar informações sensíveis, como senhas de banco de dados e chaves de API, mantendo-as fora do código-fonte para aumentar a segurança.
 - **Controle de comportamento de aplicações:** Ativar ou desativar funcionalidades específicas, como modos de depuração ou níveis de registro, conforme o ambiente em que a aplicação está sendo executada.
 
-**Definição de variáveis de ambiente:**
-
+**Definição de variáveis de ambiente:**<br/>
 A forma de definir variáveis de ambiente varia conforme o sistema operacional:
 
 - **Unix/Linux/macOS:** Utilize o comando `export` no terminal ou defina as variáveis nos arquivos de inicialização do shell, como `.bashrc` ou `.bash_profile`.
 - **Windows:** Use o comando `set` no Prompt de Comando ou acesse as configurações avançadas do sistema para defini-las de forma permanente.
 
 **Boas práticas:**
-
 - **Segurança:** Mantenha informações sensíveis fora do código-fonte e controle o acesso às variáveis de ambiente, especialmente em ambientes de produção.
 - **Consistência:** Utilize nomes claros e padronizados para as variáveis, facilitando a manutenção e evitando conflitos.
 - **Documentação:** Registre as variáveis utilizadas e seus propósitos, auxiliando na compreensão e configuração do ambiente por outros desenvolvedores.

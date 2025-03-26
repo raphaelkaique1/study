@@ -1390,6 +1390,10 @@ Para criar um algoritmo, podemos utilizar diferentes representações, sejam ela
 2. **FLUXOGRAMA**: Utiliza símbolos de formas geométricas padronizadas com significados bem definidos para representar os diferentes passos a serem executados, também chamados de *comandos*. O fluxograma possibilita uma representação mais precisa, detalhada e menos abstrata que a descrição narrativa.
 3. **PSEUDOCÓDIGO**: Aqui se tem a padronização do fluxograma e a facilidade de texto da descrição narrativa, criando algoritmos estruturados. Consiste em uma representação textual simplificada de um algoritmo, utilizando uma linguagem intermediária entre a linguagem natural e uma linguagem de programação. No pseudocódigo, são utilizados comandos e estruturas lógicas semelhantes às encontradas em linguagens de programação, mas sem a necessidade de respeitar a sintaxe rigorosa dessas linguagens. Essa abordagem permite que o algoritmo seja entendido de forma clara e padronizada, facilitando sua implementação posterior em uma linguagem de programação.
 
+#### BOAS PRÁTICAS
+- **Indentação**: Uma prática sempre recomendada, ligada à limpeza e utilizada para facilitar a leitura do código, é o uso correto de recuos, ou indentação. Deve-se alinhar elementos "irmãos" na mesma margem e adicionar alguns espaços ou um tab para elementos "filhos".
+- **Comentários**: Quando iniciamos um projeto, pouco código é escrito. Mais tarde adicionaremos uma quantidade razoável de elementos, o que pode gerar uma certa confusão. Para manter o código mais legível, é recomendada a adição de comentários à cada seção do código. Dessa maneira, é possível identificar claramente o objetivo de cada parte do script.
+
 <pre>
                        / - Sem conceitos novos
 Narrativa             ❮  - Utilização de linguagem natural em forma de texto estruturado
