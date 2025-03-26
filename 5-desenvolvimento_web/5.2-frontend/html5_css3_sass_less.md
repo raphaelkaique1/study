@@ -54,8 +54,10 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
  - 🧠 **PERFORMANCE** 💪<br/>
  Com o *JavaScript*, fornecemos a interatividade e animação, sendo o "músculo motor" que faz as coisas "terem vida" no site.
 
+**Desde maio de 2019 o desenvolvimento do HTML é mantido pelo [W3C (World Wide Web Consortium)](https://www.w3.org/), WHATWG e a comunidade de desenvolvedores, tendo sua especificação aberta no Github [WHATWG](https://github.com/whatwg/html), e desde este movimento, o HTML é considerado um "padrão vivo" (living standard) onde sua versão a partir da 5 é atualizada continuamente.*
+
 #### WEB SEMÂNTICA
- A programação em HTML tem muitos elementos diferentes, estes elementos podem ser encontrados em 2 tipos principais:
+ Quando escrevemos o HTML, marcamos o conteúdo da página com tags que melhor representam o significado daquele conteúdo. A programação em HTML tem muitos elementos diferentes, estes elementos podem ser encontrados em 2 tipos principais:
 
  - **ELEMENTOS SEMÂNTICOS**: São elementos que por seu próprio nome definem qual seu *propósito específico*. Portanto, quando os vemos em um arquivo HTML, sabemos para que eles são usados. Como por exemplo: `h1`, `h2`, `h3` e `p`. Todos eles são elementos semânticos, porque são usados para fins muito específicos. Quando vemos um elemento `h1`, sabemos que o que está entre ele é um *título*, desta forma, só de olhar para nosso HTML, podemos dizer que há um cabeçalho e parágrafos (conteúdo contido dentro dos elementos `p`). Podem ser usados junto com **atributos**.
  - **ELEMENTOS GENÉRICOS**: Elementos para qualquer tipo de uso. Como exemplo, um dos elementos genéricos chamado `div`, que significa *divisão*, serve para dividir um documento em diferentes partes. Por tanto, se quisermos criar um *card* com uma imagem e informações, podemos fazer isso com o elemento `div`. O problema de utilizar estes elementos é que não são muito descritivos semanticamente falando. Não sabemos para que servem. Durante o desenvolvimento, sabemos que aquele elemento `div` que criamos serve para exibir *cards* na página, mas como identificar isso em uma manutenção futura? Podemos dar alguma semântica aos nossos elementos `div` usando **atributos**, para identificarmos facilmente seu propósito.
@@ -64,11 +66,20 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
  Permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Alguns dos atributos mais importantes são o `id` e `class`. *A **`class`** é um atributo que **identifica múltiplos elementos**, enquanto o **`id`** é uma **identidade única para cada elemento**, podendo assim nos referirmos a ele.* Além destes, existem várious outros atributos que podem ser inseridos nas tags.
 
 ##### ESTRUTURA DE UMA PÁGINA WEB
+ Um documento HTML válido precisa seguir **obrigatoriamente** a estrutura composta pela instrução **`!<DOCTYPE>`** e as tags:
+ 1. **`html`**
+ 2. **`head`**
+ 3. **`body`**
+
  Um exemplo simples de código HTML poderia ser:
 ```html
 <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Documento</title>
+    </head>
     <body>
-        <h1>Hello world!</h1>
+        <h1>Olá mundo!</h1>
         <p>Este é um parágrafo.</p>
     </body>
 </html>
@@ -87,23 +98,23 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
 ╰───────────────────────╯
 ╭───<hmtl>────────────────────╮ <html lang="en">
 | ╭─<head>──────────────────╮ |     <head>
-| |                         | |         <title>webpage</title>
+| |                         | |         <meta charset="UTF-8">
+| |                         | |         <title>Webpage</title>
 | ╰─</head>─────────────────╯ |     </head>
 | ╭─<body>──────────────────╮ |     <body>
-| |                         | |         <h1>Bem-vindo!</h1>
+| |                         | |         <h1>Welcome!</h1>
 | ╰─</body>─────────────────╯ |     </body>
 ╰──</hmtl>────────────────────╯ </html>
 ```
 ###### ORGANIZAÇÃO DO HEAD
  O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis. Os *metaelementos*, ou *metamarcas*, fornecem informações descritivas sobre a página; o *title* da página e possíveis *links* para páginas CSS ou JavaScript. Vejamos:
- - **`<!DOCTYPE html>`**<br/>
- Declara o tipo de documento e a versão do HTML.
- - **`html lang="en"`**<br/>
- É a tag raiz que engloba todo o conteúdo do documento; o atributo `lang` especifica o idioma da página.
- - **`head`**<br/>
- Contém as metainformações sobre o documento, como: e título da página.
-   - **`<meta charset="UTF-8>"`**<br/>
-   O tipo e conjunto de caracteres. Cada conjunto de caracteres foi criado para atender a diferentes necessidades e regiões do mundo. Atualmente, UTF-8 é o mais utilizado globalmente, devido à sua compatibilidade e eficiência. Além do UTF-8, existem vários outros conjuntos de caracteres (codificações) usados para representar texto em sistemas computacionais. Eles podem ser agrupados em diferentes categorias, dependendo de sua abrangência e propósito:
+ - **`<!DOCTYPE html>`**: Declara o tipo de documento e a versão do HTML. Indica para o navegador qual versão do HTML deve ser utilizada para exibir a página. Quando não colocamos essa instrução a página é exibida numa espécie de *"modo de compatibilidade"* na qual algumas tags e estilizações não funcionam corretamente, principalmente as tags e estilizações mais atuais. _A declaração do DOCTYPE, pode ser escrita toda em maiúsculo ou toda em minúsculo ou com a primeira letra maiúscula: `<!DOCTYPE HTML>`, `<!DOCTYPE html>`, `<!Doctype HTML>`, `<!Doctype html>`, `<!doctype html>`, `<!doctype HTML>`. **O resultado será o mesmo para todos os casos.**_
+ - **`html lang="en"`**: Na estrutura do documento, antes da inserção do conteúdo, é usada a tag `html`. É a tag raiz que engloba todo o conteúdo do documento; o atributo `lang` especifica o idioma da página. Dentro dela vão 2 tags "irmãs" que compõem diferentes seções do documento para a sua renderização pelo navegador, diz-se "irmãs" pois estão no mesmo nível hierárquico em relação à sua tag "mãe", a `html`. São elas as tags `head` e `body`.
+ - **`head`**: Contém as informações sobre o documento HTML que são de interesse somente do navegador e para outros serviços da web, e não para os usuários que vão acessar o site, como o título da página, links à outros documentos (CSS/JS) e etc. São informações que não serão exibidas diretamente no navegador, também podemos considerar este um local onde informamos os *metadados* sobre a página.<br/>
+ A especificação do HTML obriga a presença da tag de conteúdo `title` dentro dela, permitindo definir o título do documento, que poder ser visto na barra de título ou aba da janela do navegador. Caso contrário, a página não será um documento HTML válido.<br/>
+ Outra configuração muito importante, principalmente em documentos HTML cujo conteúdo é escrito em um idioma como o português, que contém caracteres "especiais" como acentos e cedilha, é a codificação do conjunto de caracteres chamada de *encoding* ou *charset*. Podemos configurar qual codificação queremos utilizar em nosso documento por meio da configuração de charset na tag `meta`. Um dos valores mais comuns usados hoje em dia é o UTF-8, também chamado de Unicode. Há outras possibilidades, como o latin1, muito usado antigamente. O UTF-8 é a recomendação atual para encoding na Web por ser amplamente suportada em navegadores e editores de código, além de ser compatível com praticamente todos os idiomas do mundo.
+   - **`title`**: Texto que será exibido na aba do navegador para identificação da página.
+   - **`<meta charset="UTF-8">`**: O tipo e conjunto de caracteres. Cada conjunto de caracteres foi criado para atender a diferentes necessidades e regiões do mundo. Atualmente, UTF-8 é o mais utilizado globalmente, devido à sua compatibilidade e eficiência. Além do UTF-8, existem vários outros conjuntos de caracteres (codificações) usados para representar texto em sistemas computacionais. Eles podem ser agrupados em diferentes categorias, dependendo de sua abrangência e propósito:
       - **1. Unicode (Codificações Padrão)**
         Unicode é um padrão universal que mapeia caracteres de quase todos os idiomas. Ele pode ser representado por diferentes codificações, como:
         - **UTF-8** (mais comum e eficiente, usa de 1 a 4 bytes por caractere)
@@ -131,10 +142,8 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
         - **VISCII** (usado para vietnamita)
         - **HZ-GB-2312** (variante de GB2312 para chinês)
         - **MBCS (Multi-Byte Character Set)**: Utilizado em sistemas antigos antes da adoção total do Unicode.
-   - **`<meta name="viewport" content="width=device-width, initial-scale=1.0">`**<br/>
-   Configurações de viewport para responsividade.
- - **`body`**<br/>
- Armazena o conteúdo visível da página, como os cabeçalhos, títulos, texto e parágrafos, imagens, mídias entre outras coisas.
+   - **`<meta name="viewport" content="width=device-width, initial-scale=1.0">`**: Configurações de viewport para responsividade.
+ - **`body`**: Armazena o corpo do documento que é exibido pelo navegador em sua janela, ou seja, todo o conteúdo visível da página, como os cabeçalhos, títulos, texto e parágrafos, imagens, mídias entre outras coisas. É necessário que o `body` tenha ao menos um elemento "filho", ou seja, uma ou mais tags em sua estrutura.
 
  A tabela a seguir mostra um resumo dos elementos que podem ir dentro da etiqueta *head*:
 
@@ -1655,11 +1664,29 @@ Aqui falaremos sobre como adicionar legendas.
 </table>
 
 ### <span id="css">CSS</span>
+ Quando abrimos a página no navegador é possível perceber que ele mostra as informações com estilos diferentes. Um `h1`, por exemplo, por padrão é apresentado em negrito numa fonte maior. Parágrafos de texto são espaçados entre si, e assim por diante. Isso quer dizer que o navegador tem um estilo padrão para as tags que usamos. Porém para fazer sites atrativos e com o design próximo de uma dada identidade visual, é necessário personalizar a apresentação padrão dos elementos da página. Antigamente, isso era feito no próprio HTML. Caso houvesse a necessidade de um título ser vermelho, era só fazer: `<h1><font color="red">90's Website</font></h1>`. Além da tag `font`, várias outras tags de estilo existiam. Mas isso é passado. Hoje em dia tags HTML para estilo são **má prática** *e jamais devem ser usadas*, são interpretadas apenas para o modo de compatibilidade. Em seu lugar, surgiu o **CSS**, que é uma outra linguagem, separada do HTML, com objetivo único de cuidar da estilização da página. A vantagem é que o CSS é bem mais robusto que o HTML para estilização, mas, principalmente, escrever formatação visual misturado com conteúdo de texto no HTML se mostrou algo impraticável. O CSS resolve isso separando as coisas; **regras de estilo não aparecem mais no HTML, apenas no CSS.**<br/>
  O objetivo do CSS é dar a aparência que quisermos às nossas páginas. Antes de seu surgimento, usava-se atributos nas tags para dá-las alguma aparência como por exemplo altura, largura, cor e etc. Atualmente, separamos a estrutura (HTML) da aparência (CSS). **Cascading Style Sheets** então surgiu para facilitar o desenvolvimento facilitando a separação de conteúdo da aparência, permitindo que os desenvolvedores controlassem a aparência dos documentos sem alterar sua estrutura.<br/>
  Em meados de 1990 a web se expandia rapidamente, mas os navegadores ofereciam poucas maneiras de definir estilos e layouts de forma consistente. Nesse contexto, Håkon Wium Lie, enquanto trabalhava com Tim Berners-Lee (idealizador do HTML) no CERN, percebeu que faltava uma ferramenta para aplicar estilos de forma flexível aos documentos web. Então, em 1994, Håkon Wium Lie propôs a ideia de “folhas de estilo em cascata” para dar aos desenvolvedores um mecanismo que pudesse controlar a apresentação de forma separada do conteúdo. Essa proposta surgiu justamente para atender à necessidade de uma web mais dinâmica e com melhor controle visual. Pouco tempo depois, Bert Bos se juntou a Lie, contribuindo significativamente para o refinamento do conceito. Juntos, eles desenvolveram as bases do que se tornaria o CSS, defendendo uma abordagem em que os estilos pudessem vir de diferentes fontes – como o navegador, o autor da página e o usuário final – sendo aplicados de acordo com uma ordem de prioridade ou “cascata”.
 
 #### SINTÁXE
- O CSS utiliza uma sintaxe simples para definir estilos, cada regra de estilo consiste em um **seletor** e um **bloco de declaração**. O seletor aponta para o elemento HTML que se desja estilizar, e o bloco de declaração é contido entre **`{}`** e possui uma ou mais declarações de estilo que são declaradas com o **identificador** seguido de **`:`** e a **propriedade** que desejamos atribuir ao elemento, separadas por **`;`**.<br/>
+ O CSS utiliza uma sintaxe simples para definir estilos, cada regra de estilo consiste em um **seletor** e um **bloco de declaração**. O seletor aponta para o elemento HTML que se desja estilizar, e o bloco de declaração é contido entre **`{}`** e possui uma ou mais declarações de estilo que são declaradas com a **propriedade**, seguida de **`:`** e os **valores** da propriedade que desejamos atribuir ao elemento, separadas por **`;`** da seguinte maneira:
+ ```css
+ /*
+ seletor {
+    propriedade: valor;
+ }
+
+ p = seletor {
+    color = propriedade: #111 = valor
+ }
+ */
+ p {
+    color: #111;
+    font-size: 12px;
+ }
+ ```
+ A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
+
  Todas as etiquetas CSS terão **2 partes**:
  1. **SELETOR**:<br/>
  Que determina qual área da página será modificada.
@@ -1681,7 +1708,7 @@ Aqui falaremos sobre como adicionar legendas.
  3. **external CSS**
 
 ##### DECLARAÇÃO EXTERNA
- Consiste em criar um arquivo.css referenciado ao arquivo html. *Uma vez criado o arquivo CSS, declaramos no `head` uma tag `link` usando o atributo `rel`, que informa ao navegador a natureza do arquivo linkado, idicando a relação entre o documento atual e o recurso vinculado, e o `href`, que informa o caminho onde o arquivo está armazenado.*
+ Consiste em criar um arquivo css referenciado no arquivo html. *Uma vez criado o arquivo CSS, declaramos no `head` uma tag `link` usando o atributo `rel`, que informa ao navegador a natureza do arquivo linkado, idicando a relação entre o documento atual e o recurso vinculado, e o `href`, que informa o caminho onde o arquivo está armazenado.* Além da melhor organização do projeto, a folha de estilo externa traz ainda as vantagens de manter nosso HTML mais limpo e do reaproveitamento de uma mesma folha de estilos para diversos documentos.
  ```html
  <head>
      <meta charset="utf-7">
@@ -1710,7 +1737,7 @@ Aqui falaremos sobre como adicionar legendas.
  Dessa forma, dizemos que o conteúdo das tags `p` terão um tamanho de fonte de 32px, assim, todas as tags `p` seguirão essa regra.
 
 ##### DECLARAÇÃO IN-LINE
- Usamos o atributo `style` para declararmos nosso CSS na tag que desejamos modificar – o estilo que escolhermos só alterará essa tag.
+ Usamos o atributo `style` no próprio elemento para declarar o CSS na tag que se deseja modificar – o estilo escolhido alterará somente essa tag. *Deve ser usado apenas em exceções e casos especiais, pois a convenção da boa prática é manter a separação da declaração do conteúdo e da estilização.*
  ```html
  <body>
     <p style="color: blueviolet">
@@ -1721,7 +1748,6 @@ Aqui falaremos sobre como adicionar legendas.
     </p>
  </body>
  ```
- A sintáxe para criar um comentário em CSS é: <code>/* comentário */</code>
 
 ##### VIEWPORT
  Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. A **`viewport`** *é a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.<br/>
@@ -2063,7 +2089,7 @@ Aqui falaremos sobre como adicionar legendas.
  Acrescentando estilos ao texto e ao layout de um site, podemos melhorar a legibilidade e dar uma identidade visual à página. Essas propriedades incluem fontes, cores, margens, bordas, padding entre outras dimensões. O CSS oferece uma ampla variedade de propriedades para estilizar o texto e aplicar cores aos elementos. Vejamos algumas:
  - **propriedades de texto**:
    - **`font-size`**: define o tamanho da fonte.
-   - **`font-family`**: define o estilo da fonte.
+   - **`font-family`**: define o estilo da fonte pode receber seu valor com ou sem aspas dependendo da sua composição, por exemplo, quando uma fonte tem o nome separado por espaço.
    - **`font-weight`**: define o "peso" da fonte.
    - **`text-align`**: define o alinhamento do texto.
    - **`line-height`**: define a altura e espaçamento entre as linhas.
@@ -2072,6 +2098,8 @@ Aqui falaremos sobre como adicionar legendas.
    - **`background`**: define a cor de fundo do texto.
 
 ###### FONTES
+ Por padrão, os navegadores mais conhecidos exibem texto em um tipo que conhecemos como **"serif"**. As fontes mais conhecidas e comumente utilizadas como padrão são "Times" e "Times New Roman", dependendo do sistema operacional. Elas são chamadas de fontes serifadas pelos pequenos ornamentos em suas terminações. Podemos alterar a família de fontes que queremos utilizar em nosso documento para a família **"sans-serif"** (sem serifas), que contém, por exemplo, as fontes "Arial" e "Helvetica". Podemos também declarar que queremos utilizar uma família de fontes **"monospace"** como, por exemplo, a fonte "Courier".<br/>
+ É possível, e muito comum, declararmos o nome de algumas fontes que gostaríamos de verificar se existem no computador, permitindo que tenhamos um controle melhor da forma como nosso texto será exibido.<br/>
  **Se quisermos usar um tipo de fonte específico que precise ser baixado, usamos a propriedade `@font-face` informando o caminho onde o arquivo `true-type-file` dessa fonte está localizado.**<br/>
  *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
  ```css
@@ -2080,8 +2108,13 @@ Aqui falaremos sobre como adicionar legendas.
     src: url('Fonte.ttf'); /* informa o caminho do arquivo da fonte */
  }
 
- p {
-    font: bold 2rem 'fonte'; /* informa para que use a fonte para as tags `p` */
+ div {
+    font-style: normal;
+    font-weight: bold; /* informa para que use a fonte para as `div`s */
+    font-size: 1rem; /* informa para que use a fonte para as `div`s */
+    font-family: 'fonte', sans-serif; /* informa para que use as fontes para as `div`s
+    Nesse caso, o navegador verificará se a fonte "fonte" está disponível e a utilizará para exibir os textos de todos os elementos do nosso documento que, por cascata, herdarão essa propriedade do elemento `div`.
+    Caso a fonte "font" não esteja disponível, o navegador verificará a disponibilidade da próxima fonte declarada, ou seja, caso o navegador não encontre essa fonte, ele solicita qualquer fonte que pertença à família "sans-serif", declarada logo a seguir, e a utiliza para exibir o texto, não importa qual seja ela.*/
  }
  ```
 
