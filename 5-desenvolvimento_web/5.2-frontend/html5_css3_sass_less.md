@@ -59,8 +59,8 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
 #### WEB SEMÂNTICA
  Quando escrevemos o HTML, marcamos o conteúdo da página com tags que melhor representam o significado daquele conteúdo. A programação em HTML tem muitos elementos diferentes, estes elementos podem ser encontrados em 2 tipos principais:
 
- - **ELEMENTOS SEMÂNTICOS**: São elementos que por seu próprio nome definem qual seu *propósito específico*. Portanto, quando os vemos em um arquivo HTML, sabemos para que eles são usados. Como por exemplo: `h1`, `h2`, `h3` e `p`. Todos eles são elementos semânticos, porque são usados para fins muito específicos. Quando vemos um elemento `h1`, sabemos que o que está entre ele é um *título*, desta forma, só de olhar para nosso HTML, podemos dizer que há um cabeçalho e parágrafos (conteúdo contido dentro dos elementos `p`). Podem ser usados junto com **atributos**.
- - **ELEMENTOS GENÉRICOS**: Elementos para qualquer tipo de uso. Como exemplo, um dos elementos genéricos chamado `div`, que significa *divisão*, serve para dividir um documento em diferentes partes. Por tanto, se quisermos criar um *card* com uma imagem e informações, podemos fazer isso com o elemento `div`. O problema de utilizar estes elementos é que não são muito descritivos semanticamente falando. Não sabemos para que servem. Durante o desenvolvimento, sabemos que aquele elemento `div` que criamos serve para exibir *cards* na página, mas como identificar isso em uma manutenção futura? Podemos dar alguma semântica aos nossos elementos `div` usando **atributos**, para identificarmos facilmente seu propósito.
+ - **ELEMENTOS SEMÂNTICOS**: São elementos que por seu próprio nome definem qual seu *propósito específico*. Portanto, quando os vemos em um arquivo HTML, sabemos para que eles são usados. Como por exemplo: `h1`, `h2`, `h3` e `p`. Todos eles são elementos semânticos, porque são usados para fins muito específicos. Quando vemos um elemento `h1`, sabemos que o que está entre ele é um *título*, desta forma, só de olhar para nosso HTML, podemos dizer que há um cabeçalho e parágrafos (conteúdo contido dentro dos elementos `p`). Podem ser usados junto com **atributos**. Devemos escolher as tags pelo o que elas representam e não como elas são mostradas na tela do navegador. Estilização deve ficar no CSS e estrutura no HTML.
+ - **ELEMENTOS GENÉRICOS**: Elementos para qualquer tipo de uso. As únicas tags que são de propósito genérico e que são usadas apenas para facilitar a estilização no CSS são as tags `div` e `span`. Essas duas tags não representam nenhum conteúdo necessariamente. `div` representa uma divisão de blocos e `span` uma marcação para texto sem quebrar a linha do texto. Como exemplo, um dos elementos genéricos chamado `div`, que significa *divisão*, serve para dividir um documento em diferentes partes. Por tanto, se quisermos criar um *card* com uma imagem e informações, podemos fazer isso com o elemento `div`. O problema de utilizar estes elementos é que não são muito descritivos semanticamente falando. Não sabemos para que servem. Durante o desenvolvimento, sabemos que aquele elemento `div` que criamos serve para exibir *cards* na página, mas como identificar isso em uma manutenção futura? Podemos dar alguma semântica aos nossos elementos `div` usando **atributos**, para identificarmos facilmente seu propósito.
 
  **ATRIBUTOS**<br/>
  Permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Alguns dos atributos mais importantes são o `id` e `class`. *A **`class`** é um atributo que **identifica múltiplos elementos**, enquanto o **`id`** é uma **identidade única para cada elemento**, podendo assim nos referirmos a ele.* Além destes, existem várious outros atributos que podem ser inseridos nas tags.
@@ -2341,8 +2341,8 @@ E esses valores não são os usados no começo com `padding: 10px 25px 10px 15px
 
  | UNIDADE | DESCRIÇÃO |
  | --- | ---- |
- | **`rem`** | Relativo ao tamanho da fonte do elemento raiz – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
- | **`em`** | Relativo ao tamanho da fonte do elemento – `2em` significa **2 vezes o tamanho da fonte do elemento atual**. |
+ | **`rem`** | Relativo ao **tamanho da fonte do elemento raiz** – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
+ | **`em`** | Relativo ao **tamanho da fonte do elemento pai** – `2em` significa **2 vezes o tamanho da fonte do elemento atual pai direto**. |
  | **`vw`** | Relativo a `x%` da **largura** da tela. |
  | **`vh`** | Relativo a `x%` da **altura** da tela. |
  | **`%`** | Relativo a `x%` do **elemento pai**. |
@@ -2350,6 +2350,33 @@ E esses valores não são os usados no começo com `padding: 10px 25px 10px 15px
  | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
  | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
  | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
+
+```css
+html {
+  font-size: 10px;
+}
+
+div {
+  font-size: 20px;
+
+  width: 300px;
+
+    img {
+      width: 10em;   /* a largura será de 200px */
+      height: 10rem; /* a altura será de 100px */
+      /*
+      A vantagem de usar essas medidas é que se houverem outros elementos usando essas medidas,
+      e exisitir a necessidade de mudar o tamanho de todos os elementos proporcionalmente, basta mudarmos em um lugar só.
+      Estas unidades de medida são ideais para quando o site precisa ser exibido em diferentes tamanhos de telas,
+      onde em cada tamanho de tela a fonte deve ser exibida em escalas de tamanhos diferentes e proporcionais entre si.
+      */
+    }
+    #elemento {
+      width: 100%; /* acupa 100% do espaço disponível dentro da div 
+      A vantagem de se usar % é que não importa o tamanho da div, o elemento sempre vai acompanhar o tamanho da sua tag mãe */
+    }
+}
+```
 
  3. **Especiais**: Existem algumas unidades de medidas especiais que funcionam como funções calculando e ajustando automaticamente os elementos e conteúdos, um exemplo é o **`fractional unit`**, que representa uma fração do espaço disponível do container, diferente de `px` ou `%`, o **`fr`** ajusta automaticamente oo tamanho do container.
 | UNIDADE         | EXEMPLO                         | DESCRIÇÃO                                           |
@@ -3005,10 +3032,10 @@ A propriedade **`background-image`** permite indicar um arquivo de imagem para s
  </div>
  ```
 
-##### BOX MODEL
- Existem 2 tipos básicos de propriedades em um documento:
- 1. **`inline`**: Não geram uma quebra de linha e ficam na mesma linha ou posição em que o elemento estiver disposto, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag e não aceitam propriedades como `width` e `height`. Exemplos de tags tipo `inline`: `span`, `strong`, `em`, `a`, `img`, entre outas.
- 2. **`block`**: Sempre começam em uma nova linha causando uma quebra de linha acima e abaixo da tag ocupando 100% da largura da página; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
+#### BOX MODEL
+ Existem 2 tipos básicos de propriedades de display:
+ 1. **`inline`**: Não geram uma quebra de linha e ficam na mesma linha ou posição em que o elemento estiver disposto, seu espaço ocupado é o mesmo que o tamanho do conteúdo dentro da tag e não aceitam propriedades de tamanho como `width` e `height`. Exemplos de tags tipo `inline`: `span`, `strong`, `em`, `a`, `img`, entre outas.
+ 2. **`block`**: Sempre começam em uma nova linha causando uma quebra de linha acima e abaixo da tag ocupando 100% da largura disponível, se diminuir seu tamanho o espaço restante será ocupado por uma `margin` não removível; a maioria das tags são deste tipo. Exemplos de tags tipo `block`: `h1` ... `h6`, `p`, `div`, `br`, entre outras.
 
  Para realizar a conversão de um tipo de elemento deve-se alterar a propriedade **`display`** do seletor em questão:
  ```css
@@ -3402,8 +3429,8 @@ align-content: center                            align-content: stretch
  }
  ```
 
-###### PROPRIEDADE DOS ITEMS
- Além das propriedades do container, o `felxbox` também ofere propriedades específicas para os `flexitems`. Todas as propriedades que vimos até agora se aplicam ao **container**, as seguintes propriedaddes, no entanto, aplicam-se aos **items filhos**.
+##### PROPRIEDADE DOS ITEMS
+ Além das propriedades do container, o `flexbox` também ofere propriedades específicas para os `flexitems`. Todas as propriedades que vimos até agora se aplicam ao **container**, as seguintes propriedaddes, no entanto, aplicam-se aos **items filhos**.
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -3609,7 +3636,7 @@ align-content: center                            align-content: stretch
  }
  ```
 
-### MEDIA QUERY
+#### MEDIA QUERY
  As **`media queries`** são uma sintaxe especial que nos *permite definir estilos que só serão aplicados se condições específicas forem atendidas*. Podemos compará-las a linhas de código *"opcional"*, que _serão exibidas apenas para alguns usuários ou dispositivos_.<br/>
  Numa época em que o tráfego móvel se multiplica a cada ano, os sites estáticos projetados para serem exibidos em uma resolução específica não eram mais úteis. Foi necessário adaptar os designs às dimensões para que o usuário pudesse receber as informações na tela do seu dispositivo sem ter que aplicar o zoom para conseguir enxergar.<br/>
  Neste ponto, surgiram 2 formas de trabalho. A primeira defendia ter 2 versões do mesmo site, uma para desktop e outra para mobile. Na maioria dos casos, eles não estão conectados entre si, tornando a manutenção dos sites despendiosa e também, nem sempre mostravam o mesmo conteúdo para ambos os usuários.<br/>
@@ -3672,6 +3699,69 @@ align-content: center                            align-content: stretch
 
  Com essas ténicas é possível criar layouts que se adaptam a diferentes tamanhos de tela, proporcionando uma experiência de usuário consistente em *desktops*, *tables* e *smartphones*.
 
-### VARIÁVEIS
+#### VARIÁVEIS
+
+#### PADRÕES
+O conceito de desacoplar estilos usando classes é extremamente benéfico para a facilidade de manutenção do código, mas para cada elemento estilizado é necessário pensar em um nome diferente, e isso pode ficar complicado rapidamente sem um padrão para seguir. Existem vários padrões de CSS, veremos alguns deles:
+
+##### BEMCSS
+É um padrão bastante focado em estrutura e facilita bastante no planejamento dos nomes das classes. **BEM** usa um conceito de **`bloco__elemento--modificador`** para nomear classes, sendo que `bloco` é o elemento HTML que representa uma divisão de conteúdo cuja sua existência já tenha um sentido por si só, enquanto `elemento` representa uma parte semântica do `bloco` e `modificador` é uma sinalização de *comportamento* ou *estilização*.<br/>
+As divisões entre `bloco__elemento--modificador` são chamados de `double snake__case` e `double kebab--case`. Quando queremos uma divisão como o *espaço em branco* usamos **ou kebab-case ou o camelCase**. **Kebab-case é o mais comum para HTML e CSS** e *camelCase é mais comum em JavaScript*.<br/>
+Vamos ver como que BEM funciona com o exemplo abaixo:
+
+```html
+<!-- section representa um painel (por exemplo) de produtos. Mas não de qualquer produto, mas sim de produtos mais vendidos -->
+<section class="produtos produtos--mais-vendidos"> 
+    <!-- O h2 representa o título desse painel -->
+    <h2 class="produtos__titulo">Produtos mais vendidos</h2>
+    <ul class="produtos__lista">
+        <!-- li representa o produto em sí -->
+        <li class="produtos__produto">
+            <figure>
+                <img src="img/produto1.png" alt="Foto do Produto 1">
+                <figcaption>Foto do produto 1</figcaption>
+            </figure>
+        </li>
+        <!-- li representa o produto em sí, mas nesse caso também temos um produto destaque -->
+        <li class="produtos__produto produtos__produto--destaque">
+            <figure>
+                <img src="img/produto-destaque.png" alt="Foto do Produto em Destaque">
+                <figcaption>Foto do produto em destaque</figcaption>
+            </figure>
+        </li>
+        <li class="produtos__produto">
+            <figure>
+                <img src="img/produto3.png" alt="Foto do Produto 3">
+                <figcaption>Foto do produto 3</figcaption>
+            </figure>
+        </li>
+        <li class="produtos__produto">
+            <figure>
+                <img src="img/produto4.png" alt="Foto do Produto 4">
+                <figcaption>Foto do produto 4</figcaption>
+            </figure>
+        </li>
+    </ul>
+</section>
+```
+Da maneira estruturada acima fica bem fácil saber o que está sendo estilizando no CSS. É gritante a diferença:
+```css
+section h2 { /* 
+    É o h2 da section que tem os produtos?
+    E se precisar mudar a estrutura para um h3?
+    */
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.produtos__titulo {
+    /*
+    Agora aqui sabemos que o estilo é aplicado ao título do painel de produtos.
+    Mesmo se mudar para um h3.
+    */
+    font-size: 40px;
+    font-weight: 800;
+}
+```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
