@@ -284,6 +284,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
     </body>
 </html>
 ```
+
  Para melhorar ainda mais o SEO, utilizamos as tags `section` e `article`, que são usadas para agrupar partes do documento de acordo com sua relação com o conteúdo:
  - Usamos a tag `section` para *agrupar conteúdos similares*, indicando que o conteúdo dentro dela pertence a uma área ou parte específica da página.<br/>Normalmente, é recomendada a utilização de um título dentro de uma `section` para definir claramente o tópico daquela seção, isso melhora a estrutura e a hierarquia do conteúdo.<br/>Não se deve utilizar a tag `section` para agrupar elementos arbitrários ou partes que não têm um propósito semântico claro, por exemplo, usá-la apenas para estilizar ou agrupar blocos sem conteúdo temático específico não é recomendado.
  - A tag `article` representa um conteúdo independente, como um post de blog, uma notícia ou um comentário. É indicada para partes de conteúdo independente e autossuficiente, que podem ser reutilizadas, distribuídas ou lido *fora do contexto da página*, de forma autônoma (por exemplo, uma seção de publicações ou projetos).
@@ -335,7 +336,6 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
         </ul>
     </li>
  </ol>
-
 
 ###### FORMATOS DE TEXTO
  Quando trabalhamos com texto em HTML, temos uma série de tags que escrevemos em torno da palavra ou texto que o transformam, dando o formato que desejamos.<br/>
@@ -400,7 +400,7 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
  - Um texto descritivo ao usuário.
 
  **ÂNCORAS**<br/>
- **Âncoras** *são links dentro da mesma página, que, ao clicar em um deles, seremos levados a uma posição diferente e específica dentro da mesma página.*<br/>
+ **Âncoras** ou **bookmarks** *são links **dentro da mesma página**, que, ao clicar em um deles, seremos levados a uma posição diferente e específica dentro da mesma página.*<br/>
  O código dos marcadores é criado com o atributo **`id`**. Tanto o `name` quanto o `id` para uma tag específica devem ser únicos, ou seja, não podem haver 2 tags com o mesmo `name` ou `id` dentro de um documento. **Para criar este tipo de ligação, 2 operações devem ser realizadas**, primeiro deve-se estabelecer *marcadores*, chamados de *âncoras*, ao longo da página, que serão os locais para os quais saltaremos com os links. Em seguida, adicionar os links direcionando para os marcadores, usando a sintaxe `<a href="#marcador">go</a>`.
 ```html
 <p id="marcador">
@@ -412,6 +412,14 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 <a href="#marcador">retornar</a>
 ```
 <a href="#marcador">click here</a>
+
+Também é possível, com o uso de um link, levar o usuário a um bookmark presente em outra página.
+```html
+<a href="http://www.website.com/path/file/#bookmark">
+  Saiba mais.
+</a>
+```
+O exemplo acima fará com que o usuário que clicar no link seja levado à porção da página indicada no endereço, especificamente no ponto onde o `#bookmark` seja visível.
 
 **LINKS INTERNOS**<br/>
  Um **link interno** aponta para outra página dentro do mesmo site, é usado para navegar entre os diferentes arquivos do nosso site. Um exemplo disso são os menus de navegação, que ao clicar em uma opção é carregada outra página no nosso website. Para criar um link interno, informamos o caminho e nome do arquivo que queremos exibir
@@ -462,13 +470,23 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 ```html
 <ul>
     <li>Primeiro item.</li>
-    <li>Segundo item.</li>
+    <li>Segundo item.
+      <ul>
+        <li>Primeiro item da lista aninhada</li>
+        <li>Segundo item da lista aninhada</li>
+      </ul>
+    </li>
     <li>Terceiro item.</li>
 </ul>
 ```
 <ul>
     <li>Primeiro item.</li>
-    <li>Segundo item.</li>
+    <li>Segundo item.
+      <ul>
+        <li>Primeiro item da lista aninhada</li>
+        <li>Segundo item da lista aninhada</li>
+      </ul>
+    </li>
     <li>Terceiro item.</li>
 </ul>
  
@@ -481,14 +499,24 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 ```html
 <ol>
     <li>Primeiro item.</li>
-    <li>Segundo item.</li>
+    <li>Segundo item.
+      <ol>
+        <li>Primeiro item da lista aninhada</li>
+        <li>Segundo item da lista aninhada</li>
+      </ol>
+    </li>
     <li>Terceiro item.</li>
     <li value="10">Outro item usando atributo `value`</li>
 </ol>
 ```
 <ol>
     <li>Primeiro item.</li>
-    <li>Segundo item.</li>
+    <li>Segundo item.
+      <ol>
+        <li>Primeiro item da lista aninhada</li>
+        <li>Segundo item da lista aninhada</li>
+      </ol>
+    </li>
     <li>Terceiro item.</li>
     <li value="10">Outro item usando atributo `value`</li>
 </ol>
@@ -505,9 +533,9 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 ```html
 <dl>
     <dt>Café</dt>
-    <dd>Geralmente servido quente.</dd>
+        <dd>Geralmente servido quente.</dd>
     <dt>Suco</dt>
-    <dd>Geralmente servido gelado.</dd>
+        <dd>Geralmente servido gelado.</dd>
 </dl>
 ```
 <dl>
@@ -1877,6 +1905,67 @@ Aqui falaremos sobre como adicionar legendas.
      */
  }
  ```
+ ###### GRAU DE ESPECIFICIDADE
+ Uma coisa muito importante no CSS que deve-se tomar cuidado é o **grau de especificidade de um seletor**. Isto é, a prioridade de interpretação de um seletor pelo navegador. Quanto mais específico é o seletor, maior sua pontuação no nível de especificidade do CSS. Portanto devemos sempre trabalhar com uma baixa especificidade, para que não seja impossível sobrescrever valores quando necessário em uma situação específica.
+ - Ao criarmos um seletor de **tag** a sua pontuação se torna **1**.
+ - Quando usamos um seletor de **classe** sua pontuação se torna **10**.
+ - Quando usamos um seletor de **id** sua pontuação se torna **100**.
+ **Ao fim, o navegador soma a pontuação dos seletores aplicados à um elemento, e as propriedades com o seletor de maior pontuação são as que valem.**
+ ```html
+ <head>
+    <style>
+        p { /* Pontuação 1 */
+            color: red;
+        }
+
+        .paragrafo { /* Pontuação 10 */
+            color: blue;
+        }
+
+        #paragrafo-verde { /* Pontuação 100 */
+            color: green;
+        }
+    </style>
+ </head>
+ <body>
+    <p class="paragrafo" id="paragrafo-verde">Texto</p>
+ </body>
+ ```
+ **No exemplo acima o parágrafo vai ter a cor verde, porque o seletor com esta cor é o seletor de maior pontuação.**
+
+ **Quando elementos possuem a mesma pontuação quem prevalece é a propriedade do último seletor:**
+ ```css
+ p { /* Pontuação 1 */
+   color: red;
+ }
+
+ p { /* Pontuação 1 */
+   color: green;
+ }
+ ```
+ No exemplo acima a cor do parágrafo será verde.
+
+ **Podemos também somar os pontos para deixar nosso seletor mais forte:**
+ ```css
+ body p { /* Seletor de tag + outro seletor de tag = 2 pontos */
+   color: blue;
+ }
+
+ p { /* Pontuação 1 */
+   color: black;
+ }
+ ```
+ **No exemplo acima nós deixamos nosso seletor mais específico para os `p` que estão dentro de uma tag `body`, portanto a cor do parágrafo será azul.**
+
+ ###### HERANÇA
+ A cascata do CSS, significa justamente a possibilidade de elementos filhos herdarem características de estilização de elementos superiores, estas definidas por suas propriedades, que podem ou não passar aos seus descendentes seus valores. Ao invés de colocar as propriedade em cada um dos elementos textuais da página, podemos por exemplo colocar no elemento superior a estas tags, neste caso usaremos o elemento `body`.
+ ```css
+ body {
+   font-family: 'Helvetica', sans-serif;
+ }
+ ```
+ **No exemplo acima todos os elementos filhos da tag `body` vão receber a propriedade `font-family`, isso é o que é chamado de herança. A herança acontece quando elementos herdam propriedades dos elementos acima deles (elementos pai).**
+
  - **pseudo-classes**: **São *modificadores* que permitem selecionar elementos com base em estados, posições ou características que não podem ser definidas apenas pelo nome da tag, classe ou ID.** Ou seja, elas ajudam a estilizar um elemento dependendo de, por exemplo, se ele está com o mouse sobre ele, se é o primeiro filho de seu pai, se está desabilitado, entre outros estados. Vejamos algumas das mais comuns:
    - **`:link`** – Seleciona links que ainda não foram visitados.
    - **`:visited`** – Seleciona links que já foram visitados.
@@ -1929,10 +2018,7 @@ Aqui falaremos sobre como adicionar legendas.
  _A sintaxe atual recomenda **o uso de dois pontos duplos `::` em pseudo-elementos para diferenciá-los das pseudo-classes, que usam apenas um `:`**. Contudo, por razões históricas, navegadores aceitam tanto :before quanto ::before._
 
 ##### POSICIONAMENTO
- As propriedades de posicionamento são técnicas que permitem criar layouts resposivos que se adaptam a diferentes tamanhos de telas e dispositivos. São usadas para garantir que o site ofereça uma boa UX e a UI se adapte em qualquer dispositivo.
-
-###### PROPRIEDADES
- As propriedades para posicionar os elementos na página são:
+ As propriedades de posicionamento são técnicas que permitem criar layouts resposivos que se adaptam a diferentes tamanhos de telas e dispositivos. São usadas para garantir que o site ofereça uma boa UX e a UI se adapte em qualquer dispositivo. As propriedades para posicionar os elementos na página são:
  - **`position`**<br/>
  Define como um elemento é posicionado na página, seus valores possíveis são:
    - **`static`**: comportamento **padrão** *onde os elementos são posicionados conforme sua posição original* ou o fluxo normal da página – não aceita `top`, `bottom` e etc.
@@ -2011,19 +2097,146 @@ Aqui falaremos sobre como adicionar legendas.
  ```
 
 ##### DIMENSÕES
+Para redimensionar elementos podemos usar as propriedades de largura e altura. As propriedades `width` e `height` Aceitam valores absolutos (px, cm, mm, etc.) e relativos (%, vw, vh, em, rem, etc.). É possível determinar as dimensões de um elemento, por exemplo, a declaração abaixo cria uma `div` "quadrada" de 300px x 300px:
+```css
+div {
+    border: solid 1px #000;
+    background-color: #333;
+
+    height: 300px;
+    width: 300px;
+}
+```
+Além das principais apresentadas, no CSS existem diversas propriedades relacionadas a largura e altura que permitem redimensionar elementos de maneiras diferentes.
+- **Largura e Altura Mínima**<br/>
+`min-width` / `min-height`<br/>
+Define a largura ou altura mínima que um elemento pode ter, impedindo que o elemento *fique menor* que o especificado.
+```css
+div {
+    min-width: 200px;
+    min-height: 100px;
+}
+```
+
+- **Largura e Altura Máxima**<br/>
+`max-width` / `max-height`<br/>
+Define o tamanho máximo de um elemento, impedindo que o elemento *ultrapasse* um determinado tamanho.
+```css
+div {
+    max-width: 500px;
+    max-height: 400px;
+}
+```
+
+- **Ajuste Automático de Conteúdo**<br/>
+Útil para evitar que textos se quebrem em várias linhas.
+  - **`fit-content`**<br/>
+  O elemento ajusta sua largura ou altura conforme o conteúdo interno. Útil para botões e caixas de texto que se ajustam ao tamanho do conteúdo.
+  ```css
+  div {
+      width: fit-content;
+      height: fit-content;
+  }
+  ```
+  - **`max-content`**<br/>
+  O elemento expande até o maior conteúdo interno possível.
+  ```css
+  div {
+      width: max-content;
+  }
+  ```
+  - **`min-content`**<br/>
+  O elemento usa o menor tamanho possível sem quebrar o conteúdo.
+  ```css
+  div {
+      width: min-content;
+  }
+  ```
+
+- **Dimensões Relativas ao Contêiner**<br/>
+`auto`<br/>
+O navegador calcula automaticamente o tamanho baseado no conteúdo e no contêiner, comportamento padrão para muitos elementos.
+```css
+div {
+    width: auto;
+    height: auto;
+}
+```
+
+- **Unidades Especiais**
+  - **Unidades de Tela**<br/>
+  Ótimas para layouts responsivos.
+    - `vw` (viewport width): 1vw = 1% da largura da tela.
+    - `vh` (viewport height): 1vh = 1% da altura da tela.
+    - `vmin`: 1% do menor lado da tela (altura ou largura).
+    - `vmax`: 1% do maior lado da tela.
+    ```css
+    div {
+        width: 50vw; /* 50% da largura da tela */
+        height: 30vh; /* 30% da altura da tela */
+    }
+    ```
+  - **Unidades Flexíveis**<br/>
+  Muito usadas para designs responsivos.
+    - `em`: Relativo ao tamanho da fonte do elemento.
+    - `rem`: Relativo ao tamanho da fonte do elemento `html`.
+    - `%`: Relativo ao elemento pai.
+    ```css
+    div {
+        width: 80%;
+        height: 10em;
+    }
+    ```
+
+**`inherit`**<br/>
+Imagine que temos a seguinte divisão com uma imagem:
+```html
+<style>
+div {
+    border: 2px solid;
+    border-color: red;
+    width: 30px;
+    height: 30px;
+}
+</style>
+
+<div>
+    <img src="box-model.png" alt="box model">
+</div>
+```
+
+O objetivo é que a imagem preencha todo o espaço da `div`, mas as propriedades `width` e `height` não são aplicadas em cascata, sendo assim, somos obrigados a definir o tamanho da imagem manualmente:
+```css
+img {
+    width: 30px;
+    height: 30px;
+}
+```
+
+Esta não é uma solução sustentável, porque, caso alterarmos o tamanho da `div`, teremos que lembrar de alterar também o tamanho da imagem. **Uma forma de resolver este problema é utilizando o valor inherit para as propriedades width e height da imagem**:
+```css
+img {
+    width: inherit;
+    height: inherit;
+}
+```
+**O valor `inherit` indica para o elemento filho que ele deve utilizar o mesmo valor presente no elemento pai, sendo assim, toda vez que o tamanho do elemento pai for alterado, automaticamente o elemento filho herdará o novo valor, facilitando assim, a manutenção do código.** *Lembrando sempre de que o `inherit` também afeta propriedades que não são aplicadas em cascata.*
+
+##### ESPAÇAMENTO
  Margens, bordas e padding são usadas para controlar o espaço ao redor dos elementos, essa é a base do modelo de caixa, o **`box-model`**. Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
- - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-model`, usamos a propriedade `clear`.<br/>
+ - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na página, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-model`, usamos a propriedade `clear`.<br/>
  Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
  - **`margin` top left bottom right**: **Define o espaço entre a borda _"externa"_ da box-model e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
    1. **`margin-top`**: Distância em relação ao elemento acima.
    2. **`margin-right`**: Distância em relação ao elemento a direta.
    3. **`margin-bottom`**: Distância em relação ao elemento abaixo.
    4. **`margin-left`**: Distância em relação ao elemento a esquerda.
- - **`padding` top left bottom right**: **Define o espaço entre o conteúdo _dentro_ da box-model e sua borda "interna".** Nálogo à propriedade `margin`, cada elemento no site possuí um acolchoamento na sequência:
+ - **`padding` top left bottom right**: **Define o espaço entre o conteúdo _dentro_ da box-model e sua borda "interna".** Análogo à propriedade `margin`, cada elemento no site possui um acolchoamento na sequência:
    1. **`padding-top`**: Distância em relação a borda acima.
    2. **`padding-right`**: Distância em relação a borda à direta.
    3. **`padding-bottom`**: Distância em relação a borda abaixo.
    4. **`padding-left`**: Distância em relação a borda à esquerda.
+
 ```
 ┌────────────────────────────────────────────────────────────────────────────────┐
 │                                       ^                                        │
@@ -2045,8 +2258,71 @@ Aqui falaremos sobre como adicionar legendas.
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+1. **Se passado somente 1 valor para as propriedades, esse mesmo valor é aplicado em todas as direções.**
+```css
+p {
+  margin: 10px;
+
+  padding: 10px;
+}
+```
+2. **Se passados 2 valores, o primeiro será aplicado acima e abaixo (equivalente a passar o mesmo valor para padding-top e margin-bottom) e o segundo será aplicado à direita e à esquerda (equivalente ao mesmo valor para margin-right e padding-left).**
+```css
+p {
+  margin: 10px 15px;
+
+  padding: 10px 15px;
+}
+```
+3. **Se passados 3 valores, o primeiro será aplicado acima (equivalente a padding-top), o segundo será aplicado à direita e à esquerda (equivalente a passar o mesmo valor para margin-right e margin-left) e o terceiro valor será aplicado abaixo do elemento (equivalente a padding-bottom).**
+```css
+p {
+  margin: 10px 20px 15px;
+
+  padding: 10px 20px 15px;
+}
+```
+4. **Se passados 4 valores, serão aplicados respectivamente a padding-top, padding-right, padding-bottom e padding-left por exemplo. Para facilitar a memorização dessa ordem, basta lembrar que os valores são aplicados em _sentido horário._**
+```css
+p {
+  padding: 10px 20px 15px 5px;
+}
+```
+
+**OBS**: Quando for necessário omitir valores, sempre omita no sentido **anti-horário** começando a partir da subpropriedade `-left`. Como os valores tem posicionamento fixo na hora de declarar os espaçamentos, o navegador não sabe quando e qual valor deve ser omitido. Por exemplo, se tivermos um padding:
+```css
+h1 {
+  padding: 10px 25px 10px 15px;
+}
+```
+**O código não pode sofrer o encurtamento porque por mais que os valores de top e bottom sejam iguais, os valores right e left não são e eles são os primeiros a serem omitidos.** Vejamos o que acontece quando vamos omitir o valor de 10px do bottom:
+```css
+h1 {
+  padding: 10px 25px 15px;
+}
+```
+
+O navegador vai interpretar da seguinte maneira:
+```css
+h1 {
+  padding: top right bottom; 
+}
+```
+
+Que no final vai ficar igual a:
+```css
+h1 {
+  padding-top: 10px;
+  padding-bottom: 15px;
+
+  padding-right: 25px;
+  padding-left: 25px;
+}
+```
+E esses valores não são os usados no começo com `padding: 10px 25px 10px 15px;`
+
 ##### UNIDADES
- Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
+ Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`height`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
  O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
  *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
  Existem 3 tipos de unidades de comprimento: a **absoluta**, a **relativa** e as **unidades especiais**.
@@ -2218,7 +2494,7 @@ a:active {
 O CSS oferece as seguintes propriedades para alterar a aparência das listas:
 
 - **`list-style-type`**<br/>
-  Define o tipo de marcador. Valores comuns incluem:
+  Pode-se usar a *shorthand property* **`list-style: value`**. Define o tipo de marcador. Valores comuns incluem:
   - **`none`** (sem marcador)
   - **`disc`** (padrão para `<ul>`)
   - **`circle`**
