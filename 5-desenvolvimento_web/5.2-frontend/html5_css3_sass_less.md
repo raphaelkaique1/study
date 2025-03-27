@@ -3777,6 +3777,39 @@ A ideia do responsivo é que a página se adapte a diferentes condições, em es
 #### PADRÕES
 O conceito de desacoplar estilos usando classes é extremamente benéfico para a facilidade de manutenção do código, mas para cada elemento estilizado é necessário pensar em um nome diferente, e isso pode ficar complicado rapidamente sem um padrão para seguir. Existem vários padrões de CSS, veremos alguns deles:
 
+##### RESET
+Quando nenhum estilo é especificado para os elementos do documento, o navegador utiliza uma série de *estilos padrão*, que são diferentes em cada um dos navegadores. Em um momento mais avançado de um projeto é comum enfrentar problemas com coisas que não haviam sido previstas, por exemplo o espaçamento entre caracteres utilizando um determinado navegador pode fazer com que um texto que deveria ser exibido em 4 linhas, passe a ser exibido em 5, quebrando todo o layout.<br/>
+Para evitar este tipo de interferência, alguns desenvolvedores e empresas criaram alguns estilos que são chamados de **CSS RESET**. A intenção é setar um valor básico para todas as características do CSS, sobrescrevendo totalmente os estilos padrão do navegador. Dessa forma a estilização das páginas pode ser feita a partir de um ponto que seja o mesmo para todos os casos, o que permite um resultado mais sólido em vários navegadores.<br/>
+Existem algumas opções para resetar os valores do CSS:
+- **[HTML5 Boilerplate](https://html5boilerplate.com/)**<br/>
+O HTML5 Boilerplate é um projeto que pretende fornecer um excelente ponto de partida para quem pretende desenvolver um novo projeto com HTML5. Uma série de técnicas para aumentar a compatibilidade da nova tecnologia com navegadores um pouco mais antigos estão presentes e o código é totalmente gratuito. Em seu arquivo "style.css", estão reunidas diversas técnicas de CSS Reset. Apesar de consistentes, algumas dessas técnicas são um pouco complexas, mas é um ponto de partida a ser considerado.
+- **YUI3 CSS Reset**<br/>
+Criado pelos desenvolvedores front-end do Yahoo!, esse CSS Reset é composto de 3 arquivos distintos. O primeiro deles, chamado de Reset, simplesmente muda todos os valores possíveis para um valor padrão, onde até mesmo as tags `h1` e `small` passam a ser exibidas com o mesmo tamanho. O segundo arquivo é chamado de Base, onde algumas margens e dimensões dos elementos são padronizadas. O terceiro é chamado de Font, onde o tamanho dos tipos é definido para que tenhamos um visual consistente inclusive em diversos dispositivos móveis.
+- **[Eric Meyer CSS Reset](http://meyerweb.com/eric/tools/css/reset/)**<br/>
+Há também o famoso CSS Reset de Eric Meyer, que é apenas um arquivo com tamanho bem reduzido.
+
+Vale lembrar que o uso de cada reset varia conforme a necessidade, alguns CSS Resets são mais agressivos do que outros, e também é importante saber que eles podem ser modificados para suas próprias necessidades.
+
+##### MODULARIZANDO COMPONENTES COM CSSs ISOLADOS
+Durante o desenvolvimento do projeto, principalmente na parte de planejamento, definimos diversas seções que vão englobar os diversos conteúdos de nossa página que _podem_ ou _não_ se repetir em outras páginas de nosso site. Podemos lidar com a situação de diversas maneiras:
+- **CSS Geral**<br/>
+A abordagem de criar um CSS geral com um CSS específico da página é bem conhecida e muito utilizada no mercado. A idéia é criar um CSS que vai conter estilos que podem se repetir em diversas páginas, como por exemplo, tipografia, cores, tamanhos e até alguns componentes, e depois criar um CSS que vai conter estilos específicos daquela página. Porém existem vantagens e desvantagens dessa abordagem:
+  - **VANTAGENS**<br/>
+    - Só é necessário a importação de um arquivo CSS para que a página já tenha um estilo padrão.
+    - Como todas as classes de estilos estão em um lugar só, o documento HTML pode ser escrito já incluindo os nomes de classes usadas, quase como um framework.
+  - **DESVANTAGENS**<br/>
+    - Todas as páginas terão de carregar um arquivo de estilos inteiro, independete se vão usar todas as classes ou não, o que pode impactar performance.
+    - Dependendo do tamanho do arquivo geral pode ser muito complexo encontrar seletores desejados.
+    - Se por algum motivo quisermos usar algo que era para ser exclusivo de uma página em outra página, teremos de fazer a "portabilidade" para o arquivo geral o que pode bagunçar o arquivo geral.
+    - A manutenção pode ser complexa dependendo do tamanho do arquivo.
+- **CSS Componentizado**<br/>
+Essa abordagem também é bastante utilizada no mercado, porém é mais utilizada em projetos com o uso de frameworks como React ou Angular e pré-processadores de CSS como o SASS. Nessa abordagem cada seção ou componente da página tem um CSS exclusivo.
+  - **VANTAGENS**<br/>
+    - Como cada componente tem seu próprio CSS, só é necessário importar os componentes que precisamos usar em cada página, evitando importar estilos desnecessários.
+    - A organização e manutenção é menos complexa, pois é mais claro saber exatamente em qual arquivo trabalhar.
+  - **DESVANTAGENS**<br/>
+    - Precisamos importar um arquivo CSS diferente para cada componente que queremos usar que pode gerar linhas de imports gigantescas.
+
 ##### BEMCSS
 É um padrão bastante focado em estrutura e facilita bastante no planejamento dos nomes das classes. **BEM** usa um conceito de **`bloco__elemento--modificador`** para nomear classes, sendo que `bloco` é o elemento HTML que representa uma divisão de conteúdo cuja sua existência já tenha um sentido por si só, enquanto `elemento` representa uma parte semântica do `bloco` e `modificador` é uma sinalização de *comportamento* ou *estilização*.<br/>
 As divisões entre `bloco__elemento--modificador` são chamados de `double snake__case` e `double kebab--case`. Quando queremos uma divisão como o *espaço em branco* usamos **ou kebab-case ou o camelCase**. **Kebab-case é o mais comum para HTML e CSS** e *camelCase é mais comum em JavaScript*.<br/>
