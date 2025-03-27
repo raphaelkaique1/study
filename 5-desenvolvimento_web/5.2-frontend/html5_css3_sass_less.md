@@ -2012,7 +2012,6 @@ Aqui falaremos sobre como adicionar legendas.
 
 ##### DIMENSÕES
  Margens, bordas e padding são usadas para controlar o espaço ao redor dos elementos, essa é a base do modelo de caixa, o **`box-model`**. Ao trabalhar com a posição dos elementos em nossa página, existem várias propriedades para estilizá-los:
- - **`border`**: Trata o contorno do elemento, modificando sua borda.
  - **`float`**: Altera a forma como os elementos são exibidos em uma página web. Ao aplicar este atributo, podemos posicionar o elemento da forma que desejarmos na páinga, pois ele não ocupa mais toda a largura da página, apenas do seu conteúdo, e o resto dos elementos são distribuídos ao redor dele, em vez de acima ou abaixo. Para que o elemento retorne a condição de `box-model`, usamos a propriedade `clear`.<br/>
  Apesar de não estar depreciado, é uma técnica antiga e atualmente está em desuso, muito por conta do advento de novas técnicas que oferem maior flexibilidade, controle e semântica como `flexbox` e `grid`, reduzindo muitos problemas que o `float` apresentava, como por exemplo a necessidade de `clearfix`. O uso deste artifício é recomendado em casos específicos, como fazer com que o texto envolva imagens em vez de criar layouts complexos.
  - **`margin` top left bottom right**: **Define o espaço entre a borda _"externa"_ da box-model e o que quer que esteja ao redor dela (elementos atribuídos com a propriedade `float` são exceção).** Cada elemento do site possui a orientação de margens na respectiva sequência:
@@ -2093,6 +2092,9 @@ Aqui falaremos sobre como adicionar legendas.
    - **`font-weight`**: define o "peso" da fonte.
    - **`text-align`**: define o alinhamento do texto.
    - **`line-height`**: define a altura e espaçamento entre as linhas.
+   - **`letter-spacing`**: define o tamanho do espaço entre cada letra.
+   - **`word-spacing`**: define o tamanho do espaço entre cada palavra.
+   - **`text-indent`**: define o tamanho da margem da primeira linha do texto.
  - **propriedades de cor**:
    - **`color`**: define a cor da fonte.
    - **`background`**: define a cor de fundo do texto.
@@ -2278,7 +2280,32 @@ ul li:nth-child(even)::marker {
 
 3. **ESTILIZANDO TABELAS**
 
+##### BORDAS
+A propriedade **`border`** trata o contorno do elemento, modificando sua borda. Os valores para se definir as bordas de um elemento apresentam uma série de opções. Pode-se, para cada borda do elemento, determinar sua cor, estilo de exibição e largura. Por exemplo:
+```css
+#profilePicture {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50%;
+
+    /* sua forma resumida é: */
+    border-top: #000 solid 1px; /* aplica os valores apenas à borda superior */
+}
+```
+
 ##### IMAGENS
+###### IMAGEM DE FUNDO
+A propriedade **`background-image`** permite indicar um arquivo de imagem para ser exibido ao fundo do elemento. Por exemplo:
+```css
+#folder {
+    background-image: url("image.jpg");
+    /* ou */
+    background-image: url("../path/image.jpg");
+    /* ou */
+    background-image: url("https:/images.com/path/image.jpg");
+}
+```
 
 ##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
@@ -2292,6 +2319,10 @@ ul li:nth-child(even)::marker {
  ```css
  .class {
     background-color: #353E9A;
+    /* Toda vez que os caracteres presentes na composição da base se repetirem, estes podem ser simplificados.
+    Então um número em hexadecimal 3366ff, pode ser simplificado para 36f. */
+    border-color: #36f;
+    /* Os 3 pares de números devem ser iguais entre si, ou seja, se tivermos um hexadecimal #33aabc não podemos simplificar nada do código. */
  }
  ```
  - **`rgba()`**: Extensão do `rgb()` com um *canal alfa*, onde *o parâmetro `alfa` é um número entre **0.0 (totalmente transparente) a 1.0 (totalmente opaco)***.
