@@ -1,11 +1,20 @@
-# BOOTSTRAP
- O Bootstrap é um dos mais amplamentes utilizados e difundidos frameworks para o desenvolvimento web. Mas afinal, o que é um ***Framework***?<br/>
- Um *framework* é um ambiente de desenvolvimento composto por uma série de módulos padronizados, contendo uma vasta quantidade de bibliotecas e funcionalidades pré-construídas que facilitam o trabalho dos desenvolvedores.<br/>
- Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou **`CakePHP`**, cada um destinado a um propósito e linguagem. No entando, um dos mais populares é o Bootstrap.<br/>
- Bootstrap é um framework CSS usado para desenvolvimento de sites e aplicações *mobile-first* que se adaptam perfeitamente a todos os tipos de dispositivos. Além de oferecer uma ampla gama de recursos para configurar facilmente estilos de páginas, combinando CSS e JS, ele dispõe de um kit de ferramentas de código aberto muito popular, com uma grande variedade de funcionalidades entre outras ferramentas que permitem trabalhar com a interatividade do site e melhorar a **UX**.<br/>
+# FRAMEWORKS
+Uma tendência em alta no mundo front-end é o uso de frameworks CSS com estilos base. Ao invés de começar todo projeto do zero, criando todo estilo *"na mão"*, existem frameworks que já trazem toda uma base construída de onde partiremos nossa aplicação.
+Um *framework* é um ambiente de desenvolvimento composto por uma série de módulos padronizados, contendo uma vasta quantidade de bibliotecas e funcionalidades pré-construídas que facilitam o trabalho dos desenvolvedores.<br/>
+Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou **`CakePHP`**, cada um destinado a um propósito e linguagem. No entando, um dos mais populares é o Bootstrap. Criado pelo time de desenvolvimento do Twitter a partir de códigos que eles já usavam internamente, foi liberado como opensource e ganhou muitos adeptos. O projeto cresceu bastante em maturidade e importância no mercado a ponto de se desvincular do Twitter e ser apenas o [Bootstrap](https://getbootstrap.com/).
+
+## BOOTSTRAP
+ O Bootstrap é um dos mais amplamentes utilizados e difundidos frameworks para o desenvolvimento web. É um framework CSS usado para desenvolvimento de sites e aplicações *mobile-first* que se adaptam perfeitamente a todos os tipos de dispositivos. Além de oferecer uma ampla gama de recursos para configurar facilmente estilos de páginas, combinando CSS e JS, ele dispõe de um kit de ferramentas de código aberto muito popular, com uma grande variedade de funcionalidades entre outras ferramentas que permitem trabalhar com a interatividade do site e melhorar a **UX**.<br/>
  Bootstrap é um framework gratuito para o desenvolvimento web, criado inicialmente em 2011 pelos engenheiros do Twitter, a versão atual usa JavaScript puro, ou como dizemos em programação: *vanilla JS*, e não o *JQuery* como nas versões antigas.<br/>
  Ele inclui modelos HTML e CSS com fontes, formas, botões, caixas, tabelas, barras de navegação, carroséis de imagens e muitos outros elementos.<br/>
- Embora seu foco seja mobile-first, permite criar projetos que tenham boa aparência em múltiplos dispositivos – **responsive design** – orientado para programadores e não para designers gráficos.
+ Embora seu foco seja mobile-first, permite criar projetos que tenham boa aparência em múltiplos dispositivos – **responsive design** – orientado para programadores e não para designers gráficos. Traz uma série de recursos:
+ - Reset CSS
+ - Estilo visual base pra maioria das tags
+ - Ícones variados
+ - Grids prontos pra uso
+ - Componentes CSS
+ - Plugins JavaScript
+ - Responsivo e mobile-first
 
 ## CRIANDO PÁGINAS COM BOOTSTRAP
  Para usar o Bootstrap, precisamos:
