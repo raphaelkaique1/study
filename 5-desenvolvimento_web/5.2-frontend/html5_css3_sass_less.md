@@ -1777,19 +1777,6 @@ Aqui falaremos sobre como adicionar legendas.
  </body>
  ```
 
-##### VIEWPORT
- Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. A **`viewport`** *é a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.<br/>
- A partir dela moldamos como o conteúdo deve ser exibido, sempre orientados pelo *design responsivo* para que as páginas sejam exibidas corretamente na maioria dos dispositivos.<br/>
- Imaginemos um site com media queries otimizadas para telas menores. Se tentássemos rodar este exemplo em um iPhone ou Android, ainda estaria sendo exibida a versão Desktop da página. A regra do max-width no media query é completamente ignorada. Na verdade, a questão é que os smartphones modernos têm telas grandes e resoluções altas, justamente para permitir exibir sites complexos feitos para Desktop. A tela de um iPhone SE por exemplo é 1280px por 720px. Celulares Android já chegam a 4K. Ainda assim, a experiência desses celulares é bem diferente dos Desktops. 4K em uma tela de 4 polegadas é bem diferente de 4K em um notebook de 16 polegadas, a resolução muda. Celulares costumam ter uma resolução em dpi bem maior que Desktops.<br/>
- Os smartphones entendem que considerar a tela como 4K não ajudará o usuário a visualizar a página otimizada para telas menores. Há então o conceito de **device-width** que, resumidamente, representa um número em pixels que o fabricante do aparelho considera como mais próximo da sensação que o usuário tem ao visualizar a tela. Nos iPhones, por exemplo, o device-width é considerado como 370px, mesmo com a tela tendo uma resolução bem mais alta. Por padrão, iPhones, Androids e afins costumam considerar o tamanho da tela visível, chamada de viewport, como grande o suficiente para comportar os sites Desktop normais. Por isso o exemplo foi renderizado sem zoom, como se fosse visualizado no Desktop. A Apple criou então uma solução que depois foi copiada pelos outros smartphones, que é configurar o valor que julgarmos mais adequado para o viewport:
- ```html
- <meta name="viewport" content="width=370">
- ```
- Isso faz com que a tela seja considerada com largura de 370px, fazendo com que o layout mobile finalmente funcione, e também as media queries.** Melhor ainda, é a possibilidade de configurar o viewport com o valor device-width definido pelo fabricante, dando mais flexibilidade com dispositivos diferentes com tamanhos diferentes**:
- ```html
- <meta name="viewport" content="width=device-width">
- ```
-
 ##### ESTILIZAÇÃO
  Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização. Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo:
@@ -3645,7 +3632,37 @@ align-content: center                            align-content: stretch
  }
  ```
 
-#### MEDIA TYPES
+ ### VARIÁVEIS
+
+ ### PRÉ-PROCESSADORES
+
+ ### RESPONSIVE DESIGN
+ O volume de usuários que acessam a internet por meio de dispositivos móveis cresceu exponencialmente nos últimos anos. Usuários de smartphones e tablet têm demandas diferentes dos usuários Desktop, redes nem sempre rápidas e acessibilidade em dispositivos limitados e multitoque são as principais diferenças.<br/>
+ Então, como atender a esses usuários?<br/>
+ Para dar suporte ao máximo de usuários possível, é necessária a tomada de uma decisão: fazer um site exclusivo e diferente para cada plataforma ou adaptar o site para ser compatível com qualquer dispositivo?<br/>
+ Vários sites na internet adotam a estratégia de ter um site diferente voltado para dispositivos móveis usando um subdomínio diferente como **`m.`** ou **`mobile.`**, como **`https://m.kabum.com.br`**. Essa abordagem é a que traz maior facilidade na hora de pensar nas capacidades de cada plataforma, permitindo a entrega de uma experiência customizada e otimizada para cada situação, porém existem diversos problemas envolvidos:
+ - Como atender adequadamente diversos dispositivos tão diferentes quanto um smartphone com tela pequena e um tablet com tela mediana? E se ainda forem consideradas as SmartTVs, ChromeCast e etc? Desenvolver um site específico para cada tipo de plataforma?
+ - Na maioria das vezes os sites mobile são versões limitadas dos sites reais e não apenas ajustes de usabilidade para o dispositivo diferente. Isso frustra o usuário que, cada vez mais usa dispositivos móveis para completar as mesmas tarefas que antes fazia no desktop.
+ - Dar manutenção em 1 site já exige um trabalho árduo, para 2 então torna a atividade contraproducente e mais custosa.
+ - Existirão conteúdos duplicados entre sites "diferentes", podendo prejudicar o SEO se não for feito com cuidado.
+ - Lidar com redirects entre URLs móveis e normais, dependendo do dispositivo. O usuário pode receber um link para uma página vista no site de base desktop, mas se abrir este link no celular, terá que visualizar a versão mobile deste link, sendo redirecionado automaticamente, e a mesma coisa no caso contrário. Uma dificuldade estará no servidor para detectar se o usuário está vindo de um dispositivo móvel ou não, e redirecioná-lo para o lugar certo. Isso costuma envolver código no servidor que detecte o navegador do usuário usando o User-Agent do navegador.<br/>
+ Hoje em dia não existe tanto essa crença de que o site precisa ser exatamente a mesma experiência do que no Desktop. Podemos criar experiências exclusivas para cada tipo de dispositivo, mas é importante que o usuário ainda consiga fazer as funções, por exemplo realizar uma compra.<br/>
+ Pensando nisso, nasceu o **responsive design**, que é uma abordagem de desenvolvimento web que permite que os sites se ajustem automaticamente a diferentes tamanhos de tela e dispositivos, proporcionando uma experiência de usuário consistente e otimizada, seja em um computador desktop, tablet ou smartphone.
+
+ #### VIEWPORT
+ Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. A **`viewport`** *é a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.<br/>
+ A partir dela moldamos como o conteúdo deve ser exibido, sempre orientados pelo *design responsivo* para que as páginas sejam exibidas corretamente na maioria dos dispositivos.<br/>
+ Imaginemos um site com media queries otimizadas para telas menores. Se tentássemos rodar este exemplo em um iPhone ou Android, ainda estaria sendo exibida a versão Desktop da página. A regra do max-width no media query é completamente ignorada. Na verdade, a questão é que os smartphones modernos têm telas grandes e resoluções altas, justamente para permitir exibir sites complexos feitos para Desktop. A tela de um iPhone SE por exemplo é 1280px por 720px. Celulares Android já chegam a 4K. Ainda assim, a experiência desses celulares é bem diferente dos Desktops. 4K em uma tela de 4 polegadas é bem diferente de 4K em um notebook de 16 polegadas, a resolução muda. Celulares costumam ter uma resolução em dpi bem maior que Desktops.<br/>
+ Os smartphones entendem que considerar a tela como 4K não ajudará o usuário a visualizar a página otimizada para telas menores. Há então o conceito de **device-width** que, resumidamente, representa um número em pixels que o fabricante do aparelho considera como mais próximo da sensação que o usuário tem ao visualizar a tela. Nos iPhones, por exemplo, o device-width é considerado como 370px, mesmo com a tela tendo uma resolução bem mais alta. Por padrão, iPhones, Androids e afins costumam considerar o tamanho da tela visível, chamada de viewport, como grande o suficiente para comportar os sites Desktop normais. Por isso o exemplo foi renderizado sem zoom, como se fosse visualizado no Desktop. A Apple criou então uma solução que depois foi copiada pelos outros smartphones, que é configurar o valor que julgarmos mais adequado para o viewport:
+ ```html
+ <meta name="viewport" content="width=370">
+ ```
+ Isso faz com que a tela seja considerada com largura de 370px, fazendo com que o layout mobile finalmente funcione, e também as media queries.** Melhor ainda, é a possibilidade de configurar o viewport com o valor device-width definido pelo fabricante, dando mais flexibilidade com dispositivos diferentes com tamanhos diferentes**:
+ ```html
+ <meta name="viewport" content="width=device-width">
+ ```
+
+ #### MEDIA TYPES
  Uma abordagem que costumas ser muito utilizada é a de ter um único site, acessível em todos os dispositivos móveis. Adeptos da ideia da Web única (One Web) consideram que o melhor para o usuário é ter o mesmo site do Desktop normal também acessível no mundo móvel. É o melhor para o desenvolvedor também, que não precisará manter vários sites diferentes. E é o que garante a compatibilidade com a maior gama de aparelhos diferentes.<br/>
  Certamente, a ideia não é fazer o usuário móvel acessar a página exatamente da mesma maneira que o usuário Desktop. Usando truques de CSS bem suportados no mercado, podemos usar a mesma base de layout e marcação porém ajustando o design para cada tipo de dispositivo.<br/>
  Desde a época do CSS2, há uma preocupação com o suporte de regras de layout diferentes para cada situação possível. Isso é feito usando os chamados media types, que podem ser declarados ao se invocar um arquivo CSS:
@@ -3670,10 +3687,10 @@ align-content: center                            align-content: stretch
    }
  }
  ```
- O media type screen determina a visualização normal, na tela do Desktop. É muito comum também termos um CSS com media type print com regras de impressão, por exemplo, retirar navegação, formatar cores para serem mais adequadas para leitura em papel e etc.<br/>
- Havia também o media type handheld, voltado para dispositivos móveis. Com ele, conseguíamos adaptar o site para os pequenos dispositivos como celulares WAP e palmtops.<br/>
- O problema é que esse tipo handheld nasceu em uma época em que os celulares eram bem mais simples do que hoje, e, portanto, costumavam ser usados para fazer páginas bem simples. Quando os novos smartphones touchscreen começaram a surgir - em especial, o iPhone -, eles tinham capacidade para abrir páginas completas e tão complexas quanto as do Desktop. Por isso, o iPhone e outros celulares modernos ignoram as regras de handheld e se consideram, na verdade, screen.<br/>
- Além disso, mesmo que handheld funcionasse nos smartphones, como trataríamos os diferentes dispositivos de hoje em dia como tablets, televisões entre outros?<br/>
+ O media type `screen` determina a visualização normal, na tela do Desktop. É muito comum também termos um CSS com media type print com regras de impressão, por exemplo, retirar navegação, formatar cores para serem mais adequadas para leitura em papel e etc.<br/>
+ Havia também o media type `handheld`, voltado para dispositivos móveis. Com ele, conseguíamos adaptar o site para os pequenos dispositivos como celulares WAP e palmtops.<br/>
+ O problema é que esse tipo `handheld` nasceu em uma época em que os celulares eram bem mais simples do que hoje, e, portanto, costumavam ser usados para fazer páginas bem simples. Quando os novos smartphones touchscreen começaram a surgir - em especial, o iPhone -, eles tinham capacidade para abrir páginas completas e tão complexas quanto as do Desktop. Por isso, o iPhone e outros celulares modernos ignoram as regras de `handheld` e se consideram, na verdade, `screen`.<br/>
+ Além disso, mesmo que `handheld` funcionasse nos smartphones, como trataríamos os diferentes dispositivos de hoje em dia como tablets, televisões entre outros?<br/>
  A solução veio com o CSS3 e seus **media queries**.
 
  ##### MEDIA QUERY
@@ -3760,8 +3777,6 @@ align-content: center                            align-content: stretch
 
  Com essas ténicas é possível criar layouts que se adaptam a diferentes tamanhos de tela, proporcionando uma experiência de usuário consistente em *desktops*, *tables* e *smartphones*.
 
-#### VARIÁVEIS
-
 #### RESPONSIVE WEB DESIGN
 Pequenas mudanças feitas usando `@media` tentando otimizar a experiência do usuário em diversos dispositivos tornando a UX mais atraente, é o que o mercado chama de **Web Design Responsivo**. O termo surgiu num famoso artigo de Ethan Marcotte e diz o seguinte:<br/>
 São 3 os elementos de um design responsivo:
@@ -3802,7 +3817,7 @@ A abordagem de criar um CSS geral com um CSS específico da página é bem conhe
     - Dependendo do tamanho do arquivo geral pode ser muito complexo encontrar seletores desejados.
     - Se por algum motivo quisermos usar algo que era para ser exclusivo de uma página em outra página, teremos de fazer a "portabilidade" para o arquivo geral o que pode bagunçar o arquivo geral.
     - A manutenção pode ser complexa dependendo do tamanho do arquivo.
-- **CSS Componentizado**<br/>
+- **CSS Modularizado**<br/>
 Essa abordagem também é bastante utilizada no mercado, porém é mais utilizada em projetos com o uso de frameworks como React ou Angular e pré-processadores de CSS como o SASS. Nessa abordagem cada seção ou componente da página tem um CSS exclusivo.
   - **VANTAGENS**<br/>
     - Como cada componente tem seu próprio CSS, só é necessário importar os componentes que precisamos usar em cada página, evitando importar estilos desnecessários.
@@ -3850,7 +3865,7 @@ Vamos ver como que BEM funciona com o exemplo abaixo:
     </ul>
 </section>
 ```
-Da maneira estruturada acima fica bem fácil saber o que está sendo estilizando no CSS. É gritante a diferença:
+Da maneira estruturada acima fica bem fácil saber o que está sendo estilizando no CSS. É notável a diferença:
 ```css
 section h2 { /* 
     É o h2 da section que tem os produtos?
@@ -3869,97 +3884,5 @@ section h2 { /*
     font-weight: 800;
 }
 ```
-
-### USER EXPERIENCE
-Existe hoje no mercado uma grande quantidade de empresas especializadas no desenvolvimento de sites e aplicações web, bem como algumas empresas de desenvolvimento de software ou agências de comunicação que têm pessoas capacitadas para executar esse tipo de projeto.<br/>
-Quando detectada a necessidade do desenvolvimento de um site ou aplicação web, a empresa que tem essa necessidade deve passar todas as informações relevantes ao projeto para a empresa que vai executá-lo. A empresa responsável pelo seu desenvolvimento deve analisar muito bem essas informações e utilizar pesquisas para complementar ou mesmo certificar-se da validade dessas informações.<br/>
-Um projeto de site ou aplicação web envolve muitas disciplinas em sua execução, pois são diversas características a serem analisadas e diversas as possibilidades apresentadas pela plataforma. Por exemplo, devemos conhecer muito bem as características do público alvo, pois ele define qual a melhor abordagem para definir a navegação, tom linguístico e visual a ser adotado, entre outras. A afinidade do público com a Internet e o dispositivo pode inclusive definir o tipo e a intensidade das inovações que podem ser utilizadas.<br/>
-Por isso, a primeira etapa do desenvolvimento do projeto fica a cargo da pessoa que cuida da experiência de usuário (UX Designer) junto com uma pessoa de Design e alguém de conteúdo. Esse grupo de pessoas analisa e endereça uma série de informações da característica humana do projeto, definindo a quantidade, conteúdo, localização e estilização de cada informação.<br/>
-Algumas das motivações e práticas de Experiência do Usuário são conteúdo da matéria de Design de Interação, Experiência do Usuário e Usabilidade. O resultado do trabalho dessa equipe é uma série de definições sobre a navegação (mapa do site) e um esboço de cada uma das visões, que são os layouts das páginas, e visões parciais como, por exemplo, os diálogos de alerta e confirmação da aplicação. Por essas visões serem esboços ainda, a parte de estilo do site fica mais genérica: são utilizadas fontes, cores e imagens neutras, embora as informações escritas devam ser definidas nessa fase do projeto.<br/>
-**Esses esboços das visões são chamados de wireframes e guiam o restante do processo de design.**<br/>
-Com os wireframes em mãos, é hora de adicionar as imagens, cores, fontes, fundos, bordas e outras características visuais. Esse trabalho é realizado pela mesma equipe acima, só que agora sem a pessoa de conteúdo, que utilizam ferramentas gráficas como Adobe Photoshop, Adobe Illustrator, Figma, entre outras. O resultado do trabalho dessa equipe é que chamamos de **layout**. Os layouts são imagens estáticas já com o visual completo a ser implementado. Apesar de os navegadores serem capazes de exibir imagens estáticas, exibir uma única imagem para o usuário final no navegador não é a forma ideal de se publicar uma página.<br/>
-Para que as informações sejam exibidas de forma correta e para possibilitar outras formas de uso e interação com o conteúdo, é necessário que a equipe de programação front-end transforme essas imagens em telas visíveis e, principalmente, utilizáveis pelos navegadores.<br/>
-De todas as tecnologias disponíveis, a mais recomendada é certamente o HTML, pois é a linguagem que o navegador entende. Todas as outras tecnologias citadas dependem do HTML para serem exibidas corretamente no navegador e, ultimamente, o uso do HTML, em conjunto com o CSS e o JavaScript, tem evoluído a ponto de ser possível substituir algumas dessas outras tecnologias onde há mais poder e controle em relação à exibição de gráficos, efeitos e interatividade.
-
-### USER INTERACTIVITY
-Antes de digitar qualquer código, é necessária uma análise do layout. Com essa análise, define-se as principais áreas das páginas. É possível notar que há um cabeçalho que é uma área que potencialmente se repetirá em mais de uma página, um rodapé e um conteúdo principal. Seguindo o raciocínio de escrever o código pensando em semântica em primeiro lugar, já é possível imaginar como que será a estrutura no documento html:
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>MusicDot</title>
-</head>
-<body>
-    <header>
-        <!-- Conteúdo do header -->
-    </header>
-    <main>
-        <!-- Conteúdo principal -->
-    </main>
-    <footer>
-        <!-- Conteúdo do footer -->
-    </footer>
-</body>
-</html>
-```
-
-Uma recomendação é a de começar a planejar o código sempre analizando de fora para dentro. Portanto, depois de ver as 3 principais camadas, `header`, `main` e `footer`, e vamos nos aprofundar em uma delas. Vamos partir da ordem de declaração e nos aprofundar mais na tag `header`. Dentro de header temos uma logo e 3 links. Sabemos já que a logo é uma imagem:
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>MusicDot</title>
-</head>
-<body>
-    <header>
-        <!-- Conteúdo do header -->
-        <img src="img/logo-musicdot.png" alt="Logo da MusicDot">
-    </header>
-    <main>
-        <!-- Conteúdo principal -->
-    </main>
-    <footer>
-        <!-- Conteúdo do footer -->
-    </footer>
-</body>
-</html>
-```
-
-Agora com os links, estes são os que vão para outras páginas dentro do nosso próprio site, portanto esses links fazem parte de uma *navegação* e que são 3 links em sequência. Quando existem elementos iguais em sequência tem-se uma lista. Nesse caso a ordem dos links não importa:
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>MusicDot</title>
-</head>
-<body>
-    <header>
-        <!-- Conteúdo do header -->
-        <img src="img/logo-musicdot.png" alt="Logo da MusicDot">
-        <nav>
-            <ul>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Entrar</a></li>
-                <li><a href="#">Matricule-se</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <!-- Conteúdo principal -->
-    </main>
-    <footer>
-        <!-- Conteúdo do footer -->
-    </footer>
-</body>
-</html>
-```
-O próximo passo seria fazer o aprofundamento de outra tag e assim por diante.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>

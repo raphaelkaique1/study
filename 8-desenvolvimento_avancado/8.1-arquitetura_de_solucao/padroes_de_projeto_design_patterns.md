@@ -123,4 +123,97 @@ O **(XGH)** é um anti-padrão de desenvolvimento de software que satiriza prát
 9. **Autenticidade sem padrões:** "Seja autêntico, XGH não respeita padrões." A codificação é feita de forma pessoal, sem aderir a convenções ou melhores práticas.
 10. **Ausência de refatoração:** "Não existe refactoring, apenas rework." Em vez de melhorar o código existente, opta-se por soluções rápidas que podem ser ineficientes a longo prazo.
 
+## UX & UI
+### USER EXPERIENCE
+Existe hoje no mercado uma grande quantidade de empresas especializadas no desenvolvimento de sites e aplicações web, bem como algumas empresas de desenvolvimento de software ou agências de comunicação que têm pessoas capacitadas para executar esse tipo de projeto.<br/>
+Quando detectada a necessidade do desenvolvimento de um site ou aplicação web, a empresa que tem essa necessidade deve passar todas as informações relevantes ao projeto para a empresa que vai executá-lo. A empresa responsável pelo seu desenvolvimento deve analisar muito bem essas informações e utilizar pesquisas para complementar ou mesmo certificar-se da validade dessas informações.<br/>
+Um projeto de site ou aplicação web envolve muitas disciplinas em sua execução, pois são diversas características a serem analisadas e diversas as possibilidades apresentadas pela plataforma. Por exemplo, devemos conhecer muito bem as características do público alvo, pois ele define qual a melhor abordagem para definir a navegação, tom linguístico e visual a ser adotado, entre outras. A afinidade do público com a Internet e o dispositivo pode inclusive definir o tipo e a intensidade das inovações que podem ser utilizadas.<br/>
+Por isso, a primeira etapa do desenvolvimento do projeto fica a cargo da pessoa que cuida da experiência de usuário (UX Designer) junto com uma pessoa de Design e alguém de conteúdo. Esse grupo de pessoas analisa e endereça uma série de informações da característica humana do projeto, definindo a quantidade, conteúdo, localização e estilização de cada informação.<br/>
+Algumas das motivações e práticas de Experiência do Usuário são conteúdo da matéria de Design de Interação, Experiência do Usuário e Usabilidade. O resultado do trabalho dessa equipe é uma série de definições sobre a navegação (mapa do site) e um esboço de cada uma das visões, que são os layouts das páginas, e visões parciais como, por exemplo, os diálogos de alerta e confirmação da aplicação. Por essas visões serem esboços ainda, a parte de estilo do site fica mais genérica: são utilizadas fontes, cores e imagens neutras, embora as informações escritas devam ser definidas nessa fase do projeto.<br/>
+**Esses esboços das visões são chamados de wireframes e guiam o restante do processo de design.**<br/>
+Com os wireframes em mãos, é hora de adicionar as imagens, cores, fontes, fundos, bordas e outras características visuais. Esse trabalho é realizado pela mesma equipe acima, só que agora sem a pessoa de conteúdo, que utilizam ferramentas gráficas como Adobe Photoshop, Adobe Illustrator, Figma, entre outras. O resultado do trabalho dessa equipe é que chamamos de **layout**. Os layouts são imagens estáticas já com o visual completo a ser implementado. Apesar de os navegadores serem capazes de exibir imagens estáticas, exibir uma única imagem para o usuário final no navegador não é a forma ideal de se publicar uma página.<br/>
+Para que as informações sejam exibidas de forma correta e para possibilitar outras formas de uso e interação com o conteúdo, é necessário que a equipe de programação front-end transforme essas imagens em telas visíveis e, principalmente, utilizáveis pelos navegadores.<br/>
+De todas as tecnologias disponíveis, a mais recomendada é certamente o HTML, pois é a linguagem que o navegador entende. Todas as outras tecnologias citadas dependem do HTML para serem exibidas corretamente no navegador e, ultimamente, o uso do HTML, em conjunto com o CSS e o JavaScript, tem evoluído a ponto de ser possível substituir algumas dessas outras tecnologias onde há mais poder e controle em relação à exibição de gráficos, efeitos e interatividade.
+
+### USER INTERACTIVITY
+Antes de digitar qualquer código, é necessária uma análise do layout. Com essa análise, define-se as principais áreas das páginas. No caso do desenvolvimento de um site por exemplo, é possível notar que há um cabeçalho que é uma área que potencialmente se repetirá em mais de uma página, um rodapé e um conteúdo principal. Seguindo o raciocínio de escrever o código pensando em semântica em primeiro lugar, já é possível imaginar como que será a estrutura no documento HTML:
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WebSite</title>
+</head>
+<body>
+    <header>
+        <!-- Conteúdo do header -->
+    </header>
+    <main>
+        <!-- Conteúdo principal -->
+    </main>
+    <footer>
+        <!-- Conteúdo do footer -->
+    </footer>
+</body>
+</html>
+```
+
+Uma recomendação é a de começar a planejar o código sempre analizando de fora para dentro. Portanto, depois de ver as 3 principais camadas, `header`, `main` e `footer`, e vamos nos aprofundar em uma delas. Vamos partir da ordem de declaração e nos aprofundar mais na tag `header`. Dentro de header temos uma logo e 3 links. Sabemos já que a logo é uma imagem:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WebSite</title>
+</head>
+<body>
+    <header>
+        <!-- Conteúdo do header -->
+        <img src="img/logo.png" alt="Logo da Empresa.">
+    </header>
+    <main>
+        <!-- Conteúdo principal -->
+    </main>
+    <footer>
+        <!-- Conteúdo do footer -->
+    </footer>
+</body>
+</html>
+```
+
+Agora com os links, estes são os que vão para outras páginas dentro do nosso próprio site, portanto esses links fazem parte de uma *navegação* e que são 3 links em sequência. Quando existem elementos iguais em sequência tem-se uma lista. Nesse caso a ordem dos links não importa:
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WebSite</title>
+</head>
+<body>
+    <header>
+        <!-- Conteúdo do header -->
+        <img src="img/logo.png" alt="Logo da Empresa.">
+        <nav>
+            <ul>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Entrar</a></li>
+                <li><a href="#">Matricule-se</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Conteúdo principal -->
+    </main>
+    <footer>
+        <!-- Conteúdo do footer -->
+    </footer>
+</body>
+</html>
+```
+O próximo passo seria fazer o aprofundamento de outra tag e assim por diante.
+
 <a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.1-arquitetura_de_solucao/conceitos_de_arquitetura.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#arquitetura_de_solucao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/tree/main/8-desenvolvimento_avancado/8.2-arquitetura_de_software/escalabilidade_e_desempenho_estrategias_de_otimizacao_e_caching.md">next</a>
