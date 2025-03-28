@@ -3043,9 +3043,10 @@ A propriedade **`background-image`** permite indicar um arquivo de imagem para s
  Existe também o tipo **`inline-block`**, que mostura comportamentos do `inline` com `block`, fazendo com que o elemento comece na mesma linha e posição onde está aceitando propriedades como `width` e `height`.
 
 #### FLEXBOX
- Tradicionalmente, o CSS tem usado posicionamento `static`, `relative`, `absolute`, e etc, além de elementos `block` ou `in-line`, `float` e derivados, que, em termos gerais, são sistemas de criação de design engessados e pouco flexíveis, que atualmente não se ajustam aos desafios enfrentados hoje com sistemas de desktop, dispositivos móveis, multiplas resoluções e mais.<br/>
+ Tradicionalmente, o CSS tem usado posicionamento `static`, `relative`, `absolute`, e etc, além de elementos `block`, `inline`, `inline-block` e `float`, que, em termos gerais, são sistemas de criação de design engessados e pouco flexíveis, que atualmente não se ajustam aos desafios enfrentados hoje com sistemas de desktop, dispositivos móveis, multiplas resoluções e mais.<br/>
  Para atender essa demanda, surgiu o **`flexbox`**, que é um sistema de elementos flexíveis, que vem com a ideia de esquecer estes mecanismos para usar uma técnica mais poderosa, limpa e personalizável, na qual os elementos do documento são automaticamente adaptados e manipulados, tornando mais fácil a personalização. O `flexbox` foi especialmente projetado para criar *estruturas unidimensionais*.<br/>
  Este é um módulo de layout que facilita a distribuição de espaço e o alinhamento de itens em uma interface de forma eficiente, e é ideal para a criação de layouts responsivos, pois permite que os itens se ajustem automaticamente ao tamanho da tela. Quando precisamos **organizar elementos em linhas ou colunas** o flexbox é a escolha ideal.<br/>
+ Ele funciona de uma maneira diferente dos outros displays. **Quando colocamos essa propriedade em um elemento, esse elemento se torna um flex container, a partir daí podemos manipular todos os elementos filhos desse flex container com propriedades novas. Essas propriedades devem ser usadas no elemento que é um flex container.**<br/>
  Para começar a usar o flexbox, é necessário definir um **`flex container`** usando a propriedade **`display: flex`**. **As propriedades do `flex container` controlam a direção, alinhamento e espaçamento dos itens filhos.** A estrutura de um `flexbox` segue o seguinte padrão:
 ```
 ┌─────────────────────────────────────────────┐
@@ -3089,7 +3090,7 @@ A propriedade **`background-image`** permite indicar um arquivo de imagem para s
  }
  ```
 
- Por padrão, os elementos são todos dispostos *"grudados"* lado a lado na mesma linha.
+ Por padrão, os elementos são todos dispostos *"grudados"* lado a lado na mesma linha, ou seja, todos os filhos ficam um do lado do outro como se estivessem sob o efeito de `display: inline`.
 ```
 display: flex
 
@@ -3212,7 +3213,7 @@ flex-wrap: nowrap   flex-wrap: wrap     flex-wrap: wrap-reverse
 ##### PROPRIEDADES DE ALINHAMENTO
  Agora que temos um controle básico do recipiente dos `flex-items`, iremos conhecer as propriedades existentes dentro da `flexbox` para **organizar os itens dependendo do nosso objetivo para o layout da página**.<br/>
  Vejamos 4 propriedaddes básicas para isso:
- 1. **`justify-content` – EIXO PRIMÁRIO**
+ 1. **`justify-content` – EIXO PRIMÁRIO (HORIZONTAL)**
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -3266,7 +3267,7 @@ justify-content: center                            justify-content: space-evenly
 
 ![Image](https://github.com/user-attachments/assets/5e832354-0f3c-4652-8880-0ad292a7c5b8)
 
- 2. **`align-content` – EIXO PRIMÁRIO**
+ 2. **`align-content` – EIXO PRIMÁRIO (HORIZONTAL)**
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -3336,7 +3337,7 @@ align-content: center                            align-content: stretch
 
  ![Image](https://github.com/user-attachments/assets/b26e23be-fcfd-4bf7-9004-efbbac276b91)
  
- 3. **`align-items` – EIXO SECUNDÁRIO**
+ 3. **`align-items` – EIXO SECUNDÁRIO (VERTICAL)**
 <table border="1px">
     <tr>
         <th>PROPRIEDADE</th>
@@ -3649,6 +3650,18 @@ align-content: center                            align-content: stretch
  Hoje em dia não existe tanto essa crença de que o site precisa ser exatamente a mesma experiência do que no Desktop. Podemos criar experiências exclusivas para cada tipo de dispositivo, mas é importante que o usuário ainda consiga fazer as funções, por exemplo realizar uma compra.<br/>
  Pensando nisso, nasceu o **responsive design**, que é uma abordagem de desenvolvimento web que permite que os sites se ajustem automaticamente a diferentes tamanhos de tela e dispositivos, proporcionando uma experiência de usuário consistente e otimizada, seja em um computador desktop, tablet ou smartphone.
 
+ #### RESPONSIVE WEB DESIGN
+ Pequenas mudanças feitas usando `@media` tentando otimizar a experiência do usuário em diversos dispositivos tornando a UX mais atraente, é o que o mercado chama de **Web Design Responsivo**. O termo surgiu num famoso artigo de Ethan Marcotte e diz o seguinte:<br/>
+ São 3 os elementos de um design responsivo:
+ - layout fluído usando medidas flexíveis, como porcentagens;
+ - media queries para ajustes de design;
+ - uso de imagens flexíveis.
+
+ A ideia do responsivo é que a página se adapte a diferentes condições, em especial a diferentes resoluções. E, embora o uso de porcentagens exista há décadas na Web, foi a popularização das media queries que permitiram layouts verdadeiramente adaptativos.
+
+ #### MOBILE FIRST
+ É a técnica que visa iniciar o desenvolvimento pela área mais simples e limitada, com mais restrições, ou seja, o mobile. O uso da tela pequena forçar a criação de páginas mais simples, focadas e objetivas. Depois, a adaptação pra Desktop com media queries, é apenas uma questão de readaptar o layout. A abordagem *desktop-first* começa pelo ambiente mais livre e vai tentando cortar coisas quando chega no mobile. Esse tipo de adaptação é, na prática, muito mais trabalhosa e inviável.
+
  #### VIEWPORT
  Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. A **`viewport`** *é a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.<br/>
  A partir dela moldamos como o conteúdo deve ser exibido, sempre orientados pelo *design responsivo* para que as páginas sejam exibidas corretamente na maioria dos dispositivos.<br/>
@@ -3775,19 +3788,33 @@ align-content: center                            align-content: stretch
  }
  ```
 
- Com essas ténicas é possível criar layouts que se adaptam a diferentes tamanhos de tela, proporcionando uma experiência de usuário consistente em *desktops*, *tables* e *smartphones*.
+ Com essas técnicas é possível criar layouts que se adaptam a diferentes tamanhos de tela, proporcionando uma experiência de usuário consistente em *desktops*, *tables* e *smartphones*.
 
-#### RESPONSIVE WEB DESIGN
-Pequenas mudanças feitas usando `@media` tentando otimizar a experiência do usuário em diversos dispositivos tornando a UX mais atraente, é o que o mercado chama de **Web Design Responsivo**. O termo surgiu num famoso artigo de Ethan Marcotte e diz o seguinte:<br/>
-São 3 os elementos de um design responsivo:
-- layout fluído usando medidas flexíveis, como porcentagens;
-- media queries para ajustes de design;
-- uso de imagens flexíveis.
+#### FALLBACK
+Existem muitos casos de incompatibilidade de propriedades CSS com os browsers disponíveis no mercado. Nem todos os usuários atualizam seus navegadores, seja por não saber como fazê-lo ou por alguma feature específica que utilizam daquela versão, compatibilidade com a versão do SO e etc. Por conta disso, algumas propriedades CSS usadas não vão funcionar em todos os browsers. A construção do site é guiada sempre pelas melhores e mais atuais práticas, técnicas e tecnologia pensando na maioria dos usuários, que costumam usar versões mais atualizadas de browsers, mas nunca esquecendo das pequenas porcentagens que usam navegadores mais antigos. Para não deixar de usar novas propriedades e tags por conta dessa pequena parcela, usa-se o **fallback css**.<br/>
+O CSS aplica o último parâmetro declarado no bloco, caso este parâmetro não seja suportado pelo navegador ele tem 2 opções, renderizar o parâmetro anterior caso compatível ou ignorar caso não encontre nenhuma compatiblidade. Vejamos o exemplo:
+```css
+.class {
+    background-color: #000;
+}
+```
+Nesse exemplo, o elemento receberá uma cor de fundo preta conforme declarado. Agora vejamos outro exemplo:
+```css
+.class {
+    background-color: #000;
+    background-color: #333;
+}
+```
+Agora o navegador vai ler primeiro a cor preta e depois vai substituir pela cor cinza porque foi utilizada a mesma propriedade no mesmo elemento, ou seja, **quem for declarado por último ganha a preferência**. Este é o conceito de fallback. Agora vamos ver mais um exemplo.
+```css
+.class {
+    background-color: #000;
+    background-color: multicolor(10);
+}
+```
+A função `multicolor()` não é um CSS válido portanto o navegador vai ler a cor preta primeiro e depois vai tentar ler a função, mas como essa função não existe o navegador ignora a sobrescrita e mantém a cor de fundo preta.
 
-A ideia do responsivo é que a página se adapte a diferentes condições, em especial a diferentes resoluções. E, embora o uso de porcentagens exista há décadas na Web, foi a popularização das media queries que permitiram layouts verdadeiramente adaptativos.
-
-#### MOBILE FIRST
-É a técnica que visa iniciar o desenvolvimento pela área mais simples e limitada, com mais restrições, ou seja, o mobile. O uso da tela pequena forçar a criação de páginas mais simples, focadas e objetivas. Depois, a adaptação pra Desktop com media queries, é apenas uma questão de readaptar o layout. A abordagem *desktop-first* começa pelo ambiente mais livre e vai tentando cortar coisas quando chega no mobile. Esse tipo de adaptação é, na prática, muito mais trabalhosa e inviável.
+Essa é a melhor maneira de manter a compatibilidade com browsers mais antigos. Seguindo o conceito de *Progressive Enhancement*, começa-se a utilizando propriedades baseadas em versões anteriores e então vai se acrescendo propriedades mais atuais, assim naturalmente tornando o site mais responsívo e compatível com os diversos navegadores.
 
 #### PADRÕES
 O conceito de desacoplar estilos usando classes é extremamente benéfico para a facilidade de manutenção do código, mas para cada elemento estilizado é necessário pensar em um nome diferente, e isso pode ficar complicado rapidamente sem um padrão para seguir. Existem vários padrões de CSS, veremos alguns deles:
