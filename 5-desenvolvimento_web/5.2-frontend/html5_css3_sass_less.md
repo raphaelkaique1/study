@@ -3091,18 +3091,6 @@ A propriedade **`background-image`** permite indicar um arquivo de imagem para s
  ```
 
  Por padrão, os elementos são todos dispostos *"grudados"* lado a lado na mesma linha, ou seja, todos os filhos ficam um do lado do outro como se estivessem sob o efeito de `display: inline`.
-```
-display: flex
-
-┌────┬────┬────┐─────────────────────────────┐
-|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-└────┴────┴────┘─────────────────────────────┘
-
-display: inline-flex
-┌┌────┬────┬────┐┐
-||1   |2   |3   ||
-└└────┴────┴────┘┘
-```
 
  ![Image](https://github.com/user-attachments/assets/85a1b770-0c7a-4e42-8193-7e55173e977d)
 
@@ -3144,23 +3132,8 @@ display: inline-flex
  }
  ```
  Isso nos permite um alto nível de controle sobre a ordem dos elementos em uma página.
-```
-flex-direction: row                              flex-direction: row-reverse
-┌────┬────┬────┐─────────────────────────────┐   ┌─────────────────────────────┌────┬────┬────┐
-|1   |2   |3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦  |3   |2   |1   |
-└────┴────┴────┘─────────────────────────────┘   └─────────────────────────────└────┴────┴────┘
 
-flex-direction: column                           flex-direction: column-reverse
-┌────┐───────────────────────────────────────┐⠀⠀ ┌────┐───────────────────────────────────────┐
-|1   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |1   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
-├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   ├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
-|2   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |2   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
-├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   ├────┤ 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
-|3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|   |3   | 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|
-└────┘───────────────────────────────────────┘⠀⠀ └────┘───────────────────────────────────────┘
-```
-
- ![Image](https://github.com/user-attachments/assets/becdbcba-f17d-42ea-b23c-6ac37d4e7289)
+ ![Image](https://github.com/user-attachments/assets/becdbcba-f17d-42ea-b23c-6ac37d4e7289)<br/>
  ![Image](https://github.com/user-attachments/assets/7f434484-2b48-46cd-b941-ffb8f7883275)
 
  2. **`flex-wrap`**<br/>
@@ -3187,18 +3160,8 @@ flex-direction: column                           flex-direction: column-reverse
 </table>
 
  Assim como no `flex-direction`, aqui também podemos incluir o sufixo **`reverse`** para indicar uma *colocação dos itens em ordem inversa*.
-```
-flex-wrap: nowrap   flex-wrap: wrap     flex-wrap: wrap-reverse
-┌────┬────┬────┐    ┌────┐─────────┐⠀⠀⠀┌────┐─────────┐
-|1   |2   |3   |    |1   | 🟦🟦🟦🟦🟦|⠀⠀ |3   | 🟦🟦🟦🟦🟦|
-└────┴────┴────┘    ├────┤ 🟦🟦🟦🟦🟦|⠀⠀ ├────┤ 🟦🟦🟦🟦🟦|
-|⠀🟦🟦🟦🟦🟦🟦🟦 |    |2   | 🟦🟦🟦🟦🟦|⠀⠀ |2   | 🟦🟦🟦🟦🟦|
-└──────────────┘    ├────┤ 🟦🟦🟦🟦🟦|⠀⠀ ├────┤ 🟦🟦🟦🟦🟦|
-                    |3   | 🟦🟦🟦🟦🟦|⠀⠀ |1   | 🟦🟦🟦🟦🟦|
-                    └────┘─────────┘⠀⠀⠀└────┘─────────┘
-```
 
- ![Image](https://github.com/user-attachments/assets/1004ea07-ea14-452a-8415-29d79b8d205b)
+ ![Image](https://github.com/user-attachments/assets/1004ea07-ea14-452a-8415-29d79b8d205b)<br/>
  ![Image](https://github.com/user-attachments/assets/e2e1749a-793e-4ef2-bd31-e4621903f3a6)
 
  2. **`flex-flow`**<br/>
@@ -3248,24 +3211,8 @@ flex-wrap: nowrap   flex-wrap: wrap     flex-wrap: wrap-reverse
 </table>
 
  **Esta propriedade aloca os itens de um recipiente em um determinado arranjo ao longo do eixo principal.**
-```
-justify-content: flex-start                       justify-content: space-between
-┌────┬────┬────┐─────────────────────────────┐⠀   ┌────┐─────────────────────┌────┐────────────────────┌────┐
-|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |1   |⠀🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦⠀|2  ⠀|⠀🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦  |3   |
-└────┴────┴────┘─────────────────────────────┘⠀   └────┘─────────────────────└────┘────────────────────└────┘
 
-justify-content: flex-end                         justify-content: space-around
-┌─────────────────────────────┌────┬────┬────┐⠀⠀ ⠀┌────────┌────┐────────────┌────┐────────────┌────┐───────┐
-| 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦|1   |2   |3   | ⠀  |🟦🟦🟦🟦🟦|1   |🟦🟦🟦🟦🟦🟦🟦|2⠀  |🟦🟦🟦🟦🟦🟦🟦|3⠀⠀ |🟦🟦🟦🟦|
-└─────────────────────────────└────┴────┴────┘⠀ ⠀⠀└────────└────┘────────────└────┘────────────└────┘───────┘
-
-justify-content: center                            justify-content: space-evenly
-┌──────────────┌────┬────┬────┐───────────────┐⠀⠀ ⠀┌──────────┌────┐──────────┌────┐──────────┌────┐─────────┐
-| 🟦🟦🟦🟦🟦🟦🟦🟦|1   |2   |3   |🟦🟦🟦🟦🟦🟦🟦🟦⠀|     |🟦🟦🟦🟦🟦⠀|1⠀  |⠀🟦🟦🟦🟦  |2   |⠀🟦🟦🟦🟦⠀ |3   | 🟦🟦🟦🟦🟦|
-└──────────────└────┴────┴────┘───────────────┘⠀ ⠀⠀└──────────└────┘──────────└────┘──────────└────┘─────────┘
-```
-
-![Image](https://github.com/user-attachments/assets/5e832354-0f3c-4652-8880-0ad292a7c5b8)
+ ![Image](https://github.com/user-attachments/assets/5e832354-0f3c-4652-8880-0ad292a7c5b8)
 
  2. **`align-content` – EIXO PRIMÁRIO (HORIZONTAL)**
 <table border="1px">
@@ -3302,38 +3249,6 @@ justify-content: center                            justify-content: space-evenly
 </table>
 
  **A propriedade `align-content` é especialmente útil quando estivermos lidando com um container flex MULTILINHA, ou seja, um container em que os itens não cabem na largunra disponível e, por tanto, o eixo principal é dividido em várias linhas com o `flex-wrap: wrap` por exemplo. Assim, o `align-content` é usado para alinhar cada uma das linhas do container multilinhas.**
-```
-align-content: flex-start                         align-content: space-between
-┌────┬────┬────┬────┬────┬────┬────┬────┐────┐⠀   ┌────┬────┬────┬────┬────┬────┬────┬────┐──────┐
-|1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |    |1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦🟦 |
-├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |    ├────┴────┴────┴────┴────┴────┴────┴────┘🟦🟦🟦 |
-|9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-├────┴────┘🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    ├────┬────┐🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-└────┴────┴──────────────────────────────────┘⠀⠀  └────┴────┴────────────────────────────────────┘
-
-align-content: flex-end                           align-content: space-around
-┌────────────────────────────────────────────┐⠀   ┌──────────────────────────────────────────────┐
-|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-├────┬────┬────┬────┬────┬────┬────┬────┐🟦🟦 |    ├────┬────┬────┬────┬────┬────┬────┬────┐🟦🟦🟦 |
-|1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |    |1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦🟦 |
-├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |    ├────┴────┴────┴────┴────┴────┴────┴────┘🟦🟦🟦 |
-|9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-└────┴────┴──────────────────────────────────┘⠀⠀  ├────┬────┐🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-⠀⠀                                                |9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-⠀⠀                                                └────┴────┴────────────────────────────────────┘
-
-align-content: center                            align-content: stretch
-┌────────────────────────────────────────────┐⠀⠀ ┌────┬────┬────┬────┬────┬────┬────┬────┐────┐
-|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   |1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |
-├────┬────┬────┬────┬────┬────┬────┬────┐🟦🟦 |   |    |    |    |    |    |    |    |    |🟦🟦 |
-|1   |2   |3   |4   |5   |6   |7   |8   |🟦🟦 |   ├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |
-├────┼────┼────┴────┴────┴────┴────┴────┘🟦🟦 |   |9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-|9   |10  |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   |    |    |🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-├────┴────┘🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |   └────┴────┴──────────────────────────────────┘
-|🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 |
-└────────────────────────────────────────────┘
-```
 
  ![Image](https://github.com/user-attachments/assets/b26e23be-fcfd-4bf7-9004-efbbac276b91)
  
@@ -3369,9 +3284,9 @@ align-content: center                            align-content: stretch
 
  **O conteúdo do container é alinhado de acordo com cada linha de um recipiente multilinha.**
 
- ![Image](https://github.com/user-attachments/assets/776b9bb4-65e1-41b1-aade-80adfbd5e273)
- ![Image](https://github.com/user-attachments/assets/924c8e1d-0bf7-420b-8efa-079a655e6c5a)
- ![Image](https://github.com/user-attachments/assets/84270b6f-32d9-421c-b4f4-14958652066a)
+ ![Image](https://github.com/user-attachments/assets/776b9bb4-65e1-41b1-aade-80adfbd5e273)<br/>
+ ![Image](https://github.com/user-attachments/assets/924c8e1d-0bf7-420b-8efa-079a655e6c5a)<br/>
+ ![Image](https://github.com/user-attachments/assets/84270b6f-32d9-421c-b4f4-14958652066a)<br/>
  ![Image](https://github.com/user-attachments/assets/662ba1f0-75e5-4733-8cb6-9f8edda4309b)
 
  4. **`align-self` – EIXO SECUNDÁRIO**
@@ -3411,8 +3326,8 @@ align-content: center                            align-content: stretch
  **Funciona exatamente da mesma forma que `align-items`, no entanto, é especial pois é a primeira propriedade utilizada em um _item filho específico_ e não no elemento container.**<br/>
  *Graças a esse detalhe, o **`align-self`** nos permite mudar o comportamento de `align-items` e anulá-lo com comportamentos específicos para itens que queremos que se comportem diferente dos demais.*
 
- ![Image](https://github.com/user-attachments/assets/118c98d3-ce27-4a9d-89e8-454b92bfc0eb)
- ![Image](https://github.com/user-attachments/assets/4e837327-58aa-46bd-864b-6910d5260d06)
+ ![Image](https://github.com/user-attachments/assets/118c98d3-ce27-4a9d-89e8-454b92bfc0eb)<br/>
+ ![Image](https://github.com/user-attachments/assets/4e837327-58aa-46bd-864b-6910d5260d06)<br/>
  ![Image](https://github.com/user-attachments/assets/6105f6ff-c3f0-435f-b82a-7f47394fb865)
 
 **ALINHAMENTOS**<br/>
@@ -3579,18 +3494,24 @@ align-content: center                            align-content: stretch
  ![Image](https://github.com/user-attachments/assets/ac2022bc-5d38-475a-9fd1-b9d4bb2adaf4)
 
 #### GRID
- Este é um sistema de layout **bidimensional** que permite criar laytous mais sofisticados com facilidade, oferecendo uma maneira simples de definir *colunas* e *linhas* como uma *tabela*, para posicionar os itens de forma precisa dentro de um container.
+A idéia do grid é exatamente de não precisar mudar a estrutura do HTML e que toda a parte de posicionamento de layout fique apenas no CSS. O grid transforma um elemento em um **grid container** da mesma forma que um elemento se torna flex container, e após definir um grid container é necessário definir sua estrutura. Este é um sistema de layout **bidimensional** que permite criar laytous mais sofisticados com facilidade, oferecendo uma maneira simples de definir *colunas* e *linhas* como uma *tabela*, para posicionar os itens de forma precisa dentro de um container. Usando grid não é necessário mudar em nada a estrutura do HTML, para conseguir o efeito desejado diferente do `flex` em caso de estruturas bidimensionais, mantendo a separação de estrutura de conteúdo e estilização além de também manter a simplicidade e legibilidade no CSS.
 
 ##### SINTAXE
  Para usar o **`grid`**, é necessário definir um container *"grade"* usando a propriedae `grid`, e em seguida especificar as linhas e colunas usando as propriedades:
  - **`grid-template-columns`**: para definir o tamanho e o número de colunas.
  - **`grid-template-rows`**: para definir o tamanho e o número de linhas.
+ - **`grid-template-areas`**: nomeia cada espaço do grid criado. Ao definir o espaço com um **`.`** ele se adapta conforme necessário. Não é possível deixar espaços vazios, pois o browser não irá compreender a instrução, é obrigatório utilizar algo para indicar um espaço do grid.
  - **`gaps`**: assim como no `flexbox`, define o espaçamento entre as células, ou seja os itens da grade.
  ```css
  .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: repeat(1fr, 3);
+
+    grid-template-areas: 
+    "area1" "area2" "area3"
+    "area1" "center" "area3"
+    ". . area4";
     gap: 1rem;
  }
  ```
@@ -3615,21 +3536,42 @@ align-content: center                            align-content: stretch
  Os itens dentro de um grid podem ser posicionados usando as propriedades:
  - **`grid-column`**: define a posição de início e final de ocupação dos itens na coluna: **`grid-column: start / end;`**.
  - **`grid-row`**: define a posição de início e final de ocupação dos itens na linha: **`grid-row: start / end;`**.
+ - **`grid-area`**: define a posição do elemento de ocupação de acordo com as areas criadas: **`grid-area: areaName;`**.
 
  ```css
  .item1 {
-   grid-column: 1 / 3; /* Ocupará da coluna 1 até antes da coluna 3 */
-   grid-row: 1 / 2; /* Ocupará a linha 1 */
+   /*
+   grid-column: 1 / 3;  Ocupará da coluna 1 até antes da coluna 3
+   grid-row: 1 / 2;     Ocupará a linha 1
+
+   Porém com o grid-area o código acima não é mais necessário */
+   grid-area: area1;
  }
 
  .item2 {
-   grid-column: 3 / 4; /* Ocupará a coluna 3 */
-   grid-row: 1 / 2; /* Ocupará a linha 1 */
+   /*
+   grid-column: 3 / 4;  Ocupará a coluna 3
+   grid-row: 1 / 2;     Ocupará a linha 1
+
+   Porém com o grid-area o código acima não é mais necessário */
+   grid-area: area2;
  }
 
  .item3 {
-   grid-column: 1 / 4; /* Ocupará da coluna 1 até antes da coluna 4 */
-   grid-row: 2 / 3; /* Ocupará a linha 2 */
+   /*
+   grid-column: 1 / 4;  Ocupará da coluna 1 até antes da coluna 4
+   grid-row: 2 / 3;     Ocupará a linha 2
+
+   Porém com o grid-area o código acima não é mais necessário */
+   grid-area: area3;
+ }
+ ```
+
+ - **`span`**: mescla linhas e colunas. Quando utilizado, o valor posterior é a quantidade de linhas ou colunas a serem mescladas, portanto, não sendo necessário indicar qual é o término. Quando omitido o valor de mesclagem, o navegador utiliza por padrão `span 1`, fazendo com que ocupe apenas 1 linha/coluna.
+ ```css
+ .item4 {
+   grid-column: span 3; /* Mescla 3 colunas */
+   grid-row: span 2; /* Mescla 2 linhas */
  }
  ```
 
