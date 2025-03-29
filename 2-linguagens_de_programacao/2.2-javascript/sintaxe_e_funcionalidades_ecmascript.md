@@ -1,6 +1,6 @@
 # JAVASCRIPT
- JavaScript é uma linguagem de programação *interpretada*, de *alto nível* e *multiparadigma*, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica.<br/>
- Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, logo em seguida, numa jogada de marketing influenciada pela popularidade da linguagem **Java** o nome foi alterado para **`JavaScript`**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização da linguagem veio por meio da Ecma International, dando origem à especificação **ECMAScript** — padronização de linguagens de script que define as regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
+ JavaScript é uma linguagem de programação *interpretada*, ou seja o código é interpretado e executado conforme é lido pelo navegador linha a linha assim como o HTML, de *alto nível*, que significa que sua sintaxe é muito familiar a linguagem natural humana e *multiparadigma*, o que demonstra seu poder ao ser possível programar em vários formatos diferentes, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica. JavaScript é a linguagem de programação mais popular no desenvolvimento Web. Suportada por todos os navegadores, a linguagem é responsável por praticamente qualquer tipo de dinamismo que queiramos em nossas páginas.<br/>
+ Visando o potencial da Internet para o público geral e a necessidade de haver uma interação maior do usuário com as páginas, a Netscape, criadora do navegador mais popular do início dos anos 90, de mesmo nome, investiu na criação de uma linguagem para isto. Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, uma linguagem simples que permitia a execução de scripts contidos nas páginas dentro do próprio navegador, logo em seguida, aproveitando o crescente sucesso do **Java**, que vinha conquistando cada vez mais espaço no mercado de desenvolvimento de aplicações corporativas, a Netscape num acordo com a Sun para alavancar o uso das duas, numa jogada de marketing influenciada pela popularidade da linguagem Java o nome foi alterado para **`JavaScript`**. A então vice-líder dos navegadores, Microsoft, adicionou ao Internet Explorer o suporte a scripts escritos em VBScript e criou sua própria versão de JavaScript, o **JScript**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização do JavaScript veio por meio da ECMA International, dando origem à especificação **ECMAScript** — padronização de linguagens de script que define as regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
  As principais características que destacam o JS são:
  - *Execução local*.
  - *Interpretado*.
@@ -9,7 +9,9 @@
  - *Responsivo*.
  - *Case sensitive*.
 
-## CRIANDO CÓDIGO
+ O JavaScript, como o próprio nome sugere, é uma linguagem de *scripting*. Uma linguagem de scripting é comumente definida como uma linguagem de programação que permite ao programador controlar uma ou mais aplicações de terceiros. No caso do JavaScript, podemos controlar alguns comportamentos dos navegadores através de trechos de código que são enviados na página HTML.
+
+## CÓDIGO
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
 
 ### EXTERNAL
@@ -23,7 +25,7 @@
 </head>
 ```
 
- **O mais recomendado é colocar o `script` no final da seção `body`, permitindo assim que todod o conteúdo da página seja exibido na tela primeiro, carregando o script em seguida.**
+ **O mais recomendado é colocar o `script` no final da seção `body`, permitindo assim que todo o conteúdo da página seja exibido na tela primeiro, carregando o script em seguida.**
 ```html
 <head>
     <meta charset="UTF-8">
@@ -39,7 +41,7 @@
 ```
 
 ### INTERNAL
- Entre a tag `script` no `head` do documento. **Se a página possuir tanto código CSS quanto JS na `head`, é uma boa prática colocar o trecho CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a parte JS.**
+ Entre a tag `script` no documento. A tag `script` pode ser declarada dentro da tag `head` assim como na tag `body`, mas devemos ficar atentos, porque o código é lido imediatamente dentro do navegador. Seguindo a lógica da declaração externa, quando declarado na tag `head`, o script trava o processamento da página até ser carregado e executado, isso pode ser um problema em casos em que um script leve um tepo maior para finalizar sua execução ou que exija alguma interação com o usuário. Seria mais interessante nestes casos carregar a página completamente antes da execução do script, tanto por questões de performance quanto de experiência do usuário. Para isso basta usar a tag `script` logo antes do fechamento de `body`. **Se a página possuir tanto código CSS quanto JS na `head`, é uma boa prática colocar o trecho CSS _primeiro_, pois é comum que o script se refira a elementos CSS e por isso eles já devem ser carregados na memória quando a execução atinge a parte JS.**
 ```html
 <head>
     <meta charset="UTF-8">
@@ -57,6 +59,12 @@
         alert("Hello world!");
     </script>
 </head>
+<body>
+  <h1>JavaScript</h1>
+    <script>
+        alert("JS");
+    </script>
+</body>
 ```
 
 ### IN-LINE
@@ -68,6 +76,9 @@
 ## ESTRUTURAS
  Vejamos como podemos escrever nossos códigos em JS e quais as diferentes maneiras de lidar com os dados.
 
+### AUTOMATIC SEMICOLON INSERTION (ASI)
+É possível omitir o ponto e vírgula `;` no final de cada declaração. A omissão de ponto e vírgula funciona no JavaScript devido ao mecanismo chamado automatic semicolon insertion (ASI).
+
 ### COMENTÁRIOS
  Para comentar uma linha de código usa-se a seguinte sintaxe: `// comentário`. Já para comentar um bloco inteiro usa-se: `/* trecho comentado */`.
  ```js
@@ -78,7 +89,7 @@
  ```
 
 ### TIPOS DE DADOS
-Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**. Por conta dessa característica, uma variável pode receber uma **`string`** em um determinado momento, e em outro, um dado tipo **`number`**. Vejamos:
+O JavaScript também possui grande tolerância a erros, uma vez que conversões automáticas são realizadas durante operações. Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**. Por conta dessa característica, uma variável pode receber uma **`string`** em um determinado momento, e em outro, um dado tipo **`number`**. Vejamos:
  1. **NUMBERS**<br/>
  Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**).
  2. **STRINGS**<br/>
@@ -2202,7 +2213,7 @@ Métodos para executar ações depois de um tempo específico.
  Uma boa prática é sempre fazer com que o código possa ser de fácil leitura, tornando o trabalho de mantê-lo atualizado mais fácil.
 
 #### `addEventListener`
- Outra maneira de associar os manipuladores de eventos aos elementos da página é através do método **`addEventListener()`**. Esta é uma forma ligeiramente mais avançada, mais melhora em muito a capacidade de manutenção do código, pois permite uma melhor separação entre o código de funcionalidades e o código de conteúdo.<br/>
+ Outra maneira de associar os manipuladores de eventos aos elementos da página é através do método **`addEventListener()`**. Esta é uma forma ligeiramente mais avançada, mas melhora em muito a capacidade de manutenção do código, pois permite uma melhor separação entre o código de funcionalidades e o código de conteúdo.<br/>
  O código HTML deve ser usado somente para definir o conteúdo de nossa página. Se tivermos instruções JavaScript dentro de `tags`, colocando atributos como `onclick` ou `onchange`, o que estamos fazendo na realidade é colocar códigos de funcionalidade dentro do código de conteúdo, o que não é recomendado.<br/>
  Portanto, a técnica que vamos conhecer agora é a mais apropriada, pois nos permitirá escrever o código da funcionalidade – eventos – sem bagunçar o código de conteúdo. São necessárias 2 etapas para associarmos um evento a um elemento da página:
 
@@ -2462,7 +2473,6 @@ Métodos para executar ações depois de um tempo específico.
   - **Usado em**: `window`, `document`.
 
 ## DATA I/O
-
  O JS tem várias ferramentas para lidar com dados:
  - Entrada de **`form`**: **`input`**.
  - O comando: **`prompt()`**.
@@ -2527,7 +2537,7 @@ var confirmation = confirm("Termos de Política de Privacidade");
 ```
 
 ### CONSOLE
- Até agora, vimos opções que são visíveis ao usuário, mas esta opção não é exibida ao usuário a menos que abramos o console. O console nos permite trabalhar com JS instantaneamente, corrigir erros, ver quais variáveis estão dentro, ver o que está acontecendo em nosso código, observar o fluxo do programa está indo e assim por diante. Este comando exibe uma mensagem no **console** do navegador.
+ Até agora, vimos opções que são visíveis ao usuário, mas esta opção não é exibida ao usuário a menos que abramos o console. Existem várias formas de executar códigos JavaScript em um página. Uma delas é executar códigos no que chamamos de Console. O console nos permite trabalhar com JS instantaneamente, corrigir erros, ver quais variáveis estão dentro, ver o que está acontecendo em nosso código, observar o fluxo do programa está indo e assim por diante. Este comando exibe uma mensagem no **console** do navegador.
 ```js
 console.log("Hello world!");
 ```
