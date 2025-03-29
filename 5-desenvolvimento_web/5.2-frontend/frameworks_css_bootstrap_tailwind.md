@@ -1,12 +1,22 @@
 # FRAMEWORKS
-Uma tendência em alta no mundo front-end é o uso de frameworks CSS com estilos base. Ao invés de começar todo projeto do zero, criando todo estilo *"na mão"*, existem frameworks que já trazem toda uma base construída de onde partiremos nossa aplicação.
-Um *framework* é um ambiente de desenvolvimento composto por uma série de módulos padronizados, contendo uma vasta quantidade de bibliotecas e funcionalidades pré-construídas que facilitam o trabalho dos desenvolvedores.<br/>
-Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou **`CakePHP`**, cada um destinado a um propósito e linguagem. No entando, um dos mais populares é o Bootstrap. Criado pelo time de desenvolvimento do Twitter a partir de códigos que eles já usavam internamente, foi liberado como opensource e ganhou muitos adeptos. O projeto cresceu bastante em maturidade e importância no mercado a ponto de se desvincular do Twitter e ser apenas o [Bootstrap](https://getbootstrap.com/).
+Uma tendência em alta no mundo front-end é o uso de *frameworks* CSS com estilos base. Ao invés de começar todo projeto do zero, criando todo estilo *"na mão"*, existem frameworks que já trazem toda uma base construída de onde partiremos nossa aplicação.<br/>
+Um framework é um ambiente de desenvolvimento composto por uma série de módulos padronizados, contendo uma vasta quantidade de bibliotecas e funcionalidades pré-construídas que facilitam o trabalho dos desenvolvedores.<br/>
+Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou **`CakePHP`**, cada um destinado a um propósito e linguagem. No entanto, um dos mais populares é o **Bootstrap**. Criado pelo time de desenvolvimento do Twitter a partir de códigos que eles já usavam internamente, foi liberado como opensource e ganhou muitos adeptos. O projeto cresceu bastante em maturidade e importância no mercado a ponto de se desvincular do Twitter e ser apenas o [Bootstrap](https://getbootstrap.com/).
 
 ## BOOTSTRAP
  O Bootstrap é um dos mais amplamentes utilizados e difundidos frameworks para o desenvolvimento web. É um framework CSS usado para desenvolvimento de sites e aplicações *mobile-first* que se adaptam perfeitamente a todos os tipos de dispositivos. Além de oferecer uma ampla gama de recursos para configurar facilmente estilos de páginas, combinando CSS e JS, ele dispõe de um kit de ferramentas de código aberto muito popular, com uma grande variedade de funcionalidades entre outras ferramentas que permitem trabalhar com a interatividade do site e melhorar a **UX**.<br/>
- Bootstrap é um framework gratuito para o desenvolvimento web, criado inicialmente em 2011 pelos engenheiros do Twitter, a versão atual usa JavaScript puro, ou como dizemos em programação: *vanilla JS*, e não o *JQuery* como nas versões antigas.<br/>
- Ele inclui modelos HTML e CSS com fontes, formas, botões, caixas, tabelas, barras de navegação, carroséis de imagens e muitos outros elementos.<br/>
+ Bootstrap é um framework gratuito para o desenvolvimento web, criado inicialmente em 2011 pelos engenheiros do Twitter. Alguns componentes do Bootstrap possuem interatividade com o usuário através de JavaScript, então além de importar o arquivo CSS, é necessário importar também o arquivo de JavaScript. Nas versões antigas do Bootstrap, para o JavaScript funcionar ele precisava de um outro framework chamado **[JQuery](https://jquery.com/)**. A importação desses JavaScripts é feita logo antes do fechamento da tag `body` e o import do *JQuery* era feito antes do arquivo do Bootstrap:
+ ```html
+ <html>
+ <body>
+   <>...</>
+   <script src="js/jquery.js"></script>
+   <script src="js/bootstrap.js"></script>
+ </body>
+ </html>
+ ```
+ **Porém a versão atual do Bootstrap usa JavaScript puro, ou como dizemos em programação: *vanilla JS*, e não o *JQuery* como nas versões antigas.<br/>**
+ Este framework inclui modelos HTML e CSS com fontes, formas, botões, caixas, tabelas, barras de navegação, carroséis de imagens e muitos outros elementos.<br/>
  Embora seu foco seja mobile-first, permite criar projetos que tenham boa aparência em múltiplos dispositivos – **responsive design** – orientado para programadores e não para designers gráficos. Traz uma série de recursos:
  - Reset CSS
  - Estilo visual base pra maioria das tags
@@ -16,7 +26,9 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
  - Plugins JavaScript
  - Responsivo e mobile-first
 
-## CRIANDO PÁGINAS COM BOOTSTRAP
+ É possível também fazer a adaptação que desejarmos do CSS, basta sobrescrever as classes que serão utilizadas em um arquivo CSS separado e realizar o `@import()` logo após do CSS Bootstrap.
+
+### ESTILOS
  Para usar o Bootstrap, precisamos:
  1. **definir o _viewport_**
  2. **incluir um _link_ apontado para o Bootstrap CSS**
@@ -45,16 +57,8 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
  - **Smartphones**: `viewport virtual`.
  - **Atualmente**: design resposivo baseado em grid.
 
-### VIEWPORT
- Para projetar sites mobile é importante ser claro sobre o que é **`viewport`** e como ele se comporta. O `viewport` *é a área visível de uma página web*. Em desktops ele coincide com a janela do navegador.<br/>
- Vamos imaginar uma página web grande e complexa, como a primeira página de um jornal. A página não caberia na tela do navegador, o usuário usará as barras de scroll para mover o `viewport` sobre o documento. O redimensionamento da janela mudará o tamanho do `viewport`. O redimensionamento do `viewport` reposiciona o texto e todos os elementos: as linhas são *truncadas*, as imagens reposicionadas, e etc.<br/>
- O `viewport` é um *"retângulo"* **que compõe um fragmento – ou talvez completo – da página web para apresentá-lo ao usuário**.
 
-### VIEWPORT VIRTUAL
- Com o advento dos navegadores nos celulares, as mudanças no tamanho da tela são muito mais drásticas, fazendo com que, mesmo que ainda funcionem as técnicas tradicionais, elas proporcionam uma experiência de usuário insatisfatória. A área visível de um celular é muito pequena, compondo uma página web tradicional nesse `viewport` por atraente. Além disso, em um navegador mobile não existem barras de rolagem, elas ocupariam um espaço valioso. Nem janelas, pois seriam muito pequenas.<br/>
- Para resolver este problema, surgiu o conceito de `viewport virtual`, maior do que o `viewport` comum – o monitor. Inicialmente introduzido pela Apple em seu navegador Safari no iOS, vindo mais tarde a se tornar padrão. A largura do `viewport virtual` é razoavelmente grande, por exemplo, no navegador Safari para iPhone é de 980px. O navegador compõe a página nesta janela de `viewport virtual`, sendo as barras de rolagem não mais necessárias. O usuário arrasta o `viewport` – a tela menor – sobre o `viewport virtual` para exibir uma área do documento ou outra. Ele também pode ser autorizado a aumentar e diminuir o zoom. O redimensionamento dessa `viewport` já não faz com que a página seja recomposta.
-
-## RESPONSIVE DESIGN
+### RESPONSIVE DESIGN
  Um site moderno com um mínimo de qualidade é entendido como sendo responsivo, ou seja, a página se adaptará ao tamanho da tela, seja desktop, tablet, smartphone ou qualquer outra, **sem utilizar a barra de rolagem horizontal**, o que é muito desconfortável. *A barra de rolagem vertical ainda é utilizada.*<br/>
  O projeto responsivo como conhecemos hoje é baseado no uso de **`grid`**, tornando o `viewport virtual` não mais necessário nestas páginas, visto que a *página foi projetada para se adaptar ao `viewport` comum – a tela pequena.<br/>
  Os mesmos 12 elementos são apresentados de formas diferentes em:
@@ -74,7 +78,7 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
     </tr>
 </table>
 
-## MOBILE FIRST
+### MOBILE FIRST
  Ter alguns estilos para o mobile como base e ir crescendo gradualmente de acordo com a resolução graças ao `mediatype min-width`, adicionando `media queries` é consideravelmente a melhor prática para o desenvolvimento de design.<br/>
  Com isso, conseguimos criar uma versão mais leve para usuários mobile, onde o navegador só precisa aplicar as primeiras linhas do código de estilo, enquanto a carga de leitura de todo o conjunto sobrescrevendo as linhas marcadas nas `media queries` é deixada para dispositivos de maior resolução, que são entendidos como tendo uma conexão de internet mais rápida e velocidade de processamento mais eficiênte de tais condicionantes.<br/>
  Além disso, é menos provável que tenhamos problemas com elementos de nossa página que estejam fora de ordem. Se projetarmos primeiro para dispositivos móveis, quando mudarmos o projeto para dispositivos de mesa, estes problemas não ocorrem, normalmente é preciso apenas anular os elementos.<br/>
@@ -88,9 +92,18 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 ```
 
+### VIEWPORT
+ Para projetar sites mobile é importante ser claro sobre o que é **`viewport`** e como ele se comporta. O `viewport` *é a área visível de uma página web*. Em desktops ele coincide com a janela do navegador.<br/>
+ Vamos imaginar uma página web grande e complexa, como a primeira página de um jornal. A página não caberia na tela do navegador, o usuário usará as barras de scroll para mover o `viewport` sobre o documento. O redimensionamento da janela mudará o tamanho do `viewport`. O redimensionamento do `viewport` reposiciona o texto e todos os elementos: as linhas são *truncadas*, as imagens reposicionadas, e etc.<br/>
+ O `viewport` é um *"retângulo"* **que compõe um fragmento – ou talvez completo – da página web para apresentá-lo ao usuário**.
+
+### VIEWPORT VIRTUAL
+ Com o advento dos navegadores nos celulares, as mudanças no tamanho da tela são muito mais drásticas, fazendo com que, mesmo que ainda funcionem as técnicas tradicionais, elas proporcionam uma experiência de usuário insatisfatória. A área visível de um celular é muito pequena, compondo uma página web tradicional nesse `viewport` pouco atraente. Além disso, em um navegador mobile não existem barras de rolagem, elas ocupariam um espaço valioso. Nem janelas, pois seriam muito pequenas.<br/>
+ Para resolver este problema, surgiu o conceito de `viewport virtual`, maior do que o `viewport` comum – o monitor. Inicialmente introduzido pela Apple em seu navegador Safari no iOS, vindo mais tarde a se tornar padrão. A largura do `viewport virtual` é razoavelmente grande, por exemplo, no navegador Safari para iPhone é de 980px. O navegador compõe a página nesta janela de `viewport virtual`, sendo as barras de rolagem não mais necessárias. O usuário arrasta o `viewport` – a tela menor – sobre o `viewport virtual` para exibir uma área do documento ou outra. Ele também pode ser autorizado a aumentar e diminuir o zoom. O redimensionamento dessa `viewport` já não faz com que a página seja recomposta.
+
 ### CONTAINERS
  Para ser responsivo, todos os elementos do Bootstrap devem estar dentro de um elemento de container. **Os containers NÃO podem ser aninhados.** *Devemos nos certificar de fechar cada container corretamente.* Se alguma fila for deixada de fora, suas colunas ficarão desalinhadas, e este erro não é detectado pelo W3C validator.<br/>
- Para criar um recipiente de tamanho fixo, usamos **`container`**:
+ Para criar um recipiente de tamanho fixo, usamos a classe **`container`**:
 ```html
 <div class="container">
     <>
@@ -110,7 +123,7 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
 
 ### GRID
  A tela é dividida em **filas** e **colunas**, e, a interseção entre uma linha e uma coluna é chamada de **célula**. O conteúdo é colocado dentro de uma célula, e será sempre exibido dentro dessa céula. Em cada fila há até 12 células, que o projetista decide como distribuir. **Quando a tela tem resolução suficiente**, *as células da mesma linha são exibidas uma do lado da outra* – layout normal.<br/>
- **Quando a resolução diminui**, **as células que estavam originalmente na mesma fila são exibidas umas em cima das outras** – layout empilhado.<br/>
+ **Quando a resolução diminui, as células que estavam originalmente na mesma fila são exibidas umas em cima das outras** – layout empilhado.<br/>
  **Cada linha é um elemento `div` com classe `row`.** As células dentro da fila podem ser de um dos tipos abaixo, esses 6 tipos de células dependem da largura do `viewport`:
  - **`col-N`**: **Telas muito pequenas, menores que 576px.**
  - **`col-sm-N`**: **Telas pequenas, de pelo menos 576px.**
@@ -123,7 +136,7 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
  Em outras palavras, cada tipo de coluna é exibido em sua **disposição normal**, ou seja, *horizontalmente*, se a exibição for do seu tipo. **Caso contrário**, as células serão **empilhadas verticalmente**.<br/>
  Veremos que, ao reduzir a largura, as grades que estavam originalmente em um layout normal – horizontal – se empulharão – verticalmente.
 
-#### ALINHAMENTO HORIZONTAL
+#### ALINHAMENTO
  As células – que formarão colunas quando houver várias à mesma distância do eixo vertical – podem ser alinhadas horizontalmente de várias maneiras, acrescentando à linha – a classe `row div` – as *classes*:
  - **`justify-content-start`**
  - **`justify-content-end`**
