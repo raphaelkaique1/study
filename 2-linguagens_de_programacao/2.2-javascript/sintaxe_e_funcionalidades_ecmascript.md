@@ -90,10 +90,10 @@
 
 ### TIPOS DE DADOS
 O JavaScript também possui grande tolerância a erros, uma vez que conversões automáticas são realizadas durante operações. Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**. Por conta dessa característica, uma variável pode receber uma **`string`** em um determinado momento, e em outro, um dado tipo **`number`**. Vejamos:
- 1. **NUMBERS**<br/>
- Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**).
- 2. **STRINGS**<br/>
- Caracteres, alfanuméricos e textos em geral (como palavras e frases).
+ 1. **STRINGS**<br/>
+ Caracteres, alfanuméricos e textos em geral (como palavras e frases). Valores de Strings são imutáveis, logo, se uma variável for alterada com algum método, aquela alteração só existe naquele momento, ao utilizar novamente a variável (sem o método) ela informará o seu valor original. Para utilizar a alteração realizada é necessário armazenar o retorno do método em outa variável.
+ 2. **NUMBERS**<br/>
+ Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**). Assim como String, Numbers são imutáveis, sendo necessário também armazenar o retorno em outra variável.
  3. **BOOLEANS**<br/>
  Com apenas **2 valores possíveis**: **`true`** ou **`false`**.
 
@@ -198,6 +198,28 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(num); // num == 5 <-
  ```
 
+A comunidade de desenvolvedores costuma usar **`$` como uma convenção para certas finalidades** *para tornar o código mais organizado e intuitivo*. Como por exemplo:
+
+1. **Variáveis que armazenam elementos do DOM** (exemplo do jQuery), isso ajuda a identificar rapidamente que a variável se refere a um **elemento da página**.:
+```js
+var $botao = document.querySelector("#botao");
+```
+
+2. **Uso com jQuery** (que usa `$` como identificador da biblioteca):
+```js
+var $div = $("#minhaDiv"); // jQuery selecionando um elemento
+```
+
+3. **Marcador para variáveis temporárias ou auxiliares**:
+```js
+var $temp = 42; // variável temporária para processamento
+```
+
+4. **Prefixo para distinguir variáveis específicas**:
+```js
+var $config = { tema: "escuro", modo: "automático" };
+```
+
 ##### POPULANDO VARIÁVEIS
  Podemos tanto declarar uma **uma variável _vazia¹_ e atribuir-lhe um valor durante o tempo de execução do programa** quanto **variável _inicializada²_**.
  ```js
@@ -251,6 +273,28 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  let nick_name = "Raphael";
 
  console.log("Welcome " + nick_name);
+
+ /* deve-se sempre estar atento ao realizar concatenações dessa manenira
+ pois podem surgir resultados inesperados */
+ var num1 = 2;
+ var num2 = 3;
+ var nome = "Número"
+
+ // Exemplo 1:
+ console.log(num1 + nome + num2); // imprime 2Número3
+
+ // Exemplo 2:
+ console.log(num1 + num2 + nome); // imprime 5Número
+
+ // Exemplo 3:
+ console.log(nome + num1 + num2); // imprime Número23
+
+ // Exemplo 4:
+ console.log(nome + (num1 + num2)); // imprime Número5
+
+ // Exemplo 5:
+ console.log(nome + num1 * num2); // imprime Número6
+ // a multiplicação tem precedência
  ```
 
  3. **Vírgula `"texto ", variavel`**<br/>
@@ -335,7 +379,15 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  parseFloat("abc10.5");    // retorna NaN
  ```
 
- 5. **`toString()`**<br/>
+ 5. **`toFixed`**<br/>
+ Altera o número de casas decimais e retorna uma String.
+ ```js
+ var oneNumber = 1000;
+ var oneString = milNumber.toFixed(2); // recebe o retorno da função
+ console.log(oneString); // imprime a string "1000.00"
+ ```
+
+ 6. **`toString()`**<br/>
  Converte tipo numérico para string:
  ```js
  var num = 10;
@@ -343,7 +395,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(`Num: ${typeof(Num)}`); // Num = "10": string
  ```
 
- 6. **`toUppercase()`**<br/>
+ 7. **`toUppercase()`**<br/>
  Converte uma `string` em maiúsculas:
  ```js
  const texto = "Olá, Mundo!";
@@ -352,7 +404,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(textoMaiusculo); // Saída: "OLÁ, MUNDO!"
  ```
 
- 7. **`toLowercase()`**<br/>
+ 8. **`toLowercase()`**<br/>
  Converte uma `string` em minúsculas:
  ```js
  const texto = "Olá, Mundo!";
@@ -361,14 +413,14 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(textoMinusculo); // Saída: "olá, mundo!"
  ```
 
- 8. **`includes()`**<br/>
+ 9. **`includes()`**<br/>
  Também retorna um valor booleano e procura por uma palavra no texto, porém busca qualquer correspondência em qualquer posição e é *case sensitive*.
  ```js
  const texto = "Hello, World!";
  console.log(texto.includes(", ")); // true
  ```
 
- 9. **`substr()`**<br/>
+ 10. **`substr()`**<br/>
  Extrai uma parte da `string` a partir de um índice inicial e, opcionalmente, retorna um determinado número de caracteres.
  ```js
  const texto = "Hello, World!";
@@ -383,7 +435,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(texto.substr(-6, 5)); // "World"
  ```
 
- 10. **`substring()`**<br/>
+ 11. **`substring()`**<br/>
  É usado para extrair parte de uma string, de forma semelhante ao `substr()`, porém não aceita valores negativos.
  ```js
  const texto = "JavaScript";
@@ -401,7 +453,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(texto.substring(6, 4)); // "Sc"
  ```
 
- 11. **`slice()`**<br/>
+ 12. **`slice()`**<br/>
  Utilizado para extrair uma parte de uma string ou array, retornando uma nova string ou array sem modificar o original. Tanto para strings quanto para arrays, índices negativos contam a partir do final, onde o `-1` representa o último elemento.
  ```js
  const nomeCompleto = "Raphael Kaíque Dias Santos";
@@ -413,7 +465,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(resultado); // ["Maçã", "Banana"]
  ```
 
- 12. **`split()`**<br/>
+ 13. **`split()`**<br/>
  Permite dividir uma string em um array de substrings com base em um delimitador especificado. Ele não modifica a string original e retorna um array contendo as partes divididas.
  ```js
  const frase = "JavaScript é incrível";
@@ -437,14 +489,18 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(letras); // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t"]
  ```
 
- 13. **`replace()`**<br/>
+ 14. **`replace()`**<br/>
  Permite substituir um texto por outro em qualquer parte da `string`, e é *case sensitive*.
  ```js
  var texto = "Hello, World!";
  console.log(texto.replace(", World", "life")); // "Hello life!"
+
+ console.log(texto); // "Hello, World!"
+ var TEXTO = texto.replace(", World", "life");
+ console.log(`texto: ${texto} | TEXTO: ${TEXTO}`) // "Hello, World!" | "Hello life!"
  ```
 
- 14. **`trim()`**<br/>
+ 15. **`trim()`**<br/>
  Permite remover espaços em branco no início e no fim de uma string. Ele não modifica a string original, apenas retorna uma nova string sem os espaços desnecessários.
  ```js
  const texto = "   Olá, Mundo!   ";
@@ -460,21 +516,21 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(exemplo.trimEnd());   // || console.log(exemplo.trimRight()); // "   Exemplo"
  ```
 
- 15. **`startsWith()`**<br/>
+ 16. **`startsWith()`**<br/>
  Procura um termo no início da `string`, retornando `true` ou `false`. Ou seja, se o texto começa com os caracteres que buscamos, neste caso o resultado seria `true`.
  ```js
  const texto = "Hello, World!";
  console.log(texto.startsWith("Hell")); // true
  ```
 
- 16. **`endsWith()`**<br/>
+ 17. **`endsWith()`**<br/>
  Como o anterior, mas verificando o final do texto.
  ```js
  const texto = "Hello, World!";
  console.log(texto.endsWith("World!")); // true
  ```
 
- 17. **`chartAt()`**<br/>
+ 18. **`chartAt()`**<br/>
  Usado para obter o caractere localizado em um determinado índice de uma `string`. Ele pertence ao protótipo de String e retorna uma nova `string` com o caractere encontrado, sem modificar a `string` original.
  ```js
  const texto = "Hello, World!";
@@ -489,7 +545,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(texto.charAt(100)); // ""
  ```
 
- 18. **`lastIndexOf()`**<br/>
+ 19. **`lastIndexOf()`**<br/>
  Busca a última ocorrência de uma substring. Também podemos fornecer um segundo parâmetro que indica o índice a partir de qual a busca deve começar, buscando do índice indicado até o índice 0 para retonar qual a posição de índice do termo buscado.
  ```js
  const frase = "O rato roeu a roupa do rei de Roma.";
@@ -516,7 +572,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(indice); // Saída: 1
  ```
 
- 19. **`indexOf()`**<br/>
+ 20. **`indexOf()`**<br/>
  Para procurar a posição de um termo dentro de um texto. Ele retorna o valor do índice se encontrado e qual sua posição no parâmetro de busca.
  ```js
  var nomeCompleto = "Raphael Kaíque Dias Santos";
@@ -525,7 +581,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(primeiroNome); // Saída: 0
  ```
 
- 20. **`search()`**<br/>
+ 21. **`search()`**<br/>
  Funciona da mesma maneira, caso não encontre uma correspondência ele retorna `-1`.
  ```js
  var nomeCompleto = "Raphael Kaíque Dias Santos";
@@ -534,7 +590,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(primeiroNome); // Saída: -1
  ```
 
- 21. **`match()`**<br/>
+ 22. **`match()`**<br/>
  Pesquisa e extrai correspondências com base em uma *expressão regular*. Em outras palavras, ele analisa uma `string` para encontrar padrões definidos pelo **`regex`** e retorna um array contendo os resultados.
  ```js
  const texto = "Hoje é dia 15 de fevereiro.";
@@ -1526,7 +1582,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  }
 
  // e a chamamos em outro ponto do código
- userStatus == "on" ? saudacao("Raphael") : console.log("system offline");
+ userStatus == "on" ? saudacao("Raphael") : continue;
  ```
 
 ###### TIPOS DE FUNÇÕES
@@ -1624,7 +1680,12 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
    return `Olá, ${nome}!`;
  };
 
- console.log(saudacao("Lucas")); // "Olá, Raphael!"
+ console.log(saudacao("Raphael")); // "Olá, Raphael!"
+
+ // outro exemplo
+ inputSize.oninput = function() {
+   outputSize.value = inputSize.value
+ }
  ```
 
 ###### CALLBACK
@@ -1655,7 +1716,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  let nameUser = firstName => console.log(`Olá ${firstName}!`); // em funções com somente 1 parâmetro quase tudo pode ser omitido
  nameUser("Raphael");
 
- const saudacao = (nome, sobrenome) => `Olá, ${nome} ${sobrenome}!`; // se houverem múltiplos parâmetros os parênsetes são obrigatórios
+ const saudacao = (nome, sobrenome) => `Olá, ${nome} ${sobrenome}!`; // se houverem múltiplos ou nenhum parâmetro os parênteses são obrigatórios
  console.log(saudacao("Raphael", "Santos"))
  ```
 

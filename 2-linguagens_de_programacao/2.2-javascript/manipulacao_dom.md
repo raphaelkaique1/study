@@ -2,9 +2,11 @@
 Para permitir alterações na página, ao carregar o HTML os navegadores armazenam em memória uma estrutura de dados que representa cada uma das tags no JavaScript. Essa estrutura é chamada de **Document Object Model**. Essa estrutura pode ser acessada através da variável global **`document`**.
 
 - **`querySelector`**<br/>
-Para alterar a página, é necessário acessar no JavaScript o elemento desejado. Vejamos um exemplo de como seria alterar o conteúdo de um título. Para acessá-lo usamos a propriedade `querySelector` que seleciona o elemento informado:
+Para alterar a página, é necessário acessar no JavaScript o elemento desejado. Vejamos um exemplo de como seria alterar o conteúdo de um título. Para acessá-lo usamos a propriedade `querySelector` que seleciona o elemento informado, podemos apontar uma tag, id ou classe:
 ```js
 document.querySelector("h1")
+document.querySelector(".class")
+document.querySelector("#id")
 ```
 
 Se o elemento for utilizado várias vezes é possível salvar o resultado de qualquer `querySelector` em uma variável:
@@ -12,15 +14,19 @@ Se o elemento for utilizado várias vezes é possível salvar o resultado de qua
 var titulo = document.querySelector("h1")
 ```
 
-Essa variável, inclusive, pode receber valores e ser alterada, sendo tratada como um objeto e usada com propriedades e métodos:
+Essa variável, inclusive, pode receber valores e ser alterada, sendo tratada como um objeto e interagir com propriedades e métodos:
 ```js
+titulo.textContent // output: "Title"
 titulo.textContent = "New Title"
+titulo.textContent // output: "New Title"
 ```
 
 - **`querySelectorAll`**<br/>
 As vezes é necessário selecionar vários elementos de uma vez na página, como por exemplo todas as tags com a classe `.card`. Se o retorno esperado é mais de 1 elemento, o `querySelectorAll` devolve uma lista de elementos, ou seja, um *array*.
 
 ```js
+// selecionando todos os elementos que contém a classe `.card`
+document.querySelectorAll(".card")
 // primeiro card
 document.querySelectorAll(".card")[0]
 ```
@@ -32,32 +38,36 @@ document.querySelectorAll(".card")[0]
 ```js
 // função criada
 function helloWorld() {
-  alert("Hello world!");
+  alert("Hello world!")
 }
 
 // obtendo um elemento através de um seletor de ID
-var buttonSend = document.querySelector("#button__send");
+var buttonSend = document.querySelector("#button__send")
 
 // executa a função quando o botão é clicado
-buttonSend.onclick = helloWorld;
+buttonSend.onclick = helloWorld
+// !!! NÃO INSERIR OS PARÊNTESES INDICA O NOME DA FUNÇÃO QUE DEVE SER EXECUTADA SOMENTE QUANDO O EVENTO CORRER, NÃO A EXECUTANDO PROPRIAMENTE, CASO OS PARÊNTESES ESTEJAM PRESENTES A FUÇÃO SERÁ EXECUTADA SEM A NECESSIDADE DO EVENTO TER OCORRIDO !!!
 ```
 
-Outra maneira de associar os manipuladores de eventos aos elementos da página é através do método **`addEventListener()`**. Esta é uma forma ligeiramente mais avançada, mas proporciona menos escrita de código quando precisamos criar uma função apenas para executar uma única tarefa.<br/>
+Outra maneira de associar os manipuladores de eventos aos elementos da página é através do método **`addEventListener()`**. Esta é uma forma ligeiramente mais avançada, mas proporciona menos escrita de código quando precisamos criar uma função apenas para executar uma única tarefa, ou seja, uma função que não será usada em nenhum outro lugar no código.<br/>
 Assim como já visto, são necessárias 2 etapas para associarmos um evento a um elemento da página, acessar o objeto para manipular o elemento que queremos definir o evento, devemos selecioná-lo primeiro, para isso usamos o DOM. Em seguida basta adicionar o manipulador de eventos sobre o objeto aplicando `addEvenListener()`, e então, *indicando o **tipo de evento** e **função do manipulador***.
 ```js
 // obtendo um elemento através de um seletor de ID
-var formButton = document.getElementById("form__button--send");
+var formButton = document.getElementById("form__button--send")
 
 // executa a função quando o botão é clicado
 formButton.addEventListener("click", 
-function() {
-  alert("Botão foi clicado!");
-}
+  function() {
+    alert("Botão foi clicado!")
+  }
 )
+
+// ou também
+formButton.addEventListener("click", () => alert("Botão foi clicado!"))
 ```
 
 ### TIPOS DE EVENTOS
-Existem diversos eventos que podem ser utilizados em diversos elementos para que a interação do usuário dispare alguma função:
+Existem diversos eventos que podem ser utilizados em diversos elementos para que a interação do usuário dispare alguma função, e até mesmo a criação de eventos customizados.:
 
 - `onpointerdown` – Quando um ponteiro (mouse, caneta ou toque) é pressionado.
 - `onpointerup` – Quando o ponteiro é solto.
