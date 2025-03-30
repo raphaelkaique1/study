@@ -1,5 +1,5 @@
 # DOM
-Para permitir alterações na página, ao carregar o HTML os navegadores armazenam em memória uma estrutura de dados que representa cada uma das tags no JavaScript. Essa estrutura é chamada de **Document Object Model**. Essa estrutura pode ser acessada através da variável global **`document`**.
+Um uso muito comum do JavaScript é modificar dinamicamente HTML e CSS para atualizar uma interface do usuário, por meio da API do **DOM**. Para permitir alterações na página, ao carregar o HTML os navegadores armazenam em memória uma estrutura de dados que representa cada uma das tags no JavaScript. Essa estrutura é chamada de **Document Object Model**. Essa estrutura pode ser acessada através da variável global **`document`**.
 
 - **`querySelector`**<br/>
 Para alterar a página, é necessário acessar no JavaScript o elemento desejado. Vejamos um exemplo de como seria alterar o conteúdo de um título. Para acessá-lo usamos a propriedade `querySelector` que seleciona o elemento informado, podemos apontar uma tag, id ou classe:

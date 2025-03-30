@@ -1,6 +1,7 @@
 # JAVASCRIPT
  JavaScript é uma linguagem de programação *interpretada*, ou seja o código é interpretado e executado conforme é lido pelo navegador linha a linha assim como o HTML, de *alto nível*, que significa que sua sintaxe é muito familiar a linguagem natural humana e *multiparadigma*, o que demonstra seu poder ao ser possível programar em vários formatos diferentes, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica. JavaScript é a linguagem de programação mais popular no desenvolvimento Web. Suportada por todos os navegadores, a linguagem é responsável por praticamente qualquer tipo de dinamismo que queiramos em nossas páginas.<br/>
  Visando o potencial da Internet para o público geral e a necessidade de haver uma interação maior do usuário com as páginas, a Netscape, criadora do navegador mais popular do início dos anos 90, de mesmo nome, investiu na criação de uma linguagem para isto. Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, uma linguagem simples que permitia a execução de scripts contidos nas páginas dentro do próprio navegador, logo em seguida, aproveitando o crescente sucesso do **Java**, que vinha conquistando cada vez mais espaço no mercado de desenvolvimento de aplicações corporativas, a Netscape num acordo com a Sun para alavancar o uso das duas, numa jogada de marketing influenciada pela popularidade da linguagem Java o nome foi alterado para **`JavaScript`**. A então vice-líder dos navegadores, Microsoft, adicionou ao Internet Explorer o suporte a scripts escritos em VBScript e criou sua própria versão de JavaScript, o **JScript**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização do JavaScript veio por meio da ECMA International, dando origem à especificação **ECMAScript** — padronização de linguagens de script que define as regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
+ Em resumo, JavaScript é a linguagem de programação mais popular do mundo e é uma das principais tecnologias da World Wide Web, juntamente com HTML e CSS. Ela possui tipagem dinâmica, orientação a objetos baseada em protótipos e funções de primeira classe. Ela é multi-paradigma e suporta estilos de programação orientados a eventos, funcionais e imperativos.<br/>
  As principais características que destacam o JS são:
  - *Execução local*.
  - *Interpretado*.
@@ -9,9 +10,44 @@
  - *Responsivo*.
  - *Case sensitive*.
 
- O JavaScript, como o próprio nome sugere, é uma linguagem de *scripting*. Uma linguagem de scripting é comumente definida como uma linguagem de programação que permite ao programador controlar uma ou mais aplicações de terceiros. No caso do JavaScript, podemos controlar alguns comportamentos dos navegadores através de trechos de código que são enviados na página HTML.
+ O JavaScript, como o próprio nome sugere, é uma linguagem de *scripting*. Uma linguagem de scripting é comumente definida como uma linguagem de programação que permite ao programador controlar uma ou mais aplicações de terceiros. No caso do JavaScript, podemos controlar alguns comportamentos dos navegadores através de trechos de código que são enviados na página HTML. 
 
 ## CÓDIGO
+ Quando o navegador encontra um bloco de código JavaScript, ele geralmente executa na ordem, de cima para baixo. JavaScript é uma linguagem de programação leve e interpretada. O navegador recebe o código JavaScript em sua forma de texto original e executa o script a partir dele. Do ponto de vista técnico, a maioria dos intérpretes modernos de JavaScript realmente usa uma técnica chamada compilação just-in-time para melhorar o desempenho; o código-fonte JavaScript é compilado em um formato binário mais rápido enquanto o script está sendo usado, para que possa ser executado o mais rápido possível. No entanto, o JavaScript ainda é considerado uma linguagem interpretada, pois a compilação é manipulada em tempo de execução, e não antes.<br/>
+ No contexto do desenvolvimento web existem termos como *server-side* e *client-side*. Códigos do lado do cliente são executados no computador do usuário — quando uma página web é visualizada, o código do lado do cliente é baixado, executado e exibido pelo navegador. Códigos do lado do servidor, por outro lado, são executados no servidor e o resultado da execução é baixado e exibido no navegador. Exemplos de linguagens do lado do servidor populares incluem PHP, Python, Ruby, e ASP.NET. E JavaScript! JavaScript também pode ser usada como uma linguagem server-side, por exemplo, no popular ambiente Node.js<br/>
+ Há um considerável número de problemas envolvendo o carregamento de scripts na ordem correta. Um problema comum é que todo o HTML de uma página é carregado na ordem em que ele aparece. Se o Javascript estiver sendo usado para manipular o *Document Object Model*, o código não irá funcionar caso o script for carregado e executado antes mesmo dos elementos HTML estarem disponíveis. Nos casos em que o JS é carregado no `head` do documento antes do corpo ser completamente carregado isso irá causar algum erro. Algumas soluções são:
+
+ **DOM**
+ ```js
+ document.addEventListener("DOMContentLoaded", function() {
+   // script
+ })
+ ```
+ Isso é um *event listener*, que ouve e aguarda o disparo do evento `"DOMContentLoaded"` vindo do browser. Evento este que significa que o corpo do HTML está completamente carregado e pronto. **O código JavaScript que estiver dentro desse bloco não será executado até que o evento seja disparado**, portanto, o erro será evitado.
+
+ **async**
+ ```html
+ <script defer src="js/vendor/jquery.js"></script>
+ <script defer src="js/invoice.js"></script>
+ <script defer src="js/enrollment.js"></script>
+ ```
+ Scripts carregados utilizando o atributo `async` irão baixar seu conteúdo sem bloquear a renderização da página, e irão executar imediatamente após o script terminar de ser disponibilizado. Neste modo não há nenhuma garantia de que os scripts carregados irão executar em uma ordem específica, mas com certeza não irão impedir o carregamento do restante da página. **O melhor uso para `async` é quando os scripts de uma página rodam de forma _independente_ entre si.**<br/>
+ No exemplo acima, não é garantido que o script `jquery.js` carregará antes ou depois do `invoice.js` e `enrollment.js`. Nesse caso, se alguma função desses scripts dependem de algo vindo de `jquery`, será produzido um erro, pois o `jquery` ainda não foi carregado e definido quando os scipts executaram essa função.<br/>
+ async deve ser usado quando houver muitos scripts rodando no background e precisam estar disponíveis o mais rápido possível. Por exemplo, um usuário tem muitos arquivos de dados de um jogo para carregar que serão necessários assim que o jogo iniciar, mas por enquanto, podemos permitir que ele entre e veja a tela de carregamento, a do titulo do jogo e o lobby, sem ser bloqueado pelo carregamento desses scripts.
+
+ **defer**
+ ```html
+ <script src="script.js" defer></script>
+ ```
+ Este é um recurso moderno do JS para resolver este problema: trata-se do atributo `defer`, que informa ao browser para continuar renderizando o conteúdo HTML uma vez que a tag `script` foi atingida. Neste caso, ambos *script* e *HTML* irão carregar de forma simultânea e o código irá funcionar. Todos os scripts com o atributo defer irão carregar na ordem que aparecem na página. Os scripts não irão rodar sem que antes todo o conteúdo da página seja carregado, que no caso, é muito útil se os seus scripts dependem de um DOM completamente disponibilizado em tela, como scripts que modificam um elemento por exemplo.
+
+ *_No caso **externo**, não é necessário utilizar o evento `DOMContentLoaded` porque o atributo defer resolve o nosso problema. Não é utilizado `defer` ou `async` como solução para os exemplos **internos** pois funcionam apenas com scripts externos._ `async` e `defer` istruem o browser a baixar os scripts numa *thread* à parte, enquanto o resto da página, ou seja , o DOM, estilos e etc estão sendo baixados e disponibilizados de forma não bloqueante.<br/>
+ **Se os scripts precisam rodar imediatamente, sem que dependam de outros para serem executados, use `async`.**<br/>
+ **Se os scripts dependem de outros scripts ou do DOM completamente disponível em tela, carregue-os usando `defer` e coloque os elementos `script` na ordem exata que devem ser carregados.**
+
+
+ **Uma solução antiga para esse problema era colocar o elemento `script` bem no final do `body` antes de seu fechamento. Com isso, os scripts iriam carregar logo após todo o conteúdo HTML. O problema com esse tipo de solução é que o carregamento do `script` seria completamente bloqueado até que todo o conteúdo HTML fosse analisado. Em sites de maior escala, com muitos scripts, essa solução causaria um grande problema de performance e deixaria o site lento.**
+ 
  Vejamos algumas maneiras para referenciar um trecho de código ou um arquivo.js inteiro em um documento HTML:
 
 ### EXTERNAL
@@ -36,7 +72,7 @@
   <>
     ...
   </>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 ```
 

@@ -5,6 +5,16 @@ O diagrama a seguir mostra como uma API é chamada usando uma solicitação http
 
 ![Image](https://github.com/user-attachments/assets/f7f57f9d-10bb-42d8-9fae-6cdbdab94a4b)
 
+Elas geralmente se dividem em 2 categorias:
+- **Browser APIs**: já vem implementadas no navegador, e são capazes de expor dados do ambiente do computador, e fazer coisas complexas e úteis. Por exemplo:
+  - **API DOM**: permite a manipulação do HTML e CSS, criando, removendo e alterando HTML, aplicando dinamicamente novos estilos CSS para a página e etc. Toda vez que uma janela pop-up surge ou um novo conteúdo é exibido na página, isso é o DOM em ação.
+  - **API de Geolocalização**: recupera informações geográficas. É assim que o Google Maps consegue encontrar uma localização e usar no mapa por exemplo.
+  - **APIs Canvas e WebGL**: permitem criar gráficos 2D e 3D animados e interativos.
+  - **APIs e de Áudio e Vídeo**: como `HTMLMediaElement` e `WebRTC` permitem trabalhar com áudio, captura de vídeo da câmera do dispositivo e etc.
+- **3rd part APIs**: não são implementados no navegador automaticamente, sendo necessário incorporar sua estrutura no código do projeto em desenvolvimento. Por exemplo:
+  - **API do Twitter/X**: permite exibir tweets no website por exemplo.
+  - **API do Google Maps**: permite inserir mapas customizados no site entre outras diversas funcionalidades.
+
 ## ENDPOINT
 É onde a API realiza o consumo de informações da aplicação. Um **endpoint de API** é uma URL específica onde um cliente pode acessar um recurso ou serviço fornecido por uma API. Ele representa um ponto de comunicação entre sistemas, permitindo o envio e recebimento de dados.  
 
