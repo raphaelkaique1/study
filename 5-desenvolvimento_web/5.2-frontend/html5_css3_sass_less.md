@@ -2093,7 +2093,7 @@ Aqui falaremos sobre como adicionar legendas.
  ```
 
 ##### DIMENSÕES
-Para redimensionar elementos podemos usar as propriedades de largura e altura. As propriedades `width` e `height` Aceitam valores absolutos (px, cm, mm, etc.) e relativos (%, vw, vh, em, rem, etc.). É possível determinar as dimensões de um elemento, por exemplo, a declaração abaixo cria uma `div` "quadrada" de 300px x 300px:
+Para redimensionar elementos podemos usar as propriedades de **largura** e **altura**. As propriedades **`width`** e **`height`** Aceitam valores absolutos (px, cm, mm, etc.) e relativos (%, vw, vh, em, rem, etc.). É possível determinar as dimensões de um elemento, por exemplo, a declaração abaixo cria uma `div` "quadrada" de 300px x 300px:
 ```css
 div {
     border: solid 1px #000;
@@ -2317,6 +2317,63 @@ h1 {
 ```
 E esses valores não são os usados no começo com `padding: 10px 25px 10px 15px;`
 
+##### BOX-SIZING
+A propriedade `box-sizing` define como a largura e a altura de um elemento são calculadas, levando em conta, ou não, o `border` e o `padding`.
+- **`content-box` (Padrão do CSS)**
+  - **A largura e altura consideram apenas o conteúdo**, excluindo `padding` e `border`.
+  - **O elemento pode acabar maior que o esperado**, pois `padding` e `border` são adicionados depois.
+  ```css
+  .elemento {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid black;
+      box-sizing: content-box;
+
+      /* O tamanho total do elemento será maior que 200px
+        Largura total: 200px + 20px + 20px + 10px + 10px = 260px
+        Altura total: 200px + 20px + 20px + 10px + 10px = 260px
+      */
+  }
+  ```
+
+-  **`border-box` (Recomendado)**
+  - **A largura e altura incluem `padding` e `border`**, mantendo o tamanho exato do elemento.
+  - **Facilita o controle do layout**, pois o tamanho definido já conta com tudo.
+  ```css
+  .elemento {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid black;
+      box-sizing: border-box;
+
+      /* O tamanho total do elemento será exatamente 200px
+      pois `padding` e `border` são incluídos dentro da `width` e `height`. */
+  }
+  ```
+
+- **`content-box` vs `border-box`**
+  - **`content-box` (Padrão)**: O elemento cresce além da `width` definida.
+  - **`border-box` (Melhor para layouts responsivos)**: O tamanho total do elemento se mantém fixo.
+
+Uma boa prática é usar `border-box` globalmente Para evitar inconsistências no layout, isso garante que todos os elementos sigam a mesma lógica de dimensionamento:
+```css
+* {
+    box-sizing: border-box;
+}
+```
+
+##### OVERFLOW
+Controla o comportamento do conteúdo que excede os limites do elemento pai, determinando se ele será visível, ocultado ou se barras de rolagem serão adicionadas.
+```css
+.elemento {
+    overflow: *visible, hidden, scroll, auto*; /* controla o comportamento dos elementos internos que "vazam" do espaço definido pela tag pai */
+    overflow-x: *visible, hidden, scroll, auto*; /* controla o comportamento dos elementos internos que "vazam" do espaço HORIZONTAL definido pela tag pai */
+    overflow-y: *visible, hidden, scroll, auto*; /* controla o comportamento dos elementos internos que "vazam" do espaço VERTICAL definido pela tag pai */
+}
+```
+
 ##### UNIDADES
  Muitas propriedades assumes valores de *comprimento*, tais como **`widht`**, **`height`**, **`margin`**, **`padding`**, **`font-size`**, entre outras. O CSS tem várias unidades diferentes para expressar um comprimento, como *pixels*, porcentagens e escala.<br/>
  O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
@@ -2389,11 +2446,13 @@ div {
    - **`font-size`**: define o tamanho da fonte.
    - **`font-family`**: define o estilo da fonte pode receber seu valor com ou sem aspas dependendo da sua composição, por exemplo, quando uma fonte tem o nome separado por espaço.
    - **`font-weight`**: define o "peso" da fonte.
-   - **`text-align`**: define o alinhamento do texto.
+   - **`font-style`**: define o estilo da fonte.
    - **`line-height`**: define a altura e espaçamento entre as linhas.
    - **`letter-spacing`**: define o tamanho do espaço entre cada letra.
    - **`word-spacing`**: define o tamanho do espaço entre cada palavra.
+   - **`text-align`**: define o alinhamento do texto.
    - **`text-indent`**: define o tamanho da margem da primeira linha do texto.
+   - **`text-transform`**: define a capitalização do texto.
  - **propriedades de cor**:
    - **`color`**: define a cor da fonte.
    - **`background`**: define a cor de fundo do texto.
@@ -2583,6 +2642,7 @@ ul li:nth-child(even)::marker {
 A propriedade **`border`** trata o contorno do elemento, modificando sua borda. Os valores para se definir as bordas de um elemento apresentam uma série de opções. Pode-se, para cada borda do elemento, determinar sua cor, estilo de exibição e largura. Por exemplo:
 ```css
 #profilePicture {
+    /* border - top, right - bottom - left */
     border-color: #000;
     border-style: solid;
     border-width: 1px;
@@ -2593,18 +2653,26 @@ A propriedade **`border`** trata o contorno do elemento, modificando sua borda. 
 }
 ```
 
-##### IMAGENS
-###### IMAGEM DE FUNDO
-A propriedade **`background-image`** permite indicar um arquivo de imagem para ser exibido ao fundo do elemento. Por exemplo:
+##### BACKGROUND
+A propriedade background permite controlar o plano de fundo de um elemento, incluindo cor, imagem, tamanho, repetição e posição.
 ```css
-#folder {
+.elemento {
+    background-color: *hexadecimal, nome, rgb, rgba*; /* controla a cor de fundo */
+    background-image: *url()*; /* coloca uma imagem como plano de fundo */
+    /*------------------------------------------------------*/
     background-image: url("image.jpg");
     /* ou */
     background-image: url("../path/image.jpg");
     /* ou */
     background-image: url("https:/images.com/path/image.jpg");
+    /*------------------------------------------------------*/
+    background-size: *x y, x/y, cover, contain, %, px, rem, em *; /* controla o tamanho do plano de fundo. Dois valores podem ser colocados, x e y ou apenas o valor de x que ele será adicionad/removido proporcionalmente em y */
+    background-repeat: *repeat, no-repeat*; /* controla se a imagem de fundo vai sofrer repetição*/
+    background-position: *top right bottom left, top 10px, bottom 2rem right 2%*; /* controla a posição do plano de fundo */
 }
 ```
+
+##### IMAGENS
 
 ##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
@@ -3040,7 +3108,13 @@ A propriedade **`background-image`** permite indicar um arquivo de imagem para s
  }
  ```
 
- Existe também o tipo **`inline-block`**, que mostura comportamentos do `inline` com `block`, fazendo com que o elemento comece na mesma linha e posição onde está aceitando propriedades como `width` e `height`.
+ 3. Existe também o tipo **`inline-block`**, que mostura comportamentos do `inline` com `block`, fazendo com que o elemento comece na mesma linha e posição onde está aceitando propriedades como `width` e `height`. A propriedade **`vertical-align`** alinha verticalmente elementos `inline` ou `inline-block`.
+ ```css
+ .elemento {
+   display: inline-block;
+   vertical-align: *baseline, top, middle, bottom*;
+ }
+ ```
 
 #### FLEXBOX
  Tradicionalmente, o CSS tem usado posicionamento `static`, `relative`, `absolute`, e etc, além de elementos `block`, `inline`, `inline-block` e `float`, que, em termos gerais, são sistemas de criação de design engessados e pouco flexíveis, que atualmente não se ajustam aos desafios enfrentados hoje com sistemas de desktop, dispositivos móveis, multiplas resoluções e mais.<br/>
