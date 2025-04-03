@@ -743,7 +743,9 @@ graph TD
 |_____________________________________|
 </pre>
 
-### OPERADORES ARITMÉTICOS
+### OPERAÇÕES MATEMÁTICAS
+Os operadores **aritméticos** são aqueles utilizados para realização de operações aritméticas básicas, são agrupados na classe de **operadores binários**, onde é necessário a existência de mais de 1 valor para a operação resultando em um outro novo valor que, se não armazenado em uma nova variável não poderá ser reutilizado, apenas quandoa a operação ocorrer novamente.<br/>
+Operadores de **incremento e decremento** são maneiras facilitadas de execução repetidida de valores, se enquadram na classe de operadores **unários**, onde é a própria variável que terá atribuído o resultado da operação com seu valor inicial e um novo valor. Entretanto, é importante salientar que não podem ser aplicados diretamente à um número (diferente dos operadores aritméticos que podem ser usados diretamente com números e variáveis), pois, o valor atualizado é atribuído à variável e não ao valor em si, ou seja, está sendo atribuído à variável um valor atualizado e não operando no próprio valor.
 <pre>
 OPERADORES UNÁRIOS                                                          OPERADORES BINÁRIOS
 - atribuição....................(=): a = b                                  - atribuição.........(=): a = b
@@ -756,11 +758,19 @@ OPERADORES UNÁRIOS                                                          OPE
 - multiplicação e atribuição...(*=): a *= 5     (a = a * 5)                 - potenciação...(^ | **): a ^ b | a ** b 
 - divisão e atribuição.........(/=): a /= 2     (a = a / 2)
 - módulo e atribuição..........(%=): a %= 2     (a = a % 2)
+</pre>
+Exemplo: π * r² = area
 
+#### PRECEDÊNCIA DE OPERADORES
+Algumas operações serão aplicadas antes de outras sempre que houver prioridade metemática, além de serem executadas sempre da esquerda para a direita, e de dentro para fora no caso dos parênteses. Por exemplo:<br/>
+**10 + 5 * 3 + 9 => 10 + 15 + 9 => 25 + 9 = 31**<br/>
+**(10 + 5) / (6 - 3) => 15 / 3 = 5**
+<pre>
                                             ORDEM HIERARQUICA
 OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     TIPO DE RETORNO DE RESULTADO
    +         MANUTENÇÃO DE SINAL      UNÁRIO                1                          POSITIVO
    -          INVERSÃO DE SINAL       UNÁRIO                1                          NEGATIVO
+  ( )     MANUTENÇÃO DE PRIORIDADE    BINÁRIO               1           INTEIRO OU REAL / POSITIVO OU NEGATIVO
  ^ / **         POTENCIAÇÃO           BINÁRIO               2                       INTEIRO OU REAL
    /              DIVISÃO             BINÁRIO               3                            REAL
    /              DIVISÃO             BINÁRIO               4                          INTEIRO
@@ -769,9 +779,9 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
    +               ADIÇÃO             BINÁRIO               4                       INTEIRO OU REAL
    -              SUBTRAÇÃO           BINÁRIO               4                       INTEIRO OU REAL
 </pre>
-Exemplo: π * r² = area
 
-### OPERADORES LÓGICOS
+### OPERAÇÕES COMPARACIONAIS
+Operadores **lógicos** são usados tipicamente com valores booleanos, onde avaliam um `valor1` **e**, **ou**, **não** outro `valor2` possuem alguma relação retornando como resultado um valor lógico (`true` ou `false`).  Os operadores **relacionais** comparam seus operandos e retorna um valor booleano baseado no resultado da comparação (se `true` ou `false`).
 <pre>
 - AND.......................(&&): true && true
 - OR........................(||): true || false

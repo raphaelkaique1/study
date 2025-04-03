@@ -361,8 +361,8 @@ var $config = { tema: "escuro", modo: "automático" };
 ##### IDENTIFICANDO TIPO DE VARIÁVEL
  O comando **`typeof(var)`** nos diz o tipo de uma variável.
 
-##### VAR CASTING
- Var casting (ou type casting) é o processo de converter um valor de um tipo de dado para outro em uma linguagem de programação. Isso é útil quando precisamos tratar dados de diferentes tipos em uma operação.
+##### CASTING
+ **Var casting (ou type casting)** é o processo de converter um valor de um tipo de dado para outro em uma linguagem de programação. Isso é útil quando precisamos tratar dados de diferentes tipos em uma operação.
 
 ###### TIPOS DE CASTING
  1. **Casting Implícito (Automatic Type Conversion)**<br/>
@@ -1141,6 +1141,18 @@ var $config = { tema: "escuro", modo: "automático" };
    ];
 
    console.log(`${produtos[0].nome}: R$ ${produtos[0].preco}`); // "Notebook"
+
+   /* lembrando sempre que, a manipulação de matrizes ocorre sempre da esquerda para a direita na sua declaração
+      variavel[linha][coluna]
+      primeiro se acessa a linha da matriz e então na coluna indicamos qual dado queremos, exemplo:
+      var variavel = [
+          col0                               col1
+       l0 ["linha_0, coluna_0 = celula_0-0", "linha_0, coluna_1 = celula_0-1"],
+       l1 ["linha_1, coluna_0 = celula_1-0", "linha_1, coluna_1 = celula_1-1"],
+       l2 ["linha_2, coluna_0 = celula_2-0", "linha_2, coluna_1 = celula_2-1"]
+      ]
+      console.log(variavel[0][1]) // linha_0, coluna_1 = celula_0-1
+   */
    ```
 
  2. **`array constructor`**<br/>
@@ -1219,7 +1231,7 @@ var $config = { tema: "escuro", modo: "automático" };
    - **number**: `var number === 0 ? 1 : 0`
  - **bitwise**: **Realizam operações aritméticas manipulando diretamente os `bits` de números inteiros**, retornando sempre um número decimal, mas gerado através de operações binárias. Ou seja, são operadores que trabalham diretamente na manipulação binária dos números gerando um número decimal como resultado.
 
-#### OPERADORES ARITMÉTICOS
+#### OPERADORES MATEMÁTICOS
 <pre>
 OPERADORES UNÁRIOS                                                          OPERADORES BINÁRIOS
 - atribuição....................(=): a = b                                  - atribuição......(=): a = b
@@ -1246,7 +1258,7 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
    -              SUBTRAÇÃO           BINÁRIO               4                       INTEIRO OU REAL
 </pre>
 
-#### OPERADORES LÓGICOS
+#### OPERADORES BOOLEANOS
 <pre>
 - AND........................................(&&): true && true
 - OR.........................................(||): true || false
@@ -1890,9 +1902,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
     Retorna a quantidade de elementos presentes no array, e é atualizada automaticamente conforme o array é modificado.
 
 ## OOP
- Vimos os princípios da programação orientada a objetos em tópicos anteriores, pois o JavaScript é uma linguagem de programação multiparadigma, por isso compartilha os conceitos-chave. Entretanto, a **POO em JS não é normalmente usada**, *uma vez que POO é projetado para tipos de programas diferentes de páginas web*.<br/>
- Na programação web, o uso de classes, objetos, atributos, métodos entre outros não faz muito sentido por não haver necessidade de tal uso.<br/>
- Mas veremos como podemos usar a POO com JS.
+ Em JavaScript, tudo é um objeto. Um objeto é uma coleção de funcionalidades relacionadas armazenadas em um único agrupamento.  Vimos os princípios da programação orientada a objetos em tópicos anteriores, pois o JavaScript é uma linguagem de programação multiparadigma, por isso compartilha os conceitos-chave.
 
 ### CLASSE
  É a padronização de uma estrutura de dados que *instancía* um objeto na saída. Podemos dizer que uma classe é uma *"forma"* para a criação de um objeto, contendo atributos que são como características do objeto e métodos que são ações que o objeto pode executar. Vejamos o exemplo de carro, sabemos que um carro independente da marca e modelo, para ser considerado um carro precisa ter no mínimo 4 rodas, carcaça, motor, freio, bancos e sistema de direção, e que com isso, o carro se locomove carregando o que estiver dentro e para no lugar quando solicitado.
