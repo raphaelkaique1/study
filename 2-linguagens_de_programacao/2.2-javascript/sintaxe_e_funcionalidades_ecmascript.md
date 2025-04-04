@@ -405,6 +405,30 @@ console.log("\u00A9 2025 Todos os direitos reservados.");
 ##### IDENTIFICANDO TIPO DE VARIÁVEL
  O comando **`typeof(var)`** nos diz o tipo de uma variável.
 
+##### WRAPPER
+Um **wrapper** é bascicamente um objeto que _envolve_ um valor primitivo para dar funcionalidades extras, como métodos e propriedades. Um suco por exemplo, em si é um valor primitivo, já a garrafa que contém o suco é o _pacote_ que permite armazenar e carregar o suco de diferentes maneiras e para diferentes lugares.<br/>
+No JS, os tipos primitivos como `string`, `number`, `boolean` e etc, naturalmente não têm métodos, mas o JavaScript cria automaticamente um wrapper temporário quando métodos são usados nestes tipos. Como por exemplo no caso de `var casting` de strings, mesmo elas sendo um tipo primitivo é possível usar métodos para manipulá-las, isso porque o JS realiza a conversão automaticamente:
+```js
+// exemplo de uso comum
+let nome = "Raphael";
+let nomeMaiusculo = nome.toUpperCase();
+console.log(nomeMaiusculo) // RAPHAEL
+
+// o que realmente acontece
+let nome = new String("Raphael"); // é criado um objeto nome na classe String
+nome.toUpperCase(); // somente então é possível utilizar métodos
+console.log(nomeMaiusculo) // RAPHAEL
+```
+
+**Tipos de wrappers:**
+| Primitivo | Wrapper Object |
+|-----------|----------------|
+| `string`  | `String`       |
+| `number`  | `Number`       |
+| `boolean` | `Boolean`      |
+| `symbol`  | `Symbol`       |
+| `bigint`  | `BigInt`       |
+
 ##### CASTING
  **Var casting (ou type casting)** é o processo de converter um valor de um tipo de dado para outro em uma linguagem de programação. Isso é útil quando precisamos tratar dados de diferentes tipos em uma operação.
 
@@ -1394,6 +1418,184 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  1. **`break`**: *Interrompe* a iteração do fluxo de repetição.
  2. **`continue`**: *Pula* 1 iteração do fluxo de repetição.
 
+##### BOOLEAN
+Um **valor booleano** é um tipo de dado que só pode ter 2 valores possíveis: **`true`** ou **`false`**.<br/>
+Este conceito foi criado por **George Boole**, um matemático do século XIX, e é fundamental para a lógica computacional, sendo amplamente utilizado em programação, bancos de dados e circuitos digitais. Ele é a base para operações lógicas como **E (AND)**, **OU (OR)** e **NÃO (NOT)**, que são essenciais para a tomada de decisões e controle de fluxo em sistemas de computação.<br/>
+Esses valores são usados, por exemplo, para controlar o fluxo de um programa, em condições como "se... então..." com o uso de estruturas como `if`, ou para verificar se certas condições são atendidas.
+
+###### TIPOS DE BOOLEANOS
+No JS, tipos de dados Booleanos podem existir de 2 formas:
+- **`Objeto Booleano`**<br/>
+O objeto Boolean é um objeto `wrapper` para um valor booleano: `new Boolean([value])`. Seu valor inicial é opcional.<br/>
+O valor passado como primeiro parâmetro é convertido para um valor boleano, se necessário. _Se o valor é `omitido` ou é `0`, `-0`, `null`, `false`, `NaN`, `undefined` ou é uma `string vazia ("")`, **o objeto terá um valor inicial de `false`**._ **Todos outros valores, incluindo _qualquer objeto ou string "false"_, criam um objeto com valor inicial `true`.**<br/>
+Não se deve confundir os valores **primitivos Boolean** `true` e `false` com os valores `true` and `false` do **objeto Boolean**. Qualquer objeto cujo o valor não é `undefined` ou `null`, incluindo um *objeto Boolean que o valor seja `false`* é avaliado como `true` quando passa por uma declaração condicional.
+```js
+var x = new Boolean(false);
+if (x) { // x == true
+  // esse código será executado
+}
+```
+**Porém, este comportamento não se aplica aos primitivos Boolean.**
+```js
+var x = false;
+if (x) { // x == false
+  // esse código não será executado
+}
+```
+
+Não é recomendado usar um objeto `Boolean` para converter um valor não-booleano para um valor booleano. Invés disso, deve-se usar `Boolean` como uma função para executar essa tarefa:
+```js
+var x = Boolean(expression); // recomendado
+var x = new Boolean(expression); // não recomendado
+```
+
+Qualquer objeto especificado — inlcuindo um objeto `Boolean` cujo valor é `false` — como valor inicial de um objeto `Boolean`, o novo objeto `Boolean` terá o valor de `true`:
+```js
+var myFalse = new Boolean(false); // valor inicial: false
+var g = new Boolean(myFalse); // valor inicial: true
+
+var myString = new String("Hello"); // objeto String
+var s = new Boolean(myString); // valor inicial true
+```
+
+**A recomendação é: nunca utilizar um `objeto Boolean` no lugar de um `primitivo Boolean`.**
+
+**PROPRIEDADES**
+- `Boolean.length`: Propriedade Length cujo valor é 1.
+- `Boolean.prototype`: Representa o protótipo para o construtor Boolean.
+
+**MÉTODOS**<br/>
+O objeto global `Boolean` contém métodos próprios, entretanto, ele herda alguns métodos através da cadeia de protótipos.
+
+**INSTÂNCIAS `BOOLEAN`**
+- Criando objetos `Boolean` com um valor inicial **`false`**:
+```js
+var boolNoParam = new Boolean();
+var boolZero = new Boolean(0);
+var boolNull = new Boolean(null);
+var boolEmptyString = new Boolean("");
+var boolfalse = new Boolean(false);
+```
+- Criando objetos `Boolean` com um valor inicial **`true`**:
+```js
+var booltrue = new Boolean(true);
+var booltrueString = new Boolean("true");
+var boolfalseString = new Boolean("false");
+var boolNewUser = new Boolean("New User");
+var boolArrayProto = new Boolean([]);
+var boolObjProto = new Boolean({});
+```
+
+- **`Booleano Primitivo`**<br/>
+É simplesmente quando o valor `true` ou `false` é o valor puro atribuído à variável, e também podem ser o resultado de comparações. Este é o tipo mais usado na maioria dos casos.
+```js
+let x = true;
+let y = false;
+
+typeof true // "boolean"
+```
+
+###### DIFERENÇA ENTRE OS TIPOS
+A diferença crucial entre `objetos Booleanos` e `Booleanos Primitivos` é que `objetos Booleanos` são sempre `truthy`, mesmo com valor falso. Isso acontece por que o objeto em si existe, e objetos são sempre truthy, o conteúdo `false` é ignorado na coerção.
+```js
+let objeto = new Boolean(false);
+if (objeto) {
+  console.log("Entrou no if."); // Vai entrar mesmo sendo `false`
+}
+```
+
+| Situação                     | Usar Boolean primitivo (`true`/`false`) | Usar Objeto Boolean (`new Boolean()`) |
+|------------------------------|-----------------------------------------|---------------------------------------|
+| Comparações lógicas          | ✅                                      | ❌                                    |
+| Controle de fluxo            | ✅                                      | ❌                                    |
+| Performance                  | ✅                                      | ❌                                    |
+| Precisa de um objeto         | ❌                                      | ✅ raro                               |
+| Precisa de métodos           | ❌                                      | ✅ cuidado                            |
+
+###### TRUE & FALSE
+Em JavaScript, qualquer valor pode ser avaliado como **verdadeiro** ou **falso** num contexto lógico como dentro de `if`, `while`, operadores lógicos e etc. Mas não precisam exatamente ser `true` ou `false` puramente. Por isso, dizemos que valores **não primitivos** *tratados como resultados lógicos (Boolean)* são **`truthy`** ou **`falsy`**.  A linguagem realiza automaticamente a conversão de tipos dos valores.
+- **`Truthy`**: valores que se comportam como `true`.
+```js
+"hello"
+19
+[]
+{}
+function() {}
+"0"
+"false"
+Infinity
+```
+- **`Falsy`**: valores que se comportam como `false`.
+```js
+false
+0
+-0
+0n         // BigInt zero
+""         // string vazia
+null
+undefined
+NaN
+```
+
+Exemplos são:
+```js
+if ("Raphael") {
+  console.log("Isso é truthy."); // Isso é truthy
+}
+
+if ([]) {
+  console.log("Arrays vazios também são truthy."); // Arrays vazios também são truthy.
+}
+
+if (0) {
+  console.log("Isso nunca será impresso, pois é falsy."); // Isso nunca será impresso, pois é falsy.
+}
+```
+
+A principal diferente estre valores Booleanos e outros tipos de valores com comportamento Booleanos são que, valores primitivos (`true`/`false`) são tipos Booleanos puros, como por exemplo: `let a = true`. Enquanto que, qualquer valor avaliado como `true`/`false` em contexto lógico terão o comportamento conforme avaliada a condição da expressão, por exemplo: `if("ok") {code}`.<br/>
+Os usos mais comuns são:
+- **condicionais simplificadas**
+```js
+let name = "Raphael";
+
+if (name) {
+  console.log("Nome preenchido."); // avalia como truthy
+}
+```
+- **operador lógico como parâmetro com valor padrão**
+```js
+let input;
+let userName = input || "Convidado"; // se input for falsy, usa "Convidado"
+console.log(`Olá ${userName}.`);     // Olá Convidado.
+
+input = "Raphael";
+userName = input || "Convidado"; // se input for truthy, usa o valor atribuído
+console.log(`Olá ${userName}.`); // Olá Raphael.
+
+// outro exemplo de uso para default parameter
+let Name = (person = "Convidado") => person           // se falsy, usa "Convidado"
+console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor atribuído
+```
+
+**TABELA DE VALORES**
+| Valor                | Tipo             | Resultado | Observação                   |
+|----------------------|------------------|-----------|------------------------------|
+| `false`              | Boolean          | Falsy     | Valor booleano falso         |
+| `0`                  | Number           | Falsy     | Zero                         |
+| `-0`                 | Number           | Falsy     | Menos zero                   |
+| `0n`                 | BigInt           | Falsy     | BigInt zero                  |
+| `""`                 | String           | Falsy     | String vazia                 |
+| `null`               | Null             | Falsy     | Nulo                         |
+| `undefined`          | Undefined        | Falsy     | Valor indefinido             |
+| `NaN`                | Number (NaN)     | Falsy     | Not a Number                 |
+| `"0"`                | String           | Truthy    | String com caractere         |
+| `"false"`            | String           | Truthy    | Ainda é uma string não-vazia |
+| `[]`                 | Array vazio      | Truthy    | Estrutura existe             |
+| `{}`                 | Objeto vazio     | Truthy    | Mesmo sem propriedades       |
+| `function() {}`      | Function         | Truthy    | Toda função é truthy         |
+| `Infinity`           | Number           | Truthy    | Não é zero nem falsy         |
+| `42`                 | Number           | Truthy    | Números diferentes de 0      |
+
 ##### CONDICIONAIS
  A tomada de decisão na programação é semelhante à tomada de decisão na vida real, pois também existem algumas situações no programa em que um determinado bloco deve ser executado dada uma condição. As linguagens de programação utilizam declarações condicionais para controlar o fluxo de execução do programa com base em certas condições. Estes são usados para fazer o fluxo de execução avançar e ramificar-se com base em mudanças no estado de um programa.<br/>
  A base da tomada de decisões é realizar comparações. Estas comparações neste caso são realizadas utilizando os *operados lógicos* e *de comparação*.<br/>
@@ -1408,10 +1610,44 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
  ```js
  var condition = true;
 
- if(condition == true) {
+ if(condition) {
   console.log(`condition: ${condition}`);
+ } // Saída: true
+ ```
+
+ Não confundir os valores **boolean primitivos** `true` e `false` com os valores `true` e `false` do **objeto Boolean**. _Qualquer valor que **não** for `undefined`, `null`, `0`, `NaN`, ou uma `string vazia ("")`, e qualquer objeto, incluindo um **objeto Boolean** cujo valor é `false`, é avaliado como `true` quando passado à uma condicional._
+ ```js
+ var a = new Boolean(false);
+ if (a) // essa condição é avaliada como true
+ ```
+
+ É recomendado não utilizar atribuições simples em expressões condicionais, visto que atribuições podem ser confundidas com igualdade ao olhar o código. Um exemplo do que **não fazer**:
+ ```js
+ if (x = y) {
+   // não recomendado
  }
  ```
+
+ Caso seja necessário utilizar uma atribuição em uma expressão condicional, uma prática comum é inseri-la entre parênteses. Por exemplo:
+ ```js
+ let x;
+ let y = 10;
+
+ console.log(`x: ${x} | y: ${y}`) // x: undefined | y: 10
+
+ if ((x = y)) {
+   console.log("Entrou no if!"); // Entrou no if!
+   console.log("x é:", x);       // x é: 10
+ }
+ ```
+ 
+ Isso pode ser útil em casos em que se deseja atribuir um valor e verificar se ele é `truthy`, essa sintaxe pode ser usada. Por exemplo, ao buscar valores com fallback:
+ ```js
+ if ((data = getDataFromCache() || getDataFromServer())) {
+   // usa data
+ }
+ ```
+
 
  2. **`if-else`**<br/>
  **Verifica 1 condição, porém se for satisfeita executa instruções específicas, e caso não satisfeita executa outras instruções, ao final retorna ao fluxo normal de execução do código.**
