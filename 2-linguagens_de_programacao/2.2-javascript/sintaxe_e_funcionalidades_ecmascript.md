@@ -282,6 +282,11 @@ var $config = { tema: "escuro", modo: "automático" };
  var num3 = "10" // string
  ```
 
+ Em casos onde existe a necessidade de utilizar diferentes aspas na mesma string, deve-se fazer a abertura e fechamento com um tipo e usar dentro dessa o outro.
+ ```js
+ var saudacao = 'Olá "Usuário", como gostaria de ser chamado?';
+ ```
+
  Um ponto que o desenvolvedor deve estar sempre atento ao trabalhar com `strings` é que, ao concatená-las com valores numéricos, estes valores passam a ser considerados TODOS como `strings`:
  ```js
  var x = '5';
@@ -375,6 +380,10 @@ console.log("\u00A9 2025 Todos os direitos reservados.");
  // Exemplo 5:
  console.log(nome + num1 * num2); // imprime Número6
  // a multiplicação tem precedência
+
+ // O operador de atribuição encurtado `+=` também pode ser utilizado para concatenar strings.
+ var string = "alfa";
+ string += "beto"; // É avaliada como "alfabeto" e atribui este valor a minhastring.
  ```
 
  3. **Vírgula `"texto ", variavel`**<br/>
@@ -403,7 +412,35 @@ console.log("\u00A9 2025 Todos os direitos reservados.");
  *Uma boa prática é **sempre declarar como `strings` números que não vão ser operados matematicamente**, como cpf, número de telefone ou CEP por exemplo.*
 
 ##### IDENTIFICANDO TIPO DE VARIÁVEL
- O comando **`typeof(var)`** nos diz o tipo de uma variável.
+O comando **`typeof(var)`** ou **`typeof var`** nos diz o tipo de uma variável retornando uma string com a indicação do tipo do operando.
+```js
+var somaString = new Function("5 + 2");
+var forma = "quadrado";
+var tamanho = 1;
+var hoje = new Date();
+
+typeof somaString;            // retorna "function"
+typeof forma;                 // retorna "string"
+typeof tamanho;               // retorna "number"
+typeof hoje;                  // retorna "object"
+typeof naoExiste;             // retorna "undefined"
+typeof true;                  // retorna "boolean"
+typeof null;                  // retorna "object"
+typeof 62;                    // retorna "number"
+typeof "Olá mundo";           // retorna "string"
+typeof document.lastModified; // retorna "string"
+typeof window.length;         // retorna "number"
+typeof Math.LN2;              // retorna "number"
+typeof blur;                  // retorna "function"
+typeof eval;                  // retorna "function"
+typeof parseInt;              // retorna "function"
+typeof forma.split;           // retorna "function"
+typeof Date;                  // retorna "function"
+typeof Function;              // retorna "function"
+typeof Math;                  // retorna "object"
+typeof Option;                // retorna "function"
+typeof String;                // retorna "function"
+```
 
 ##### WRAPPER
 Um **wrapper** é bascicamente um objeto que _envolve_ um valor primitivo para dar funcionalidades extras, como métodos e propriedades. Um suco por exemplo, em si é um valor primitivo, já a garrafa que contém o suco é o _pacote_ que permite armazenar e carregar o suco de diferentes maneiras e para diferentes lugares.<br/>
@@ -1347,27 +1384,38 @@ console.log(resultado); // Saída: ["10", "20"]
    - **bool**: `var condition === satisfied ? true : false`
    - **string**: `var string === "" ? true : false`
    - **number**: `var number === 0 ? 1 : 0`
- - **bitwise**: **Realizam operações aritméticas manipulando diretamente os `bits` de números inteiros**, retornando sempre um número decimal, mas gerado através de operações binárias. Ou seja, são operadores que trabalham diretamente na manipulação binária dos números gerando um número decimal como resultado.
+ - **bitwise**: **Realizam operações aritméticas manipulando diretamente os `bits` de números inteiros**, retornando sempre um número, mas gerado através de operações binárias. Ou seja, são operadores que trabalham diretamente na manipulação binária dos números gerando um valor numérico como resultado.
 
-#### OPERADORES MATEMÁTICOS
+#### OPERADORES
+O JavaScript possui tanto operadores **binários** quanto **unários** e um operador **ternário** — o operador condicional.<br/>
+Um operador **binário** exige **2** operandos, um _antes_ **do operador** _e outro_ **depois**.<br/>
+Um operador **unário** exige **um único** operando, _seja antes_ **ou** _depois_ **do operador**.<br>
+Um **operador de atribuição** atribui um valor ao operando à sua esquerda baseado no valor do operando à direita. O operador de atribuição básico é o `=`, que atribui o valor do operando à direita ao operando à esquerda. Isto é: `x = y`, atribui o valor de `y` a `x`.<br/>
+Os outros operadores de atribuição são encurtamentos de operadores padrão, como mostrado na tabela a seguir.
 <pre>
-OPERADORES UNÁRIOS                                                          OPERADORES BINÁRIOS
-- atribuição....................(=): a = b                                  - atribuição......(=): a = b
-- positivo......................(+): +a                                     - atribuição......(=): a = b
-- negativo......................(-): -a                                     - adição..........(+): a + b
-- incremento...................(++): ++a | a++  (a + 1)                     - subtração.......(-): a - b
-- decremento...................(--): --a | a--  (a - 1)                     - divisão.........(/): a / b
-- adição e atribuição..........(+=): a += 5     (a = a + 5)                 - multiplicação...(*): a * b
-- subtração e atribuição.......(-=): a -= 5     (a = a - 5)                 - módulo..........(%): a % b
-- multiplicação e atribuição...(*=): a *= 5     (a = a * 5)                 - potenciação....(**): a ** b
-- divisão e atribuição.........(/=): a /= 2     (a = a / 2)
-- módulo e atribuição..........(%=): a %= 2     (a = a % 2)
+OPERADORES UNÁRIOS                                      OPERADORES BINÁRIOS
+- positivo......................(+): +a                 - atribuição....................(=): a = b
+- negativo......................(-): -a                 - adição........................(+): a + b
+- incremento...................(++): ++a | a++ (a + 1)  - subtração.....................(-): a - b
+- decremento...................(--): --a | a-- (a - 1)  - divisão.......................(/): a / b
+                                                        - multiplicação.................(*): a * b
+                                                        - módulo........................(%): a % b
+                                                        - potenciação..................(**): a ** b
+                                                        - adição e atribuição..........(+=): a += 5 (a = a + 5)
+                                                        - subtração e atribuição.......(-=): a -= 5 (a = a - 5)
+                                                        - multiplicação e atribuição...(*=): a *= 5 (a = a * 5)
+                                                        - divisão e atribuição.........(/=): a /= 2 (a = a / 2)
+                                                        - módulo e atribuição..........(%=): a %= 2 (a = a % 2)
+</pre>
 
+**Operadores aritméticos** tomam valores numéricos (sejam literais ou variáveis) como seus operandos e retornam um único valor numérico. Estes operadores trabalham da mesma forma como na maioria das linguagens de programação quando utilizados com números de ponto flutuante, porém no JS em particular, a divisão por zero produzirá um `NaN`:
+<pre>
                                             ORDEM HIERARQUICA
 OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     TIPO DE RETORNO DE RESULTADO
    +         MANUTENÇÃO DE SINAL      UNÁRIO                1                          POSITIVO
    -          INVERSÃO DE SINAL       UNÁRIO                1                          NEGATIVO
-  **            POTENCIAÇÃO           BINÁRIO               2                       INTEIRO OU REAL
+  ( )     MANUTENÇÃO DE PRIORIDADE    BINÁRIO               1           INTEIRO OU REAL / POSITIVO OU NEGATIVO
+ ^ / **         POTENCIAÇÃO           BINÁRIO               2                       INTEIRO OU REAL
    /              DIVISÃO             BINÁRIO               3                            REAL
    /              DIVISÃO             BINÁRIO               4                          INTEIRO
    %               MÓDULO             BINÁRIO               3                          INTEIRO
@@ -1376,11 +1424,10 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
    -              SUBTRAÇÃO           BINÁRIO               4                       INTEIRO OU REAL
 </pre>
 
-#### OPERADORES BOOLEANOS
+Um **operador de comparação** compara seus operandos e retorna um valor lógico baseado no resultado da expressão. Os operandos podem ser numéricos, strings, lógicos ou objetos.<br/>
+Strings são comparadas com base em **ordenação lexográfica**, utilizando valores de **Unicode**.<br/>
+Na maioria dos casos, se 2 operandos não são do mesmo tipo, o JS tenta convertê-los para um tipo apropriado. Isto geralmente resulta na realização de uma comparação numérica. As únicas exceções a esta regra são os operadores `===` e `!==`, que realizam comparações de igualdade e tipo *estritas*. Estes operadores não tentam converter os operandos em tipos compatíveis antes de verificar a igualdade. A tabela a seguir descreve os operadores de comparação:
 <pre>
-- AND........................................(&&): true && true
-- OR.........................................(||): true || false
-- NOT.........................................(!): !true (false)
 - maior.......................................(>): 1 > 0
 - maior ou igual.............................(>=): 1 >= 1
 - menor.......................................(<): 0 < 1
@@ -1391,16 +1438,411 @@ OPERADOR          OPERAÇÃO             TIPO        PRIORIDADE MATEMÁTICA     
 - comparação de diferença de valor e tipo...(!==): a !== b
 </pre>
 
-#### OPERADORES BIT A BIT
+**Operadores lógicos** são utilizados tipicamente com valores lógicos, neste caso, retornam um valor booleano. Entretanto, os operadores `&&` e `||` na verdade retornam o valor de um dos operandos especificados, de forma que se esses operadores forem utilizados com valores não-booleanos, eles possam retornar um valor não-booleano. Os operadores lógicos são descritos na seguinte tabela:
+- **AND `&&`**: `true && true` - Retorna `var1` caso possa ser convertido para _falso_; senão, retorna `var2`. Assim, quando utilizado com valores booleanos, `&&` retorna _verdadeiro_ caso **ambos operandos sejam verdadeiros**; _caso contrário_, **retorna falso**.
+- **OR `||`**: `true || false` - Retorna `var1` caso possa ser convertido para _verdadeiro_; senão, retorna `var2`. Assim, quando utilizado com valores booleanos, `||` retorna _verdadeiro_ caso **ambos os operandos sejam verdadeiros**; _se ambos forem falsos_, **retorna falso**.
+- **NOT `!`**: `!true (false)` - **Retorna falso** _caso o único operando possa ser convertido para verdadeiro_; **senão**, _retorna verdadeiro_.
+
+Exemplos de expressões que podem ser convertidas para `false` são aquelas que são avaliados como `null`, `0`, `string vazia ("")` ou `undefined`. O código a seguir mostra exemplos de operadores lógicos.
+```js
+// AND - &&
+var a1 = true && true;    // t && t retorna true
+var a2 = true && false;   // t && f retorna false
+var a3 = false && true;   // f && t retorna false
+var a4 = false && 3 == 4; // f && f retorna false
+var a5 = "Gato" && "Cão"; // t && t retorna Cão
+var a6 = false && "Gato"; // f && t retorna false
+var a7 = "Gato" && false; // t && f retorna false
+
+// OR - ||
+var o1 = true || true;    // t || t retorna true
+var o2 = false || true;   // f || t retorna true
+var o3 = true || false;   // t || f retorna true
+var o4 = false || 3 == 4; // f || f retorna false
+var o5 = "Gato" || "Cão"; // t || t retorna Gato
+var o6 = false || "Gato"; // f || t retorna Gato
+var o7 = "Gato" || false; // t || f retorna Gato
+
+// NOT - !
+var n1 = !true; // !t retorna false
+var n2 = !false; // !f retorna true
+var n3 = !"Gato"; // !t retorna false
+```
+
+Outro operador **relacional de comparação** é o **`in`**, que retorna verdadeiro se a propriedade especificada estiver em determinado objeto.
+```js
+valorPropriedade in nomeOjeto
+```
+Onde `valorPropriedade` pode ser uma string ou expressão numérica que representa um nome de propriedade ou um índice de array, e `nomeObjeto` é o nome de um objeto para a realização da verificação de seu conteúdo. Os exemplos a seguir mostram alguns usos deste operador:
+```js
+// Arrays
+var arvores = new Array(
+  "pau-brasil",
+  "loureiro",
+  "cedro",
+  "carvalho",
+  "sicômoro",
+);
+0 in arvores; // retorna verdadeiro
+3 in arvores; // retorna verdadeiro
+6 in arvores; // retorna falso
+"cedro" in arvores;  // retorna falso, deve ser SEMPRE ESPECIFICADO UM NÚMERO DE ÍNDICE, NÃO O VALOR CONTIDO NO ÍNDICE
+"length" in arvores; // retorna verdadeiro (length é uma propriedade de Array)
+
+// Objetos predefinidos
+"PI" in Math; // retorna verdadeiro
+var minhaString = new String("coral");
+"length" in minhaString; // retorna verdadeiro
+
+// Objetos personalizados
+var meucarro = { marca: "Honda", modelo: "Accord", ano: 1998 };
+"marca" in meucarro;  // retorna verdadeiro
+"modelo" in meucarro; // retorna verdadeiro
+```
+
+**Operadores bit a bit** tratam seus operandos como um conjunto de **`32 bits`**. Por exemplo, o número decimal 9 possui uma representação binária `1001`. **Operadores bit a bit realizam suas operações nestas representações, mas retornam valores numéricos padrões do JS.**
+
+Como expressões lógicas são avaliadas sempre da esquerda para a direita, elas são testadas como possíveis *avaliações de "curto-circuito"* utilizando as seguintes regras:
+- **`false &&`** _`qualquercoisa`_: é avaliado em curto-circuito como **`false`**.
+- **`true ||`** _`qualquercoisa`_: é avaliado em curto-circuito como **`true`**.
+
+As regras de lógica garantem que estas avaliações estejam sempre corretas. Repare que a variável *`qualquercoisa`* das expressões acima não é avaliada, de forma que qualquer efeito colateral de fazê-lo não produz efeito algum.
+
+Conceitualmente, os **operadores bit a bit lógicos** funcionam da seguinte maneira:<br/>
+Os operandos são convertidos em inteiros de 32 bits e expressos como uma série de bits. Números com representação maior que 32 bits terão seus bits truncados. Por exemplo, o seguinte inteiro tem representação binária maior que 32 bits será convertido em um inteiro de 32 bits.<br/>
+Cada bit do 1º operando é pareado com o bit correspondente do 2º operando: 1º bit com 1º bit, 2º bit com 2º bit e assim por diante. O operador é aplicado a cada par de bits e o resultado é construído bit a bit.
+```
+Antes: 11100110111110100000000000000110000000000001
+Depois:            10100000000000000110000000000001
+```
+As operações lógicas possíveis são:
+- **AND `&`**: `(bit == 1 & bit == 1) 1 <> (bit == 0 & bit == 1) 0` - Retorna `1` para cada posição em que os bits da posição correspondente de ambos operandos sejam `1`.
+- **OR `|`**: `(bit == 0 & bit == 1) 1 <> (bit == 0 & bit == 0) 0 `- Retorna `0` para cada posição em que os bits da posição correspondente de ambos operandos sejam `0`.
+- **XOR `^`**: `(bit == 1 & bit == 1) 0 <> (bit == 0 & bit == 1) 1` - Retorna `0` para cada posição em que os bits da posição correspondente são os mesmos, e, retorna `1` para cada posição em que os bits da posição correspondente sejam diferentes.
+- **NOT `~`**: `bit = 1010 ~ bit = 0101` - Inverte os bits do operando.
+
+Por exemplo, a representação binária de 9 é `1001` e a representação binária de 15 é `1111`. Desta forma, quando operadores bit a bit são aplicados a estes valores, os resultados são como se segue:
+
+| Expressão | Resultado | Descrição binária                                 |
+|-----------|-----------|---------------------------------------------------|
+| `15 & 9`  | `9`       | `1111 & 1001 = 1001`                              |
+| `15 \| 9` | `15`      | `1111 \| 1001 = 1111`                             |
+| `15 ^ 9`  | `6`       | `1111 ^ 1001 = 0110`                              |
+| `~15`     | `-16`     | `~ 0000 0000 … 0000 1111 = 1111 1111 … 1111 0000` |
+| `~9`      | `-10`     | `~ 0000 0000 … 0000 1001 = 1111 1111 … 1111 0110` |
+
+Os **operadores de deslocamento bit a bit** possuem 2 operandos: **o 1º é a quantidade a ser deslocada**, _e o 2º especifica o número de posições binárias as quais o primeiro operando deverá ser deslocado_. **A direção da operação de deslocamento é controlada pelo operador utilizado.**<br/>
+Operadores de deslocamento convertem seus operandos em inteiros de 32 bits e retornam um resultado do mesmo tipo do operando à esquerda.
+- **LEFT SHIFT `<<`**: **Desloca** `var` em representação binária `n` bits _à esquerda_, preenchendo com `0` _à direita_.
+- **RIGHT SHIFT `>>`**: **Desloca** `var` em representação binária `n` bits _à direita_, _descartando bits excedentes e preenchendo com `1` à esquerda_.
+- **RIGHT FILL SHIFT `>>>`**: **Desloca** `var` em representação binária `n` bits _à direita_, _descartando bits excedentes e preenchendo com `0` à esquerda_.
 <pre>
-- AND.........................................(&): (bit == 1 & bit == 1) 1 <> (bit == 0 & bit == 1) 0
-- OR..........................................(|): (bit == 0 & bit == 1) 1 <> (bit == 0 & bit == 0) 0
-- XOR.........................................(^): (bit == 1 & bit == 1) 0 <> (bit == 0 & bit == 1) 1
-- NOT.........................................(~):  bit = 1010 ~ bit = 0101
-- LEFT SHIFT 0...............................(<<):  bit(5) = 00000101 <<  3 : bit(40) = 00101000  -  bit(-5) = 11111011 <<  3 : bit(-40) = 11011000
-- RIGHT SHIFT 1..............................(>>):  bit(5) = 00000101 >>  3 : bit(0)  = 00000000  -  bit(-5) = 11111011 >>  3 : bit(-1)  = 11111111
-- RIGHT SHIFT 0.............................(>>>):  bit(5) = 00000101 >>> 3 : bit(0)  = 00000000  -  bit(-5) = 11111011 >>> 3 : bit(31)  = 00011111
+- LEFT SHIFT 0.....(<<):  bit(5) = 00000101 <<  3 : bit(40) = 00101000  -  bit(-5) = 11111011 <<  3 : bit(-40) = 11011000
+- RIGHT SHIFT 1....(>>):  bit(5) = 00000101 >>  3 : bit(0)  = 00000000  -  bit(-5) = 11111011 >>  3 : bit(-1)  = 11111111
+- RIGHT SHIFT 0...(>>>):  bit(5) = 00000101 >>> 3 : bit(0)  = 00000000  -  bit(-5) = 11111011 >>> 3 : bit(31)  = 00011111
 </pre>
+
+Operadores bitwise são especialmente úteis para lidar com números sem a necessidade de muitas variáveis e códigos complexos, este é um exemplo de troca de valores entre 2 variáveis sem criar uma 3ª:
+```js
+let a = 5;  // 101 em binário
+let b = 3;  // 011 em binário
+
+a = a ^ b;  // a agora é 6 (110)
+b = a ^ b;  // b agora é 5 (101) → valor original de a
+a = a ^ b;  // a agora é 3 (011) → valor original de b
+
+console.log(a, b); // 3, 5
+```
+
+O **operador condicional ternário** é o único operador que utiliza 3 operandos, podendo ter 1 de 2 valores baseados no resultado da condição:
+```js
+condicao ? valor1 : valor2;
+```
+
+Se `condicao` for verdadeira, o operador terá o valor de `valor1`. Caso contrário, terá o valor de `valor2`. É possível utilizar o operador condicional em qualquer lugar onde utilizaria um operador padrão. Por exemplo:<br/>
+
+**atribuição de variável**
+```js
+var status = idade >= 18 ? "adulto" : "menor de idade";
+```
+
+**condições combinadas**
+```js
+let permissao = idade >= 18 && "Pode entrar."; // Retorna "Pode entrar." ou false
+console.log(permissao);
+
+let nome = username || "anônimo"; // Se username for `null` ou `""`, usa "anônimo"
+console.log(nome);
+```
+
+**condicional simples**
+```js
+let isAdmin = true;
+let mensagem = "Usuário " + (isAdmin ? "Admin" : "Comum");
+console.log(mensagem); // Usuário Admin
+```
+
+**aninhado**
+```js
+let nota = 75;
+let situacao = nota >= 90 ? "Aprovado com louvor" :
+               nota >= 60 ? "Aprovado" : "Reprovado";
+
+console.log(situacao); // "Aprovado"
+```
+
+**chamada de função condicional**
+```js
+let num = 10;
+let resultado = num % 2 === 0 ? par() : impar();
+
+function par() {
+  return "Número par.";
+}
+
+function impar() {
+  return "Número ímpar.";
+}
+
+console.log(resultado); // "Número par."
+```
+
+**retorno em função**
+```js
+function podeDirigir(idade) {
+  return idade >= 18 ? "Pode dirigir." : "Não pode dirigir.";
+}
+
+console.log(podeDirigir(16)); // "Não pode dirigir."
+console.log(podeDirigir(20)); // "Pode dirigir."
+```
+
+**execução curta de código**
+```js
+true ? console.log("Executado!") : null; // "Executado!"
+false ? console.log("Não será executado.") : null;
+// ou ainda:
+let isLogged = "Logged"; // == let isLogged = true;
+isLogged ? console.log("Bem-vindo!") : console.warn("Acesso negado."); // Bem-vindo!
+```
+
+**O **operador vírgula** simplesmente avalia ambos de seus operandos e _retorna o valor do 2º_.** Este operador é utilizado primariamente dentro de um laço `for` para permitir que multiplas variáveis sejam atualizadas cada vez através do laço.<br/>
+Por exemplo, se `a` é uma matri bidimensional com 10 elementos em um lado, o código a seguir utiliza o operador vírgula para incrementar 2 variáveis de uma só vez (ao invés de realizar um _`for` aninhado_):
+```js
+let a = [
+    ["\\", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "\\", "-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "\\", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "\\", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "x", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "\\", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "\\", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "\\", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-", "\\", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-", "-", "\\"],
+]
+let space = "";
+
+for (var i = 0, j = 0; i <= 9; i++, j++)
+  //console.log("a[" + i + "][" + j + "]= " + a[i][j]);
+  console.log(`${space+=" "} ${a[i][j]}`)
+/*
+  \
+   \
+    \
+     \
+      x
+       \
+        \
+         \
+          \
+
+  l  c
+a[0][0]= \
+a[1][1]= \
+a[2][2]= \
+a[3][3]= \
+a[4][4]= x
+a[5][5]= \
+a[6][6]= \
+a[7][7]= \
+a[8][8]= \
+a[9][9]= \
+*/
+```
+
+#### DELETE
+Apaga um _objeto_, uma _propriedade de um objeto_, um _elemento no índice especificado de uma matriz_ e variáveis declaradas **implicitamente**. Quando utilizado para apagar um elemento de um `array`, **seu tamanho não é afetado**, pois não apaga a posição e sim o valor do conteúdo, por exemplo, se `a[0]` for `deleted`, o valor de `a[1]` ainda estará na posição `a[1]`, enquanto `a[0]` passa a ser `undefined`.
+```js
+delete nomeObjeto;
+delete nomeObjeto.propriedade;
+delete nomeObjeto[indice];
+delete propriedade; /* válido apenas dentro de uma declaração with - porém, este método foi descontinuado
+mas segue exemplo a título de conhecimento: */
+let obj = { a: 1, b: 2, c: 3 };
+
+with (obj) {
+  delete a;  // Deleta a propriedade 'a' de obj
+  console.log(b); // Acessa 'b' diretamente sem precisar de 'obj.b'
+}
+
+console.log(obj); /*
+2 (valor em b)
+{ b: 2, c: 3 } (a foi deletado) */
+
+// outros exemplos
+x = 42;
+var y = 43;
+let z = 44;
+console.log(`${delete x}`); // retorna true (pode apagar se declarado implicitamente)
+console.log(`${delete y}`); // retorna false (não pode apagar se declarado com explicitamente)
+console.log(`${delete z}`); // retorna false (não pode apagar se declarado com explicitamente)
+
+let obj = new Number();              // criando um objeto explícito
+meuobj = new Number();               // criando um objeto implícito
+meuobj.one = 1;                      // cria a propriedade `one`
+console.log(`${delete meuobj.one}`); // retorna true (pode apagar propriedades definidas pelo usuário)
+console.log(`${delete meuobj}`);     // retorna true (pode apagar se declarado implicitamente)
+console.log(`${delete obj}`);        // retorna false (não pode apagar se declarado explicitamente)
+
+console.log(`${delete Math.PI}`); // retorna false (não pode apagar propriedades predefinidas)
+
+// exemplo com array
+var arvores = new Array(
+  "pau-brasil",
+  "loureiro",
+  "cedro",
+  "carvalho",
+  "sicômoro",
+);
+delete arvores[0];
+!(0 in arvores) && console.log(`${arvores} | Index: ${arvores.length}`); // "undefined",loureiro,cedro,carvalho,sicômoro | Index: 5
+console.log(arvores); // [ <1 empty item>, 'loureiro', 'cedro', 'carvalho', 'sicômoro' ]
+/* entretanto este método é desencorajado
+caso haja a necessidade de que o índice do array se mantenha mas tenha um valor indefinido
+basta atribuir `undefined` ao invés de utilizar o operador `delete` neste caso: */
+
+var arvores = new Array(
+  "pau-brasil",
+  "loureiro",
+  "cedro",
+  "carvalho",
+  "sicômoro",
+);
+
+arvores[3] = undefined;
+3 in arvores && console.log(`${arvores} | Index: ${arvores.length}`); // pau-brasil,loureiro,cedro,"undefined",sicômoro | Index: 5
+console.log(arvores) // [ 'pau-brasil', 'loureiro', 'cedro', undefined, 'sicômoro' ]
+```
+
+#### VOID
+Especifica que uma expressão deve ser avaliada **sem retorno** de valor, ou seja, executa uma expressão e sempre retorna **`undefined`**, independentemente do valor da expressão. Em contexto mais antigos, utilizar apenas `undefined` podia ser sobrescrito, porém, `void 0` **sempre** retorna `undefined` e não pode ser manipulado.
+```js
+void expressao
+// ou
+void (expressao)
+```
+
+Por exemplo:
+```js
+let x = 10;
+console.log(void x); // undefined (x é avaliado, mas valor é descartado)
+
+console.log(typeof void 42); // 'undefined'
+```
+
+Ele avalia a expressão informada, mas descarta o valor de retorno, sempre retornando `undefined`.
+```js
+void 0         // retorna undefined
+void (1 + 2)   // avalia 1 + 2 (resultado: 3), mas retorna `undefined`
+```
+
+Muito usado para redirecionamento de links:
+```html
+<!-- no exemplo abaixo, impede que o navegador tente navegar para algum endereço ou recarregue a página. -->
+<a href="javascript:void(0)">nada acontece</a>
+
+<!-- o código a seguir cria um link de hipertexto que submete um formulário quando clicado -->
+<a href="javascript:void(document.form.submit())">enviar</a>
+```
+
+Também quando é necessário executar expressões mas sem utilizar espaço de memória com valores retornados desnecessários.
+```js
+let resultado = void funcaoImportante();
+console.log(resultado); // undefined, mesmo que a função tenha retorno
+
+void console.log("Isso será executado, mas sempre retorna undefined!");
+
+// criação e execução de funções
+function logMessage() {
+  console.log("Mensagem importante!");
+  return "Esse retorno será ignorado";
+}
+let resultado = void logMessage();
+console.log(resultado); // undefined
+
+// ou
+function semRetorno() {
+  return void "Isso não será retornado";
+}
+console.log(semRetorno()); // undefined
+```
+
+Ou para criar valores constantes que explicitamente não devem armazenar valores válidos:
+```js
+const SEM_VALOR = void 0;
+console.log(SEM_VALOR); // undefined
+```
+
+Outro uso para ele pelo navegador é a sua utilização para criar *bookmarklets*, executando pequenos scripts que podem ser salvos como favoritos e executados diretamente no navegador. O código a seguir pode ser colado no campo URL e salvo como favorito, e, ao ser clicado é executado, sem o `void` o browser pode tentar navegar para a string retornada pela expressão, quebrando o script:
+```js
+javascript:void(document.body.style.backgroundColor="lightblue");
+```
+
+E por fim, utilizado na criação de funções auto executáveis de forma segura nas chamadas **IIFE - Immediately Invoked Function Expressions**, garantindo que não retornem nada durante o carregamento de algum script da página enquanto loading por exemplo. Sem `void`, a função poderia retornar um valor que acidentalmente poderia ser usado:
+```js
+void (function() {
+  console.log("Isso é executado automaticamente!");
+})();
+```
+
+#### `instanceof`
+Retorna verdadeiro se o objeto especificado for do tipo de determinado objeto. A sintaxe é:
+```js
+nomeObjeto instanceof tipoObjeto;
+```
+Onde `nomeObjeto` é o nome do objeto a ser comparado com `tipoObjeto`, e `tipoObjeto` é um tipo de objeto como `Date` ou `Array`.<br/>
+Utilizado quando é necessário confirmar o tipo de um objeto em tempo de execução. Por exemplo, ao capturar exceções pode-se desviar o código de manipulação de exceção diferente dependendo do tipo de exceção lançada.<br/>
+Por exemplo, o código a seguir utiliza o `instanceof` para determinar se `dia` é um objeto `Date`. Como `dia` é um objeto `Date`, as declarações do `if` são executadas.
+```js
+var dia = new Date(1995, 12, 17);
+if (dia instanceof Date) {
+  // declarações a serem executadas
+}
+```
+
+#### PRECEDÊNCIA DE OPERADORES
+A precedência de operadores determina a ordem em que eles são aplicados quando uma expressão é avaliada. Você pode substituir a precedência dos operadores utilizando parênteses.
+
+A tabela a seguir descreve a precedência de operadores, da mais alta para a mais baixa.
+| Tipo de operador                 | Operadores individuais                   |
+|----------------------------------|------------------------------------------|
+| membro                           | `. []`                                   |
+| chamada / criação de instância   | `() new`                                 |
+| negação / incremento             | `! ~ - + ++ -- typeof void delete`       |
+| multiplicação / divisão / módulo | `* / %`                                  |
+| adição / subtração               | `+ -`                                    |
+| deslocamento bit a bit           | `<< >> >>>`                              |
+| relacional                       | `< <= > >= in instanceof`                |
+| igualdade                        | `== != === !==`                          |
+| E bit a bit                      | `&`                                      |
+| OU exclusivo bit a bit           | `^`                                      |
+| OU bit a bit                     | `\|`                                     |
+| E lógico                         | `&&`                                     |
+| OU lógico                        | `\|\|`                                   |
+| condicional                      | `?:`                                     |
+| atribuição                       | `= += -= *= /= %= <<= >>= >>>= &= ^= \|=`|
+| vírgula                          | `,`                                      |
 
 #### ESTRUTURAS DE CONTROLE
  São parte fundamental de qualquer linguagem, sem elas, as intruções de um programa só poderiam ser executadas na ordem em que são escritas, ou seja, só seriam excutadas *sequencialmente*. As estruturas de controle permitem que esta ordem seja modificada. Existem 2 categorias deste tipo de estrutura, onde nelas veremos quais são seus métodos de execução.<br/>
@@ -1647,7 +2089,6 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
    // usa data
  }
  ```
-
 
  2. **`if-else`**<br/>
  **Verifica 1 condição, porém se for satisfeita executa instruções específicas, e caso não satisfeita executa outras instruções, ao final retorna ao fluxo normal de execução do código.**
@@ -1960,7 +2401,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  }
 
  // e a chamamos em outro ponto do código
- userStatus == "on" ? saudacao("Raphael") : continue;
+ userStatus == "on" ? saudacao("Raphael") : null;
  ```
 
 ###### TIPOS DE FUNÇÕES

@@ -747,17 +747,19 @@ graph TD
 Os operadores **aritméticos** são aqueles utilizados para realização de operações aritméticas básicas, são agrupados na classe de **operadores binários**, onde é necessário a existência de mais de 1 valor para a operação resultando em um outro novo valor que, se não armazenado em uma nova variável não poderá ser reutilizado, apenas quandoa a operação ocorrer novamente.<br/>
 Operadores de **incremento e decremento** são maneiras facilitadas de execução repetidida de valores, se enquadram na classe de operadores **unários**, onde é a própria variável que terá atribuído o resultado da operação com seu valor inicial e um novo valor. Entretanto, é importante salientar que não podem ser aplicados diretamente à um número (diferente dos operadores aritméticos que podem ser usados diretamente com números e variáveis), pois, o valor atualizado é atribuído à variável e não ao valor em si, ou seja, está sendo atribuído à variável um valor atualizado e não operando no próprio valor.
 <pre>
-OPERADORES UNÁRIOS                                                          OPERADORES BINÁRIOS
-- atribuição....................(=): a = b                                  - atribuição.........(=): a = b
-- positivo......................(+): +a                                     - atribuição.........(=): a = b
-- negativo......................(-): -a                                     - adição.............(+): a + b
-- incremento...................(++): ++a | a++  (a + 1)                     - subtração..........(-): a - b
-- decremento...................(--): --a | a--  (a - 1)                     - divisão............(/): a / b
-- adição e atribuição..........(+=): a += 5     (a = a + 5)                 - multiplicação......(*): a * b
-- subtração e atribuição.......(-=): a -= 5     (a = a - 5)                 - módulo.............(%): a % b
-- multiplicação e atribuição...(*=): a *= 5     (a = a * 5)                 - potenciação...(^ | **): a ^ b | a ** b 
-- divisão e atribuição.........(/=): a /= 2     (a = a / 2)
-- módulo e atribuição..........(%=): a %= 2     (a = a % 2)
+OPERADORES UNÁRIOS                                      OPERADORES BINÁRIOS
+- positivo......................(+): +a                 - atribuição......(=): a = b
+- negativo......................(-): -a                 - adição..........(+): a + b
+- incremento...................(++): ++a | a++ (a + 1)  - subtração.......(-): a - b
+- decremento...................(--): --a | a-- (a - 1)  - divisão.........(/): a / b
+                                                        - multiplicação...(*): a * b
+                                                        - módulo..........(%): a % b
+                                                        - potenciação....(**): a ** b
+                                                        - adição e atribuição..........(+=): a += 5 (a = a + 5)
+                                                        - subtração e atribuição.......(-=): a -= 5 (a = a - 5)
+                                                        - multiplicação e atribuição...(*=): a *= 5 (a = a * 5)
+                                                        - divisão e atribuição.........(/=): a /= 2 (a = a / 2)
+                                                        - módulo e atribuição..........(%=): a %= 2 (a = a % 2)
 </pre>
 Exemplo: π * r² = area
 

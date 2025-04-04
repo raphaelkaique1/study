@@ -10,6 +10,13 @@ for(let x = 0; x < vetor.length; x++) {
             vetor[y] = z; print(vetor[x], vetor[y], z);
 
             console.log(`vetor: ${vetor}`);
+
+            // alt bitwise
+            /*
+            vetor[x] = vetor[x] ^ vetor[y]
+            vetor[y] = vetor[x] ^ vetor[y]
+            vetor[x] = vetor[x] ^ vetor[y]
+            */
         }
     }
 }
