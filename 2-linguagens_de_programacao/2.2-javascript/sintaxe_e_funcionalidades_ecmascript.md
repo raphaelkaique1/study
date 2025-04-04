@@ -596,7 +596,7 @@ console.log(`${alphabetArray}: ${typeof alphabetArray} | ${alphabetString}: ${ty
 ```
 
 - **`replace()`**<br/>
-Permite substituir um texto por outro em qualquer parte da `string`, e é *case sensitive*.
+Permite substituir a primeira ocorrência de um texto por outro em qualquer parte da `string`, e é *case sensitive*. Se usado com regex global `/g` substitui todas as ocorrências.
 ```js
 var texto = "Hello, World!";
 console.log(texto.replace(", World", "life")); // "Hello life!"
@@ -604,6 +604,22 @@ console.log(texto.replace(", World", "life")); // "Hello life!"
 console.log(texto); // "Hello, World!"
 var TEXTO = texto.replace(", World", "life");
 console.log(`texto: ${texto} | TEXTO: ${TEXTO}`) // "Hello, World!" | "Hello life!"
+
+texto = "banana maçã banana";
+TEXTO = texto.replace("banana", "abacaxi");
+console.log(TEXTO); // "abacaxi maçã banana"
+
+// regex global
+texto = "banana maçã banana";
+TEXTO = texto.replace(/banana/g, "abacaxi");
+console.log(TEXTO); // "abacaxi maçã banana"
+```
+
+- **`replaceAll()`**<br/>
+Permite substituir todas as ocorrências de um texto por outro em qualquer parte da `string`, e é *case sensitive*.
+```js
+let texto = "banana maçã banana";
+console.log(texto.replaceAll("banana", "abacaxi")); // Saída: "abacaxi maçã abacaxi"
 ```
 
 - **`trim()`**<br/>
