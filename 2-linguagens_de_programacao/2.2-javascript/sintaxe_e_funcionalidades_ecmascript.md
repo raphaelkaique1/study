@@ -874,19 +874,19 @@ console.log(resultado); // Saída: ["10", "20"]
  - **`constructor`**<br/>
  Além da declaração literal direta de um objeto, existem outras formas de criarmos um objeto, como por exemplo **`new Object`**:
  ```js
- const livro = new Object();
+ let livro = new Object();
  livro.titulo = "Dom Casmurro";
  livro.autor = "Machado de Assis";
 
  /* o elemento `Object()` é uma função tipo `constructor`,
  que coleta os atributos passados como valor
  e a propriedade após o `.` como chave
- 
+
  enquanto o elemento `new` realiza o mesmo que:
- const livro = {
-   tiutlo: "Dom Casmurro",
-   autor: "Machado de Assis"
-   }; */
+
+ let livro = {};
+ livro.titulo = "Dom Casmurro";
+ livro.autor = "Machado de Assis"; */
  ```
 
  - **`direct prototypic inheritance`**<br>
@@ -1019,12 +1019,11 @@ console.log(resultado); // Saída: ["10", "20"]
  ```
 
 ###### `this`
- Trata-se de uma referência ao objeto que está executando o código no momento, dessa forma, quando um objeto ou classe quer se referir a si mesmo, ele usa **`this`**. Este método atribui dentro de um objeto ou uma classe, uma variável que recebe um parâmetro, que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro externo. Ele se refere ao contexto de execução atual. Seu comportamento pode mudar dependendo de onde e como é usado. Se não precisarmos de privacidade ou quisermos manter as propriedades acessíveis ao programa, usar **`this` é a melhor opção**.
+ Trata-se de uma referência ao objeto que está executando o código no momento, geralmente ao objeto chamado em um método, dessa forma, quando um objeto ou classe quer se referir a si mesmo, ele usa **`this`**. Este método atribui dentro de um objeto ou uma classe, uma variável que recebe um parâmetro, que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro externo. Ele se refere ao contexto de execução atual. Seu comportamento pode mudar dependendo de onde e como é usado. Se não precisarmos de privacidade ou quisermos manter as propriedades acessíveis ao programa, usar **`this` é a melhor opção**.
 
  - **`this` em Objetos Literais**<br/>
  Em um **objeto literal**, `this` *se refere ao próprio objeto*.<br/>
  **Aqui, `this` se refere ao objeto `pessoa`**:
-
  ```js
  const pessoa = {
    nome: "Rael",
@@ -1039,7 +1038,6 @@ console.log(resultado); // Saída: ["10", "20"]
  - **`this` em Funções Construtoras**<br/>
  Em uma **função construtora**, `this` *representa a nova instância criada*.<br/>
  **Aqui, `this` se refere ao objeto criado com `new Pessoa()`**:
-
  ```js
  function Pessoa(nome) {
    this.nome = nome;
@@ -1055,7 +1053,6 @@ console.log(resultado); // Saída: ["10", "20"]
  - **`this` em Classes (`class`)**<br/>
  Em **classes**, `this` *funciona da mesma forma que em funções construtoras*.<br/>
  **Aqui, `this` representa cada instância da classe `Carro`**:
-
  ```js
  class Carro {
    constructor(marca, modelo) {
@@ -1128,6 +1125,19 @@ console.log(resultado); // Saída: ["10", "20"]
  };
 
  obj.dizerNome(); // "Lucas"
+ ```
+
+ - **`this parameter`**<br/>
+ Suponhamos uma função chamada `valide`, que valida a propriedade `value` de um objeto, dado o objeto e os valores `maximo` e `minimo`:
+ ```js
+ function valide(obj, minimo, maximo) {
+   (obj.valor < minimo || obj.valor > maximo) && alert("Valor inválido!");
+ }
+ ```
+ É possível chamar `valide` em cada manipulador de evento `onChange` de um formulário utilizando `this` para passar o elemento do formulário à função:
+ ```html
+ <label for="idade">Informe um número entre 18 e 99:</label>
+ <input type="number" name="idade" size="2" onChange="valide(this, 18, 99);"/>
  ```
 
  **ALTERNATIVAS AO `this`**<br/>
@@ -1253,6 +1263,56 @@ console.log(resultado); // Saída: ["10", "20"]
  p.saudacaoPrivada(); // ❌ Erro: não existe fora do construtor
  ```
 
+###### `super`
+Utilizado para acessar o *objeto pai* de um objeto, em outros casos, é usado para acessar a classe pai de uma classe. Quando usada no **construtor** de uma classe, deve ser somente utilizado **uma única vez, e precisa ser declarado antes da palavra-chave `this`**. Um exemplo de uso que chama uma função e um objeto pai:
+```js
+// chama o objeto (ou construtor) pai
+super(...[arguments]);
+// chama um método da classe/objeto pai
+super.metodo([arguments]);
+```
+
+- **`class`**<br/>
+Aqui `super()` é chamado para evitar duplicar a parte do construtor que é comum entre `Polygon` e `Square`.
+```js
+class Polygon {
+  constructor(height, width) {
+    this.name = "Polygon";
+    this.height = height;
+    this.width = width;
+  }
+  sayName() {
+    console.log(`Hi, I am a ${this.name}.`);
+  }
+}
+
+class Square extends Polygon {
+  constructor(length) {
+    //this.height;  ReferenceError, precisa chamar o super primeiro!
+    //this.width;   ReferenceError, precisa chamar o super primeiro!
+
+    // aqui ele chama a classe construtora pai com o tamanho
+    // provido pelo Polygon -> width e height
+    super(length, length);
+
+    // Nota: Em classes derivadas, super() deve ser chamado antes de `this`
+    // Deixar isso de fora vai causar um ReferenceError.
+    this.name = "Square";
+  }
+
+  get area() {
+    return this.height * this.width;
+  }
+
+  set area(value) {
+    this.area = value;
+  }
+}
+
+let square = new Square(3);
+console.log(square.area) // 9
+```
+
 ##### `arrays`
  Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. *A posição dos elementos começa sempre a partir de um índice 0.* Por padrão são *estruturas dinâmicas*, ou seja, seu tamanho pode ser alterado após a criação, no entanto, também veremos maneiras de criar `arrays` de *tamanho fixo*.
  
@@ -1376,6 +1436,45 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
  ```
 
+### EXPRESSÕES
+Uma expressão consiste em qualquer unidade válida de código que é resolvida como um valor. Conceitualmente, existem 2 tipos de expressões, aquelas que **atribuem** um valor a uma variável e aquelas que simplesmente **possuem** um valor.<br/>
+A expressão `x = 0` é um exemplo de uma atribuição, esta expressão utiliza o operador `=` para atribuir o valor `0` à variável `x`. A expressão em si é avaliada como `0`.<br/>
+Já `5 + 9` é um exemplo do segunto tipo de expressão, esta expressão utiliza o operador `+`para somar `5` e `9` sem atribuir o resultado a uma variável. O JavaScript possui as seguintes categorias de expressão:
+- **Atribuição**: atribuição de valores.
+  - **`=`**
+- **Aritmética**: é avaliada como um número, por exemplo 3.14.
+  - **`+`** (manutenção de sinal positivo / adição)
+  - **`-`** (manutenção de sinal negativo / subtração)
+  - **`/`**
+  - **`*`**
+  - **`**`**
+  - **`%`**
+  - *podem ser usadas em conjunto com expressões de atribuição*
+    - **`++`**
+    - **`--`**
+    - **`+=`**
+    - **`-=`**
+    - **`*=`**
+    - **`**=`**
+    - **`/=`**
+    - **`%=`**
+- **String**: é avaliada como uma string de caracteres, por exemplo, "Raphael" ou "1359".
+  - **`''`**
+  - **`""`**
+- **Lógica**: é avaliada como `true` ou `false`.
+  - **`>`**
+  - **`>=`**
+  - **`<`**
+  - **`<=`**
+  - **`==`**
+  - **`===`**
+  - **`!=`**
+  - **`!==`**
+- **Primárias**: palavras reservadas e expressões gerais.
+  - **`new`**
+  - **`this`**
+  - **`super`**
+
 ### OPERAÇÕES
  Os comandos, instruções e variáveis não serviriam de nada se não fosse possível manipular os dados recebidos, e, para transformá-los em informação útil, usamos os `operadores`. Eles permitem que os programas realizem cálculos complexos e tomem decisões lógicas com base em comparações e outros tipos de condições. São eles:
  - **unários**: Operam sobre **1 único parâmetro, alterando seu próprio valor**.
@@ -1404,6 +1503,7 @@ OPERADORES UNÁRIOS                                      OPERADORES BINÁRIOS
                                                         - adição e atribuição..........(+=): a += 5 (a = a + 5)
                                                         - subtração e atribuição.......(-=): a -= 5 (a = a - 5)
                                                         - multiplicação e atribuição...(*=): a *= 5 (a = a * 5)
+                                                        - potenciação e atribuição....(**=): a **= 5 (a = a ** 5)
                                                         - divisão e atribuição.........(/=): a /= 2 (a = a / 2)
                                                         - módulo e atribuição..........(%=): a %= 2 (a = a % 2)
 </pre>
@@ -1731,7 +1831,7 @@ var arvores = new Array(
 );
 
 arvores[3] = undefined;
-3 in arvores && console.log(`${arvores} | Index: ${arvores.length}`); // pau-brasil,loureiro,cedro,"undefined",sicômoro | Index: 5
+(3 in arvores) && console.log(`${arvores} | Index: ${arvores.length}`); // pau-brasil,loureiro,cedro,"undefined",sicômoro | Index: 5
 console.log(arvores) // [ 'pau-brasil', 'loureiro', 'cedro', undefined, 'sicômoro' ]
 ```
 
@@ -2740,6 +2840,8 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  corolla.exibirKm();        // km total: 0 km
 ```
 
+### ENCAPSULATION, INHERITANCE, ABSTRACTION & POLYMORPHISM
+
  Para criarmos uma classe que herda atributos e métodos de uma classe "mãe", usamos **`extends`** para referenciar a qual classe queremos e no método `constructor` usamos **`super()`** que chama o construtor da classe pai inicializando os atributos herdados da classe antes de adicionar novos atributos ou modificar comportamentos, fazendo assim uma classe moldada a partir de outra classe que pode incluir outros atributos e métodos sem modificar a classe original.
  ```js
  class Truck extends Car {
@@ -2779,7 +2881,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
   }
 
   ligar(){
-    console.log(`${this.modelo} ${this.cor} ${this.ano} está ligado, combustível: DIESEL.`); /*/* sobrescrevendo o método herdado
+    console.log(`${this.modelo} ${this.cor} ${this.ano} está ligado, combustível: DIESEL.`); /* sobrescrevendo o método herdado
     apenas os objetos instanciados na classe filha sofrerão a alteração */
   }
  }
@@ -2805,6 +2907,65 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  console.log(calc.soma(2, 3)); // 5
  console.log(calc.soma(2, 3, 4)); // 9
  ```
+
+ #### APLICANDO OS CONCEITOS
+ Voltando ao exemplo da classe de Poligonos, vejamos a aplicação dos conceitos de OOP:
+```js
+class Polygon {
+  constructor(height, width) {
+    this.name = "Polygon";
+    this.height = height;
+    this.width = width;
+  }
+  sayName() {
+    console.log(`Hi, I am a ${this.name}.`);
+  }
+}
+
+class Square extends Polygon {
+  constructor(length) {
+    super(length, length); // herança
+    this.name = "Square";  // sobrescrita
+  }
+
+  // encapsulamento
+  get area() {
+    return this.height * this.width;
+  }
+
+  // abstração
+  set area(value) {
+    this.area = value;
+  }
+}
+
+class Rectangle extends Polygon {
+  constructor(Height, Width) {
+    super(Height, Width);
+    this.name = "Rectangle";
+  }
+
+  get area() {
+    return this.height * this.width;
+  }
+
+  set area(value) {
+    this.area = value;
+  }
+}
+
+let square = new Square(3);
+console.log(square.area); // 9
+
+let rectangle = new Rectangle(3, 5);
+console.log(rectangle.area); // 15
+```
+
+Vejamos como são trabalhados os objetos em OOP:
+ - **`get`**<br/>
+ Define um **acessador**. Permite **acessar uma propriedade como se fosse um atributo**, *mas na verdade ele executa uma função*.
+ - **`set`**<br/>
+ Define um **mutador**. Permite **atribuir um valor à propriedade como se estivesse setando um atributo**, *mas na verdade executa uma função com argumento*.
 
 ## EDP
  O paradigma mais usado em desenvolvimento de páginas web é o **Event-Driven Programming**. É o paradgima de programação onde o fluxo do programa é determinado por eventos e ações do usuário como cliques, pressionamento de teclas, mensagens do sistema, sensores ou até respostas de rede. Funciona da seguinte maneira:
