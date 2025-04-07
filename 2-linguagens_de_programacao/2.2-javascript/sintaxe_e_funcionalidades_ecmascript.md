@@ -862,6 +862,16 @@ console.log(resultado); // Saída: ["10", "20"]
 ##### `objects`
  Como vimos em JSON, um objeto é uma estrutura semelhante que permite armazenar dados na forma de pares de chave e valor `{key: value}`. Porém, diferentemente do JSON – que apenas armazena dados, um objeto também pode armazenar funções. É um dos principais tipos de dados e é muito usado para representar entidades do mundo real.
 
+ Em JavaScript, objetos podem herdar propriedades e métodos de outros objetos. O `Object.prototype` é o protótipo de todos os objetos, o que significa que propriedades e métodos definidos nele estão disponíveis para todos os objetos que dele herdam. Por exemplo, métodos como `toString()` e `valueOf()` são herdados de `Object.prototype`.
+
+ - Objetos em JavaScript são tipos de referência. Isso significa que *2 variáveis podem referenciar o mesmo objeto, e alterações em uma afetarão a outra*.
+ ```js
+ let obj1 = { a: 1 };
+ let obj2 = obj1;
+ obj2.a = 2;
+ console.log(obj1.a); // 2
+ ```
+
  - **`literal object`**<br/>
  Para **criarmos um objeto**, *declaramos uma variável `let`, `var` ou o mais comumente usado, o `const`*, e *atribuímos `=` a uma *estrutura de chaves `{}`*, onde irá conter *cada par de chave e valor*, com os *valores atribuídos às chaves usando `:`*. Vejamos:
  ```js
@@ -886,7 +896,15 @@ console.log(resultado); // Saída: ["10", "20"]
 
  let livro = {};
  livro.titulo = "Dom Casmurro";
- livro.autor = "Machado de Assis"; */
+ livro.autor = "Machado de Assis";
+
+ ou
+
+ let livro = {
+ titulo: "Dom Casmurro";
+ autor: "Machado de Assis";
+ }
+ */
  ```
 
  - **`direct prototypic inheritance`**<br>
@@ -1017,6 +1035,48 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log(Pessoa.profissao); // "software developer"
  Pessoa.saudacao(); // Olá! Me chamo Raphael e trabalho como software developer.
  ```
+
+###### COMMONS
+**Propriedades**<br/>
+O `Object` possui vários métodos e propriedades úteis, alguns são:
+
+- **`Object.keys(obj)`**: Retorna um array com os nomes das propriedades enumeráveis de `Object`.
+```js
+let pessoa = { nome: "Raphael", idade: 30 };
+console.log(Object.keys(pessoa)); // ["nome", "idade"]
+```
+
+- **`Object.values(obj)`**: Retorna um array com os valores das propriedades enumeráveis de `Object`.
+```js
+console.log(Object.values(pessoa)); // ["Raphael", 30]
+```
+
+- **`Object.entries(obj)`**: Retorna um array de arrays contendo pares `[chave, valor]` das propriedades enumeráveis de `Object`.
+```js
+console.log(Object.entries(pessoa)); // [["nome", "Raphael"], ["idade", 30]]
+```
+
+- **`Object.assign(destino, ...fontes)`**: Copia as propriedades enumeráveis de um ou mais objetos de origem para um objeto de destino.
+```js
+let detalhes = { altura: 1.75 };
+let pessoaCompleta = Object.assign({}, pessoa, detalhes);
+console.log(pessoaCompleta); // { nome: "Raphael", idade: 30, altura: 1.75 }
+```
+
+- **`Object.hasOwn(obj, prop)`**: Verifica se o objeto `obj` possui a propriedade `prop` como sua própria (não herdada).
+```js
+console.log(Object.hasOwn(pessoa, "nome")); // true
+console.log(Object.hasOwn(pessoa, "toString")); // false
+
+// Ao iterar sobre as propriedades de um objeto, é importante verificar se a propriedade pertence ao próprio objeto ou foi herdada.
+for (let prop in pessoa) {
+  if (Object.hasOwn(pessoa, prop)) {
+    console.log(`${prop}: ${pessoa[prop]}`);
+  }
+}
+```
+
+- **`Object.length`**:
 
 ###### `this`
  Trata-se de uma referência ao objeto que está executando o código no momento, geralmente ao objeto chamado em um método, dessa forma, quando um objeto ou classe quer se referir a si mesmo, ele usa **`this`**. Este método atribui dentro de um objeto ou uma classe, uma variável que recebe um parâmetro, que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro externo. Ele se refere ao contexto de execução atual. Seu comportamento pode mudar dependendo de onde e como é usado. Se não precisarmos de privacidade ou quisermos manter as propriedades acessíveis ao programa, usar **`this` é a melhor opção**.
@@ -1305,7 +1365,7 @@ class Square extends Polygon {
   }
 
   set area(value) {
-    this.area = value;
+    this.Area = value;
   }
 }
 
@@ -2479,6 +2539,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  console.log(Matematica.somar(5, 14));
  ```
 
+#### TIPOS DE FUNÇÕES
  As funções são definidas como um conjunto de instruções prontas para serem chamadas a qualquer momento e só serão executadas quando chamadas, seu objetivo é, portanto, a reutilização de código.<br/>
  Usamos basicamente, 2 tipos de funções:
  - **funções pré-definidas**: São como *ferramentas prontas* que o JS fornece, executam ações generalistas.
@@ -2841,7 +2902,6 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 ```
 
 ### ENCAPSULATION, INHERITANCE, ABSTRACTION & POLYMORPHISM
-
  Para criarmos uma classe que herda atributos e métodos de uma classe "mãe", usamos **`extends`** para referenciar a qual classe queremos e no método `constructor` usamos **`super()`** que chama o construtor da classe pai inicializando os atributos herdados da classe antes de adicionar novos atributos ou modificar comportamentos, fazendo assim uma classe moldada a partir de outra classe que pode incluir outros atributos e métodos sem modificar a classe original.
  ```js
  class Truck extends Car {
@@ -2863,6 +2923,81 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  saída: O Sprinter 2025 suporta até 5000 kg. */
  sprinter.exibirKm(); /* método privado herdado
  saída: km total: 1500 km */
+ ```
+
+ **OBSERVAÇÕES**<br/>
+ 1. Também é possível chamar *métodos estáticos* com o `super`:
+ ```js
+ class Human {
+   constructor() {}
+   static ping() {
+     return "ping";
+   }
+ }
+
+ class Computer extends Human {
+   constructor() {}
+   static pingpong() {
+     return super.ping() + " pong";
+   }
+ }
+
+ Computer.pingpong(); // 'ping pong'
+ ```
+
+ 2. Não é possível utilizar o `delete operator` com super para deletar uma propriedade da classe pai.
+ ```js
+ class Base {
+   constructor() {}
+   fnct() {}
+ }
+
+ class Derived extends Base {
+   constructor() {}
+   delete() {
+     delete super.fnct;
+   }
+ }
+
+ new Derived().delete(); // ReferenceError: invalid delete involving 'super'.
+ ```
+
+ 3. `super` não pode sobrescrever propriedades não editáveis, ou seja, não pode sobrescrever o valor de uma propriedade quando esta houver sido definida como **não editável** (`writable: false`) com `Object.defineProperty`.
+ ```js
+ class X {
+   constructor() {
+     Object.defineProperty(this, "prop", {
+       configurable: true,
+       writable: false,
+       value: 1,
+     });
+   }
+   f() {
+     super.prop = 2;
+   }
+ }
+
+ var x = new X();
+ x.f();
+ console.log(x.prop); // 1
+ ```
+
+ 4. Por fim, `super.prop` também pode ser usado na inicialização da notação literal de objetos. No exemplo abaixo, cada objeto define um método. No **segundo objeto**, `super` chama o método do **primeiro objeto**. Isso funciona graças ao `Object.setPrototypeOf()`, com o qual é possível configurar o `prototype` do `obj2` para o `obj1`, tornando o `super` capaz de encontrar o `method1()` por meio do `obj2`:
+ ```js
+ var obj1 = {
+   method1() {
+     console.log("method 1");
+   },
+ };
+
+ var obj2 = {
+   method2() {
+     super.method1();
+   },
+ };
+
+ Object.setPrototypeOf(obj2, obj1);
+ obj2.method2(); // retorna "method 1"
  ```
 
  Além de reutilizar, também é possível modificar métodos os métodos herdados:
@@ -2908,8 +3043,8 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  console.log(calc.soma(2, 3, 4)); // 9
  ```
 
- #### APLICANDO OS CONCEITOS
- Voltando ao exemplo da classe de Poligonos, vejamos a aplicação dos conceitos de OOP:
+ #### ACCESSOR PROPERTIES
+ Voltando ao exemplo da classe de Poligonos, vejamos a aplicação dos conceitos de OOP e também os **accessor properties**. São métodos especiais usados para acessar e atribuir valores como se fossem propriedades normais, mas com lógica personalizada por trás.
 ```js
 class Polygon {
   constructor(height, width) {
@@ -2935,7 +3070,7 @@ class Square extends Polygon {
 
   // abstração
   set area(value) {
-    this.area = value;
+    this.Area = value;
   }
 }
 
@@ -2950,22 +3085,195 @@ class Rectangle extends Polygon {
   }
 
   set area(value) {
-    this.area = value;
+    this.height = Math.sqrt(value);
+    this.width = Math.sqrt(value);
   }
 }
 
 let square = new Square(3);
-console.log(square.area); // 9
+console.log(square.area);            // 9
+square.area = 10;                    // define o set como 10
+console.log(square.area = 10)        // imprime a definição do set
+console.log(square.area)             // executa o get, então o set assume o valor do resultado
+let rectangle = new Rectangle(3, 5);
+console.log(rectangle.area);         // 15
+```
+
+Vejamos como são trabalhados os objetos em OOP. Tanto o `get` quanto o `set` são usados em **propriedades de objetos** para manipular o acesso e a modificação dessas propriedades, mas o que acontece primeiro depende do contexto.<br/>
+O **`get`** e o **`set`** podem *interferir* no comportamento de leitura e escrita de uma propriedade. O **`get`** pode modificar o valor acessado, enquanto o **`set`** pode validar ou transformar o valor que você atribui.<br/>
+Em um objeto, **que possui ambos**, a **leitura** é feita via **`get`**, enquanto a **escrita** é via **`set`**, e *ambas são feitas de forma transparente, sem que o código externo precise saber que são métodos*.
+
+```js
+class Pessoa {
+  constructor(nome) {
+    this._nome = nome;
+  }
+
+  get nome() {
+    return this._nome.toUpperCase();  // retorna o nome em maiúsculas
+  }
+
+  set nome(novoNome) {
+    this._nome = novoNome.trim();  // remove espaços em branco antes de armazenar
+  }
+}
+
+const pessoa = new Pessoa(' Raphael ');  // chama o `get`, converte para maiúsculas
+console.log(pessoa.nome);                // "RAPHAEL"
+pessoa.nome = ' Déborah ';               // chama o `set`, remove espaços e chama o `get`
+console.log(pessoa.nome);                // "DÉBORAH"
+```
+
+Em resumo, o **`get`** é chamado primeiro quando se quer **acessar** o valor de uma propriedade. Enquanto o **`set`** é chamado quando se deseja **atribuir** um valor a uma propriedade (e então por padrão chama o `set`). O **`get`** e o **`set`** permitem adicionar **lógica de controle** ao acessar e modificar as propriedades de um objeto, o que torna o código mais seguro e organizado.
+
+- **`get`**<br/>
+Define um **acessador**. É um **método** que permite **acessar o valor de uma propriedade como se fosse um atributo**, *mas na verdade ele executa uma função*. Ele **retorna** um valor, mas este valor é usado como se fosse uma propriedade. Ou seja, é possível acessar a propriedade sem chamar a função explicitamente. Este é o método que é chamado automaticamente quando acessamos `square.area`:
+```js
+get area() {
+  return this.height * this.width;
+}
+```
+Esse **getter** faz com que `square.area` retorne o resultado da multiplicação de `height * width`. Ou seja:
+```js
+console.log(square.area);
+// é equivalente a:
+console.log(square.getArea());
+```
+
+Um outro exemplo:
+```js
+class Pessoa {
+  constructor(nome) {
+    this._nome = nome;
+  }
+
+  get nome() {
+    return this._nome.toUpperCase();  // acessa e retorna o nome em maiúsculas
+  }
+}
+
+const pessoa = new Pessoa('Raphael');
+console.log(pessoa.nome);  // Raphael será impresso como "RAPHAEL"
+```
+
+- **`set`**<br/>
+Define um **mutador**. Este **setter** é um método que permite **atribuir um valor à propriedade como se estivesse setando um atributo**, *mas na verdade executa uma função com argumento*, sendo possível adicionar lógica, como validações ou transformações, antes de armazenar o valor:
+```js
+/* no código, a atribuição é feita com o `get`, enquanto o `set` armazena o resultado
+  para exemplificar melhor, vamos mostrar que é possível atribuir ao set um valor qualquer que desejar, e ele irá armazená-lo
+*/
+console.log(square.area = 10); /* Saída: 10
+aqui ele está simplesmente salvando o valor passado em uma propriedade chamada Area
+
+!!! OBSERVAÇÃO !!!
+Esse setter não altera o valor de `height` e `width`, então a área real (retornada pelo getter) não muda!
+Se o código abaixo for executado, o valor de Area ainda será 9, pois o getter NÃO LÊ this.Area, ele sempre calcula `height * width`
+*/
+square.area = 10;
+console.log(square.area); // ainda será 9 (3 x 3), não 100
+```
+
+Caso haja a necessidade de alterar o valor passado ao constructor, pode-ser usar o `set` da seguinte maneira:
+```js
+set area(value) {
+  this.height = Math.sqrt(value);
+  this.width = Math.sqrt(value);
+}
+```
+Assim, ao definir `rectangle.area = 25`, o `set` mudará os lados para `5 x 5`:
+```js
+class Polygon {
+  constructor(height, width) {
+    this.name = "Polygon";
+    this.height = height;
+    this.width = width;
+  }
+  sayName() {
+    console.log(`Hi, I am a ${this.name}.`);
+  }
+}
+
+class Rectangle extends Polygon {
+  constructor(Height, Width) {
+    super(Height, Width);
+    this.name = "Rectangle";
+  }
+
+  get area() {
+    return this.height * this.width;
+  }
+
+  set area(value) {
+    this.height = Math.sqrt(value);
+    this.width = Math.sqrt(value);
+  }
+}
 
 let rectangle = new Rectangle(3, 5);
 console.log(rectangle.area); // 15
+
+rectangle.area = 25;
+console.log(`a: ${rectangle.area}, h: ${rectangle.height}, w: ${rectangle.width}`); /* 15
+                                                                                       a: 25, h: 5, w: 5 */
 ```
 
-Vejamos como são trabalhados os objetos em OOP:
- - **`get`**<br/>
- Define um **acessador**. Permite **acessar uma propriedade como se fosse um atributo**, *mas na verdade ele executa uma função*.
- - **`set`**<br/>
- Define um **mutador**. Permite **atribuir um valor à propriedade como se estivesse setando um atributo**, *mas na verdade executa uma função com argumento*.
+Vejamos outro exemplo completo e prático de como usar get e set em uma classe para manipular valores com lógica personalizada:
+```js
+class Square {
+  constructor(length) {
+    this._length = length;
+  }
+
+  // getter para expor o lado do quadrado
+  get length() {
+    return this._length;
+  }
+
+  // getter para a propriedade 'area'
+  get area() {
+    return this._length * this._length;
+  }
+
+  // setter para recalcular o lado com base na nova área
+  set area(value) {
+    this._length = Math.sqrt(value); // calcula o novo lado
+  }
+}
+
+// criando um quadrado
+let sq = new Square(4);
+
+console.log("Lado:", sq.length);         // 4
+console.log("Área inicial:", sq.area);   // 16
+
+// alterando a área diretamente
+sq.area = 100;
+
+console.log("Nova área:", sq.area);      // 100
+console.log("Novo lado:", sq.length);    // 10
+```
+
+Outro exemplo simples de armazenamento do valor manipulado com `set`:
+```js
+class Pessoa {
+  constructor(nome) {
+    this._nome = nome;
+  }
+
+  set nome(novoNome) {
+    this._nome = novoNome.trim();  // remove espaços em branco
+  }
+
+  get nome() {
+    return this._nome;
+  }
+}
+
+const pessoa = new Pessoa(' Raphael ');
+console.log(pessoa.nome);  // " Raphael " antes de aplicar o setter
+pessoa.nome = ' Déborah ';
+console.log(pessoa.nome);  // "Déborah" após aplicar o setter
+```
 
 ## EDP
  O paradigma mais usado em desenvolvimento de páginas web é o **Event-Driven Programming**. É o paradgima de programação onde o fluxo do programa é determinado por eventos e ações do usuário como cliques, pressionamento de teclas, mensagens do sistema, sensores ou até respostas de rede. Funciona da seguinte maneira:
