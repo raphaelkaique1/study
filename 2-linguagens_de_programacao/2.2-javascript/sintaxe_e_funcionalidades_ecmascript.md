@@ -862,14 +862,83 @@ console.log(resultado); // Saída: ["10", "20"]
 ##### `objects`
  Como vimos em JSON, um objeto é uma estrutura semelhante que permite armazenar dados na forma de pares de chave e valor `{key: value}`. Porém, diferentemente do JSON – que apenas armazena dados, um objeto também pode armazenar funções. É um dos principais tipos de dados e é muito usado para representar entidades do mundo real.
 
- Em JavaScript, objetos podem herdar propriedades e métodos de outros objetos. O `Object.prototype` é o protótipo de todos os objetos, o que significa que propriedades e métodos definidos nele estão disponíveis para todos os objetos que dele herdam. Por exemplo, métodos como `toString()` e `valueOf()` são herdados de `Object.prototype`.
+###### PROTÓTIPOS
+ O JavaScript diferente de linguagens baseadas em classes como Java ou C# por exemplo, é baseado em prototipagem. Quando uma propriedade de um objeto que não existe diretamente nele é acessado, o JS procura essa propriedade na cadeia de protótipos, a **`prototype chain`**. Ou seja, quando um objeto é criado de forma literal, o JS executa implicitamente o script abaixo:
+ ```js
+ // criando um objeto literal
+ let pessoa = {
+   nome: "Raphael",
+   idade: 30
+ };
 
- - Objetos em JavaScript são tipos de referência. Isso significa que *2 variáveis podem referenciar o mesmo objeto, e alterações em uma afetarão a outra*.
+ // o JS realiza a seguinte conversão:
+ pessoa.__proto__ === Object.prototype; // true
+
+ // o que faz com que isso funcione mesmo que não vejamos toString em "pessoa"
+ console.log(pessoa.toString()); // "[object Object]"
+
+ // o motivo é que `pessoa` herda isso da "base" prototype
+ Object.prototype.toString
+ ```
+
+ Na cadeia de protótipos, `Object.prototype` é o "fim da linha".
+ ```js
+ let obj = {};
+ console.log(Object.getPrototypeOf(obj)); // → Object.prototype
+ console.log(obj.__proto__ === Object.prototype); // true
+
+ console.log(Object.getPrototypeOf(Object.prototype)); // → null
+ console.log(Object.prototype.__proto__); // null (fim da linha!)
+ ```
+
+ Em JavaScript, objetos podem herdar propriedades e métodos de outros objetos. O `Object.prototype` é o protótipo de todos os objetos, o que significa que propriedades e métodos definidos nele estão disponíveis para todos os objetos que dele herdam. Por exemplo, métodos como `toString()` e `valueOf()` são herdados de `Object.prototype`. Ele é a base da cadeia de herança, sendo o objeto protótipo do qual todos os objetos comuns criados a partir de `Object` (ou derivados dele) herdam propriedades e métodos (definidos em `Object.prototype`), **a menos que se diga o contrário**.
+
+ Por isso, alguns métodos são comuns, disponíveis por padrão em qualquer objeto, pois herdam de `Object.prototype`:
+
+ | Método                   | Descrição                                                                                |
+ |--------------------------|------------------------------------------------------------------------------------------|
+ | `toString()`             | Converte um objeto para uma string, retornando uma representação textual do objeto.      |
+ | `valueOf()`              | Retorna o valor primitivo do objeto.                                                     |
+ | `hasOwnProperty()`       | Verifica se uma propriedade é pertencente ao próprio objeto ou foi herdada.              |
+ | `isPrototypeOf()`        | Verifica se o objeto existe na cadeia de protótipos de outro.                            |
+ | `propertyIsEnumerable()` | Verifica se a propriedade pode ser enumerada e consequentemente iterada com `for ... in` |
+ | `__proto__`              | Acesso direto ao protótipo objeto, mas **NÃO É RECOMENDADO**.                            |
+
+ E sempre que precisarmos checar se uma propriedade está diretamente no objeto e não no protótipo basta usar `hasOwnProperty.call`, sendo uma forma mais segura e à prova de manipulação do `hasOwnProperty`.
+ ```js
+ let livro = {
+   titulo: "JS Ninja"
+ };
+
+ console.log(livro.toString()); // [object Object] — vem de Object.prototype
+ console.log(livro.hasOwnProperty("titulo")); // true
+ console.log(livro.hasOwnProperty("toString")); // false (herdado)
+
+ console.log(Object.prototype.hasOwnProperty.call(livro, "titulo")); // true — pertence ao objeto, não ao protótipo
+ console.log(Object.prototype.hasOwnProperty.call("titulo"));        // false — pertence ao objeto, não ao protótipo
+ ```
+
+ Objetos em JavaScript são tipos de referência. Isso significa que *2 variáveis podem referenciar o mesmo objeto, e alterações em uma afetarão a outra*.
  ```js
  let obj1 = { a: 1 };
  let obj2 = obj1;
  obj2.a = 2;
  console.log(obj1.a); // 2
+ ```
+
+ Ou seja, é possível modificar e até mesmo personalizar `Object.prototype`, mas sempre lembrando que isso afetará **todos** os objetos da aplicação — literalmente *todos* os objetos, mesmo os nativos como arays, funções e etc, irão herdar esse método, o que pode causar bugs difíceis de rastrear — e por isso em código real essa prática deve ser evitada ao máximo, pois poderá causar conflitos com bibliotecas e gerar comportamentos inesperados.
+ ```js
+ Object.prototype.personalMethod = function() {
+   return "isso está em todo objeto!";
+ };
+
+ console.log({}.personalMethod()); // "Este método é acessível à todo objeto!"
+ ```
+
+ E no extremo oposto, também é possível criar objetos sem **nenhuma herança**. Para isso os criamos "vazios" com `null`, o que criará um objeto "puro", sendo útil para uso de *objetos seguros* como mapas ou dicionários sem métodos herdados.
+ ```js
+ let puro = Object.create(null);
+ console.log(puro.toString); // undefined — não herda nada
  ```
 
  - **`literal object`**<br/>
@@ -908,8 +977,9 @@ console.log(resultado); // Saída: ["10", "20"]
  ```
 
  - **`direct prototypic inheritance`**<br>
- O **`Object.create()`** é útil quando é necessário criar um objeto que herda diretamente de outro, exemplo:
+ O **`Object.create(proto[, propriedades])`** cria um novo objeto com o objeto e as propriedades do protótipo especificado, dando ao objeto criado herança direta sem necessidade do uso de classes ou funções construtoras, é útil quando é necessário criar um objeto que herda diretamente de outro, exemplo:
  ```js
+ // herança simples
  const animal = {
    tipo: "mamífero",
    fazerSom() {
@@ -930,6 +1000,31 @@ console.log(resultado); // Saída: ["10", "20"]
 
  console.log(cachorro.tipo); // "mamífero"
  cachorro.fazerSom(); // "Som do animal!"
+
+ // com propriedades
+ const pessoa = {
+   saudacao() {
+     return `Olá, meu nome é ${this.nome}`;
+   }
+ };
+
+ const dev = Object.create(pessoa, {
+   nome: {
+     value: "Raphael",
+     writable: true,
+     configurable: true,
+     enumerable: true
+   }
+ });
+
+ console.log(dev.saudacao()); // "Olá, meu nome é Raphael"
+
+ // protótipo vazio
+ const mapa = Object.create(null);
+
+ mapa.nome = "sem protótipo";
+ console.log(mapa); // { nome: "sem protótipo" }
+ console.log(mapa.toString); // undefined (não herda de Object.prototype)
  ```
 
  - **`factory function`**<br/>
@@ -1037,34 +1132,351 @@ console.log(resultado); // Saída: ["10", "20"]
  ```
 
 ###### COMMONS
-**Propriedades**<br/>
+**Propriedades e Métodos do Construtor `Object`**<br/>
 O `Object` possui vários métodos e propriedades úteis, alguns são:
 
-- **`Object.keys(obj)`**: Retorna um array com os nomes das propriedades enumeráveis de `Object`.
+- **`Object.prototype.[personalMethod]`**: Permite a adição de propriedades a todos os objetos do tipo Object.
 ```js
-let pessoa = { nome: "Raphael", idade: 30 };
-console.log(Object.keys(pessoa)); // ["nome", "idade"]
+let myArray = [];
+Object.prototype.personalMethod = function() {
+  return "isso está em todo objeto!";
+};
+
+console.log(myArray.personalMethod()); // "Este método é acessível à todo objeto!"
 ```
 
-- **`Object.values(obj)`**: Retorna um array com os valores das propriedades enumeráveis de `Object`.
+- **`Object.setPrototypeOf(obj, prototype)`**: Define e altera o protótipo, isto é, a propriedade interna `[[Prototype]]`. Ou seja, mudar a cadeia de herança dele em tempo de execução. Em JavaScript, cada objeto possui uma propriedade interna `[[Prototype]]`, que é usada para herança de propriedades e métodos. Essa propriedade pode ser acessada indiretamente com `Object.__proto__` ou `Object.getPrototypeOf(obj)` ou diretamente manipulada com `Object.setPrototypeOf(obj)`. Um ponto de atenção, deve-se ter cuidado ao alterar protótipos em tempo de execução pois pode afetar performance, especialmente em grandes aplicações. Sempre que possível, prefira definir protótipos no momento da criação do objeto usando Object.create() ou com `class` e `constructors`.
 ```js
-console.log(Object.values(pessoa)); // ["Raphael", 30]
+const animal = {
+  tipo: 'Mamífero',
+  get fazerSom() {
+    console.log(`${this.nome} diz olá!`);
+  }
+};
+
+const cachorro = {
+  nome: 'Rex',
+  get latir() {
+    console.log("Au au!");
+  }
+};
+
+// Define 'animal' como protótipo de 'cachorro'
+Object.setPrototypeOf(cachorro, animal);
+
+cachorro.fazerSom;    // "Rex diz olá!" — herdado do protótipo
+cachorro.latir;       // "Au au!"
+
+// alternativa moderna
+const gato = Object.create(animal);
+gato.nome = 'Mingau';
+gato.fazerSom; // Mingau diz olá!
+gato.miar = console.log("Miau!");
+gato.miar; // Miau!
 ```
 
-- **`Object.entries(obj)`**: Retorna um array de arrays contendo pares `[chave, valor]` das propriedades enumeráveis de `Object`.
-```js
-console.log(Object.entries(pessoa)); // [["nome", "Raphael"], ["idade", 30]]
-```
-
-- **`Object.assign(destino, ...fontes)`**: Copia as propriedades enumeráveis de um ou mais objetos de origem para um objeto de destino.
+- **`Object.assign(destino, ...fontes)`**: Copia os valores de todas as propriedades próprias enumeráveis de um ou mais objetos de origem para um objeto de destino.
 ```js
 let detalhes = { altura: 1.75 };
 let pessoaCompleta = Object.assign({}, pessoa, detalhes);
 console.log(pessoaCompleta); // { nome: "Raphael", idade: 30, altura: 1.75 }
 ```
 
+- **`Object.defineProperty(obj, prop, descriptor)`**: Permite adicionar ou modificar uma propriedade em um objeto de forma mais controla, especificando se ela pode ser editada, listada em loops, deletada, se possui *getter* e *setter* e qual seu valor inicial.
+```js
+// criando uma propriedade com valor fixo
+
+const pessoa = {};
+Object.defineProperty(pessoa, "nome", {
+  value: "Raphael",
+  writable: false,     // não pode ser alterado
+  enumerable: true,    // aparece em for...in
+  configurable: false  // não pode ser deletado
+});
+
+console.log(pessoa.nome); // "Raphael"
+pessoa.nome = "Kaíque";   // Não muda (por causa do writable: false)
+console.log(pessoa.nome); // "Raphael"
+
+// definindo propriedades dinâmicas
+const quadrado = {
+  lado: 4
+};
+
+Object.defineProperty(quadrado, "area", {
+  get() {
+    return this.lado * this.lado;
+  },
+  set(valor) {
+    this.lado = Math.sqrt(valor);
+  }
+});
+
+console.log(quadrado.area); // 16
+quadrado.area = 25;
+console.log(quadrado.lado); // 5
+
+// propriedades não enumerável
+const obj = {};
+Object.defineProperty(obj, "secreto", {
+  value: "invisível",
+  enumerable: false
+});
+
+console.log(obj.secreto); // "invisível"
+
+for (let chave in obj) {
+  console.log(chave); // nada é impresso
+}
+```
+
+- **`Object.defineProperties(obj, {props1, props2, props...})`**: Permite criar ou modificar várias propriedades ao mesmo tempo mas com regras diferentes em um objeto, com controle assim como `Object.defineProperty`. Muito usado em estruturações de objetos complexos como configurações, modelos de dados ou APIs.
+```js
+/*
+Object.defineProperties(obj, {
+  propriedade1: { descriptor1 },
+  propriedade2: { descriptor2 },
+  ...
+});
+*/
+const pessoa = {};
+
+Object.defineProperties(pessoa, {
+  nome: {
+    value: "Raphael",
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  idade: {
+    value: 27,
+    writable: false,
+    enumerable: true,
+    configurable: false
+  },
+  saudacao: {
+    get() {
+      return `Olá, meu nome é ${this.nome}`;
+    },
+    enumerable: true
+  }
+});
+
+console.log(pessoa.nome);       // Raphael
+console.log(pessoa.saudacao);   // Olá, meu nome é Raphael
+
+pessoa.nome = "Kaíque";
+console.log(pessoa.saudacao);   // Olá, meu nome é Kaíque
+
+pessoa.idade = 30;
+console.log(pessoa.idade);      // 27 (não mudou, writable: false)
+
+console.log(Object.keys(pessoa)); // ['nome', 'idade', 'saudacao']
+
+
+/* um exemplo mais complexo
+   criando uma Mini Classe */
+function Produto(nome, preco) {
+  let _nome = nome;
+  let _preco = preco;
+
+  Object.defineProperties(this, {
+    nome: {
+      get() {
+        return _nome;
+      },
+      set(valor) {
+        if (typeof valor === "string" && valor.length > 0) {
+          _nome = valor;
+        } else {
+          console.warn("Nome inválido");
+        }
+      },
+      enumerable: true
+    },
+    preco: {
+      get() {
+        return _preco.toFixed(2);
+      },
+      set(valor) {
+        if (typeof valor === "number" && valor >= 0) {
+          _preco = valor;
+        } else {
+          console.warn("Preço inválido");
+        }
+      },
+      enumerable: true
+    },
+    desconto: {
+      get() {
+        return (_preco * 0.1).toFixed(2); // 10% de desconto
+      },
+      enumerable: true
+    }
+  });
+}
+
+let p1 = new Produto("Notebook", 3500);
+
+console.log(p1.nome);       // Notebook
+console.log(p1.preco);      // 3500.00
+console.log(p1.desconto);   // 350.00
+
+p1.nome = "Ultrabook";
+p1.preco = 4200;
+
+console.log(p1.nome);       // Ultrabook
+console.log(p1.preco);      // 4200.00
+console.log(p1.desconto);   // 420.00
+
+p1.preco = -10;             // Preço inválido
+console.log(p1.preco);      // 4200.00 (não muda)
+```
+
+- **`Object.keys(obj)`**: Retorna uma matriz com os nomes de todas as propriedades enumeráveis do objeto.
+```js
+let pessoa = { nome: "Raphael", idade: 30 };
+console.log(Object.keys(pessoa)); // ["nome", "idade"]
+```
+
+- **`Object.values(obj)`**: Retorna uma matriz com os valores das propriedades enumeráveis de `Object`.
+```js
+let pessoa = { nome: "Raphael", idade: 30 };
+console.log(Object.values(pessoa)); // ["Raphael", 30]
+```
+
+- **`Object.entries(obj)`**: Retorna uma matriz contendo pares `[chave, valor]` das propriedades enumeráveis de `Object`.
+```js
+class Pessoa {
+  constructor(nome, idade) {
+    this.nome = nome,
+    this.idade = idade;
+  }
+}
+
+const pessoa = new Pessoa("Raphael", 30);
+console.log(Object.entries(pessoa)); // [["nome", "Raphael"], ["idade", 30]]
+```
+
+- **`Object.fromEntries(obj)`**: Retorna um novo objeto de um iterável a partir de uma estrutura de pares de chave-valor (como uma matriz), reverso à `Object.entries`.
+```js
+// sintaxe
+const entries = [
+  ['nome', 'Raphael'],
+  ['idade', 27],
+  ['profissao', 'Desenvolvedor']
+];
+
+const obj = Object.fromEntries(entries);
+console.log(obj); // { nome: 'Raphael', idade: 27, profissao: 'Desenvolvedor' }
+
+
+// reconstruindo um objeto
+const pessoa = {
+  nome: 'Déborah',
+  cidade: 'Betim'
+};
+
+const pares = Object.entries(pessoa);
+console.log(pares); // [['nome', 'Déborah'], ['cidade', 'Betim']]
+
+const reconstruido = Object.fromEntries(pares);
+console.log(reconstruido); // { nome: 'Déborah', cidade: 'Betim' }
+
+
+// utilizando map
+const mapa = new Map();
+mapa.set('linguagem', 'JavaScript');
+mapa.set('tipo', 'dinâmica');
+
+const objeto = Object.fromEntries(mapa);
+console.log(objeto); // { linguagem: 'JavaScript', tipo: 'dinâmica' }
+
+// filtrando um objeto
+const usuario = {
+  nome: 'Raphael',
+  senha: '12345',
+  email: 'raphael@email.com'
+};
+
+// Removendo a chave "senha"
+const filtrado = Object.fromEntries(
+  Object.entries(usuario).filter(([chave, _]) => chave !== 'senha')
+);
+
+console.log(filtrado); // { nome: 'Raphael', email: 'raphael@email.com' }
+```
+
+- **`Object.freeze(obj)`**: Congela o objeto, fazendo com que o código não possa excluí-lo ou alterar nenhuma propriedade dele.
+```js
+class Pessoa {
+    constructor(nome, idade) {
+        this.nome = nome,
+        this.idade = idade;
+    }
+}
+
+const pessoa = new Pessoa("Raphael", 30);
+console.log(Object.entries(pessoa)); // [["nome", "Raphael"], ["idade", 30]]
+Object.freeze(pessoa);
+pessoa.idade = 18
+console.log(pessoa.idade) // 30 (não muda)
+```
+
+- **`Object.isFrozen(obj)`**: Determina se um objeto foi congelado.
+```js
+class Pessoa {
+    constructor(nome, idade) {
+        this.nome = nome,
+        this.idade = idade;
+    }
+}
+
+const pessoa = new Pessoa("Raphael", 30);
+Object.freeze(pessoa);
+
+console.log(Object.isFrozen(pessoa)); // true
+```
+
+- **`Object.seal(obj)`**: Impede que outro código exclua propriedades de um objeto, tornando-o um *objeto selado*. Um objeto selado é não extensível, assim não sendo possível adicionar novas propriedades, e todas as suas propriedades extensíveis não são configuráveis, não podem ser removidas e nem ter seus atributos (como `enumerable` ou `configurable`) alterados, porém, desde que não sejam propriedades `writable: false` valores ainda podem ser alterados.
+```js
+const obj = { nome: "Raphael" };
+
+Object.seal(obj); // sela o objeto
+
+obj.idade = 27; // não funciona (não pode adicionar)
+delete obj.nome; // também não funciona (não pode remover)
+
+obj.nome = "Kaique"; // funciona (pode alterar valor)
+console.log(obj); // { nome: "Kaique" }
+```
+
+- **`Object.isSealed(obj)`**: Verifica se um objeto está selado:
+```js
+const obj = { nome: "Raphael" };
+Object.seal(obj);
+console.log(Object.isSealed(obj)); // true
+```
+
+- **`Object.preventExtensions(obj)`**: Impede qualquer extensão de um objeto, ou seja, impede que novas propriedades sejam adicionadas a um objeto.
+```js
+const user = {
+  nome: "Raphael"
+};
+
+Object.preventExtensions(user);
+
+user.idade = 27; // Não será adicionada
+console.log(user.idade); // undefined
+
+delete user.nome; // Pode deletar
+console.log(user); // {}
+```
+
 - **`Object.hasOwn(obj, prop)`**: Verifica se o objeto `obj` possui a propriedade `prop` como sua própria (não herdada).
 ```js
+let pessoa = { nome: "Raphael", idade: 30 };
+
 console.log(Object.hasOwn(pessoa, "nome")); // true
 console.log(Object.hasOwn(pessoa, "toString")); // false
 
@@ -1076,7 +1488,205 @@ for (let prop in pessoa) {
 }
 ```
 
-- **`Object.length`**:
+- **`Object.getOwnPropertyDescriptor(obj, prop)`**: Retorna **1 descritor** de propriedade para uma propriedade nomeada em um objeto, este retorno contém um objeto com detalhes internos de _**uma** propriedade específica_ de outro objeto, ou seja, como aquela propriedade foi definida: se é enumerável, configurável, gravável, se possui getter ou setter e etc.
+```js
+const pessoa = {
+  nome: 'Raphael'
+};
+
+const descricao = Object.getOwnPropertyDescriptor(pessoa, 'nome');
+console.log(descricao); /*
+{
+  value: 'Raphael',
+  writable: true,
+  enumerable: true,
+  configurable: true
+} */
+
+const carro = {};
+
+Object.defineProperty(carro, 'marca', {
+  value: 'Toyota',
+  writable: false,
+  enumerable: false,
+  configurable: false
+});
+
+const desc = Object.getOwnPropertyDescriptor(carro, 'marca');
+console.log(desc); /*
+ {
+  value: 'Toyota',
+  writable: false,
+  enumerable: false,
+  configurable: false
+}
+*/
+```
+
+- **`Object.getOwnPropertyDescriptors(obj)`**: Retorna um objeto contendo **todos** os descritores de propriedades próprias daquele objeto, é como uma versão completa de `Object.getOwnPropertyDescriptor()`, porém para **todas** as propriedades ao mesmo tempo. Muito útil para clonar objetos com propriedades idênticas, pois usando apenas `Object.assign` não copia os descritores, já com `Object.defineProperties` isso é realizado fielmente.
+```js
+const livro = {
+  titulo: 'JavaScript Essencial',
+  autor: 'Raphael'
+};
+
+const descritores = Object.getOwnPropertyDescriptors(livro);
+console.log(descritores); /*
+{
+  titulo: {
+    value: 'JavaScript Essencial',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  autor: {
+    value: 'Raphael',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  }
+}
+
+clonando um objeto e suas propriedades */
+const clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(livro));
+console.log(Object.getOwnPropertyDescriptors(livro)); /*
+{
+  titulo: {
+    value: 'JavaScript Essencial',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  autor: {
+    value: 'Raphael',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  }
+} */
+
+// exemplo com `get` & `set`
+const usuario = {
+  get nome() {
+    return 'Raphael';
+  },
+  set nome(valor) {
+    console.log(`Novo nome: ${valor}`);
+  }
+};
+
+console.log(Object.getOwnPropertyDescriptors(usuario)); /*
+{
+  nome: {
+    get: [Function: get nome],
+    set: [Function: set nome],
+    enumerable: true,
+    configurable: true
+  }
+}
+ */
+```
+
+- **`Object.getOwnPropertyNames(obj)`**: Retorna uma matriz contendo os nomes de **_todas as propriedades_ enumeráveis e não enumeráveis** do próprio objeto fornecido.
+```js
+// exemplo simples
+const carro = {
+  marca: 'Toyota',
+  modelo: 'Corolla',
+};
+
+console.log(Object.getOwnPropertyNames(carro)); // ['marca', 'modelo']
+
+
+// listando todas as propriedades
+const pessoa = {
+  nome: 'Raphael'
+};
+
+Object.defineProperty(pessoa, 'idade', {
+  value: 27,
+  enumerable: false
+});
+
+console.log(Object.keys(pessoa)); // ['nome']
+console.log(Object.getOwnPropertyNames(pessoa)); // ['nome', 'idade']
+
+
+// arrays
+const frutas = ['maçã', 'banana'];
+console.log(Object.getOwnPropertyNames(frutas)); /* ['0', '1', 'length']
+essa saída mostra que o array tem propriedades internas como length, que também é retornada */
+```
+
+- **`Object.getOwnPropertySymbols(obj)`**: Retorna uma matriz de todas as propriedades de símbolo próprias encontradas diretamente sobre um determinado objeto.
+```js
+const id = Symbol('id');
+const user = {
+  nome: 'Raphael',
+  [id]: 12345
+};
+
+console.log(Object.getOwnPropertySymbols(user));  // [ Symbol(id) ]
+```
+
+- **`Object.getPrototypeOf(obj)`**: Retorna o protótipo do objeto especificado, ou seja, retorna o *"objeto pai"* de um determinado objeto. Em outras palavras, retorna o valor da propriedade interna `[[Prototype]]` de um objeto (acessível também com `Object.__proto__` — que é obsoleto, mas ainda funciona).
+```js
+const animal = {
+  tipo: 'Mamífero'
+};
+
+const cachorro = Object.create(animal);
+cachorro.nome = 'Rex';
+
+console.log(cachorro.nome);           // 'Rex'
+console.log(cachorro.tipo);           // 'Mamífero' (herdado de animal)
+
+console.log(Object.getPrototypeOf(cachorro) === animal); // true
+
+// classes
+class Pessoa {
+  constructor(nome) {
+    this.nome = nome;
+  }
+}
+
+class Dev extends Pessoa {
+  constructor(nome, linguagem) {
+    super(nome);
+    this.linguagem = linguagem;
+  }
+}
+
+const ralph = new Dev('Raphael', 'JavaScript');
+
+console.log(Object.getPrototypeOf(ralph));            // Dev.prototype
+console.log(Object.getPrototypeOf(Dev.prototype));   // Pessoa.prototype
+```
+
+- **`Object.is(valor1, valor2)`**: Compara se 2 valores são o mesmo valor. Sendo mais precisa nos casos de `NaN`, `+0` e `-0` que diferem da *Comparação de Igualdade Abstrata* e da *Comparação de Igualdade Estrita*. Sendo especialmente útil quando se precisa diferenciar `+0` de `-0`, ou detectar `NaN` com precisão.
+```js
+// casos em que `Object.is` se comporta como `===`
+Object.is(25, 25);            // true
+Object.is('JS', 'JS');        // true
+Object.is(undefined, undefined); // true
+Object.is(null, null);        // true
+Object.is([], [])             // false (referências diferentes)
+
+// casos em que `Object.is` diferencia-se de `===`
+Object.is(NaN, NaN);          // true (diferente de `NaN === NaN` → false)
+Object.is(+0, -0);            // false (diferente de `+0 === -0` → true)
+Object.is(0, -0);             // false
+
+```
+
+- **`Object.isExtensible(obj)`**: Determina se a extensão de um objeto é permitida, verificando se um objeto pode ser estendido e se as novas propriedades podem ser adicionadas a ele.
+```js
+const obj = {};
+console.log(Object.isExtensible(obj)); // true
+
+obj.novaPropriedade = 123; // sendo extensível, novas propriedades podem ser adicionadas
+console.log(obj.novaPropriedade); // 123
+```
 
 ###### `this`
  Trata-se de uma referência ao objeto que está executando o código no momento, geralmente ao objeto chamado em um método, dessa forma, quando um objeto ou classe quer se referir a si mesmo, ele usa **`this`**. Este método atribui dentro de um objeto ou uma classe, uma variável que recebe um parâmetro, que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro externo. Ele se refere ao contexto de execução atual. Seu comportamento pode mudar dependendo de onde e como é usado. Se não precisarmos de privacidade ou quisermos manter as propriedades acessíveis ao programa, usar **`this` é a melhor opção**.
@@ -1200,7 +1810,7 @@ for (let prop in pessoa) {
  <input type="number" name="idade" size="2" onChange="valide(this, 18, 99);"/>
  ```
 
- **ALTERNATIVAS AO `this`**<br/>
+ ###### ALTERNATIVAS AO `this`
  Caso seja necessário manter as propriedades ocultas e inacessíveis ao resto do programa, podemos usar os **Métodos Privados**. Estes métodos são aqueles que não podem ser acessados fora da classe. Existem algumas formas de criá-los:
 
  - **private variables `#` (ES6+)**<br/>
@@ -1240,8 +1850,7 @@ for (let prop in pessoa) {
  ```
 
  - **`Symbol`**<br/>
- Se precisar de privacidade sem `#`, pode usar `Symbol`, que mantém as propriedades privadas sem expor os valores, porém ainda pode ser acessado com `Object.getOwnPropertySymbols()`, o que faz não ser um método tão seguro:
-
+ Símbolos são valores primitivos únicos e imutáveis que nunca colide com outro, mesmo que tenha a mesma descrição, como por exemplo: `Symbol('x') !== Symbol('x')`. São usados principalmente como chaves de propriedades para evitar conflitos com outras propriedades no objeto. Se precisar de privacidade sem `#`, pode usar `Symbol`, que mantém as propriedades privadas sem expor os valores, porém ainda pode ser acessado com `Object.getOwnPropertySymbols()`, o que faz não ser um método tão seguro:
  ```js
  const _name = Symbol("name");
  const _age = Symbol("age");
