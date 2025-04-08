@@ -935,7 +935,8 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log({}.personalMethod()); // "Este método é acessível à todo objeto!"
  ```
 
- E no extremo oposto, também é possível criar objetos sem **nenhuma herança**. Para isso os criamos "vazios" com `null`, o que criará um objeto "puro", sendo útil para uso de *objetos seguros* como mapas ou dicionários sem métodos herdados.
+ Já que todos os objetos em JS são descendentes do `Object`, todos herdam métodos e propriedades de `Object.prototype`, embora possam ser substituídos por exemplo, protótipos de outros construtores substituem a propriedade `constructor` e fornecem seus próprios métodos `toString()`. Todas as alterações serão propragadas para todos os objetos a menos que as propriedades e métodos sujeitos a essas alterações seram substituídas na cadeia de protótips.<br/>
+ No extremo oposto, também é possível criar objetos sem **nenhuma herança**. Para isso os criamos "vazios" com `null`, o que criará um objeto "puro", sendo útil para uso de *objetos seguros* como mapas ou dicionários sem métodos herdados.
  ```js
  let puro = Object.create(null);
  console.log(puro.toString); // undefined — não herda nada
@@ -3136,7 +3137,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  ```
 
  - **`static methods`**<br/>
- **Semelhante aos *métodos de objetos*, métodos estáticos são métodos que pertencem somente à classe, e não às instâncias dela.**
+ **Semelhante aos *métodos de objetos*, métodos estáticos são métodos que pertencem somente à classe, e não às instâncias dela.** Geralmente, são funções utilitárias, como funções para criar ou clonar objetos.<br/>
  Aqui o método `somar()` pode ser chamados sem precisar criar um objeto da classe:
  ```js
  class Matematica {
@@ -3146,6 +3147,50 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  }
 
  console.log(Matematica.somar(5, 14));
+ ```
+ Métodos estáticos não são diretamente acessíveis utilizando `this` a partir de métodos não estáticos, é necessários chamá-los usando o nome da classe:
+ ```js
+ class ChamadaDoMetodoEstatico {
+   constructor() {
+     console.log(`1. ${ChamadaDoMetodoEstatico.MetodoEstatico()}`);
+     // 'O método estático foi chamado.'
+
+     console.log(`2. ${this.constructor.MetodoEstatico()}`);
+     // 'O método estático foi chamado.'
+   }
+
+   static MetodoEstatico() {
+     return "O método estático foi chamado.";
+   }
+ }
+
+ let chamada = new ChamadaDoMetodoEstatico();
+ console.log(chamada.MetodoEstatico);
+
+ console.log(ChamadaDoMetodoEstatico.MetodoEstatico());
+
+ /* o exemplo a seguir demonstra como um método estático é implementado em uma classe,
+  como uma classe com um membro estático pode virar uma subclasse,
+  e por fim, mostra como um método estático pode e não pode ser chamado */
+ class Tripple {
+   static tripple(n) {
+     n = n | 1;
+     return n * 3;
+   }
+ }
+
+ class BiggerTripple extends Tripple {
+   static tripple(n) {
+     return super.tripple(n) * super.tripple(n);
+   }
+ }
+
+ console.log(Tripple.tripple());        // 3
+ console.log(Tripple.tripple(6));       // 21
+ console.log(BiggerTripple.tripple(3)); // 81
+
+ var tp = new Tripple();
+ console.log(tp.tripple()); //Logs 'tp.tripple is not a function'.
  ```
 
 #### TIPOS DE FUNÇÕES
@@ -3213,6 +3258,15 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  const copiaPessoa = { ...pessoa, cidade: "São Paulo" }; // além de copiar também podemos adicionar propriedades em objetos
 
  console.log(copiaPessoa); // { nome: "Raphael", idade: 25, cidade: "São Paulo" }
+
+ // exemplo simples
+ function f(x, y, z) {
+    console.log(x, y, z);
+ }
+
+ var args = [5, 9, 3]; // [ 5, 9, 3 ]
+ console.log(args);    // 5 9 3
+ f(...args);
  ```
 
 ###### RECURSIVIDADE
