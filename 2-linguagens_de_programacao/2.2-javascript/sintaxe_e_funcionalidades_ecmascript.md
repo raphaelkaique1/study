@@ -325,7 +325,7 @@ console.log("Nome:\tRaphael");
 // Saída: Nome:    Raphael
 ```
 
-- **Barra invertida (`\\`)**  
+- **Caracter de Escape (`\\`)**  
 ```js
 console.log("C:\\Users\\Raphael"); 
 // Saída: C:\Users\Raphael
@@ -394,6 +394,68 @@ console.log("\u00A9 2025 Todos os direitos reservados.");
  let nick_name = "Raphael";
 
  console.log("Welcome ", nick_name);
+ ```
+
+ 4. **Tagged Template Strings**<br/>
+ Tagged Template Strings são **template strings** _com uma função personalizada associada a elas_. Passa-se uma string com interpolações como ``` tag`texto ${valor}` ```, e a função `tag` recebe essa string dividida e os valores já processados, podendo assim manipular a saída como desejar.
+ ```js
+ function destaque(strings, ...values) {
+   return strings.reduce((resultado, parte, i) => {
+     return resultado + parte + (values[i] ? `<b>${values[i]}</b>` : "");
+   }, "");
+ }
+
+ let nome = "Raphael", idade = 27;
+ let frase = destaque`Olá, meu nome é ${nome} e tenho ${idade} anos.`;
+
+ console.log(frase); // Resultado: Olá, meu nome é <b>Raphael</b> e tenho <b>27</b> anos.
+ ```
+
+ Então, quando fazemos:
+ ```js
+ let nome = "Raphael";
+ let idade = 27;
+
+ destaque`Olá, meu nome é ${nome} e tenho ${idade} anos.`;
+ ```
+
+ O JS está na verdade realizando:
+ ```js
+ destaque(["Olá, meu nome é ", " e tenho ", " anos."], "Raphael", 27);
+ ```
+
+ Ou seja:
+ - `strings`: um array com as partes fixas da frase<br/>
+ `["Olá, meu nome é ", " e tenho ", " anos."]`
+ - `...values`: um array com os valores dentro de `${...}`
+ `["Raphael", 27]`
+
+ **A função então junta cada pedaço fixo (`parte`) da string com o valor interpolado `values[i]`**, então os coloca dentro da tag HTML `b`.
+
+ Resumindo, o template tag `destaque` recebe `strings` que são as partes fixas da frase e `values` que são os *valores* em `${}` e usa a lógica para como montar a frase final na função, assim sendo útil para formatação de texto, proteger o HTML e URLs, tradução, geração de código e etc.
+
+ 5. **Strings Raw**<br/>
+ Quando utilizamos *tagged template strings*, o 1º argumento que a função recebe é o objeto `strings`, que tem a propriedade especial `raw`, que existe o conteúdo da string **exatamente** como foi digitado no código, sem interpretar sequências de escape `\n`, `\t` e etc. Muito utilizado para criar strings com barras invertidas sem precisar escapá-las 2 vezes, além de gerar regex, strings JSON, caminhos de arquivos, códigos gerados dinâmicamente e etc.
+ ```js
+ // sintaxe
+ function qualquer(strings, ...valores) {
+   console.log(strings.raw);  // Acesso direto à string literal crua
+ }
+
+ // exemplo simples
+ let nome = "Raphael";
+ let rawString = String.raw`Olá\n${nome}!`;
+
+ console.log(rawString); // Resultado: Olá\nRaphael!
+
+ // exemplo com tagged template string
+ function tag(strings, ...values) {
+   return strings.raw[0];
+ }
+
+ let frase = tagstring text line 1 \n string text line 2; // "string text line 1 \\n string text line 2"
+ let hi = String.rawHi\n${2 + 3}!; // "Hi\n5!"
+ console.log(${frase}\n${hi})
  ```
 
 **MODELOS DE STRINGS**<br/>
@@ -2987,7 +3049,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
    - **`do-while`**
 
 ###### FOR
- Um tipo de loop cuja execução dura um determinado número de vezes ou até que sua condição seja avaliada com `false` é o `for`, vejamos sua sintaxe básica e também suas variações:
+ Um tipo de loop que consiste em três expressões opcionais, cuja execução dura um determinado número de vezes ou até que sua condição seja avaliada com `false` é o `for`, vejamos sua sintaxe básica e também suas variações:
 
  1. **`for`**</br>
  Usado quando sabemos quantas vezes queremos iterar.
@@ -2999,7 +3061,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  }
  ```
 
- 2. **`infinity-empty-for`**<br/>
+ 2. **`empty-for`**<br/>
  **Todas** as partes do `for` são *opcionais*.
  ```js
  let i = 0;
@@ -3007,8 +3069,14 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  for (;;) { // loop infinito
    console.log(i);
    if (i >= 5) break; // condição de parada
-   i++;
+   i++; // incremento para repetição
  }
+ ```
+ Inclusive o **bloco de declaração** graças ao `operador vírgula`.
+ ```js
+ let total = 0;
+ for (let i = 1; i <= 5; total += i, i++); // tudo acontece na expressão final
+ console.log("Total:", total); // Total: 15
  ```
 
  3. **`for-break-continue`**</br>
