@@ -3511,7 +3511,7 @@ No exemplo acima, o valor da variável `user` será um objeto do tipo `Generator
 - **`value`**: o valor informado para cada `yield`.
 - **`done`**: um *booleano* que indica se o `Iterator` percorreu todos os pontos de interrupção, assim, quando seu valor for `true` a iteração finalizou.
 
-Como nosso exemplo possui 3 pontos de parada, podemos chamar `next` 3 vezes e obter o valor de cada `yield`:
+Chamando a função, ela não executa imediatamente, ela retorna um objeto iterador. Como nosso exemplo possui 3 pontos de parada, podemos chamar `next` 3 vezes e obter o valor de cada `yield`:
 ```js
 // criando a função
 function* saudar() {
@@ -3549,6 +3549,24 @@ console.log(yieldEnd);       // { value: undefined, done: true }
 // acessando o objeto
 console.log(yieldEnd.value); // undefined
 console.log(yieldEnd.done);  // true
+```
+
+Um exemplo completo:
+```js
+// criando a função
+function* minhaGeradora() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+// atribuindo os valores retornados à uma variável objeto
+const gen = minhaGeradora();
+
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: undefined, done: true }
 ```
 
 Entre cada declaração do `yield` é onde vai o código JS:
