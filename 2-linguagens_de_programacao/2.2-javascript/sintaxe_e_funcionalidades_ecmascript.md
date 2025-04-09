@@ -3287,6 +3287,57 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  userStatus == "on" ? saudacao("Raphael") : null;
  ```
 
+Funções também podem ser atribuídas à variáveis, para atender necessidades do código:
+```js
+// função pura
+function Function() {
+    console.log("eu sou uma função\n");
+}
+Function();
+
+// função atribuída à variável
+function FunctionDeclaration() {
+    console.log("eu sou uma função de declaração em uma variável.\n");
+}
+let functionDeclaration = FunctionDeclaration();
+
+// funções de expressão
+let anonymousFunction = function() {console.log("eu sou uma função anônima em uma variável.\n")};
+anonymousFunction();
+
+let arrowFunction = () => console.log("eu sou uma função de flecha em uma variável.\n");
+arrowFunction();
+```
+
+É possível atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, como demonstrado neste código:
+```JS
+// atribuindo uma função a uma variável
+const saudar = saudacaoFactory('Olá');
+
+// função que retorna outra função
+function saudacaoFactory(saudacao) {
+  return function(nome) {
+    console.log(`${saudacao}, ${nome}!`);
+  };
+}
+
+// chamando a função armazenada na variável
+saudar("Raphael"); // Saída: Olá, Raphael!
+
+// ----------------------------------------------------
+
+// passando uma função como argumento para outra função
+function executaOperacao(operacao, a, b) {
+  return operacao(a, b);
+}
+
+function soma(a, b) {
+  return a + b;
+}
+
+console.log(executaOperacao(soma, 2, 3)); // Saída: 5
+```
+
 ###### TIPOS DE FUNÇÕES
  As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código. 
  - **Funções _SEM_ `(parameters)`**: Usadas quando a operação pode ser feita com valores internos ou globais, ou quando não há necessidade de interação com o resto do código.
@@ -3399,28 +3450,6 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  }
  ```
 
-###### CALLBACK
- Como seu nome indica, são **chamadas de retorno**, ou seja, são *funções passadas como argumentos e parâmetros para outras funções*. O que significa que quando invocamos uma função passando-a como parâmetro outra função – **`callback`** se a função principal for **síncrona**, *o callback é executado logo dentro dela*. Se for **assíncrona**, *o callback espera a operação terminar antes de ser executado*.
- ```js
- function fazerAlgo(callbackParameter) {
-   console.log("Executando algo...");
-   callbackParameter(); // chamando a função callback passada como parâmetro
- }
-
- // chamando a função fazer Algo e passando uma função anônima – callback – como parâmetro – callbackParameter
- fazerAlgo( function() {  console.log("Callback foi chamado!")} );
- ```
-
- Quando temos vários callbacks aninhados, o código pode ficar difícil de ler, chamamos isso se chama **Callback Hell**, e, parar resolver este problema usamos [**`Promises`**, **`async`** e **`awayt`**](https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.2-javascript/assincronismo_promises_async_await.md)
-
-**`anonymous callback functions`**<br/>
- As funções anônimas são muito usadas como calbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
- ```js
- setTimeout(function() {
-   console.log("Mensagem exibida após 2 segundos!");
- }, 2000);
- ```
-
 ###### ARROW FUNCTIONS
  As `arrow functions` são uma forma ainda mais curta de escrever funções anônimas de forma muito mais clara e limpa. A sintaxe para funções `callback` omite a palavra **`function`**, que é substituída pr uma seta **`=>`** colocada após o identificador caso não seja necessário passar nenhum parâmetro.
  ```js
@@ -3440,36 +3469,128 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  console.log(calcular(soma, 2, 1)); // 3
  console.log(calcular(subtracao, 2, 1)); // 1
  ```
-
- Podemos atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, como demonstrado neste código:
-```JS
-// atribuindo uma função a uma variável
-const saudar = saudacaoFactory('Olá');
-
-// função que retorna outra função
-function saudacaoFactory(saudacao) {
-  return function(nome) {
-    console.log(`${saudacao}, ${nome}!`);
-  };
-}
-
-// chamando a função armazenada na variável
-saudar("Raphael"); // Saída: Olá, Raphael!
-
-// ----------------------------------------------------
-
-// passando uma função como argumento para outra função
-function executaOperacao(operacao, a, b) {
-  return operacao(a, b);
-}
-
-function soma(a, b) {
-  return a + b;
-}
-
-console.log(executaOperacao(soma, 2, 3)); // Saída: 5
-```
  Funções tipo `arrow functions` possuem o `this` **léxico**, o que significa que o `this` dentro de uma arrow function se refere ao contexto onde foi definida, e não ao objeto que a chamou – não pode ser usada como `constructor`.
+
+###### CALLBACK
+ Como seu nome indica, são **chamadas de retorno**, ou seja, são *funções passadas como argumentos e parâmetros para outras funções*. O que significa que quando invocamos uma função passando-a como parâmetro outra função – **`callback`** se a função principal for **síncrona**, *o callback é executado logo dentro dela*. Se for **assíncrona**, *o callback espera a operação terminar antes de ser executado*.
+ ```js
+ function fazerAlgo(callbackParameter) {
+   console.log("Executando algo...");
+   callbackParameter(); // chamando a função callback passada como parâmetro
+ }
+
+ // chamando a função fazer Algo e passando uma função anônima – callback – como parâmetro – callbackParameter
+ fazerAlgo( function() {  console.log("Callback foi chamado!")} );
+ ```
+
+ Quando temos vários callbacks aninhados, o código pode ficar difícil de ler, chamamos isso se chama **Callback Hell**, e, parar resolver este problema usamos [**`Promises`**, **`async`** e **`awayt`**](https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.2-javascript/assincronismo_promises_async_await.md)
+
+**`anonymous callback functions`**<br/>
+ As funções anônimas são muito usadas como callbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
+ ```js
+ setTimeout(function() {
+   console.log("Mensagem exibida após 2 segundos!");
+ }, 2000);
+ ```
+###### GENERATOR
+Uma função geradora é uma função especial que pode **pausar sua execução com o `yield` e retomar de onde parou**. Sua definição e declaração é semelhante as funções de expressão e declaração, uma pequena diferença está na adição de um `*` na palavra reservada `function`, ou seja, **`function*`**. As demais regras se aplicam também à ela, onde os parâmetros são opcionais e separados por vírgula, e o corpo da função fica dentro das chaves.<br/>
+Diferente das funções normais onde tudo é executado automaticamente em sequência, as funções geradoras podem ser interrompidas durante a invocação e posteriormente é possível dar continuidade em sua execução a partir do ponto de parada.<br/>
+O `yield` indica os pontos de interrupção da função
+```js
+function* saudar() {
+  yield `Olá`;
+  yield `Bem-vindo`;
+  yield `Usuário!`;
+}
+
+const user = saudar();
+console.log(user);
+```
+
+No exemplo acima, o valor da variável `user` será um objeto do tipo `Generator`, que nada mais é do que um `Iterator`. Ou seja, pode ser iterado de uma maneira diferente de um `array`, com a função **`next`**, que irá passar por cada ponto de parada. A função `next` retorna um objeto com 2 propriedades:
+- **`value`**: o valor informado para cada `yield`.
+- **`done`**: um *booleano* que indica se o `Iterator` percorreu todos os pontos de interrupção, assim, quando seu valor for `true` a iteração finalizou.
+
+Como nosso exemplo possui 3 pontos de parada, podemos chamar `next` 3 vezes e obter o valor de cada `yield`:
+```js
+// criando a função
+function* saudar() {
+  yield `Olá`;
+  yield `Bem-vindo`;
+  yield `Usuário!`;
+}
+
+const user = saudar(); // criando o objeto para manipular a função
+console.log(user); // Object [Generator] {}
+
+// atribuindo os valores de cada passagem da função à uma variável
+
+const yield1 = user.next();
+console.log(yield1);       // { value: 'Olá', done: false }
+// acessando o objeto
+console.log(yield1.value); // Olá
+console.log(yield1.done);  // false
+
+const yield2 = user.next();
+console.log(yield2);       // { value: 'Bem-vindo', done: false }
+// acessando o objeto
+console.log(yield2.value); // Bem-vindo
+console.log(yield2.done);  // false
+
+const yield3 = user.next();
+console.log(yield3);       // { value: 'Usuário!', done: false }
+// acessando o objeto
+console.log(yield3.value); // Usuário
+console.log(yield3.done);  // false
+
+// fim
+const yieldEnd = user.next();
+console.log(yieldEnd);       // { value: undefined, done: true }
+// acessando o objeto
+console.log(yieldEnd.value); // undefined
+console.log(yieldEnd.done);  // true
+```
+
+Entre cada declaração do `yield` é onde vai o código JS:
+```js
+// criando a função
+const incremento = function* () {
+    let n = 0;
+    n++;
+    console.log(`${n}º execução`);
+    yield n; // 1ª parada
+
+    n++;
+    console.log(`${n}º yield`);
+    yield n; // 2ª parada
+}
+
+// atribuindo a função à um objeto
+const iterador = incremento();
+
+// atribuindo o retorno da função à uma variável
+const iterador1 = iterador.next();
+console.log(iterador1);
+
+const iterador2 = iterador.next();
+console.log(iterador2);
+
+const iterador3 = iterador.next();
+console.log(`fim\n${iterador3}`);
+```
+
+Caso não seja necessário controlar o fluxo de execução, ou seja, chamar cada `yield` de maneira automática, pode-se utilizar `for ... of` para percorrer o iterador.
+```js
+function* saudar() {
+    yield 'Olá'
+    yield 'Bem-vindo'
+    yield 'Usuário!'
+}
+
+for (let i of saudar()) {
+    console.log(i)
+}
+```
 
 ###### FUNÇÕES DE ARRAYS
  Existem funções pré-definidas otimizadas para lidar com dados em arrays que nos ajudam a economizar tempo de escrita de código. Esse métodos podem ser dividiso em 2 grupos principais:
