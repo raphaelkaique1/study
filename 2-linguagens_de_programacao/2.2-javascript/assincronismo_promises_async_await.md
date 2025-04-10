@@ -247,16 +247,38 @@ let minhaPromise = new Promise(function(resolve, reject) {
 });
 ```
 
-Como uma Promise pode ser *resolvida* ou *rejeitada*, pode-se usar os métodos `.then()` e `catch()` para lidar com essas situações.
+Basicamente, uma Promise é resolvida da seguinte maneira:
+1. **Promise**: é um objeto que representa uma operação assíncrona que pode ser **resolvida** com sucesso ou **rejeitada** com erro.
+2. **`.then()`**: Quando a Promise é resolvida, o método `.then()` é chamado, e pode-se passar uma função para processar o valor que foi retornado pela Promise.
+3. **`.catch()`**: É possível encadear um `.catch()` para lidar com erros, caso a Promise seja rejeitada.
+
+Como uma Promise pode ser *resolvida* ou *rejeitada*, pode-se usar juntos os métodos `.then()` e `catch()` para lidar com essas situações.
 ```js
 // outro exemplo
 new Promise((resolve, reject) => {
   setTimeout(() => resolve('Operação concluída'), 1000);
-}).then(result => {     // se resolvida
-  console.log(result);
-}).catch(error => {     // se erro
-  console.error(error);
+}).then(result => {                                       // se resolvida
+  console.log(result);                                    // código para processar o valor retornado pela Promise
+}).catch(error => {                                       // se erro
+  console.error(error);                                   // código para lidar com erros, caso a Promise seja rejeitada
 });
+```
+
+Quando lida-se com funções assíncronas, como requisições de rede, leitura de arquivos, ou timers, pode-se usar **Promises** para gerenciar essas operações de forma mais eficiente, sem bloquear a execução do restante do código.
+```js
+let promise = new Promise((resolve, reject) => {
+  let sucesso = true;
+
+  if (sucesso) {
+    resolve("Operação bem-sucedida!");
+  } else {
+    reject("Ocorreu um erro!");
+  }
+});
+
+promise
+  .then(result => console.log(result))  // se resolvida com sucesso
+  .catch(error => console.log(error));  // se rejeitada
 ```
 
 Então `then()` define o que acontece quando a Promise é resolvida com sucesso, e `catch()` define o que acontece quando a Promise é rejeitada com um erro. O uso de `catch()` é importante para capturar erros em _qualquer parte do encadeamento_, não apenas no final. **Se um erro ocorrer em qualquer ponto do encadeamento, o `catch()` será chamado.**
@@ -329,8 +351,10 @@ Promise.race([promise1, promise2])
   });
 ```
 
+**De forma sucinta, podemos dizer que uma Promise representa o valor futuro de uma operação assíncrona.**
+
 ## **`Async/Await`**
-O `async/await` é uma forma moderna e mais legível de lidar com código assíncrono em JavaScript. Foi introduzido no ES2017 e é **construído sobre Promises**, tornando o código assíncrono mais fácil de entender e escrever, especialmente em operações complexas que envolvem múltiplas etapas assíncronas.<br/>
+O **`async`** e **`await`** são palavras-chave que facilitam o trabalho com **Promises**, permitindo um estilo de escrita de código assíncrono que se assemelha a código síncrono e sequencial. É uma forma moderna e mais legível de lidar com código assíncrono em JavaScript. Foi introduzido no ES2017 e é **construído sobre Promises**, tornando o código assíncrono mais fácil de entender e escrever, especialmente em operações complexas que envolvem múltiplas etapas assíncronas.<br/>
 A palavra-chave `async` torna uma função assíncrona, e dentro dela pode-se usar `await` para "esperar" a resolução de uma promessa. Vejamos sua estrutura:
 ```js
 // async/await
@@ -353,8 +377,8 @@ async function exemplo() { // criando uma função assíncrona
 exemplo();
 ```
 
-- **`async`**: Essa palavra-chave é usada para definir uma função assíncrona, **ela sempre retorna uma `Promise`**, mesmo que não seja explicitamente retornado um valor de Promise (Pending, Fulfilled ou Rejected) dentro da função.
-- **`await`**: Essa palavra-chave **só pode ser usada dentro de funções definidas como `async`, ela faz com que a execução da função "pause" até que a Promise seja resolvida ou rejeitada, mas durante essa "pausa" o restante do código continua sendo executado**.
+- **`async`**: Essa palavra-chave é usada para definir uma função assíncrona, **ela sempre retorna uma `Promise`**, mesmo que não seja explicitamente retornado um valor de Promise (Pending, Fulfilled ou Rejected) dentro da função. Ou seja, quando uma função é marcada como `async`, ela automaticamente retorna uma Promise, e somente dentro dessa função é possível utilizar `await` para aguardar a resolução de uma Promise antes de continuar a execução do código.
+- **`await`**: Essa palavra-chave **só pode ser usada dentro de funções definidas como `async`, ela faz com que a execução da função "pause" até que a Promise seja resolvida ou rejeitada, mas durante essa "pausa" o restante do código continua sendo executado**. _Isso permite a escrita de um código mais limpo e claro, sem a necessidade de **callbacks** ou `then()`.
 ```js
 // função assíncrona que resolve após 2 segundos
 function esperar2Segundos() {
@@ -431,7 +455,33 @@ async function executarProcesso() {
 
 executarProcesso();
 
+// outro exemplo apenas com async, de uma função que simula uma operação assíncrona como uma requisição de rede
+function buscarDados() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Dados recebidos");
+    }, 2000);
+  });
+}
+
+// função async que usa await
+async function exemploAsync() {
+  try {
+    console.log("Iniciando...");
+    let resultado = await buscarDados();  // pausa até que a Promise seja resolvida
+    console.log(resultado);  // "dados recebidos"
+  } catch (erro) {
+    console.log("Erro:", erro);
+  }
+}
+
+exemploAsync();
+/*
+No exemplo acima, a função `buscarDados()` simula uma operação assíncrona que retorna uma Promise. A função `exemploAsync()` utiliza `await` para esperar que a Promise seja resolvida antes de continuar. Isso permite que o código seja executado de forma mais linear, como se fosse síncrono, sem os complexos encadeamentos de `.then()`.
+*/
 ```
+
+**Resumindo, `async/await` são ferramentas para escrever código assíncrono de forma mais clara, permitindo "aguardar" uma Promise de forma semelhante ao código síncrono.**
 
 ## `setFunctions`
 Essas funções são usadas para agendar a execução de código de forma assíncrona. Embora não sejam funções assíncronas no estilo tradicional, elas permitem que o código seja executado após um intervalo de tempo, sem bloquear o fluxo principal.
@@ -494,6 +544,17 @@ setTimeout executado depois de 10 segundos */
 ## `fetch()`
 Função de API nativa utilizada para realizar requisições **HTTP/HTTPS assíncronas**, ou seja, buscar ou enviar dados de/para um servidor *sem precisar recarregar a página*. Ele é parte da **Fetch API** e substitui o antigo `XMLHttpRequest`, sendo mais simples, limpa e baseada em `Promisses`. Vejamos um exemplo de uso:
 ```js
+// usando promises diretamente
+fetch('https://api.exemplo.com/dados')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('A requisição falhou');
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.log('Erro ao buscar dados:', error));
+
 // iterando valores de uma API paginada
 async function* buscarPaginas() {
   let page = 1;
