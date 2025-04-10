@@ -4759,6 +4759,296 @@ var confirmation = confirm("Termos de Política de Privacidade");
 console.log("Hello world!");
 ```
 
+ O objeto `console` fornece diversos métodos úteis para depuração, monitoramento de valores e exibição de mensagens no terminal. Vejamos os métodos de output:
+
+| Método                               | Descrição                                                                             |
+|--------------------------------------|---------------------------------------------------------------------------------------|
+| `console.log()`                      | Imprime mensagens genéricas.                                                          |
+| `console.info()`                     | Similar ao `log()`, usado para mensagens informativas.                                |
+| `console.warn()`                     | Exibe uma mensagem de aviso (amarelo no console).                                     |
+| `console.error()`                    | Exibe mensagens de erro (vermelho no console).                                        |
+| `console.debug()`                    | Mensagens de depuração (às vezes oculto por padrão).                                  |
+| `console.assert(condition, message)` | Exibe erro se a condição for falsa.                                                   |
+| `console.count([label])`             | Conta quantas vezes foi chamado com o mesmo label.                                    |
+| `console.countReset([label])`        | Reseta a contagem de `count` para aquele label.                                       |
+| `console.time(label)`                | Inicia um temporizador.                                                               |
+| `console.timeLog(label)`             | Loga o tempo até o momento.                                                           |
+| `console.timeEnd(label)`             | Finaliza o temporizador e mostra o tempo decorrido.                                   |
+| `console.group([label])`             | Inicia um grupo de mensagens colapsável.                                              |
+| `console.groupCollapsed([label])`    | Grupo colapsado por padrão.                                                           |
+| `console.groupEnd()`                 | Fecha o grupo atual.                                                                  |
+| `console.table(data[, columns])`     | Exibe dados em formato tabular (ideal para arrays/objetos).                           |
+| `console.dir(obj[, options])`        | Lista todas as propriedades de um objeto.                                             |
+| `console.trace()`                    | Exibe o rastro da pilha até o ponto atual.                                            |
+| `console.clear()`                    | Limpa o console.                                                                      |
+| `console.profile([label])`           | Inicia uma sessão de profiling (suportado em alguns navegadores).                     |
+| `console.profileEnd([label])`        | Encerra o profiling.                                                                  |
+| `console.dirxml(node)`               | Exibe um nó DOM como XML/HTML.                                                        |
+| `console.timeStamp([label])`         | Marca um ponto de tempo na linha do tempo de performance.                             |
+| `console.memory`                     | Objeto com informações de uso de memória (somente em alguns navegadores, ex: Chrome). |
+
+```html
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivinhe o número!</title>
+</head>
+<body>
+  <label for="guess">Adivinhe o número entre 1 e 100:</label>
+  <input type="number" name="guess" id="guess">
+  <button>enviar</button>
+  <span id="chances"></span>
+  <p id="answer">Informe um número de 1 a 100.</p>
+  <p id="historic"></p><span>Ganho Rodadas: </span><span id="rounds">0</span> <button id="restart" disabled>restart</button>
+  <script>
+    var attempts = 0;
+    var wins = 0;
+    var totalChances = 10;
+    var trials = [];
+    var secrets = [1, 3, 5, 9, 10, 13, 15, 19, 33, 59, 90, 99];
+    var rounds = document.getElementById("rounds");
+    var number = document.getElementById("guess");
+    var answer = document.getElementById("answer");
+    var historic = document.getElementById("historic");
+    var chances = document.getElementById("chances");
+    var sendButton = document.querySelector("button");
+    var restartButton = document.getElementById("restart");
+
+    sendButton.addEventListener("click", () => {
+      let guess = Number(number.value);
+      let secret = secrets[attempts];
+
+      trials.push(guess);
+
+      if(totalChances !== 1) {
+        if(guess < secret) {
+          text = "Quase... Está abaixo do número correto. Tente novamente!";
+          totalChances--;
+        } else if(guess > secret) {
+          text = "Foi demais... Está acima do número correto. Tente novamente!";
+          totalChances--;
+        } else {
+          text = "Acertou! Vamos novamente adivinhar outro número.";
+          attempts <= secrets.length ? attempts++ : attempts = 0;
+          wins++;
+        }
+      } else {
+        text = "Que pena, acabaram as chances... Vamos tentar novamente?";
+        number.disabled = true;
+        sendButton.disabled = true;
+        restartButton.disabled = false;
+        restartButton.focus();
+        restartButton.addEventListener("click", () => {
+          number.disabled = false;
+          sendButton.disabled = false;
+          number.focus();
+          totalChances = 10;
+          restartButton.disabled = true;
+          text = "Informe um número de 1 a 100.";
+        })
+      }
+
+      answer.textContent = text;
+      historic.textContent = `Histórico: ${trials.join(", ")}`;
+      number.value = "";
+      chances.textContent = `Chance(s) restante(s): ${totalChances}`;
+      rounds.textContent = `${wins}`;
+      console.log(attempts);
+    });
+  </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+
+    <title>Silly story generator</title>
+
+    <style>
+      body {
+        font-family: helvetica, sans-serif;
+        width: 350px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      div {
+        padding-bottom: 20px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        width: 150px;
+      }
+
+      p {
+        background: #ffc125;
+        color: #5e2612;
+        padding: 10px;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <label for="custom-name">Enter custom name:</label>
+        <input id="custom-name" type="text" placeholder=""/>
+    </div>
+    <div>
+      <label for="us">US</label>
+        <input id="us" type="radio" name="ukus" value="us" checked/>
+      <label for="uk">UK</label>
+        <input id="uk" type="radio" name="ukus" value="uk"/>
+    </div>
+    <div>
+      <button class="randomize">Generate random story</button>
+    </div>
+    <p class="story"></p>
+    <script>
+    const customName = document.querySelector('#custom-name');
+    const randomize = document.querySelector('.randomize');
+    const story = document.querySelector('.story');
+
+    const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+    const insertY = ["the soup kitchen", "Disneyland", "the White House"];
+    const insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"];
+    const storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+
+    function randomValueFromArray(array){
+      const random = Math.floor(Math.random()*array.length);
+      return array[random];
+    }
+
+    randomize.addEventListener('click', result);
+
+    function result() {
+      let newStory = storyText;
+
+      const xItem = randomValueFromArray(insertX);
+      const yItem = randomValueFromArray(insertY);
+      const zItem = randomValueFromArray(insertZ);
+
+      newStory = newStory.replaceAll(':insertx:', xItem);
+      newStory = newStory.replaceAll(':inserty:', yItem);
+      newStory = newStory.replaceAll(':insertz:', zItem);
+
+      if(customName.value !== '') {
+        const name = customName.value;
+        newStory = newStory.replaceAll('Bob', name);
+      }
+
+      if(document.getElementById("uk").checked) {
+        const weight = `${Math.round(300*0.0714286)} stone`;
+        const temperature =  `${Math.round((94-32) * 5 / 9)} centigrade`;
+        newStory = newStory.replaceAll('94 fahrenheit', temperature);
+        newStory = newStory.replaceAll('300 pounds', weight);
+      }
+
+      story.textContent = newStory;
+      story.style.visibility = 'visible';
+    }
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Console</title>
+</head>
+<body>
+  <h1>Abra o console do navegador para ver a demonstração completa dos métodos.</h1>
+
+  <script>
+    // 📋 Métodos comuns
+    console.log("🔵 console.log: mensagem genérica");
+    console.info("ℹ️ console.info: mensagem informativa");
+    console.warn("⚠️ console.warn: aviso");
+    console.error("❌ console.error: erro");
+    console.debug("🐞 console.debug: depuração");
+
+    // 🧪 Teste e validação
+    console.assert(2 + 2 === 5, "❗ console.assert: 2 + 2 NÃO é igual a 5");
+
+    console.count("Contador");
+    console.count("Contador");
+    console.countReset("Contador");
+    console.count("Contador (após reset)");
+
+    // ⏱️ Temporizadores
+    console.time("⏱️ Tempo total");
+    for (let i = 0; i < 1000000; i++) {} // Simulação de carga
+    console.timeLog("⏱️ Tempo total");
+    console.timeEnd("⏱️ Tempo total");
+
+    // 📚 Agrupamentos
+    console.group("📂 Grupo de logs");
+    console.log("🔹 Item 1");
+    console.log("🔹 Item 2");
+    console.groupCollapsed("📁 Subgrupo colapsado");
+    console.log("🔸 Subitem 1");
+    console.groupEnd(); // Fecha subgrupo
+    console.groupEnd(); // Fecha grupo principal
+
+    // 📚 Estrutura tabular
+    const dados = [
+      { nome: "Raphael", idade: 27 },
+      { nome: "Déborah", idade: 29 }
+    ];
+    console.table(dados);
+    console.table(dados, ["nome"]);
+
+    // 📚 Visualização de objeto
+    const obj = {
+      nome: "Exemplo",
+      detalhes: {
+        ativo: true,
+        nivel: 42,
+        tags: ["teste", "debug"]
+      }
+    };
+    console.dir(obj); // * muito útil para verificar os métodos possíveis ao elemento
+
+    // 🌲 Stack trace
+    function a() { b(); }
+    function b() { c(); }
+    function c() {
+      console.trace("📌 Rastreamento da pilha");
+    }
+    a();
+
+    // ⚙️ Outros
+    //console.clear(); // Descomente se quiser limpar o console
+    console.profile("🧪 Perfil de desempenho");
+    for (let i = 0; i < 500000; i++) {} // Simula carga
+    console.profileEnd("🧪 Perfil de desempenho");
+
+    // DOM - apenas para navegadores
+    console.dirxml(document.body);
+
+    // Marca de tempo (aparece na aba Performance em devtools)
+    console.timeStamp("🚩 Marca de tempo personalizada");
+
+    // Memória (somente alguns navegadores, ex: Chrome)
+    if (console.memory) {
+      console.log("🧠 Uso de memória:", console.memory);
+    } else {
+      console.log("ℹ️ console.memory não suportado neste navegador.");
+    }
+  </script>
+</body>
+</html>
+```
+
  O módulo **`readline`** — nativo do **`Node.js`** — fornece uma **interface** para *ler dados de um fluxo de entrada como o terminal*. Para isso é necessário construir o método que irá receber os dados lidos no terminal — informados pelo usuário. O `Node.js` é projetado para operações *assíncronas* e *baseadas em eventos*. O módulo `readline` facilita a leitura de dados linha a linha de um fluxo de entrada, como o terminal. O método `question()` exibe uma mensagem e aguarda a entrada do usuário, executando uma função de callback assim que o usuário envia a resposta.
 ```js
 const readline = require('readline'); // importa o módulo `readline` que fornece a interface para a leitura dos dados
