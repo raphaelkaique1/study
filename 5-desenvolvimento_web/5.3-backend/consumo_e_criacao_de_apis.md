@@ -27,7 +27,7 @@ Elas geralmente se dividem em 2 categorias:
    - `DELETE` → Remover um recurso  
 
 Por exemplo, se uma API de usuários tem a URL base `https://api.meusistema.com`, um **endpoint** para obter os detalhes do usuário 123 poderia ser:
-```plaintext
+```
 GET https://api.meusistema.com/usuarios/123
 ```  
 Esse endpoint retornaria as informações do usuário com ID 123.

@@ -1224,7 +1224,7 @@ const cachorro = {
   }
 };
 
-// Define 'animal' como protótipo de 'cachorro'
+// define 'animal' como protótipo de 'cachorro'
 Object.setPrototypeOf(cachorro, animal);
 
 cachorro.fazerSom;    // "Rex diz olá!" — herdado do protótipo
@@ -2343,7 +2343,7 @@ As regras de lógica garantem que estas avaliações estejam sempre corretas. Re
 Conceitualmente, os **operadores bit a bit lógicos** funcionam da seguinte maneira:<br/>
 Os operandos são convertidos em inteiros de 32 bits e expressos como uma série de bits. Números com representação maior que 32 bits terão seus bits truncados. Por exemplo, o seguinte inteiro tem representação binária maior que 32 bits será convertido em um inteiro de 32 bits.<br/>
 Cada bit do 1º operando é pareado com o bit correspondente do 2º operando: 1º bit com 1º bit, 2º bit com 2º bit e assim por diante. O operador é aplicado a cada par de bits e o resultado é construído bit a bit.
-```
+```makefile
 Antes: 11100110111110100000000000000110000000000001
 Depois:            10100000000000000110000000000001
 ```
@@ -2688,9 +2688,21 @@ A tabela a seguir descreve a precedência de operadores, da mais alta para a mai
    - **`while` - `do-while`**: 
 
 ##### ALTERADORES DE FLUXO
- Podemos manipular a iteração de loops usando alteradores de fluxos quando uma condição além da original é atingida. São eles:
+ Podemos manipular a iteração de **loops** usando alteradores de fluxos quando uma condição além da original é atingida. São eles:
  1. **`break`**: *Interrompe* a iteração do fluxo de repetição.
  2. **`continue`**: *Pula* 1 iteração do fluxo de repetição.
+
+ ```js
+ for (let i = 0; i < 5; i++) {
+   if (i === 3) break;    // sai do loop quando i === 3
+   if (i === 1) continue; // pula a iteração quando i === 1
+   console.log(i);
+ }
+ /* Saída:
+ 0
+ 2
+ */
+ ```
 
 ##### BOOLEAN
 Um **valor booleano** é um tipo de dado que só pode ter 2 valores possíveis: **`true`** ou **`false`**.<br/>
@@ -3471,144 +3483,13 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  ```
  Funções tipo `arrow functions` possuem o `this` **léxico**, o que significa que o `this` dentro de uma arrow function se refere ao contexto onde foi definida, e não ao objeto que a chamou – não pode ser usada como `constructor`.
 
-###### CALLBACK
- Como seu nome indica, são **chamadas de retorno**, ou seja, são *funções passadas como argumentos e parâmetros para outras funções*. O que significa que quando invocamos uma função passando-a como parâmetro outra função – **`callback`** se a função principal for **síncrona**, *o callback é executado logo dentro dela*. Se for **assíncrona**, *o callback espera a operação terminar antes de ser executado*.
- ```js
- function fazerAlgo(callbackParameter) {
-   console.log("Executando algo...");
-   callbackParameter(); // chamando a função callback passada como parâmetro
- }
-
- // chamando a função fazer Algo e passando uma função anônima – callback – como parâmetro – callbackParameter
- fazerAlgo( function() {  console.log("Callback foi chamado!")} );
- ```
-
- Quando temos vários callbacks aninhados, o código pode ficar difícil de ler, chamamos isso se chama **Callback Hell**, e, parar resolver este problema usamos [**`Promises`**, **`async`** e **`awayt`**](https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.2-javascript/assincronismo_promises_async_await.md)
-
-**`anonymous callback functions`**<br/>
- As funções anônimas são muito usadas como callbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
+ ###### CALLBACK FUNCTIONS
+ Tanto as funções anônimas quanto as arrow functions são muito usadas como callbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
  ```js
  setTimeout(function() {
    console.log("Mensagem exibida após 2 segundos!");
  }, 2000);
  ```
-###### GENERATOR
-Uma função geradora é uma função especial que pode **pausar sua execução com o `yield` e retomar de onde parou**. Sua definição e declaração é semelhante as funções de expressão e declaração, uma pequena diferença está na adição de um `*` na palavra reservada `function`, ou seja, **`function*`**. As demais regras se aplicam também à ela, onde os parâmetros são opcionais e separados por vírgula, e o corpo da função fica dentro das chaves.<br/>
-Diferente das funções normais onde tudo é executado automaticamente em sequência, as funções geradoras podem ser interrompidas durante a invocação e posteriormente é possível dar continuidade em sua execução a partir do ponto de parada.<br/>
-O `yield` indica os pontos de interrupção da função
-```js
-function* saudar() {
-  yield `Olá`;
-  yield `Bem-vindo`;
-  yield `Usuário!`;
-}
-
-const user = saudar();
-console.log(user);
-```
-
-No exemplo acima, o valor da variável `user` será um objeto do tipo `Generator`, que nada mais é do que um `Iterator`. Ou seja, pode ser iterado de uma maneira diferente de um `array`, com a função **`next`**, que irá passar por cada ponto de parada. A função `next` retorna um objeto com 2 propriedades:
-- **`value`**: o valor informado para cada `yield`.
-- **`done`**: um *booleano* que indica se o `Iterator` percorreu todos os pontos de interrupção, assim, quando seu valor for `true` a iteração finalizou.
-
-Chamando a função, ela não executa imediatamente, ela retorna um objeto iterador. Como nosso exemplo possui 3 pontos de parada, podemos chamar `next` 3 vezes e obter o valor de cada `yield`:
-```js
-// criando a função
-function* saudar() {
-  yield `Olá`;
-  yield `Bem-vindo`;
-  yield `Usuário!`;
-}
-
-const user = saudar(); // criando o objeto para manipular a função
-console.log(user); // Object [Generator] {}
-
-// atribuindo os valores de cada passagem da função à uma variável
-
-const yield1 = user.next();
-console.log(yield1);       // { value: 'Olá', done: false }
-// acessando o objeto
-console.log(yield1.value); // Olá
-console.log(yield1.done);  // false
-
-const yield2 = user.next();
-console.log(yield2);       // { value: 'Bem-vindo', done: false }
-// acessando o objeto
-console.log(yield2.value); // Bem-vindo
-console.log(yield2.done);  // false
-
-const yield3 = user.next();
-console.log(yield3);       // { value: 'Usuário!', done: false }
-// acessando o objeto
-console.log(yield3.value); // Usuário
-console.log(yield3.done);  // false
-
-// fim
-const yieldEnd = user.next();
-console.log(yieldEnd);       // { value: undefined, done: true }
-// acessando o objeto
-console.log(yieldEnd.value); // undefined
-console.log(yieldEnd.done);  // true
-```
-
-Um exemplo completo:
-```js
-// criando a função
-function* minhaGeradora() {
-  yield 1;
-  yield 2;
-  yield 3;
-}
-
-// atribuindo os valores retornados à uma variável objeto
-const gen = minhaGeradora();
-
-console.log(gen.next()); // { value: 1, done: false }
-console.log(gen.next()); // { value: 2, done: false }
-console.log(gen.next()); // { value: 3, done: false }
-console.log(gen.next()); // { value: undefined, done: true }
-```
-
-Entre cada declaração do `yield` é onde vai o código JS:
-```js
-// criando a função
-const incremento = function* () {
-    let n = 0;
-    n++;
-    console.log(`${n}º execução`);
-    yield n; // 1ª parada
-
-    n++;
-    console.log(`${n}º yield`);
-    yield n; // 2ª parada
-}
-
-// atribuindo a função à um objeto
-const iterador = incremento();
-
-// atribuindo o retorno da função à uma variável
-const iterador1 = iterador.next();
-console.log(iterador1);
-
-const iterador2 = iterador.next();
-console.log(iterador2);
-
-const iterador3 = iterador.next();
-console.log(`fim\n${iterador3}`);
-```
-
-Caso não seja necessário controlar o fluxo de execução, ou seja, chamar cada `yield` de maneira automática, pode-se utilizar `for ... of` para percorrer o iterador.
-```js
-function* saudar() {
-    yield 'Olá'
-    yield 'Bem-vindo'
-    yield 'Usuário!'
-}
-
-for (let i of saudar()) {
-    console.log(i)
-}
-```
 
 ###### FUNÇÕES DE ARRAYS
  Existem funções pré-definidas otimizadas para lidar com dados em arrays que nos ajudam a economizar tempo de escrita de código. Esse métodos podem ser dividiso em 2 grupos principais:
@@ -3702,6 +3583,66 @@ for (let i of saudar()) {
     Permite que o array seja iterado, geralmente utilizado implicitamente em laços `for-of`; é um `alias` para o método **`values()`**.
     - **`.length`**<br/>
     Retorna a quantidade de elementos presentes no array, e é atualizada automaticamente conforme o array é modificado.
+
+ ###### TROUBLESHOOTING
+ - O `try/catch/finally` é um bloco de tratamento de erros usado em JavaScript e também em várias outras linguagens de programação para lidar com erros, chamados de *exceções*, de maneira controlada. Ele permite que escrever código que pode gerar erros de forma segura, sem interromper a execução e quebrar o programa. Sua estrutura é semelhante ao `if/elseif/else` e ao `switch/case/default`, com algumas resalvas:
+  ```js
+  try {
+    // código que pode gerar um erro
+  } catch (erro) {
+    // código que será executado caso um erro ocorra no bloco try
+  } finally {
+    // código que será executado independentemente de erro ou não
+  }
+  ```
+ Vamos entender melhor o que cada declaração significa:
+ 1. **`try`**: contém o código a ser executado, que pode gerar ou não uma exceção. Se um erro ocorrer dentro do bloco try, a execução do código no try é interrompida, e o controle é transferido para o bloco `catch()`.
+ 2. **`catch()`**: este bloco é **opcional**, mas quando presente só é executado se um erro ocorrer no bloco `try`. Ele captura a exceção e permite o tratamento do erro, seja exibindo uma mensagem, registrando o erro ou tomando outras ações para resolver o problema. Ele recebe um parâmetro, geralmente chamado de `erro` ou `ex`, mas pode ser qualquer nome, que conterá o objeto de erro gerado.
+ 3. **`finally`**: é **sempre** executado, mesmo com `return` em `try` ou `catch` e independentemente de um erro ter ocorrido ou não. É particularmente útil para garantir que certos códigos sejam executados, como liberar recursos fechando arquivos, conexões de bancos de dados e etc, indiferentemente do sucesso ou falha no bloco `try`.
+ ```js
+ const n = 10;
+ try {
+     n = 0;
+ } catch(error) {
+     console.error(`não é possível reatribuir uma constante: ${error.message}`);
+ } finally {
+     console.log("mesmo com erro essa mensagem será exibida");
+ }
+ /*
+ não é possível reatribuir uma constante: Assignment to constant variable.
+ mesmo com erro essa mensagem será exibida
+ */
+ ```
+
+ - O **`throw`** serve para lançar um erro manualmente. Ou seja, é o mesmo que informar ao JavaScript que aconteceu algo errado, que ele deve interrompoer o código que estiver executando e tratar isso como um erro, evitando assim que o programa continue rodando de forma incorreta.
+   - A função `Error()` cria um objeto de erro com uma mensagem descritiva. Exemplo:
+   ```js
+   // exemplo simples
+   const erro = new Error("Algo deu errado");
+   console.log(erro.name);    // Error
+   console.log(erro.message); // Algo deu errado
+
+   // exemplo completo
+   function dividir(a, b) {
+     b === 0 ?
+       throw new Error("Não é possível dividir por zero!"):
+       return a / b;
+   }
+   
+   try {
+     console.log(dividir(10, 0));
+   } catch (e) {
+     console.error("Erro capturado:", e.message);
+   }
+
+   // `throw` funciona com qualquer coisa
+   throw "erro";             // Lança uma string
+   throw 404;                // Lança um número
+   throw { tipo: "Falha" };  // Lança um objeto
+
+   // MAS o ideal é usar:
+   throw new Error("Mensagem explicando o problema.");
+   ```
 
 ## OOP
  Em JavaScript, tudo é um objeto. Um objeto é uma coleção de funcionalidades relacionadas armazenadas em um único agrupamento.  Vimos os princípios da programação orientada a objetos em tópicos anteriores, pois o JavaScript é uma linguagem de programação multiparadigma, por isso compartilha os conceitos-chave.

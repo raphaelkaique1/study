@@ -1,13 +1,12 @@
 # PROTOCOLOS
-Qualquer aplicação que utiliza comunicação em rede, o mais seguro é utilizar algum protoloco de comunicação com **[SSL/TLS](https://www.youtube.com/watch?v=BVqFpbFiV34)**.
+ **Requisições** são pedidos que o navegador faz a um servidor para receber ou enviar dados. Essas requisições geralmente seguem algum *protocolo*.
+ Qualquer aplicação que utiliza comunicação em rede, utiliza algum **protoloco de comunicação**, para que isso seja feito com maior segurança, utilizam-se protocolos com **[SSL/TLS](https://www.youtube.com/watch?v=BVqFpbFiV34)**.<br/>
  O **SSL (Secure Sockets Layer)** e o **TLS (Transport Layer Security)** são protocolos criptográficos fundamentais para a segurança das comunicações na internet. Eles garantem a confidencialidade, integridade e autenticidade dos dados transmitidos entre um cliente e um servidor.
 
 **SSL (Secure Sockets Layer):**
-
 Desenvolvido pela Netscape na década de 1990, o SSL foi o primeiro protocolo amplamente adotado para proteger as comunicações na web. Ele utiliza criptografia para assegurar que os dados transmitidos não possam ser interceptados ou alterados por terceiros. No entanto, o SSL possui vulnerabilidades conhecidas e foi gradualmente substituído pelo TLS.
 
 **TLS (Transport Layer Security):**
-
 O TLS é a evolução do SSL, projetado para corrigir as falhas de segurança do SSL e oferecer uma criptografia mais robusta. Ele é amplamente utilizado para proteger protocolos como HTTP (resultando no HTTPS), SMTP, FTP e outros. O TLS opera em camadas inferiores do modelo OSI, garantindo que os dados sejam transmitidos de forma segura entre as partes envolvidas.
 
 **Como o SSL/TLS Funciona:**
@@ -24,10 +23,19 @@ O TLS é a evolução do SSL, projetado para corrigir as falhas de segurança do
 
 É importante notar que, embora o termo "SSL" ainda seja amplamente utilizado, a maioria das implementações modernas utiliza o TLS devido às suas melhorias de segurança.
 
+Os protocolos mais utilizados em comunicação de rede são:
+
+| Protocolo      | Descrição                                                                                     |
+|----------------|-----------------------------------------------------------------------------------------------|
+| **HTTP/HTTPS** | O mais comum. Usado para comunicação entre cliente e servidor (APIs REST, páginas web e etc). |
+| **WebSocket**  | Comunicação bidirecional em tempo real (ex: chats, jogos online).                             |
+| **FTP/SFTP**   | Para transferir arquivos. Pouco usado diretamente no navegador.                               |
+| **WS/WSS**     | Versões insegura e segura do WebSocket.                                                       |
+| **Data URLs**  | Para embutir dados diretamente em um link (`data:text/html,...`).                             |
+| **Blob URLs**  | Para lidar com arquivos gerados no browser.                                                   |
+
 ## [HTTPS: Let's Encrypt](https://letsencrypt.org/pt-br/how-it-works/)
-
 Feita a conexão segura no canal, usamos os métodos HTTP para definir a ação que o cliente deseja realizar sobre um recurso no servidor. Os principais métodos são:
-
 - **GET**: Recupera informações de um recurso sem modificá-lo.
 - **POST**: Envia dados para o servidor, geralmente para criar um novo recurso ou processar informações.
 - **PUT**: Atualiza ou substitui completamente um recurso existente com os dados enviados.
@@ -39,7 +47,6 @@ Feita a conexão segura no canal, usamos os métodos HTTP para definir a ação 
 - **CONNECT**: Usado para estabelecer um túnel de comunicação, comum em conexões HTTPS.
 
 Além desses, existem outros métodos específicos, como os do WebDAV, esses métodos foram criados para permitir a manipulação de arquivos e pastas, chamadas *coleções*, em servidores web:
-
 - **PROPFIND**: Recupera propriedades normalmente em formato XML de um recurso.
 - **PROPPATCH**: Modifica ou remove múltiplas propriedades de um recurso.
 - **MKCOL**: Cria uma nova coleção, por exemplo, uma pasta.
@@ -49,7 +56,6 @@ Além desses, existem outros métodos específicos, como os do WebDAV, esses mé
 - **UNLOCK**: Remove a trava aplicada a um recurso.
 
 Além dos métodos do WebDAV, há outros métodos introduzidos em extensões ou por protocolos associados:
-
 - **REPORT**: Usado em sistemas de versionamento como DeltaV e em protocolos como CalDAV e CardDAV para gerar relatórios sobre as propriedades ou o estado de um recurso.
 - **MKCALENDAR**: Utilizado pelo CalDAV para criar um novo calendário.
 - **ACL**: Define ou modifica as listas de controle de acesso e permissões de um recurso.
