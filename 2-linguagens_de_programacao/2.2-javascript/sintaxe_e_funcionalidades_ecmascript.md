@@ -204,7 +204,145 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  const alert = "!Alert:";
  ```
 
- Como visto acima, as variáveis são declaradas de 2 maneiras:
+ Ao definirmos nomes de variáveis, existem algumas convenções que ajudam a tornar o código mais limpo e organizado, vejamos alguns estilos de **naming conventions**:
+| Estilo                   | Exemplo                         | Onde é mais usado                         |
+|--------------------------|---------------------------------|-------------------------------------------|
+| **camelCase**            | `minhaVariavelBonita`           | JavaScript (variáveis, funções), Java     |
+| **PascalCase**           | `MinhaClasseImportante`         | JavaScript (classes), C#, .NET            |
+| **kebab-case**           | `minha-variavel-bonita`         | URLs, nomes de arquivos, HTML (atributos) |
+| **SCREAMING_SNAKE_CASE** | `VARIAVEL_CONSTANTE`            | Constantes (C, Python, JS, etc.)          |
+| **snake_case**           | `minha_variavel_bonita`         | Python, C (variáveis, funções), configs   |
+
+Quando usar cada um vai depender do tipo de projeto que está sendo desenvolvido. O `camelCase` é mais comumente usado no JavaScript para declaração de **variáveis**, **funções**, **argumentos** e o `PascalCase` para: **classes**, **construtores**, **tipos (TypeScript)**.<br/>
+Para **constantes globais**, **valores que não mudam nunca** usa-se o `SCREAMING_SNAKE_CASE`.
+```js
+// camelCase
+let precoTotal = 10.5;
+function calcularPrecoFinal(valorProduto) {
+  return valorProduto * 1.1;
+}
+
+// PascalCase
+class Pessoa {
+  constructor(nome) {
+    this.nome = nome;
+  }
+}
+
+// SCREAMING_SNAKE_CASE
+const PI = 3.14;
+const API_URL = "https://exemplo.com";
+```
+
+O `kebab-case` **não permitido como nome de variável em JS**, mas é muito usado em **atributos HTML**, **CSS**, **URLs**, **nomes de arquivos** e etc.
+```html
+<style>
+  /* o css usa o padrão BEMCSS, que utiliza uma estrutura `bloco__elemento--modificador`
+  que é composta de `double snake__case` e `double kebab--case`
+  */
+  .form__botao--editar {
+    /* ... */
+  }
+</style>
+
+<a href="file-path.ext">File</a>
+<button data-user-id="1" class="form__button--edit">Edit</button>
+```
+
+O `snake_case` é mais comum em: **Python**, **bancos de dados**, **nomes de arquivos**, **APIs**. Usado para nomear funções e variáveis em Python, colunas SQL, etc.
+
+```python
+def calcular_preco_final(valor_produto):
+    return valor_produto * 1.1
+```
+
+Em resumo, essas são convenções que ajudam a facilitar a legibilidade e manutenção do código, e junto com outras técnicas e padrões de desenvolvimento tornam a escrita e leitura muito mais inteligível.
+- **JavaScript**: mistura `camelCase` e `PascalCase`.
+- **Python**: `snake_case` é a convenção oficial (PEP8).
+- **Rust / Go**: `snake_case` para quase tudo.
+- **HTML / CSS**: `kebab-case` em atributos e seletores.
+- **React props**: `camelCase` no JSX (`onClick`, `className`).
+- **JSON**: geralmente `snake_case` ou `camelCase` (depende da API).
+
+Além disso, também é uma boa prática de **Clean Code** a adoção descritiva de nomes de variáveis e funções, para aumentar a facilidade do entendimento da lógica do código.
+
+1. **Pelo fato do inglês ler a "língua global", é de bom praste que todo o script seja escrito em inglês**, afinal até as declarações da linguagem de programação usam inglês (**for**, **while**, **if/else**, **Promise**, **Object**, **then/catch**, **try/finally** e etc).
+
+2. **Ser descritivo e preciso** evitando nomes genérios como `data`, `date`, `info` e etc.
+```js
+// ❌ Ruim
+const d = new Date();
+let xpto;
+
+// ✅ Melhor
+const actualDate = new Date();
+let orderStatus;
+```
+
+3. **Nomeie com base no papel ou objetivo**, _usando VERBOS (AÇÕES) para FUNÇÕES_ e _SUBSTANTIVOS (CARACTERÍSTICAS) para VARIÁVEIS_.
+```js
+let quantityOfProducts = 10;
+let totalPrice = 250.50;
+
+function calculateDiscount(price, percentage) {
+  return price * (1 - percentage);
+}
+function searchUserById(id) { ... }
+function calculateAverage(grades) { ... }
+```
+
+4. **Para booleanos usar nomes que começam com `is`, `has`, `can` e `should`.**
+```js
+let isActive = true;
+let hasPermission = false;
+let shouldUpdate = true;
+```
+
+5. **Evitar abreviações**, pois dificultam a leitura e manutenção do código.
+```js
+// ❌ Ruim
+let qt = 5;
+
+// ✅ Melhor
+let quantity = 5;
+```
+
+6. **Evitar ambiguidade** usando nomes que respondam **por quê**, **o que** e **como**.
+```js
+// ❌ Ambíguo
+function update(x) {
+  // atualizar o quê?
+}
+
+// ✅ Claro
+function updateOrderStatus(orderId, newStatus) {
+  // agora sabemos exatamente o que está sendo feito
+}
+```
+
+7. **Evitar contextos desnecessários**, se o nome da variável já está dentro de um contexto, não o repita.
+```js
+// ❌ Ruim
+const cart = {
+  itemsCart: [],
+  totalCart: 0
+};
+
+// ✅ Melhor
+const cart = {
+  items: [],
+  total: 0
+};
+```
+
+8. **Use apenas 1 padrão de estilo de escrita**, no JS por exemplo usa-se **camelCase** para variáveis e funções e **SCREAMING_SNAKE_CASE** para constantes.
+```js
+const DISCOUNT
+let discountedPrice;
+function calculateFinalPrice() {}
+```
+
+ Em questão de escopo e manipulação, as variáveis no JS são declaradas de 2 maneiras:
 
  1. **`var`**: **escopo GLOBAL**<br/>
  Define uma variável global, independentemente do escopo do bloco onde foram declaradas. *Essas variáveis estão disponíveis para **TODOS** os elementos do código.* Podemos acessá-las de qualquer lugar do script.
@@ -234,6 +372,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  console.log(num); // num == 5 <-
  ```
 
+**`$`**
 A comunidade de desenvolvedores costuma usar **`$` como uma convenção para certas finalidades** *para tornar o código mais organizado e intuitivo*. Como por exemplo:
 
 1. **Variáveis que armazenam elementos do DOM** (exemplo do jQuery), isso ajuda a identificar rapidamente que a variável se refere a um **elemento da página**.:
@@ -254,6 +393,44 @@ var $temp = 42; // variável temporária para processamento
 4. **Prefixo para distinguir variáveis específicas**:
 ```js
 var $config = { tema: "escuro", modo: "automático" };
+```
+
+**`_`**
+Já o `_` é muito usado para:
+
+1. **Variáveis privadas ou internas** que não devem ser acessadas de fora (substituído por `#`).
+```js
+class Pessoa {
+  constructor(nome) {
+    this._nome = nome; // convenção = "privado" / porém não é privado de verdade
+  }
+
+  get Nome() {
+    return this._nome;
+  }
+}
+```
+
+2. **Sozinho quando se quer ignorar um parâmetro**, simulando um campo em branco.
+```js
+// simulando um map onde só nos interessa o índice
+const resultado = ["a", "b", "c"].map((_, index) => {
+  return `Item ${index}`;
+});
+
+console.log(resultado);
+// ["Item 0", "Item 1", "Item 2"]
+```
+
+3. **Usado em bibliotecas e palavras reservadas**, algumas libs usam `_` como nome de objeto principal, e algumas palavras reservadas no JS também possuem `_` inserido.
+```js
+ let pessoa = {
+   nome: "Raphael",
+   idade: 30
+ };
+
+ // o JS realiza a seguinte conversão:
+ pessoa.__proto__ === Object.prototype; // true
 ```
 
 ##### POPULANDO VARIÁVEIS
@@ -3357,27 +3534,147 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  - **Funções _SEM_ `return`**: Usadas quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
  - **Funções _COM_ `return`**: Usadas quando é necessário calcular um valor e utilizá-lo posteriormente no código.
 
-###### REST & SPREAD
+###### DESTRUCTURING
+É uma forma prática de extrair valores de arrays ou propriedades de objetos e atribuí-los a variáveis usando uma sintaxe mais curta e clara, evitando assim repetições e tornando o código mais legível.
+
+ - **destructuring objects**
+ ```js
+ const pessoa = {
+   nome: "Raphael",
+   idade: 27,
+   cidade: "Betim"
+ };
+
+ // sem destructuring:
+ const nome1 = pessoa.nome;
+ const idade1 = pessoa.idade;
+
+ // com destructuring:
+ const { nome, idade } = pessoa;
+
+ console.log(nome);  // Raphael
+ console.log(idade); // 27
+
+ // renomeando variáveis
+ const { cidade: cidadeNatal } = pessoa;
+ console.log(cidadeNatal); // Belo Horizonte
+ ```
+ - **destructuring array**
+ ```js
+ const numeros = [10, 20, 30];
+
+ // sem destructuring:
+ const a = numeros[0];
+ const b = numeros[1];
+
+ // com destructuring:
+ const [x, y] = numeros;
+
+ console.log(x); // 10
+ console.log(y); // 20
+
+ // ignorando valores
+ const [primeiro, , terceiro] = numeros;
+ console.log(terceiro); // 30
+ ```
+
+ - **desctructing in functions**
+ ```js
+ // com objetos
+ function apresentar({ nome, idade }) {
+   console.log(`Nome: ${nome}, Idade: ${idade}`);
+ }
+
+ const user = { nome: "Kaique", idade: 30 };
+ apresentar(user);
+
+ // com array
+ function soma([a, b]) {
+   return a + b;
+ }
+
+ console.log(soma([2, 3])); // 5
+ ```
+
+ - **default value** - evita `undefined`.
+ ```js
+ const { status = "ativo" } = { nome: "Raphael" };
+ console.log(status); // ativo
+
+ const [x, y, z = 100] = [1, 2];
+ console.log(x); // 1
+ console.log(z); // 100
+ ```
+ 
+ - **exemplo completo**
+ ```js
+ const usuario = {
+   nome: "Raphael",
+   contatos: {
+     email: "raphael@email.com",
+     telefone: "31996653731"
+   }
+ };
+
+ const {
+   nome,
+   contatos: { email }
+ } = usuario;
+
+ console.log(nome);  // Raphael
+ console.log(email); // raphael@email.com
+ ```
+
+ ###### OPERADORES DE SINTAXE
+ `rest` e `spread` são operadores de sintaxe que complementam o destructuring e também têm usos fora dele.
+
  - **`rest`**<br/>
  **No caso de funções com parâmetros, quando não sabemos exatamente o número de parâmetros que podem atingir nossa função, usamos `...` para nos referirmos ao restante dos parâmetros possíveis.** *Estes parâmetros são armazenados em um `array` com o nome dado ao parâmetro.* Ele basicamente junta múltiplos argumentos em um único array.
-
  ```js
+ // em destructuring
+ const [a, ...resto] = [1, 2, 3, 4];
+ console.log(a);      // 1
+ console.log(resto);  // [2, 3, 4]
+
+ // em function
  function loteria(jogo, ...numeros) {
      return `${jogo}: ${numeros}`;
  }
 
  console.log(loteria("Mega-Sena", 13, 38, 39, 40, 42, 56)); // Mega-Sena: 13,38,39,40,42,56
+
+ // array destructuring + rest
+ const numeros = [10, 20, 30, 40, 50];
+ const [primeiro, segundo, ...resto] = numeros;
+
+ console.log(primeiro); // 10
+ console.log(segundo);  // 20
+ console.log(resto);    // [30, 40, 50]
+
+ // object destructuring + rest
+  const usuario = {
+   nome: "Raphael",
+   idade: 27,
+   cidade: "BH",
+   profissao: "Dev"
+ };
+
+ const { nome, ...resto } = usuario;
+ console.log(nome);  // Raphael
+ console.log(resto); // { idade: 27, cidade: "BH", profissao: "Dev" }
+
  ```
 
  - **`spread`**<br/>
  Realiza o contrário do **rest**, pois ele *"espalha"* elementos de arrays ou objetos. É útil para cópias, combinações e chamadas de função.
  ```js
  const numeros = [1, 2, 3];
- console.log(numeros);      // [ 1, 2, 3 ]
- console.log(...numeros);   // 1 2 3                      <- separamos por completo cada index do aray original
- console.log([...numeros]); // [ 1, 2, 3 ]                <- podemos copiar outro array sem modificá-lo
- console.log({...numeros}); /* { '0': 1, '1': 2, '2': 3 } <- além de criar objetos, visto que cada valor ocupa uma posição,
-                                e as chaves serão como as posições do array */
+ console.log(numeros);                   // [ 1, 2, 3 ]                   <- normal
+ console.log(...numeros);                // 1 2 3                         <- separamos por completo cada index do aray original
+ console.log([...numeros]);              // [ 1, 2, 3 ]                   <- podemos copiar outro array sem modificá-lo
+ const maisNumeros = [...numeros, 4, 5]; // [ 1, 2, 3, 4, 5 ]             <- novo array criado com a cópia 
+ console.log({...numeros});              /* { '0': 1, '1': 2, '2': 3 }    <- além de criar objetos, visto que cada valor ocupa uma posição,
+                                            e as chaves serão como as posições do array */
 
  const a = [1, 2, 3];
  const b = [4, 5, 6];
