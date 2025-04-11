@@ -358,6 +358,16 @@ O **`async`** e **`await`** são palavras-chave que facilitam o trabalho com **P
 A palavra-chave `async` torna uma função assíncrona, e dentro dela pode-se usar `await` para "esperar" a resolução de uma promessa. Vejamos sua estrutura:
 ```js
 // async/await
+async function getData() {
+  const result = await fetch("https://api.github.com/users/raphaelkaique1");
+  console.log(result);
+  const jsonToObj = await result.json();
+  console.log(jsonToObj);
+  console.log(jsonToObj.login);
+}
+getData();
+
+// ou simplificando
 async function pegaDados() {
   const resposta = await fetch('https://jsonplaceholder.typicode.com/posts/1');
   const json = await resposta.json();
@@ -365,6 +375,12 @@ async function pegaDados() {
 }
 pegaDados().then(console.log);
 
+// ou simplificando ainda mais
+async function getData() {
+  const result = await fetch("https://api.github.com/users/raphaelkaique1").then(res => res.json());
+  console.log(result);
+}
+getData();
 
 // objeto Promise
 async function exemplo() { // criando uma função assíncrona
