@@ -3783,9 +3783,25 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  ###### CALLBACK FUNCTIONS
  Tanto as funções anônimas quanto as arrow functions são muito usadas como callbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
  ```js
- setTimeout(function() {
-   console.log("Mensagem exibida após 2 segundos!");
- }, 2000);
+ let Button = (name, style) => {
+   const $body = document.querySelector("body");
+   const $button = document.createElement("button");
+
+   $button.textContent = name;
+
+   style($button); // callback
+
+   $body.insertAdjacentElement("beforeend", $button);
+   return $button;
+ };
+
+ Button("login", button => {
+   button.addEventListener("click", () => console.log("login fetch"));
+ });
+
+ Button("signup", button => {
+   button.addEventListener("click", () => console.log("sign up page"));
+ });
  ```
 
 ###### FUNÇÕES DE ARRAYS
