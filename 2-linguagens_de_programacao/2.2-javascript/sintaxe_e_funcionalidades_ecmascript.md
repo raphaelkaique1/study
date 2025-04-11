@@ -3289,7 +3289,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  ```
 
  5. **`for-in`**</br>
- Usado para iterar sobre as **chaves** de um *objeto*. Não é recomendado para arrays, pois pode incluir propriedades herdadas.
+ Usado para iterar sobre as **chaves** de um *OBJETO*. **Não é recomendado para ARRAYS, pois pode incluir propriedades herdadas.**
  ```js
  const obj = {a: 1, b: 2, c: 3}
 
@@ -3371,7 +3371,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
       console.log(`Olá ${this.nome}.`);
   }
  }
- 
+
  Pessoa.saudacao();
  ```
 
