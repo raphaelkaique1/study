@@ -27,9 +27,9 @@
 
  **async**
  ```html
- <script defer src="js/vendor/jquery.js"></script>
- <script defer src="js/invoice.js"></script>
- <script defer src="js/enrollment.js"></script>
+ <script async src="js/vendor/jquery.js"></script>
+ <script async src="js/invoice.js"></script>
+ <script async src="js/enrollment.js"></script>
  ```
  Scripts carregados utilizando o atributo `async` irão baixar seu conteúdo sem bloquear a renderização da página, e irão executar imediatamente após o script terminar de ser disponibilizado. Neste modo não há nenhuma garantia de que os scripts carregados irão executar em uma ordem específica, mas com certeza não irão impedir o carregamento do restante da página. **O melhor uso para `async` é quando os scripts de uma página rodam de forma _independente_ entre si.**<br/>
  No exemplo acima, não é garantido que o script `jquery.js` carregará antes ou depois do `invoice.js` e `enrollment.js`. Nesse caso, se alguma função desses scripts dependem de algo vindo de `jquery`, será produzido um erro, pois o `jquery` ainda não foi carregado e definido quando os scipts executaram essa função.<br/>
@@ -37,7 +37,7 @@
 
  **defer**
  ```html
- <script src="script.js" defer></script>
+ <script defer src="script.js"></script>
  ```
  Este é um recurso moderno do JS para resolver este problema: trata-se do atributo `defer`, que informa ao browser para continuar renderizando o conteúdo HTML uma vez que a tag `script` foi atingida. Neste caso, ambos *script* e *HTML* irão carregar de forma simultânea e o código irá funcionar. Todos os scripts com o atributo defer irão carregar na ordem que aparecem na página. Os scripts não irão rodar sem que antes todo o conteúdo da página seja carregado, que no caso, é muito útil se os seus scripts dependem de um DOM completamente disponibilizado em tela, como scripts que modificam um elemento por exemplo.
 
@@ -57,7 +57,7 @@
     <meta charset="UTF-8">
     <title>JavaScript</title>
     <link rel="stylesheet" href="style.css"> <!-- CSS -->
-    <script src="script.js"></script> <!-- JS -->
+    <script defer src="script.js"></script> <!-- JS -->
 </head>
 ```
 
@@ -72,7 +72,7 @@
   <>
     ...
   </>
-  <script src="script.js" defer></script>
+  <script defer src="script.js"></script>
 </body>
 ```
 
@@ -3003,15 +3003,15 @@ NaN
 Exemplos são:
 ```js
 if ("Raphael") {
-  console.log("Isso é truthy."); // Isso é truthy
+  console.log("Isso é truthy."); // isso é truthy
 }
 
 if ([]) {
-  console.log("Arrays vazios também são truthy."); // Arrays vazios também são truthy.
+  console.log("Arrays vazios também são truthy."); // arrays vazios também são truthy.
 }
 
 if (0) {
-  console.log("Isso nunca será impresso, pois é falsy."); // Isso nunca será impresso, pois é falsy.
+  console.log("Isso nunca será impresso, pois é falsy."); // isso nunca será impresso, pois é falsy.
 }
 ```
 
