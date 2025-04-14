@@ -244,4 +244,55 @@ function ThemedButton() {
 ```
 Assim como o exemplo do **Redux**, que é um pacote externo utilizado com React, que também lida e manipula os dados dessa forma. Pois não estamos lidando com o componente e sim com o valor da variável que ele irá utilizar.
 
+### REDUX
+Redux é uma biblioteca de gerenciamento de estado para aplicações JS, muito usado com React, mas tabmém funciona em outros frameworks como Angular ou Vue. Seu principal objetivo é centralizar e controlar o estado da aplicação, como dados do usuário, carrinho de compras, temas e etc, tudo em um só lugar. Por exemplo, imagine que existem vários componentes em uma aplicação React. Se um precisar passar dados para o outro, seria necessário ficar passando props por muitos níveis. Sem Redux seria como: `Componente A → B → C → D... (muito props passando de pai pra filho)`. Já com Redux, todos os componentes acessam o estado direto do mesmo lugar: o **`Store`**. A estrutura básica do Redux é a seguinte.
+```txt
+AÇÃO         (Action)
+  ↓
+DISPATCH     (envia ação)
+  ↓
+REDUCER      (decide como mudar o estado)
+  ↓
+STORE        (guarda o estado global)
+  ↓
+COMPONENTES  (acessam ou atualizam o estado)
+```
+
+Redux é ideal para aplicações grandes, que precisam de maior controle, como quando o estado da aplicação for compartilhado entre muitos componentes, e é necessária a previsibilidade e rastreabilidade para ver tudo o que aconteceu no estado.
+
+| Termo        | Descrição                                                                  |
+|--------------|----------------------------------------------------------------------------|
+| **Store**    | Onde o estado global fica guardado.                                        |
+| **Action**   | Um objeto que descreve o que você quer fazer (ex: `{ type: "ADD_ITEM" }`). |
+| **Reducer**  | Uma função que recebe o estado atual + ação e devolve o novo estado.       |
+| **Dispatch** | Função usada para enviar uma action para o reducer.                        |
+
+Vejamos um exemplo de Redux puro (sem React):
+```js
+const { createStore } = require('redux');
+
+// reducer
+function contador(state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENTAR':
+      return state + 1;
+    case 'DECREMENTAR':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+// cria a store
+const store = createStore(contador);
+
+// escuta mudanças
+store.subscribe(() => console.log(store.getState()));
+
+// dispara ações
+store.dispatch({ type: 'INCREMENTAR' });
+store.dispatch({ type: 'INCREMENTAR' });
+store.dispatch({ type: 'DECREMENTAR' });
+```
+
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">next</a>
