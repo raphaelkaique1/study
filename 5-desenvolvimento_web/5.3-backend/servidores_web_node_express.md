@@ -67,10 +67,10 @@ app.listen(port, () => {
 });
 ```
 
-No JS existem várias formas de importar código, dependendo do tipo de módulo usado, que são 2:
-1.**ES Modules - `import`** éo método mais morderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node.
+No JS existem várias formas de importar código, dependendo do tipo de módulo usado, que são:
+1. **ES Modules - `import`** éo método mais morderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node.
 
-- **Importação padrão (default import)**:
+- **Importação padrão (default import)**
 ```js
 // import valorPadrao from './modulo.js';
 import saudacao from './modulo.js';
@@ -78,7 +78,7 @@ import saudacao from './modulo.js';
 console.log(saudacao()); // "Olá do módulo!"
 ```
 
-- **Importação nomeada (named import)**:
+- **Importação nomeada (named import)**
 ```js
 // import { funcao, constante } from './modulo.js';
 import { somar, PI } from './modulo.js';
@@ -87,7 +87,7 @@ console.log(somar(2, 3)); // 5
 console.log(PI); // 3.14159
 ```
 
-- **Importação com renomeação (alias)**:
+- **Importação com renomeação (alias)**
 ```js
 // import { funcao as novaFuncao } from './modulo.js';
 import { multiplicar as vezes } from './modulo.js';
@@ -95,7 +95,7 @@ import { multiplicar as vezes } from './modulo.js';
 console.log(vezes(4, 5)); // 20
 ```
 
-- **Importar tudo como um objeto**:
+- **Importar tudo como um objeto**
 ```js
 import * as utils from './modulo.js';
 // Ex: utils.funcao()
@@ -105,7 +105,7 @@ console.log(utils.PI); // 3.14159
 console.log(utils.default()); // "Olá do módulo!"
 ```
 
-- **Importação combinada (default + named)**:
+- **Importação combinada (default + named)**
 ```js
 // import valorPadrao, { funcao } from './modulo.js';
 import saudacao, { somar } from './modulo.js';
@@ -114,7 +114,7 @@ console.log(saudacao()); // "Olá do módulo!"
 console.log(somar(3, 3)); // 6
 ```
 
-- **Importação dinâmica (lazy load)**:
+- **Importação dinâmica (lazy load)**
 ```js
 /* const modulo = await import('./modulo.js');
    modulo.funcao();
@@ -132,7 +132,7 @@ carregarModulo();
 
 2. **CommonJS - `require`**, esta é a forma padrão do Node, antes do surgimento do **ES Modules**, atualmente `require` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos.
 
-- **Importação simples**:
+- **Importação simples**
 ```js
 const modulo = require('./modulo.js');
 
@@ -140,7 +140,7 @@ console.log(modulo.saudacao('Raphael'));   // Olá, Raphael!
 console.log(modulo.despedida('Raphael'));  // Tchau, Raphael!
 ```
 
-- **Importar uma propriedade específica**:
+- **Importar uma propriedade específica**
 ```js
 // const { funcao } = require('./modulo.js');
 const { saudacao } = require('./modulo.js');
@@ -148,7 +148,7 @@ const { saudacao } = require('./modulo.js');
 console.log(saudacao('Déborah'));          // Olá, Déborah!
 ```
 
-- **Importar com renomeação**:
+- **Importar com renomeação**
 ```js
 // const { funcao: novaFuncao } = require('./modulo.js');
 const { despedida: bye } = require('./modulo.js');
@@ -157,8 +157,7 @@ console.log(bye('Kaique'));                // Tchau, Kaique!
 ```
 
 3. **Outras formas especiais**
-
-- **Importar JSON**:
+- **Importar JSON**
 ```js
 // ES Module (Node.js precisa de flag ou config no package.json)
 import dados from './arquivo.json' assert { type: "json" };
@@ -167,14 +166,14 @@ import dados from './arquivo.json' assert { type: "json" };
 const dados = require('./arquivo.json');
 ```
 
-- **Importar em HTML (browser)**:
+- **Importar em HTML (browser)**
 ```html
 <script type="module" src="app.js"></script>
 ```
 
 ---
 
-**Para executar os módulos importados, é importante que estejam referenciados no `package.json`, ou usando extensões `.mjs`.**
+**Para executar os módulos importados em um arquivo `.js`, é importante que estejam referenciados no `package.json`, ou usando extensões `.mjs`.**
 ```json
 "type": "module"
 ```
@@ -182,8 +181,7 @@ const dados = require('./arquivo.json');
 ### `export`
 Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. O `export` é usado para tornar partes do código acessíveis em outros arquivos que usam `import`. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar `export`.
 
-1. **CommonJS (CJS)** — usado no Node.js
-
+1. **CommonJS (CJS)** — usado no Node.js.
   - **Exportar múltiplos valores**
   ```js
   // modulo.js
@@ -309,15 +307,14 @@ Permite importar e exportar de outro módulo sem declarar localmente.
   ```
 
 - **Outros casos menos comuns**
-  - **Dinamicamente (ES Modules dinâmicos — via `import()`):**
+  - **Dinamicamente (ES Modules dinâmicos — via `import()`)**
   ```js
   const modulo = await import('./modulo.js');
   console.log(modulo.saudacao("Raphael"));
   ```
 
-  - **Misturar CommonJS com ESM (casos híbridos):**
+  - **Misturar CommonJS com ESM (casos híbridos)**
   > 🟡 *Não recomendado*, mas possível no Node.js:
-
   ```js
   // arquivo.mjs
   import pacote from 'meu-pacote-cjs';
@@ -327,6 +324,5 @@ Permite importar e exportar de outro módulo sem declarar localmente.
   // arquivo.cjs
   const modulo = await import('./modulo.mjs');
   ```
-
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">next</a>
