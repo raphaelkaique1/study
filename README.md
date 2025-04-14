@@ -2,6 +2,7 @@
 - **[ENGLISH](https://github.com/raphaelkaique1/study/blob/main/0-languages/english)**
 - **[CIÊNCIA DA COMPUTAÇÃO](https://github.com/Universidade-Livre)**
 - **[TRILHA DE APRENDIZADO](https://roadmap.sh/roadmaps)**
+- **[T](https://github.com/raphaelkaique1/study/blob/main/full-stack.md)**
 - **[STACKS](https://quickref.me/)**
 - **[PROJECT PORTIFOLIO](https://github.com/raphaelkaique1/study/tree/main/coding)**
 
