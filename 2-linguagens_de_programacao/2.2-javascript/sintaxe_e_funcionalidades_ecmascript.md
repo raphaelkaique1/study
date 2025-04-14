@@ -1107,7 +1107,8 @@ console.log(resultado); // Saída: ["10", "20"]
  // criando um objeto literal
  let pessoa = {
    nome: "Raphael",
-   idade: 30
+   idade: 30,
+   saudar() {console.log("Oi!")}
  };
 
  // o JS realiza a seguinte conversão:
@@ -1118,7 +1119,25 @@ console.log(resultado); // Saída: ["10", "20"]
 
  // o motivo é que `pessoa` herda isso da "base" prototype
  Object.prototype.toString
+
+ const raphael = Object.create(pessoa); // raphael herda de pessoa
+ raphael.saudar(); // "Oi!" - mesmo que raphael não tenha declarado em si `saudar`, isso é herdado de pessoa
  ```
+
+ Vejamos com funções construtoras:
+ ```js
+ function Carro(marca) {
+   this.marca = marca;
+ }
+
+ Carro.prototype.ligar = function () {
+   console.log(`${this.marca} ligou!`);
+ };
+
+ const fusca = new Carro("VW");
+ fusca.ligar(); // VW ligou!
+ ```
+ No exemplo acima, a função `Carro` tem um protótipo (`Carro.prototype`) onde colocamos o método `ligar`. Qualquer objeto criado com `new Carro()` terá esse protótipo como base.
 
  Na cadeia de protótipos, `Object.prototype` é o "fim da linha".
  ```js
@@ -1129,6 +1148,12 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log(Object.getPrototypeOf(Object.prototype)); // → null
  console.log(Object.prototype.__proto__); // null (fim da linha!)
  ```
+
+ **Diferença entre `__proto__` e `prototype`.**
+| Termo         | Explicação                                                                                           |
+|---------------|------------------------------------------------------------------------------------------------------|
+| `__proto__`   | A propriedade **de um objeto** que aponta para seu protótipo.                                        |
+| `prototype`   | Uma propriedade **de funções construtoras** usada como protótipo de novos objetos criados com `new`. |
 
  Em JavaScript, objetos podem herdar propriedades e métodos de outros objetos. O `Object.prototype` é o protótipo de todos os objetos, o que significa que propriedades e métodos definidos nele estão disponíveis para todos os objetos que dele herdam. Por exemplo, métodos como `toString()` e `valueOf()` são herdados de `Object.prototype`. Ele é a base da cadeia de herança, sendo o objeto protótipo do qual todos os objetos comuns criados a partir de `Object` (ou derivados dele) herdam propriedades e métodos (definidos em `Object.prototype`), **a menos que se diga o contrário**.
 
@@ -1174,7 +1199,13 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log({}.personalMethod()); // "Este método é acessível à todo objeto!"
  ```
 
- Já que todos os objetos em JS são descendentes do `Object`, todos herdam métodos e propriedades de `Object.prototype`, embora possam ser substituídos por exemplo, protótipos de outros construtores substituem a propriedade `constructor` e fornecem seus próprios métodos `toString()`. Todas as alterações serão propragadas para todos os objetos a menos que as propriedades e métodos sujeitos a essas alterações seram substituídas na cadeia de protótips.<br/>
+ Já que todos os objetos em JS são descendentes do `Object`, todos herdam métodos e propriedades de `Object.prototype`, embora possam ser substituídos por exemplo, protótipos de outros construtores substituem a propriedade `constructor` e fornecem seus próprios métodos `toString()`. Todas as alterações serão propragadas para todos os objetos a menos que as propriedades e métodos sujeitos a essas alterações seram substituídas na cadeia de protótips.
+
+ ```js
+ const nome = "Raphael";
+ console.log(nome.toUpperCase()); // toUpperCase vem de String.prototype
+ ```
+
  No extremo oposto, também é possível criar objetos sem **nenhuma herança**. Para isso os criamos "vazios" com `null`, o que criará um objeto "puro", sendo útil para uso de *objetos seguros* como mapas ou dicionários sem métodos herdados.
  ```js
  let puro = Object.create(null);
