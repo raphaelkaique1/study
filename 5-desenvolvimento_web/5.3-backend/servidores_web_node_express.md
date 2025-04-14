@@ -18,9 +18,35 @@
 
 **_*O ideal é que, com o tempo, cada desenvolvedor se especialize em 1 (no máximo 2)._**
 
+## SERVIDOR
+Um servidor é qualquer computador ou software que espera e responde requisições de outros dispositivos, os clientes.
+
+## CONTENT DELIVERY NETWORK
+**CDN** é uma **Rede de Distribuição de Conteúdo**. É basicamente uma rede de servidores espalhados pelo mundo que entrega conteúdos como imagens, vídeos, arquivos, scripts e muito mais para os usuários de forma rápida, confiável e segura, usando o servidor mais próximo do usuário.<br/>
+Quando um site que usa uma CDN é acessado, a CDN dectecta via IP o local de onde o usuário está acessando, então redireciona a requisição para o servidor mais próximo desta localização, assim reduzindo o tempo de carregamento melhorando a experiência.<br/>
+Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídias, fontes (como o Google Fonts), bibliotecas e frameworks (JQuery, React, Bootstrap entre outros). Isso é vatajoso por ser um método com menos latência, o que torna o site mais rápido, diminui a carga no servidor do site e consequentemente aumenta a disponibilidade pois se um servidor cair outro irá assumir, aumenta também a segurança com proteção DDoS e TLS/SSL e possuem baixo custo (ou nenhum) com jsDelivr, CDN do Cloudfare ou Google CDN.
+```html
+<!-- index.html -->
+<div id="app">
+  <p>{{ mensagem }}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      mensagem: 'Olá Raphael!'
+    }
+  });
+</script>
+```
+
 ## `NodeJS`
 No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornou-se uma linguagem poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*.<br/>
 O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser.
+
+Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigam, ser *open source* e sua grande e colaborativa comunidade.
 
 ### `package.json`
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
@@ -166,7 +192,7 @@ import dados from './arquivo.json' assert { type: "json" };
 const dados = require('./arquivo.json');
 ```
 
-- **Importar em HTML (browser)**
+- **Importar em HTML (browser) via CDN**
 ```html
 <script type="module" src="app.js"></script>
 ```
