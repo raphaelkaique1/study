@@ -3279,11 +3279,11 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  ```
 
  4. **`forEach`**</br>
- Método especialmente otimizado para percorrer `arrays`, passamos os parâmetros em uma função `callback` que tem o parâmetro **obrigatório** uma variável para obter o `value` do elemento autal no array, e os parâmetros *opcionais* `index`¹ e `array`² para *obter o número do índice do elemento atual*¹ e o *objeto de array completo ao qual o elemento pertence*² respectivamente.
+ Método especialmente otimizado para percorrer `arrays`, passamos os parâmetros em uma função `callback` que tem o parâmetro **obrigatório** uma variável para obter o `value` do elemento atual no array, e os parâmetros *opcionais* `index`¹ e `array`² para *obter o número do índice do elemento atual*¹ e o *objeto de array completo ao qual o elemento pertence*² respectivamente.
  ```js
- let Array = [10, 20, 30];
+ let array = [10, 20, 30];
 
- Array.forEach((value, index, array) => {
+ array.forEach((value, index, array) => {
    console.log(`Valor: ${value}, Índice: ${index}, Array Completo:`, array);
  });
  ```
