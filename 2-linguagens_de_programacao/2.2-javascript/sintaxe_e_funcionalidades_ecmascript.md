@@ -923,7 +923,7 @@ console.log(texto.replaceAll("banana", "abacaxi")); // Saída: "abacaxi maçã a
 ```
 
 - **`trim()`**<br/>
-Permite remover espaços em branco no início e no fim de uma string. Ele não modifica a string original, apenas retorna uma nova string sem os espaços desnecessários.
+Permite remover espaços em branco no início e no fim de uma string. Ele não modifica a string original, apenas retorna uma nova string sem os espaços desnecessários. Suas variações são: `trimEnd()`, `trimStart()`, `trimLeft()` e `trimRight()`.
 ```js
 const texto = "   Olá, Mundo!   ";
 console.log(texto.trim()); // "Olá, Mundo!"
