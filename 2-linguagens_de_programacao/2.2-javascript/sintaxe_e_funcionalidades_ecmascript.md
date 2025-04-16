@@ -127,7 +127,7 @@
 ### TIPOS DE DADOS
 O JavaScript também possui grande tolerância a erros, uma vez que conversões automáticas são realizadas durante operações. Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**. Por conta dessa característica, uma variável pode receber uma **`string`** em um determinado momento, e em outro, um dado tipo **`number`**. Vejamos:
  1. **STRINGS**<br/>
- Caracteres, alfanuméricos e textos em geral (como palavras e frases). Valores de Strings são imutáveis, logo, se uma variável for alterada com algum método, aquela alteração só existe naquele momento, ao utilizar novamente a variável (sem o método) ela informará o seu valor original. Para utilizar a alteração realizada é necessário armazenar o retorno do método em outa variável.
+ Caracteres, alfanuméricos e textos em geral (como palavras e frases). Valores de Strings são imutáveis, logo, se uma variável for alterada com algum método, aquela alteração só existe naquele momento, ao utilizar novamente a variável (sem o método) ela informará o seu valor original. Para utilizar a alteração realizada é necessário armazenar o retorno do método em outa variável. **Toda string é um array de caracteres.**
  2. **NUMBERS**<br/>
  Números *inteiros* (**`int`**) ou *decimais* (**`float`** e **`double`**). Assim como String, Numbers são imutáveis, sendo necessário também armazenar o retorno em outra variável.
  3. **BOOLEANS**<br/>
@@ -3312,6 +3312,17 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  4. **`forEach`**</br>
  Método especialmente otimizado para percorrer `arrays`, passamos os parâmetros em uma função `callback` que tem o parâmetro **obrigatório** uma variável para obter o `value` do elemento atual no array, e os parâmetros *opcionais* `index`¹ e `array`² para *obter o número do índice do elemento atual*¹ e o *objeto de array completo ao qual o elemento pertence*² respectivamente.
  ```js
+ /* internamente é isso que o forEach está fazendo
+ function nossoForEach(arr, funcao) {
+     for(let i = 0; i < arr.length; i = i + 1) {
+         funcao(arr[i], i);
+     }
+ }
+
+ nossoForEach(['nome', 'nome2'], function(nome, indice) {
+     console.log(nome, indice)
+ })
+ */
  let array = [10, 20, 30];
 
  array.forEach((value, index, array) => {
@@ -3669,7 +3680,7 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 
  // em function
  function loteria(jogo, ...numeros) {
-     return `${jogo}: ${numeros}`;
+   return `${jogo}: ${numeros}`;
  }
 
  console.log(loteria("Mega-Sena", 13, 38, 39, 40, 42, 56)); // Mega-Sena: 13,38,39,40,42,56
@@ -3694,6 +3705,9 @@ console.log(executaOperacao(soma, 2, 3)); // Saída: 5
  console.log(nome);  // Raphael
  console.log(resto); // { idade: 27, cidade: "BH", profissao: "Dev" }
 
+ // object destructuring + function
+ const pessoa = ({nome, idade}) => {console.log(nome, idade)};
+ pessoa(usuario) // "Raphael" 27
  ```
 
  - **`spread`**<br/>
