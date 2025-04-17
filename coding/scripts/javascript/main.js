@@ -157,9 +157,33 @@ const listaDeAprovados = listaDeAlunos => {
     return mediaDeAlunos
     // filtrar apenas os alunos aprovados
       .filter(isAlunosAprovado => isAlunosAprovado.media >= 7)
-    // Gerar uma lista com os nomes em maiúsculo dos alunos aprovados e suas médias formatadas com 2 casas decimais.
+    // Gerar uma lista com os nomes em maiúsculo dos alunos aprovados e suas médias formatadas com 2 casas decimais
       .map(alunosAprovados => `${alunosAprovados.nome.toUpperCase()} - ${alunosAprovados.media.toFixed(2)}`);
 }
 
-
 console.log(listaDeAprovados(alunos));
+
+// exercício 1
+const produtos = [
+  { nome: 'Maçã', quantidade: 2, precoUnitario: 3.5 },
+  { nome: 'Pão', quantidade: 4, precoUnitario: 2 },
+  { nome: 'Leite', quantidade: 1, precoUnitario: 5.75 }
+];
+
+// retornar o valor total da compra, formatado como número
+const calcularTotalCompra = listaDeProdutos =>
+    Number(listaDeProdutos.map(produto => produto.precoUnitario * produto.quantidade).reduce((soma, valor) => soma + valor, 0))
+
+console.log(calcularTotalCompra(produtos).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })); // R$ 20,75
+
+// exercício 2
+const verificarAcesso = idade => idade < 18 ?
+                                    `acesso negado`:
+                                    idade >= 18 && idade <= 60 ?
+                                        `acesso permitido`:
+                                        `acesso prioritário`;
+
+console.log(verificarAcesso(17)) // acesso negado
+console.log(verificarAcesso(18)) // acesso permitido
+console.log(verificarAcesso(60)) // acesso permitido
+console.log(verificarAcesso(61)) // acesso prioritário
