@@ -45,7 +45,7 @@ Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídia
 ## `NodeJS`
 Na atualidade, a criação de aplicações tem como foco arquiteturas que sejam escaláveis e a entrega de soluções em tempo real, além da atenção à componentização e segurança. Além disso, soma-se a esse cenário a revolução iniciada pelos smartphones, com o uso cada vez mais intenso das mídias sociais e o aumento de soluções de IoT. Nesse contexto, os paradigmas conhecidos no desenvolvimento de aplicações também têm passado por diversas mudanças que vão do Front-end ao Back-end, onde pensamos cada vez mais em *uma solução como um todo*, levando em consideração o consumo de dados e a disponibilidade de infraestrutura. E é nessa conjuntura que nasce o Node.js em 2009, surgindo como uma solução poderosa e barata para a criação e a manutenção de ambientes de tecnologia com altas demandas. Soma-se a isso o fato de que desenvolvedores de JavaScript trabalham com uma linguagem simples, interpretada e que não necessita da instalação de ferramentas complexas de desenvolvimento. Esses são alguns dos fatores motivadores do criador do projeto do Node.js, o engenheiro de software Ryan Dahl, responsável por esse ambiente de execução do código JavaScript fora do navegador, no lado servidor.<br/>
 No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornando-se poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*.<br/>
-O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser. Quando iniciamos o Node.js com o comando `node` no terminal, iniciamos um processo que engloba um interpretador JavaScript e um utilitário CLI, e é neste processo aberto no terminal que irá acontecer a interpretação e execução do JavaScript runtime. Para esse processo de interpretação, o Node.js faz uso do V8, mais precisamente conhecido como Chrome’s V8 JavaScript engine. O V8 é um poderosíssimo interpretador JavaScript desenvolvido pelo Google e utilizado pelo Chrome. Ele também é conhecido como a máquina virtual do JavaScript. Foi desenvolvido usando a linguagem **C++**, é de código aberto e nasceu com a intenção de acelerar a execução de aplicações desenvolvidas em JavaScript. Por fornecer uma boa performance, várias plataformas têm adotado o Node.js como um solução viável e eficaz de tecnologia para Back-end. É interessante apontar que existem outros “motores” para JavaScript, como o SpiderMonkey, do Firefox, ou o WebKit, do Safari, mas o adotado pelo Node.js é o V8. De forma geral, o processo de funcionamento desses motores pode ser resumido nas seguintes etapas:
+Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigma, *open source* e sua grande e colaborativa comunidade. O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser. Quando iniciamos o Node.js com o comando `node` no terminal, iniciamos um processo que engloba um interpretador JavaScript e um utilitário CLI, e é neste processo aberto no terminal que irá acontecer a interpretação e execução do JavaScript runtime. Para esse processo de interpretação, o Node.js faz uso do V8, mais precisamente conhecido como Chrome’s V8 JavaScript engine. O V8 é um poderosíssimo interpretador JavaScript desenvolvido pelo Google e utilizado pelo Chrome. Ele também é conhecido como a máquina virtual do JavaScript. Foi desenvolvido usando a linguagem **C++**, é de código aberto e nasceu com a intenção de acelerar a execução de aplicações desenvolvidas em JavaScript. Por fornecer uma boa performance, várias plataformas têm adotado o Node.js como um solução viável e eficaz de tecnologia para Back-end. É interessante apontar que existem outros “motores” para JavaScript, como o SpiderMonkey, do Firefox, ou o WebKit, do Safari, mas o adotado pelo Node.js é o V8. De forma geral, o processo de funcionamento desses motores pode ser resumido nas seguintes etapas:
 1. O motor acessa o código JavaScript, que veio da leitura da tag `script` de um arquivo HTML ou por meio do download de um arquivo JavaScript;
 2. Executa o `Parser`, processo de análise e conversão;
 3. Monta a (**Á**rvore de **S**intaxe **A**bstrata)[https://astexplorer.net/], um mapeamento que identifica o que cada parte do código está fazendo;
@@ -88,7 +88,37 @@ Program {
 }
 ```
 
-Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigam, *open source* e sua grande e colaborativa comunidade.
+A imagem abaixo representa uma abstração do processo de execução do código JS pelo motor V8:
+
+![Image](https://www.alura.com.br/artigos/assets/node-js/processo-execucao-codigo-javascript-motor-v8.png)
+
+Com a execução da sequência de processos apresentada no esquema, o motor JS interpreta e compila o código para um bytecode otimizado para executar no computador.
+
+Uma das mais atrativas característica do Node é ser um ambient de execução assíncrono, com isso ele trabalha de forma a não bloquear a aplicação no momento de sua execução, colocando os processos mais demorados em segundo plano. Isso diferencia o Node de outras plataformas como Java, PHP e .NET, pelo fato de ser *single thread*, ou seja, o Node não inicia threads em paralelo como nas outras plataformas. Por se tratar de um sistema single thread, o Node não tem a necessidade do gerenciamento de múltiplas threads, otimizando assim, o processo e o consumo de mémoria da aplicação.
+
+### EVENT LOOP
+A característica de Node que faz com que ele não seja lento ou demore a processar a fila de requisição é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o loop de eventos.<br/>
+Antes de falarmos sobre o tal loop de eventos em si, precisamos definir o que é um [evento](https://developer.mozilla.org/en-US/docs/Web/Events) no contexto do JavaScript. Podemos pensar em evento primeiro no sentido mais literal: um acontecimento, algo que ocorre em determinado momento. No navegador, os eventos estão muitas vezes relacionados a ações do usuário, como por exemplo um clique em um botão, preenchimento de um input ou qualquer outro tipo de interação. Podem ser eventos disparados por elementos HTML, por objetos globais do navegador como `window` e etc. Falando especificamente sobre o Node, podemos pensar nos eventos em contextos como na leitura e escrita de arquivos, manejo de requisições HTTP e funções timer como `setTimeout()`, essas ações emitem eventos quando o processamento é finalizado — algo como um "aviso" que informa ao programa que a execução foi concluída e o resultado pode ser utilizado. Esses eventos são passados ao event loop, que irá chamar as funções callback associadas a cada um destes eventos. Um exemplo de função callback nesta estrutura é a função que executa o `console.log()` abaixo:
+```js
+setTimeout(() => {
+  console.log("aguarda 1 segundo antes de imprimir")
+}, 1000)
+```
+
+A arquitetura baseada em eventos trabalha com 2 partes principais:
+#### `event handler`
+No Node, objetos podem ter métodos como instâncias de **`eventEmitter`**, que emitem eventos em situações determinadas, normalmente quando acontece quando ocorre algo no programa, como uma requisição HTTP por exemplo. Estes eventos, uma vez emitidos, são *"escutados"* por **`eventListener`s**, que por sua vez disparam funções callback relacionadas a cada *listener*. Para exemplificar, vejamos o código abaixo:
+```js
+const server = http.createServer();
+
+server.on("request", (req, res) => {
+  console.log("requisição recebida");
+  res.end("requisição recebida");
+});
+```
+Neste exemplo, um servidor `server` é criado a partir do método `http.createServer()`. Esse servidor é uma instância de um **eventListener**, ou seja, é um ouvinte de eventos, e por isso possui o método `on()`. Neste caso, quando este método `on()` é chamado, estamos registrando para esse "ouvinte" que ele deve escutar todos eventos no programa que correspondem à string `"request"` — este, o primeiro argumento. Se o método detectar algum evento com esse nome, deve executar a função passada como o segundo parâmetro.
+
+O método `on()` é como uma função que nos ajuda a configurar quais eventos o server terá que ficar atento e o que ele deve fazer ao ouvir um evento deste. Então, a partir do momento em que o servidor é criado e este método é executado, o servidor estará ouvindo os eventos nomeados como `request`, e saberá o que fazer quando ouvir o evento, neste caso, executar a função callback que foi passada como o segundo argumento.
 
 ### `package.json`
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
@@ -118,7 +148,10 @@ São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 | `">=4.17.2"`| Usa essa versão ou **qualquer mais nova** que a versão especificada.                              | Loose Dependency                   |
 | `"*"`       | Qualquer versão disponível, mas é pouco usado em produção, pode quebrar o app.                    | Loose Dependency                   |
 
-### `import`
+### MÓDULOS
+O Node trabalha fortemente com o conceito de **módulo**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código expondo somente o necessário a outras partes da aplicação. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
+
+#### `import`
 Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, basta utilizar o método `import` no arquivo JS para que suas funcionalidades (guardadas nos arquivos em `node_modules`) possam ser acessadas.
 ```js
 import express from 'express';
@@ -246,7 +279,7 @@ const dados = require('./arquivo.json');
 "type": "module"
 ```
 
-### `export`
+#### `export`
 Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. O `export` é usado para tornar partes do código acessíveis em outros arquivos que usam `import`. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar `export`.
 
 1. **CommonJS (CJS)** — usado no Node.js.
