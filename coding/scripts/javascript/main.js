@@ -187,3 +187,14 @@ console.log(verificarAcesso(17)) // acesso negado
 console.log(verificarAcesso(18)) // acesso permitido
 console.log(verificarAcesso(60)) // acesso permitido
 console.log(verificarAcesso(61)) // acesso prioritário
+
+// exercício
+const nomes = ['joÃO', 'maRIa', 'ANdréa'];
+
+const normalizarNomes = nomes => nomes.map(nome => 
+    // normaliza as entradas
+    nome.toLowerCase()
+    // altera para atender o requisito na saída
+    .replace(nome.charAt(0), nome.charAt(0).toUpperCase()))
+
+console.log(normalizarNomes(nomes))

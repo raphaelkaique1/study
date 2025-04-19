@@ -97,17 +97,20 @@ Com a execução da sequência de processos apresentada no esquema, o motor JS i
 Uma das mais atrativas característica do Node é ser um ambient de execução assíncrono, com isso ele trabalha de forma a não bloquear a aplicação no momento de sua execução, colocando os processos mais demorados em segundo plano. Isso diferencia o Node de outras plataformas como Java, PHP e .NET, pelo fato de ser *single thread*, ou seja, o Node não inicia threads em paralelo como nas outras plataformas. Por se tratar de um sistema single thread, o Node não tem a necessidade do gerenciamento de múltiplas threads, otimizando assim, o processo e o consumo de mémoria da aplicação.
 
 ### EVENT LOOP
-A característica de Node que faz com que ele não seja lento ou demore a processar a fila de requisição é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o loop de eventos.<br/>
-Antes de falarmos sobre o tal loop de eventos em si, precisamos definir o que é um [evento](https://developer.mozilla.org/en-US/docs/Web/Events) no contexto do JavaScript. Podemos pensar em evento primeiro no sentido mais literal: um acontecimento, algo que ocorre em determinado momento. No navegador, os eventos estão muitas vezes relacionados a ações do usuário, como por exemplo um clique em um botão, preenchimento de um input ou qualquer outro tipo de interação. Podem ser eventos disparados por elementos HTML, por objetos globais do navegador como `window` e etc. Falando especificamente sobre o Node, podemos pensar nos eventos em contextos como na leitura e escrita de arquivos, manejo de requisições HTTP e funções timer como `setTimeout()`, essas ações emitem eventos quando o processamento é finalizado — algo como um "aviso" que informa ao programa que a execução foi concluída e o resultado pode ser utilizado. Esses eventos são passados ao event loop, que irá chamar as funções callback associadas a cada um destes eventos. Um exemplo de função callback nesta estrutura é a função que executa o `console.log()` abaixo:
+
+A característica de Node que faz com que ele não seja lento ou demore a processar a fila de requisições é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
+Antes de falarmos sobre o tal *loop de eventos* em si, precisamos definir o que é um [evento](https://developer.mozilla.org/en-US/docs/Web/Events) no contexto do JavaScript. Podemos pensar em evento no sentido mais literal: um acontecimento, algo que ocorre em determinado momento. No navegador, os eventos estão muitas vezes relacionados a ações do usuário, como por exemplo um clique em um botão, preenchimento de um input ou qualquer outro tipo de interação. Podem ser eventos disparados por elementos HTML, por objetos globais do navegador como `window` e etc. Falando especificamente sobre o Node, podemos pensar nos eventos em contextos como na leitura e escrita de arquivos, manejo de requisições HTTP e funções timer como `setTimeout()`, essas ações emitem eventos quando o processamento é finalizado — algo como um "aviso" que informa ao programa que a execução foi concluída e o resultado pode ser utilizado. Esses eventos são passados ao event loop, que irá chamar as funções callback associadas a cada um destes eventos. Um exemplo de função callback nesta estrutura é a função que executa o `console.log()` abaixo:
 ```js
 setTimeout(() => {
   console.log("aguarda 1 segundo antes de imprimir")
 }, 1000)
 ```
 
-A arquitetura baseada em eventos trabalha com 2 partes principais:
+A arquitetura baseada em eventos trabalha com 2 partes principais, os **Event Emitters** e os **Event Listeners**.
+
 #### `event handler`
-No Node, objetos podem ter métodos como instâncias de **`eventEmitter`**, que emitem eventos em situações determinadas, normalmente quando acontece quando ocorre algo no programa, como uma requisição HTTP por exemplo. Estes eventos, uma vez emitidos, são *"escutados"* por **`eventListener`s**, que por sua vez disparam funções callback relacionadas a cada *listener*. Para exemplificar, vejamos o código abaixo:
+
+No Node, objetos podem ter métodos como instâncias de **`eventEmitter`s**, que emitem eventos em situações determinadas, normalmente quando acontece algo no programa, como uma requisição HTTP por exemplo. Estes eventos, uma vez emitidos, são *"escutados"* por **`eventListener`s**, que por sua vez disparam funções callback relacionadas a cada *listener*. Para exemplificar, vejamos o código abaixo:
 ```js
 const server = http.createServer();
 
@@ -116,9 +119,104 @@ server.on("request", (req, res) => {
   res.end("requisição recebida");
 });
 ```
-Neste exemplo, um servidor `server` é criado a partir do método `http.createServer()`. Esse servidor é uma instância de um **eventListener**, ou seja, é um ouvinte de eventos, e por isso possui o método `on()`. Neste caso, quando este método `on()` é chamado, estamos registrando para esse "ouvinte" que ele deve escutar todos eventos no programa que correspondem à string `"request"` — este, o primeiro argumento. Se o método detectar algum evento com esse nome, deve executar a função passada como o segundo parâmetro.
+Neste exemplo, um servidor `server` é criado a partir do método `http.createServer()`. Esse servidor é uma instância de um **eventListener**, ou seja, é um ouvinte de eventos, e por isso possui o método `on()`. Neste caso, quando este método `on()` é chamado, estamos registrando para esse "ouvinte" que ele deve escutar todos eventos no programa que correspondem à string `"request"` — este, o primeiro argumento. Se o método detectar algum evento com esse nome, deve executar a função passada como segundo parâmetro.
 
-O método `on()` é como uma função que nos ajuda a configurar quais eventos o server terá que ficar atento e o que ele deve fazer ao ouvir um evento deste. Então, a partir do momento em que o servidor é criado e este método é executado, o servidor estará ouvindo os eventos nomeados como `request`, e saberá o que fazer quando ouvir o evento, neste caso, executar a função callback que foi passada como o segundo argumento.
+O método `on()` é como uma função que nos ajuda a configurar quais eventos o server terá que ficar atento e o que ele deve fazer ao ouvir um evento deste. Então, a partir do momento em que o servidor é criado e este método é executado, o servidor estará ouvindo os eventos nomeados como `request`, e saberá o que fazer quando ouvir o evento, neste caso, executar a função callback que foi passada como segundo argumento.
+
+Uma implementação disto seria algo como:
+
+**BACK-END**
+```js
+const http = require("http");
+
+const server = http.createServer();
+
+server.on("request", (req, res) => {
+  console.log("requisição recebida");
+  res.end("requisição recebida");
+});
+
+server.listen(3000, () => {
+  console.log("Servidor escutando em http://localhost:3000");
+});
+```
+
+**FRONT-END**
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chamada ao Servidor</title>
+</head>
+<body>
+  <button id="botao">Enviar Requisição</button>
+
+  <script>
+    document.getElementById("botao").addEventListener("click", () => {
+      fetch("http://localhost:3000")
+        .then(response => response.text())
+        .then(dado => {
+          console.log("Resposta do servidor:", dado);
+          alert(dado);
+        })
+        .catch(erro => console.error("Erro na requisição:", erro));
+    });
+  </script>
+</body>
+</html>
+```
+
+No exemplo acima, a chamada funciona pois o servidor está localmente assim como a página web. Numa aplicação real, seguiriamos essa linha:
+
+**BACK-END**
+```js
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+const PORT = 3000;
+
+// habilita CORS para permitir requisições externas
+app.use(cors());
+
+// rota GET simples
+app.get("/api/boas-vindas", (req, res) => {
+  res.send("Seja bem-vindo, Raphael!");
+});
+
+// inicia o servidor
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
+```
+
+**FRONT-END**
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Requisição para o Back-end</title>
+</head>
+<body>
+  <h1>Conectar com servidor Node</h1>
+  <button id="btn">Chamar Servidor</button>
+  <p id="resposta"></p>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", () => {
+      fetch("http://localhost:3000/api/boas-vindas")
+        .then(res => res.text())
+        .then(dado => {
+          document.getElementById("resposta").textContent = dado;
+        })
+        .catch(err => console.error("Erro na requisição:", err));
+    });
+  </script>
+</body>
+</html>
+```
 
 ### `package.json`
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
@@ -149,7 +247,7 @@ São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 | `"*"`       | Qualquer versão disponível, mas é pouco usado em produção, pode quebrar o app.                    | Loose Dependency                   |
 
 ### MÓDULOS
-O Node trabalha fortemente com o conceito de **módulo**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código expondo somente o necessário a outras partes da aplicação. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
+O Node trabalha fortemente com o conceito de **módulos**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código expondo somente o necessário a outras partes da aplicação. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
 
 #### `import`
 Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, basta utilizar o método `import` no arquivo JS para que suas funcionalidades (guardadas nos arquivos em `node_modules`) possam ser acessadas.
