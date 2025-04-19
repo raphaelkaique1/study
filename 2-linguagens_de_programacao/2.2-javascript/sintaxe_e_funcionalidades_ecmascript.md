@@ -952,7 +952,7 @@ const texto = "Hello, World!";
 console.log(texto.endsWith("World!")); // true
 ```
 
-- **`chartAt()`**<br/>
+- **`charAt()`**<br/>
 Usado para obter o caractere localizado em um determinado índice de uma `string`. Ele pertence ao protótipo de String e retorna uma nova `string` com o caractere encontrado, sem modificar a `string` original.
 ```js
 const texto = "Hello, World!";
