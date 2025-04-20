@@ -47,8 +47,8 @@ Na atualidade, a criação de aplicações tem como foco arquiteturas que sejam 
 No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornando-se poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*.<br/>
 Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigma, *open source* e sua grande e colaborativa comunidade. O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser. Quando iniciamos o Node.js com o comando `node` no terminal, iniciamos um processo que engloba um interpretador JavaScript e um utilitário CLI, e é neste processo aberto no terminal que irá acontecer a interpretação e execução do JavaScript runtime. Para esse processo de interpretação, o Node.js faz uso do V8, mais precisamente conhecido como Chrome’s V8 JavaScript engine. O V8 é um poderosíssimo interpretador JavaScript desenvolvido pelo Google e utilizado pelo Chrome. Ele também é conhecido como a máquina virtual do JavaScript. Foi desenvolvido usando a linguagem **C++**, é de código aberto e nasceu com a intenção de acelerar a execução de aplicações desenvolvidas em JavaScript. Por fornecer uma boa performance, várias plataformas têm adotado o Node.js como um solução viável e eficaz de tecnologia para Back-end. É interessante apontar que existem outros “motores” para JavaScript, como o SpiderMonkey, do Firefox, ou o WebKit, do Safari, mas o adotado pelo Node.js é o V8. De forma geral, o processo de funcionamento desses motores pode ser resumido nas seguintes etapas:
 1. O motor acessa o código JavaScript, que veio da leitura da tag `script` de um arquivo HTML ou por meio do download de um arquivo JavaScript;
-2. Executa o `Parser`, processo de análise e conversão;
-3. Monta a (**Á**rvore de **S**intaxe **A**bstrata)[https://astexplorer.net/], um mapeamento que identifica o que cada parte do código está fazendo;
+2. Executa o `Parser` — processo de análise e conversão;
+3. Monta a [**Á**rvore de **S**intaxe **A**bstrata](https://astexplorer.net/), um mapeamento que identifica o que cada parte do código está fazendo;
 4. Por fim, interpreta a AST. Nesta etapa, ao interpretar a AST, o motor V8 gera os bytecodes a serem executados pela máquina. Neste processo, ainda existe um estágio de otimização do código gerado.
 
 Imagine a escrita da seguinte função em Javascript:
@@ -94,12 +94,11 @@ A imagem abaixo representa uma abstração do processo de execução do código 
 
 Com a execução da sequência de processos apresentada no esquema, o motor JS interpreta e compila o código para um bytecode otimizado para executar no computador.
 
-Uma das mais atrativas característica do Node é ser um ambient de execução assíncrono, com isso ele trabalha de forma a não bloquear a aplicação no momento de sua execução, colocando os processos mais demorados em segundo plano. Isso diferencia o Node de outras plataformas como Java, PHP e .NET, pelo fato de ser *single thread*, ou seja, o Node não inicia threads em paralelo como nas outras plataformas. Por se tratar de um sistema single thread, o Node não tem a necessidade do gerenciamento de múltiplas threads, otimizando assim, o processo e o consumo de mémoria da aplicação.
+Uma das mais atrativas característica do Node é ser um ambient de execução assíncrono, com isso ele trabalha de forma a não bloquear a aplicação no momento de sua execução, colocando os processos mais demorados em segundo plano. Isso diferencia o Node de outras plataformas como Java, PHP e .NET, pelo fato de ser *single thread*, ou seja, o Node não inicia threads em paralelo como nas outras plataformas. Por se tratar de um sistema single thread, o Node não tem a necessidade do gerenciamento de múltiplas threads, otimizando assim, o processo e o consumo de memória da aplicação.
 
 ### EVENT LOOP
-
-A característica de Node que faz com que ele não seja lento ou demore a processar a fila de requisições é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
-Antes de falarmos sobre o tal *loop de eventos* em si, precisamos definir o que é um [evento](https://developer.mozilla.org/en-US/docs/Web/Events) no contexto do JavaScript. Podemos pensar em evento no sentido mais literal: um acontecimento, algo que ocorre em determinado momento. No navegador, os eventos estão muitas vezes relacionados a ações do usuário, como por exemplo um clique em um botão, preenchimento de um input ou qualquer outro tipo de interação. Podem ser eventos disparados por elementos HTML, por objetos globais do navegador como `window` e etc. Falando especificamente sobre o Node, podemos pensar nos eventos em contextos como na leitura e escrita de arquivos, manejo de requisições HTTP e funções timer como `setTimeout()`, essas ações emitem eventos quando o processamento é finalizado — algo como um "aviso" que informa ao programa que a execução foi concluída e o resultado pode ser utilizado. Esses eventos são passados ao event loop, que irá chamar as funções callback associadas a cada um destes eventos. Um exemplo de função callback nesta estrutura é a função que executa o `console.log()` abaixo:
+A característica de Node que faz com que ele não seja lento ou demore a processar a fila de requisições, é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
+Antes de falarmos sobre o tal *loop de eventos* em si, precisamos definir o que é um [evento](https://developer.mozilla.org/en-US/docs/Web/Events) no contexto do JavaScript. Podemos pensar em evento no sentido mais literal: **um acontecimento**, *algo que ocorre em determinado momento*. No navegador, os eventos estão muitas vezes relacionados a ações do usuário, como por exemplo um clique em um botão, preenchimento de um input ou qualquer outro tipo de interação. Podem ser eventos disparados por elementos HTML, por objetos globais do navegador como `window` e etc. Falando especificamente sobre o Node, podemos pensar nos eventos em contextos como na leitura e escrita de arquivos, manejo de requisições HTTP e funções timer como `setTimeout()`, essas ações emitem eventos quando o processamento é finalizado — algo como um "aviso" que informa ao programa que a execução foi concluída e o resultado pode ser utilizado. Esses eventos são passados ao event loop, que irá chamar as funções callback associadas a cada um destes eventos. Um exemplo de função callback nesta estrutura é a função que executa o `console.log()` abaixo:
 ```js
 setTimeout(() => {
   console.log("aguarda 1 segundo antes de imprimir")
@@ -109,7 +108,6 @@ setTimeout(() => {
 A arquitetura baseada em eventos trabalha com 2 partes principais, os **Event Emitters** e os **Event Listeners**.
 
 #### `event handler`
-
 No Node, objetos podem ter métodos como instâncias de **`eventEmitter`s**, que emitem eventos em situações determinadas, normalmente quando acontece algo no programa, como uma requisição HTTP por exemplo. Estes eventos, uma vez emitidos, são *"escutados"* por **`eventListener`s**, que por sua vez disparam funções callback relacionadas a cada *listener*. Para exemplificar, vejamos o código abaixo:
 ```js
 const server = http.createServer();
@@ -218,6 +216,354 @@ app.listen(PORT, () => {
 </html>
 ```
 
+Como sabemos, no Node o sistema de eventos é construído em cima do módulo `events`, que fornece a classe `EventEmitter`. Todas as instâncias de `EventEmitter` como servidores HTTP, Streams, Sockets e etc, herdam **métodos** e **eventos** dessa classe. Ou seja, a classe `EventEmitter` do Node.js permite que objetos emitam eventos nomeados e que outros objetos escutem e respondam a esses eventos. Embora o `EventEmitter` não tenha uma lista fixa de eventos predefinidos, ele fornece mecanismos para gerenciar eventos personalizados. Além disso, muitos módulos internos do Node.js estendem o `EventEmitter` e definem seus próprios eventos específicos, o que significa que, os eventos disponíveis dependem da classe utilizada, e todas elas herdam de `EventEmitter`. Os principais métodos de instância disponíveis em objetos que estendem `EventEmitter` de um `event listener` no Node são:
+
+| Método                                 | Descrição                                                                                      |
+|----------------------------------------|------------------------------------------------------------------------------------------------|
+| `on(event, listener)`                  | Registra um *listener* para o evento especificado. É o mais comum.                             |
+| `addListener(event, listener)`         | Igual ao `on()`.                                                                               |
+| `once(event, listener)`                | Registra um *listener* que será executado **apenas uma vez**.                                  |
+| `off(event, listener)`                 | Remove um *listener* registrado.                                                               |
+| `removeListener(event, listener)`      | Mesma função que `off()`.                                                                      |
+| `removeAllListeners([event])`          | Remove **todos os listeners** de um evento, ou de todos os eventos se nenhum for especificado. |
+| `emit(event, [...args])`               | Emite o evento especificado, acionando todos os *listeners* associados.                        |
+| `listeners(event)`                     | Retorna um array com os *listeners* registrados para um evento.                                |
+| `rawListeners(event)`                  | Retorna os *listeners* sem envolver os wrappers de `once()`, por exemplo.                      |
+| `listenerCount(event)`                 | Retorna o número de *listeners* para o evento.                                                 |
+| `eventNames()`                         | Retorna um array com todos os nomes de eventos registrados.                                    |
+| `prependListener(event, listener)`     | Adiciona o *listener* ao início da fila.                                                       |
+| `prependOnceListener(event, listener)` | Como `once()`, mas adiciona no início da fila.                                                 |
+
+- **Core methods of `EventEmitter`.**<br/>
+Aqui estão os métodos mais comuns disponíveis nas instâncias de `EventEmitter` que permitem criar, emitir e escutar eventos personalizados:
+  - `on(eventName, listener)`: Registra um listener para o evento especificado.
+  - `addListener(eventName, listener)`: Alias para `on()`, adiciona um listener para o evento.
+  - `once(eventName, listener)`: Registra um listener que será chamado apenas uma vez.
+  - `off(eventName, listener)`: Remove um listener registrado.
+  - `removeListener(eventName, listener)`: Alias para `off()`, que remove um listener específico.
+  - `removeAllListeners([eventName])`: Remove todos os listeners para o evento especificado, ou todos os eventos se nenhum for especificado.
+  - `emit(eventName[, ...args])`: Emite um evento, chamando todos os listeners registrados para ele.
+  - `listeners(eventName)`: Retorna uma matriz dos listeners registrados para o evento especificado.
+  - `rawListeners(eventName)`: Retorna uma matriz dos listeners registrados para o evento, incluindo os wrappers para listeners registrados com `.once()`.
+  - `listenerCount(eventName)`: Retorna o número de listeners registrados para o evento.
+  - `eventNames()`: Retorna uma matriz com os nomes dos eventos para os quais há listeners registrados.
+  ```js
+  const EventEmitter = require('events');
+  const myEmitter = new EventEmitter();
+  myEmitter.on('event1', () => {});
+  myEmitter.on('event2', () => {});
+  console.log(myEmitter.eventNames()); // ['event1', 'event2']
+  ```
+  - `prependListener(eventName, listener)`: Adiciona um listener ao início da matriz de listeners para o evento.
+  - `prependOnceListener(eventName, listener)`: Adiciona um listener que será chamado apenas uma vez, ao início da matriz de listeners para o evento.
+  - `setMaxListeners(n)`: Define o número máximo de listeners para prevenir vazamentos de memória.
+  - `getMaxListeners()`: Retorna o número máximo atual de listeners.
+
+- **Especial events of `EventEmitter`.**<br/>
+O `EventEmitter` emite alguns eventos internos especiais:
+  - `'newListener'`: Emitido quando um novo listener é adicionado.
+  Exemplo:
+  ```js
+  const EventEmitter = require('events');
+  const em = new EventEmitter();
+
+  em.on('newListener', (event, listener) => {
+    console.log(`Novo listener adicionado para o evento: ${event}`);
+  });
+  ```
+  - `'removeListener'`: Emitido quando um listener é removido.
+  - `'error'`: Emitido quando ocorre um erro e nenhum listener de erro foi registrado.
+
+- **Internal modules.**<br/>
+Muitos módulos internos do Node. estendem o `EventEmitter` e definem seus próprios eventos. Aqui estão alguns exemplos:
+- **`http.Server`**
+  ```js
+  const http = require('http');
+  const server = http.createServer();
+  ```
+  - **METHODS**
+    - `http.createServer()`: Cria um servidor HTTP.
+    - `http.request()`: Faz uma requisição HTTP.
+    - `http.get()`: Faz uma requisição GET.
+  - **EVENTS**
+    - `'request'`: Emitido quando uma requisição HTTP é recebida.
+    - `'connection'`: Emitido quando uma nova conexão TCP é estabelecida.
+    - `'close'`: Emitido quando o servidor é fechado.
+    - `'checkContinue'`: Quando há uma requisição com header `Expect: 100-continue`.
+    - `'connect'`: Quando uma requisição `CONNECT` é recebida.
+    - `'upgrade'`: Quando há uma requisição para mudar de protocolo, como o WebSocket por exemplo.
+    - `'clientError'`: Quando ocorre um erro de protocolo no cliente.
+
+- **`net.Socket`**
+  ```js
+  const net = require('net');
+  const socket = new net.Socket();
+  ```
+  - **METHODS**
+    - `net.createServer()`: Cria um servidor TCP.
+    - `net.connect()`: Cria uma conexão TCP.
+  - **EVENTS**
+    - `'connect/connection'`: Emitido quando a conexão é estabelecida.
+    - `'data'`: Emitido quando dados são recebidos.
+    - `'end'`: Emitido quando o outro extremo da conexão envia um sinal de encerramento de conexão.
+    - `'timeout'`: Emitido quando o socket atinge o tempo limite; Timeout de invatividade.
+    - `'drain'`: Buffer liberado para escrita.
+    - `'error'`: Quando ocorre um erro.
+    - `'close'`: Quando o socket é fechado.
+
+- **`fs.ReadStream` & `fs.WriteStream`**
+  ```js
+  const fs = require('fs');
+  const stream = fs.createReadStream('arquivo.txt');
+  ```
+  - **TYPES**
+    - **Readable**: Fluxos de leitura.
+    - **Writable**: Fluxos de escrita.
+    - **Duplex**: Fluxos de leitura e escrita.
+    - **Transform**: Fluxos que podem modificar ou transformar os dados.
+  - **METHODS**
+    - `fs.readFile()`: Lê um arquivo.
+    - `fs.writeFile()`: Escreve em um arquivo.
+    - `fs.mkdir()`: Cria um diretório.
+    - `fs.unlink()`: Remove um arquivo.
+  - **EVENTS**
+    - `'open'`: Emitido quando o alvo é aberto.
+    - `'ready'`: Emitido quando o alvo está pronto para uso.
+    - `'data'`: Quando dados são lidos.
+    - `'end'`: Quando a leitura acaba.
+    - `'close'`: Emitido quando o alvo é fechado.
+    - `'error'`: Emitido quando ocorre um erro.
+
+- **`process` — objeto global**
+  - `'beforeExit'`: Emitido quando o Node.js esvaziou o loop de eventos e está prestes a encerrar, mas ainda pode haver mais trabalho a ser finalizado.
+  - `'exit'`: Emitido quando o processo está prestes a sair.
+  - `'uncaughtException'`: Emitido quando uma exceção não capturada/tratada ocorre.
+  - `'unhandledRejection'`: Emitido quando uma promessa é rejeitada e não há um manipulador de rejeição.
+  - `'warning'`: Um aviso, como por exemplo de memory leak ou deprecated API.
+  - `'SIGINT'`, `'SIGTERM'`, `'SIGUSR1'`, `'SIGUSR2'`: Outros eventos relacionados ao processo.
+
+- **`child_process`**
+  - `'exit'`: Processo filho terminou.
+  - `'close'`: Todos os stdio foram fechados.
+  - `'error'`: Erro ao spawnar o processo.
+  - `'disconnect'`: Quando desconecta de processo pai.
+  - `'message'`: Quando há uma mensagem IPC.
+
+- **`os` – Sistema Operacional**
+    - `os.platform()`: Retorna a plataforma do sistema operacional.
+    - `os.release()`: Retorna a versão do sistema operacional.
+    - `os.totalmem()`: Retorna a quantidade total de memória do sistema.
+    - `os.freemem()`: Retorna a quantidade de memória livre do sistema.
+    - `os.cpus()`: Retorna informações sobre cada CPU/núcleo.
+
+- **`path` – Manipulação de Caminhos**
+  - `path.join([...paths])`: Junta todos os argumentos de caminho.
+  - `path.resolve([...paths])`: Resolve uma sequência de caminhos ou segmentos de caminho em um caminho absoluto.
+  - `path.basename(path, [ext])`: Retorna o último segmento de um caminho.
+  - `path.dirname(path)`: Retorna o diretório de um caminho.
+  - `path.extname(path)`: Retorna a extensão de um caminho.
+
+- **`url` – Manipulação de URLs**
+  - `url.parse(urlString)`: Analisa uma string de URL e retorna um objeto URL.
+  - `url.format(urlObject)`: Formata um objeto URL em uma string.
+  - `url.resolve(from, to)`: Resolve uma URL relativa em uma URL absoluta.
+
+Além dos módulos mencionados acima, o Node possui outros módulos internos, como:
+- `assert`: Fornece um conjunto de funções de asserção para testes.
+  - Métodos úteis:
+    - `assert.ok()`
+    - `assert.equal()`
+    - `assert.strictEqual()`
+    - `assert.deepStrictEqual()`
+
+- `buffer`: Manipula dados binários.
+  - Métodos úteis:
+    - `Buffer.from()`
+    - `Buffer.alloc()`
+    - `Buffer.concat()`
+    - `buffer.toString()`
+
+- `child_process`: Cria e gerencia processos filhos.
+  - Métodos úteis:
+    - `exec()`
+    - `spawn()`
+    - `fork()`
+    - `execFile()`
+
+- `cluster`: Permite a criação de processos filhos que compartilham o mesmo servidor.
+  - Métodos úteis:
+    - `cluster.fork()`
+    - `cluster.setupMaster()`
+    - `cluster.disconnect()`
+
+- `crypto`: Fornece funcionalidades criptográficas.
+  - Métodos úteis:
+    - `crypto.createHash()`
+    - `crypto.createCipheriv()`
+    - `crypto.createDecipheriv()`
+    - `crypto.randomBytes()`
+
+- `dgram`: Implementa sockets UDP.
+  - Métodos úteis:
+    - `dgram.createSocket()`
+    - `socket.send()`
+    - `socket.bind()`
+
+- `dns`: Realiza consultas DNS.
+  - Métodos úteis:
+    - `dns.lookup()`
+    - `dns.resolve()`
+    - `dns.reverse()`
+
+- `domain`: Gerencia erros assíncronos (obsoleto).
+  - Métodos úteis:
+    - `domain.create()`
+    - `domain.run()`
+
+- `http2`: Suporte ao protocolo HTTP/2.
+  - Métodos úteis:
+    - `http2.createServer()`
+    - `http2.connect()`
+
+- `https`: Módulo HTTP sobre TLS/SSL.
+  - Métodos úteis:
+    - `https.createServer()`
+    - `https.request()`
+
+- `inspector`: Interface de depuração.
+  - Métodos úteis:
+    - `inspector.open()`
+    - `inspector.close()`
+    - `inspector.url()`
+
+- `module`: Manipula módulos internos.
+  - Métodos úteis:
+    - `module.createRequire()`
+
+- `perf_hooks`: Medição de desempenho.
+  - Métodos úteis:
+    - `performance.now()`
+    - `performance.mark()`
+    - `performance.measure()`
+
+- `punycode`: Codificação de strings Unicode (obsoleto).
+  - Métodos úteis:
+    - `punycode.encode()`
+    - `punycode.decode()`
+
+- `querystring`: Manipula strings de consulta.
+  - Métodos úteis:
+    - `querystring.parse()`
+    - `querystring.stringify()`
+
+- `readline`: Interface para leitura de dados linha por linha.
+  - Métodos úteis:
+    - `readline.createInterface()`
+    - `interface.question()`
+
+- `repl`: Interface de leitura, avaliação, impressão e loop.
+  - Métodos úteis:
+    - `repl.start()`
+
+- `string_decoder`: Decodifica buffers em strings.
+  - Métodos úteis:
+    - `StringDecoder.write()`
+    - `StringDecoder.end()`
+
+- `timers`: Temporizadores como `setTimeout`.
+  - Métodos úteis:
+    - `setTimeout()`
+    - `setInterval()`
+    - `setImmediate()`
+
+- `tls`: Implementa TLS e SSL.
+  - Métodos úteis:
+    - `tls.createServer()`
+    - `tls.connect()`
+
+- `tty`: Manipula terminais de texto.
+  - Métodos úteis:
+    - `tty.isatty()`
+    - `tty.ReadStream`
+    - `tty.WriteStream`
+
+- `util`: Funções utilitárias.
+  - Métodos úteis:
+    - `util.promisify()`
+    - `util.format()`
+    - `util.inherits()`
+
+- `v8`: Acesso ao motor V8 do Node.js, útil para diagnóstico e manipulação de informações da engine (como estatísticas de heap).
+  - Métodos úteis:
+    - `v8.getHeapStatistics()`
+    - `v8.getHeapSpaceStatistics()`
+
+- `vm`: Permite a execução de código JavaScript em diferentes contextos, isolados da aplicação principal.
+  - Métodos úteis:
+    - `vm.createContext()`
+    - `vm.runInContext()`
+    - `vm.runInThisContext()`
+
+- `wasi`: Suporte ao WebAssembly System Interface.
+  - Métodos úteis:
+    - `wasi.start()`
+    - `wasi.initialize()`
+
+- `worker_threads`: Suporte a threads de trabalho (executar código JS em paralelo).
+  - Classes:
+    - `Worker`
+    - `MessageChannel`
+    - `MessagePort`
+  - Eventos:
+    - `'message'`, `'error'`, `'exit'`
+  - Métodos úteis:
+    - `new Worker()`
+    - `worker.postMessage()`
+    - `worker.terminate()`
+
+- `zlib`: Compressão e descompressão de dados usando algoritmos como Gzip e Deflate.
+  - Métodos úteis:
+    - `zlib.gzip()`
+    - `zlib.gunzip()`
+    - `zlib.deflate()`
+    - `zlib.inflate()`
+
+Para cada módulo, os **métodos** são as funções e propriedades exportadas por ele, geralmente chamadas diretamente, exemplo: `fs.readFile()`. Já os **eventos** geralmente estão disponíveis quando o módulo ou uma de suas classes herda de `EventEmitter`. Por exemplo:
+- `server.on('request', ...)`
+- `stream.on('data', ...)`
+- `worker.on('message', ...)`
+
+Exemplo de classes com seus próprios eventos:
+- `http.Server`
+```js
+server.on('request', ...)     // quando uma requisição HTTP chega
+server.on('connection', ...)  // nova conexão TCP
+server.on('close', ...)       // servidor encerrado
+```
+
+- `net.Socket` (TCP)
+```js
+socket.on('data', ...)        // dados recebidos
+socket.on('end', ...)         // conexão encerrada
+socket.on('error', ...)       // erro na conexão
+```
+
+- `fs.ReadStream` (stream de leitura de arquivos)
+```js
+stream.on('open', ...)        // arquivo aberto
+stream.on('data', ...)        // dados lidos
+stream.on('end', ...)         // leitura finalizada
+stream.on('close', ...)       // stream fechado
+stream.on('error', ...)       // erro de leitura
+```
+
+- `process` (objeto global do Node)
+```js
+process.on('exit', ...)       // quando o processo está prestes a sair
+process.on('uncaughtException', ...)
+process.on('SIGINT', ...)     // interrupção (Ctrl+C)
+```
+
 ### `package.json`
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
 
@@ -247,7 +593,7 @@ São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 | `"*"`       | Qualquer versão disponível, mas é pouco usado em produção, pode quebrar o app.                    | Loose Dependency                   |
 
 ### MÓDULOS
-O Node trabalha fortemente com o conceito de **módulos**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código expondo somente o necessário a outras partes da aplicação. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
+O Node trabalha fortemente com o conceito de **[módulos](https://nodejs.org/dist/latest-v20.x/docs/api/)**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código expondo somente o necessário a outras partes da aplicação. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
 
 #### `import`
 Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, basta utilizar o método `import` no arquivo JS para que suas funcionalidades (guardadas nos arquivos em `node_modules`) possam ser acessadas.
