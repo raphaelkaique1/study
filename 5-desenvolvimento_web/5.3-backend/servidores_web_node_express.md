@@ -593,10 +593,14 @@ São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 | `"*"`       | Qualquer versão disponível, mas é pouco usado em produção, pode quebrar o app.                    | Loose Dependency                   |
 
 ### MÓDULOS
-O Node trabalha fortemente com o conceito de **[módulos](https://nodejs.org/dist/latest-v20.x/docs/api/)**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código expondo somente o necessário a outras partes da aplicação. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
+O Node trabalha fortemente com o conceito de **[módulos](https://nodejs.org/dist/latest-v20.x/docs/api/)**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código, expondo somente o necessário a outras partes da aplicação e assim organizar e separar melhor o código. O objetivo de modularizar o código é permitir que aplicações maiores sejam montadas de forma “modular”, ou seja, através de várias partes independentes. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.
 
-#### `import`
-Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, basta utilizar o método `import` no arquivo JS para que suas funcionalidades (guardadas nos arquivos em `node_modules`) possam ser acessadas.
+#### IMPORTAÇÃO
+Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, vejamos mais sobre métodos de importação e exportação no arquivo JS para que suas funcionalidades guardadas nos arquivos em `node_modules` possam ser acessadas.<br/>
+Os conceitos de módulo e modularidade são parte importante do desenvolvimento com JavaScript, e quando se tem mais de uma forma de realizar algo, como é o caso aqui, é ainda mais importante que se entenda os detalhes e as diferenças entre os métodos.<br/>
+A primeira forma adotada pelo JavaScript para permitir a modularidade foi o chamado **CJS – Common JS**, baseado na função `require()`.<br/>
+O CJS, embora fosse conhecido como o “padrão” do Node para módulos, nunca foi definido como ferramenta de modularidade oficial da linguagem, pois basicamente cria as exportações a partir da alteração do objeto global `exports` ao invés de utilizar métodos próprios para isso.<br/>
+Por não existir esse método próprio, o ES6 especificou oficialmente, o chamado **ESM – EcmaScript Modules**, baseado nas palavras-chave `import` e `export`.
 ```js
 import express from 'express';
 
@@ -612,8 +616,11 @@ app.listen(port, () => {
 });
 ```
 
+Porém, existe um “hiato” de tempo entre as especificações definidas para cada versão do JavaScript e a implementação de cada uma delas, tanto nos navegadores quanto no Node.js e em todo o seu ecossistema de bibliotecas. Por esse motivo, até hoje, é possível encontrar alguns bugs e *workarounds* – termo usado em programação para o que chamamos em português de “gambiarras” – para utilizar a sintaxe ESM com NodeJS.<br/>
+Assim, ainda é muito comum ver o uso do **CJS** e do `require()` no Node. E mesmo após a implementação do ESM e a adoção desta nova sintaxe pelas bibliotecas, boa parte das documentações ainda utiliza a forma anterior para dar suporte a sistemas *legados*.
+
 No JS existem várias formas de importar código, dependendo do tipo de módulo usado, que são:
-1. **ES Modules - `import`** éo método mais morderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node.
+1. **ES Modules – `import`** é o método mais moderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node.
 
 - **Importação padrão (default import)**
 ```js
@@ -675,7 +682,7 @@ const carregarModulo = async () => {
 carregarModulo();
 ```
 
-2. **CommonJS - `require`**, esta é a forma padrão do Node, antes do surgimento do **ES Modules**, atualmente `require` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos.
+2. **CommonJS – `require`**, esta é a forma "padrão" do Node, antes do surgimento do **ES Modules**, atualmente `require()` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos.
 
 - **Importação simples**
 ```js
@@ -723,7 +730,7 @@ const dados = require('./arquivo.json');
 "type": "module"
 ```
 
-#### `export`
+#### EXPORTAÇÃO
 Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. O `export` é usado para tornar partes do código acessíveis em outros arquivos que usam `import`. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar `export`.
 
 1. **CommonJS (CJS)** — usado no Node.js.
