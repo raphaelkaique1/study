@@ -198,3 +198,33 @@ const normalizarNomes = nomes => nomes.map(nome =>
     .replace(nome.charAt(0), nome.charAt(0).toUpperCase()))
 
 console.log(normalizarNomes(nomes))
+
+// ternários
+// true == true ?
+console.log(`true ? true : "default": ${true ? true : "default"}\n`)
+console.log(`true ?? "default": ${true ?? "default"}\n`)
+let value = true
+value ??= "default"
+console.log(`let value = true; value ??= "default": ${value}\n`)
+
+// 0 == true ? true : "default"
+console.log(`0 ? true : "default": ${0 ? true : "default"}\n`)
+// value = 0 == true ? value = true : value = "default"
+value = 0 ? true : "default"
+console.log(`value = 0 ? true : "default": ${value}\n`)
+
+// 0 == 0 ? 0 : "default"
+console.log(`0 ?? "default": ${0 ?? "default"}\n`)
+// value = 0 == 0 ? value = 0 : value = "default"
+value = 0 ?? "default"
+console.log(`value = 0 ?? "default": ${value}\n`)
+/*      (0)      (0)
+value = value == value ? value = value : value = "default" */
+value ??= "default"
+console.log(`value ??= "default": ${value}\n`)
+
+value = !value
+console.log(`value = !value: ${value}\n`)
+
+value ??= "default"
+console.log(`value ??= "default": ${value}`)
