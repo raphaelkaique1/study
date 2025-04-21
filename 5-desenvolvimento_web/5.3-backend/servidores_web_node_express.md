@@ -6,7 +6,7 @@
    - **PHP**: WordExpress usa PHP juntamente com seu frameworks Larável.
    - **Python**: Fácil de aprender, especialmente usando Django (ou Flask) como framework.
    - **Ruby**: Usado com seu framework OnRails.
-   - **Node.js**: Utiliza a mesma linguagem que o lado do cliente, JavaScript - o TypeScript o deixa ainda melhor e confiável.
+   - **Node.js**: Utiliza a mesma linguagem que o lado do cliente, JavaScript — TypeScript o deixa ainda melhor e confiável.
    - **JAVA**: Linguagem clássica de alta demanda, muito usado com Spring e SpringBoot.
  - **Familiaridade com bancos de dados**<br/>
  Um desenvolvedor back-end precisa saber exatamente como funcionam os bancos de dados. Isso porque toda aplicação web precisa armazenar dados de alguma forma. Levando isto em consideração, entre as bases de dados mais comunmente tratadas estão:
@@ -95,6 +95,29 @@ A imagem abaixo representa uma abstração do processo de execução do código 
 Com a execução da sequência de processos apresentada no esquema, o motor JS interpreta e compila o código para um bytecode otimizado para executar no computador.
 
 Uma das mais atrativas característica do Node é ser um ambient de execução assíncrono, com isso ele trabalha de forma a não bloquear a aplicação no momento de sua execução, colocando os processos mais demorados em segundo plano. Isso diferencia o Node de outras plataformas como Java, PHP e .NET, pelo fato de ser *single thread*, ou seja, o Node não inicia threads em paralelo como nas outras plataformas. Por se tratar de um sistema single thread, o Node não tem a necessidade do gerenciamento de múltiplas threads, otimizando assim, o processo e o consumo de memória da aplicação.
+
+### COMPONENTS
+Antes de aprofundar em loop de eventos e como ele funciona, existem 3 pontos importantes para se conhecer, que são as partes que compõem o Node:
+
+1. **`arch`**<br/>
+É normal que se entenda o Node como uma ferramenta "única", que realiza sozinha todas as partes de interpretação do JS e do processamento de dados. Porém, o Node é na verdade composto por diversas bibliotecas diferentes. Quando ouvimos falar de Node, pode parecer que ele foi criado para fazer o trabalho do navegador de interpretar o JS fora do ambiente do browser, e também que é 1 programa que lê arquivos .js e retorna seus resultados no terminal.<br/>
+Na verdade o Node faz muito mais e está longe de ser 1 só software. Ele é composto por várias APIs e bibliotecas separadas, que são necessárias se conhecer para enteder melhor alguns conceitos importantes para o Node como **assíncronicidade**, **threads** e **Callbacks**.
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-seus-componentes/imagem1.jpg)
+
+Acima temos a estrutura do Node e seus componentes internos:
+- **core API**: API essencial do JS, responsável pela implementação do Node em alto nível.
+- **C++ bindings**: responsáveis por englobar e expor bibliotecas e métodos em C++ que são utilizados através do Node.
+- **V8**: o motor de execução que faz com que o Node consiga compreender o código em JS. Este motor é escrito em C++, o V8 recebe uma string de código em JS, intepreta e executa. É onde se encontra a implementação da maior parte das funções e métodos JS.
+- **libuv**: uma das principais partes que compõem o Node, é uma lib escrita em C++ que faz a parte de manipulação de eventos e o manejo de processos assíncronos como timers e funções. Esta lib dá acesso do Node ao sistema operacional, ao sistema de arquivos — conhecido como `fs - file system`, conexões e etc. Além disso, delega a execução de algumas partes do programa ao SO caso necessário. A libuv também implementa 2 funcionalidades muito importantes: o **loop de eventos** e a **thread pool**.
+- **extra APIS**: como `http-parser`, `zlib`, `openSSL` e `c-ares`, built in no ambiente Node, mas não fazem parte do V8.
+
+> A maior parte do processamento do código é resolvida pelo loop de eventos, como executar callbacks e processos de rede. A thread pool é responsável por tarefas que exigem mais processamento, como acesso, processamento e conversão de arquivos.
+
+Em resumo, o Node age como um controlador, "amarrando" juntos V8, libuv e fornecendo a API para que possamos acessar todas as funcionalidades citadas usando JS. Da mesma forma que um controlador, o Node "recebe" o código em JS, chama as bibliotecas responsáveis por executar cada parte do código e então retorna o resultado final. Podemos pensar em uma camada de abstração final, sobre, por exemplo, algumas funções em C++ que o Node utiliza.
+
+2. **`threads`**<br/>
+3. **`process`**<br/>
 
 ### EVENT LOOP
 A característica do Node que faz com que ele não seja lento ou demore a processar a fila de requisições, é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
