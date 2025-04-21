@@ -295,4 +295,46 @@ store.dispatch({ type: 'INCREMENTAR' });
 store.dispatch({ type: 'DECREMENTAR' });
 ```
 
+## BUNDLERS
+Como sabemos, tanto frameworks quanto libs são módulos no JS. Diferente de como funciona no backend com NodeJS, até a versão ES6 e a implementação do ESM, eram utilizados *bundlers* de código para trabalhar com modularidade. Atualmente, a maioria dos navegadores possuem o ESM nativo. Porém, como a versão "nativa" do JS de trabalhar com módulos (CJS) nunca foi compatível com navegadores — justamente por utilizar elementos que são nativos apenas do Node como o objeto global `exports`.<br/>
+Embora o ESM seja hoje implementado nativamente nos navegadores, é sempre interessante considerar o uso de bundlers como o **webpack** por exemplo, para gerar a *versão de produção de uma aplicação frontend*, pois estas ferramentas tem recursos para aumentar a performance do código que é executado no navegador.
+
+Então, um bundler é um **empacotador**, que Lẽ os arquivos de código-fonte do projeto como um todo, resolve as dependências como importações, módulos e bibliotecas e gera um ou mais arquivos finais otimizados prontos para rodar no navegador. É muito útil em grandes projetos pois, sem ele seria necessário carregar todos os arquivos manualmente via `<script></script>` ou `link`, assim tendo o navegador de fazer centenas de requisições que impactariam na performance e experiência do usuário.<br/>
+Com um boundler, pode-se escrever código modular, por exemplo `import Button from './components/Button.js` e no fim apenas 1 (ou poucos) arquivos otimizados são gerados para deploy e produção.<br/>
+Os bundlers mais populares no mercado são:
+
+| Bundler     | Destaque                                    |
+|-------------|---------------------------------------------|
+| **Webpack** | Extremamente configurável, poderoso.        |
+| **ESBuild** | Ultra rápido, feito em Go.                  |
+| **Parcel**  | Zero config, simples de usar.               |
+| **Rollup**  | Foco em bibliotecas, gera bundles pequenos. |
+| **Vite**    | Rápido, usa ES Modules + Rollup por trás.   |
+
+A seguir, veremos um exemplo prático com Vite:
+1. Criar projeto com Vite: `npm create vite@latest`.
+2. Escolher o framework: React, Vue, Angular, Next e etc.
+3. Instalar as depêndencias: `cd project_dir_name && npm install`.
+4. Rode local: `npm run dev`.
+5. Gere bundle final: `npm run build`.
+
+Um exemplo com o webpack seria:
+1. No diretório do projeto, inicie o `npm` e instale o webpack: `cd project_dir_name && npm init -y && npm install webpack webpack-cli --save-dev`.
+2. Criar o arquivo `webpack.config.js`:
+```js
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js', // ponto de entrada
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  mode: 'development', // ou 'production'
+};
+```
+3. Crie um arquivo `src/index.js` com o código do projeto, e rode: `npm webpack`.
+
+Com isso, o bundler otimiza o processo de desenvolvimento ao apoiar libs e frameworks compilando SCSS, TypeScript, JSX e etc, minifica e otimiza o código final, juntando vários arquivos JS entre muitas outras vantagens.
+
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">next</a>
