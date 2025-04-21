@@ -97,7 +97,7 @@ Com a execução da sequência de processos apresentada no esquema, o motor JS i
 Uma das mais atrativas característica do Node é ser um ambient de execução assíncrono, com isso ele trabalha de forma a não bloquear a aplicação no momento de sua execução, colocando os processos mais demorados em segundo plano. Isso diferencia o Node de outras plataformas como Java, PHP e .NET, pelo fato de ser *single thread*, ou seja, o Node não inicia threads em paralelo como nas outras plataformas. Por se tratar de um sistema single thread, o Node não tem a necessidade do gerenciamento de múltiplas threads, otimizando assim, o processo e o consumo de memória da aplicação.
 
 ### EVENT LOOP
-A característica de Node que faz com que ele não seja lento ou demore a processar a fila de requisições, é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
+A característica do Node que faz com que ele não seja lento ou demore a processar a fila de requisições, é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
 Antes de falarmos sobre o tal *loop de eventos* em si, precisamos definir o que é um [evento](https://developer.mozilla.org/en-US/docs/Web/Events) no contexto do JavaScript. Podemos pensar em evento no sentido mais literal: **um acontecimento**, *algo que ocorre em determinado momento*. No navegador, os eventos estão muitas vezes relacionados a ações do usuário, como por exemplo um clique em um botão, preenchimento de um input ou qualquer outro tipo de interação. Podem ser eventos disparados por elementos HTML, por objetos globais do navegador como `window` e etc. Falando especificamente sobre o Node, podemos pensar nos eventos em contextos como na leitura e escrita de arquivos, manejo de requisições HTTP e funções timer como `setTimeout()`, essas ações emitem eventos quando o processamento é finalizado — algo como um "aviso" que informa ao programa que a execução foi concluída e o resultado pode ser utilizado. Esses eventos são passados ao event loop, que irá chamar as funções callback associadas a cada um destes eventos. Um exemplo de função callback nesta estrutura é a função que executa o `console.log()` abaixo:
 ```js
 setTimeout(() => {
@@ -580,7 +580,7 @@ Neste exemplo do `express`, este é um dos frameworks mais utilizados no mercado
 #### `package_lock.json`
 É muito comum que uma dependência, principalmente em pacotes robustos como o `express` por exemplo, seja desenvolvida a partir de outras dependências. Embora toda a lista das dependencias usadas por outra dependência não estejam no `package.json` — que é quase que um guia de consulta rápido para as principais dependências do projeto, os códigos das dependências precisam ser baixados juntos com o pacote principal instalado e são também inclusos no `node_modules`. assim, o `package_lock.json` contém uma lista mais *refinada* de **todas** as dependências gerais, gerenciando todas estas.
 
-#### VERSIONAMENTO SEMâNTICO
+#### VERSIONAMENTO SEMÂNTICO
 Cada lib instalada possui uma versão, no arquivo `package.json` é possível verificar qual versão está sendo utilizada e quais atualizações serão recebidas dessa lib no projeto através de instruções de *SemVer*. Este é um padrão para dar significado às versões de software, que segue a estrutura `MAJOR.MINOR.PATCH`.<br/>
 São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 
@@ -738,73 +738,16 @@ app.listen(port, () => {
 });
 ```
 
+#### EXPORTAÇÃO
+Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar exportações.
+
+#### MÉTODOS DE TRANSPORTE
 Como vimos no início, existem 2 formas de se trabalhar com módulos em JavaScript, usando a forma CJS ou ESM. Porém, existe um “hiato” de tempo entre as especificações definidas para cada versão do JavaScript e a implementação de cada uma delas, tanto nos navegadores quanto no Node.js e em todo o seu ecossistema de bibliotecas. Por esse motivo, até hoje, é possível encontrar alguns bugs e *workarounds* – termo usado em programação para o que chamamos em português de “gambiarras” – para utilizar a sintaxe ESM com NodeJS.<br/>
-Assim, ainda é muito comum ver o uso do **CJS** e do `require()` no Node. E mesmo após a implementação do ESM e a adoção desta nova sintaxe pelas bibliotecas, boa parte das documentações ainda utiliza a forma anterior para dar suporte a sistemas *legados*.
+Assim, ainda é muito comum ver o uso do **CJS** e do `require()` no Node. E mesmo após a implementação do **ESM** e a adoção desta nova sintaxe pelas bibliotecas, boa parte das documentações ainda utiliza a forma anterior para dar suporte a sistemas *legados*.<br/>
+No JS existem várias formas de transportar código, dependendo do tipo de módulo usado:
 
-No JS existem várias formas de importar código, dependendo do tipo de módulo usado:
-1. **ES Modules – `import`** é o método mais moderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node. Este método foi implementado a partir do ES6, sendo um suporte real à modularidade como parte da linguagem, usando palavras-chave como `import` e `export`. Conceitualmente, o princípio de modularidade permanece o mesmo nos navegadores e no Node onde, cada arquivo é considerado um módulo independente, e as propriedades e objetos dentro de um arquivo não podem ser acessados de fora dele a menos que sejam explicitamente exportados e importados.
 
-- **Importação padrão (default import)**
-```js
-// import valorPadrao from './modulo.js';
-import saudacao from './modulo.js';
-
-console.log(saudacao()); // "Olá do módulo!"
-```
-
-- **Importação nomeada (named import)**
-```js
-// import { funcao, constante } from './modulo.js';
-import { somar, PI } from './modulo.js';
-
-console.log(somar(2, 3)); // 5
-console.log(PI); // 3.14159
-```
-
-- **Importação com renomeação (alias)**
-```js
-// import { funcao as novaFuncao } from './modulo.js';
-import { multiplicar as vezes } from './modulo.js';
-
-console.log(vezes(4, 5)); // 20
-```
-
-- **Importar tudo como um objeto**
-```js
-import * as utils from './modulo.js';
-// Ex: utils.funcao()
-
-console.log(utils.somar(10, 20)); // 30
-console.log(utils.PI); // 3.14159
-console.log(utils.default()); // "Olá do módulo!"
-```
-
-- **Importação combinada (default + named)**
-```js
-// import valorPadrao, { funcao } from './modulo.js';
-import saudacao, { somar } from './modulo.js';
-
-console.log(saudacao()); // "Olá do módulo!"
-console.log(somar(3, 3)); // 6
-```
-
-- **Importação dinâmica (lazy load)**
-```js
-/* const modulo = await import('./modulo.js');
-   modulo.funcao();
-*/
-
-const carregarModulo = async () => {
-  const modulo = await import('./modulo.js');
-
-  console.log(modulo.default()); // "Olá do módulo!"
-  console.log(modulo.somar(1, 2)); // 3
-};
-
-carregarModulo();
-```
-
-2. **CommonJS – `require`**, esta é a forma "padrão" do Node, antes do surgimento do **ES Modules**, atualmente `require()` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos. O CJS utiliza o objeto global `exports` para gerenciar as **exportações** de módulos e a função `require()` para gerenciar as **importações**.
+1. **CommonJS – `require`**, esta é a forma "padrão" do Node, antes do surgimento do **ES Modules**, atualmente `require()` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos. O CJS utiliza o objeto global `exports` para gerenciar as **exportações** de módulos e a função `require()` para gerenciar as **importações**.
 
 - **Importação simples**<br/>
 Neste exemplo, é usado `require()` para importar módulos do código, passando como parâmetro uma string com o caminho relativo do arquivo onde se encontram os módulos que queremos importar. O retorno da função `require()` é normalmente a função, classe ou objeto importado, que é guardado na variável definida.
@@ -832,29 +775,7 @@ const { despedida: bye } = require('./modulo.js');
 console.log(bye('Kaique')); // Tchau, Kaique!
 ```
 
-O CJS no Node utiliza funções e objetos nativos dele, como o objeto global `exports`, porém não irá funcionar da mesma forma nos navegadores. Era comum o uso de `exports` e `require()` em aplicações frontend através de *bundlers*, como o webpack, que permitiam o uso deste recurso, e *"traduziam"* o código para um formato de JavaScript que os navegadores pudessem interpretar — já que não possuem o objeto global `exports` e não compreendem o CJS.<br/>
-Com o lançamento do **ESM**, os navegadores passaram a adotar esta que é a sintaxe *"oficial"* de importação e exportação com `import` e `export`.
-
-
-3. **Outras formas especiais**
-- **Importar JSON**
-```js
-// ES Module (Node.js precisa de flag ou config no package.json)
-import dados from './arquivo.json' assert { type: "json" };
-
-// CommonJS
-const dados = require('./arquivo.json');
-```
-
-- **Importar em HTML (browser) via CDN**
-```html
-<script type="module" src="app.js"></script>
-```
-
-#### EXPORTAÇÃO
-Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar exportações.
-
-1. **CommonJS (CJS)** — usado eventualmente apenas em projetos legados no Node. O método `module.exports` só pode exportar 1 único valor.
+1. **CommonJS - `exports`** — usado eventualmente apenas em projetos legados no Node. O método `module.exports` só pode exportar 1 único valor.
   - **Exportar partes individuais**
   ```js
   exports.saudacao = (nome) => `Olá, ${nome}!`;
@@ -952,7 +873,72 @@ Assim como é possível *importar* funções, dados entre outras coisas entre ar
   console.log(boasVindas());       // Olá mundo!
   ```
 
-2. **ES Modules (ESM)** — padrão moderno, utiliza o `export` para tornar partes do código acessíveis em outros arquivos que usam `import`.
+O CJS no Node utiliza funções e objetos nativos dele, como o objeto global `exports`, porém não irá funcionar da mesma forma nos navegadores. Era comum o uso de `exports` e `require()` em aplicações frontend através de *bundlers*, como o webpack, que permitiam o uso deste recurso, e *"traduziam"* o código para um formato de JavaScript que os navegadores pudessem interpretar — já que não possuem o objeto global `exports` e não compreendem o CJS.<br/>
+Com o lançamento do **ESM**, os navegadores passaram a adotar esta que é a sintaxe *"oficial"* de importação e exportação com `import` e `export`.
+
+2. **ES Modules – `import`** é o método mais moderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node. Este método foi implementado a partir do ES6, sendo um suporte real à modularidade como parte da linguagem, usando palavras-chave como `import` e `export`. Conceitualmente, o princípio de modularidade permanece o mesmo nos navegadores e no Node onde, cada arquivo é considerado um módulo independente, e as propriedades e objetos dentro de um arquivo não podem ser acessados de fora dele a menos que sejam explicitamente exportados e importados.
+
+- **Importação padrão (default import)**
+```js
+// import valorPadrao from './modulo.js';
+import saudacao from './modulo.js';
+
+console.log(saudacao()); // "Olá do módulo!"
+```
+
+- **Importação nomeada (named import)**
+```js
+// import { funcao, constante } from './modulo.js';
+import { somar, PI } from './modulo.js';
+
+console.log(somar(2, 3)); // 5
+console.log(PI); // 3.14159
+```
+
+- **Importação com renomeação (alias)**
+```js
+// import { funcao as novaFuncao } from './modulo.js';
+import { multiplicar as vezes } from './modulo.js';
+
+console.log(vezes(4, 5)); // 20
+```
+
+- **Importar tudo como um objeto**
+```js
+import * as utils from './modulo.js';
+// Ex: utils.funcao()
+
+console.log(utils.somar(10, 20)); // 30
+console.log(utils.PI); // 3.14159
+console.log(utils.default()); // "Olá do módulo!"
+```
+
+- **Importação combinada (default + named)**
+```js
+// import valorPadrao, { funcao } from './modulo.js';
+import saudacao, { somar } from './modulo.js';
+
+console.log(saudacao()); // "Olá do módulo!"
+console.log(somar(3, 3)); // 6
+```
+
+- **Importação dinâmica (lazy load)**
+```js
+/* const modulo = await import('./modulo.js');
+   modulo.funcao();
+*/
+
+const carregarModulo = async () => {
+  const modulo = await import('./modulo.js');
+
+  console.log(modulo.default()); // "Olá do módulo!"
+  console.log(modulo.somar(1, 2)); // 3
+};
+
+carregarModulo();
+```
+
+2. **ES Modules — `export`** — padrão moderno, utiliza o `export` para tornar partes do código acessíveis em outros arquivos que usam `import`.
 - **Exportações nomeadas (Named Exports)**<br/>
 Permite exportar múltiplos valores com nomes específicos.
   - **Exportação nomeada (inline)**
@@ -1075,10 +1061,20 @@ Permite importar e exportar de outro módulo sem declarar localmente.
   const modulo = await import('./modulo.mjs');
   ```
 
-Como vimos, importações podem seguir as formas indicadas, como:
-- adicionando o método de exportação antes de cada declaração;
-- montando o objeto que será exportado na última linha do arquivo;
-- no caso do 
+3. **Outras formas especiais**
+- **Importar JSON**
+```js
+// ES Module (Node.js precisa de flag ou config no package.json)
+import dados from './arquivo.json' assert { type: "json" };
+
+// CommonJS
+const dados = require('./arquivo.json');
+```
+
+- **Importar em HTML (browser) via CDN**
+```html
+<script type="module" src="app.js"></script>
+```
 
 #### MODULE EXTENSIONS
 Há alguns padrões que o JavaScript adota em suas extensões de arquivo para indicar os diferentes “tipos” de código.<br/>
