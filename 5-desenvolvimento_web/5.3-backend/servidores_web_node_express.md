@@ -599,6 +599,8 @@ A primeira forma adotada pelo JavaScript para permitir a modularidade foi o cham
 O CJS, embora fosse conhecido como o “padrão” do Node para módulos, nunca foi definido como ferramenta de modularidade oficial da linguagem, pois basicamente cria as exportações a partir da alteração do objeto global `exports` ao invés de utilizar métodos próprios para isso.<br/>
 Por não existir esse método próprio, o ES6 especificou oficialmente, o chamado **ESM – EcmaScript Modules**, baseado nas palavras-chave `import` e `export`.
 
+Além das diferenças nas palavras-chave, funções e objetos utilizados para importar e exportar módulos, o CJS e o ESM têm outras diferenças estruturais: **uma diferença importante é que _o CJS funciona de forma SÍNCRONA_, enquanto _o ESM funciona de forma ASSÍNCRONA_, o que dificulta a compatibilidade entre as 2 formas.**
+
 Como sabemos, a definição mais básica de módulo é: uma unidade, uma parte que pode ser combinada com outras mas que tem, por si mesma, uma funcionalidade. Podemos pensar como por exemplo em *móveis modulares*, que podem ser montados em conjunto de acordo com a necessidade, embora cada parte também funcione sozinha, como no caso do armário.<br/>
 **Traduzindo essa ideia para a programação, podemos chamar de módulo todo código que tem uma funcionalidade específica e que está implementado de forma independente — sendo assim *modularizado* — ou seja, utilizado em conjunto com outras partes do código para desenvolver uma aplicação completa.** Também são considerados módulos as bibliotecas externas importadas no projeto.<br/>
 Em aplicações desenvolvidas com Node, já é padrão a divisão das funcionalidades em quantos diretórios e arquivos forem necessários para manter o código separado e organizado. Em um projeto construído neste formato, os navegadores precisam baixar e carregar todos os arquivos necessários para que a aplicação funcione corretamente, daí a utilidade dos *bunlders*, que são *empacotadores* que otimizam os arquivos para transferência e carregamento rápido pelos navegadores, como o **webpack** por exemplo.<br/>
@@ -720,7 +722,7 @@ const app = express();
 > A utilização do mesmo nome na importação não é obrigatória, mas sim um padrão da linguagem.
 
 #### IMPORTAÇÃO
-Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, vejamos mais sobre métodos de importação e exportação no arquivo JS para que suas funcionalidades guardadas nos arquivos em `node_modules` possam ser acessadas.
+Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, vejamos mais sobre métodos de importação e exportação no arquivo JS para que suas funcionalidades guardadas nos arquivos em `node_modules` possam ser acessadas. Declarar os módulos importados no topo do arquivo é uma convenção seguida pela comunidade, mas não é decisiva para o funcionamento do código. Módulos importados passam pelo mesmo processo de hoisting de declarações de função e variáveis e são “içados” para o topo dos arquivos. Então como "regra", todas as importações devem estar declaradas no topo dos arquivos onde os módulos serão utilizados e não devem ser feitas dentro de funções, classes, loops ou outros blocos de código.
 ```js
 import express from 'express';
 
@@ -849,17 +851,10 @@ const dados = require('./arquivo.json');
 <script type="module" src="app.js"></script>
 ```
 
----
-
-**Para executar os módulos importados em um arquivo `.js`, é importante que estejam referenciados no `package.json`, ou usando extensões `.mjs`.**
-```json
-"type": "module"
-```
-
 #### EXPORTAÇÃO
-Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. O `export` é usado para tornar partes do código acessíveis em outros arquivos que usam `import`. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar `export`.
+Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar exportações.
 
-1. **CommonJS (CJS)** — usado eventualmente apenas em projetos legados no Node.
+1. **CommonJS (CJS)** — usado eventualmente apenas em projetos legados no Node. O método `module.exports` só pode exportar 1 único valor.
   - **Exportar partes individuais**
   ```js
   exports.saudacao = (nome) => `Olá, ${nome}!`;
@@ -911,7 +906,53 @@ Assim como é possível *importar* funções, dados entre outras coisas entre ar
   };
   ```
 
-2. **ES Modules (ESM)** — padrão moderno.
+  - **Exportação anônima**
+  ```js
+  // module.js
+  module.exports = function(nome) {
+    return `Olá, ${nome}!`;
+  };
+
+  // main.js
+  const saudar = require('./module')
+  ```
+  ou
+  ```js
+  // module.js
+  module.exports = {
+    saudar: function(nome) {
+      return `Olá, ${nome}!`;
+    },
+    boasVindas: function() {
+      return `Olá mundo!`;
+    }
+  };
+
+  // main.js
+  const { saudar, boasVindas } = require('./module');
+
+  console.log(saudar("Raphael"));  // Olá, Raphael!
+  console.log(boasVindas());       // Olá mundo!
+  ```
+  ou ainda:
+  ```js
+  // module.js
+  module.exports.saudar = function(nome) {
+    return `Olá, ${nome}!`;
+  };
+
+  module.exports.boasVindas = function() {
+    return `Olá mundo!`;
+  };
+
+  // main.js
+  const { saudar, boasVindas } = require('./module');
+
+  console.log(saudar("Raphael"));  // Olá, Raphael!
+  console.log(boasVindas());       // Olá mundo!
+  ```
+
+2. **ES Modules (ESM)** — padrão moderno, utiliza o `export` para tornar partes do código acessíveis em outros arquivos que usam `import`.
 - **Exportações nomeadas (Named Exports)**<br/>
 Permite exportar múltiplos valores com nomes específicos.
   - **Exportação nomeada (inline)**
@@ -1033,5 +1074,55 @@ Permite importar e exportar de outro módulo sem declarar localmente.
   // arquivo.cjs
   const modulo = await import('./modulo.mjs');
   ```
+
+Como vimos, importações podem seguir as formas indicadas, como:
+- adicionando o método de exportação antes de cada declaração;
+- montando o objeto que será exportado na última linha do arquivo;
+- no caso do 
+
+#### MODULE EXTENSIONS
+Há alguns padrões que o JavaScript adota em suas extensões de arquivo para indicar os diferentes “tipos” de código.<br/>
+Por exemplo, aplicações frontend que utilizam React podem adotar o padrão `.js` para arquivos escritos em JavaScript “padrão” e `.jsx` para arquivos que utilizem os recursos da extensão JSX, embora a funcionalidade do código e dos arquivos permaneça a mesma.<br/>
+Da mesma forma, é possível utilizar os padrões `.mjs` para assinalar arquivos em JavaScript que sejam módulos ESM, e diferenciá-los de arquivos JavaScript "comuns" módulos mantendo a extensão normal `.js`.<br/>
+Os arquivos com extensão `.cjs` seguem o mesmo princípio, porém para CJS. Caso seja necessário utilizar a sintaxe CJS em aplicações que já usam o ESM e que, por consequência, têm definido o `”type”: “module”` como propriedade no arquivo `package.json`, será necessário utilizar a extensão `.cjs`, embora não seja recomendável misturar as 2 formas de importação em um mesmo projeto.<br/>
+Então, no caso onde usam-se user modelos, na sintaxe ESM é necessário incluir o nome completo do arquivo no caminho incluindo a extensão `.js`. Já o CJS não requer a extensão do arquivo, é possível utilizar `const soma = require('./operacoes');` por exemplo.
+
+**Para executar os módulos importados em um arquivo `.js`, é importante que estejam referenciados no `package.json`, ou usando extensões `.mjs`.**
+```pgsql
+📁 exemplo-modulo/
+├── package.json
+├── index.js
+└── utils.mjs
+```
+```json
+// package.json
+{
+  "name": "exemplo-modulo",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
+```
+```mjs
+// utils.mjs
+export function somar(a, b) {
+  return a + b;
+}
+
+export const saudacao = 'Olá do módulo utils!';
+```
+```js
+// index.js
+import { somar, saudacao } from './utils.js';
+
+console.log(saudacao);
+console.log('2 + 3 =', somar(2, 3));
+```
+**Sem o `"type": "module"` no `package.json` só é possível usar CJS (`require()` e `module.exports`), ou então para usar ESM, renomear os arquivos para `.mjs`, assim sendo permitido o uso de `import` e `export`.**
+
+Na prática, usar ou não este padrão não traz diferença para o desenvolvimento da aplicação, porém o Node, “por baixo dos panos”, vai identificar as diferentes extensões ao carregar os programas e indexar os arquivos. Então, é permitido utilizá-los, embora este tipo de decisão muitas vezes fique a cargo da convenção utilizada por cada projeto e empresa.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">next</a>
