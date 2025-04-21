@@ -688,6 +688,37 @@ export default validaCartao; // exporta apenas a lógica da função indicada
 ```
 No exemplo acima, apenas a função `validaCartao()` está sendo exportada, e a função `funcaoAuxiliar()` está sendo usada apenas internamente pelo módulo `validacaoCartao()`, não ficando disponível para ser acessada pelo restante do código. Ou seja, temos apenas uma “exportação padrão” neste módulo da função que outras partes da aplicação precisam acessar. O restante da lógica exemplificado aqui por `funcaoAuxiliar()` fica restrito ao módulo e não é acessado.
 
+**Resumindo:**
+> **No Node, módulos são blocos reutilizáveis de código que ajudam a organizar e isolar funcionalidades. Eles permitem importar apenas o necessário, encapsular a lógica e compartilhar funcionalidades entre arquivos ou mesmo entre projetos diferentes. Um módulo no Node é qualquer arquivo JavaScript que exporta algum valor como uma função, objeto, variável, classe e etc, que pode ser importado em outro arquivo usando `require()` ou `import`, dependendo do tipo de módulo usado – CommonJS ou ES Modules.**
+
+Existem diferentes tipos de módulos:
+1. **core modules**: são aqueles disponíveis no Node sem a necessidade de download de arquivos via package manager, como por exemplo `fs`, `http`, `path`, `os`, `events`, `crypto` e etc.
+```js
+const fs = require('fs');
+fs.readFileSync('arquivo.txt');
+```
+
+2. **user modules**: são os módulos criados pelo desenvolvedor para uso na aplicação.
+```js
+// calculadora.js
+function somar(a, b) {
+  return a + b;
+}
+module.exports = somar;
+
+// app.js
+const somar = require('./calculadora');
+console.log(somar(2, 3)); // 5
+```
+
+3. **third-party modules**: são as bibliotecas instaladas via package managers, como `express`, `lodash`, `axios` e etc.
+```js
+const express = require('express');
+const app = express();
+```
+
+> A utilização do mesmo nome na importação não é obrigatória, mas sim um padrão da linguagem.
+
 #### IMPORTAÇÃO
 Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, vejamos mais sobre métodos de importação e exportação no arquivo JS para que suas funcionalidades guardadas nos arquivos em `node_modules` possam ser acessadas.
 ```js
@@ -709,7 +740,7 @@ Como vimos no início, existem 2 formas de se trabalhar com módulos em JavaScri
 Assim, ainda é muito comum ver o uso do **CJS** e do `require()` no Node. E mesmo após a implementação do ESM e a adoção desta nova sintaxe pelas bibliotecas, boa parte das documentações ainda utiliza a forma anterior para dar suporte a sistemas *legados*.
 
 No JS existem várias formas de importar código, dependendo do tipo de módulo usado:
-1. **ES Modules – `import`** é o método mais moderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node.
+1. **ES Modules – `import`** é o método mais moderno, sendo o padrão atual do ECMAScript, usado em browsers e também é suportado no Node. Este método foi implementado a partir do ES6, sendo um suporte real à modularidade como parte da linguagem, usando palavras-chave como `import` e `export`. Conceitualmente, o princípio de modularidade permanece o mesmo nos navegadores e no Node onde, cada arquivo é considerado um módulo independente, e as propriedades e objetos dentro de um arquivo não podem ser acessados de fora dele a menos que sejam explicitamente exportados e importados.
 
 - **Importação padrão (default import)**
 ```js
@@ -771,9 +802,10 @@ const carregarModulo = async () => {
 carregarModulo();
 ```
 
-2. **CommonJS – `require`**, esta é a forma "padrão" do Node, antes do surgimento do **ES Modules**, atualmente `require()` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos.
+2. **CommonJS – `require`**, esta é a forma "padrão" do Node, antes do surgimento do **ES Modules**, atualmente `require()` é um método antigo, usado apenas em ambientes Node.js legados ou com módulos antigos. O CJS utiliza o objeto global `exports` para gerenciar as **exportações** de módulos e a função `require()` para gerenciar as **importações**.
 
-- **Importação simples**
+- **Importação simples**<br/>
+Neste exemplo, é usado `require()` para importar módulos do código, passando como parâmetro uma string com o caminho relativo do arquivo onde se encontram os módulos que queremos importar. O retorno da função `require()` é normalmente a função, classe ou objeto importado, que é guardado na variável definida.
 ```js
 const modulo = require('./modulo.js');
 
@@ -781,21 +813,26 @@ console.log(modulo.saudacao('Raphael'));   // Olá, Raphael!
 console.log(modulo.despedida('Raphael'));  // Tchau, Raphael!
 ```
 
-- **Importar uma propriedade específica**
+- **Importar uma propriedade específica**<br/>
+Além da importação do objeto completo, é possível utilizar a desestruturação de objetos para importar apenas os módulos necessários.
 ```js
 // const { funcao } = require('./modulo.js');
-const { saudacao } = require('./modulo.js');
+const { saudacao } = require('./modulo.js'); // destructuring
 
-console.log(saudacao('Déborah'));          // Olá, Déborah!
+console.log(saudacao('Déborah'));            // Olá, Déborah!
 ```
 
 - **Importar com renomeação**
 ```js
-// const { funcao: novaFuncao } = require('./modulo.js');
+// const { funcao: novoNomeDaFuncao } = require('./modulo.js');
 const { despedida: bye } = require('./modulo.js');
 
-console.log(bye('Kaique'));                // Tchau, Kaique!
+console.log(bye('Kaique')); // Tchau, Kaique!
 ```
+
+O CJS no Node utiliza funções e objetos nativos dele, como o objeto global `exports`, porém não irá funcionar da mesma forma nos navegadores. Era comum o uso de `exports` e `require()` em aplicações frontend através de *bundlers*, como o webpack, que permitiam o uso deste recurso, e *"traduziam"* o código para um formato de JavaScript que os navegadores pudessem interpretar — já que não possuem o objeto global `exports` e não compreendem o CJS.<br/>
+Com o lançamento do **ESM**, os navegadores passaram a adotar esta que é a sintaxe *"oficial"* de importação e exportação com `import` e `export`.
+
 
 3. **Outras formas especiais**
 - **Importar JSON**
@@ -822,8 +859,42 @@ const dados = require('./arquivo.json');
 #### EXPORTAÇÃO
 Assim como é possível *importar* funções, dados entre outras coisas entre arquivos JS, para que isso seja feito, o arquivo alvo da importação deve conter a declaração que permite exportar seus dados. O `export` é usado para tornar partes do código acessíveis em outros arquivos que usam `import`. São 2 as principais abordagens para exportar valores de um módulo: **exportações nomeadas** e **exportações default**. Dentro delas, existem diversas formas de declarar `export`.
 
-1. **CommonJS (CJS)** — usado no Node.js.
+1. **CommonJS (CJS)** — usado eventualmente apenas em projetos legados no Node.
+  - **Exportar partes individuais**
+  ```js
+  exports.saudacao = (nome) => `Olá, ${nome}!`;
+  exports.despedida = (nome) => `Tchau, ${nome}!`;
+  ```
+
+  - **Exportar uma única parte diretamente**
+  ```js
+  module.exports = function bemVindo(nome) {
+    return `Olá, ${nome}!`;
+  };
+  ```
+  ou, o mais utilizado:
+  ```js
+  function bemVindo(nome) {
+    return `Olá, ${nome}!`;
+  };
+
+  module.exports = bemVindo;
+  ```
+
   - **Exportar múltiplos valores**
+  ```js
+  // modulo.js
+  module.exports = {
+    saudacao(nome) {
+      return `Olá, ${nome}!`;
+    }
+
+     despedida(nome) {
+      return `Tchau, ${nome}!`;
+    }
+  };
+  ```
+  ou, o mais utilizado:
   ```js
   // modulo.js
   function saudacao(nome) {
@@ -840,19 +911,6 @@ Assim como é possível *importar* funções, dados entre outras coisas entre ar
   };
   ```
 
-  - **Exportar uma única função/objeto direto**
-  ```js
-  module.exports = function(nome) {
-    return `Olá, ${nome}!`;
-  };
-  ```
-
-  - **Exportar propriedades individuais**
-  ```js
-  exports.saudacao = (nome) => `Olá, ${nome}!`;
-  exports.despedida = (nome) => `Tchau, ${nome}!`;
-  ```
-
 2. **ES Modules (ESM)** — padrão moderno.
 - **Exportações nomeadas (Named Exports)**<br/>
 Permite exportar múltiplos valores com nomes específicos.
@@ -861,10 +919,10 @@ Permite exportar múltiplos valores com nomes específicos.
   export const nome = "Raphael";
   export const idade = 27;
   export function somar(a, b) {return a + b;}
-  export class Pessoa {}
+  export class Pessoa {/* propriedades */}
   ```
 
-  - **Exportação nomeada (depois)**
+  - **Exportação nomeada, depois da declaração**
   ```js
   const idade = 27;
   function subtrai(a, b) { return a - b; }
@@ -880,42 +938,52 @@ Permite exportar múltiplos valores com nomes específicos.
   function soma(a, b) { return a + b; }
   export { soma as somarValores };
 
-  // ou
+  ```
+  ou, o mais utilizado:
+  ```js
+  const idade = 27;
+  function soma(a, b) { return a + b; }
+
   export { idade as anos, somar as somarValores };
   ```
 
 - **Exportação padrão (Default Export)**<br/>
-Cada módulo só pode ter **uma única exportação default**.
-  - **Exportação default (inline)**
+Cada módulo só pode ter **uma única exportação default**. Enquanto a exportação com `export` só pode ser usada em funções nomeadas, a exportação padrão com `export default` pode ser feita em funções anônimas e também em objetos literais:
+  - **Exportação default inline**
   ```js
   export default class Pessoa {
     constructor(nome) {
       this.nome = nome;
     }
   }
-
-  export default function saudacao() {
-    return "Olá!";
+  ```
+  e:
+  ```js
+  // operacao.js
+  export default function(num1, num2) {
+    return num1 + num2;
   }
 
-  export default function soma(a, b) {
-    return a + b;
-  }
-
-  export default 42;
+  // index.js
+  import operacao from './operacao.js';
+  // No exemplo acima, podemos criar o identificador `operacao` na importação da função anônima; os identificadores dos `imports` se comportam como constantes.
   ```
 
-  - **Exportação default (depois)**
+  - **Exportação default after**
   ```js
-  function saudacao() {
-    return "Olá!";
+  function validaCartao(cartao) {
+   // lógica interna da validação
+   const resultado = funcaoAuxiliar(algumDado)
+   // lógica interna da validação continua
+   return cartaoEhValido
   }
-  export default saudacao;
 
-  function divide(a, b) {
-    return a / b;
+  function funcaoAuxiliar(dado) {
+   // lógica interna da função
+   return resultadoDaLogica
   }
-  export default divide;
+
+  export default validaCartao;
   ```
 
 - **Exportar tudo de outro módulo (Re-exportação)**<br/>
