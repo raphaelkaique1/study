@@ -99,7 +99,7 @@ Uma das mais atrativas característica do Node é ser um ambient de execução a
 ### COMPONENTS
 Antes de aprofundar em loop de eventos e como ele funciona, existem 3 pontos importantes para se conhecer, que são as partes que compõem o Node:
 
-1. **`arch`**<br/>
+1. **architecture**<br/>
 É normal que se entenda o Node como uma ferramenta "única", que realiza sozinha todas as partes de interpretação do JS e do processamento de dados. Porém, o Node é na verdade composto por diversas bibliotecas diferentes. Quando ouvimos falar de Node, pode parecer que ele foi criado para fazer o trabalho do navegador de interpretar o JS fora do ambiente do browser, e também que é 1 programa que lê arquivos .js e retorna seus resultados no terminal.<br/>
 Na verdade o Node faz muito mais e está longe de ser 1 só software. Ele é composto por várias APIs e bibliotecas separadas, que são necessárias se conhecer para enteder melhor alguns conceitos importantes para o Node como **assíncronicidade**, **threads** e **Callbacks**.
 
@@ -116,8 +116,25 @@ Acima temos a estrutura do Node e seus componentes internos:
 
 Em resumo, o Node age como um controlador, "amarrando" juntos V8, libuv e fornecendo a API para que possamos acessar todas as funcionalidades citadas usando JS. Da mesma forma que um controlador, o Node "recebe" o código em JS, chama as bibliotecas responsáveis por executar cada parte do código e então retorna o resultado final. Podemos pensar em uma camada de abstração final, sobre, por exemplo, algumas funções em C++ que o Node utiliza.
 
-2. **`threads`**<br/>
-3. **`process`**<br/>
+2. **process**<br/>
+Este é um tema que envolve a arquitetura de computadores, pois, é através das threads e dos processos que, as tarefas de um programa — seja qual for a linguagem — são processadas pela máquina. Para entendermos como isso está ligado à forma como o Node funciona é necessário o completo entendimento de 2 conceitos fundamentais em computação: **threads** e **tasks**.<br/>
+Computadores usam threads e processos para a execução de instruções, seja qual for a linguagem. Podemos chamar de **processo** *a execução de um conjunto de instruções de um programa* que realizam o processamento dos dados introduzidos à este, e ao final geram um resultado em forma de informação utilizável. Normalmente, um computador tem vários processos sendo executados ao mesmo tempo — podemos pensar nos diversos programas que são executados continuamente no background, como antivírus, controladores e etc — e cada processo utiliza um espaço reservado de memória. Ou seja, são as "tasks" que podemos acessar com o gerenciador de tarefas do Windows ou com o PID process do Linux. No caso de programas executados pelo Node, são os processos responsáveis por "escutar" eventos e responder de acordo.<br/>
+As chamadas **threads de execução** *são a menor parte de processamento de um programa*, sendo a forma como as instruções de um programa são separadas e *agendadas* para serem processadas pelo computador. A quantidade de threads disponíveis para serem utilizadas por um programa depende de alguns fatores como a forma que o programa é escrito, a forma como é processado e também da capacidade da CPU processar ou não uma determinada quantidade de threads ao mesmo tempo. **As threads podem funcionar como *componentes de um processo*, o chamado *parent process*, e compartilhar espaço de memória entre si — ao contrário de *processos*, que não compartilham memória — para executarem diferentes tarefas de um mesmo processo de forma mais performática**. Uma tradução literal para thread seria "linha". *Como uma thread de execução só pode executar 1 instrução por vez, por exemplo como em um laço de repetição, dividir um processo em mais de uma thread é uma estratégia para que o programa não bloqueie enquanto uma determinada parte dele é processada.*
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-threads-e-processos/imagem1.jpg)
+
+A imagem acima mostra que, ao mesmo tempo que várias threads conseguem processar dados de diversas conexões ser tem que colocá-las numa fila, as mesmas threads também ficam ociosas enquanto não há nada acontecendo, ocupando espaço de processamento que poderia ser liberado, mas fica aguardando novas instruções que podem ou não acontecer.
+
+Agora vejamos como é o processamento *single thread*:
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-threads-e-processos/imagem2.jpg)
+
+Na imagem acima, o processamento de cada conexão é "agendado" e ordenado em fila para execução um após o outro, ao invés de serem *espalhados* por diversas threads. E isso remete diretamente aos *eventos síncronos e assíncronos* do JS, que basicamente separa separa o código 2 partes, instruções que são executadas agora, e instruções que serão executadas após algum gatilho de acionamento.
+
+3. **single-threaded**<br/>
+Neste ponto, já está claro que o Node não é apenas um programa, mas sim um controlador que engloba algumas bibliotecas e APIs. E, todo código em JS executado por um programa, *inclusive o código JS existente dentro do código-fonte do próprio Node, o V8, o loop de eventos e métodos síncronos em C++ que existem dentro do Node* **são executados na mesma thread**, chamada *main thread*, por isso é dito que o Node é *single-threaded*. Pelo fato do Node ser escrito em C++, alguns métodos e módulos **assíncronos** em C++, que são utilizados pelo Node, podem não ser executados na main thread, como por exemplo o módulo `crypto`, que utiliza muito processamento da CPU por realizar muitos cálculos matemáticos. Em casos como esse, o C++ vai executar métodos assíncronos, por baixo dos panos, utilizando mais de uma thread se necessário, a chamada **execução em paralelo**.<br/>
+O Node utiliza a libuv para operações assíncronas, essa biblioteca também é utilizada junto com parte da lógica interna do Node para manejar a chamada **thread pool**, *que são 4 threads pré-alocadas por padrão e usadas para delegar operações muito pesadas que exigem muito processamento para serem colocadas no loop de eventos*, como por exemplo algumas operações IO, iniciar e fechar conexões como o `socket.close()` por exemplo, e manejar timers como o `setTimeout()`. O termo pool pode ser usado para designar um conjunto de recursos computacionais que estão à disposição do programa e prontos para uso, no caso de threads, podemos entender uma thread pool como um conjunto de threads criadas de antemão pelo programa que ficam em stand by.<br/>
+Então, diz-se que o Node é single-threaded pois algumas de suas partes essenciais — entre elas o loop de eventos — trabalham de forma single thread, porém, partes do processamento de um programa podem ser trabalhadas de forma multi-thread pela libuv, utilizando a thread pool, além de métodos em C++ que podem ser delegados ao SO para o processamento adicional de tarefas mais complexas. Alguns processos devem obrigatoriamente operar em single thread, recebendo os retornos de forma ordenada para evitar que, por exemplo, 2 threads alterem a mesma variável, este é o caso do loop de eventos.
 
 ### EVENT LOOP
 A característica do Node que faz com que ele não seja lento ou demore a processar a fila de requisições, é ser não bloqueante, e isso tem a ver com o sistema de *callbacks* do JavaScript e o **loop de eventos**.<br/>
