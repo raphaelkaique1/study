@@ -42,7 +42,7 @@ Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídia
 </script>
 ```
 
-## `NodeJS`
+## [NodeJS](https://nodejs.org/pt)
 Na atualidade, a criação de aplicações tem como foco arquiteturas que sejam escaláveis e a entrega de soluções em tempo real, além da atenção à componentização e segurança. Além disso, soma-se a esse cenário a revolução iniciada pelos smartphones, com o uso cada vez mais intenso das mídias sociais e o aumento de soluções de IoT. Nesse contexto, os paradigmas conhecidos no desenvolvimento de aplicações também têm passado por diversas mudanças que vão do Front-end ao Back-end, onde pensamos cada vez mais em *uma solução como um todo*, levando em consideração o consumo de dados e a disponibilidade de infraestrutura. E é nessa conjuntura que nasce o Node.js em 2009, surgindo como uma solução poderosa e barata para a criação e a manutenção de ambientes de tecnologia com altas demandas. Soma-se a isso o fato de que desenvolvedores de JavaScript trabalham com uma linguagem simples, interpretada e que não necessita da instalação de ferramentas complexas de desenvolvimento. Esses são alguns dos fatores motivadores do criador do projeto do Node.js, o engenheiro de software Ryan Dahl, responsável por esse ambiente de execução do código JavaScript fora do navegador, no lado servidor.<br/>
 No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornando-se poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*.<br/>
 Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigma, *open source* e sua grande e colaborativa comunidade. O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser. Quando iniciamos o Node.js com o comando `node` no terminal, iniciamos um processo que engloba um interpretador JavaScript e um utilitário CLI, e é neste processo aberto no terminal que irá acontecer a interpretação e execução do JavaScript runtime. Para esse processo de interpretação, o Node.js faz uso do V8, mais precisamente conhecido como Chrome’s V8 JavaScript engine. O V8 é um poderosíssimo interpretador JavaScript desenvolvido pelo Google e utilizado pelo Chrome. Ele também é conhecido como a máquina virtual do JavaScript. Foi desenvolvido usando a linguagem **C++**, é de código aberto e nasceu com a intenção de acelerar a execução de aplicações desenvolvidas em JavaScript. Por fornecer uma boa performance, várias plataformas têm adotado o Node.js como um solução viável e eficaz de tecnologia para Back-end. É interessante apontar que existem outros “motores” para JavaScript, como o SpiderMonkey, do Firefox, ou o WebKit, do Safari, mas o adotado pelo Node.js é o V8. De forma geral, o processo de funcionamento desses motores pode ser resumido nas seguintes etapas:
@@ -145,9 +145,229 @@ setTimeout(() => {
 }, 1000)
 ```
 
-A arquitetura baseada em eventos trabalha com 2 partes principais, os **Event Emitters** e os **Event Listeners**.
+#### CALLSTACK
+Vejamos o código a seguir:
+```js
+function calculaQuadrado(num) {
+ const resultadoSoma = soma(num);
+ return resultadoSoma * resultadoSoma;
+}
 
-#### `event handler`
+function soma(num) {
+ return num + num;
+}
+
+function imprimeValor(valor) {
+ const resultado = calculaQuadrado(valor);
+ console.log(`o resultado é ${resultado}`);
+}
+
+imprimeValor(3); // ‘o resultado é 36’
+```
+
+Dentro do Node, durante a execução deste programa, ocorre algo parecido com este esquema:
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem1.jpg)
+
+A estrutura chamada de "pilha de chamadas" reflete a ordem em que as funções do programa são executadas, ou seja, **a callstack é a pilha de chamadas que gerencia a execução em ordem de cada callback do código**. O que temos aqui é justamente uma estrutura de dados tipo *stack*, e a característica principal desta estrutura é o conceito de **LIFO**, resumidamente: *o ÚLTIMO item que ENTROU na pilha é o 1º a SAIR*.<br/>
+A callstack no caso do Node é parte do motor V8, pode-se dizer que é a estrutura que o V8 usa para monitorar as chamadas de funções feitas por um programa. Sempre que uma função é chamada, ela é enviada para a call stack.<br/>
+Call stack existe em qualquer linguagem de programação, seguindo basicamente o mesmo conceito de "pilha de chamadas". O stack overflow é um problema comum enfrentado em várias plataformas, onde um erro acontece quando as chamadas de função vão se empilhando na call stack até que ultrapassa a quantidade de memória disponível.<br/>
+Como o Node trabalha apenas com 1 thread de execução, isso significa que existe apenas 1 call stack, que serve para registrar em que ponto o programa se encontra em dado momento e a ordem de execução do código, e quando a função retorna, ela sai do topo da pilha, e assim sucessivamente até que a pilha se esvazie, se comportando assim de forma **síncrona**.<br/>
+Abaixo, a sequência de chamadas de função e a forma como elas são adicionadas à pilha, e retiradas após o retorno da função:
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem2.gif)<br/>
+> *Também é possível testar diferentes códigos para ver o comportamento de execução da **[callstack](http://latentflip.com/loupe/)**.*
+
+#### TASK QUEUE
+Também chamada de **Event Queue**, é a *fila de tarefas* onde o JS ordena funções **assíncronas** — ou seja, os callbacks — que devem ser executados depois que a call stack estiver vazia.<br/>
+Neste exemplo, o `setTimeout()` vai para a **task queue**, enquanto `"1 Início"` e `"2 Fim"` são executados imediatamente na call stack.
+```js
+console.log("1 Início");
+
+setTimeout(() => {
+  console.log("3 Timeout");
+}, 0);
+
+console.log("2 Fim");
+
+/* saída:
+1 Início
+2 Fim
+3 Timeout
+*/
+```
+
+É o event loop que coordena tudo isso, executando tudo na **call stack**, e assim que esta esvazia, o event loop verifica a **task queue** e, se houver função na fila, ele é puxada e executada na call stack.<br/>
+Então, as diferenças que podem ser entre a **call stack** e a **task queue** são:
+
+| Call Stack         | Task Queue                                                   |
+|--------------------|--------------------------------------------------------------|
+| Execução imediata. | Execução postergada.                                         |
+| Código síncrono.   | Callbacks assíncronos (`setTimeout`, `setImmediate`, `I/O`). |
+| Processado direto. | Espera a Call Stack esvaziar.                                |
+
+Ao contrário da pilha que segue o conceito LIFO, as filas são estruturas de dados que seguem o conceito **FIFO**, em que *o 1º item a ENTRAR é o 1º a SAIR*.
+
+Como as funções na task queue só são processadas quando a callstack está vazia e existem situações onde algumas tarefas precisam ser executadas o mais rápido possível logo após o código atual na stack, existe para isso uma hierarquia na **task queue**, que separa eventos onde **macrotasks** são executados (`setTimeout`, `setInterval`, `setImmediate` e `I/O`) seguindo a ordem de aguardar a call stack esvaziar por completo, e as microtarefas na **microtask queue** que precisam ser executadas com urgência, logo em seguida à finalização do código que estiver sendo executado na call stack, são eventos assíncronos como `.then()` de Promises, `queueMicrotask()` — função nativa do Node justamente para executar um código com prioridade quando necessário, `MutationObserver()` — mesmo conceito, mas aplicado ao navegador.
+
+Vejamos a diferença na execução da task queue e microtask queue neste exemplo:
+```js
+console.log('1');
+
+setTimeout(() => {
+  console.log('4 (setTimeout)');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('3 (Promise)');
+});
+
+console.log('2');
+
+/* saída:
+1
+2
+3 (Promise)
+4 (setTimeout)
+*/
+```
+
+Aqui, temos a seguinte ordem:
+1. `console.log('1')` → entra na **Call Stack** e é executado.
+2. `setTimeout(...)` → vai pra **Task Queue** com delay 0.
+3. `Promise.resolve().then(...)` → vai pra **Microtask Queue**.
+4. `console.log('4')` → entra na **Call Stack** e é executado.
+5. Call Stack esvazia → então o **Event Loop**:
+   - Prioriza a **Microtask Queue** → executa o `.then(...)`.
+   - Depois executa a **Task Queue** → `setTimeout(...)`.
+
+fluxo do Event Loop:
+```plaintext
+┌────────────────────────────┐
+│   Call Stack               │
+├────────────────────────────┤
+│ Código síncrono executado  │
+└────────────────────────────┘
+           ↓
+┌────────────────────────────┐
+│     Microtask Queue        │ ← prioridade alta
+│  - Promises                │
+│  - queueMicrotask          │
+└────────────────────────────┘
+           ↓
+┌────────────────────────────┐
+│     Task Queue             │ ← executado depois
+│  - setTimeout              │
+│  - setInterval             │
+│  - setImmediate (Node.js)  │
+└────────────────────────────┘
+```
+
+Se houver necessidade de **adiar** uma execução mas ainda com **alta prioridade**, é possível usar:
+```js
+queueMicrotask(() => {
+  console.log('Microtask!');
+});
+```
+
+Ou com `Promise.resolve().then(...)` para garantir compatibilidade mais ampla:
+```js
+Promise.resolve().then(() => {
+  console.log('Microtask!');
+});
+```
+
+Além disso, o loop de eventos conta ainda com `process.nextTick()`, que é a *resolução de promessas*. Esta é uma função agenda um callback para ser executado logo após a fase de encerramento de cada loop, ao invés de esperar passar por todos os outros callbacks que podem estar no loop, ou seja, o callback é executado logo após a execução da função atual na callstack e antes de qualquer IO ou Microtask.
+
+Ordem da hierarquia de execução:
+1. **Código síncrono (Call Stack)**
+2. **`process.nextTick()` callbacks**
+3. **Microtasks** (`Promise.then`, `queueMicrotask`)
+4. **Timers** (`setTimeout`, `setInterval`)
+5. **Pending I/O callbacks**
+6. **`setImmediate()`**
+7. **Close callbacks** (ex: streams, sockets)
+
+```js
+console.log('1');
+
+process.nextTick(() => {
+  console.log('3 (nextTick)');
+});
+
+Promise.resolve().then(() => {
+  console.log('4 (Promise)');
+});
+
+setTimeout(() => {
+  console.log('5 (setTimeout)');
+}, 0);
+
+setImmediate(() => {
+  console.log('6 (setImmediate)');
+});
+
+console.log('2');
+/* saída:
+1
+2
+3 (nextTick)
+4 (Promise)
+5 (setTimeout)
+6 (setImmediate)
+*/
+```
+
+Explicando:
+- `1` e `2`: são síncronos → Call Stack.
+- `process.nextTick()`: executa **antes** das microtasks.
+- `Promise.then()`: executado depois do `nextTick`.
+- `setTimeout()`: vai pra Task Queue.
+- `setImmediate()`: executado numa fase diferente do event loop, depois dos timers.
+
+Então, a ordem de execução da call stack é:
+| Tipo                 | Execução                             | Prioridade |
+|----------------------|--------------------------------------|------------|
+| `process.nextTick()` | Logo após a execução atual.          | Alta       |
+| `Promise.then()`     | Após `nextTick()`.                   | Média      |
+| `setTimeout()`       | Depois de microtasks e `nextTick()`. | Baixa      |
+| `setImmediate()`     | Em fase específica pós-I/O.          | Varia      |
+
+Uma vez que o callback foi enviado para a task queue, entra em cena o loop de eventos. A única tarefa restante é analisar a call stack e a stack queue. Se a call stack estiver vazia, o primeiro callback que estiver na task queue (lembrando do princípio LIFO) é empurrado para a call stack, o que efetivamente faz com que o callback seja executado. Então, o programa encerra quando não há eventos na fila para serem chamados pelo loop de eventos e quando não há processamentos pendentes na pilha de chamadas. Vejamos um exemplo explicativo:
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem8.gif)<br/>
+> Mesmo que o `setTimeout()` estivesse configurado para executar após `0`, o processo seria o mesmo, pois o callback seria empurrado para a fila de timers da mesma forma, ficando na queue até que a stack estivesse vazia — no caso, após todos os outros `console.log()` e processos da `main()` fossem executados.
+
+O loop de eventos é iniciado junto com a aplicação, e, cada loop é composto pelas seguintes fases de execução:
+1. **callbacks dos timers expirados**: são os primeiros a serem executados assim que possível, ou seja, quando a call stack se encontra vazia.
+2. **IO pooling**: eventos de IO que estão prontos para serem processados, como acesso a arquivos, tarefas de rede e etc. A maior parte dos callbacks é referente a este tipo de operação, e ocorre nesta fase.
+3. **setImeddiate()**: timer usado quando um callback precisa ser processado imediatamente.
+4. **eventos de encerramento**: métodos para fechar conexões abertas, como conexões com bancos ou sockets.
+
+Apesar da fila gerenciada pelo loop ser 1 só, internamente ele gerencia essas fases através de "sub-filas", de acordo com o tipo de processamento.
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem9.jpg)
+
+O Node analisa se o loop deve continuar no próximo tick ou se o programa deve ser encerrado checando se ainda existem timers ou taregas IO pendentes, se não existem finaliza a aplicação, se existem continua o loop, como por exemplo conexões abertas que mantem o programa rodando.
+
+O loop de eventos é parte de um panorama maior da arquitetura do Node, que envolve o V8 e outras APIs, ele próprio não faz parte do V8, mas sim da biblioteca libuv. Sua estrutura básica de funcionamento implica em executar tarefas começando da mais antiga, ou que chegou primeiro à fila — princípio FIFO, executando tarefas da task queue **apenas** quando a call stack está vazia, ou seja, quando não existem tarefas em andamento. É um loop infinito, que aguarda tarefas, as executa e então entra em espera até o recebimento de novas tarefas. Podemos descrever o seu funcionamento em alguns passos:
+1. recebe eventos externos e os converte em chamadas de callbacks para serem processados, além de executar sub-stacks que estejam em fila.
+2. acessa callbacks de eventos que estão na task queue e empura os callbacks para a a call stack.
+
+![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem10.jpg)
+
+#### THREAD BLOCK
+Uma das características mais importantes de todo esse modelo é fazer com que operações que bloqueiam a execução do programa, como operações IO, se tornem não bloqueantes e assíncronas. Porém, é sim possível bloquear a execução de um programa em JavaScript, e normalmente isso é causado por problemas na implementação do código. Por isso, para evitar que um programa seja implementado de forma a bloquear a thread do loop de eventos, podem ser tomadas algumas precauções:
+- Não utilizar versões `sync` de APIs do node como `fs`, `crypto` e `zlib`, a não ser em casos muito específicos. Um caso de uso síncrono de funções de `fs` é a biblioteca `dotenv`, que utiliza a versão `sync`, pois ela precisa garantir que as variáveis de ambiente estão configuradas antes de liberar a execução do programa;
+- Evitar que cálculos com números grandes sejam enviados para a thread do loop;
+- Evitar o processamento de JSONs muito grandes;
+- Idem para expressões regulares muito complexas.
+
+O motivo para se evitar cálculos e processamentos muito grandes é justamente pelo fato do loop de eventos ser single thread, o que faz com que ele seja muito eficiente para operações assíncronas, mas não consegue evitar que o loop "trave" se existir uma operação que exija muito processamento ocupando a pilha de chamadas.<br/>
+Claro que sempre haverão situações que envolvem normalmente muito processamento síncrono, e, para estes tipos de casos é possível usar *child processes*, ou mover os processos para novas threads de forma manual, instruindo o programa a criar threads específicas.
+
+#### EVENT HANDLERS
+A arquitetura baseada em eventos trabalha com 2 partes principais, os **Event Emitters** e os **Event Listeners**.<br/>
 No Node, objetos podem ter métodos como instâncias de **`eventEmitter`s**, que emitem eventos em situações determinadas, normalmente quando acontece algo no programa, como uma requisição HTTP por exemplo. Estes eventos, uma vez emitidos, são *"escutados"* por **`eventListener`s**, que por sua vez disparam funções callback relacionadas a cada *listener*. Para exemplificar, vejamos o código abaixo:
 ```js
 const server = http.createServer();
