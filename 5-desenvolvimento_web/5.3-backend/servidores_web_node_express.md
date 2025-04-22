@@ -44,11 +44,11 @@ Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídia
 
 ## [NodeJS](https://nodejs.org/pt)
 Na atualidade, a criação de aplicações tem como foco arquiteturas que sejam escaláveis e a entrega de soluções em tempo real, além da atenção à componentização e segurança. Além disso, soma-se a esse cenário a revolução iniciada pelos smartphones, com o uso cada vez mais intenso das mídias sociais e o aumento de soluções de IoT. Nesse contexto, os paradigmas conhecidos no desenvolvimento de aplicações também têm passado por diversas mudanças que vão do Front-end ao Back-end, onde pensamos cada vez mais em *uma solução como um todo*, levando em consideração o consumo de dados e a disponibilidade de infraestrutura. E é nessa conjuntura que nasce o Node.js em 2009, surgindo como uma solução poderosa e barata para a criação e a manutenção de ambientes de tecnologia com altas demandas. Soma-se a isso o fato de que desenvolvedores de JavaScript trabalham com uma linguagem simples, interpretada e que não necessita da instalação de ferramentas complexas de desenvolvimento. Esses são alguns dos fatores motivadores do criador do projeto do Node.js, o engenheiro de software Ryan Dahl, responsável por esse ambiente de execução do código JavaScript fora do navegador, no lado servidor.<br/>
-No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornando-se poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*.<br/>
+No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornando-se poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*, no lado do servidor, que na prática se reflete na possibilidade de criar aplicações *standalone* em uma máquina servidora.<br/>
 Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigma, *open source* e sua grande e colaborativa comunidade. O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser. Quando iniciamos o Node.js com o comando `node` no terminal, iniciamos um processo que engloba um interpretador JavaScript e um utilitário CLI, e é neste processo aberto no terminal que irá acontecer a interpretação e execução do JavaScript runtime. Para esse processo de interpretação, o Node.js faz uso do V8, mais precisamente conhecido como Chrome’s V8 JavaScript engine. O V8 é um poderosíssimo interpretador JavaScript desenvolvido pelo Google e utilizado pelo Chrome. Ele também é conhecido como a máquina virtual do JavaScript. Foi desenvolvido usando a linguagem **C++**, é de código aberto e nasceu com a intenção de acelerar a execução de aplicações desenvolvidas em JavaScript. Por fornecer uma boa performance, várias plataformas têm adotado o Node.js como um solução viável e eficaz de tecnologia para Back-end. É interessante apontar que existem outros “motores” para JavaScript, como o SpiderMonkey, do Firefox, ou o WebKit, do Safari, mas o adotado pelo Node.js é o V8. De forma geral, o processo de funcionamento desses motores pode ser resumido nas seguintes etapas:
 1. O motor acessa o código JavaScript, que veio da leitura da tag `script` de um arquivo HTML ou por meio do download de um arquivo JavaScript;
 2. Executa o `Parser` — processo de análise e conversão;
-3. Monta a [**Á**rvore de **S**intaxe **A**bstrata](https://astexplorer.net/), um mapeamento que identifica o que cada parte do código está fazendo;
+3. Monta a [**A**bstract **S**yntax **T**ree](https://astexplorer.net/), um mapeamento que identifica o que cada parte do código está fazendo;
 4. Por fim, interpreta a AST. Nesta etapa, ao interpretar a AST, o motor V8 gera os bytecodes a serem executados pela máquina. Neste processo, ainda existe um estágio de otimização do código gerado.
 
 Imagine a escrita da seguinte função em Javascript:
@@ -144,6 +144,8 @@ setTimeout(() => {
   console.log("aguarda 1 segundo antes de imprimir")
 }, 1000)
 ```
+
+Quando o Node executa uma operação IO, como a leitura da rede, acessando um banco de dados ou sistema de arquivos, em vez de bloquear a thread e desperdiçar ciclos de CPU aguardando, o Node retomará as operações quando a resposta voltar. Isso permite que o Node lide com milhares de conexões simultâneas com um único servidor sem introduzir a carga de gerenciamento de concorrência, o que pode ser uma fonte significativa de bugs.
 
 #### CALLSTACK
 Vejamos o código a seguir:
@@ -853,7 +855,7 @@ São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 | `"*"`       | Qualquer versão disponível, mas é pouco usado em produção, pode quebrar o app.                    | Loose Dependency                   |
 
 ### MÓDULOS
-O Node trabalha fortemente com o conceito de **[módulos](https://nodejs.org/dist/latest-v20.x/docs/api/)**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código, expondo somente o necessário a outras partes da aplicação e assim organizar e separar melhor o código. O objetivo de modularizar o código é permitir que aplicações maiores sejam montadas de forma “modular”, ou seja, através de várias partes independentes. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.<br/>
+O Node trabalha fortemente com o conceito de **[módulos](https://nodejs.org/docs/latest/api/)**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código, expondo somente o necessário a outras partes da aplicação e assim organizar e separar melhor o código. O objetivo de modularizar o código é permitir que aplicações maiores sejam montadas de forma “modular”, ou seja, através de várias partes independentes. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.<br/>
 Os conceitos de módulo e modularidade são parte importante do desenvolvimento com JavaScript, e quando se tem mais de uma forma de realizar algo, como é o caso aqui, é ainda mais importante que se entenda os detalhes e as diferenças entre os métodos.<br/>
 A primeira forma adotada pelo JavaScript para permitir a modularidade foi o chamado **CJS – Common JS**, baseado na função `require()`.<br/>
 O CJS, embora fosse conhecido como o “padrão” do Node para módulos, nunca foi definido como ferramenta de modularidade oficial da linguagem, pois basicamente cria as exportações a partir da alteração do objeto global `exports` ao invés de utilizar métodos próprios para isso.<br/>
@@ -1380,5 +1382,43 @@ console.log('2 + 3 =', somar(2, 3));
 **Sem o `"type": "module"` no `package.json` só é possível usar CJS (`require()` e `module.exports`), ou então para usar ESM, renomear os arquivos para `.mjs`, assim sendo permitido o uso de `import` e `export`.**
 
 Na prática, usar ou não este padrão não traz diferença para o desenvolvimento da aplicação, porém o Node, “por baixo dos panos”, vai identificar as diferentes extensões ao carregar os programas e indexar os arquivos. Então, é permitido utilizá-los, embora este tipo de decisão muitas vezes fique a cargo da convenção utilizada por cada projeto e empresa.
+
+### SERVER
+Para criar um servidor com Node, basta importar o módulo nativo `createServer`, e definir algumas configurações:
+```js
+import { createServer } from 'node:http'; // importa somente o método `createServer()` do módulo `http` do repositório do Node.js
+
+
+const hostname = '0.0.0.0'; // define o IP para conexão com clientes
+const port = 3000;          // define em qual porta o servidor irá escutar
+
+
+const server = createServer((req, res) => { /* http.createServer([options][, requestListener]) == const server = createServer((req, res) => { ... });
+cria o servidor e define um callback que será executado toda vez que o servidor receber uma requisição HTTP
+
+req: contém informações da requisição recebida, como o método, URL, headers e etc
+res: objeto usado para montar e enviar a resposta */
+  res.statusCode = 200;                         // define o código de status HTTP da resposta, 200 == "OK" (requisição bem-sucedida)
+  res.setHeader('Content-Type', 'text/plain');  /* define o tipo de conteúdo que será retornado ao cliente
+  `text/plain` informa ao navegador que o conteúdo é texto puro, sem HTML ou JSON */
+  res.end('Hello World'); /* finaliza a resposta retornando o conteúdo (no caso 'Hello world') como corpo da resposta
+  sem este método `.end()`, o navegador ficaria esperando a resposta terminar */
+});
+
+/* em servidores TCP como é o caso deste exemplo, o método `.listen()` requer no mínimo:
+server.listen([port[, host[, backlog]]][, callback])
+- port: porta virtual que estará aberta para conexão
+- host: endereço IP do servidor
+- callback: método que será executado quando o servidor estiver pronto */
+server.listen(port, hostname, () => {                           // inicia o servidor, que ficará escutando na porta e endereço definidos
+  console.log(`Server running at http://${hostname}:${port}/`); // ao acessar http://0.0.0.0:3000 é estabelecida uma conexão client x server
+});
+```
+
+Neste exemplo, o servidor está configurado para ouvir na porta e no nome do host especificados. Quanto o servidor está pronto, a função de callback é chamada, neste caso, informando que o servidor está em execução. **Sempre que um novo pedido é recebido, o evento `request` é chamado, providênciando 2 objetos:**
+1. **uma requisição:** `http.IncomingMessage` é um objeto criado durante uma requisição, é passado como o 1º argumento do método para os eventos `'request'` e `'response'` respectivamente. **Ele pode ser usado para acessar o status, cabeçalho e dados da resposta.**
+2. **uma resposta:** `http.ServerResponse` é um objeto criado internamente por um servidor HTTP, **para servir como resposta à requisição do usuário**, sendo passado como o 2º parâmetro do método para o evento `'request'`.
+
+Esses 2 objetos são essenciais para lidar com a chamada HTTP. O 1º fornece os detalhes do pedido, neste simples exemplo não foi usado, mas é possível acessar o cabeçalho da requisição e solicitar dados. O 2º é usado para retornar dados ao cliente, neste caso com: `res.statusCode = 200`, que indica uma resposta bem-sucedida.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">next</a>
