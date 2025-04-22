@@ -247,6 +247,10 @@ let minhaPromise = new Promise(function(resolve, reject) {
 });
 ```
 
+Promises tem o método `.then()`, que recebe uma função callback e retorna um "objeto-promessa", que ainda não é um retorno de dados, mas sim a *promessa* do resto destes dados. Assim, é possível escrever o código do que irá acontecer em seguida, com os dados recebidos pela Promise, e o JS irá aguardar a resolução da Promise sem parar o fluxo do restante do programa. O resultado pode ou não estar pronto ainda, e não há uma forma de obter o valor de uma Promise de modo síncrono, só é possível requisitar à Promise que execute uma função quando o resultado estiver disponível — seja ele aquilo que foi solicitado, como os dados de uma API por exemplo, ou uma mensagem de erro caso algo tenha dado errado na requisição, como servidor fora do ar ou algo semelhante.<br/>
+Ao iniciarmos a cadeia de promessas, como fazer uma requisição HTTP por exemplo, enquanto a resposta está pendente, a função retorna um `Promise object`. O objeto por sua vez, define uma instância do método `.then()`, e, ao invés de passar o retorno da função callback diretamente para a função inicial, ela é passada para `.then()`, quando o resultado da requisição chega, a função callback declarada em `.then()` então é executada, e seu retorno é passado para o próximo `.then()` e assim por diante até o final da cadeia.<br/>
+A cadeia de funções `fetch().then().then().catch()` não significa que há múltiplas funções callbacks sendo usadas com o mesmo objeto de resposta, mas sim que cada instância de `.then()` retorna um `new Promise()`. Toda cadeia é lida de forma síncrona na primeira execução, e em seguida executa de forma assíncrona.
+
 Basicamente, uma Promise é resolvida da seguinte maneira:
 1. **Promise**: é um objeto que representa uma operação assíncrona que pode ser **resolvida** com sucesso ou **rejeitada** com erro.
 2. **`.then()`**: Quando a Promise é resolvida, o método `.then()` é chamado, e pode-se passar uma função para processar o valor que foi retornado pela Promise.
@@ -334,6 +338,32 @@ Promise.all([promise1, promise2, promise3])
   .catch((error) => {
     console.log(`Erro:  ${error}`);
   });
+```
+
+Vejamos como requisitar vários endpoints de uma só vez:
+```js
+const endpoints = [
+ "https://api.com/api/user/1",
+ "https://api.com/api/user/2",
+ "https://api.com/api/user/3",
+ "https://api.com/api/user/4"
+]
+
+const promises = endpoints.map(url => fetch(url).then(res => res.json())) // percorre o array de endpoints armazenando todo retorno em promises com `.map`
+
+Promise.all(promises) // recebe o array com os dados das API requisitadas
+ .then(body => console.log(body.name)) // trata os dados
+```
+
+No caso de várias promessas que devem ser resolvidas para a execução do programa como por exemplo dados em endpoints REST diferentes, pode-se utilizar `async/await` em conjunto com `Promise.all()`:
+```js
+async function getUser(userId) {
+ let response = await fetch(`https://api.com/api/user/${userId}`);
+ let userData = await response.json();
+ return userData;
+}
+
+let [user1, user2] = await Promise.all([getUser(1), getUser(2)]);
 ```
 
 Caso seja preciso continuar a execução assim que a 1ª Promise for resolvida ou rejeitada, pode-se usar **`Promise.race()`**.<br/>
@@ -498,6 +528,20 @@ No exemplo acima, a função `buscarDados()` simula uma operação assíncrona q
 ```
 
 **Resumindo, `async/await` são ferramentas para escrever código assíncrono de forma mais clara, permitindo "aguardar" uma Promise de forma semelhante ao código síncrono.**
+
+```js
+async function getUser(userId) {
+ let response = await fetch(`https://api.com/api/user/${userId}`);
+ let userData = await response.json();
+ return userData.name; // nas linhas de return não é necessário usar await
+}
+
+// para executar a função `getUser()`, já que ela retorna uma Promise, pode-se usar await:
+exibeDadosUser(await getUser(1));
+
+// lembrando que await só funciona se estiver dentro de outra função async. Caso não esteja, você ainda pode usar `.then()` normalmente:
+getUser(1).then(exibeDadosUser).catch(reject)
+```
 
 ## `setFunctions`
 Essas funções são usadas para agendar a execução de código de forma assíncrona. Embora não sejam funções assíncronas no estilo tradicional, elas permitem que o código seja executado após um intervalo de tempo, sem bloquear o fluxo principal.
