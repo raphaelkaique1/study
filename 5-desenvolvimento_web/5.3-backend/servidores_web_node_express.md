@@ -3,13 +3,13 @@
  - **Possui extenso conhecimento em linguagens e frameworks**<br/>
  É importante que se tenha um conhecimento sólido destes tipos de linguagens para o desenvolvimento completo e eficiente de seu trabalho, entre algumas mais destacadas encontram-se:
    - **ASP.NET**: Uma platadorma de desenvolvimento web da Microsoft, com formulários web e variantes (MVC e APS.NET Core MVC).
-   - **PHP**: WordExpress usa PHP juntamente com seu frameworks Larável.
+   - **PHP**: WordExpress usa PHP juntamente com seu framework Larável.
    - **Python**: Fácil de aprender, especialmente usando Django (ou Flask) como framework.
    - **Ruby**: Usado com seu framework OnRails.
    - **Node.js**: Utiliza a mesma linguagem que o lado do cliente, JavaScript — TypeScript o deixa ainda melhor e confiável.
    - **JAVA**: Linguagem clássica de alta demanda, muito usado com Spring e SpringBoot.
  - **Familiaridade com bancos de dados**<br/>
- Um desenvolvedor back-end precisa saber exatamente como funcionam os bancos de dados. Isso porque toda aplicação web precisa armazenar dados de alguma forma. Levando isto em consideração, entre as bases de dados mais comunmente tratadas estão:
+ Um desenvolvedor back-end precisa saber exatamente como funcionam os bancos de dados. Isso porque toda aplicação web precisa armazenar dados de alguma forma. Levando isto em consideração, entre as bases de dados mais comumente tratadas estão:
    - **MySQL**
    - **SQL Server**
    - **PostgreSQL**
@@ -24,7 +24,7 @@ Um servidor é qualquer computador ou software que espera e responde requisiçõ
 ## CONTENT DELIVERY NETWORK
 **CDN** é uma **Rede de Distribuição de Conteúdo**. É basicamente uma rede de servidores espalhados pelo mundo que entrega conteúdos como imagens, vídeos, arquivos, scripts e muito mais para os usuários de forma rápida, confiável e segura, usando o servidor mais próximo do usuário.<br/>
 Quando um site que usa uma CDN é acessado, a CDN dectecta via IP o local de onde o usuário está acessando, então redireciona a requisição para o servidor mais próximo desta localização, assim reduzindo o tempo de carregamento melhorando a experiência.<br/>
-Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídias, fontes (como o Google Fonts), bibliotecas e frameworks (JQuery, React, Bootstrap entre outros). Isso é vatajoso por ser um método com menos latência, o que torna o site mais rápido, diminui a carga no servidor do site e consequentemente aumenta a disponibilidade pois se um servidor cair outro irá assumir, aumenta também a segurança com proteção DDoS e TLS/SSL e possuem baixo custo (ou nenhum) com jsDelivr, CDN do Cloudfare ou Google CDN.
+Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídias, fontes (como o Google Fonts), bibliotecas e frameworks (JQuery, React, Bootstrap entre outros). Isso é vantajoso por ser um método com menos latência, o que torna o site mais rápido, diminui a carga no servidor do site e consequentemente aumenta a disponibilidade pois se um servidor cair outro irá assumir, aumenta também a segurança com proteção DDoS e TLS/SSL e possuem baixo custo (ou nenhum) com jsDelivr, CDN do Cloudfare ou Google CDN.
 ```html
 <!-- index.html -->
 <div id="app">
@@ -100,8 +100,8 @@ Uma das mais atrativas característica do Node é ser um ambient de execução a
 Antes de aprofundar em loop de eventos e como ele funciona, existem 3 pontos importantes para se conhecer, que são as partes que compõem o Node:
 
 1. **architecture**<br/>
-É normal que se entenda o Node como uma ferramenta "única", que realiza sozinha todas as partes de interpretação do JS e do processamento de dados. Porém, o Node é na verdade composto por diversas bibliotecas diferentes. Quando ouvimos falar de Node, pode parecer que ele foi criado para fazer o trabalho do navegador de interpretar o JS fora do ambiente do browser, e também que é 1 programa que lê arquivos .js e retorna seus resultados no terminal.<br/>
-Na verdade o Node faz muito mais e está longe de ser 1 só software. Ele é composto por várias APIs e bibliotecas separadas, que são necessárias se conhecer para enteder melhor alguns conceitos importantes para o Node como **assíncronicidade**, **threads** e **Callbacks**.
+É normal que se entenda o Node como uma ferramenta "única", que realiza sozinha todas as partes de interpretação do JS e do processamento de dados. Porém, o Node é na verdade composto por diversas bibliotecas diferentes. Quando ouvimos falar de Node, pode parecer que ele foi criado para fazer o trabalho do navegador de interpretar o JS fora do ambiente do browser, e também que é um programa que lê arquivos JS e retorna seus resultados no terminal.<br/>
+Na verdade o Node faz muito mais e está longe de ser 1 só software. Ele é composto por várias APIs e bibliotecas separadas, que são necessárias se conhecer para enteder melhor alguns conceitos importantes para o Node como **assíncronicidade**, **threads** e **callbacks**.
 
 ![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-seus-componentes/imagem1.jpg)
 
@@ -129,10 +129,10 @@ Agora vejamos como é o processamento *single thread*:
 
 ![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-threads-e-processos/imagem2.jpg)
 
-Na imagem acima, o processamento de cada conexão é "agendado" e ordenado em fila para execução um após o outro, ao invés de serem *espalhados* por diversas threads. E isso remete diretamente aos *eventos síncronos e assíncronos* do JS, que basicamente separa separa o código 2 partes, instruções que são executadas agora, e instruções que serão executadas após algum gatilho de acionamento.
+Na imagem acima, o processamento de cada conexão é "agendado" e ordenado em fila para execução um após o outro, ao invés de serem *espalhados* por diversas threads. E isso remete diretamente aos *eventos síncronos e assíncronos* do JS, que basicamente separa o código 2 partes, sendo instruções que são executadas agora, e instruções que serão executadas após algum gatilho de acionamento.
 
 3. **single-threaded**<br/>
-Neste ponto, já está claro que o Node não é apenas um programa, mas sim um controlador que engloba algumas bibliotecas e APIs. E, todo código em JS executado por um programa, *inclusive o código JS existente dentro do código-fonte do próprio Node, o V8, o loop de eventos e métodos síncronos em C++ que existem dentro do Node* **são executados na mesma thread**, chamada *main thread*, por isso é dito que o Node é *single-threaded*. Pelo fato do Node ser escrito em C++, alguns métodos e módulos **assíncronos** em C++, que são utilizados pelo Node, podem não ser executados na main thread, como por exemplo o módulo `crypto`, que utiliza muito processamento da CPU por realizar muitos cálculos matemáticos. Em casos como esse, o C++ vai executar métodos assíncronos, por baixo dos panos, utilizando mais de uma thread se necessário, a chamada **execução em paralelo**.<br/>
+Neste ponto, já está claro que o Node não é apenas um programa, mas sim um controlador que engloba algumas bibliotecas e APIs. E, todo código em JS executado por um programa, *inclusive o código JS existente dentro do código-fonte do próprio Node, o V8, o loop de eventos e métodos síncronos em C++ que existem dentro do Node* **são executados na mesma thread**, chamada *main thread*, por isso é dito que o Node é *single-threaded*. Pelo fato do Node ser escrito em C++, alguns métodos e módulos **assíncronos** em C++ que são utilizados pelo Node podem não ser executados na main thread, como por exemplo o módulo `crypto`, que utiliza muito processamento da CPU, e por realizar muitos cálculos matemáticos é processado em outra thread. Em casos como esse, o C++ vai executar métodos assíncronos, por baixo dos panos, utilizando mais de uma thread se necessário, a chamada **execução em paralelo**.<br/>
 O Node utiliza a libuv para operações assíncronas, essa biblioteca também é utilizada junto com parte da lógica interna do Node para manejar a chamada **thread pool**, *que são 4 threads pré-alocadas por padrão e usadas para delegar operações muito pesadas que exigem muito processamento para serem colocadas no loop de eventos*, como por exemplo algumas operações IO, iniciar e fechar conexões como o `socket.close()` por exemplo, e manejar timers como o `setTimeout()`. O termo pool pode ser usado para designar um conjunto de recursos computacionais que estão à disposição do programa e prontos para uso, no caso de threads, podemos entender uma thread pool como um conjunto de threads criadas de antemão pelo programa que ficam em stand by.<br/>
 Então, diz-se que o Node é single-threaded pois algumas de suas partes essenciais — entre elas o loop de eventos — trabalham de forma single thread, porém, partes do processamento de um programa podem ser trabalhadas de forma multi-thread pela libuv, utilizando a thread pool, além de métodos em C++ que podem ser delegados ao SO para o processamento adicional de tarefas mais complexas. Alguns processos devem obrigatoriamente operar em single thread, recebendo os retornos de forma ordenada para evitar que, por exemplo, 2 threads alterem a mesma variável, este é o caso do loop de eventos.
 
@@ -279,7 +279,7 @@ Promise.resolve().then(() => {
 });
 ```
 
-Além disso, o loop de eventos conta ainda com `process.nextTick()`, que é a *resolução de promessas*. Esta é uma função agenda um callback para ser executado logo após a fase de encerramento de cada loop, ao invés de esperar passar por todos os outros callbacks que podem estar no loop, ou seja, o callback é executado logo após a execução da função atual na callstack e antes de qualquer IO ou Microtask.
+Além disso, o loop de eventos conta ainda com `process.nextTick()`, que é a *resolução de promessas*. Essa função agenda um callback para ser executado logo após a fase de encerramento de cada loop, ao invés de esperar passar por todos os outros callbacks que podem estar no loop, ou seja, o callback é executado logo após a execução da função atual na callstack e antes de qualquer IO ou Microtask.
 
 Ordem da hierarquia de execução:
 1. **Código síncrono (Call Stack)**
@@ -323,9 +323,9 @@ console.log('2');
 Explicando:
 - `1` e `2`: são síncronos → Call Stack.
 - `process.nextTick()`: executa **antes** das microtasks.
-- `Promise.then()`: executado depois do `nextTick`.
-- `setTimeout()`: vai pra Task Queue.
-- `setImmediate()`: executado numa fase diferente do event loop, depois dos timers.
+- `Promise.then()`: executado **depois** do `nextTick`.
+- `setTimeout()`: vai pra **Task Queue**.
+- `setImmediate()`: executado numa fase *diferente* do event loop, **depois** dos timers.
 
 Então, a ordem de execução da call stack é:
 | Tipo                 | Execução                             | Prioridade |
@@ -338,7 +338,7 @@ Então, a ordem de execução da call stack é:
 Uma vez que o callback foi enviado para a task queue, entra em cena o loop de eventos. A única tarefa restante é analisar a call stack e a stack queue. Se a call stack estiver vazia, o primeiro callback que estiver na task queue (lembrando do princípio LIFO) é empurrado para a call stack, o que efetivamente faz com que o callback seja executado. Então, o programa encerra quando não há eventos na fila para serem chamados pelo loop de eventos e quando não há processamentos pendentes na pilha de chamadas. Vejamos um exemplo explicativo:
 
 ![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem8.gif)<br/>
-> Mesmo que o `setTimeout()` estivesse configurado para executar após `0`, o processo seria o mesmo, pois o callback seria empurrado para a fila de timers da mesma forma, ficando na queue até que a stack estivesse vazia — no caso, após todos os outros `console.log()` e processos da `main()` fossem executados.
+> Mesmo que o `setTimeout()` estivesse configurado para executar após `0`s, o processo seria o mesmo, pois o callback seria empurrado para a fila de timers da mesma forma, ficando na queue até que a stack estivesse vazia — no caso, após todos os outros `console.log()` e processos da `main()` fossem executados.
 
 O loop de eventos é iniciado junto com a aplicação, e, cada loop é composto pelas seguintes fases de execução:
 1. **callbacks dos timers expirados**: são os primeiros a serem executados assim que possível, ou seja, quando a call stack se encontra vazia.
@@ -350,7 +350,7 @@ Apesar da fila gerenciada pelo loop ser 1 só, internamente ele gerencia essas f
 
 ![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem9.jpg)
 
-O Node analisa se o loop deve continuar no próximo tick ou se o programa deve ser encerrado checando se ainda existem timers ou taregas IO pendentes, se não existem finaliza a aplicação, se existem continua o loop, como por exemplo conexões abertas que mantem o programa rodando.
+O Node analisa se o loop deve continuar no próximo tick ou se o programa deve ser encerrado checando se ainda existem timers ou tarefas de IO pendentes, se não existem finaliza a aplicação, se existem continua o loop, como por exemplo conexões abertas que mantem o programa rodando.
 
 O loop de eventos é parte de um panorama maior da arquitetura do Node, que envolve o V8 e outras APIs, ele próprio não faz parte do V8, mas sim da biblioteca libuv. Sua estrutura básica de funcionamento implica em executar tarefas começando da mais antiga, ou que chegou primeiro à fila — princípio FIFO, executando tarefas da task queue **apenas** quando a call stack está vazia, ou seja, quando não existem tarefas em andamento. É um loop infinito, que aguarda tarefas, as executa e então entra em espera até o recebimento de novas tarefas. Podemos descrever o seu funcionamento em alguns passos:
 1. recebe eventos externos e os converte em chamadas de callbacks para serem processados, além de executar sub-stacks que estejam em fila.
@@ -366,7 +366,7 @@ Uma das características mais importantes de todo esse modelo é fazer com que o
 - Idem para expressões regulares muito complexas.
 
 O motivo para se evitar cálculos e processamentos muito grandes é justamente pelo fato do loop de eventos ser single thread, o que faz com que ele seja muito eficiente para operações assíncronas, mas não consegue evitar que o loop "trave" se existir uma operação que exija muito processamento ocupando a pilha de chamadas.<br/>
-Claro que sempre haverão situações que envolvem normalmente muito processamento síncrono, e, para estes tipos de casos é possível usar *child processes*, ou mover os processos para novas threads de forma manual, instruindo o programa a criar threads específicas.
+**Claro que sempre haverão situações que envolvem normalmente muito processamento síncrono, e, para estes tipos de casos é possível usar *child processes*, ou mover os processos para novas threads de forma manual, instruindo o programa a criar threads específicas.**
 
 #### EVENT HANDLERS
 A arquitetura baseada em eventos trabalha com 2 partes principais, os **Event Emitters** e os **Event Listeners**.<br/>
