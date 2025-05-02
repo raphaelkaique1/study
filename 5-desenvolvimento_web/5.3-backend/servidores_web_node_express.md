@@ -416,11 +416,11 @@ server.listen(3000, () => {
     document.getElementById("botao").addEventListener("click", () => {
       fetch("http://localhost:3000")
         .then(response => response.text())
-        .then(dado => {
-          console.log("Resposta do servidor:", dado);
-          alert(dado);
+        .then(data => {
+          console.log("Resposta do servidor:", data);
+          alert(data);
         })
-        .catch(erro => console.error("Erro na requisição:", erro));
+        .catch(error => console.error("Erro na requisição:", error));
     });
   </script>
 </body>
@@ -468,8 +468,8 @@ app.listen(PORT, () => {
     document.getElementById("btn").addEventListener("click", () => {
       fetch("http://localhost:3000/api/boas-vindas")
         .then(res => res.text())
-        .then(dado => {
-          document.getElementById("resposta").textContent = dado;
+        .then(data => {
+          document.getElementById("resposta").textContent = data;
         })
         .catch(err => console.error("Erro na requisição:", err));
     });
@@ -496,7 +496,7 @@ Como sabemos, no Node o sistema de eventos é construído em cima do módulo `ev
 | `prependListener(event, listener)`     | Adiciona o *listener* ao início da fila.                                                       |
 | `prependOnceListener(event, listener)` | Como `once()`, mas adiciona no início da fila.                                                 |
 
-- **Core methods of `EventEmitter`.**<br/>
+- **`EventEmitter` Core methods.**<br/>
 Aqui estão os métodos mais comuns disponíveis nas instâncias de `EventEmitter` que permitem criar, emitir e escutar eventos personalizados:
   - `on(eventName, listener)`: Registra um listener para o evento especificado.
   - `addListener(eventName, listener)`: Alias para `on()`, adiciona um listener para o evento.
@@ -521,7 +521,7 @@ Aqui estão os métodos mais comuns disponíveis nas instâncias de `EventEmitte
   - `setMaxListeners(n)`: Define o número máximo de listeners para prevenir vazamentos de memória.
   - `getMaxListeners()`: Retorna o número máximo atual de listeners.
 
-- **Especial events of `EventEmitter`.**<br/>
+- **`EventEmitter` Especial Events.**<br/>
 O `EventEmitter` emite alguns eventos internos especiais:
   - `'newListener'`: Emitido quando um novo listener é adicionado.
   Exemplo:
@@ -536,101 +536,117 @@ O `EventEmitter` emite alguns eventos internos especiais:
   - `'removeListener'`: Emitido quando um listener é removido.
   - `'error'`: Emitido quando ocorre um erro e nenhum listener de erro foi registrado.
 
-- **Internal modules.**<br/>
-Muitos módulos internos do Node. estendem o `EventEmitter` e definem seus próprios eventos. Aqui estão alguns exemplos:
-- **`http.Server`**
-  ```js
-  const http = require('http');
-  const server = http.createServer();
-  ```
-  - **METHODS**
-    - `http.createServer()`: Cria um servidor HTTP.
-    - `http.request()`: Faz uma requisição HTTP.
-    - `http.get()`: Faz uma requisição GET.
-  - **EVENTS**
-    - `'request'`: Emitido quando uma requisição HTTP é recebida.
-    - `'connection'`: Emitido quando uma nova conexão TCP é estabelecida.
-    - `'close'`: Emitido quando o servidor é fechado.
-    - `'checkContinue'`: Quando há uma requisição com header `Expect: 100-continue`.
-    - `'connect'`: Quando uma requisição `CONNECT` é recebida.
-    - `'upgrade'`: Quando há uma requisição para mudar de protocolo, como o WebSocket por exemplo.
-    - `'clientError'`: Quando ocorre um erro de protocolo no cliente.
+- **Internal Modules.**<br/>
+Muitos módulos internos do Node estendem o `EventEmitter` e definem seus próprios eventos. Aqui estão alguns exemplos:
+  - **`http.Server`**
+    ```js
+    const http = require('http');
+    const server = http.createServer();
+    ```
+    - **METHODS**
+      - `http.createServer()`: Cria um servidor HTTP.
+      - `http.request()`: Faz uma requisição HTTP.
+      - `http.get()`: Faz uma requisição GET.
+    - **EVENTS**
+      - `'request'`: Emitido quando uma requisição HTTP é recebida.
+      - `'connection'`: Emitido quando uma nova conexão TCP é estabelecida.
+      - `'close'`: Emitido quando o servidor é fechado.
+      - `'checkContinue'`: Quando há uma requisição com header `Expect: 100-continue`.
+      - `'connect'`: Quando uma requisição `CONNECT` é recebida.
+      - `'upgrade'`: Quando há uma requisição para mudar de protocolo, como o WebSocket por exemplo.
+      - `'clientError'`: Quando ocorre um erro de protocolo no cliente.
 
-- **`net.Socket`**
-  ```js
-  const net = require('net');
-  const socket = new net.Socket();
-  ```
-  - **METHODS**
-    - `net.createServer()`: Cria um servidor TCP.
-    - `net.connect()`: Cria uma conexão TCP.
-  - **EVENTS**
-    - `'connect/connection'`: Emitido quando a conexão é estabelecida.
-    - `'data'`: Emitido quando dados são recebidos.
-    - `'end'`: Emitido quando o outro extremo da conexão envia um sinal de encerramento de conexão.
-    - `'timeout'`: Emitido quando o socket atinge o tempo limite; Timeout de invatividade.
-    - `'drain'`: Buffer liberado para escrita.
-    - `'error'`: Quando ocorre um erro.
-    - `'close'`: Quando o socket é fechado.
+  - **`net.Socket`**
+    ```js
+    const net = require('net');
+    const socket = new net.Socket();
+    ```
+    - **METHODS**
+      - `net.createServer()`: Cria um servidor TCP.
+      - `net.connect()`: Cria uma conexão TCP.
+    - **EVENTS**
+      - `'connect/connection'`: Emitido quando a conexão é estabelecida.
+      - `'data'`: Emitido quando dados são recebidos.
+      - `'end'`: Emitido quando o outro extremo da conexão envia um sinal de encerramento de conexão.
+      - `'timeout'`: Emitido quando o socket atinge o tempo limite; Timeout de invatividade.
+      - `'drain'`: Buffer liberado para escrita.
+      - `'error'`: Quando ocorre um erro.
+      - `'close'`: Quando o socket é fechado.
 
-- **`fs.ReadStream` & `fs.WriteStream`**
-  ```js
-  const fs = require('fs');
-  const stream = fs.createReadStream('arquivo.txt');
-  ```
-  - **TYPES**
-    - **Readable**: Fluxos de leitura.
-    - **Writable**: Fluxos de escrita.
-    - **Duplex**: Fluxos de leitura e escrita.
-    - **Transform**: Fluxos que podem modificar ou transformar os dados.
-  - **METHODS**
-    - `fs.readFile()`: Lê um arquivo.
-    - `fs.writeFile()`: Escreve em um arquivo.
-    - `fs.mkdir()`: Cria um diretório.
-    - `fs.unlink()`: Remove um arquivo.
-  - **EVENTS**
-    - `'open'`: Emitido quando o alvo é aberto.
-    - `'ready'`: Emitido quando o alvo está pronto para uso.
-    - `'data'`: Quando dados são lidos.
-    - `'end'`: Quando a leitura acaba.
-    - `'close'`: Emitido quando o alvo é fechado.
-    - `'error'`: Emitido quando ocorre um erro.
+  - **`fs.ReadStream` & `fs.WriteStream`**
+    ```js
+    const fs = require('fs');
+    const stream = fs.createReadStream('arquivo.txt');
+    ```
+    - **TYPES**
+      - **Readable**: Fluxos de leitura.
+      - **Writable**: Fluxos de escrita.
+      - **Duplex**: Fluxos de leitura e escrita.
+      - **Transform**: Fluxos que podem modificar ou transformar os dados.
+    - **METHODS**
+      - `fs.readFile()`: Lê um arquivo.
+      - `fs.writeFile()`: Escreve em um arquivo.
+      - `fs.mkdir()`: Cria um diretório.
+      - `fs.unlink()`: Remove um arquivo.
+    - **EVENTS**
+      - `'open'`: Emitido quando o alvo é aberto.
+      - `'ready'`: Emitido quando o alvo está pronto para uso.
+      - `'data'`: Quando dados são lidos.
+      - `'end'`: Quando a leitura acaba.
+      - `'close'`: Emitido quando o alvo é fechado.
+      - `'error'`: Emitido quando ocorre um erro.
 
-- **`process` — objeto global**
-  - `'beforeExit'`: Emitido quando o Node.js esvaziou o loop de eventos e está prestes a encerrar, mas ainda pode haver mais trabalho a ser finalizado.
-  - `'exit'`: Emitido quando o processo está prestes a sair.
-  - `'uncaughtException'`: Emitido quando uma exceção não capturada/tratada ocorre.
-  - `'unhandledRejection'`: Emitido quando uma promessa é rejeitada e não há um manipulador de rejeição.
-  - `'warning'`: Um aviso, como por exemplo de memory leak ou deprecated API.
-  - `'SIGINT'`, `'SIGTERM'`, `'SIGUSR1'`, `'SIGUSR2'`: Outros eventos relacionados ao processo.
+  - **`process` — Objeto Global**
+    - `'beforeExit'`: Emitido quando o Node.js esvaziou o loop de eventos e está prestes a encerrar, mas ainda pode haver mais trabalho a ser finalizado.
+    - `'exit'`: Emitido quando o processo está prestes a sair.
+    - `'uncaughtException'`: Emitido quando uma exceção não capturada e não tratada ocorre.
+    - `'unhandledRejection'`: Emitido quando uma promessa é rejeitada e não há um manipulador de rejeição.
+    - `'warning'`: Um aviso, como por exemplo de memory leak ou deprecated API.
+    - `'SIGINT'`, `'SIGTERM'`, `'SIGUSR1'`, `'SIGUSR2'`: Outros eventos relacionados ao processo.
 
-- **`child_process`**
-  - `'exit'`: Processo filho terminou.
-  - `'close'`: Todos os stdio foram fechados.
-  - `'error'`: Erro ao spawnar o processo.
-  - `'disconnect'`: Quando desconecta de processo pai.
-  - `'message'`: Quando há uma mensagem IPC.
+  - **`child_process` – cria e gerencia processos filhos**
+    - `fork()`: É um atalho para criar um processo filho Node.js, com canal de comunicação (IPC) ativado automaticamente. Usado para executar módulos JS separados com comunicação entre pai e filho. Por exemplo: `fork('worker.js')`.
+    - `spawn()`: Cria um novo processo filho para executar um comando, sem bufferizar a saída. Melhor para lidar com streams de dados grandes ou contínuos, por exemplo: `spawn('ls', ['-la'])`.
+    - `exec()`: Executa um comando shell em um processo filho e bufferiza toda a saída (stdout/stderr) em memória. Ideal para comandos curtos, exemplo: `exec('ls -la', callback)`.
+    - `execFile()`: Similar ao `exec()`, mas executa diretamente um arquivo executável binário (ou script JS) sem invocar um shell, o que é mais seguro e rápido. Exemplo: `execFile('script.sh', callback)`.
+    - `'exit'`: Processo filho terminou.
+    - `'close'`: Todos os stdio foram fechados.
+    - `'error'`: Erro ao spawnar o processo.
+    - `'disconnect'`: Quando desconecta de processo pai.
+    - `'message'`: Quando há uma mensagem IPC.
 
-- **`os` – Sistema Operacional**
-    - `os.platform()`: Retorna a plataforma do sistema operacional.
-    - `os.release()`: Retorna a versão do sistema operacional.
-    - `os.totalmem()`: Retorna a quantidade total de memória do sistema.
-    - `os.freemem()`: Retorna a quantidade de memória livre do sistema.
-    - `os.cpus()`: Retorna informações sobre cada CPU/núcleo.
+  - **`os` – Sistema Operacional**
+      - `os.platform()`: Retorna a plataforma do sistema operacional.
+      - `os.release()`: Retorna a versão do sistema operacional.
+      - `os.totalmem()`: Retorna a quantidade total de memória do sistema.
+      - `os.freemem()`: Retorna a quantidade de memória livre do sistema.
+      - `os.cpus()`: Retorna informações sobre cada CPU/núcleo.
 
-- **`path` – Manipulação de Caminhos**
-  - `path.join([...paths])`: Junta todos os argumentos de caminho.
-  - `path.resolve([...paths])`: Resolve uma sequência de caminhos ou segmentos de caminho em um caminho absoluto.
-  - `path.basename(path, [ext])`: Retorna o último segmento de um caminho.
-  - `path.dirname(path)`: Retorna o diretório de um caminho.
-  - `path.extname(path)`: Retorna a extensão de um caminho.
+  - **`path` – Manipulação de Caminhos**
+    - `path.join([...paths])`: Junta todos os argumentos de caminho.
+    - `path.resolve([...paths])`: Resolve uma sequência de caminhos ou segmentos de caminho em um caminho absoluto.
+    - `path.basename(path, [ext])`: Retorna o último segmento de um caminho.
+    - `path.dirname(path)`: Retorna o diretório de um caminho.
+    - `path.extname(path)`: Retorna a extensão de um caminho.
 
-- **`url` – Manipulação de URLs**
-  - `url.parse(urlString)`: Analisa uma string de URL e retorna um objeto URL.
-  - `url.format(urlObject)`: Formata um objeto URL em uma string.
-  - `url.resolve(from, to)`: Resolve uma URL relativa em uma URL absoluta.
+  - **`url` – Manipulação de URLs**
+    - `url.parse(urlString)`: Analisa uma string de URL e retorna um objeto URL.
+    - `url.format(urlObject)`: Formata um objeto URL em uma string.
+    - `url.resolve(from, to)`: Resolve uma URL relativa em uma URL absoluta.
 
 Além dos módulos mencionados acima, o Node possui outros módulos internos, como:
+- `worker_threads`: Suporte a threads de trabalho (executar código JS em paralelo).
+  - Classes:
+    - `Worker`
+    - `MessageChannel`
+    - `MessagePort`
+  - Eventos:
+    - `'message'`, `'error'`, `'exit'`
+  - Métodos úteis:
+    - `new Worker()`
+    - `worker.postMessage()`
+    - `worker.terminate()`
+
 - `assert`: Fornece um conjunto de funções de asserção para testes.
   - Métodos úteis:
     - `assert.ok()`
@@ -644,13 +660,6 @@ Além dos módulos mencionados acima, o Node possui outros módulos internos, co
     - `Buffer.alloc()`
     - `Buffer.concat()`
     - `buffer.toString()`
-
-- `child_process`: Cria e gerencia processos filhos.
-  - Métodos úteis:
-    - `exec()`
-    - `spawn()`
-    - `fork()`
-    - `execFile()`
 
 - `cluster`: Permite a criação de processos filhos que compartilham o mesmo servidor.
   - Métodos úteis:
@@ -771,18 +780,6 @@ Além dos módulos mencionados acima, o Node possui outros módulos internos, co
     - `wasi.start()`
     - `wasi.initialize()`
 
-- `worker_threads`: Suporte a threads de trabalho (executar código JS em paralelo).
-  - Classes:
-    - `Worker`
-    - `MessageChannel`
-    - `MessagePort`
-  - Eventos:
-    - `'message'`, `'error'`, `'exit'`
-  - Métodos úteis:
-    - `new Worker()`
-    - `worker.postMessage()`
-    - `worker.terminate()`
-
 - `zlib`: Compressão e descompressão de dados usando algoritmos como Gzip e Deflate.
   - Métodos úteis:
     - `zlib.gzip()`
@@ -830,17 +827,58 @@ process.on('SIGINT', ...)     // interrupção (Ctrl+C)
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
 
 ### PACKAGE MANAGERS
-**Uma dependência, é todo e qualquer conjunto de dados que realiza uma tarefa.** Assim como o JS possui features nativas de APIs do navegador, e outras que podem ser incorporadas através de libs externas, no Node, para usarmos funcionalidades que dependendem de libs externas, é necessário a utilização de algum **gerenciador de dependências**, que nada mais são do que *repositórios de códigos* voltados para pacotes do Node, onde é possível encontrar libs e realizar a instalação de tal no projeto. Os gerenciadores mais utilizados em Node são p **npm** que é o padrão que já vem na instalação do node no ambiente, e o **yarn**, um outro gerenciador mais novo no mercado.<br/>
+**Uma dependência, é todo e qualquer conjunto de dados que realiza uma tarefa.** Assim como o JS possui features nativas de APIs do navegador, e outras que podem ser incorporadas através de libs externas, no Node, para usarmos funcionalidades que dependendem de libs externas, é necessário a utilização de algum **gerenciador de dependências**, que nada mais são do que *repositórios de códigos* voltados para pacotes do Node, onde é possível encontrar libs e realizar a instalação de tal no projeto. Os gerenciadores mais utilizados em Node são o **npm** que é o padrão que já vem na instalação do node no ambiente, e o **yarn**, um outro gerenciador mais novo no mercado.<br/>
 Então, desde de dependências mais simples como algumas libs restritas que realizam tarefas bastante específicas, até os frameworks mais completos, é possível usar com NodeJS através destes gerenciadores de pacotes.<br/>
 É através destes gerenciadores de pacotes que é possível instalar essas dependências de pacotes externos que deseja-se usar no projeto. Então, quando o código abaixo é executado:
 ```shell script
 npm install express
 ```
-O que na verdade está sendo feito é que o gerenciador está acessando o repositório de código, selecionando os arquivos necessários da biblioteca escolhida e os baixa em um diretório local do projeto chamada por padrão de **`node_modules`**. A partir daí, as funções e ferramentas da lib instalada ficam disponíveis para serem utilizadas no projeto.<br/>
-Neste exemplo do `express`, este é um dos frameworks mais utilizados no mercado para a criação de aplicações web com JS. A partir da sua instalação via npm, o arquivo `package.json` é atualizado com as informações referentes a essa lib, com o nome, a versão, a licença e etc.
+O que na verdade está sendo feito é que o gerenciador está acessando o repositório de código, selecionando os arquivos necessários da biblioteca escolhida e os baixa em um diretório local do projeto chamado por padrão de **`node_modules`**. A partir daí, as funções e ferramentas da lib instalada ficam disponíveis para serem utilizadas no projeto.<br/>
+Neste exemplo do [`express`](https://expressjs.com/), este é um dos frameworks mais utilizados no mercado para a criação de aplicações web com JS. A partir da sua instalação via npm, o arquivo `package.json` é atualizado com as informações referentes a essa lib, com o nome, a versão, a licença e etc.
+
+Se um projeto tem um arquivo `package.json` criado executando `npm install`, isso significa que todas as dependências que o projeto precisa serão instaladas na pasta `node_modules`, criando-a se ainda não existir.<br/>
+Existem algumas flags que podem ser usadas para separar a instalação e o uso das dependências de acordo com as necessidades do projeto:
+- `--save-dev`: instala e adiciona a entrada ao `package.json` de *devDependencies*.
+- `--no-save`: instala o pacote, mas não adiciona a entrada ao `package.json`.
+- `--save-optional`: instala e adiciona a entrada ao `package.json` de *optionalDependencies*
+- `--no-optional`: impedirá que dependências opcionais sejam instaladas.
+
+shorthand:
+- `S`: `--save`
+- `D`: `--save-dev`
+- `O`: `--save-optional`
+
+A diferença entre **devDependencies** e **dependencies** é que *o primeiro contém ferramentas de desenvolvimento*, como uma biblioteca de testes, enquanto *o último é empacotado com o aplicativo em produção*. Quanto às **optionalDependencies**, a diferença é que a falha de compilação da dependência não fará com que a instalação falhe. Mas é responsabilidade do seu programa lidar com a falta de dependências.
+
+Além disso, o arquivo `package.json` suporta um formato para especificar tarefas de linha de comando que podem ser executadas usando `npm run task_name`. Por exemplo:
+```json
+{
+  "scripts": {
+    "start-dev": "node lib/server-development",
+    "start": "node lib/server-production"
+  }
+}
+```
+
+É muito comum usar esse recurso para executar o Webpack:
+```json
+{
+  "scripts": {
+    "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+    "dev": "webpack --progress --colors --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js"
+  }
+}
+```
+Então, em vez de digitar comandos longos, que são fáceis de esquecer ou digitar incorretamente, pode-se executar:
+```shell
+npm run watch
+npm run dev
+npm run prod
+```
 
 #### `package_lock.json`
-É muito comum que uma dependência, principalmente em pacotes robustos como o `express` por exemplo, seja desenvolvida a partir de outras dependências. Embora toda a lista das dependencias usadas por outra dependência não estejam no `package.json` — que é quase que um guia de consulta rápido para as principais dependências do projeto, os códigos das dependências precisam ser baixados juntos com o pacote principal instalado e são também inclusos no `node_modules`. assim, o `package_lock.json` contém uma lista mais *refinada* de **todas** as dependências gerais, gerenciando todas estas.
+É muito comum que uma dependência, principalmente em pacotes robustos como o `express` por exemplo, seja desenvolvida a partir de outras dependências. Embora toda a lista das dependencias usadas por outra dependência não estejam no `package.json` — que é quase que um guia de consulta rápido para as principais dependências do projeto, os códigos das dependências precisam ser baixados juntos com o pacote principal instalado e são também inclusos no `node_modules`. Assim, o `package_lock.json` contém uma lista mais *refinada* de **todas** as dependências gerais, gerenciando todas estas.
 
 #### VERSIONAMENTO SEMÂNTICO
 Cada lib instalada possui uma versão, no arquivo `package.json` é possível verificar qual versão está sendo utilizada e quais atualizações serão recebidas dessa lib no projeto através de instruções de *SemVer*. Este é um padrão para dar significado às versões de software, que segue a estrutura `MAJOR.MINOR.PATCH`.<br/>
@@ -854,6 +892,9 @@ São usados símbolos, chamados de **SemVer Range Operators**. São eles:
 | `">=4.17.2"`| Usa essa versão ou **qualquer mais nova** que a versão especificada.                              | Loose Dependency                   |
 | `"*"`       | Qualquer versão disponível, mas é pouco usado em produção, pode quebrar o app.                    | Loose Dependency                   |
 
+Para atualizar pacotes, basta executar o comando `npm update`, caso haja a necessidade de atualizar apenas 1 pacote específico basta descrevê-lo `npm update package_name`.<br/>
+Além de downloads simples de libs, o npm também gerencia o controle de versão como visto, sendo possível na instalação de um pacote escolher qual versão usar com `npm install package_name@version`, exemplo: `npm install express@5.1.0`
+
 ### MÓDULOS
 O Node trabalha fortemente com o conceito de **[módulos](https://nodejs.org/docs/latest/api/)**, que visa organizar o código em pequenas partes especializadas, além de aplicar o princípio de encapsulamento ao “esconder” o código, expondo somente o necessário a outras partes da aplicação e assim organizar e separar melhor o código. O objetivo de modularizar o código é permitir que aplicações maiores sejam montadas de forma “modular”, ou seja, através de várias partes independentes. Originalmente o Node trabalhava com o sistema CJS de modularização, pois o JavaScript não tinha ferramentas específicas para isso. Posteriormente foi especificado o padrão “geral” de módulos do JavaScript, o EcmaScript Modules. Desde então, o Node vem adotando gradativamente o ECMAScript Modules desde a versão 13, o que traz muitas diferenças com relação à forma “original” do Node, o CJS.<br/>
 Os conceitos de módulo e modularidade são parte importante do desenvolvimento com JavaScript, e quando se tem mais de uma forma de realizar algo, como é o caso aqui, é ainda mais importante que se entenda os detalhes e as diferenças entre os métodos.<br/>
@@ -865,9 +906,9 @@ Além das diferenças nas palavras-chave, funções e objetos utilizados para im
 
 Como sabemos, a definição mais básica de módulo é: uma unidade, uma parte que pode ser combinada com outras mas que tem, por si mesma, uma funcionalidade. Podemos pensar como por exemplo em *móveis modulares*, que podem ser montados em conjunto de acordo com a necessidade, embora cada parte também funcione sozinha, como no caso do armário.<br/>
 **Traduzindo essa ideia para a programação, podemos chamar de módulo todo código que tem uma funcionalidade específica e que está implementado de forma independente — sendo assim *modularizado* — ou seja, utilizado em conjunto com outras partes do código para desenvolver uma aplicação completa.** Também são considerados módulos as bibliotecas externas importadas no projeto.<br/>
-Em aplicações desenvolvidas com Node, já é padrão a divisão das funcionalidades em quantos diretórios e arquivos forem necessários para manter o código separado e organizado. Em um projeto construído neste formato, os navegadores precisam baixar e carregar todos os arquivos necessários para que a aplicação funcione corretamente, daí a utilidade dos *bunlders*, que são *empacotadores* que otimizam os arquivos para transferência e carregamento rápido pelos navegadores, como o **webpack** por exemplo.<br/>
+Em aplicações desenvolvidas com Node, já é padrão a divisão das funcionalidades em quantos diretórios e arquivos forem necessários para manter o código separado e organizado. Em um projeto construído neste formato, os navegadores precisam baixar e carregar todos os arquivos necessários para que a aplicação funcione corretamente, daí a utilidade dos *bundlers*, que são *empacotadores* que otimizam os arquivos para transferência e carregamento rápido pelos navegadores, como o **webpack** por exemplo.<br/>
 O que não é o caso com aplicações executadas no ambiente do NodeJS, que pode dispensar então esse processo de empacotamento e otimização para um único arquivo que é comum ao frontend.<br/>
-O Node considera cada arquivo como um módulo separado e independente, com seu próprio *namespace*. Ou seja, todos os códigos definidos em um arquivo, sejam variáveis, funções ou classes, ficam restritos – ou seja, privados e contidos dentro do próprio arquivo – e são acessados apenas pelo próprio arquivo em que foram criados, a não ser que sejam explicitamente exportados e importados em outro arquivo como um módulo, evitando assim conflitos de nomenclatura. Pode-se dizer que um **namespace** é um espaço isolado, ou seja uma "bolha privada" onde tudo em relação a um código existem, assim evitando conflitos de nomes e vazamento de escopo entre diferentes partes do código, então o que estiver dentro de um arquivo não afetará diretamente o que está em outro arquivo, a menos que seja exportado e importado. Por exemplo, uma função ou variável que existe globalmente em um arquivo só existirá dentro dele, e só poderá ser usada por outro código após ser explicitamente transportada. Por exemplo:
+O Node considera cada arquivo como um módulo separado e independente, com seu próprio *namespace*. Ou seja, todos os códigos definidos em um arquivo, sejam variáveis, funções ou classes, ficam restritos – privados e contidos dentro do próprio arquivo – e são acessados apenas pelo próprio arquivo em que foram criados, a não ser que sejam explicitamente exportados e importados em outro arquivo como um módulo, evitando assim conflitos de nomenclatura. Pode-se dizer que um **namespace** é um espaço isolado, ou seja uma "bolha privada" onde tudo em relação a um código existe, assim evitando conflitos de nomes e vazamento de escopo entre diferentes partes do código, então o que estiver dentro de um arquivo não afetará diretamente o que está em outro arquivo, a menos que seja exportado e importado. Por exemplo, uma função ou variável que existe globalmente em um arquivo só existirá dentro dele, e só poderá ser usada por outro código após ser explicitamente transportada. Por exemplo:
 ```js
 // calculator.js
 function sum(a, b) {
@@ -952,8 +993,8 @@ export default validaCartao; // exporta apenas a lógica da função indicada
 ```
 No exemplo acima, apenas a função `validaCartao()` está sendo exportada, e a função `funcaoAuxiliar()` está sendo usada apenas internamente pelo módulo `validacaoCartao()`, não ficando disponível para ser acessada pelo restante do código. Ou seja, temos apenas uma “exportação padrão” neste módulo da função que outras partes da aplicação precisam acessar. O restante da lógica exemplificado aqui por `funcaoAuxiliar()` fica restrito ao módulo e não é acessado.
 
-**Resumindo:**
-> **No Node, módulos são blocos reutilizáveis de código que ajudam a organizar e isolar funcionalidades. Eles permitem importar apenas o necessário, encapsular a lógica e compartilhar funcionalidades entre arquivos ou mesmo entre projetos diferentes. Um módulo no Node é qualquer arquivo JavaScript que exporta algum valor como uma função, objeto, variável, classe e etc, que pode ser importado em outro arquivo usando `require()` ou `import`, dependendo do tipo de módulo usado – CommonJS ou ES Modules.**
+>**Resumindo:**<br/>
+**No Node, módulos são blocos reutilizáveis de código que ajudam a organizar e isolar funcionalidades. Eles permitem importar apenas o necessário, encapsular a lógica e compartilhar funcionalidades entre arquivos ou mesmo entre projetos diferentes. Um módulo no Node é qualquer arquivo JavaScript que exporta algum valor como uma função, objeto, variável, classe e etc, que pode ser importado em outro arquivo usando `require()` ou `import`, dependendo do tipo de módulo usado – CommonJS ou ES Modules.**
 
 Existem diferentes tipos de módulos:
 1. **core modules**: são aqueles disponíveis no Node sem a necessidade de download de arquivos via package manager, como por exemplo `fs`, `http`, `path`, `os`, `events`, `crypto` e etc.
@@ -984,7 +1025,8 @@ const app = express();
 > A utilização do mesmo nome na importação não é obrigatória, mas sim um padrão da linguagem.
 
 #### IMPORTAÇÃO
-Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, vejamos mais sobre métodos de importação e exportação no arquivo JS para que suas funcionalidades guardadas nos arquivos em `node_modules` possam ser acessadas. Declarar os módulos importados no topo do arquivo é uma convenção seguida pela comunidade, mas não é decisiva para o funcionamento do código. Módulos importados passam pelo mesmo processo de hoisting de declarações de função e variáveis e são “içados” para o topo dos arquivos. Então como "regra", todas as importações devem estar declaradas no topo dos arquivos onde os módulos serão utilizados e não devem ser feitas dentro de funções, classes, loops ou outros blocos de código.
+Então, tendo todas as dependências necessárias instaladas, para usá-las no projeto, vejamos mais sobre métodos de importação e exportação no arquivo JS para que suas funcionalidades guardadas nos arquivos em `node_modules` possam ser acessadas.<br/>
+Declarar os módulos importados no topo do arquivo é uma convenção seguida pela comunidade, mas não é decisiva para o funcionamento do código. Módulos importados passam pelo mesmo processo de hoisting de declarações de função e variáveis e são “içados” para o topo dos arquivos. Então como "regra", todas as importações devem estar declaradas no topo dos arquivos onde os módulos serão utilizados e não devem ser feitas dentro de funções, classes, loops ou outros blocos de código.
 ```js
 import express from 'express';
 
@@ -1255,7 +1297,8 @@ Cada módulo só pode ter **uma única exportação default**. Enquanto a export
 
   // index.js
   import operacao from './operacao.js';
-  // No exemplo acima, podemos criar o identificador `operacao` na importação da função anônima; os identificadores dos `imports` se comportam como constantes.
+  /* No exemplo acima, podemos criar o identificador `operacao` na importação da função anônima;
+     os identificadores dos `imports` se comportam como constantes. /*
   ```
 
   - **Exportação default after**
@@ -1343,7 +1386,7 @@ Há alguns padrões que o JavaScript adota em suas extensões de arquivo para in
 Por exemplo, aplicações frontend que utilizam React podem adotar o padrão `.js` para arquivos escritos em JavaScript “padrão” e `.jsx` para arquivos que utilizem os recursos da extensão JSX, embora a funcionalidade do código e dos arquivos permaneça a mesma.<br/>
 Da mesma forma, é possível utilizar os padrões `.mjs` para assinalar arquivos em JavaScript que sejam módulos ESM, e diferenciá-los de arquivos JavaScript "comuns" módulos mantendo a extensão normal `.js`.<br/>
 Os arquivos com extensão `.cjs` seguem o mesmo princípio, porém para CJS. Caso seja necessário utilizar a sintaxe CJS em aplicações que já usam o ESM e que, por consequência, têm definido o `”type”: “module”` como propriedade no arquivo `package.json`, será necessário utilizar a extensão `.cjs`, embora não seja recomendável misturar as 2 formas de importação em um mesmo projeto.<br/>
-Então, no caso onde usam-se user modelos, na sintaxe ESM é necessário incluir o nome completo do arquivo no caminho incluindo a extensão `.js`. Já o CJS não requer a extensão do arquivo, é possível utilizar `const soma = require('./operacoes');` por exemplo.
+Então, no caso onde usa-se user modules, na sintaxe ESM é necessário incluir o nome completo do arquivo no caminho incluindo a extensão `.js`. Já o CJS não requer a extensão do arquivo, é possível utilizar `const soma = require('./operacoes');` por exemplo.
 
 **Para executar os módulos importados em um arquivo `.js`, é importante que estejam referenciados no `package.json`, ou usando extensões `.mjs`.**
 ```pgsql
@@ -1389,7 +1432,7 @@ Para criar um servidor com Node, basta importar o módulo nativo `createServer`,
 import { createServer } from 'node:http'; // importa somente o método `createServer()` do módulo `http` do repositório do Node.js
 
 
-const hostname = '0.0.0.0'; // define o IP para conexão com clientes
+const hostname = '127.0.0.1'; // define o IP para conexão com clientes
 const port = 3000;          // define em qual porta o servidor irá escutar
 
 
@@ -1398,10 +1441,13 @@ cria o servidor e define um callback que será executado toda vez que o servidor
 
 req: contém informações da requisição recebida, como o método, URL, headers e etc
 res: objeto usado para montar e enviar a resposta */
+
   res.statusCode = 200;                         // define o código de status HTTP da resposta, 200 == "OK" (requisição bem-sucedida)
+
   res.setHeader('Content-Type', 'text/plain');  /* define o tipo de conteúdo que será retornado ao cliente
   `text/plain` informa ao navegador que o conteúdo é texto puro, sem HTML ou JSON */
-  res.end('Hello World'); /* finaliza a resposta retornando o conteúdo (no caso 'Hello world') como corpo da resposta
+
+res.end('Hello World'); /* finaliza a resposta retornando o conteúdo (no caso 'Hello world') como corpo da resposta
   sem este método `.end()`, o navegador ficaria esperando a resposta terminar */
 });
 
@@ -1411,12 +1457,12 @@ server.listen([port[, host[, backlog]]][, callback])
 - host: endereço IP do servidor
 - callback: método que será executado quando o servidor estiver pronto */
 server.listen(port, hostname, () => {                           // inicia o servidor, que ficará escutando na porta e endereço definidos
-  console.log(`Server running at http://${hostname}:${port}/`); // ao acessar http://0.0.0.0:3000 é estabelecida uma conexão client x server
+  console.log(`Server running at http://${hostname}:${port}/`); // ao acessar http://127.0.0.1:3000 é estabelecida uma conexão client x server
 });
 ```
 
 Neste exemplo, o servidor está configurado para ouvir na porta e no nome do host especificados. Quanto o servidor está pronto, a função de callback é chamada, neste caso, informando que o servidor está em execução. **Sempre que um novo pedido é recebido, o evento `request` é chamado, providênciando 2 objetos:**
-1. **uma requisição:** `http.IncomingMessage` é um objeto criado durante uma requisição, é passado como o 1º argumento do método para os eventos `'request'` e `'response'` respectivamente. **Ele pode ser usado para acessar o status, cabeçalho e dados da resposta.**
+1. **uma requisição:** `http.IncomingMessage` é um objeto criado durante uma requisição, é passado como o 1º argumento do método para os eventos `'request'` e `'response'` respectivamente. **Ele pode ser usado para acessar o status, cabeçalho e dados da requisição.**
 2. **uma resposta:** `http.ServerResponse` é um objeto criado internamente por um servidor HTTP, **para servir como resposta à requisição do usuário**, sendo passado como o 2º parâmetro do método para o evento `'request'`.
 
 Esses 2 objetos são essenciais para lidar com a chamada HTTP. O 1º fornece os detalhes do pedido, neste simples exemplo não foi usado, mas é possível acessar o cabeçalho da requisição e solicitar dados. O 2º é usado para retornar dados ao cliente, neste caso com: `res.statusCode = 200`, que indica uma resposta bem-sucedida.

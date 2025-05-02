@@ -3557,7 +3557,7 @@ saudar("Raphael"); // Saída: Olá, Raphael!
 
 // ----------------------------------------------------
 
-// passando uma função como argumento para outra função
+// passando uma função como argumento para outra função - callback
 function executaOperacao(operacao, a, b) {
   return operacao(a, b);
 }
@@ -3568,6 +3568,208 @@ function soma(a, b) {
 
 console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 ```
+
+O uso de **`()()`** é chamado de **IIFE**. **Immediately Invoked Function Expression** são funções anônimas definidas e executadas na hora, sem a necessidade de chamá-las posteriormente.
+```js
+(function () {
+  console.log("Executou na hora!");
+})();
+```
+O 1º `()` envolve a função, transformando-a em uma *expressão de função*. O 2º `()` executa essa função **imediatamente**. O uso deste método é muito benéfico pois permite o encapsulamento de escopo privado, pois variáveis e métodos privados não pode ser acessado diretamente de fora, evita poluir o escopo global e permite funções-fábrica, configurações iniciais entre outras vantagens.
+
+Existem várias maneiras de se declarar funções no JS, usando `FunctionDeclaration(){}` e chamando-a `FunctionDeclaration()`; atribuindo uma função declarada ou anônima (usando `const myVar = function() {}` ou no formato de `const arrow = function => return`) a uma variável. Além de poder invocar uma função imediatamente atribuída e para essa variável retornar o valor obtido, usando o método IIFE após a declaração da variável.
+```js
+const Counter = (() => {
+  let count = 0;
+  return {
+    inc: () => count++,
+    dec: () => count--,
+    value: () => count
+  };
+})();
+```
+
+Também pode-se passar funções como parâmetro para outras funções, isso é conhecido como `callback`.
+```js
+function saudacao(nome, callback) {
+  const mensagem = `Olá, ${nome}`;
+  callback(mensagem);
+}
+
+saudacao("Raphael", mensagem => console.log(mensagem));
+```
+E ainda, atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, se comportando como uma **`closure`**, que ocorre quando uma função "lembra" o escopo no qual foi criada, mesmo depois que este escopo já finalizou sua execução. Uma closure é a combinação de uma função com as referências ao estado que a circunda o ambiente léxico, ou seja, o escopo. Em outras palavras, uma closure permite acesso ao escopo de uma função externa a partir de uma função interna.
+```js
+function init() {
+  var name = "Raphael"; // `name` é uma variável local criada pelo `init()`
+  function displayName() {
+    // `displayName()` é a função interna, funções aninhadas são chamadas de closures
+    console.log(name); // usa a variável declarada na função pai `init()`
+  }
+  displayName(); // a função pai executa a closure
+}
+init();
+
+// outro exemplo de closure
+function makeFunc() {
+  var name = "Raphael";
+  function displayName() {
+    alert(name);
+  }
+  return displayName;
+}
+
+var myFunc = makeFunc();
+myFunc();
+
+// passando argumentos para utilização em cadeia
+function makeAdder(x) {
+  return function (y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5); // a variável `add5` possui a função `makeAdder()` atribuída com o valor de x, neste caso 5
+var add = add5(2);    /* ao chamar a variável, como esta possui uma função atribuída
+deve-se passar um 2º parâmetro conforme a closure pede, neste caso `y` = 2
+
+então, pode-se verificar que, add executa x: 5 + y: 2 = 7 */
+console.log(add) // 7
+
+// novamente:
+var add10 = makeAdder(10); // atribuindo à variável a função com o parâmetro `x`
+console.log(add10(2)); // chamando a variável atribuindo um novo valor, o `y`
+```
+
+Uma closure permite associar dados do ambiente com uma função que trabalha estes dados. Isto está diretamente ligado com programação orientada a objetos, onde objetos permitem associar dados, ou seja as propriedades do objeto, utilizando um ou mais métodos. Consequentemente, uma closure pode ser utilizada em qualquer lugar onde normalmente se utilizaria um objeto de único método.<br/>
+Um bom exemplo de aplicação prática disto dá-se bastante em ambientes web. Suponhamos que devemos adicionar alguns botões para ajustar o tamanho do texto de uma página. Estes botões interativos de tamanho de texto podem alterar a propriedade `font-size` do elemento `body`, e os ajustes serão refletidos em outros elementos graças à unidade relativa `em`. O código seria algo como:
+```html
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closure</title>
+</head>
+<body>
+
+  <button id="size-12">12</button>
+  <button id="size-14">14</button>
+  <button id="size-16">16</button>
+
+  <script>
+  function makeSizer(size) {
+    return function () {
+      document.body.style.fontSize = size + "px";
+    };
+  }
+
+  var size12 = makeSizer(12);
+  var size14 = makeSizer(14);
+  var size16 = makeSizer(16);
+  /* `size12`, `size14` e `size16` agora são funções que devem redimensionar o texto do elemento `body`
+      agora elas podem ser designadas a botões como a seguir */
+
+  document.getElementById("size-12").onclick = size12;
+  document.getElementById("size-14").onclick = size14;
+  document.getElementById("size-16").onclick = size16;
+  </script>
+</body>
+</html>
+```
+
+As variáveis em closures são alteradas de maneira persistente.
+```js
+function criaContador() {
+  let contador = 0;
+
+  return function() {
+    contador++;
+    return contador; // atualiza o valor de `var contador`
+  };
+}
+
+const contar = criaContador();
+console.log(contar()); // 1
+console.log(contar()); // 2
+```
+
+Um exemplo prático de lógica com closure emulando métodos privados com closures. Métodos privados só podem ser chamados por outros métodos na mesma classe, e isso pode ser simulado utilizando closures. Nos exemplos anteriores cada closure teve o seu próprio ambiente, aqui foi criado um ambiente único que é compartilhado por três funções: `Counter.increment`, `Counter.decrement` e `Counter.value`.
+```js
+var Counter = (function () {
+
+  var privateCounter = 0;
+
+  function changeBy(val) {
+    privateCounter += val;
+  }
+
+  return {
+    increment: function () {
+      changeBy(1);
+    },
+    decrement: function () {
+      changeBy(-1);
+    },
+    value: function () {
+      return privateCounter;
+    },
+  };
+
+})();
+
+console.log(Counter.value()); /* Alerts 0 */
+Counter.increment();
+Counter.increment();
+console.log(Counter.value()); /* Alerts 2 */
+Counter.decrement();
+console.log(Counter.value()); /* Alerts 1 */
+```
+O ambiente compartilhado é criado no corpo de uma função anônima, da qual é executada assim que é definida. O ambiente contém dois itens privados: uma variável chamada `privateCounter` e uma função chamada `changeBy`. Nenhum desses itens privados podem ser acessados diretamente de fora da função anônima. Ao invés disso, eles devem ser acessados pelas 3 funções públicas que são retornadas. Estas 3 funções públicas são closures que compartilham o mesmo ambiente, graças ao escopo léxico do JS, cada uma delas tem acesso à variável `privateCounter` e à função `changeBy`.
+
+No exemplo anterior, foi definida uma função anônima que cria um contador, e então a executamos imediatamente e o resultado é atribuído a variável `Counter`. Também é possível armazenar essa função em uma variável separada e usá-la para criar diversos contadores independentes.
+```js
+var makeCounter = () => {
+
+  var privateCounter = 0;
+
+  function changeBy(val) {
+    privateCounter += val;
+  }
+
+  return {
+    increment: function () {
+      changeBy(1);
+    },
+    decrement: function () {
+      changeBy(-1);
+    },
+    value: function () {
+      return privateCounter;
+    },
+  };
+
+};
+
+var Counter1 = makeCounter();
+var Counter2 = makeCounter();
+
+
+console.log(Counter1.value()); /* Alerts 0 */
+
+Counter1.increment();
+Counter1.increment();
+console.log(Counter1.value()); /* Alerts 2 */
+
+Counter1.decrement();
+console.log(Counter1.value()); /* Alerts 1 */
+
+
+console.log(Counter2.value()); /* Alerts 0 */
+```
+
+Cada um dos contadores mantém sua independência em relação ao outro, pois seu ambiente de execução da função `makeCounter()` é diferente a cada vez que ocorre, e a variável `privateCounter` contém uma instância diferente a cada vez.
+
+Usar closures desta maneira oferece uma série de benefícios que estão normalmente associados a programação orientada a objetos, em particular encapsulamento e ocultação de dados.
 
 ###### TIPOS DE FUNÇÕES
  As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código. 
