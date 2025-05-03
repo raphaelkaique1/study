@@ -1,8 +1,5 @@
 # Estruturas de Dados
 
-- https://www.alura.com.br/artigos/estruturas-de-dados-introducao
-- https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Data_structures
-
  ## Abstração de Dados
  A forma como o usuário e o programador lidam com os dados não corresponde à forma verdadeira como os dados estão armazenados na memória do computador, ou como eles são realmente. Chamamos de abstração de dados, estruturas muito úteis que "mascaram" os dados para visualizar e manipulá-los de forma à tornar as soluções de uso mais intuitiva.
 
