@@ -43,7 +43,7 @@ Uma CDN serve principalmente arquivos estáticos como HTML, CSS, JS, PDF, mídia
 ```
 
 ## [NodeJS](https://nodejs.org/pt)
-Na atualidade, a criação de aplicações tem como foco arquiteturas que sejam escaláveis e a entrega de soluções em tempo real, além da atenção à componentização e segurança. Além disso, soma-se a esse cenário a revolução iniciada pelos smartphones, com o uso cada vez mais intenso das mídias sociais e o aumento de soluções de IoT. Nesse contexto, os paradigmas conhecidos no desenvolvimento de aplicações também têm passado por diversas mudanças que vão do Front-end ao Back-end, onde pensamos cada vez mais em *uma solução como um todo*, levando em consideração o consumo de dados e a disponibilidade de infraestrutura. E é nessa conjuntura que nasce o Node.js em 2009, surgindo como uma solução poderosa e barata para a criação e a manutenção de ambientes de tecnologia com altas demandas. Soma-se a isso o fato de que desenvolvedores de JavaScript trabalham com uma linguagem simples, interpretada e que não necessita da instalação de ferramentas complexas de desenvolvimento. Esses são alguns dos fatores motivadores do criador do projeto do Node.js, o engenheiro de software Ryan Dahl, responsável por esse ambiente de execução do código JavaScript fora do navegador, no lado servidor.<br/>
+Na atualidade, a criação de aplicações tem como foco arquiteturas que sejam escaláveis e a entrega de soluções em tempo real, além da atenção à componentização e segurança. Além disso, soma-se a esse cenário a revolução iniciada pelos smartphones, com o uso cada vez mais intenso das mídias sociais e o aumento de soluções de IoT. Nesse contexto, os paradigmas conhecidos no desenvolvimento de aplicações também têm passado por diversas mudanças que vão do Front-end ao Back-end, onde pensamos cada vez mais em *uma solução como um todo*, levando em consideração o consumo de dados e a disponibilidade de infraestrutura. O JS foi criado para facilitar o desenvolvimento de sites mais interativos e dinâmicos, como uma linguagem de progamação de alto nível que roda nos navegadores. Com a evolução da web, outras utilidades foram criadas e adicionadas a ele. E é nessa conjuntura que nasce o Node.js em 2009, um software livre e gratuito que permite rodar aplicações JS no lado do servidor, surgindo como uma solução poderosa e barata para a criação e a manutenção de ambientes de tecnologia com altas demandas com a vantagem de manter o ecossistema de aplicações e toda a base de código em 1 só linguagem de programação. Soma-se a isso o fato de que desenvolvedores de JavaScript trabalham com uma linguagem simples, interpretada e que não necessita da instalação de ferramentas complexas de desenvolvimento. Esses são alguns dos fatores motivadores do criador do projeto do Node.js, o engenheiro de software Ryan Dahl, responsável por esse ambiente de execução do código JavaScript fora do navegador, diretamente na máquina. O Node não é um framework JS como React ou Vue, mas sim um **ambiente de execução** *em uma máquina virtual própria para interpretar e executar os scripts de forma autônoma*, baseada no motor V8 criado pelo Google para o seu navegador. O Node foi criado como uma alternativa ao Apache HTTP Server, o servidor web mais popular da época, pois Dahl criticava algumas limitações do Apache, como o suporte relativamente baixo a múltiplas conexões, buscando resolver este problema com uma abordagem focada em *eventos* e *execução assíncrona*, sendo uma opção mais responsiva e com menos consumo de recursos que os servidores tradicionais. Sua principal característica é sua execução *single-thread*, onde os recursos computacionais são alocados apenas uma vez pelo tempo que a aplicação estiver sendo executada. Aplicações multi-thread, como as criadas com PHP por exemplo, requerem a criação de uma thread a cada nova requisição, não sendo executada enquanto a anterior não for finalizada. .Essa thread única é chamada de *Event Loop*, e trata todas as requisições como eventos, de maneira assíncrona e não-bloqueante, eliminando a necessidade de filas de processamento, tornando as aplicações mais eficientes e responsívas. Devido ao baixo consumo de recursos e à capacidade de processar várias requisições simultaneamente, o Node é muito utilizado em aplicações que requerem uma alta escalabilidade, ou seja, que possam crescer sem perder qualidade ou aumentar os custos. Atualmente, o Node é mantido pela [OpenJS Foundation](https://openjsf.org/), uma fundação criada em 2019 com o objetivo de promover a utilização do JS e de suas tecnologias relacionadas.<br/>
 No desenvolvimento web existem 2 fatos: **navegador só interpreta JavaScript puro e JavaScript puro roda apenas em navegadores**. Como o JS nasceu exclusivamente para ser interpretado no lado do cliente, com o tempo a linguagem foi ganhando mais relevância e ferramentas, tornando-se poderosa e fácil de utilizar em vários cenários. Pensando em dar maior flexibilidade ao JS para poder aproveitar suas vantagens em diferentes projetos, nasceu o **Node.JS**, que é um **ambiente de execução JavaScript**, ou seja, é uma plataforma para criar e executar código JS *fora do ambiente do navegador web*, no lado do servidor, que na prática se reflete na possibilidade de criar aplicações *standalone* em uma máquina servidora.<br/>
 Algumas características marcantes do Node é ser altamente escalável, o que torna possível criar aplicações Web que trabalham muito bem com alto número de requisições, e também pelo fato dele ser multiplataforma, multiparadigma, *open source* e sua grande e colaborativa comunidade. O Node.js é uma ferramenta extremamente potente, e isso se deve ao fato de possuir dentro de si o *Chrome's V8 JavaScript Engine*. Sendo esse o motor V8 de alto desempenho do Chrome, que torna possível visualizar as páginas em JS no browser. Quando iniciamos o Node.js com o comando `node` no terminal, iniciamos um processo que engloba um interpretador JavaScript e um utilitário CLI, e é neste processo aberto no terminal que irá acontecer a interpretação e execução do JavaScript runtime. Para esse processo de interpretação, o Node.js faz uso do V8, mais precisamente conhecido como Chrome’s V8 JavaScript engine. O V8 é um poderosíssimo interpretador JavaScript desenvolvido pelo Google e utilizado pelo Chrome. Ele também é conhecido como a máquina virtual do JavaScript. Foi desenvolvido usando a linguagem **C++**, é de código aberto e nasceu com a intenção de acelerar a execução de aplicações desenvolvidas em JavaScript. Por fornecer uma boa performance, várias plataformas têm adotado o Node.js como um solução viável e eficaz de tecnologia para Back-end. É interessante apontar que existem outros “motores” para JavaScript, como o SpiderMonkey, do Firefox, ou o WebKit, do Safari, mas o adotado pelo Node.js é o V8. De forma geral, o processo de funcionamento desses motores pode ser resumido nas seguintes etapas:
 1. O motor acessa o código JavaScript, que veio da leitura da tag `script` de um arquivo HTML ou por meio do download de um arquivo JavaScript;
@@ -145,9 +145,35 @@ setTimeout(() => {
 }, 1000)
 ```
 
-Quando o Node executa uma operação IO, como a leitura da rede, acessando um banco de dados ou sistema de arquivos, em vez de bloquear a thread e desperdiçar ciclos de CPU aguardando, o Node retomará as operações quando a resposta voltar. Isso permite que o Node lide com milhares de conexões simultâneas com um único servidor sem introduzir a carga de gerenciamento de concorrência, o que pode ser uma fonte significativa de bugs.
+Quando o Node executa uma operação IO, como a leitura da rede, acessando um banco de dados ou sistema de arquivos, em vez de bloquear a thread e desperdiçar ciclos de CPU aguardando, o Node retomará as operações quando a resposta voltar. Isso permite que o Node lide com milhares de conexões simultâneas com um único servidor sem introduzir a carga de gerenciamento de concorrência, o que poderia ser uma fonte significativa de bugs.<br/>
+Tais operações mais longas como leituras em disco ou comunicações de rede, são despachadas para um *worker* em uma thread separada, assim liberando o event loop — main thread — para continuar processando outros eventos na pilha, e uma vez concluída a oepração em segundo plano, sua função de callback é enfileirada de acordo com a sua prioridade e aguarda a liberação do event loop para ser executada. Este modelo permite que o Node lide eficientemente com IO assíncrono, evitando bloqueios e mantendo a aplicação responsiva.
+
+![Image](https://github.com/user-attachments/assets/0cc7d39e-47ec-4de6-b2a1-5c35cfe0a9f8)
+
+O event loop empilha os eventos na **call stack** e a monitora, identificando e processando tasks. Para eventos que não requerem operações extensas, a execução é imediata, permitindo que o event loop passe rapidamente para o próximo evento. Entretanto, os eventos que envolvem operações longas como leitura de arquivos ou comunicação de rede são delegados junto com sua função de callback ao **background thread**, que é uma *sub-fila* onde a libuv gerencia a operação em uma thread separada na pool, permitindo que o event loop continue processando outros eventos na call stack sem interrupções. Assim que concluída a operação pelo background thread, a função de callback é colocada na **task queue**, então, o event loop — que opera em uma única thread — só processará este callback após finalizar as tarefas correntes na call stack — main thread.<br/>
+Esta abordagem assegura um gerenciamento eficiente de múltiplas tarefas pelo event loop, alternando entre execuções rápidas de operações breves e o manejo de operações mais demoradas em background. Esta estrutura é vital para a eficiência do Node, habilitando-o a lidar com um volume elevado de operações de IO de forma não bloqueante e assíncrona.
+
+Por exemplo:
+```js
+const path = require('path');
+const filePath = path.join(__dirname, 'hello_world.txt'); // obtem o caminho do arquivo
+
+const fs = require('fs');
+const data = fs.readFile(filePath, 'utf8', (error, data) => {
+  try {
+    console.log(data);
+  } catch(error) {
+    console.log(error);
+  }
+}); // leitura de arquivo
+```
+
+![Image](https://miro.medium.com/v2/resize:fit:720/format:webp/1*4SoPLMu-BDKU83RTOsSm1w.png)
+
+Neste exemplo existem 2 eventos na call stack. O 1º a ser processado é o `fs.readFile()`, seguindo o princípio LIFO da stack, sendo `fs.readFile()` uma operação de IO em disco, portanto uma operação mais lenta e potencialmente bloqueante, por isso ela é delegada para execução em background pela libuv. Quando a tarefa de leitura do arquivo é concluída, seu callback é colocado na task queue, onde este callback aguardará sua vez para ser transferido para a call stack quando esta estiver vazia. Então este call back é movido da task queue para a call stack e finalmente processado pelo event loop.
 
 #### CALLSTACK
+NodeJS é uma plataforma orientada a eventos que opera sob o princípio de uma única thread, gerenciado eficientemente a pilha de evetnos, a **call stack**. Essa pilha de eventos adota a estratégia LIFO, onde a última entrada é a primeira a ser processada.
 Vejamos o código a seguir:
 ```js
 function calculaQuadrado(num) {
@@ -281,15 +307,6 @@ Promise.resolve().then(() => {
 
 Além disso, o loop de eventos conta ainda com `process.nextTick()`, que é a *resolução de promessas*. Essa função agenda um callback para ser executado logo após a fase de encerramento de cada loop, ao invés de esperar passar por todos os outros callbacks que podem estar no loop, ou seja, o callback é executado logo após a execução da função atual na callstack e antes de qualquer IO ou Microtask.
 
-Ordem da hierarquia de execução:
-1. **Código síncrono (Call Stack)**
-2. **`process.nextTick()` callbacks**
-3. **Microtasks** (`Promise.then`, `queueMicrotask`)
-4. **Timers** (`setTimeout`, `setInterval`)
-5. **Pending I/O callbacks**
-6. **`setImmediate()`**
-7. **Close callbacks** (ex: streams, sockets)
-
 ```js
 console.log('1');
 
@@ -358,7 +375,38 @@ O loop de eventos é parte de um panorama maior da arquitetura do Node, que envo
 
 ![Image](https://www.alura.com.br/artigos/assets/arquitetura-node-js-entenda-loop-de-eventos/imagem10.jpg)
 
-#### THREAD BLOCK
+#### EVENTS
+A ordem de execução das queues no Event Loop segue uma hierarquia específica, com prioridade definida para cada tipo de tarefa. A ordem da hierarquia de execução das principais queues é a seguinte:
+
+1. **Código síncrono (Call Stack)**
+2. **`process.nextTick()` callbacks**
+3. **Microtasks** (`Promise.then`, `queueMicrotask`)
+4. **Timers** (`setTimeout`, `setInterval`)
+5. **Pending I/O callbacks**
+6. **`setImmediate()`**
+7. **Close callbacks** (ex: streams, sockets)
+
+- **Microtask Queue**<br/>
+É a fila de prioridade máxima que inclui `process.nextTick()` e `Promise` (`.then()`, `.catch()` e `.finally()`), sendo executados logo após a fase atual do event loop terminar, antes de passar para a próxima fase. O `process.nextTick()` possui uma prioridade maior em relação à `Promise`, pois interrompe o ciclo do event loop para executar imediatamente após o código atual terminar, antes mesmo da `Promise`, por isso deve ser usado com cautela para evitar starvation.
+
+- **Timers Queue**<br/>
+Aqui, as tarefas são executadas após o tempo mínimo de espera, na fase de timers do event loop. Inclui `setTimeout()` e `setInterval()`.
+
+- **IO Callbacks - Pool Phase**<br/>
+São os eventos de callbacks de IO (como `fs.readFile()` e operações do sistema) executados após os timers.
+
+- **Immediates Queue**<br/>
+Este é o `setImmediate()`, que é executado na fase check do event loop, logo após a fase de IO (pool), e antes dos timers se o código estiver dentro de um callback de IO.
+
+1. process.nextTick()        ← Microtask Queue - HIGH
+2. Promises (.then, etc)     ← Microtask Queue - LOW
+3. setTimeout / setInterval  ← Timers Queue
+4. I/O Callbacks             ← Pool phase
+5. setImmediate              ← Immediates Queue
+
+
+#### MAIN THREAD & THREAD POOL
+O Node opera na *"main thread"* de forma a ser uma única thread gerenciada pelo loop de eventos. As operações de background são administradas por *workers* que executam tarefas multi-thread na thread pool. Os workers são essencialmente processos de IO assíncronos e não bloqueantes, gerenciados pela libuv. Esta é uma lib open-source, multiplataforma, escrita em C, que se vale de um pool de threads para gerir operações paralelas. A abordagem de uma thread única na gestão da Call Stack é vital para o alto desempenho do Node.<br/>
 Uma das características mais importantes de todo esse modelo é fazer com que operações que bloqueiam a execução do programa, como operações IO, se tornem não bloqueantes e assíncronas. Porém, é sim possível bloquear a execução de um programa em JavaScript, e normalmente isso é causado por problemas na implementação do código. Por isso, para evitar que um programa seja implementado de forma a bloquear a thread do loop de eventos, podem ser tomadas algumas precauções:
 - Não utilizar versões `sync` de APIs do node como `fs`, `crypto` e `zlib`, a não ser em casos muito específicos. Um caso de uso síncrono de funções de `fs` é a biblioteca `dotenv`, que utiliza a versão `sync`, pois ela precisa garantir que as variáveis de ambiente estão configuradas antes de liberar a execução do programa;
 - Evitar que cálculos com números grandes sejam enviados para a thread do loop;
@@ -366,7 +414,7 @@ Uma das características mais importantes de todo esse modelo é fazer com que o
 - Idem para expressões regulares muito complexas.
 
 O motivo para se evitar cálculos e processamentos muito grandes é justamente pelo fato do loop de eventos ser single thread, o que faz com que ele seja muito eficiente para operações assíncronas, mas não consegue evitar que o loop "trave" se existir uma operação que exija muito processamento ocupando a pilha de chamadas.<br/>
-**Claro que sempre haverão situações que envolvem normalmente muito processamento síncrono, e, para estes tipos de casos é possível usar *child processes*, ou mover os processos para novas threads de forma manual, instruindo o programa a criar threads específicas.**
+**Claro que sempre haverão situações que envolvem normalmente muito processamento síncrono, e, para estes tipos de casos é possível usar *child processes*, ou mover os processos para novas threads de forma manual, instruindo o programa a criar threads específicas na pool.**
 
 #### EVENT HANDLERS
 A arquitetura baseada em eventos trabalha com 2 partes principais, os **Event Emitters** e os **Event Listeners**.<br/>
@@ -827,7 +875,7 @@ process.on('SIGINT', ...)     // interrupção (Ctrl+C)
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
 
 ### PACKAGE MANAGERS
-**Uma dependência, é todo e qualquer conjunto de dados que realiza uma tarefa.** Assim como o JS possui features nativas de APIs do navegador, e outras que podem ser incorporadas através de libs externas, no Node, para usarmos funcionalidades que dependendem de libs externas, é necessário a utilização de algum **gerenciador de dependências**, que nada mais são do que *repositórios de códigos* voltados para pacotes do Node, onde é possível encontrar libs e realizar a instalação de tal no projeto. Os gerenciadores mais utilizados em Node são o **npm** que é o padrão que já vem na instalação do node no ambiente, e o **yarn**, um outro gerenciador mais novo no mercado.<br/>
+**Uma dependência, é todo e qualquer conjunto de dados que realiza uma tarefa.** Assim como o JS possui features nativas de APIs do navegador, e outras que podem ser incorporadas através de libs externas, no Node, para usarmos funcionalidades que dependendem de libs externas, é necessário a utilização de algum **gerenciador de dependências**, que nada mais são do que *repositórios de códigos* voltados para pacotes do Node, onde é possível encontrar libs e realizar a instalação de tal no projeto. Os gerenciadores mais utilizados em Node são o **npm** que é o padrão que já vem na instalação do Node no ambiente, e o **yarn**, um outro gerenciador mais novo no mercado. O npm possui a vantagem de ter um enorme repositório de bibliotecas e módulos, contendo ferramentas e soluções para os mais diversos problemas e requisitos que podem ser adicionados ao projeto sem a necessidade de uma nova configuração, pois já é o padrão do Node.<br/>
 Então, desde de dependências mais simples como algumas libs restritas que realizam tarefas bastante específicas, até os frameworks mais completos, é possível usar com NodeJS através destes gerenciadores de pacotes.<br/>
 É através destes gerenciadores de pacotes que é possível instalar essas dependências de pacotes externos que deseja-se usar no projeto. Então, quando o código abaixo é executado:
 ```shell script
@@ -875,6 +923,11 @@ Então, em vez de digitar comandos longos, que são fáceis de esquecer ou digit
 npm run watch
 npm run dev
 npm run prod
+```
+
+para desinstalar um módulo usa-se o comando:
+```shell
+npm un mod_name
 ```
 
 #### `package_lock.json`
@@ -1422,9 +1475,32 @@ import { somar, saudacao } from './utils.js';
 console.log(saudacao);
 console.log('2 + 3 =', somar(2, 3));
 ```
-**Sem o `"type": "module"` no `package.json` só é possível usar CJS (`require()` e `module.exports`), ou então para usar ESM, renomear os arquivos para `.mjs`, assim sendo permitido o uso de `import` e `export`.**
+**Sem o `"type": "module"` no `package.json` só é possível usar CJS (`require()` e `module.exports`), ou então para usar ESM, renomear os arquivos para `.mjs`, assim sendo permitido o uso de `import` e `export`.**<br/>
+Na prática, usar ou não estes padrões não traz diferença para o desenvolvimento da aplicação, porém o Node, “por baixo dos panos”, vai identificar as diferentes extensões ao carregar os programas e indexar os arquivos. Então, é permitido utilizá-los, embora este tipo de decisão muitas vezes fique a cargo da convenção utilizada por cada projeto e empresa.<br/>
+Uma boa prática é realizar o link dos módulos, garantindo que toda alteração feita no pacote sejam refletidas nos aplicativos que o usam. O npm vincula módulos utilizando *symlinks*, que são links simbólicos, como referências que apontam para arquivos ou diretórios locais. Existem 2 maneiras de se vincular user local modules a um projeto:
 
-Na prática, usar ou não este padrão não traz diferença para o desenvolvimento da aplicação, porém o Node, “por baixo dos panos”, vai identificar as diferentes extensões ao carregar os programas e indexar os arquivos. Então, é permitido utilizá-los, embora este tipo de decisão muitas vezes fique a cargo da convenção utilizada por cada projeto e empresa.
+1. **global link**: cria um symlink global para o `module.npm` entre o diretório global `node_modules` e o diretório do módulo criado (`user_module`). O diretório global `node_modules` é o local onde todos os pacotes npm do sistema instalados com a flag `-g` estão armazenados.
+2. **local link**: o npm cria um symlink entre o projeto local que está utilizando o módulo e o link global do módulo.
+
+Um link global deve ser criado na pasta do `user_module` com o comando:
+```shell
+cd ./local_module
+sudo npm link # ou também o shorthand: `npm ln`
+# output: /usr/local/lib/node_modules/local_module -> /home/user/local_module
+```
+
+Então, na pasta do projeto vincule o pacote:
+```shell
+cd ./project-application
+sudo npm link local_module
+# output: /home/user/project-application/node_modules/local_module -> /usr/local/lib/node_modules/local_module -> /home/user/local_module
+```
+
+Como o resultado mostra, acabou de ser criado um symlink a partir do diretório local `node_modules` do projeto `project-application` para o symlink `local_module` no `node_modules` global, que aponta para o diretório com o módulo `local_module`. Com isso, o processo de vinculação está completo.
+
+Para salvar um `user_local_module` como uma dependência e importá-lo como um módulo ao invés de usar seu relative path & extension, basta armazenar o arquivo que contém o código modularizado em um diretório para ele, então navegue até este diretório e inicie o npm `npm init -y` — usar a flag `-y` pula as configurações de personalização iniciais do `package.json`, porém, se este módulo for publicado, será necessário preencher os campos obrigatórios no `package.json`. Agora basta ir ao diretório do projeto e instalar o módulo utilizando a flag `--save` para que ele seja gravado no `package.json` principal do projeto `npm install --save path/mod_name`.
+
+Para deploy e update de projetos em produção, a melhor prática é publicar o pacote no npm, para que suas alterações sejam sempre visíveis à aplicação no servidor.
 
 ### SERVER
 Para criar um servidor com Node, basta importar o módulo nativo `createServer`, e definir algumas configurações:
