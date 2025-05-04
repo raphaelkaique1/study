@@ -440,8 +440,8 @@ const http = require("http");
 const server = http.createServer();
 
 server.on("request", (req, res) => {
-  console.log("requisição recebida");
-  res.end("requisição recebida");
+  console.log("requisição recebida - server");
+  res.end("requisição recebida - client\n");
 });
 
 server.listen(3000, () => {
@@ -875,7 +875,7 @@ process.on('SIGINT', ...)     // interrupção (Ctrl+C)
 Para que o Node possa *"entender"* como executar o projeto, ele depende do **package.json**. Este arquivo é o *core* de qualquer projeto que use Node, neste arquivo estão registradas todas as informações principais sobre o projeto, tais como o nome do projeto, o endereço do repositório no serviço de Git onde o projeto está armazenado, as versões utilizadas, todas e quaisquer configurações de libs e frameworks que o projeto usa, qual é o arquivo ponto de entrada do programa, a lista de dependências entre outras informações. Ou seja, este é como o *manifesto* de qualquer projeto em Node, e é o primeiro arquivo criado quando se inicia algum projeto.
 
 ### PACKAGE MANAGERS
-**Uma dependência, é todo e qualquer conjunto de dados que realiza uma tarefa.** Assim como o JS possui features nativas de APIs do navegador, e outras que podem ser incorporadas através de libs externas, no Node, para usarmos funcionalidades que dependendem de libs externas, é necessário a utilização de algum **gerenciador de dependências**, que nada mais são do que *repositórios de códigos* voltados para pacotes do Node, onde é possível encontrar libs e realizar a instalação de tal no projeto. Os gerenciadores mais utilizados em Node são o **npm** que é o padrão que já vem na instalação do Node no ambiente, e o **yarn**, um outro gerenciador mais novo no mercado. O npm possui a vantagem de ter um enorme repositório de bibliotecas e módulos, contendo ferramentas e soluções para os mais diversos problemas e requisitos que podem ser adicionados ao projeto sem a necessidade de uma nova configuração, pois já é o padrão do Node.<br/>
+**Uma dependência, é todo e qualquer conjunto de dados que realiza uma tarefa.** Assim como o JS possui features nativas de APIs do navegador, e outras que podem ser incorporadas através de libs externas, no Node, para usarmos funcionalidades que dependendem de libs externas, é necessário a utilização de algum **gerenciador de dependências**, que nada mais são do que *repositórios de códigos* voltados para pacotes do Node, onde é possível encontrar libs e realizar a instalação de tal no projeto. Os gerenciadores mais utilizados em Node são o **npm** que é o padrão que já vem na instalação do Node no ambiente, e o **yarn**, um outro gerenciador mais novo no mercado. O npm possui a vantagem de ter um enorme repositório de bibliotecas e módulos, contendo ferramentas e soluções para os mais diversos problemas e requisitos que podem ser adicionados ao projeto sem a necessidade de uma nova configuração, pois já é o padrão do Node. O **Node Package Manager** é 2 coisas: um repositório online opensource para publicação de projetos Node, e um utilitário CLI para interagir com estes, auxiliando na instalação, gerenciamento de versões e de dependências.<br/>
 Então, desde de dependências mais simples como algumas libs restritas que realizam tarefas bastante específicas, até os frameworks mais completos, é possível usar com NodeJS através destes gerenciadores de pacotes.<br/>
 É através destes gerenciadores de pacotes que é possível instalar essas dependências de pacotes externos que deseja-se usar no projeto. Então, quando o código abaixo é executado:
 ```shell script
@@ -1500,31 +1500,106 @@ Como o resultado mostra, acabou de ser criado um symlink a partir do diretório 
 
 Para salvar um `user_local_module` como uma dependência e importá-lo como um módulo ao invés de usar seu relative path & extension, basta armazenar o arquivo que contém o código modularizado em um diretório para ele, então navegue até este diretório e inicie o npm `npm init -y` — usar a flag `-y` pula as configurações de personalização iniciais do `package.json`, porém, se este módulo for publicado, será necessário preencher os campos obrigatórios no `package.json`. Agora basta ir ao diretório do projeto e instalar o módulo utilizando a flag `--save` para que ele seja gravado no `package.json` principal do projeto `npm install --save path/mod_name`.
 
-Para deploy e update de projetos em produção, a melhor prática é publicar o pacote no npm, para que suas alterações sejam sempre visíveis à aplicação no servidor.
+Para deploy e update de projetos em produção, a melhor prática é publicar o pacote no npm, para que suas alterações sejam sempre visíveis à aplicação no servidor. Para que seja possível publicar um pacote é necessário uma conta no [npmjs](https://www.npmjs.com/).<br/>
+Além disso, o código deve estar disponível em algum serviço de versionamento online, como o GitHub por exemplo, e sempre com a privacidade configurada como *público*.<br/>
+Dentro do repositório que se deseja publicar, deve-se setar as informações do autor e a licença do código:
+```shell
+npm login # se ainda não estiver logado
+npm set init.author.name "raphaelkaique1"
+npm set init.author.email "raphaelkaiquediassantos1@gmail.com"
+npm set init.license "MIT"
+npm adduser # este comando indica que o usuário setado é o dono o pacote a ser publicado
+```
+
+O próximo passo é criar o `package.json`, que irá conter todas as informações do pacote como nome do módulo, versão, url do repositório e etc. Para essa configuração, basta iniciar o npm com:
+```shell
+npm init
+```
+e responder as perguntas de configurações iniciais:
+- **Nome** - Nome do pacote, este deve ser **único** no npm, por isso é possível utilizar um *scope* como `@username/packname` para evitar conflitos.
+- **Versão** - Versão do pacote.
+- **Descrição** - Do que se trata o pacote.
+- **Entry point** - Caminho do arquivo.
+- **Test command** - Tem relação com testes.
+- **Github repository** - Repositório do github.
+- **Keywords** - Palavras chaves que vão facilitar na hora de achar nossa biblioteca.
+- **License** - Licença da biblioteca.
+
+A saída básica será algo como:
+```json
+{
+  "name": "nome-do-seu-pacote", // "@username/packname"
+  "version": "1.0.0",
+  "description": "Descrição breve do pacote",
+  "main": "index.js",
+  "author": "Nome do Autor",
+  "license": "MIT"
+}
+```
+
+Feitas as alterações necessárias e criado o `package.json`, atualizamos o repositório no GitHub antes de publicar o pacote.
+
+É possível empacotar o módulo para testar localmente, basta executar este comando **na pasta do módulo**:
+```shell
+npm pack
+```
+Este comando gera um arquivo `.tgz` que simula o pacote que será publicado.
+
+Ainda na pasta do módulo, para publicar no npm, basta executar o comando:
+```shell
+npm publish
+```
+Se for um pacote com *scope*, deve-se usar:
+```shell
+npm publish --access public
+```
+
+Assim o pacote está publicado com sucesso, e isso pode ser verificado no site do npm, apenas indicando o nome do pacote na url `https://www.npmjs.com/package/pack-name`. Então, para usar o pacote, basta apenas instalá-lo `npm i pack-name`/`npm install @username/packname`, e referenciá-lo no projeto em que se deseja usá-lo.
+
+Caso seja necessário realizar alguma alteração no pacote publicado, é necessário antes de atualizá-lo no repositório do npm informar a alteração através do *SemVer*. Isso pode ser feito alterando manualmente no `package.json` do módulo, ou na pasta do módulo executar algum dos comandos abaixo de acordo com o nível da alteração:
+```shell
+npm version patch  # 1.0.0 -> 1.0.1
+npm version minor  # 1.0.0 -> 1.1.0
+npm version major  # 1.0.0 -> 2.0.0
+```
+
+Em seguida basta atualizar o repositório no GitHub e então publica-lo novamente no npm.
+```shell
+npm publish
+
+# ou se for um pacote com scope, deve-se usar:
+npm publish --access public
+```
 
 ### SERVER
-Para criar um servidor com Node, basta importar o módulo nativo `createServer`, e definir algumas configurações:
+A principal função do Node é ser um servidor, então, começaremos criando um que retorna um texto sem formatação ao usuário. Para isso, importamos o pacote `http`, que é padrão do Node. Este pacote contém a função de criar o servidor. Para criar um servidor com Node, basta importar o módulo nativo `createServer`, e definir algumas configurações, como o `host` e a `port` em que o servidor se associará. Isso é necessário pois todo servidor web aceita solicitações de navegadores, essa interação é feita ao digitar um nome de domínio, que é traduzido para um endereço IP por um servidor DNS. Um endereço IP é uma sequẽncia única de números que identificam uma máquina em uma rede, como a internet.<br/>
+**HOST**: O valor `"localhost"` é um endereço privado especial que computadores usam para se referir a eles mesmos. Normalmente, ele é equivalente ao endereço IP interno `127.0.0.1` e está disponível apenas para o computador local, ou seja, não está disponível para nenhuma rede local da qual participamos e nem para a internet.<br/>
+**PORT**: A porta é um número identificador — que vai de 0 a 65535, usados pelos protocolos de rede como TCP e UDP — que os servidores usam como um ponto de *passagem* para o endereço IP. Elas diferenciam os serviços de rede rodando na mesma máquina, ou seja, são como canais de IO que pertmiem que os dados específicos cheguem ao local correto. No exemplo a seguir utilizaremos a porta `8000` — pois portas até 1024 são privilegiadas, o que significa que são reservadas para alguns serviços e protocolos, acima deste valor — até 49151 — existem as portas registradas, reservadas para serviços menos comuns e as portas dinâmicas — de 49152 à 65535 — que são usadas temporariamente para aplicações. As portas `8080` e `8000` são normalmente usadas como as portas padrão em processos de desenvolvimento e, na maioria dos casos, os devs usam essas portas no lugar de outras disponíveis para servidores HTTP.<br/>
+As portas atuam juntamente com os IPs para formar o que é chamado de **socket**: `IP:PORTA`, que é um *caminho*, como uma ponte para a comunicação entre servidor e cliente em uma rede, identificando de forma única um processo de comunicação em um computador. Para um servidor, é vital saber em qual endereço *escutar* as requisições do cliente, seu socket é como o cliente irá encontrar o servidor na máquina e assim realizar a comunicação.<br/>
+Ao vincular o servidor ao socket criado com o host e a port, é possível acessá-lo em um navegador local, no endereço `http://127.0.0.1:8000`.
 ```js
 import { createServer } from 'node:http'; // importa somente o método `createServer()` do módulo `http` do repositório do Node.js
 
 
-const hostname = '127.0.0.1'; // define o IP para conexão com clientes
-const port = 3000;          // define em qual porta o servidor irá escutar
+const host = '127.0.0.1'; // define o IP para conexão com clientes
+const port = 8000;        // define em qual porta o servidor irá escutar
 
 
-const server = createServer((req, res) => { /* http.createServer([options][, requestListener]) == const server = createServer((req, res) => { ... });
+const server = createServer((req, res) => {    /* http.createServer([options][, requestListener]) == const server = createServer((req, res) => { ... });
 cria o servidor e define um callback que será executado toda vez que o servidor receber uma requisição HTTP
 
 req: contém informações da requisição recebida, como o método, URL, headers e etc
 res: objeto usado para montar e enviar a resposta */
 
-  res.statusCode = 200;                         // define o código de status HTTP da resposta, 200 == "OK" (requisição bem-sucedida)
+  // res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.statusCode = 200;                         /* define o código de status HTTP da resposta, 200 == "OK" (requisição bem-sucedida)
+  os códigos de status do HTTP informam o quão bem uma solicitação HTTP foi processada pelo servidor */
 
   res.setHeader('Content-Type', 'text/plain');  /* define o tipo de conteúdo que será retornado ao cliente
   `text/plain` informa ao navegador que o conteúdo é texto puro, sem HTML ou JSON */
 
-res.end('Hello World'); /* finaliza a resposta retornando o conteúdo (no caso 'Hello world') como corpo da resposta
-  sem este método `.end()`, o navegador ficaria esperando a resposta terminar */
+  res.end('Hello world!'); /* finaliza a resposta retornando o conteúdo (no caso 'Hello world!') como corpo da resposta
+    sem este método `.end()`, o navegador ficaria esperando a resposta terminar */
 });
 
 /* em servidores TCP como é o caso deste exemplo, o método `.listen()` requer no mínimo:
@@ -1532,15 +1607,57 @@ server.listen([port[, host[, backlog]]][, callback])
 - port: porta virtual que estará aberta para conexão
 - host: endereço IP do servidor
 - callback: método que será executado quando o servidor estiver pronto */
-server.listen(port, hostname, () => {                           // inicia o servidor, que ficará escutando na porta e endereço definidos
-  console.log(`Server running at http://${hostname}:${port}/`); // ao acessar http://127.0.0.1:3000 é estabelecida uma conexão client x server
+server.listen(port, host, () => {                           // inicia o servidor, que ficará escutando na porta e endereço definidos
+  console.log(`Server running at http://${host}:${port}/`); // ao acessar http://127.0.0.1:8000 é estabelecida uma conexão client x server
 });
 ```
-
-Neste exemplo, o servidor está configurado para ouvir na porta e no nome do host especificados. Quanto o servidor está pronto, a função de callback é chamada, neste caso, informando que o servidor está em execução. **Sempre que um novo pedido é recebido, o evento `request` é chamado, providênciando 2 objetos:**
+Todas as funções tipo request listener em Node aceitam 2 argumentos: `req` e `res` — estes nomes de variáveis são opcionais. A solicitação HTTP que o cliente envia é capturada em um objeto `Request`, que corresponde ao 1º argumento `req`. A resposta HTTP retornada ao cliente é formada pela interação com o objeto `Response` no segundo argumento `res`. Neste exemplo, o servidor está configurado para ouvir na porta e no nome do host especificados. Quanto o servidor está pronto, a função de callback é chamada, neste caso, informando que o servidor está em execução. **Sempre que um novo pedido é recebido, o evento `request` é chamado, providênciando 2 objetos:**
 1. **uma requisição:** `http.IncomingMessage` é um objeto criado durante uma requisição, é passado como o 1º argumento do método para os eventos `'request'` e `'response'` respectivamente. **Ele pode ser usado para acessar o status, cabeçalho e dados da requisição.**
 2. **uma resposta:** `http.ServerResponse` é um objeto criado internamente por um servidor HTTP, **para servir como resposta à requisição do usuário**, sendo passado como o 2º parâmetro do método para o evento `'request'`.
 
 Esses 2 objetos são essenciais para lidar com a chamada HTTP. O 1º fornece os detalhes do pedido, neste simples exemplo não foi usado, mas é possível acessar o cabeçalho da requisição e solicitar dados. O 2º é usado para retornar dados ao cliente, neste caso com: `res.statusCode = 200`, que indica uma resposta bem-sucedida.
+
+Na linha da declaração da constante `server`, é atribuído à esta a função `createServer((req, res) => {})`, assim criando um novo objeto `server` através dessa função do módulo `http`. Esta função cria um servidor que aceita solicitações HTTP e as passa para a função callback relacionada.<br/>
+Após a criação do servidor, é necessário associá-lo a um endereço de rede. Isso é feito com o método `server.listen()`, que escuta as requisições enviadas ao endereço informado e faz com que o servidor criado com `server.createServer()` receba a requisição e responda de acordo. Este método de listener "escuta" toda atividade no endereço que é criado ao passar os endereços do host e port especificado. Ele aceita 3 argumentos: `port`, `host` e um `callback` que é acionado quando o servidor começa a escutar. Todos estes argumentos são opcinais, mas é aconselhável especificar qual porta e host o servidor deve ouvir, pois, ao implantar servidores web para diferentes ambientes, é importante saber a porta e o host nos quais ele está funcionando, para possibilitar a configuração do balanceamento de carga ou um alias DNS. No caso do exemplo, a função callback imprime uma mensagem no console para informar que o servidor está online.
+
+Ao executar o servidor, será possível ver o callback em `server.listen()` em execução. É de se notar que o prompt desaparece, e isso ocorre porque o servidor Node é um processo de longa duração — por causa do loop de eventos, que executa funções e esvazia a pilha de execução e fica aguardando uma nova instrução. O servidor só é encerrado em caso de erro que cause uma falha de encerramento ou pela interrupção intencional do processo do Node que está sendo executado.
+
+Para testar se o servidor está online, pode-se utilizar a ferramenta `cURL`, um utilitário CLI que transfere dados *para* e *a partir* de uma rede.
+```shell
+curl http://localhost:8000
+```
+Ao executar o comando acima, veremos uma saída no terminal conforme setado em `server.listen()`. Ao utilizar o `cURL`, foi enviada uma solicitação `GET` para o servidor em `http://localhost:8000`, que escutou as conexões neste endereço com `server.listen()`. Então, ao escutar e identificar o tipo de requisição, o servidor transmitiu a solicitação para a função que está escutando e lidando com tipos `"request"`, neste caso a função callback em `server.createServer()`, que retornou com o código de status `200` e od dados de texto para o cliente `cURL`, exibindo a resposta no terminal.<br/>
+Na maioria dos sites ou APIs que utiliza-se na web as respostas raramente são textos sem formatação, os formatos mais comuns são páginas HTML e dados JSON. A resposta retornada a partir de um servidor web pode ter vários formatos, além dos mencionados tabém podem haver outros formatos de texto como XML, CSV e etc. Além de que também ser retornados dados não textuais como PDFs, arquivos zip, mídias entre outros vários tipos de arquivos.<br/>
+Porém, o essencial de um servidor é retornar HTML e JSON, que são tipos de dados baseados em texto e são formatos populares para o envio de conteúdo na web. Muitas linguagens e ferramentas de desenvolvimento de servidor possuem recursos para retornar esses tipos diferentes de dados. No contexto do Node é necessário fazer 2 coisas:
+1. **Definir o cabeçalho do `Content-type` nas respostas HTTP com o valor adequado.**
+2. **Confirmar que o `res.end()` recebe os dados no formato correto.**
+
+Caso seja necessário um retorno de dados baseados em texto, uma boa opção está no formato JSON, este formato de dados é muito pelas APIs para aceitar e retornar dados, sendo mais leve que os padrões anteriores a ele como o XML por exemplo. No caso de um servidor que retorna um JSON, basta indicar no header da resposta do servidor o tipo `"application/json"`:
+```js
+const http = require("http");
+const server = http.createServer();
+
+server.on("request", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+});
+```
+O método `res.setHeader()` adiciona um cabeçalho HTTP à resposta. Estes cabeçalhos são informações adicionais que podem ser anexadas a uma solicitação ou uma resposta. O método `res.setHeader()` recebe 2 argumentos: o **nome do cabeçalho** e **seu valor**, respectivamente.<br/>
+O 1º argumento informa o **nome do cabeçalho**, que indica que o 2º argumento — o valor do cabeçalho — é **o formato dos dados**, também conhecido como *tipo de mídia*, que está sendo enviado com a solicitação ou resposta. Neste caso, o `Content-type` é o `application/json`.
+```js
+const http = require("http");
+const server = http.createServer();
+
+server.on("request", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+
+  /* abaixo o valor está sendo inputado diretamente na resposta,
+     mas poderia ser uma variável que contém os dados no formato
+     ou ainda um arquivo `.json`
+  */
+  res.end(`{"message": "This is a JSON response."}\n`);
+});
+```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">next</a>

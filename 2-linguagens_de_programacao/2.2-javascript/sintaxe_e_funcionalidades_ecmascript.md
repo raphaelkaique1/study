@@ -2376,6 +2376,9 @@ console.log(square.area) // 9
  console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
  ```
 
+  - https://www.alura.com.br/artigos/estruturas-de-dados-introducao
+  - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Data_structures
+
 ### EXPRESSÕES
 Uma expressão consiste em qualquer unidade válida de código que é resolvida como um valor. Conceitualmente, existem 2 tipos de expressões, aquelas que **atribuem** um valor a uma variável e aquelas que simplesmente **possuem** um valor.<br/>
 A expressão `x = 0` é um exemplo de uma atribuição, esta expressão utiliza o operador `=` para atribuir o valor `0` à variável `x`. A expressão em si é avaliada como `0`.<br/>
