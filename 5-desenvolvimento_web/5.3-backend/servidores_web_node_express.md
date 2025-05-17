@@ -156,7 +156,8 @@ Esta abordagem assegura um gerenciamento eficiente de múltiplas tarefas pelo ev
 Por exemplo:
 ```js
 const path = require('path');
-const filePath = path.join(__dirname, 'hello_world.txt'); // obtem o caminho do arquivo
+// obtém o caminho do arquivo
+const filePath = path.join(__dirname, 'hello_world.txt'); // a variável especial `__dirname` armaenza o caminho absoluto de onde o código Node está sendo executado
 
 const fs = require('fs');
 const data = fs.readFile(filePath, 'utf8', (error, data) => {
@@ -1091,7 +1092,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Ouvido na porta ${port}`);
+  console.log(`Ouvindo na porta ${port}`);
 });
 ```
 
@@ -1505,9 +1506,9 @@ Além disso, o código deve estar disponível em algum serviço de versionamento
 Dentro do repositório que se deseja publicar, deve-se setar as informações do autor e a licença do código:
 ```shell
 npm login # se ainda não estiver logado
-npm set init.author.name "raphaelkaique1"
-npm set init.author.email "raphaelkaiquediassantos1@gmail.com"
-npm set init.license "MIT"
+npm config set init-author-name "raphaelkaique1"
+npm config set init-author-email "raphaelkaiquediassantos1@gmail.com"
+npm config set init-license "MIT"
 npm adduser # este comando indica que o usuário setado é o dono o pacote a ser publicado
 ```
 
@@ -1629,7 +1630,7 @@ curl http://localhost:8000
 Ao executar o comando acima, veremos uma saída no terminal conforme setado em `server.listen()`. Ao utilizar o `cURL`, foi enviada uma solicitação `GET` para o servidor em `http://localhost:8000`, que escutou as conexões neste endereço com `server.listen()`. Então, ao escutar e identificar o tipo de requisição, o servidor transmitiu a solicitação para a função que está escutando e lidando com tipos `"request"`, neste caso a função callback em `server.createServer()`, que retornou com o código de status `200` e od dados de texto para o cliente `cURL`, exibindo a resposta no terminal.<br/>
 Na maioria dos sites ou APIs que utiliza-se na web as respostas raramente são textos sem formatação, os formatos mais comuns são páginas HTML e dados JSON. A resposta retornada a partir de um servidor web pode ter vários formatos, além dos mencionados tabém podem haver outros formatos de texto como XML, CSV e etc. Além de que também ser retornados dados não textuais como PDFs, arquivos zip, mídias entre outros vários tipos de arquivos.<br/>
 Porém, o essencial de um servidor é retornar HTML e JSON, que são tipos de dados baseados em texto e são formatos populares para o envio de conteúdo na web. Muitas linguagens e ferramentas de desenvolvimento de servidor possuem recursos para retornar esses tipos diferentes de dados. No contexto do Node é necessário fazer 2 coisas:
-1. **Definir o cabeçalho do `Content-type` nas respostas HTTP com o valor adequado.**
+1. **Definir o cabeçalho do `Content-Type` nas respostas HTTP com o valor adequado.**
 2. **Confirmar que o `res.end()` recebe os dados no formato correto.**
 
 Caso seja necessário um retorno de dados baseados em texto, uma boa opção está no formato JSON, este formato de dados é muito pelas APIs para aceitar e retornar dados, sendo mais leve que os padrões anteriores a ele como o XML por exemplo. No caso de um servidor que retorna um JSON, basta indicar no header da resposta do servidor o tipo `"application/json"`:
@@ -1639,18 +1640,18 @@ const server = http.createServer();
 
 server.on("request", (req, res) => {
   res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
+  res.setHeader("Content-Type", "application/json");
 });
 ```
 O método `res.setHeader()` adiciona um cabeçalho HTTP à resposta. Estes cabeçalhos são informações adicionais que podem ser anexadas a uma solicitação ou uma resposta. O método `res.setHeader()` recebe 2 argumentos: o **nome do cabeçalho** e **seu valor**, respectivamente.<br/>
-O 1º argumento informa o **nome do cabeçalho**, que indica que o 2º argumento — o valor do cabeçalho — é **o formato dos dados**, também conhecido como *tipo de mídia*, que está sendo enviado com a solicitação ou resposta. Neste caso, o `Content-type` é o `application/json`.
+O 1º argumento informa o **nome do cabeçalho**, que indica que o 2º argumento — o valor do cabeçalho — é **o formato dos dados**, também conhecido como *tipo de mídia*, que está sendo enviado com a solicitação ou resposta. Neste caso, o `Content-Type` é o `application/json`.
 ```js
 const http = require("http");
 const server = http.createServer();
 
 server.on("request", (req, res) => {
   res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
+  res.setHeader("Content-Type", "application/json");
 
   /* abaixo o valor está sendo inputado diretamente na resposta,
      mas poderia ser uma variável que contém os dados no formato
@@ -1658,6 +1659,296 @@ server.on("request", (req, res) => {
   */
   res.end(`{"message": "This is a JSON response."}\n`);
 });
+```
+
+Outro formato popular de compartilhamento de dados é o **C**onteúdo **S**eparado por **V**írgula, este é um padrão de texto muito usado para fornecer dados tabulares. Na maioria dos casos, cada linha é separada um por um caractere de nova linha, e cada item da linha é separado por uma vírgula. Para trabalhar com este formato no Node, deve-se setar o head da `response` com uma informação adicional:
+```js
+const http = require("http");
+const server = http.createServer();
+
+server.on("request", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/csv");
+  res.setHeader("Content-Disposition", "attachment;filename=file-name.csv");
+
+  res.end(`id,name,email\nraphaelkaique1,Raphael,raphaelkaiquediassantos1@gmail.com`);
+});
+```
+
+Desta vez, o `Content-Type` indica que um arquivo CSV está sendo retornado, pois o valor definido é `text/csv`. O segundo cabeçalho diz ao cliente como exibir os dados, em particular no navegador ou como um arquivo separado.<br/>
+Ao retornar repostas CSV na maioria dos casos, os navegadores modernos baixam automaticamente o arquivo, mesmo se o cabeçalho `Content-Disposition` não estiver definido. No entanto, ao retornar um arquivo CSV este cabeçalho deve estar presente, pois ele permite definir o nome do arquivo CSV. No exemplo sinalizamos ao navegador que este arquivo CSV é um anexo e deve ser baixado, em seguida informamos o nome do arquivo `file-name.csv`.<br/>
+Na chamada para o `res.end()` está o conteúdo do arquivo definido anteriormente para o download do cliente, está como uma string em formato CSV válido, onde a vírgula separa o valor de cada coluna e o caractere de nova linha `\n` separa cada uma delas. Neste retorno existem 2 linhas, uma para o cabeçalho da tabela e outra para os dados do arquivo.
+
+E o formato mais popular, o HTML, é o mais utilizado quando os usuários precisam interagir com o servidor através de um navegador. Para exibir conteúdo HTML através do servidor, deve-se alterar no header o `Content-Type` e na resposta o corpo HTML que se deseja enviar.
+```js
+const http = require("http");
+const server = http.createServer();
+
+server.on("request", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/html");
+  res.end(`<html><body><h1>Hello world!</h1></body></html>`);
+  /* acima o valor está sendo inputado diretamente na resposta,
+     mas poderia ser uma variável que contém os dados no formato
+     ou ainda um arquivo `.html`
+ 
+  usando variáveis:
+  let helloworld = `<html><body><h1>Hello world!</h1></body></html>`;
+  res.end(helloworld);
+  */
+});
+```
+Neste caso, `res.end()` possui uma string que contém um HTML válido, e ao ser acessado o endereço do servidor no navegador, o código na string poderá ser visualizado renderizado pelo browser em forma de página HTML.<br/>
+O mais comum é que o conteúdo HTML esteja em um arquivo próprio. Para ler arquivos no sistema, o Node utiliza o módulo nativo `fs` para carregar os dados de arquivos para dentro da aplicação Node, podendo assim *transferir* estes dados para outra ponta qualquer da aplicação.<br/>
+Para ler um arquivo com o pacote `fs`, utilizamos o método `readFile()` que solicita 3 argumentos, sendo o 1º o caminho e nome do arquivo, o 2º o tipo de formato do conteúdo do arquivo e por fim o 3º que é um callback informando o que deve ser feito com os dados *fetched* do arquivo lido.
+```js
+const http = require("http");
+const server = http.createServer(); // cria o servidor
+
+const path = require('path');
+const filePath = path.join(__dirname, 'index.html'); // obtem o caminho do arquivo da página
+
+const fs = require("fs"); // importa o módulo
+
+server.on("request", (req, res) => {
+  // leitura do arquivo no navegador com callback
+  fs.readFile(filePath, 'utf8', (error, data) => {
+    if(error) {                                      // tratamento de possíveis erros durante a leitura
+      res.statusCode = 500;                          // código de bad getaway do servidor
+      res.setHeader("Content-Type", "text/plain");   // retorna um conteúdo tipo texto sem formatação
+      res.end("Erro interno ao carregar a página."); // mensagem exibida no navegador
+
+    } else {                                         // executa em caso de sucesso da leitura
+      res.statusCode = 200;                          // informa que a requisição foi bem sucedida
+      res.setHeader("Content-Type", "text/html");    // retorna um conteúdo tipo HTML
+      res.end(data);                                 // envia os dados do arquivo lido
+    }
+  });
+});
+
+server.listen(3000, () => {
+  console.log("Servidor escutando em http://localhost:3000");
+});
+```
+
+Uma outra forma mais moderna de realizar a leitura e escrita de arquivos de forma assíncrona é utilizar a versão `.promises` ao importar o módulo, isso permite o uso de `async` e `await` no código.<br/>
+Ao importar o objeto promessa do tipo *variant*, utiliza-se das práticas mais modernas recomandadas para o JS. Ao usar promessas o código se torna sintaticamente mais sucinto em comparação ao callback como no exemplo anterior.<br/>
+O código abaixo lê de forma assíncrona os dados do arquivo apenas quando um usuário solicita o sistema.
+```js
+const http = require("http");
+const fs = require("fs").promises; // importa o módulo assíncrono
+
+const PORT = 3000;
+const HOST = "localhost";
+const FILE = `${__dirname}/index.html`
+
+const server = http.createServer();
+
+server.on("request", (_, response) => {
+  // método assíncrono de leitura
+  fs.readFile(FILE) // lê o arquivo no caminho informado
+
+  // método assíncrono (Promise) de execução após a leitura do arquivo
+    .then(contents => {
+      response.setHeader("Content-Type", "text/html");
+      response.writeHead(200);
+      response.end(contents); // envia os dados do arquivo lido ao cliente
+    })
+    .catch(error => {
+      console.log(error);
+      response.setHeader("Content-Type", "text/plain");
+      response.writeHead(500);
+      response.end(`Erro interno no servidor.`);
+    });
+})
+
+server.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`));
+```
+
+Este método lê o arquivo no caminho informado `fs.readFile()` e em seguida retorna a página HTML assim que essa leitura estiver finalizada e carregada `.then()`. Se a promessa `fs.readFile()` for resolvida com sucesso, os dados serão enviados ao cliente com o método `.then()`, que carrega no parâmetro `contents` os dados do arquivo HTML. O método de leitura pode causar ocasionalmente, então a função `.catch()` captura o erro sem *quebrar* o restante da execução da aplicação, se a promessa encontrar um erro ela é rejeitada, então o `.then()` é ingnorado e o bloco em `.catch()` é executado.
+
+Em produção retornar conteúdo HTML desta forma é inviável, pois arquivos muito grandes podem levar um bom tempo para carregar. O recomendável é carregar os arquivos HTML no momento da inicialização, e após serem carregados define-se o servidor, que então começa a escutar solicitações em um endereço, sendo mais eficiente e escalonável.<br/>
+Neste exemplo, no lugar de carregar o HTML para cada solicitação, ele será carregado apenas uma vez no início, e então a solicitação será retornada com estes dados carregados na inicialização.
+```js
+const http = require("http");
+const fs = require("fs").promises;
+
+let indexFile; /* no 1º momento, está como `undefined`, até que a leitura tenha sido bem sucedida
+o que neste caso agora ela contém os dados lidos em `readFile(contents)`
+e então ela é devolvida para o cliente na função `createServer()` */
+
+const server = http.createServer((req, response) => {
+/*
+  com os dados carregados em `indexFile` durante a inicialização do servidor pela função `readFile()`
+  agora, quando o servidor receber uma requisição ele não precisa mais ler e carregar os arquivos toda vez
+  eliminando este processo de leitura a cada requisição, assim os dados são lidos apenas 1x, antes mesmo da inicialização do serviço
+
+  o escopo abaixo recebe a requisição e em caso de sucesso da função `readFile()` retorna os dados lidos para o cliente que requisitou */
+  indexFile ? response.writeHead(200, {"content-type": "text/html"}).end(indexFile): null;
+});
+
+// a função abaixo recebe o arquivo e o lê, e logo que a realização dessa leitura acontece com sucesso inicia o serviço do servidor no endereço especificado
+fs.readFile(`${__dirname}/index.html`)  // recebe o arquivo para leitura
+  .then(contents => {                   // carrega os dados da leitura
+    indexFile = contents;               // atribui os dados lidos à variável `indexFile`
+    server.listen(3000, "localhost");   // sobe o servidor
+  })
+  .catch(error => {  // captura possíveis erros na leitura
+    console.log(error);
+    process.exit(1); // interrompe e encerra a execução do servidor
+  });
+```
+
+Desta forma, quando o programa é executado, a variável `indexFile` inicialmente vazia passa a reter o conteúdo do arquivo HTML para a inicialização do programa em `.listen()`, e somente após essa leitura o servidor passa a escutar no endereço e realizar o serviço. Quando a leitura é bem sucedida o conteúdo lido é salvo na variável `indexFile` para ser usada durante uma requisição em `.createServer()`, e em seguida ativa o serviço de escuta `listen()` do servidor no endereço definido. O ponto principal é que o arquivo precisa ser carregado **antes** do servidor começar a escutar, desta maneira, a resposta à requisição `createServer()` com certeza retornará uma página HTML, já que para isso a variável `indexFile` não pode estar vazia – mas sim, carregada com o conteúdo lido. Em outras palavras, o servidor só sobe se o arquivo for carregado no programa. Assim também, o tratamento de erros fica mais fácil de ser debugado, logo na falha da leitura do arquivo. Se o arquivo não puder ser carregado, o erro será capturado e exibido no console. Em seguida, o programa é encerrado com a função `exit()` do objeto global `process` sem iniciar o servidor. Desta maneira é possível ver a razão pela qual a leitura do arquivo falhou, resolver o problema e, em seguida, iniciar novamente o servidor.
+
+Normalmente, um servidor trabalha com rotas para atender aos diferentes tipos de requisições solicitadas pelos clientes. Clientes solicitam diferentes tipos de dados, e é isso que o servidor deve atender para retornar corretamente a cada requisição recebida. Estes dados de solicitação por parte do cliente são usados para determinar o que deve ser retornado pelo servidor, usa-se esses dados de solicitações principalmente ao configurar rotas e caminhos diferentes. O que foi feito até agora foi retonar a mesma resposta para toda solicitação recebida, enquanto que, a maioria dos sites e APIs no mercado geralmente possuem mais de 1 **end point**, este ponto de extremidade define no servidor quais dados e serviços devem ser executados e retornados para cada tipo de requisição, permitindo assim uma aplicação com vários recursos.<br/>
+Um bom exemplo para isso seria um sistema de gerenciamento de livros que poderia ser usado em uma biblioteca. Esse sistema precisaria gerenciar não apenas os dados de livros, mas também os dados de autores, para facilitar os processos de catalogação e consulta. Embora os dados para livros e autores estejam relacionados, eles são objetos diferentes. Nestes casos, os desenvolvedores normalmente programam diferentes *end points* como uma maneira de indicar aos usuários da API com quais tipos de dados eles estão interagindo.<br/>
+O exemplo abaixo contém um servidor criado para uma biblioteca pequena, com o propósito de retornar 2 tipos diferentes de dados no formato JSON. Se um usuário acessar o endereço do servidor em `/books`, ele receberá uma lista de livros, se acessar `/authors`, receberá uma lista de informações do autor. Então este servidor irá retornar os dados de acordo com o end point que o usuário acessar.<br/>
+No arquivo a seguir, estarão os dados em JSON a serem enviados para o usuário.
+```js
+// routes.js
+const books = JSON.stringify([
+  { title: "The Alchemist", author: "Paulo Coelho", year: 1988 },
+  { title: "The Prophet", author: "Kahlil Gibran", year: 1923 }
+]);
+
+const authors = JSON.stringify([
+  { name: "Paulo Coelho", countryOfBirth: "Brazil", yearOfBirth: 1947 },
+  { name: "Kahlil Gibran", countryOfBirth: "Lebanon", yearOfBirth: 1883 }
+]);
+
+module.exports = {books, authors};
+```
+A variável `books` é uma string que contém dados JSON para uma matriz de objetos do tipo livro, onde cada livro tem um título, autor e ano de publicação. Enquanto a variável `authors` também é uma string, mas que contém o JSON para uma matriz de objetos do tipo autor, onde cada autor possui um nome, país de origem e ano de nascimento.<br/>
+Com os dados que as respostas retornarão definidos, deve-se adicionar a lógica para retornar as rotas corretas. Para isso, primeiro garantiremos que cada resposta do servidor tenha o cabeçalho `"content-type"` correto, então definimos cada resposta de acordo com cada caso de rota solicitada, retornando o JSON correto de acordo com o caminho da URL que o usuário acessar.
+```js
+const data = require("./routes"); // importa os dados do arquivo de origem
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.setHeader("content-type", "application/json"); // define o tipo de dado a ser retornado independente da resposta
+  /*
+  o objeto `req` contém todos os dados da solicitação do cliente, inclusive qual endpoint acessou a partir da URL do servidor
+  o caminho da URL de um objeto de solicitação pode ser obtido através do acesso à sua propriedade `url`
+
+  um switch/case pode ser adicionado para lidar com cada URL e retornar o JSON apropriado para cada caso
+  a switch oferece uma maneira de controlar qual código é executado dependendo do valor de um objeto ou expressão JS
+  */
+  switch(req.url) {
+    case "/books":
+      res.writeHead(200).end(`${data.books}\n`);
+      break;
+    case "/authors":
+      res.writeHead(200).end(`${data.authors}\n`);
+      break;
+    default:
+      // caso o usuário tente acessar um endpoint não definido essa mensagem será retornada
+      res.writeHead(404).end(JSON.stringify({error: "Resource not found."}));
+      break;
+  }
+});
+
+server.listen(3000, "localhost");
+```
+Manipulando o objeto da requisição com um simples `switch/case` podemos definir qual endpoint retornar ao usuário.
+
+Falando sobre caminhos, outro pacote bem utilizado no Node é o `path`. Este pacote nativo disponibiliza várias funcionalidades úteis para acessar e interagir com o `file system`. Ele possui o `path.sep`, que provê o **caracter separador** de seguimento de caminho `\` no Windows, e `/` no Linux/MacOS, e também o `path.delimiter`, que fornece o **caracter delimitador** de caminho `;` no Windows e `:` no Linux/MacOS. Seus módulos mais usados são:
+
+- **`path.basename()`**: retorna a últuma parte de um caminho. Um 2º parâmetro pode filtrar a extensão do arquivo.
+```js
+const path = require("path");
+const base = "../src/";
+const fileName = "package.json";
+const file = `${base}${fileName}`
+
+console.log(path.basename(file));         // package.json
+console.log(path.basename(file, ".json")) // package
+```
+
+- **`path.dirname()`**: retorna parte do diretório de um caminho.
+```js
+const path = require("path");
+
+console.log(path.dirname(`/home/user/Desktop`));         // /home/user
+console.log(path.dirname(`/home/user/Desktop/project`)); // /home/user/Desktop
+```
+
+- **`path.extname()`**: retorna a extensão de um caminho.
+```js
+const path = require("path");
+
+console.log(path.extname(`/home/user/Desktop/project/`));        // ''
+console.log(path.extname(`/home/user/Desktop/project/main.js`)); // .js
+```
+
+- **`path.isAbsolute()`**: retorna `true` se o caminho for absoluto.
+```js
+const path = require("path");
+
+console.log(path.isAbsolute(`/home/user/Desktop/project/main.js`)); // true
+console.log(path.isAbsolute(`~/Desktop/project/`));                 // false
+```
+
+- **`path.join()`**: concatena 2 ou mais partes de um caminho.
+```js
+const path = require("path");
+const name = "raphael"
+
+console.log(path.join('/', 'users', name, 'notes.txt')) // /users/raphael/notes.txt
+```
+
+- **`path.normalize()`**: calcula o caminho correto quando ele contêm especificadores relativos como `.`, `..` ou barras duplas.
+```js
+const path = require("path");
+
+console.log(path.normalize('/users/dev/..//notes.txt')); // /users/notes.txt
+```
+
+- **`path.parse()`**: cria um objeto contendo os segmentos que compõe o caminho fornecido.
+```js
+const path = require("path");
+
+console.log(path.parse("/GitHub/study/README.md"));
+// que resulta em:
+JSON = {
+  root: '/',
+  dir: '/GitHub/study',
+  base: 'README.md',
+  ext: '.md',
+  name: 'README'
+}
+```
+
+- **`path.relative()`**: aceita 2 caminhos como argumentos, retornando o caminho relativo do 1º para o 2º baseando-se no diretório atual.
+```js
+const path = require("path");
+
+console.log(path.relative("/users/raphael", "/users/raphael/notes.txt"));     // notes.txt
+console.log(path.relative("/users/raphael", "/users/raphael/Dev/notes.txt")); // Dev/notes.txt
+```
+
+- **`path.resolve()`**: obtém o cálculo do caminho absoluto de um caminho relativo.
+```shell
+raphael@mach-1:~/Dev  $ node
+
+> require("path").resolve("CONTRIBUTING.md")
+'/home/raphael/Dev/CONTRIBUTING.md'
+```
+
+Ao especificar um 2º parâmetro, será usado o 1º como base.
+```shell
+raphael@mach-1:~/Dev  $ node
+
+> require("path").resolve("coding", "README.md")
+'/home/raphael/Dev/coding/README.md'
+```
+
+Se o 1º parâmetro começar com uma barra, será interpretado como um caminho absoluto.
+```shell
+raphael@mach-1:/  $ node
+
+> require("path").resolve("/etc", "env.sh")
+'/etc/env.sh'
 ```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/typescript.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">next</a>

@@ -10,7 +10,7 @@
  - *Responsivo*.
  - *Case sensitive*.
 
- O JavaScript, como o próprio nome sugere, é uma linguagem de *scripting*. Uma linguagem de scripting é comumente definida como uma linguagem de programação que permite ao programador controlar uma ou mais aplicações de terceiros. No caso do JavaScript, podemos controlar alguns comportamentos dos navegadores através de trechos de código que são enviados na página HTML. 
+ O JavaScript, como o próprio nome sugere, é uma linguagem de *scripting*. Uma linguagem de scripting é comumente definida como uma linguagem de programação que permite ao programador controlar uma ou mais aplicações de terceiros. No caso do JavaScript, podemos controlar alguns comportamentos dos navegadores através de trechos de código que são enviados na página HTML.
 
 ## CÓDIGO
  Quando o navegador encontra um bloco de código JavaScript, ele geralmente executa na ordem, de cima para baixo. JavaScript é uma linguagem de programação leve e interpretada. O navegador recebe o código JavaScript em sua forma de texto original e executa o script a partir dele. Do ponto de vista técnico, a maioria dos intérpretes modernos de JavaScript realmente usa uma técnica chamada compilação just-in-time para melhorar o desempenho; o código-fonte JavaScript é compilado em um formato binário mais rápido enquanto o script está sendo usado, para que possa ser executado o mais rápido possível. No entanto, o JavaScript ainda é considerado uma linguagem interpretada, pois a compilação é manipulada em tempo de execução, e não antes.<br/>
@@ -169,7 +169,7 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
    "use strict";
    // aqui o código está em strict mode
    y = 20; // Isso gerará um erro, pois 'y' não foi declarado.
- } 
+ }
 
  function outraFuncao() {
    // aqui o código NÃO está em strict mode
@@ -504,7 +504,7 @@ console.log("Nome:\tRaphael");
 
 - **Caracter de Escape (`\\`)**  
 ```js
-console.log("C:\\Users\\Raphael"); 
+console.log("C:\\Users\\Raphael");
 // Saída: C:\Users\Raphael
 ```
 
@@ -892,7 +892,7 @@ Assim como o `toString()`, transforma arrays em strings, porém permite passar u
 ```js
 var alphabetArray = ['a', 'b', 'c'];
 var alphabetString = alphabetArray.join(" - ");
-console.log(`${alphabetArray}: ${typeof alphabetArray} | ${alphabetString}: ${typeof alphabetString} `) // a,b,c: object | a - b - c: string 
+console.log(`${alphabetArray}: ${typeof alphabetArray} | ${alphabetString}: ${typeof alphabetString} `) // a,b,c: object | a - b - c: string
 ```
 
 - **`replace()`**<br/>
@@ -2132,7 +2132,7 @@ console.log(obj.novaPropriedade); // 123
          this[_name] = name;
          this[_age] = age;
      }
-    
+   
      saudacao() {
          console.log(`Olá, me chamo ${this[_name]}.`);
      }
@@ -2373,11 +2373,8 @@ console.log(square.area) // 9
 
  // Criando e inicializando um array tipado:
  let floatArray = new Float32Array([1.5, 2.5, 3.5]);
- console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
+ console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
  ```
-
-  - https://www.alura.com.br/artigos/estruturas-de-dados-introducao
-  - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Data_structures
 
 ### EXPRESSÕES
 Uma expressão consiste em qualquer unidade válida de código que é resolvida como um valor. Conceitualmente, existem 2 tipos de expressões, aquelas que **atribuem** um valor a uma variável e aquelas que simplesmente **possuem** um valor.<br/>
@@ -2892,11 +2889,11 @@ A tabela a seguir descreve a precedência de operadores, da mais alta para a mai
  Em linguagens de programação, as intruções que permitem controlar decisões e loops de execução são chamadas de *Estruturas de Controle*. **Uma estrutura de controle dirige o fluxo da execução através de uma sequência de instruções, baseada em _decisões_ entre outros fatores.** *A parte mais importante de uma estrutura de controle é a **condição**, cada condição é uma expressão que se tem como resultado **`true`** ou **`false`**.*<br/>
  O JS oferece um total de 4 instruções para processar o código de acordo com as condições determinadas pelo programador. Com as condicionais, modificamos o fluxo de execução como acharmos conveniente, dependendo se uma condição é cumprida. Dependendo das necessidade de nosso código, o condional pode se tornar tão complicado quanto necessário. Todas as condições podem ser usadas em conjunto para formar a lógica de execução do programa.
  1. **CONDICIONAL**
-   - **`if` - `if-else` - `if-elseif` - `if-elseif-else`**: 
-   - **`switch-case`**: 
+   - **`if` - `if-else` - `if-elseif` - `if-elseif-else`**:
+   - **`switch-case`**:
  2. **LOOPS**
-   - **`for` - `for-in` - `for-of` - `forEach` - `for-await-of`**: 
-   - **`while` - `do-while`**: 
+   - **`for` - `for-in` - `for-of` - `forEach` - `for-await-of`**:
+   - **`while` - `do-while`**:
 
 ##### ALTERADORES DE FLUXO
  Podemos manipular a iteração de **loops** usando alteradores de fluxos quando uma condição além da original é atingida. São eles:
@@ -3775,7 +3772,7 @@ Cada um dos contadores mantém sua independência em relação ao outro, pois se
 Usar closures desta maneira oferece uma série de benefícios que estão normalmente associados a programação orientada a objetos, em particular encapsulamento e ocultação de dados.
 
 ###### TIPOS DE FUNÇÕES
- As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código. 
+ As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código.
  - **Funções _SEM_ `(parameters)`**: Usadas quando a operação pode ser feita com valores internos ou globais, ou quando não há necessidade de interação com o resto do código.
  - **Funções _COM_ `(parameters)`**: Usadas quando a operação precisa de entradas externas para ser realizada.
  - **Funções _SEM_ `return`**: Usadas quando a operação apenas modifica o estado temporáriamente ou imprime resultados, sem necessidade de repassar o valor para o resto do código.
@@ -3922,7 +3919,7 @@ Usar closures desta maneira oferece uma série de benefícios que estão normalm
  console.log(numeros);                   // [ 1, 2, 3 ]                   <- normal
  console.log(...numeros);                // 1 2 3                         <- separamos por completo cada index do aray original
  console.log([...numeros]);              // [ 1, 2, 3 ]                   <- podemos copiar outro array sem modificá-lo
- const maisNumeros = [...numeros, 4, 5]; // [ 1, 2, 3, 4, 5 ]             <- novo array criado com a cópia 
+ const maisNumeros = [...numeros, 4, 5]; // [ 1, 2, 3, 4, 5 ]             <- novo array criado com a cópia
  console.log({...numeros});              /* { '0': 1, '1': 2, '2': 3 }    <- além de criar objetos, visto que cada valor ocupa uma posição,
                                             e as chaves serão como as posições do array */
 
@@ -4245,7 +4242,7 @@ Usar closures desta maneira oferece uma série de benefícios que estão normalm
     console.log(`km total: ${this.#km}`);
   }
 
-  /* caso haja necessidade de devolver um valor privado tratador em um método também privado 
+  /* caso haja necessidade de devolver um valor privado tratador em um método também privado
      devemos criar um método que pode ser chamados de fora da classe para invocar o método privado */
   exibirKm(){
     this.#KM();
@@ -4902,7 +4899,7 @@ Métodos para executar ações depois de um tempo específico.
  ```html
  <input type="button" value="click" onclick="alert('button clicked')"/>
 
- <button onclick="alert('button clicked')">click me</button> 
+ <button onclick="alert('button clicked')">click me</button>
  ```
 
  Cada elemento da página tem sua própria lista de eventos suportados. Vejamos outro exemplo de tratamento de eventos, desta vez em um menu suspenso, onde definimos um comportamento quando alteramos o valor selecionado:
@@ -4957,7 +4954,7 @@ Métodos para executar ações depois de um tempo específico.
  1. **tipo de evento que queremos detectar**
  2. **a função que o manipulador de eventos irá executar quando o evento ocorrer**
  ```js
- botaoClicavel.addEventListener("click", 
+ botaoClicavel.addEventListener("click",
   function() {
     alert("Botão foi clicado!");
   }
