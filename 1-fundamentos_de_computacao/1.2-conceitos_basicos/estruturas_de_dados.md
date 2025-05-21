@@ -1,10 +1,55 @@
  # Estruturas de Dados
+ Em computação é comum utilizar os dados de forma conjunta, e a forma como estes dados serão agregados e organizados depende de como serão utilizados e processados, levando-se em consideração, por exemplo, a eficiência para buscas, o volume dos dados trabalhados, a complexidade da implementação e a forma como os dados se relacionam. Estas diversas formas de organização são as chamadas estruturas de dados. As estruturas de dados junto com o estudo de algoritmos fazem parte dos fundamentos da programação. Os dados são os blocos básicos da programação, podendo representar uma unidade ou um elemento de informações, que podem ser acessados através de um identificador. Estruturas de dados são formas específicas de organizar, armazenar e manipular dados de forma eficiente, visando facilitar o acesso e a modificação desses dados dependendo do problema que se deseja resolver. Pode-se descrever a estrutura de dados como uma abstração computacional que define como os dados são armazenados na memória, relacionados entre si, acessados e manipulados. São a base lógica de software, desde algoritmos simples até sistemas complexos, todos se apoiam em estruturas de dados para funcionar corretamente. Podemos afirmar que um programa é composto de algoritmos e estruturas de dados, que juntos fazem com que o programa funcione como deve. Cada estrutura de dados tem um conjunto de métodos próprios para realizar operações como:
+ - inserir ou excluir elementos
+ - buscar e localizar elementos
+ - ordenar e classificar elementos de acordo com alguma ordem especificada
+
+ As estruturas de dados podem ser lineares ou não lineares, homogêneas — onde todos os dados que compõe a estrutura são do mesmo tipo — ou heterogêneas — que podem conter dados de vários tipos; estáticas — com tamanho e capacidade de memória fixa — ou dinâmicas — que podem se expandir. Os tipos de estrutura de dados podem ser agrupados em categorias:
+ 1. **Estruturas Lineares**: armazenam os dados de forma *sequencial*, ou seja, linha a linha.
+    - **Array** — Vetores e Matrizes: possuem tamanho fixo, acessados por índice.
+    - **Linked Lists** — Listas Ligadas: cada elemento aponta para o próximo, para acessar um elemento deve-se passar por todos os anteriores.
+      - Listas Simples
+      - Lista Duplamente Ligada
+      - Lista Circular
+    - **Stack** — Pilha: *LIFO*, o último elemento a entrar na pulha é o primeiro a sair.
+    - **Queue** — Fila: *FIFO*, o primeiro elemento a entrar é o primeiro a sair.
+    - **Deque** — Double-Ended Queue: insere e remove os elementos de ambos os lados.
+ 2. **Estruturas Hierarquicas**: organizam os dados de forma hierarquica, como elementos pais e filhos.
+    - **Trees** — Árvores: Estrutura em forma de galhos, ou seja, não cíclica.
+      - Árvore Binária
+      - Árvore Binária de Busca — BST
+      - Árvore Balanceada — AVL
+      - Árvore B — Data Bases
+      - Árvore de Prefixos — Trie
+      - Árvore de Intervalos — Segment Tree
+      - Árvore de Somas — Frenwick Tree
+    - **Heap** — Min Heap & Max Heap: usada em algoritmos de prioridade, como em filas de prioridade.
+ 3. **Estruturas de Grafos**: conjunto de nós conectados por arestas.
+    - **Graphs** — Grafos: modelagem de dados estruturados que representam entidades e relacionamentos.
+      - Direcionados / Não Direcionados
+      - Ponderados / Não Ponderados
+      - Cíclicos / Acíclicos
+      - Conexos / Desconexos
+      - Lista de Adjacência
+      - Matriz de Adjacência
+  4. **Estruturas Associativas** — Mapeamentos: permitem associar uma chave a um valor.
+     - **Hash Table** — Hash Map / Dicionário: associações chave-valor com busca eficiente.
+     - **Set** — Conjunto: armazena apenas valores únicos, podendo usar hashing ou árvore balanceada.
+  5. **Estruturas Derivadas e Abstratas**: combinam ou especializam as anteriores.
+     - **Tuplas**: coleções imutáveis ordenadas.
+     - **Record / Struct / Object**: coleções nomeadas, ou seja, pares de chave e valor.
+     - **Union**: tipos mistos em linguagens C & C Like.
+     - **Priority Queue**: fila ordenada por prioridade.
+     - **Multimap & Multiset**: permitem múltiplos valores por chave.
+     - **Bloom Filter**: estrutura probabilística para verificar pertencimento.
+     - **Skip List**: alternativa eficiente à árvore balanceada.
+     - **Disjoint Set & Union-Find**: estrutura para conjuntos disjuntos.
 
  ## Abstração de Dados
  A forma como o usuário e o programador lidam com os dados não corresponde à forma verdadeira como os dados estão armazenados na memória do computador, ou como eles são realmente. Chamamos de abstração de dados, estruturas muito úteis que "mascaram" os dados para visualizar e manipulá-los de forma à tornar as soluções de uso mais intuitiva.
 
- ## 1. Vetores / Arrays e Matrizes: Abstraindo os dados<br/>Conhecendo a estrutura de lista em memória contígua.
- Uma lista é uma coleção de elementos que aparecem sequencialmente. São exemplos: listas de convidados de uma festa, lista de compras. Nomes também podem ser vistos como listas de letras. Um vetor (ou array) permite acesso direto a qualquer elemento da lista, isto é, você não precisa percorrer todos os elementos de uma lista até encontrar o que você precisa, basta usar o índice da estrutura. Observe a figura abaixo uma parte da memória do computador, as informações estão uma “ao lado” da outra. Um **vetor / array** *é uma lista linear na qual a ordem lógica dos elementos (a ordem "vista" pelo usuário) é a mesma ordem física (em memória principal) dos elementos.* Isto é, elementos vizinhos na lista estarão em posições vizinhas na memória. Vejamos por exemplo como seria armazenado na memória uma lista de nomes de pessoas armazenadas de forma contígua:
+ ## 1. Vetores e Matrizes: Abstraindo os dados<br/>Conhecendo a estrutura de lista em memória contígua.
+ Também chamado de vetor, matriz ou arranjo, um array é a mais comum das estruturas de dados, sendo descrito como uma lista ordenada de valores. Por *ordenada* entende-se que é uma lista onde os valores sempre são acessados na mesma ordem, ou seja, a não ser que seja utilizada alguma função ou método para alterar a ordem, o primeiro elemento sempre terá o valor definido inicialmente e assim por diante. Uma lista é uma coleção de elementos que aparecem sequencialmente. São exemplos: listas de convidados de uma festa, lista de compras. Nomes também podem ser vistos como listas de letras. Um array permite acesso direto a qualquer elemento da lista, isto é, você não precisa percorrer todos os elementos de uma lista até encontrar o que você precisa, basta usar o índice da estrutura. Observe a figura abaixo uma parte da memória do computador, as informações estão uma “ao lado” da outra. Um **vetor** *é uma lista linear na qual a ordem lógica dos elementos, ou seja a ordem "vista" pelo usuário, é a mesma ordem física — em memória — dos elementos.* Isto é, elementos vizinhos na lista estarão em posições vizinhas na memória. Vejamos por exemplo como seria armazenado na memória uma lista de nomes de pessoas armazenadas de forma contígua.
 <pre>
                       ┌─────────────────────────────────────┐
                       | BLOCO CONTÍNUO DE CÉLUAS NA MEMÓRIA |
@@ -79,6 +124,14 @@ NOTAS[9] = 3                                      ─>
 └────┴────┴────┴────┴────┼────┴────┴────┴────┴────┼────┴────┴────┴────┴────┘
                                            └> elemento da segunda linha, terceira coluna
 </pre>
+ Sendo a mais comun estrutura, arrays são utilizados em praticamente toda situação que envolva organizar dados de um mesmo tipo, sejam dados recebidos por uma API, enviados a uma base de dados, ou mesmo passados como parâmetro para uma função ou método. Os arrays também podem ser multidimensionais, sendo utilizados sempre que há necessidade de tabular dados.
+
+ Em um array, é possível utilizar funções próprias para manipular elementos em qualquer posição da lista, porém, existem situações onde é desejável mais controle sobre as operações que podem ser feitas na estrutura. É onde entra a implementação de estruturas de dados como a **pilha** — *stack* — e a **fila** — *queue*.
+ - **stack**: a pilha é uma estrutura de dados que, assim como o array, é similar a uma lista. O paradigma principal por trás da pilha é o **LIFO** — **L**ast **I**n, **F**irst **O**ut — onde o último elemento a entrar é o primeiro a sair. Para ilustrar melhor o que isso significa, podemos imaginar uma pilha de livros por exemplo, o 1ª livro a ser retirado da pilha é obrigatoriamente o último que foi colocado — ou seja, o do topo. Abstraindo este princípio para código, percebe-se que há apenas 2 métodos possíveis para manipular os dados de uma pilha: **inserir um elemento no TOPO da pilha**, e **remover um elemento do TOPO da pilha**. O caso de uso mais conhecido dessa estrutura é a *call stack*, onde a ordem de execução dos processos *chamados* por um programa via funções ou métodos obedece o princípio de pilha. Outro recurso do dia a dia que utiliza pilhas para funcionar é o mecanismo de "voltar" e "avançar" páginas dos navegadores, onde os endereços visitados vão se empilhando, e, quando a função de "voltar" é executada, o último endereço visitado — ou seja, o que está no topo da pilha — é o 1º a ser visualizado.
+ - **queue**: a fila tem uma estrutura semelhante à pilha, porém com uma diferença conceitual importante no que diz respeito ao seu funcionamento, em que o paradigma que a rege é o **FIFO** — **F**irst **I**n, **F**irst **O**ut — onde, o 1º elemento a entrar é também o 1º a sair. Imagine uma fila de atendimento de um balcão, a pessoa que chegou antes — ou seja, chegou primeiro — é que será atendida, e a 2º pessoa a chegar será a próxima a ser atendida, e assim por diante. A fila como estrutura de dados segue o mesmo princípio. Sendo assim, também há somente 2 formas de se manipular uma fila: **inserir um elemento no FINAL da fila** e **remover um elemento no INÍCIO da fila**.
+ - **deque**: essa estrutura é uma variação da fila que aceita inserção e remoção de elementos tanto do início quanto do final da fila. É como a junção das estruturas de pilha e fila.
+ - **circular queue**: estrutura onde o último elemento é conectado ao 1º, como em um círculo. Essa estrutura busca resolver a limitação da fila linear de lidar com espaços vazios que podem se enfileirar após a retirada de elementos do início da fila. Um exemplo é o uso do comando `alt`+`tab` pelos SOs, que fazer o gerenciamento de navegação em janelas utilizando este princípio.
+
  ## 2. Listas Ligadas<br/>Estrutura de lista em memória não contígua.
  *Lista Ligada é uma estrutura que corresponde a uma sequência lógica de entradas ou nós.* Em uma lista ligada há 1 ou 2 pontos conhecidos de acesso - normalmente o topo da lista (seu 1º elemento) e, eventualmente, o fim da lista (seu último elemento). Cada nó armazena também a localização do próximo elemento na sequência, ou seja, de seu nó sucessor. Desse modo, o armazenamento de uma lista não requer uma área contígua de memória.
 <pre>
@@ -154,10 +207,10 @@ NOTAS[9] = 3                                      ─>
 ⠀⠀1.1 Sub-Item<br/>
 ⠀⠀1.2 Sub-Item<br/>
 ⠀⠀1.3 Sub-Item<br/>
-2. Item<br/>
+1. Item<br/>
 ⠀⠀2.1 Sub-Item<br/>
 ⠀⠀2.2 Sub-Item<br/>
-3. Item
+1. Item
 
  Em uma árvore, a organização dos elementos se dá de forma hierárquica, existindo um elemento que fica no topo da árvore, chamado de raiz e os elementos subordinados a ele, os nós filhos. Cada nó filho pode conter zero, 1 ou mais de 1 nó filho. Estruturas em árvore possibilitam algoritmos mais eficientes.
 <pre>
