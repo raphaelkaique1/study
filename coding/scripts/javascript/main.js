@@ -228,3 +228,8 @@ console.log(`value = !value: ${value}\n`)
 
 value ??= "default"
 console.log(`value ??= "default": ${value}`)
+
+const lista = [1, 1, 3, 1, 5, 7, 9];
+const conjunto = new Set(lista);
+
+console.log(conjunto);

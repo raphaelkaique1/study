@@ -2121,7 +2121,7 @@ console.log(obj.novaPropriedade); // 123
  ```
 
  - **`Symbol`**<br/>
- Símbolos são valores primitivos únicos e imutáveis que nunca colide com outro, mesmo que tenha a mesma descrição, como por exemplo: `Symbol('x') !== Symbol('x')`. São usados principalmente como chaves de propriedades para evitar conflitos com outras propriedades no objeto. Se precisar de privacidade sem `#`, pode usar `Symbol`, que mantém as propriedades privadas sem expor os valores, porém ainda pode ser acessado com `Object.getOwnPropertySymbols()`, o que faz não ser um método tão seguro:
+ Símbolos são valores primitivos únicos e imutáveis que nunca colidem com outros, mesmo que tenham a descrição idêntica, como por exemplo: `Symbol('x') !== Symbol('x')`. São usados principalmente como chaves de propriedades para evitar conflitos com outras propriedades no objeto. Se precisar de privacidade sem `#`, pode usar `Symbol`, que mantém as propriedades privadas sem expor os valores, porém ainda pode ser acessado com `Object.getOwnPropertySymbols()`, o que faz não ser um método tão seguro:
  ```js
  const _name = Symbol("name");
  const _age = Symbol("age");
@@ -2375,6 +2375,15 @@ console.log(square.area) // 9
  let floatArray = new Float32Array([1.5, 2.5, 3.5]);
  console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
  ```
+
+##### `set`
+Um conjunto é uma estrutura de dados em formato de lista não ordenada, que contém apenas elementos únicos, onde não é possível repetir o valor de um elemento do mesmo tipo dentro deste conjunto.
+```js
+const lista = [1, 1, 5, 1, 3, 7, '5', 9];
+const conjunto = new Set(lista);
+
+console.log(conjunto); // Set(6) { 1, 5, 3, 7, '5', 9 }
+```
 
 ### EXPRESSÕES
 Uma expressão consiste em qualquer unidade válida de código que é resolvida como um valor. Conceitualmente, existem 2 tipos de expressões, aquelas que **atribuem** um valor a uma variável e aquelas que simplesmente **possuem** um valor.<br/>
