@@ -1,5 +1,5 @@
 # JAVASCRIPT
- JavaScript é uma linguagem de programação *interpretada*, ou seja o código é interpretado e executado conforme é lido pelo navegador linha a linha assim como o HTML, de *alto nível*, que significa que sua sintaxe é muito familiar a linguagem natural humana e *multiparadigma*, o que demonstra seu poder ao ser possível programar em vários formatos diferentes, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica. JavaScript é a linguagem de programação mais popular no desenvolvimento Web. Suportada por todos os navegadores, a linguagem é responsável por praticamente qualquer tipo de dinamismo que queiramos em nossas páginas.<br/>
+ JavaScript é uma linguagem de programação dinâmica, o que significa que é uma linguagem *interpretada*, ou seja o código é interpretado e executado conforme é lido pelo navegador linha a linha assim como o HTML, de *alto nível*, que significa que sua sintaxe é muito familiar a linguagem natural humana e *multiparadigma*, o que demonstra seu poder ao ser possível programar em vários formatos diferentes, **desenvolvida para criar páginas web interativas e dinâmicas**. Ela é responsável por adicionar funcionalidades como **validação de formulários**, **animações**, **manipulação do conteúdo da página** e **resposta a eventos do usuário** em conjunto com HTML e CSS para tornar a experiência na web mais rica. JavaScript é a linguagem de programação mais popular no desenvolvimento Web. Suportada por todos os navegadores, a linguagem é responsável por praticamente qualquer tipo de dinamismo que queiramos em nossas páginas.<br/>
  Visando o potencial da Internet para o público geral e a necessidade de haver uma interação maior do usuário com as páginas, a Netscape, criadora do navegador mais popular do início dos anos 90, de mesmo nome, investiu na criação de uma linguagem para isto. Originalmente criado em 1995, por Brendan Eich, enquanto trabalhava na Netscape Communications Corporation, foi contratado para desenvolver uma linguagem de script que permitisse dinamizar as páginas do navegador Netscape Navigator. Em apenas 10 dias nasceu a primeira versão da linguagem, que inicialmente recebeu o nome de `Mocha` e posteriormente renomeada para `LiveScript`, uma linguagem simples que permitia a execução de scripts contidos nas páginas dentro do próprio navegador, logo em seguida, aproveitando o crescente sucesso do **Java**, que vinha conquistando cada vez mais espaço no mercado de desenvolvimento de aplicações corporativas, a Netscape num acordo com a Sun para alavancar o uso das duas, numa jogada de marketing influenciada pela popularidade da linguagem Java o nome foi alterado para **`JavaScript`**. A então vice-líder dos navegadores, Microsoft, adicionou ao Internet Explorer o suporte a scripts escritos em VBScript e criou sua própria versão de JavaScript, o **JScript**. Apesar de serem bastante diferentes em termos de design e funcionamento. A padronização do JavaScript veio por meio da ECMA International, dando origem à especificação **ECMAScript** — padronização de linguagens de script que define as regras, sintaxe, tipos e comportamentos que as linguagens de script devem seguir para garantir consistência e interoperabilidade entre diferentes ambientes como navegadores e servidores. Em outras palavras, enquanto o JavaScript é a implementação mais conhecida dessa especificação, ECMAScript serve como a base que orienta seu desenvolvimento e evolução, com atualizações periódicas para incorporar novas funcionalidades e melhorias.<br/>
  Em resumo, JavaScript é a linguagem de programação mais popular do mundo e é uma das principais tecnologias da World Wide Web, juntamente com HTML e CSS. Ela possui tipagem dinâmica, orientação a objetos baseada em protótipos e funções de primeira classe. Ela é multi-paradigma e suporta estilos de programação orientados a eventos, funcionais e imperativos.<br/>
  As principais características que destacam o JS são:
@@ -124,7 +124,7 @@
   está comentado */
  ```
 
-### TIPOS DE DADOS
+### TIPOS DE DADOS BASE
 O JavaScript também possui grande tolerância a erros, uma vez que conversões automáticas são realizadas durante operações. Por ser uma linguagem de ***tipagem dinâmica***, o JavaScript tem apenas **3 tipos de dados básicos**. Por conta dessa característica, uma variável pode receber uma **`string`** em um determinado momento, e em outro, um dado tipo **`number`**. Vejamos:
  1. **STRINGS**<br/>
  Caracteres, alfanuméricos e textos em geral (como palavras e frases). Valores de Strings são imutáveis, logo, se uma variável for alterada com algum método, aquela alteração só existe naquele momento, ao utilizar novamente a variável (sem o método) ela informará o seu valor original. Para utilizar a alteração realizada é necessário armazenar o retorno do método em outa variável. **Toda string é um array de caracteres.**
@@ -188,7 +188,9 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  ```
 
 #### DECLARANDO VARIÁVEIS
- Por definição, uma variável é um espaço na memória do computador onde um valor será armazenado, tal este que pode mudar durante a execução do programa.<br/>
+ Por definição, uma variável é um espaço na memória do computador onde um valor será armazenado referenciado por um identificador, tal este que pode mudar durante a execução do programa.<br/>
+ Um identificador é uma sequência de caracteres no código, que identifica uma variável, função, ou propriedade. Em JavaScript, identificadores podem conter somente caracteres alfanuméricos, ou `$` ou `_`, e não podem iniciar com um dígito.<br/>
+ O JS é uma linguagem dinâmica com tipos dinâmicos, o que significa que as variáveis não estão diretamente associadas a nenhum tipo de valor específico, e qualquer varivável pode receber e reatribuir valores de todos os tipos.<br/>
  A sintaxe básica da declaração é a seguinte:
  ```js
  /* var ≠ let
@@ -341,7 +343,7 @@ const DISCOUNT
 let discountedPrice;
 function calculateFinalPrice() {}
 ```
-
+##### ESCOPO
  Em questão de escopo e manipulação, as variáveis no JS são declaradas de 2 maneiras:
 
  1. **`var`**: **escopo GLOBAL**<br/>
@@ -444,12 +446,26 @@ console.log(resultado);
  var msg = `Welcome ${name}`;
  ```
 
-###### ALTERANDO VALOR ATRIBUÍDO
+###### REATRIBUIÇÃO
  Para modificar uma variável já declarada ou com valor atribuído, basta escrevermos seu *identificador* e o valor que queremos sobrescrever:
  ```js
  var num = 10;
  num = 5;
  ```
+
+ O JS possui uma tipagem fraca, e isso permite a conversão implícita de tipo quando uma operação envolve tipos incompatíveis.
+ ```js
+ const n = 1;
+ const n_string = n + '0';
+ console.log(n_string); // 10
+
+ let tmp = 1;
+ tmp = 'a';
+ console.log(tmp); // a
+ ```
+
+ Coerções implícitas são muito convenientes, mas podem ser uma arma em potencial se uma conversão não prevista for feita, por isso, para `symbol`s e `bigInt`s essa conversão de tipo implícita está desativada.
+
 ###### TRABALHANDO STRINGS
  Qualquer valor entre aspas duplas `"value"` ou simples `'value'` atribuído a uma variável é considerado uma `string`, mesmo que o valor seja um número.<br/>
  Uma boa prática é usar **aspas duplas `""`** *para palavras e frases*, e **aspas imples `''`** *para caracteres*.
@@ -1052,7 +1068,25 @@ console.log(resultado); // Saída: ["10", "20"]
  **Como uma boa prática, definimos as constantes em nosso código sempre com `LETRAS_MAIUSCULAS`, para facilitar a legibilidade intuitiva.**
 
 #### AGRUPAMENTO DE DADOS
- Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória.
+ Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória. O conjunto de tipos no JS consiste em `primitives values` e `objects`, onde os **valores primitivos** *são dados imutáveis representados diretamente no nível mais baixo da linguagem*, enquanto **objetos** *são coleções de propriedades*.
+ - **valores primitivos**
+   - **`boolean`**: representa uma entidade lógica que pode ter 2 valores: `true` || `false`.
+   - **`null`**: representa uma referencia que aponta de maneira intencional para um objeto ou endereço de memória inválido ou inexistente, ou seja, contém um valor *nulo*, *vazio*. Este é um valor literal, e não uma propriedade do objeto `global` — como `undefined` pode ser.
+   - **`undefined`**: uma variável que ainda não recebeu um valor possui o valor `undefined`, que representa um valor indefinido. É uma propriedade do objeto `global`, ou seja, é uma variável no escopo global — o valor inicial de `undefined` é o valor primitivo `undefined`; mas por convenção deve ser considerado uma propriedade não configurável e somente leitura — mesmo quando este não for o caso, deve-se evitar que seja sobrescrito. Uma vez que ele não é uma palavra reservada, pode ser usado como um identificador em qualquer escopo que não seja o escopo global, mas para fins de comparação `==`, `===` && `typeof`, essa atribuição de nome de variável deve ser evitada.
+   - **`number`**: valor de formato binário de 64 bits de precisão dupla, capaz de armazenar números de ponto flutante e inteiros positivos e negativos. Embora um número represente apenas seu valor, o JS fornece operadores `bitwise`, que podem ser usados para representar vários valores booleanos em um único número usando mascaramento de bits, porém isso é considerado uma má prática pois tornam o código mais complexo de ler, entender e manter, e existem outros meios mais precisos, simples e seguros para representar conjuntos de booleanos como uma matriz de booleanos ou objetos com valores booleanos atribuídos a propriedades nomeadas por exemplo. Pode ser necessário usar estas técnicas em ambientes muito restritos como ao tentar lidar com limitações de armazenamento local ou em casos extremos onde cada bit na rede conta, mas só devem ser consideradas como última memdida para otimizar o tamanho.
+   - **`bigInt`**: representa números inteiros com precisão arbitrária, sendo útil para armazenar e operar com segurança grandes números inteiros, mesmo além do limite de números inteiros seguros. Um `bigInt` é criado anexando `n` ao final de um inteiro `const N = 123456789012345678901234567890n;`, ou chamando o construtor `const N = BigInt("123456789012345678901234567890")`. É possível obter o maior valor seguro através da constante `Number.MAX_SAFE_INTEGER`, e com a introdução do `bigInt` é possível operar com números além do valor seguro. É possível usar os operadores matemáticos com BigInts como com Numbers, porém um BigInt não é estritamente igual a um Number, por isso não se deve misturar diretamente um BigInt com um Number em operações matemáticas `BigInt + Number` sem antes realizar a conversão dos tipos.
+   - **`Nan`**: valor único, não sendo igual a si mesmo, resultado de operações aritméticas que não podem ser expressas como um número. Propriedade do objeto `global`, seu valor inicial é o mesmo valor de `Number.NaN`, considerado uma propriedade somente de leitura e não configurável, sempre evitando sobrescrevê-lo.
+   - **`string`**: representa dados textuais, sendo um *conjunto de elementos* de valores inteiros sem sinal de 16 bits, onde cada elemento ocupa uma posição na String iniciando em índice 0 e tem seu comprimento de acordo com o número de elementos atribuídos. São imutáveis, o que significa que uma vez criadas são é possível modificá-las, aapenas é possível criar uma nova string com base em uma operação na string original.
+   - **`symbol`**: também conhecido como *átomo*, é um valor primitivo único e imutável usado como chave de uma propriedade estática `var sym1 = Symbol("something");`.
+ - **objetos**: são valores na memória que possivelmente são referenciados por um identificador, e que são normalmente conjuntos de dados no formato de chave-valor.
+   - **propriedades**: objetos podem ser descritos como uma coleção de propriedades. Com a sintaxe literal de objeto, um conjunto limitado de propriedades é inicializado, e então as propriedades podem ser adicionadas e removidas, com valores de qualquer tipo — incluindo outros objetos. As propriedades são identificadas usando valores `key`, que pode ser uma `string value` ou um `symbol value`. Esitem 2 tipos de propriedades de objetos, a `data property` e a `accessor property`, cada propriedade tem *attributes* correspondentes, e cada atributo é acessado internamente pelo JS, mas também é possível defini-los por meio de `Object.defineProperty()` ou lê-los por meio de `Object.getOwnPropertyDescripto()`.
+     - **`data property`**: As propriedades associam uma chave a um valor, podendo ser descrito pelos seguintes atributos:
+       - `value`: valor recuperado por um acesso `get` da propriedade, podendo ser qualquer valor JS.
+       - `writable`: um valor booleano que indica se a propriedade pode ser alterada com uma atribuição, ou seja, reatribuída ou sobrescrita.
+       - `enumerable`: um valor booleano que indica se propriedade pode ser enumerada, ou seja "listada" por um loop.
+       - `configurable`: valor booleano que indica se a propriedade pode ser excluída, alterada para uma propriedade acessora ou ter seus atributos alterados.
+     - **`accessor property`**: associa uma chave à uma das 2 funções de acesso, `get` e `set`, para recuperar ou armazenar um valor. O accessor property não é um `accessor method`. Uma propriedade do acessor tem os seguintes atributos:
+       - `get`: método chamado com uma lista de argumentos vazia para recuperar o valor da propriedade sempre que um acesso de obtenção ao valor for executado. Pode ser `undefined`.
 
 ##### `JSON`
  **JavaScript Object Notation** é um tipo simples de objeto, composto por **`{key: value}`** *com o objetivo de transferir dados*. Por ter se tornado um modelo leve de troca de dados baseado na sintaxe de objetos do JavaScript, é independete de linguagem, o que significa que pode ser usado em diversar outras tecnologias.
@@ -2384,6 +2418,7 @@ const conjunto = new Set(lista);
 
 console.log(conjunto); // Set(6) { 1, 5, 3, 7, '5', 9 }
 ```
+
 
 ### EXPRESSÕES
 Uma expressão consiste em qualquer unidade válida de código que é resolvida como um valor. Conceitualmente, existem 2 tipos de expressões, aquelas que **atribuem** um valor a uma variável e aquelas que simplesmente **possuem** um valor.<br/>
