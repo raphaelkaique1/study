@@ -133,6 +133,17 @@ O JavaScript também possui grande tolerância a erros, uma vez que conversões 
  3. **BOOLEANS**<br/>
  Com apenas **2 valores possíveis**: **`true`** ou **`false`**.
 
+O conjunto de tipos no JS consiste em `primitives values` e `objects`, onde os **valores primitivos** *são dados imutáveis representados diretamente no nível mais baixo da linguagem*.
+- **valores primitivos**
+  - **`boolean`**: representa uma entidade lógica que pode ter 2 valores: `true` || `false`.
+  - **`null`**: representa uma referencia que aponta de maneira intencional para um objeto ou endereço de memória inválido ou inexistente, ou seja, contém um valor *nulo*, *vazio*. Este é um valor literal, e não uma propriedade do objeto `global` — como `undefined` pode ser.
+  - **`undefined`**: uma variável que ainda não recebeu um valor possui o valor `undefined`, que representa um valor indefinido. É uma propriedade do objeto `global`, ou seja, é uma variável no escopo global — o valor inicial de `undefined` é o valor primitivo `undefined`; mas por convenção deve ser considerado uma propriedade não configurável e somente leitura — mesmo quando este não for o caso, deve-se evitar que seja sobrescrito. Uma vez que ele não é uma palavra reservada, pode ser usado como um identificador em qualquer escopo que não seja o escopo global, mas para fins de comparação `==`, `===` && `typeof`, essa atribuição de nome de variável deve ser evitada.
+  - **`number`**: valor de formato binário de 64 bits de precisão dupla, capaz de armazenar números de ponto flutante e inteiros positivos e negativos. Embora um número represente apenas seu valor, o JS fornece operadores `bitwise`, que podem ser usados para representar vários valores booleanos em um único número usando mascaramento de bits, porém isso é considerado uma má prática pois tornam o código mais complexo de ler, entender e manter, e existem outros meios mais precisos, simples e seguros para representar conjuntos de booleanos como uma matriz de booleanos ou objetos com valores booleanos atribuídos a propriedades nomeadas por exemplo. Pode ser necessário usar estas técnicas em ambientes muito restritos como ao tentar lidar com limitações de armazenamento local ou em casos extremos onde cada bit na rede conta, mas só devem ser consideradas como última memdida para otimizar o tamanho.
+  - **`bigInt`**: representa números inteiros com precisão arbitrária, sendo útil para armazenar e operar com segurança grandes números inteiros, mesmo além do limite de números inteiros seguros. Um `bigInt` é criado anexando `n` ao final de um inteiro `const N = 123456789012345678901234567890n;`, ou chamando o construtor `const N = BigInt("123456789012345678901234567890")`. É possível obter o maior valor seguro através da constante `Number.MAX_SAFE_INTEGER`, e com a introdução do `bigInt` é possível operar com números além do valor seguro. É possível usar os operadores matemáticos com BigInts como com Numbers, porém um BigInt não é estritamente igual a um Number, por isso não se deve misturar diretamente um BigInt com um Number em operações matemáticas `BigInt + Number` sem antes realizar a conversão dos tipos.
+  - **`Nan`**: valor único, não sendo igual a si mesmo, resultado de operações aritméticas que não podem ser expressas como um número. Propriedade do objeto `global`, seu valor inicial é o mesmo valor de `Number.NaN`, considerado uma propriedade somente de leitura e não configurável, sempre evitando sobrescrevê-lo.
+  - **`string`**: representa dados textuais, sendo um *conjunto de elementos* de valores inteiros sem sinal de 16 bits, onde cada elemento ocupa uma posição na String iniciando em índice 0 e tem seu comprimento de acordo com o número de elementos atribuídos. São imutáveis, o que significa que uma vez criadas são é possível modificá-las, aapenas é possível criar uma nova string com base em uma operação na string original.
+  - **`symbol`**: também conhecido como *átomo*, é um valor primitivo único e imutável usado como chave de uma propriedade estática `var sym1 = Symbol("something");`.
+
 ### DECLARAÇÕES
  Chamamos cada _comando_ que escrevemos de **declaração**, e, apesar de o JS não exigir, como **boa prática de código limpo** *cada linha de comando deve ser fechada com `;`*.
  ```js
@@ -1068,25 +1079,7 @@ console.log(resultado); // Saída: ["10", "20"]
  **Como uma boa prática, definimos as constantes em nosso código sempre com `LETRAS_MAIUSCULAS`, para facilitar a legibilidade intuitiva.**
 
 #### AGRUPAMENTO DE DADOS
- Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória. O conjunto de tipos no JS consiste em `primitives values` e `objects`, onde os **valores primitivos** *são dados imutáveis representados diretamente no nível mais baixo da linguagem*, enquanto **objetos** *são coleções de propriedades*.
- - **valores primitivos**
-   - **`boolean`**: representa uma entidade lógica que pode ter 2 valores: `true` || `false`.
-   - **`null`**: representa uma referencia que aponta de maneira intencional para um objeto ou endereço de memória inválido ou inexistente, ou seja, contém um valor *nulo*, *vazio*. Este é um valor literal, e não uma propriedade do objeto `global` — como `undefined` pode ser.
-   - **`undefined`**: uma variável que ainda não recebeu um valor possui o valor `undefined`, que representa um valor indefinido. É uma propriedade do objeto `global`, ou seja, é uma variável no escopo global — o valor inicial de `undefined` é o valor primitivo `undefined`; mas por convenção deve ser considerado uma propriedade não configurável e somente leitura — mesmo quando este não for o caso, deve-se evitar que seja sobrescrito. Uma vez que ele não é uma palavra reservada, pode ser usado como um identificador em qualquer escopo que não seja o escopo global, mas para fins de comparação `==`, `===` && `typeof`, essa atribuição de nome de variável deve ser evitada.
-   - **`number`**: valor de formato binário de 64 bits de precisão dupla, capaz de armazenar números de ponto flutante e inteiros positivos e negativos. Embora um número represente apenas seu valor, o JS fornece operadores `bitwise`, que podem ser usados para representar vários valores booleanos em um único número usando mascaramento de bits, porém isso é considerado uma má prática pois tornam o código mais complexo de ler, entender e manter, e existem outros meios mais precisos, simples e seguros para representar conjuntos de booleanos como uma matriz de booleanos ou objetos com valores booleanos atribuídos a propriedades nomeadas por exemplo. Pode ser necessário usar estas técnicas em ambientes muito restritos como ao tentar lidar com limitações de armazenamento local ou em casos extremos onde cada bit na rede conta, mas só devem ser consideradas como última memdida para otimizar o tamanho.
-   - **`bigInt`**: representa números inteiros com precisão arbitrária, sendo útil para armazenar e operar com segurança grandes números inteiros, mesmo além do limite de números inteiros seguros. Um `bigInt` é criado anexando `n` ao final de um inteiro `const N = 123456789012345678901234567890n;`, ou chamando o construtor `const N = BigInt("123456789012345678901234567890")`. É possível obter o maior valor seguro através da constante `Number.MAX_SAFE_INTEGER`, e com a introdução do `bigInt` é possível operar com números além do valor seguro. É possível usar os operadores matemáticos com BigInts como com Numbers, porém um BigInt não é estritamente igual a um Number, por isso não se deve misturar diretamente um BigInt com um Number em operações matemáticas `BigInt + Number` sem antes realizar a conversão dos tipos.
-   - **`Nan`**: valor único, não sendo igual a si mesmo, resultado de operações aritméticas que não podem ser expressas como um número. Propriedade do objeto `global`, seu valor inicial é o mesmo valor de `Number.NaN`, considerado uma propriedade somente de leitura e não configurável, sempre evitando sobrescrevê-lo.
-   - **`string`**: representa dados textuais, sendo um *conjunto de elementos* de valores inteiros sem sinal de 16 bits, onde cada elemento ocupa uma posição na String iniciando em índice 0 e tem seu comprimento de acordo com o número de elementos atribuídos. São imutáveis, o que significa que uma vez criadas são é possível modificá-las, aapenas é possível criar uma nova string com base em uma operação na string original.
-   - **`symbol`**: também conhecido como *átomo*, é um valor primitivo único e imutável usado como chave de uma propriedade estática `var sym1 = Symbol("something");`.
- - **objetos**: são valores na memória que possivelmente são referenciados por um identificador, e que são normalmente conjuntos de dados no formato de chave-valor.
-   - **propriedades**: objetos podem ser descritos como uma coleção de propriedades. Com a sintaxe literal de objeto, um conjunto limitado de propriedades é inicializado, e então as propriedades podem ser adicionadas e removidas, com valores de qualquer tipo — incluindo outros objetos. As propriedades são identificadas usando valores `key`, que pode ser uma `string value` ou um `symbol value`. Esitem 2 tipos de propriedades de objetos, a `data property` e a `accessor property`, cada propriedade tem *attributes* correspondentes, e cada atributo é acessado internamente pelo JS, mas também é possível defini-los por meio de `Object.defineProperty()` ou lê-los por meio de `Object.getOwnPropertyDescripto()`.
-     - **`data property`**: As propriedades associam uma chave a um valor, podendo ser descrito pelos seguintes atributos:
-       - `value`: valor recuperado por um acesso `get` da propriedade, podendo ser qualquer valor JS.
-       - `writable`: um valor booleano que indica se a propriedade pode ser alterada com uma atribuição, ou seja, reatribuída ou sobrescrita.
-       - `enumerable`: um valor booleano que indica se propriedade pode ser enumerada, ou seja "listada" por um loop.
-       - `configurable`: valor booleano que indica se a propriedade pode ser excluída, alterada para uma propriedade acessora ou ter seus atributos alterados.
-     - **`accessor property`**: associa uma chave à uma das 2 funções de acesso, `get` e `set`, para recuperar ou armazenar um valor. O accessor property não é um `accessor method`. Uma propriedade do acessor tem os seguintes atributos:
-       - `get`: método chamado com uma lista de argumentos vazia para recuperar o valor da propriedade sempre que um acesso de obtenção ao valor for executado. Pode ser `undefined`.
+ Até agora vimos como armazenar um único dado dentro de um espaço na memória, seja `number`, `string` ou `bool`. Mas também existem maneiras de agruparmos valores diferentes em um mesmo endereço na memória. Existem maneiras diferentes de realizar agrupamento de dados, cada forma antede a uma necessidade.
 
 ##### `JSON`
  **JavaScript Object Notation** é um tipo simples de objeto, composto por **`{key: value}`** *com o objetivo de transferir dados*. Por ter se tornado um modelo leve de troca de dados baseado na sintaxe de objetos do JavaScript, é independete de linguagem, o que significa que pode ser usado em diversar outras tecnologias.
@@ -1133,7 +1126,33 @@ console.log(resultado); // Saída: ["10", "20"]
  Diferente de um **objeto JS**, o **JSON** exige *aspas duplas* `""` para as chaves e valores.
 
 ##### `objects`
- Como vimos em JSON, um objeto é uma estrutura semelhante que permite armazenar dados na forma de pares de chave e valor `{key: value}`. Porém, diferentemente do JSON – que apenas armazena dados, um objeto também pode armazenar funções. É um dos principais tipos de dados e é muito usado para representar entidades do mundo real.
+ Como vimos em JSON, um objeto é uma estrutura semelhante que permite armazenar dados na forma de pares de chave e valor `{key: value}`. Porém, diferentemente do JSON – que apenas armazena dados, um objeto também pode armazenar funções. É um dos principais tipos de dados e é muito usado para representar entidades do mundo real.<br/>
+ Objetos são valores na memória que possivelmente são referenciados por um identificador, e que são normalmente conjuntos de dados no formato de chave-valor. Em resumo, um objeto é um mapeamento entre `keys` e `values`, onde as chaves são `string`s ou `symbol`s enquanto os valores podem ser de qualquer tipo.<br/>
+ Um fato curioso é que no JS funções são "subtipos", ou seja instâncias de objetos regulares com a capacidade adicional de serem callable, por isso é possível adicionar propriedades à funções, como por exemplo:
+ ```js
+ function somar(a, b) {
+  return a + b
+ };
+ somar.descricao = "soma 2 números";
+ console.log(somar.descricao); // "soma 2 números"
+ ```
+ No JS existe o método construtor **`new Function([params,[return]])`** que cria um objeto de 1ª classe, por exemplo:
+ ```js
+ const f = new Function("a", "b", "return a + b"); console.log(f(1, 2)); // 3
+ ```
+ Ou seja, funções são objetos com comportamento especial, sendo invocáveis, possuindo propriedades e métodos internos como `call`, `apply`, `bind` entre outros.
+
+**propriedades**: objetos podem ser descritos como uma coleção de propriedades. Com a sintaxe literal de objeto, um conjunto limitado de propriedades é inicializado, e então as propriedades podem ser adicionadas e removidas, com valores de qualquer tipo — incluindo outros objetos. As propriedades são identificadas usando valores `key`, que pode ser uma `string value` ou um `symbol value`. Esitem 2 tipos de propriedades de objetos, a `data property` e a `accessor property`, cada propriedade tem *attributes* correspondentes, e cada atributo é acessado internamente pelo JS, mas também é possível defini-los por meio de `Object.defineProperty()` ou lê-los por meio de `Object.getOwnPropertyDescripto()`.
+- **`data property`**: as propriedades associam uma chave a um valor, podendo ser descrito pelos seguintes atributos:
+  - `value`: valor recuperado por um acesso `get` da propriedade, podendo ser qualquer valor JS.
+  - `writable`: um valor booleano que indica se a propriedade pode ser alterada com uma atribuição, ou seja, reatribuída ou sobrescrita.
+  - `enumerable`: um valor booleano que indica se propriedade pode ser enumerada, ou seja "listada" por um loop.
+  - `configurable`: valor booleano que indica se a propriedade pode ser excluída, alterada para uma propriedade acessora ou ter seus atributos alterados.
+- **`accessor property`**: associa uma chave à uma das 2 funções de acesso, `get` e `set`, para recuperar ou armazenar um valor. O accessor property não é um `accessor method`. uma propriedade do acessor tem os seguintes atributos:
+  - [`get`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/get): método chamado com uma lista de argumentos vazia para recuperar o valor da propriedade sempre que um acesso de obtenção ao valor for executado. Pode ser `undefined`.
+  - [`set`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/set): função executada quando há a necessidade de alterar o valor de uma propriedade do objeto. Pode ser `undefined`.
+  - `enumerable`: um valor booleano que indica se propriedade pode ser enumerada, ou seja "listada" por um loop.
+  - `configurable`: valor booleano que indica se a propriedade pode ser excluída, alterada para uma propriedade acessora ou ter seus atributos alterados.
 
 ###### PROTÓTIPOS
  O JavaScript diferente de linguagens baseadas em classes como Java ou C# por exemplo, é baseado em prototipagem. Quando uma propriedade de um objeto que não existe diretamente nele é acessado, o JS procura essa propriedade na cadeia de protótipos, a **`prototype chain`**. Ou seja, quando um objeto é criado de forma literal, o JS executa implicitamente o script abaixo:
@@ -2288,7 +2307,8 @@ console.log(square.area) // 9
 ```
 
 ##### `arrays`
- Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. *A posição dos elementos começa sempre a partir de um índice 0.* Por padrão são *estruturas dinâmicas*, ou seja, seu tamanho pode ser alterado após a criação, no entanto, também veremos maneiras de criar `arrays` de *tamanho fixo*.
+ São objetos regulares semelhantes a listas que possuem um número inteiro como índice começando em 0 e cada índice armazena seu respectivo valor podendo ser de qualquer tipo, incluindo outros arrays. Nem seu tamanho e tipos de elementos são fixos.<br/>
+ Os `arrays` nos permitem trabalhar com conjuntos de valores e armazená-los em um único endereço de memória. Em JS, os valores do array **NÃO** necessitam ser do mesmo tipo. *A posição dos elementos começa sempre a partir de um índice 0.* Por padrão são *estruturas dinâmicas*, ou seja, seu tamanho pode ser alterado após a criação, no entanto, existem maneiras de criar `arrays` de *tamanho fixo*, os **arrays tipados**, que se apresentam de maneira semelhante a um array de buffer de dados binários subjacentes e oferecem muitos métodos de semântica equivalentes aos de arrays comuns. [`Typed Array`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Typed_arrays) é um termo abrangente para uma variedade de estruturas de dados, incluindo `Int8Array`, `Float32Array`, entre outros.
  
 **CONSIDERAÇÕES SOBRE DECLARAÇÕES**<br/>
  Independente da forma escolhida para criar o array, podemos declará-los usando `var`, `let` ou `const`, porém existem algumas particularidades, vejamos:
@@ -2344,7 +2364,7 @@ console.log(square.area) // 9
    */
    ```
 
- 2. **`array constructor`**<br/>
+ 1. **`array constructor`**<br/>
  É possível criar um array usando a função construtora `Array`. Essa abordagem permite passar os elementos como argumentos ou definir diretamente o tamanho do array. **Uma observação importante, é que quando se passa um único número para o construtor, o valor representa o tamanho do array e não um elemento.**
  ```js
  // Passando os elementos como argumentos:
@@ -2410,15 +2430,96 @@ console.log(square.area) // 9
  console.log(floatArray); // Float32Array [1.5, 2.5, 3.5]
  ```
 
-##### `set`
-Um conjunto é uma estrutura de dados em formato de lista não ordenada, que contém apenas elementos únicos, onde não é possível repetir o valor de um elemento do mesmo tipo dentro deste conjunto.
+##### COLEÇÕES CHAVEADAS
+São estruturas que armazenam dados com base em chaves, diferente dos objetos, essas coleções permitem que qualquer valor seja usado como chave, incluindo objetos. `Map()` e `WeakMap()` usam objetos como chave, enquanto `Set()` e `WeakSet()` armazenam os objetos diretamente, mas estes não se repetem.
+
+###### [`Map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map)
+Este objeto contém pares de chave-valor e grava a ordem original da inserção das chaves. Qualquer tipo pode ser usado como chave ou valor.
 ```js
+const map = new Map();
+
+const chaveObjeto1 = { id: 1 };
+map.set(chaveObjeto1, "valor 1");
+
+console.log(map.get(chaveObjeto1)); // "valor 1"
+console.log(map.has(chaveObjeto1)); // true
+console.log(map.has("valor 1"));    // false
+
+console.log(map);                 // Map(1) { { id: 1 } => 'valor 1' }
+console.log(`size: ${map.size}`); // size: 1
+
+map.delete(chaveObjeto1);
+console.log(map.has("valor 1"));    // false
+console.log(map.has(chaveObjeto1)); // false
+
+console.log(`\n----------\n`);
+
+const chaveObjeto2 = { id: 2 };
+map.set("valor 2", chaveObjeto2);
+
+console.log(map.get("valor 2"));    // { id: 2 }
+console.log(map.has(chaveObjeto2)); // false
+console.log(map.has("valor 2"));    // true
+
+map.delete("valor 2");
+console.log(map.has("valor 2"));    // false
+
+// HashMap
+const dicionario = new Map();
+dicionario.set("nome", "Raphael");
+dicionario.set("idade", 27);
+
+console.log(dicionario.get("nome")); // Raphael
+
+```
+
+###### [`WeakMap()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakMap\)
+Estrutura de armazenamento de dados semelhante ao `Map()`, porém não é iterável, aceita apenas objetos como chave e estes objetos não não impedidos de serem coletados pelo *garbage collector*.
+```js
+const weakMap = new WeakMap();
+
+let obj = { nome: "Raphael" };
+weakMap.set(obj, "valor associado");
+
+console.log(weakMap.get(obj)); // valor associado
+
+obj = null; // permite o objeto ser coletado pelo garbage collector
+```
+
+###### [`Set()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set)
+Um conjunto é uma estrutura de dados em formato de lista não ordenada, que contém apenas elementos únicos — sem chave *explícita* — onde não é possível repetir o valor de um elemento do mesmo tipo dentro deste conjunto.
+```js
+// recebendo uma lista de valores
 const lista = [1, 1, 5, 1, 3, 7, '5', 9];
 const conjunto = new Set(lista);
 
 console.log(conjunto); // Set(6) { 1, 5, 3, 7, '5', 9 }
+
+// métodos de set
+const set = new Set();
+
+set.add(1);
+set.add(2);
+set.add(1); // não será adicionado de novo
+
+console.log(set); // Set { 1, 2 }
 ```
 
+###### [`WeakSet()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+Estrutura semelhante ao `Set()` que difere em apenas aceitar objetos na coleção e não impedir que sejam descartados.
+```js
+const weakSet = new WeakSet();
+
+let user = { nome: "Déborah" };
+weakSet.add(user);
+
+console.log(weakSet.has(user));    // true
+console.log(weakSet.delete(user)); // valor deletado da lista
+console.log(weakSet.has(user));    // false
+
+user = null;                    // o objeto pode ser limpo da memória automaticamente
+console.log(weakSet.has(user)); // false
+```
 
 ### EXPRESSÕES
 Uma expressão consiste em qualquer unidade válida de código que é resolvida como um valor. Conceitualmente, existem 2 tipos de expressões, aquelas que **atribuem** um valor a uma variável e aquelas que simplesmente **possuem** um valor.<br/>
@@ -3536,7 +3637,7 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  console.log(tp.tripple()); //Logs 'tp.tripple is not a function'.
  ```
 
-#### TIPOS DE FUNÇÕES
+#### [TIPOS DE FUNÇÕES](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions)
  As funções são definidas como um conjunto de instruções prontas para serem chamadas a qualquer momento e só serão executadas quando chamadas, seu objetivo é, portanto, a reutilização de código.<br/>
  Usamos basicamente, 2 tipos de funções:
  - **funções pré-definidas**: São como *ferramentas prontas* que o JS fornece, executam ações generalistas.
@@ -3562,6 +3663,16 @@ console.log(Olá ${Name("Raphael")}, seja bem-vindo!); // se truthy, usa o valor
  userStatus == "on" ? saudacao("Raphael") : null;
  ```
 
+###### IIFE
+O uso de **`()()`** é chamado de **IIFE**. **Immediately Invoked Function Expression** são funções anônimas definidas e executadas na hora, sem a necessidade de chamá-las posteriormente.
+```js
+(function () {
+  console.log("Executou na hora!");
+})();
+```
+O 1º `()` envolve a função, transformando-a em uma *expressão de função*. O 2º `()` executa essa função **imediatamente**. O uso deste método é muito benéfico pois permite o encapsulamento de escopo privado, pois variáveis e métodos privados não pode ser acessado diretamente de fora, evita poluir o escopo global e permite funções-fábrica, configurações iniciais entre outras vantagens.
+
+###### HIGH ORDER FUNCTIONS
 Funções também podem ser atribuídas à variáveis, para atender necessidades do código:
 ```js
 // função pura
@@ -3584,7 +3695,7 @@ let arrowFunction = () => console.log("eu sou uma função de flecha em uma vari
 arrowFunction();
 ```
 
-É possível atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, como demonstrado neste código:
+É possível atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, as chamadas **HIGH ORDER FUNCTIONS**, como demonstrado neste código:
 ```JS
 // atribuindo uma função a uma variável
 const saudar = saudacaoFactory('Olá');
@@ -3613,13 +3724,48 @@ function soma(a, b) {
 console.log(executaOperacao(soma, 2, 3)); // Saída: 5
 ```
 
-O uso de **`()()`** é chamado de **IIFE**. **Immediately Invoked Function Expression** são funções anônimas definidas e executadas na hora, sem a necessidade de chamá-las posteriormente.
+Uma função de 1ª classe é uma função que recebe outra como argumento, ou que retorna outra função. Por meio de high order functions é possível compor funções para separar diferentes tarefas relacionadas. Para exemplificar, podemos criar uma função de acesso que irá cuidar da visualização do resultado e outra responsável pela lógica:
 ```js
-(function () {
-  console.log("Executou na hora!");
-})();
+const access = name => `${name} - online`;
+
+const userLogin = name => {
+console.log("instructions");
+return access(name);
+};
+
+console.log(userLogin("Raphael"));
 ```
-O 1º `()` envolve a função, transformando-a em uma *expressão de função*. O 2º `()` executa essa função **imediatamente**. O uso deste método é muito benéfico pois permite o encapsulamento de escopo privado, pois variáveis e métodos privados não pode ser acessado diretamente de fora, evita poluir o escopo global e permite funções-fábrica, configurações iniciais entre outras vantagens.
+Como as 2 funções estão no mesmo **escopo global**, a função `userLogin()` consegue acessar a função `access()`, assim, funções com responsabilidades diferentes são geradas dentro de outras funções e o valor de retorno da função `userLogin()` é outra função, no caso `access()`.<br/>
+Isso é possível pois no JS as funções também são valores — *objetos* — que podem ser atribuídos a variáveis e *"passados para frente"*, algo que nem toda linguagem de programação realiza.
+```js
+const access = name => `${name} - online`;
+
+const auth = role => console.log(`${role} auth instructions`);
+
+const login = (user, auth) => {
+console.log("login instructions");
+user.role == `CEO` ? auth(user.role) : auth(user.role);
+return access(user.name);
+};
+
+console.log(login({role: `ceo`, name: "Raphael"}, auth));
+console.log(login({role: `user`, name: "Déborah"}, auth));
+```
+
+###### CALLBACK
+O termo usado para funções passadas como parâmetros para outras funções é o **`callback`**, que determina a ordem de quais funções e retornos serão executados primeiro. O que define qual função será a função mais alta na hierarquia é exatamente qual delas é executada primeiro, sendo a responsável por chamar as demais, ou seja, a **high order function**.
+```js
+const access = name => `${name} - online`;
+
+const login = (user, auth) => {
+console.log("login instructions");
+user.role == `CEO` ? auth(user.role) : auth(user.role);
+return access(user.name);
+};
+
+console.log(login({role: `ceo`, name: "Raphael"}, role => console.log(`${role} auth instructions`))); // callback
+```
+Neste exemplo, as funções `access()` e o callback que é a função `auth()`, são *chamados de volta* pela função login, fazendo com a função `login()` a de maior ordem na hierarquia, ou seja, a **higher order function**, pois é quem gerencia as chamadas na pilha de funções e a passagem dos argumentos para as demais.
 
 Existem várias maneiras de se declarar funções no JS, usando `FunctionDeclaration(){}` e chamando-a `FunctionDeclaration()`; atribuindo uma função declarada ou anônima (usando `const myVar = function() {}` ou no formato de `const arrow = function => return`) a uma variável. Além de poder invocar uma função imediatamente atribuída e para essa variável retornar o valor obtido, usando o método IIFE após a declaração da variável.
 ```js
@@ -3642,7 +3788,25 @@ function saudacao(nome, callback) {
 
 saudacao("Raphael", mensagem => console.log(mensagem));
 ```
-E ainda, atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, se comportando como uma **`closure`**, que ocorre quando uma função "lembra" o escopo no qual foi criada, mesmo depois que este escopo já finalizou sua execução. Uma closure é a combinação de uma função com as referências ao estado que a circunda o ambiente léxico, ou seja, o escopo. Em outras palavras, uma closure permite acesso ao escopo de uma função externa a partir de uma função interna.
+
+###### CLOSURE
+E ainda, atribuir uma função a uma variável, passá-la como argumento para outra função e retorná-la como resultado de uma função, se comportando como uma **`closure`**, que ocorre quando uma função aninhada — *interna* — "lembra" o escopo no qual foi criada, mesmo depois que este escopo já finalizou sua execução, além de ser acessível apenas para a função que a contém — *pai*.
+```js
+var pet = function (nome) {
+    // a função externa define uma variável "nome"
+    var getNome = function () {
+      return nome; // a função interna tem acesso à variável "nome"  da função externa
+    };
+
+    return getNome; // retorna a função interna, expondo-a assim para escopos externos
+  },
+
+myPet = pet("Tux");
+
+myPet(); // retorna "Tux"
+```
+
+Uma closure é a combinação de uma função com as referências ao estado que a circunda o ambiente léxico, ou seja, o escopo. Em outras palavras, uma closure permite acesso ao escopo de uma função externa a partir de uma função interna.
 ```js
 function init() {
   var name = "Raphael"; // `name` é uma variável local criada pelo `init()`
@@ -3814,6 +3978,52 @@ console.log(Counter2.value()); /* Alerts 0 */
 Cada um dos contadores mantém sua independência em relação ao outro, pois seu ambiente de execução da função `makeCounter()` é diferente a cada vez que ocorre, e a variável `privateCounter` contém uma instância diferente a cada vez.
 
 Usar closures desta maneira oferece uma série de benefícios que estão normalmente associados a programação orientada a objetos, em particular encapsulamento e ocultação de dados.
+
+###### ESCOPO DE FUNÇÕES
+Como podemos ver, existem muitas maneiras de fazer a mesma coisa no JS, e cada uma delas visa atender uma necessidade diferente do programador, e para que a solução certa seja aplicada a um problema específico é importante entender as diferenças entre cada maneira de resolução.<br/>
+Embora `Closure`, `High-Order Function` e `Callback` sejam conceitos frequentemente ligados entre si, não são a mesma coisa.
+
+- **`closure`**: ocorre quando uma função **lembra das variáveis do seu _escopo externo_, mesmo após a finalização de sua execução**. Ou seja, ela armazena as informações do ambiente em que foi criada mesmo após este ambiente ter sido encerrado; uma função interna consegue acessar variáveis da função externa "pai" mesmo depois que a função externa "pai" encerrou sua execução — **memória de escopo**.
+```js
+function contador() {
+  let count = 0;
+
+  return function() {
+    count++;
+    console.log(count);
+  };
+}
+
+const incrementar = contador();
+
+incrementar(); // 1
+incrementar(); // 2
+```
+
+- **`HOF`**: funções que **recebem e retornam funçõe**s como argumento. Muitas high-order functions geram closures, porque retornam funções que capturam variáveis do escopo externo — **gerenciamento**.
+```js
+function aplicarOperacao(a, b, operacao) {
+  return operacao(a, b);
+}
+
+function soma(x, y) {
+  return x + y;
+}
+
+console.log(aplicarOperacao(2, 3, soma)); // 5
+```
+
+- **`callback`**: função passada como argumento para outra função, para ser executada depois de algum evento ou operação — chamadas de retorno.
+```js
+function saudacao(nome, callback) {
+  console.log(`Olá, ${nome}`);
+  callback(); // chamada de volta
+}
+
+saudacao("Raphael", () => console.log("Bem-vindo!"));
+```
+
+**Callbacks são as funções passadas para high-order functions, que por sua vez retornam closures e que por fim, uma closure pode ser usado como callback.**
 
 ###### TIPOS DE FUNÇÕES
  As funções podem ser utilizadas de diversas formas, dependendo da necessidade de processamento e estrutura do código.
@@ -4071,7 +4281,7 @@ Usar closures desta maneira oferece uma série de benefícios que estão normalm
  ```
  Funções tipo `arrow functions` possuem o `this` **léxico**, o que significa que o `this` dentro de uma arrow function se refere ao contexto onde foi definida, e não ao objeto que a chamou – não pode ser usada como `constructor`.
 
- ###### CALLBACK FUNCTIONS
+ ###### EXPRESSION FUNCTIONS
  Tanto as funções anônimas quanto as arrow functions são muito usadas como callbacks, essas funções passadas como argumento para outras funções são particularmente úteis quando precisamos executá-las apenas 1 vez.
  ```js
  let Button = (name, style) => {
