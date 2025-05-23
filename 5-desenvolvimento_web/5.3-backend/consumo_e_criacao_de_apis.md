@@ -89,7 +89,7 @@ const PORT = 3000;
 app.use(cors());
 
 // rota GET simples
-app.get("/api/boas-vindas", (req, res) => { // URI do end point da API
+app.get("/api/boas-vindas", (req, res) => { // URI do endpoint da API
   res.send("Seja bem-vindo, Raphael!");
 });
 
@@ -102,48 +102,39 @@ app.listen(PORT, () => {
 ## REST & RESTful APIs
 **R**epresentational **S**tate **T**ransfer é um *estilo de arquitetura* para a criação de APIs, que define regras e princípios para permitir que sistemas se comuniquem pela web de forma simples, padronizada, eficiente e escalável, usando o protocolo HTTP. Uma **API RESTful** nada mais é do que uma API que segue os princípios REST.<br/>
 O REST nasceu com o intuito de formalizar um conjunto de melhores práticas, denominadas **constraints**, que tinham como objetivo determinar a forma na qual padrões como HTTP e URI deveriam ser modelados, aproveitando de fato todos os recursos oferecidos por estes. Pode-se dizer que, as constraints são os princípios fundamentais da arquitetura REST que definem como um *sistema RESTful* deveria ser estruturado, ou mesmo que são regras obrigatórias que uma API deve seguir para ser considerada verdadeiramente RESTful.<br/>
-As 6 principais REST constraints
-
-| # | nome                                       | descrição                                                                                                                                              |
-|---|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | **Client-Server (Cliente-Servidor)**       | **Separação clara entre cliente e servidor.** O cliente não sabe *como* o servidor implementa os dados, e o servidor não sabe *como* o cliente os usa. |
-| 2 | **Stateless (Sem Estado)**                 | **Cada requisição do cliente deve conter todas as informações necessárias.** O servidor **não mantém** o estado da sessão entre as requisições.        |
-| 3 | **Cacheable (Cacheável)**                  | **As respostas devem indicar se podem ser armazenadas em cache.** Isso melhora desempenho e escalabilidade.                                            |
-| 4 | **Uniform Interface (Interface Uniforme)** | **A comunicação entre cliente e servidor deve usar uma interface padrão**, como HTTP + URLs + métodos como GET, POST e etc.                            |
-| 5 | **Layered System (Sistema em Camadas)**    | **A arquitetura pode ser dividida em camadas intermediárias, como proxies, gateways, firewalls e etc, e o cliente não precisa saber disso.**           |
-| 6 | **Code-on-Demand (Código sob Demanda)**    | **O servidor _pode_ enviar código executável ao cliente, como scripts JavaScript, para expandir a funcionalidade.**                                    |
+As 6 principais REST constraints são:
+1. **Client-Server (Cliente-Servidor)**: Separação clara entre cliente e servidor. O cliente não sabe *como* o servidor implementa os dados, e o servidor não sabe *como* o cliente os usa.
+2. **Stateless (Sem Estado)**: Cada requisição ao servidor não deve ter ligação com requisições anteriores ou futuras, sendo cada uma única e completa, ou seja, cada requisição do cliente deve conter todas as informações necessárias para que ela seja tratada com sucesso pelo servidor, e o servidor **não deve manter** nenhum estado da sessão entre as requisições.
+3. **Cacheable (Cacheável)**: As respostas devem permitir serem armazenadas em cache. Isso melhora desempenho e escalabilidade.
+4. **Uniform Interface (Interface Uniforme)**: A comunicação entre cliente e servidor deve usar uma interface padronizada, como HTTP + URLs + métodos como GET, POST e etc.
+5. **Layered System (Sistema em Camadas)**: A arquitetura pode ser dividida em camadas intermediárias para permitir escalabilidade, como proxies, gateways, firewalls, balanceador de cargas e etc, e o cliente não precisa conhecer essas camadas.
+6. **Code-on-Demand (Código sob Demanda)**: O servidor _pode_ enviar código executável ao cliente, como scripts JavaScript, para expandir a funcionalidade e flexibilidade do cliente.
 
 Em resumo, constraints são as regras base para se criar uma API RESTful, garantindo simplicidade, escalabilidade, performance e interoperabilidade. Toda API RESTful deve seguir pelo os 5 primeiros princípios, o 6º é opcional usado em caso de necessidade ou se houver espaço para aplicação.
 
 ### Métodos HTTP usados em APIs RESTful
 
-| Método   | Ação          | Usado para                              |
-| -------- | ------------- | --------------------------------------- |
-| `GET`    | **Ler**       | Buscar recursos (ex: lista de usuários) |
-| `POST`   | **Criar**     | Criar um novo recurso                   |
-| `PUT`    | **Atualizar** | Substituir um recurso existente         |
-| `PATCH`  | **Atualizar** | Alterar parcialmente um recurso         |
-| `DELETE` | **Remover**   | Apagar um recurso                       |
+| MÉTODO   | AÇÃO           | USO                              |
+| -------- | -------------- | -------------------------------- |
+| `GET`    | **READ**       | Buscar recursos.                 |
+| `POST`   | **CREATE**     | Criar um novo recurso.           |
+| `PUT`    | **OVERWRITE**  | Substituir um recurso existente. |
+| `PATCH`  | **UPDATE**     | Alterar parcialmente um recurso. |
+| `DELETE` | **REMOVE**     | Apagar um recurso.               |
 
-### Exemplo de endpoints RESTful: usuários
-```http
-GET    /usuarios    → Lista todos os usuários
-GET    /usuarios/1  → Detalhes do usuário com ID 1
-POST   /usuarios    → Cria um novo usuário
-PUT    /usuarios/1  → Substitui todos os dados do usuário 1
-PATCH  /usuarios/1  → Altera parcialmente os dados do usuário 1
-DELETE /usuarios/1  → Deleta o usuário com ID 1
-```
-
-### Exemplo prático: Interface Uniforme
+**Exemplo de endpoints RESTful: Interface Uniforme**<br/>
 Para manipular um recurso `usuário` via interface RESTful:
 
-| Ação                 | Método HTTP      | Endpoint      |
-| -------------------- | ---------------- | ------------- |
-| Obter todos usuários | `GET`            | `/usuarios`   |
-| Obter um usuário     | `GET`            | `/usuarios/1` |
-| Criar um usuário     | `POST`           | `/usuarios`   |
-| Atualizar um usuário | `PUT` ou `PATCH` | `/usuarios/1` |
-| Deletar um usuário   | `DELETE`         | `/usuarios/1` |
+| AÇÃO                                                             | MÉTODO           | ENDPOINT      |
+| ---------------------------------------------------------------- | ---------------- | ------------- |
+| Obter todos usuários.                                            | `GET`            | `/usuarios`   |
+| Obter um usuário (ID: 1).                                        | `GET`            | `/usuarios/1` |
+| Criar um usuário.                                                | `POST`           | `/usuarios`   |
+| Sobrescrever todos os dados de um usuário (ID: 1).               | `PUT`            | `/usuarios/1` |
+| Alterar parcialmente atualizando os dados de um usuário (ID: 1). | `PATCH`          | `/usuarios/1` |
+| Deletar um usuário (ID: 1).                                      | `DELETE`         | `/usuarios/1` |
+
+## SOAP
+**S**imple **O**bject **A**ccess **P**rotocol é um protocolo que se utiliza envelopado no HTTP para realizar chamadas **RPC** — Remote Procedure Call. Diferente do REST, que é apenas um modelo arquitetural de requisições HTTP simples, e suporta vários tipos de formatos como XML, JSON e YAML, o SOAP suporta somente XML.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/banco_de_dados.md">next</a>

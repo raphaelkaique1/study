@@ -35,16 +35,19 @@ Os protocolos mais utilizados em comunicação de rede são:
 | **Blob URLs**  | Para lidar com arquivos gerados no browser.                                                   |
 
 ## [HTTPS: Let's Encrypt](https://letsencrypt.org/pt-br/how-it-works/)
-Feita a conexão segura no canal, usamos os métodos HTTP para definir a ação que o cliente deseja realizar sobre um recurso no servidor. Os principais métodos são:
-- **GET**: Recupera informações de um recurso sem modificá-lo.
-- **POST**: Envia dados para o servidor, geralmente para criar um novo recurso ou processar informações.
-- **PUT**: Atualiza ou substitui completamente um recurso existente com os dados enviados.
-- **DELETE**: Remove um recurso específico do servidor.
-- **PATCH**: Realiza uma atualização parcial em um recurso existente.
-- **HEAD**: Igual ao GET, mas retorna apenas os cabeçalhos da resposta, sem o corpo.
+Feita a conexão segura no canal, usamos os métodos [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP) para definir a ação que o cliente deseja realizar sobre um recurso no servidor. O **H**yper **T**ext **T**ransfer **P**rotocol é o protocolo de comunicação que permite a transferência de dados na web, definindo como os clientes e servidores conversam entre si para trocar recursos como dados para um banco de dados, páginas HTML, mídia e etc. Seu funcionamento segue o modelo client-server, onde o cliente envia uma requisição para o servidor, que processa e responde com dados.
+
+[**MÉTODOS**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods)<br/>
+Os métodos HTTP são as ações que o protocolo define para serem realizadas em uma requisição. Os principais métodos utilizados possuem a semântica de operações possíveis de serem efetuadas sob um determinado recurso:
 - **OPTIONS**: Retorna os métodos HTTP suportados pelo servidor para um recurso específico.
 - **TRACE**: Realiza um teste de loop-back que retorna a requisição recebida, útil para diagnósticos.
 - **CONNECT**: Usado para estabelecer um túnel de comunicação, comum em conexões HTTPS.
+- **HEAD**: Retorna apenas os cabeçalhos da resposta, sem o corpo.
+- **GET**: Recupera as informações de um recurso sem modificá-lo.
+- **POST**: Envia dados para o servidor, geralmente para criar um novo recurso ou processar informações.
+- **PUT**: Atualiza ou substitui completamente um recurso existente com os dados enviados.
+- **PATCH**: Realiza uma atualização parcial em um recurso existente.
+- **DELETE**: Remove um recurso específico do servidor.
 
 Além desses, existem outros métodos específicos, como os do WebDAV, esses métodos foram criados para permitir a manipulação de arquivos e pastas, chamadas *coleções*, em servidores web:
 - **PROPFIND**: Recupera propriedades normalmente em formato XML de um recurso.
@@ -55,12 +58,246 @@ Além desses, existem outros métodos específicos, como os do WebDAV, esses mé
 - **LOCK**: Aplica uma trava em um recurso, impedindo alterações concorrentes.
 - **UNLOCK**: Remove a trava aplicada a um recurso.
 
-Além dos métodos do WebDAV, há outros métodos introduzidos em extensões ou por protocolos associados:
+E além dos métodos do WebDAV, há outros métodos introduzidos em extensões ou por protocolos associados:
 - **REPORT**: Usado em sistemas de versionamento como DeltaV e em protocolos como CalDAV e CardDAV para gerar relatórios sobre as propriedades ou o estado de um recurso.
 - **MKCALENDAR**: Utilizado pelo CalDAV para criar um novo calendário.
 - **ACL**: Define ou modifica as listas de controle de acesso e permissões de um recurso.
 - **ORDERPATCH**: Permite reordenar os membros de uma coleção.
 - **BIND**, UNBIND, REBIND: Métodos menos comuns utilizados em algumas extensões do WebDAV para gerenciar ligações entre recursos.
 - **CHECKOUT**, **CHECKIN**, **UNCHECKOUT**, **UPDATE**, **MERGE**: Métodos relacionados a sistemas de versionamento definidos em RFC 3253 e extensões de WebDAV para gerenciar cópias e versões de recursos.
+
+[**CÓDIGOS DE STATUS**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)<br/>
+Toda resposta à uma requisição gera um HTTP status code, que é um código que informa ao solicitante o que ocorreu durante o envio da resposta à requisição. Os principais códigos de status de requisições e respostas são:
+
+| **CÓDIGO** | **SIGNIFICADO**        |
+| ---------- | ---------------------- |
+| **1XX**    | **INFORMATIVO**        |
+| 100        | Continue.              |
+| 101        | Switching Protocols.   |
+| 102        | Processing (WebDAV).   |
+| **2xx**    | **SUCESSO**            |
+| 200        | OK.                    |
+| 201        | Created.               |
+| 202        | Accepted.              |
+| 204        | No Content.            |
+| **3xx**    | **REDIRECIONAMENTO**   |
+| 301        | Moved Permanently.     |
+| 302        | Found (temporário).    |
+| 304        | Not Modified.          |
+| 307        | Temporary Redirect.    |
+| **4xx**    | **ERROS DO CLIENTE**   |
+| 400        | Bad Request.           |
+| 401        | Unauthorized.          |
+| 403        | Forbidden.             |
+| 404        | Not Found.             |
+| 405        | Method Not Allowed.    |
+| 409        | Conflict.              |
+| 429        | Too Many Requests.     |
+| **5xx**    | **ERROS DO SERVIDOR**  |
+| 500        | Internal Server Error. |
+| 501        | Not Implemented.       |
+| 502        | Bad Gateway.           |
+| 503        | Service Unavailable.   |
+| 504        | Gateway Timeout.       |
+
+[**TIPOS DE CONTEÚDOS**](https://www.iana.org/assignments/media-types/media-types.xhtml)<br/>
+Toda requisição envia ao servidor uma informação sobre qual tipo de dados espera receber, assim como toda resposta informa qual o tipo de dados enviado, e, para isso, existe um campo no cabeçalho que define o conteúdo do corpo da mensagem que se deve esperar. Os `Content-Type` são valores do cabeçalho HTTP que informam o **tipo de dados** sendo transmitido no corpo da requisição ou resposta:
+
+| **Content-Type**                          | **DESCRIÇÃO**                               |
+| ----------------------------------------- | ------------------------------------------- |
+| `text/plain`                              | Texto puro, sem formatação.                 |
+| `text/html`                               | HTML.                                       |
+| `text/css`                                | CSS.                                        |
+| `text/javascript`                         | JavaScript.                                 |
+| `text/csv`                                | Arquivos CSV.                               |
+| `text/xml`                                | XML em formato de texto.                    |
+| `application/json`                        | JSON.                                       |
+| `application/xml`                         | XML.                                        |
+| `application/x-www-form-urlencoded`       | Formulários HTML (dados em URL codificada). |
+| `multipart/form-data`                     | Uploads de arquivos (formulários).          |
+| `application/octet-stream`                | Binário genérico.                           |
+| `application/pdf`                         | Arquivo PDF.                                |
+| `application/zip`                         | Arquivo ZIP.                                |
+| `application/msword`                      | Documento Word.                             |
+| `application/vnd.ms-excel`                | Arquivo Excel.                              |
+| `application/javascript`                  | JavaScript.                                 |
+| `image/png`                               | Imagem PNG.                                 |
+| `image/jpeg`                              | Imagem JPEG.                                |
+| `image/gif`                               | Imagem GIF.                                 |
+| `image/svg+xml`                           | Imagem SVG.                                 |
+| `audio/mpeg`                              | Áudio MP3.                                  |
+| `audio/ogg`                               | Áudio OGG.                                  |
+| `video/mp4`                               | Vídeo MP4.                                  |
+| `video/webm`                              | Vídeo WebM.                                 |
+
+[**CABEÇALHO**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers)<br/>
+As principais características deste protocolo são o que o tornam muito usado para o desenvolvimento web, pois é stateless, ou seja, não guarda estado tornando cada requisição independente, é baseado em texto, e extensível possuindo cabeçalhos, métodos e integrações (como REST ou GraphQL por exemplo).<br/>
+O principal serviço do protocolo HTTP é realizar a comunicação e transferência de dados entre cliente e servidor, isso se dá normalmente pelo processo do cliente enviar uma requisição ao servidor, que responde de acordo com o que foi solicitado. Na maioria dos casos, uma resposta de um servidor a uma requisição HTTP pode ser dividido em 4 partes, onde pelo menos 2 são orbigatórias, e por isso, apesar de todas as requisições possuirem diferentes respostas, 2 linhas sempre estarão presentes:
+1. **Start-Line** — Linha de Início (obrigatória): trás as informações da comunicação, podendo ser divida em 2 partes:
+   1. **request-line**: indica a versão HTTP usada
+   2. **status-line**: resultado da comunicação
+2. **Header Fields** — Cabeçalho de Campos (nenhum ou vários): representam os metadados da requisição e resposta HTTP, que contém informações sobre como a transferência de dados deve ser manipulada e tratada pelo cliente ou servidor. Eles não fazem parte do corpo da mensagem, mas influenciam diretamente seu processamento. Possui alguns campos *principais* que dizem muito ao servidor ou ao cliente, são eles:
+   1. **Content-Type**: informa como a representação é serializada, ou seja, qual é formato dos dados da resposta indicando o tipo de mídia (MIME Type) do conteúdo da mensagem, permitindo ao receptor entender como interpretar os dados.
+   2. **Content-Length**: informa o tamanho do corpo da mensagem contabilizado em octetos (bytes), que é usado pelo receptor para estimar quantos dados esperar, ajudando na validação de integridade e confirmar que a mensagem foi recebida corretamente a partir do emissor.
+   3. **X-Powered-By**: header fields não oficiais por convenção começam com **X**, mas essa prática tem caído em desuso e se houver a necessidade de se criar um header field não é indicado iniciá-lo com **X**. Campos personalizados são muito úteis, mas não é aconselhado o uso destes tipos, sendo uma melhor prática sempre usar os campos oficiais antes de se criar e utilizar um personalizado.
+3. **Empty Line** — Linha em Branco (obrigatória): serve apenas para delimitar o fim dos Header Fields e o início do corpo da mensagem.
+4. **Message-Body** — Corpo da Mensagem (Opcional): contém os dados enviados como resposta à requisição feita.
+
+Um exemplo de uma requisição HTTP seria algo como:
+```http
+GET /users/1
+Host: https://jsonplaceholder.typicode.com
+```
+
+Podendo receber uma resposta como:
+```json
+HTTP/2 200 // 1. START LINE - HTTP STATUS CODE
+// 2. HEADER FIELDS - REQUEST/RESPONSE INFORMATION
+date: Fri, 23 May 2025 11:40:37 GMT
+content-type: application/json; charset=utf-8
+content-length: 509
+server: cloudflare
+report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1745352617&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=WUBe99aGTRNCdZoOtOqedRAJn8uvqx%2Fm6KpNeql0IoQ%3D"}]}
+reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1745352617&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=WUBe99aGTRNCdZoOtOqedRAJn8uvqx%2Fm6KpNeql0IoQ%3D
+nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+x-powered-by: Express
+x-ratelimit-limit: 1000
+x-ratelimit-remaining: 999
+x-ratelimit-reset: 1745352673
+vary: Origin, Accept-Encoding
+access-control-allow-credentials: true
+cache-control: max-age=43200
+pragma: no-cache
+expires: -1
+x-content-type-options: nosniff
+etag: W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"
+via: 1.1 vegur
+age: 16717
+cf-cache-status: HIT
+cf-ray: 944447908e2aa32f-SEA
+alt-svc: h3=":443"; ma=86400
+                            // 3. EMPTY LINE
+// 4. MESSAGE BODY - SERVER RESPONSE CONTENT
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}
+```
+
+O que realmente acontece durante a comunicação cliente-servidor segue os seguintes passos:
+```bash
+* Host jsonplaceholder.typicode.com:443 was resolved.
+* IPv6: 2606:4700:3030::6815:3001, 2606:4700:3030::6815:4001, 2606:4700:3030::6815:5001, 2606:4700:3030::6815:6001, 2606:4700:3030::6815:7001, 2606:4700:3030::6815:1001, 2606:4700:3030::6815:2001
+* IPv4: 104.21.96.1, 104.21.112.1, 104.21.16.1, 104.21.32.1, 104.21.48.1, 104.21.64.1, 104.21.80.1
+*   Trying 104.21.96.1:443...
+* Connected to jsonplaceholder.typicode.com (104.21.96.1) port 443
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / X25519 / id-ecPublicKey
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=typicode.com
+*  start date: Apr 13 09:20:38 2025 GMT
+*  expire date: Jul 12 10:18:06 2025 GMT
+*  subjectAltName: host "jsonplaceholder.typicode.com" matched cert is "*.typicode.com"
+*  issuer: C=US; O=Google Trust Services; CN=WE1
+*  SSL certificate verify ok.
+*   Certificate level 0: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using ecdsa-with-SHA256
+*   Certificate level 1: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using ecdsa-with-SHA384
+*   Certificate level 2: Public key type EC/secp384r1 (384/192 Bits/secBits), signed using ecdsa-with-SHA384
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://jsonplaceholder.typicode.com/users/1
+* [HTTP/2] [1] [:method: GET]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: jsonplaceholder.typicode.com]
+* [HTTP/2] [1] [:path: /users/1]
+* [HTTP/2] [1] [user-agent: curl/8.5.0]
+* [HTTP/2] [1] [accept: */*]
+> GET /users/1 HTTP/2
+> Host: jsonplaceholder.typicode.com
+> User-Agent: curl/8.5.0
+> Accept: */*
+> 
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< date: Fri, 23 May 2025 13:19:48 GMT
+< content-type: application/json; charset=utf-8
+< content-length: 509
+< server: cloudflare
+< report-to: {"group":"heroku-nel","max_age":3600,"endpoints":'[{"url":"https://nel.heroku.com/reports?ts=1745352752&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=C2n83VezeTFi6%2FKSgAcUfuCRGK6NPeD%2B87inK6OoBsI%3D"}]'}
+< reporting-endpoints: heroku-nel='https://nel.heroku.com/reports?ts=1745352752&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&s=C2n83VezeTFi6%2FKSgAcUfuCRGK6NPeD%2B87inK6OoBsI%3D'
+< nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":'["Via"]'}
+< x-powered-by: Express
+< x-ratelimit-limit: 1000
+< x-ratelimit-remaining: 999
+< x-ratelimit-reset: 1745352793
+< vary: Origin, Accept-Encoding
+< access-control-allow-credentials: true
+< cache-control: max-age=43200
+< pragma: no-cache
+< expires: -1
+< x-content-type-options: nosniff
+< etag: W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"
+< via: 1.1 vegur
+< age: 20949
+< cf-cache-status: HIT
+< cf-ray: 9444d8d72828757b-SEA
+< alt-svc: h3=":443"; ma=86400
+< 
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": '{
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  }',
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": '{
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }'
+* Connection #0 to host jsonplaceholder.typicode.com left intact
+}
+```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.3-ferramentas_de_monitoramento/prometheus_grafana.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#fundamentos_da_web">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/html5_css3_sass_less.md">next</a>
