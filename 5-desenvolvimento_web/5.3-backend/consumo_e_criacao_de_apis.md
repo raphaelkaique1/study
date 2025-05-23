@@ -137,4 +137,111 @@ Para manipular um recurso `usuário` via interface RESTful:
 ## SOAP
 **S**imple **O**bject **A**ccess **P**rotocol é um protocolo que se utiliza envelopado no HTTP para realizar chamadas **RPC** — Remote Procedure Call. Diferente do REST, que é apenas um modelo arquitetural de requisições HTTP simples, e suporta vários tipos de formatos como XML, JSON e YAML, o SOAP suporta somente XML.
 
+## MODELO DE MATURIDADE
+Apesar de que para API ser considerada RESTful ela precisa obrigatoriamente seguir todas as constraints, na prática, muitas vezes é necessário uma abordagem mais simples. Este modelo de maturidade propõe 4 níveis para alcançar a construção de uma API RESTful. Uma API que se encontra entre os níveis de 0 a 2 ainda não pode ser considerada RESTful, apenas APIs que cumprem todos os requistos dos 4 níveis são APIs que seguem adequadamente o modelo REST.
+
+0. **RPC (POX)**<br/>
+Modelo de design mais distante do que de fato o REST propõe, pois, neste nível, as **mensagens podem ser serializadas em formatos XML, JSON ou outros**, entretanto o formato da mensagem não é o que define um sistema REST.
+<table border="1">
+  <tgroup>
+    <th>REST</th>
+    <th>MODEL</th>
+    <th>METHOD</th>
+    <th>URI: verb ✗ | substantive ✓</th>
+    <th>ACTION</th>
+  </tgroup>
+  <tr>
+    <td rowspan="4">⛔</td>
+    <td rowspan="4">RPC (POX)</td>
+    <td><pre>POST</pre></td>
+    <td>/salvarCliente</td>
+    <td>criar</td>
+  </tr>
+  <tr>
+    <td><pre>GET</pre></td>
+    <td>/buscarCliente/1</td>
+    <td>visualizar</td>
+  </tr>
+  <tr>
+    <td><pre>POST</pre></td>
+    <td>/alterarCliente/1</td>
+    <td>alterar</td>
+  </tr>
+  <tr>
+    <td><pre>GET/POST</pre></td>
+    <td>/deletarCliente/1</td>
+    <td>remover</td>
+  </tr>
+  <tr>
+    <td rowspan="4">✅</td>
+    <td rowspan="4">RESTful</td>
+    <td><pre>POST</pre></td>
+    <td>/cliente</td>
+    <td>criar</td>
+  </tr>
+  <tr>
+    <td><pre>GET</pre></td>
+    <td>/cliente/1</td>
+    <td>visualizar</td>
+  </tr>
+  <tr>
+    <td><pre>PUT</pre></td>
+    <td>/cliente/1</td>
+    <td>alterar</td>
+  </tr>
+  <tr>
+    <td><pre>delete</pre></td>
+    <td>/cliente/1</td>
+    <td>remover</td>
+  </tr>
+</table>
+
+Outro problema constantemente encontrado é a manipulação incorreta dos códigos de resposta HTTP, que são frequentemente manipulados nas mensagens geradas pela aplicação, o que impede que elementos de gateway e proxy trabalhem de forma adequada.
+
+<table border="1">
+  <tgroup>
+    <th>REST</th>
+    <th>MODEL</th>
+    <th>METHOD</th>
+    <th>URI</th>
+    <th>TROUBLESHOOTING</th>
+  </tgroup>
+  <tr>
+    <td>⛔</td>
+    <td>POX</td>
+    <td><pre>GET</pre></td></td>
+    <td>/salvarCliente/1</td>
+    <td>
+<pre>
+<code>
+HTTP/1.1 200 OK
+&lt;buscarCliente&gt;
+  &lt;status&gt; CLIENTE NÃO ENCONTRADO &lt;/status&gt;
+  &lt;codigo&gt; 404 &lt;/codigo&gt;
+&lt;/buscarCliente&gt;
+</code>
+</pre>
+    </td>
+  <tr>
+    <td>✅</td>
+    <td>RESTful</td>
+    <td><pre>GET</pre></td>
+    <td>/cliente/1</td>
+    <td>
+<pre>
+<code>
+HTTP/1.1 404 NOT FOUND
+Content-Type: text/plain
+<br/>
+Resource not found.
+</code>
+</pre>
+    </td>
+  </tr>
+</table>
+
+1. **resources**
+2. **HTTP methods**
+3. **HATEOAS**
+
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/banco_de_dados.md">next</a>

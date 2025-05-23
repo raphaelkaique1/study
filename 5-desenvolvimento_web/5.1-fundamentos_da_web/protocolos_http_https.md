@@ -38,15 +38,19 @@ Os protocolos mais utilizados em comunicação de rede são:
 Feita a conexão segura no canal, usamos os métodos [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP) para definir a ação que o cliente deseja realizar sobre um recurso no servidor. O **H**yper **T**ext **T**ransfer **P**rotocol é o protocolo de comunicação que permite a transferência de dados na web, definindo como os clientes e servidores conversam entre si para trocar recursos como dados para um banco de dados, páginas HTML, mídia e etc. Seu funcionamento segue o modelo client-server, onde o cliente envia uma requisição para o servidor, que processa e responde com dados.
 
 [**MÉTODOS**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods)<br/>
-Os métodos HTTP são as ações que o protocolo define para serem realizadas em uma requisição. Os principais métodos utilizados possuem a semântica de operações possíveis de serem efetuadas sob um determinado recurso:
+Os métodos HTTP são as ações que o protocolo define para serem realizadas em uma requisição. Existem vários métodos, cada um realizando um tipo de tarefa, e podemos separá-los em:
+- **safe methods**: são os métodos considerados *seguros*, que não realizam ações em nenhum dos lados, podem ser considerados *emissores de eventos*, mas os eventos são executados pelo próprio sistema apenas por conta de *"perceber"* o método, e não por alguma ação ou parâmetro deste método. `GET` e `HEAD` são exemplos de safe methods.
+- **idempotent methods**: idempotência é uma propriedade que obtém o mesmo resultado após a 1ª execução idependente de quantas vezes o método for chamad, ou seja, mesmo que hajam múltiplas execuções o resultado não será alterado depois da 1ª execução. O método `DELETE` é um exemplo deste tipo, pois após a remoção do recurso do sistema ele não poderá ser *"removido uma 2ª vez"*, visto que após a 1ª execução deste método o recurso em questão já não existe mais.
+
+Os principais métodos utilizados possuem a semântica de operações possíveis de serem efetuadas sob um determinado recurso:
 - **OPTIONS**: Retorna os métodos HTTP suportados pelo servidor para um recurso específico.
-- **TRACE**: Realiza um teste de loop-back que retorna a requisição recebida, útil para diagnósticos.
-- **CONNECT**: Usado para estabelecer um túnel de comunicação, comum em conexões HTTPS.
-- **HEAD**: Retorna apenas os cabeçalhos da resposta, sem o corpo.
+- **TRACE**: Realiza um teste de loop-back que retorna a requisição recebida para que o cliente veja se houveram mudanças e adições feitas por servidores intermediários. Por questões de vulnerabilidade na segurança, este método em produção deve ser desabilitado.
+- **CONNECT**: Usado para estabelecer um túnel de comunicação, comum em conexões HTTPS, que converte a requisição de conexão para um túnel TCP/IP transparente, usado para facilitar a comunicação criptografada com SSL (HTTPS) através de um proxy HTTP não criptografado.
+- **HEAD**: Retorna apenas os cabeçalhos da resposta, sem o corpo da mensagem.
 - **GET**: Recupera as informações de um recurso sem modificá-lo.
 - **POST**: Envia dados para o servidor, geralmente para criar um novo recurso ou processar informações.
-- **PUT**: Atualiza ou substitui completamente um recurso existente com os dados enviados.
-- **PATCH**: Realiza uma atualização parcial em um recurso existente.
+- **PUT**: Atualiza ou substitui *completamente* um recurso existente com os dados enviados.
+- **PATCH**: Realiza uma atualização *parcial* em um recurso existente, ao invés de enviar todos os dados novamente.
 - **DELETE**: Remove um recurso específico do servidor.
 
 Além desses, existem outros métodos específicos, como os do WebDAV, esses métodos foram criados para permitir a manipulação de arquivos e pastas, chamadas *coleções*, em servidores web:
