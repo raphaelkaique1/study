@@ -71,7 +71,7 @@ E além dos métodos do WebDAV, há outros métodos introduzidos em extensões o
 - **CHECKOUT**, **CHECKIN**, **UNCHECKOUT**, **UPDATE**, **MERGE**: Métodos relacionados a sistemas de versionamento definidos em RFC 3253 e extensões de WebDAV para gerenciar cópias e versões de recursos.
 
 [**CÓDIGOS DE STATUS**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)<br/>
-Toda resposta à uma requisição gera um HTTP status code, que é um código que informa ao solicitante o que ocorreu durante o envio da resposta à requisição. Os principais códigos de status de requisições e respostas são:
+Toda resposta à uma requisição deve conter um HTTP status code, que é um código que informa ao solicitante o que ocorreu durante o envio da resposta à requisição. Os principais códigos de status de requisições e respostas são:
 
 | **CÓDIGO** | **SIGNIFICADO**        |
 | ---------- | ---------------------- |

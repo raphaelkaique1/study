@@ -141,61 +141,7 @@ Para manipular um recurso `usuário` via interface RESTful:
 Apesar de que para API ser considerada RESTful ela precisa obrigatoriamente seguir todas as constraints, na prática, muitas vezes é necessário uma abordagem mais simples. Este modelo de maturidade propõe 4 níveis para alcançar a construção de uma API RESTful. Uma API que se encontra entre os níveis de 0 a 2 ainda não pode ser considerada RESTful, apenas APIs que cumprem todos os requistos dos 4 níveis são APIs que seguem adequadamente o modelo REST.
 
 0. **RPC (POX)**<br/>
-Modelo de design mais distante do que de fato o REST propõe, pois, neste nível, as **mensagens podem ser serializadas em formatos XML, JSON ou outros**, entretanto o formato da mensagem não é o que define um sistema REST.
-<table border="1">
-  <tgroup>
-    <th>REST</th>
-    <th>MODEL</th>
-    <th>METHOD</th>
-    <th>URI: verb ✗ | substantive ✓</th>
-    <th>ACTION</th>
-  </tgroup>
-  <tr>
-    <td rowspan="4">⛔</td>
-    <td rowspan="4">RPC (POX)</td>
-    <td><pre>POST</pre></td>
-    <td>/salvarCliente</td>
-    <td>criar</td>
-  </tr>
-  <tr>
-    <td><pre>GET</pre></td>
-    <td>/buscarCliente/1</td>
-    <td>visualizar</td>
-  </tr>
-  <tr>
-    <td><pre>POST</pre></td>
-    <td>/alterarCliente/1</td>
-    <td>alterar</td>
-  </tr>
-  <tr>
-    <td><pre>GET/POST</pre></td>
-    <td>/deletarCliente/1</td>
-    <td>remover</td>
-  </tr>
-  <tr>
-    <td rowspan="4">✅</td>
-    <td rowspan="4">RESTful</td>
-    <td><pre>POST</pre></td>
-    <td>/cliente</td>
-    <td>criar</td>
-  </tr>
-  <tr>
-    <td><pre>GET</pre></td>
-    <td>/cliente/1</td>
-    <td>visualizar</td>
-  </tr>
-  <tr>
-    <td><pre>PUT</pre></td>
-    <td>/cliente/1</td>
-    <td>alterar</td>
-  </tr>
-  <tr>
-    <td><pre>delete</pre></td>
-    <td>/cliente/1</td>
-    <td>remover</td>
-  </tr>
-</table>
-
+Este nível trata do uso correto dos métodos adequados para cada situação, tanto `HTTP methods` quanto informações no cabeçalho `HTTP status code`.<br/>
 Outro problema constantemente encontrado é a manipulação incorreta dos códigos de resposta HTTP, que são frequentemente manipulados nas mensagens geradas pela aplicação, o que impede que elementos de gateway e proxy trabalhem de forma adequada.
 
 <table border="1">
@@ -203,18 +149,22 @@ Outro problema constantemente encontrado é a manipulação incorreta dos códig
     <th>REST</th>
     <th>MODEL</th>
     <th>METHOD</th>
-    <th>URI</th>
+    <th>URI: verb ✗ | substantive ✓</th>
+    <th>ACTION</th>
     <th>TROUBLESHOOTING</th>
   </tgroup>
   <tr>
-    <td>⛔</td>
-    <td>POX</td>
-    <td><pre>GET</pre></td></td>
-    <td>/salvarCliente/1</td>
-    <td>
+    <td rowspan="4">⛔</td>
+    <td rowspan="4">RPC (POX)</td>
+    <td><code>POST</code></td>
+    <td>/salvarCliente</td>
+    <td>criar</td>
+    <td rowspan="4">
 <pre>
 <code>
 HTTP/1.1 200 OK
+Content-Type: text/xmlplain
+<br/>
 &lt;buscarCliente&gt;
   &lt;status&gt; CLIENTE NÃO ENCONTRADO &lt;/status&gt;
   &lt;codigo&gt; 404 &lt;/codigo&gt;
@@ -222,12 +172,77 @@ HTTP/1.1 200 OK
 </code>
 </pre>
     </td>
+  </tr>
   <tr>
-    <td>✅</td>
-    <td>RESTful</td>
-    <td><pre>GET</pre></td>
-    <td>/cliente/1</td>
-    <td>
+    <td><code>GET</code></td>
+    <td>/buscarCliente/1</td>
+    <td>visualizar</td>
+  </tr>
+  <tr>
+    <td><code>POST</code></td>
+    <td>/alterarCliente/1</td>
+    <td>alterar</td>
+  </tr>
+  <tr>
+    <td><code>GET/POST</code></td>
+    <td>/deletarCliente/1</td>
+    <td>remover</td>
+  </tr>
+</table>
+
+APIs neste estado devem primeiro ser refatoradas adequando-se para que saim do nível 0, entrando assim no nível 1.
+
+<table border="1">
+  <tgroup>
+    <th>REST</th>
+    <th>MODEL</th>
+    <th>METHOD</th>
+    <th>URI: verb ✗ | substantive ✓</th>
+    <th>ACTION</th>
+    <th>TROUBLESHOOTING</th>
+  </tgroup>
+  <tr>
+    <td rowspan="4">⛔</td>
+    <td rowspan="4">RPC (POX)</td>
+    <td><code>POST</code></td>
+    <td>/salvarCliente</td>
+    <td>criar</td>
+    <td rowspan="4">
+<pre>
+<code>
+HTTP/1.1 200 OK
+Content-Type: text/xmlplain
+<br/>
+&lt;buscarCliente&gt;
+  &lt;status&gt; CLIENTE NÃO ENCONTRADO &lt;/status&gt;
+  &lt;codigo&gt; 404 &lt;/codigo&gt;
+&lt;/buscarCliente&gt;
+</code>
+</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><code>GET</code></td>
+    <td>/buscarCliente/1</td>
+    <td>visualizar</td>
+  </tr>
+  <tr>
+    <td><code>POST</code></td>
+    <td>/alterarCliente/1</td>
+    <td>alterar</td>
+  </tr>
+  <tr>
+    <td><code>GET/POST</code></td>
+    <td>/deletarCliente/1</td>
+    <td>remover</td>
+  </tr>
+  <tr>
+    <td rowspan="4">✅</td>
+    <td rowspan="4">RESTful</td>
+    <td><code>POST</code></td>
+    <td>/cliente</td>
+    <td>criar</td>
+    <td rowspan="4">
 <pre>
 <code>
 HTTP/1.1 404 NOT FOUND
@@ -238,10 +253,110 @@ Resource not found.
 </pre>
     </td>
   </tr>
+  <tr>
+    <td><code>GET</code></td>
+    <td>/cliente/1</td>
+    <td>visualizar</td>
+  </tr>
+  <tr>
+    <td><code>PUT</code></td>
+    <td>/cliente/1</td>
+    <td>alterar</td>
+  </tr>
+  <tr>
+    <td><code>DELETE</code></td>
+    <td>/cliente/1</td>
+    <td>remover</td>
+  </tr>
 </table>
 
-1. **resources**
-2. **HTTP methods**
-3. **HATEOAS**
+1. **resources**<br/>
+No nível 1, passa-se a usar recursos como forma de modelar e organizar a API. Neste nível não é necessário conhecer a funcionalidade de cada método, apenas o recurso ao qual se tem acesso.<br/>
+Modelando corretamente os recursos, deve-se usar os métodos adequados para cada situação, para que se crie todas as interações necessárias sob um recurso.
+
+<table border="1">
+  <tgroup>
+    <th>REST</th>
+    <th>MODEL</th>
+    <th>METHOD</th>
+    <th>URI: verb ✗ | substantive ✓</th>
+    <th>ACTION</th>
+    <th>TROUBLESHOOTING</th>
+  </tgroup>
+  <tr>
+    <td rowspan="4">✅</td>
+    <td rowspan="4">RESTful</td>
+    <td><code>POST</code></td>
+    <td>/cliente</td>
+    <td>criar</td>
+    <td rowspan="4">
+<pre>
+<code>
+HTTP/1.1 404 NOT FOUND
+Content-Type: text/plain
+<br/>
+Resource not found.
+</code>
+</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><code>GET</code></td>
+    <td>/cliente/1</td>
+    <td>visualizar</td>
+  </tr>
+  <tr>
+    <td><code>PUT</code></td>
+    <td>/cliente/1</td>
+    <td>alterar</td>
+  </tr>
+  <tr>
+    <td><code>DELETE</code></td>
+    <td>/cliente/1</td>
+    <td>remover</td>
+  </tr>
+</table>
+
+2. **HTTP methods**<br/>
+Neste nível, o HTTP deixa de exercer um papel apenas de transporte e passa a exercer um papel semântico na API, ou seja, seus verbos passam a ser utilizados com o propósito para que foram criados.<br/>
+A utilização destes métodos bem como a tratativa correta dos códigos de resposta, permitem a modelagem e interação com os recursos presentes em uma API.
+
+**ENVIANDO**
+```xml
+POST /cliente
+
+<Cliente>
+  <Nome>Raphael K. Dias Santos</Nome>
+</Cliente>
+```
+
+**RECEBENDO**
+```bash
+201 Created
+Location: /cliente/1
+```
+
+Nos exemplos acima, como foi solicitada a **criação de um recurso `POST`**, nada mais adequado do que uma resposta que informe que o **recurso foi criado com sucesso `HTTP status code: 201 Created`**. Além disso, um importante aspecto é a presença do header `Localtion`, que informa em qual endereço o recurso criado encontra-se disponível.<br/>
+O uso dos verbos HTTP de forma correta — com recursos e respostas de status code e header — ajudam os roteadores, proxys, getaways e qualquer outra camada que se comunique com a aplicação a lidar melhor com o tráfego da informação.
+
+3. **HATEOAS**<br/>
+**H**ypermedia **A**s **T**he **E**ngine **O**f **A**pplication **S**tate é um conceito presente no dia a dia de todos os usuários da web, que tem como elemento principal uma representação **hypermedia**, que permite um documento descrever seu estado atual e quais os seus relacionamentos com outros futuros estados.<br/>
+Uma das constraints que definem o REST é justamente ser *stateless*, que quer dizer que uma requisição não deve conhecer o que ocorreu antes ou depois de obter sua resposta, e o HATEOAS resolve justamente este problema. Hypermedia de uma forma geral no conceito de HTTP, é a possibilidade de um documento se ligar a outro, e o HATEOAS é a ligação do documento não com outros, mas com ele próprio e seus possíveis estados, este conceito diz que **o retorno de uma requisição — ou seja, uma resposta — pode conter no seu corpo elementos que informem o seu relacionamento com outros futuros estados do próprio documento**, fazendo com que assim, a resposta tenha um *"início, meio e fim"*, sem manter em aberto um estado.<br/>
+Como no exemplo abaixo, a própria resposta carrega consigo informações do que é possível realizar com o recurso em questão, ou seja, trata dela mesma, informando ao solicitante que é possível remover o recurso utilizando o link informado ou realizar uma ação utilizando outro link informado — no caso, enviar uma notificação através do programa no endpoint informado.
+```xml
+GET /cliente/1
+
+HTTP/1.1 200 OK
+
+<Cliente>
+  <Id>1</Id>
+  <Nome>Raphael K. Dias Santos</Nome>
+  <link rel="deletar" href="/cliente/1"/>
+  <link rel="notificar" href="/cliente/1/notificacao"/>
+</Cliente>
+```
+
+O HATEOAS é basicamente um documento trazer consigo — falando por si mesmo — quais são as possíveis interações com ele mesmo através do corpo da mensagem de retorno da requisição, ou seja, se ligar com seu *possível estado futuro*, informando ao solicitante o que pode ser feito com ele próprio — assim trazendo consigo **todas** as informações necessárias que a requisição precisa para encerrar a ligação.<br/>
+Para que essas informações façam sentido, o cliente deverá entender o significado dos relacionamentos informados para que de fato consiga consumir de forma adequada essas informações.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/banco_de_dados.md">next</a>
