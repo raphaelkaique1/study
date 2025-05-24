@@ -104,8 +104,10 @@ Toda resposta à uma requisição deve conter um HTTP status code, que é um có
 | 503        | Service Unavailable.   |
 | 504        | Gateway Timeout.       |
 
-[**TIPOS DE CONTEÚDOS**](https://www.iana.org/assignments/media-types/media-types.xhtml)<br/>
-Toda requisição envia ao servidor uma informação sobre qual tipo de dados espera receber, assim como toda resposta informa qual o tipo de dados enviado, e, para isso, existe um campo no cabeçalho que define o conteúdo do corpo da mensagem que se deve esperar. Os `Content-Type` são valores do cabeçalho HTTP que informam o **tipo de dados** sendo transmitido no corpo da requisição ou resposta:
+[**TIPOS DE MÍDIA**](https://www.iana.org/assignments/media-types/media-types.xhtml)<br/>
+Toda requisição envia ao servidor uma informação sobre qual tipo de dados espera receber, assim como toda resposta informa qual o tipo de dados enviado, e, para isso, existe um campo no cabeçalho que define o conteúdo do corpo da mensagem que se deve esperar. Os `Content-Type` são valores do cabeçalho HTTP que informam o **tipo de dados** sendo transmitido no corpo da requisição ou resposta. Essa string define qual o formato do conteúdo da mensagem e como ele deve ser lido pelo software, permitindo assim o cliente diferenciar entre JSON e XML por exemplo.<br/>
+Sua declaração é composta por 2 partes separadas por uma barra `/`, em que a 1ª parte refere-se ao tipo do dado e a 2ª ao subtipo — formato; *extensão*. Também é possível especificar alguns parâmetros adicionais, como por exemplo o padrão de caracteres **`charset=UTF-8`**: **`content-type: application/json; charset=utf-8`**.<br/>
+A 1ª parte contém um tipo registrado de alto nível, que pode ser: **`application` - `audio` - `example` - `image` - `message` - `model` - `multipart` - `text` - `video`**; **e no caso do cliente que deseja informar o media type que espera receber, usa-se o header field **`Accept`** no momento da requisição**, como nestes exemplos usando cURL: `curl mockbin.org/request -H "Accept: application/json"`, `curl mockbin.org/request -H "Accept: application/xml"` e `curl mockbin.org/request -H "Accept: application/yaml"`. **Este campo de cabeçalho não se limita apenas a este valor, também é possível encadear outros tipos em uma mesma requisição, basta separá-los por vírgulas**: `curl mockbin.org/request -H "Accept: application/json;q=0.2,application/yaml;q=0.1"`; **o parâmetro `q` define o _quality factor_, que informa a ordem preferida de retorno da requisição, e deve estar no intervalor de `0` a `1`, sendo `1` o valor de maior prioridade**, como no exemplo anterior, o valor `json;q=0.2` informa ao servidor que o valor *preferido* de retorno seja em JSON, caso o servidor não suporte este formato então ele pode enviar no formato `yaml;q=0.1`, pois `0.2` é maior que `0.1`, ou seja, o formato que possuir maior **_"peso"_** é o preferido a receber 1º. Alguns tipos de formatos de content type são:
 
 | **Content-Type**                          | **DESCRIÇÃO**                               |
 | ----------------------------------------- | ------------------------------------------- |
@@ -133,6 +135,8 @@ Toda requisição envia ao servidor uma informação sobre qual tipo de dados es
 | `audio/ogg`                               | Áudio OGG.                                  |
 | `video/mp4`                               | Vídeo MP4.                                  |
 | `video/webm`                              | Vídeo WebM.                                 |
+
+Resumindo, mime types informam o formato da informação trafegada entre cliente e servidor. O formato de dados **enviados** deve ser indicado no campo **`Content-Type`**, enquanto o header field **`Accept`** informa o tipo de **retorno** esperado.
 
 [**CABEÇALHO**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers)<br/>
 As principais características deste protocolo são o que o tornam muito usado para o desenvolvimento web, pois é stateless, ou seja, não guarda estado tornando cada requisição independente, é baseado em texto, e extensível possuindo cabeçalhos, métodos e integrações (como REST ou GraphQL por exemplo).<br/>
