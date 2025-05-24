@@ -99,7 +99,28 @@ app.listen(PORT, () => {
 });
 ```
 
-## CACHING
+## [CACHING](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Caching)
+Cache é uma técnica de armazenamento temporário de dados já processados, que os disponibiliza para acelerar acessos futuros e sua reutilização, eliminando a necessidade de refazer uma operação custosa como buscar dados em um banco por exemplo.<br/>
+Isso reduz as chamadas à API e acessos desncessários ao banco de dados, economizando no custo computacional e consequentemente aumentando a performance da aplicação.<br/>
+Existem diferentes maneiras e técnicas de se realizar caching, podendo se feitas no frontend ou backend, sendo o mais recomendado realizar o cache no cliente, pois o objetivo do caching HTTP é eliminar o envio de requisições o máximo possível, e caso uma requisição precise ser feita, deve-se alimentá-la com o máximo possível de informações para que ela não se repita por várias vezes, quanto mais próximos o cliente e o cache estiverem, mais rápida será a resposta. Além disso, quando uma resposta é reutilizável, o servidor de origem não precisa processar a solicitação — portanto, não precisa analisar e rotear a solicitação, restaurar a sessão com base no cookie, consultar o banco de dados para obter resultados ou renderizar o mecanismo de modelo. A operação adequada do cache é fundamental para a integridade do sistema:
+- **local — ideal**: armazenadas no lado do cliente, ou seja, utilizando as ferramentas disponibilizadas pelo browser como `localStorage`, `sessionStorage`, `IndexDB`, `caches` e etc.
+- **memória — custoso**: feita no servidor, armazenando os dados durante a requisição e mantendo-os durante a sessão.
+
+O ideal é realizar cache de operações que consomem muitos recursos computacionais, porém, não se deve realizar cache de informações que mudam com muita frequência, pois isso irá consumir memória desnecessariamente. Alguns dados real-time precisam ser buscados todas as vezes, o restante dos dados pode ser cacheado por um período de tempo, seja alguns segundos ou um dia, dependendo da frequência em que os dados mudam. Deve-se haver um equilíbrio, e para isso usa-se o bom senso, armazenando em cache apenas informações custosas de se obter mas que são valores semi-constantes e *estáveis*, ou seja, valores importantes que se obtidos uma vez não serão alterados num futuro próximo.<br/>
+Outra questão a ser levada em consideração, é a verificação da validade da informação armazenada, pois como o cache guarda dados consultados, estes podem sofrer alterações e atualizações de estado, e a **cache invalidation** realiza essa conferencia através de métodos HTTP no lado do cliente.<br/>
+Este processo atualiza ou remove os dados quando estes se tornam obsoletos, garantindo que o cliente não use informações desatualizadas. Isso é fundamental porque o cache visa melhorar o desempenho, mas também pode causar inconsistências se não for bem controlado.<br/>
+O protocolo HTTP define um conjunto de cabeçalhos de cache que ajudam a controlar por quanto tempo o cliente pode confiar na resposta armazenada e quando deve realizar uma nova requisição para atualizar seus dados em cache.
+
+1. O header field **`Cache-Control`** informa ao cliente por quanto tempo manter uma resposta em cache — em segundos. No exemplo a seguir, a resposta pode ser usada por até 3600 segundos (1 hora): `Cache-Control: max-age=3600`.<br/>
+Além deste parâmetro, existem outras diretivas sobre cache que podem ser usadas:
+   - **`max-age`**: define o tempo em que a resposta pode permanecer armazenada antes de expirar.
+   - **`no-cache`**: a resposta pode ser armazenada, mas precisa ser validada com o servidor antes de ser usada.
+   - **`no-store`**: não armazene nada em cache.
+   - **`must-revalidate`**: deve validar com o servidor ao expirar.
+   - **`public`**: este cache está localizado entre o cliente e o servidor e pode armazenar respostas que podem ser compartilhadas entre os usuários. Por outro lado, se o conteúdo personalizado for armazenado em um cache que não seja um cache privado, outros usuários poderão recuperar esse conteúdo - o que pode causar vazamento não intencional de informações.
+   - **`private`**: cache vinculado a um cliente específico — normalmente a um navegador. Como a resposta armazenada não é compartilhada com outros clientes, um cache privado pode armazenar uma resposta personalizada para esse usuário. Os conteúdos personalizados são geralmente controlados por cookies, mas a presença de um cookie nem sempre indica que é privado e, portanto, um cookie por si só não torna a resposta privada.
+2. **`ETag — Entity Tag`**
+3. **`Last-Modified & If-Modified-Since`**
 
 ## VERSIONAMENTO
 Com o crescimento da aplicação é comum que novos recursos sejam acrescentados à API, ou mesmo recursos existentes podem ter seus formatos de uso modificados ou removidos. É por isso que realizar o versionamento da API é uma boa prática, pois isso permite que usuários que utilizam uma versão antiga não *quebrem* seu funcionamento.<br/>

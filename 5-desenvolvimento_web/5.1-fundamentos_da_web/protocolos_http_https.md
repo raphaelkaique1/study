@@ -35,7 +35,7 @@ Os protocolos mais utilizados em comunicação de rede são:
 | **Blob URLs**  | Para lidar com arquivos gerados no browser.                                                   |
 
 ## [HTTPS: Let's Encrypt](https://letsencrypt.org/pt-br/how-it-works/)
-Feita a conexão segura no canal, usamos os métodos [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP) para definir a ação que o cliente deseja realizar sobre um recurso no servidor. O **H**yper **T**ext **T**ransfer **P**rotocol é o protocolo de comunicação que permite a transferência de dados na web, definindo como os clientes e servidores conversam entre si para trocar recursos como dados para um banco de dados, páginas HTML, mídia e etc. Seu funcionamento segue o modelo client-server, onde o cliente envia uma requisição para o servidor, que processa e responde com dados.
+Feita a conexão segura no canal, usamos os métodos **[HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP)** para definir a ação que o cliente deseja realizar sobre um recurso no servidor. O **H**yper **T**ext **T**ransfer **P**rotocol é o protocolo de comunicação que permite a transferência de dados na web, definindo como os clientes e servidores conversam entre si para trocar recursos como dados para um banco de dados, páginas HTML, mídia e etc. Seu funcionamento segue o modelo client-server, onde o cliente envia uma requisição para o servidor, que processa e responde com dados.
 
 [**MÉTODOS**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods)<br/>
 Os métodos HTTP são as ações que o protocolo define para serem realizadas em uma requisição. Existem vários métodos, cada um realizando um tipo de tarefa, e podemos separá-los em:
