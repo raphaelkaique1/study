@@ -126,6 +126,61 @@ Além deste parâmetro, existem outras diretivas sobre cache que podem ser usada
 
 Utilizando estes cabeçalhos para controle de validade da informação, a invalidação dos dados pode ocorrer de várias maneiras, podendo ser pela expiração natural quando o `max-age` é atingido, ou o servidor indica através do `ETag` ou `Last-Modified` se houve alterações nos dados solicitados, além de também permitirem que o cliente force o envio dos dados utilizando `no-cache` em sua requisição. Este métodos quando utilizados corretamente, garantem economia de recursos computacionais e a melhor performance possível que a aplicação pode ter.
 
+[**MIME caching**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Vary)<br/>
+O browser por padrão usa o **método HTTP** juntamente com a **URI** para criar uma chave para registrar e recuperar as respostas cacheadas (**chave do cache: `[método HTTP] + [URI]`**), por exemplo `GET /api/dados`. Como é possível realizar várias requisições para diferentes tipos de representações usando o header `Accept`, mesmo que hajam várias representações diferentes, por se tratar da mesma chave, o browser ficará confuso sobre qual resposta deve fazer cache. Vejamos como exemplo um backend que retorne representações diferentes do mesmo recurso dependendo do valor do header `Accept`:
+```http
+GET /api/dados
+Accept: application/json
+```
+```http
+GET /api/dados
+Accept: text/csv
+```
+**_*São a mesma URI e método, porém, solicitações de diferentes representações._** O navegador não leva o header `Accept` em consideração por padrão como parte da chave de cache. Então, pode ocorrer de o cliente requisitar `GET /api/dados` com `Accept: application/json` e armazenar a resposta sob a chave `GET /api/dados`, e em outro momento requisitar `GET /api/dados` no formato `Accept: text/csv`, mas acabar retornando o JSON do cache porque a chave é a mesma.
+
+**Para informar ao navegador que a resposta depende de um cabeçalho como `Accept`, o servidor deve enviar o cabeçalho HTTP `Vary: Accept`, que diz ao cliente que a resposta depende do valor do header `Accept`, ou seja, indica ao navegador para utilizar itens adicionais — como o valor do `Accept` — para a composição da chave do cache, assim podendo diferenciar cada requisição `chave do cache: [método HTTP] + [URI] + [valor do Accept]`, e que cada valor diferente deve ser tratado como uma nova versão. Dessa forma o navegador (ou o cache intermediário) cria entradas de cache separadas para requisição.** Por exemplo, chave do cache: **`GET /api/dados application/json`**. Este exemplo demonstra como seria essa interação:
+
+**REQUISIÇÃO**
+```http
+GET /api/dados
+Accept: application/json
+```
+
+**RESPOSTA**
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Vary: Accept
+Cache-Control: max-age=3600
+
+{ "dados": [1, 2, 3] }
+```
+
+Além do tipo de representação, também é possível indicar outros parâmetros para a criação de uma chave única como por exemplo:
+**REQUISIÇÃO**
+```http
+GET /api/dados
+Accept: application/json
+Accept-Language: br
+Accept-Encoding: gzip
+```
+> **chave cache: `GET /api/dados application/json:br:gzip`**
+
+- **`Accept-Language`**: indica ao servidor em qual idioma a representação do recurso deve ser retornado (se disponível).
+- **`Accept-Encoding`**: este cabeçalho é usado em casos de requisição de recursos grandes para o tráfego se enviados inteiros, então o cliente solicita ao servidor o envio do recurso em um formato compactado (se o servidor realizar essa tarefa) e resolverá a descompactação quando receber a resposta.
+
+
+**RESPOSTA**
+```http
+HTTP/1.1 200 OK
+Vary: Accept, Accept-Language, Accept-Encoding
+Cache-Control: max-age=3600
+Content-Type: application/json
+Content-Language: br
+Content-Encoding: gzip
+Content-Length: 1024
+```
+
 ## VERSIONAMENTO
 Com o crescimento da aplicação é comum que novos recursos sejam acrescentados à API, ou mesmo recursos existentes podem ter seus formatos de uso modificados ou removidos. É por isso que realizar o versionamento da API é uma boa prática, pois isso permite que usuários que utilizam uma versão antiga não *quebrem* seu funcionamento.<br/>
 Existem várias formas de se versionar uma API, algumas delas são:
