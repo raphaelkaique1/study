@@ -181,6 +181,88 @@ Content-Encoding: gzip
 Content-Length: 1024
 ```
 
+## COOKIES
+O padrão do esquema de autenticação HTTP Basic e Digest são **stateless**, o que significa que o servidor não armazena informações da sessão do cliente entre as requisições, o que significa que, se o cliente quiser acessar um recurso privado, deve se autenticamente novamente a cada requisição. Cada requisição enviada pelo cliente precisa conter todas as informações necessárias para que o servidor possa entendê-las isoladamente, sem depender de memória ou contexto anterior.<br/>
+Na autenticação HTTP Basic, o cliente envia um header com as credenciais para a validação e login do usuário **em _toda_ requisição**: `Authorization: Basic <base64(user:password)>`. Já o HTTP Digest é mais seguro que o Basic pois não envia os dados de login em base64, com ele também é possível enviar credenciais mas o header `Authorization: Digest ...` deve ser montado com base nas informações enviadas pelo servidor, para que sejam trafegadas de forma cifrada e com um *nonce* para evitar replay attacks.<br/>
+Primeiro o cliente faz uma requisição sem autenticação, e então o servudir responde com um desafio `401 Unauthorized` e um header `WWW_Authenticate`, que deve ser respondido pelo cliente com a requisição autenticada, ou seja, com o desafio resolvido e os campos de autenticação preenchidos.
+| FIELD       | SIGNIFICADO                                           |
+| ----------- | ----------------------------------------------------- |
+| `username`  | Nome de usuário.                                      |
+| `realm`     | Recurso protegido (domínio de autenticação).          |
+| `nonce`     | Valor único fornecido pelo servidor.                  |
+| `uri`       | URI requisitada.                                      |
+| `qop`       | Qualidade de proteção (`auth` ou `auth-int`).         |
+| `nc`        | Contador de requisições (nonce count).                |
+| `cnonce`    | Valor aleatório gerado pelo cliente.                  |
+| `response`* | Hash MD5 calculado com todos os dados acima.          |
+| `opaque`    | Valor fornecido pelo servidor que deve ser retornado. |
+
+*A especificação do HTTP Digest define que o `response` deve ser gerado usando MD5:
+```php
+HA1 = MD5(username:realm:password)
+HA2 = MD5(method:digestURI)
+response = MD5(HA1:nonce:nc:cnonce:qop:HA2)
+```
+
+Exemplo de fluxo de uma requisição Digest:
+1. **REQUISIÇÃO CLIENTE**
+```http
+GET /area-restrita HTTP/1.1
+Host: exemplo.com
+```
+1. **RESPOSTA SERVIDOR**
+```http
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm="area-segura",
+                  qop="auth",
+                  nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093",
+                  opaque="5ccc069c403ebaf9f0171e9517f40e41"
+```
+1. **REQUISIÇÃO CLIENTE**
+```http
+GET /area-restrita HTTP/1.1
+Host: exemplo.com
+Authorization: Digest username="raphael",
+               realm="area-segura",
+               nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093",
+               uri="/area-restrita",
+               qop=auth,
+               nc=00000001,
+               cnonce="0a4f113b",
+               response="6629fae49393a05397450978507c4ef1",
+               opaque="5ccc069c403ebaf9f0171e9517f40e41"
+```
+
+Outro exemplo de requisição HTTP Digest usando `curl`. O cURL cuida de tudo automaticamente: ecebe o desafio do servidor, calcula os hashes e monta o header corretamente.
+```bash
+curl --digest -u raphael:password@09 https://exemplo.com/area-restrita
+```
+
+Mas é questão é que, basicamente toda aplicação web realiza a autenticação de usuários, porém, solicitar as credenciais do usuário a cada acesso à aplicação pode afetar a experiência do usuário, e é por isso que atualmente muitas aplicações web utilizam *Cookies*.<br/>
+Cookies são pequenos arquivos de dados que um servidor envia ao navegador, o qual os armazena localmente para enviá-los de volta ao servidor em requisições futuras. Eles são usados para autenticação e login em sessões do usuário, armazenamento de preferências do site, rastreamento e analytics. Os headers fields `Cookie` e `Set-Cookie` podem ser usados na comunicação para definir as regras de armazenamento de estado. Cookies permitem ao servidor manter estado entre requisições — ou seja, tornar o sistema **stateful**.
+- **`Set-Cookie` — server**: quando o usuário realiza um login na aplicação, o cliente envia a requisição para o servidor, este que então envia o cookie ao cliente para que armazene as credenciais, podendo ser uma chave de sessão ou token de autenticação, pois não se armazena dados de login diretamente no cookie.
+```http
+Set-Cookie: sessionId=abc123; Path=/; HttpOnly; Secure; Max-Age=3600
+```
+  - `sessionId`: chave-valor do cookie.
+  - `Path`: define em quais caminhos o cookie será enviado.
+  - `HttpOnly`: impede acesso via JavaScript `document.cookie`.
+  - `Secure`: só envia o cookie por HTTPS.
+  - `Max-Age`: define a validade em segundos.
+
+- **`Cookie` — client**: ao realizar uma nova requisição para a mesma origem, o cliente envia automaticamente os dados de credenciais salvos, autenticando automaticamente aquele cliente para acessar os recursos do servidor.
+```http
+Cookie: sessionId=abc123
+```
+
+Por padrão, APIs RESTful usam *tokens JWT* no header **`Authorization`**. Para SPAs com domínios distintos, tokens JWT no `Authorization` geralmente são mais simples.<br/>
+Quando um usuário utiliza um serviço, este deve ser identificado, geralmente com dados de login, mas enviar estes dados a cada requisição com certeza não é o ideal. Para tal, uma das soluções, é no momento em que o usuário realiza o login, ele recebe um token baseado em suas credenciais, e daí em diante este token servirá de identificação nas próximas requisições.
+
+## API KEY
+Quando uma aplicação oferece ferramentas para outras aplicações através de API, a autenticação pode ser feita através de uma **API KEY** ou **API secret token** como são conhecidas.<br/>
+Uma API key é como um *hash*, ou seja, uma combinação única de letras e números, que é transmitida em todas as requisições para realizar a autenticação e identificação entre aplicações. Geralmente é combinada com os dados de login de usuário.<br/>
+Como estas API keys trafegam entre servidor e cliente pela web, é importante que o servidor tenha configurado os **certificados SSL** para garantir a maior segurança possível.
+
 ## VERSIONAMENTO
 Com o crescimento da aplicação é comum que novos recursos sejam acrescentados à API, ou mesmo recursos existentes podem ter seus formatos de uso modificados ou removidos. É por isso que realizar o versionamento da API é uma boa prática, pois isso permite que usuários que utilizam uma versão antiga não *quebrem* seu funcionamento.<br/>
 Existem várias formas de se versionar uma API, algumas delas são:
