@@ -280,6 +280,38 @@ Quando uma aplicação oferece ferramentas para outras aplicações através de 
 Uma API key é como um *hash*, ou seja, uma combinação única de letras e números, que é transmitida em todas as requisições para realizar a autenticação e identificação entre aplicações. Geralmente é combinada com os dados de login de usuário.<br/>
 Como estas API keys trafegam entre servidor e cliente pela web, é importante que o servidor tenha configurado os **certificados SSL** para garantir a maior segurança possível.
 
+## TOKEN
+A autenticação baseada em token consiste em enviar os dados de login para o servidor e receber em troca um Token que será informado em cada requisição através do header `Authorization`.<br/>
+Exemplo de requisição com cURL:
+
+**REQUISIÇÃO**
+```bash
+curl -i http://www.example.com/login -H "Content-Type: application/json" -d '{"email":"ralph@email.com", "password":"secret@0909"}'
+```
+
+**RESPOSTA**
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 51
+Connection: keep-alive
+Server: thin
+{"access_token":"6afc7f5db9eaaf7eab"}
+```
+
+**NOVA REQUISIÇÃO**
+```bash
+curl -i http://localhost:4567 -H 'Authorization: Bearer 6afc7f5db9eaaf7eab'
+```
+Essa requisição usa o token de autenticação para acessar um recurso protegido da API rodando na porta `4567` do servidor. Isso permite que a máquina cliente faça requisições autenticadas à API rodando no servidor `localhost` na porta `4567`, utilizando o token fornecido no login em cada requisição.<br/>
+A diferença deste método para o método Basic HTTP, é que o Basic possui um formulário próprio que deve ser preenchido com o login e senha, enquanto que utilizando um token, deve-se também preencher um formulário, mas quem realiza o tratamento da informação nele contida é o servidor que se deseja acessar.<br/>
+Este método é geralmente o escolhido para uso em Web APIs, porém não é considerado stateless pois o servidor precisará armazenar o Token, e isso caracteriza uma aplicação stateful. O servidor precisa armazenar o token para realizar a comparação quando receber uma requisição, para verificar se o token recebido é de fato um token gerado por ele próprio.
+
+## STATELESS x STATEFUL
+Uma das grandes vantagens de usar uma arquitetura stateless é economizar poder computacional e armazenamento pois, já que não se mantém um estado constante, não é necessário que a aplicação permaneça "segurando recursos" no servidor, talvez a única fraqueza do stateless seja quanto as requisições que necessitam de autenticação, pois enviar dados de credenciais em cada requisição pode representar uma brecha na segurança.<br/>
+Em relação a aplicações stateful, tráfego constante de autenticação pode não ser uma preocupação constante, pois existem várias maneiras de se armazenar dados de login e utilizar métodos para autenticar o usuário, entretando, não está isento de problemas, pois no caso de API Keys, mesmo que sejam um método seguro, um detentor de uma chave pode acabar tendo sua chave vazada ou mesmo *emprestá-la* a outro desenvolvedor, o que pode ser um problema para a aplicação que fornece o servidor da API, ou mesmo no caso dos Tokens, onde é necessário o servidor manter o estado de todos os tokens gerados, o que pode ser desprendioso e custoso pois à medida que a quantidade de clientes cresce, também aumentam a quantidade de tokens para gerir, sem contar que cada cliente pode ter armazenado mais de 1 token, será necessário replicar os dados armazenados na medida em que se escala.<br/>
+Existem técnicas para se contornar estes problemas em ambos, como por exemplo o **JWT**, que é uma maneira de autenticação e verificação autocontida, podendo realizar a validação sem a necessidade de se ter algum dado prévio sobre ele armazenado no servidor. Em todos os casos existem prós e contras, stateful não é necessariamente inseguro ou pesado, e stateless pode economizar recursos, mas também exigir validações constantes. Deve-se avaliar a melhor escolha para a aplicação de acordo com as necessidades e prioridades do projeto.
+
 ## VERSIONAMENTO
 Com o crescimento da aplicação é comum que novos recursos sejam acrescentados à API, ou mesmo recursos existentes podem ter seus formatos de uso modificados ou removidos. É por isso que realizar o versionamento da API é uma boa prática, pois isso permite que usuários que utilizam uma versão antiga não *quebrem* seu funcionamento.<br/>
 Existem várias formas de se versionar uma API, algumas delas são:
