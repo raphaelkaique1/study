@@ -8,5 +8,6 @@ A criptografia assimétrica, também conhecida como criptografia de chave públi
 - **criptografia simétrica**<br/>
 A criptografia simétrica é um tipo de criptografia em que apenas uma chave secreta é usada para criptografar os dados não criptografados e descriptografar os dados criptografados.
 
+## BASE64
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/seguranca_de_rede.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#seguranca_autenticacao_e_autorizacao">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/owasp_top_10.md">next</a>

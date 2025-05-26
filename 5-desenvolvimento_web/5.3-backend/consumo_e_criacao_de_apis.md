@@ -182,8 +182,25 @@ Content-Length: 1024
 ```
 
 ## COOKIES
-O padrão do esquema de autenticação HTTP Basic e Digest são **stateless**, o que significa que o servidor não armazena informações da sessão do cliente entre as requisições, o que significa que, se o cliente quiser acessar um recurso privado, deve se autenticamente novamente a cada requisição. Cada requisição enviada pelo cliente precisa conter todas as informações necessárias para que o servidor possa entendê-las isoladamente, sem depender de memória ou contexto anterior.<br/>
-Na autenticação HTTP Basic, o cliente envia um header com as credenciais para a validação e login do usuário **em _toda_ requisição**: `Authorization: Basic <base64(user:password)>`. Já o HTTP Digest é mais seguro que o Basic pois não envia os dados de login em base64, com ele também é possível enviar credenciais mas o header `Authorization: Digest ...` deve ser montado com base nas informações enviadas pelo servidor, para que sejam trafegadas de forma cifrada e com um *nonce* para evitar replay attacks.<br/>
+O padrão do [esquema de autenticação HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Authentication) Basic e Digest são **stateless**, o que significa que o servidor não armazena informações da sessão do cliente entre as requisições, o que significa que, se o cliente quiser acessar um recurso privado, deve se autenticamente novamente a cada requisição. Cada requisição enviada pelo cliente precisa conter todas as informações necessárias para que o servidor possa entendê-las isoladamente, sem depender de memória ou contexto anterior.<br/>
+De forma detalhada, os mecanismos padrões de autenticação com HTTP são definidos como Basic e Digest, ambos foram projetados seguindo as constraints REST, ou seja, possuem uma arquitetura stateless. Neles o conjunto `login` e `senha` é incluído em cada requisição, codificado em **Base64** para autenticação Basic, e com um **hash MD5** para autenticação Digest. O header é construído no seguinte formato: **`Authorization: auth-scheme hashed-credentials`**.<br/>
+Em retorno à requisição feita com o header `Authorization`, caso as credenciais não possam ser validadas e autorizadas, o servidor deve retornar `401 unauthorized` e setar o header `WWW-Authenticate` com o tipo de autenticação correta a ser usada, juntamente com o domínio `realm`, exemplo: `WWW-Authenticate: authenticate_type realm="Domain"`. Um exemplo, seria uma aplicação que possui várias páginas que solicitam autorização para o acesso, e ao enviar uma requisição do tipo Digest, o servidor retorna com a informação do tipo de codificação que o domínio espera e o `realm` com o domínio, no caso `Perfil`, pois este mesmo site possui outro domínio chamado `Administracao` que requer outro tipo de autenticação para o acesso, diferenciando assim quem possui ou não a autenticação para acessar um determinado recurso em diferentes áreas da aplicação.
+```http
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Basic realm="Perfil"
+```
+
+A diretiva de domínio `realm` é opcional, ela indica a proteção de um determinado espaço, pois em uma mesma aplicaçã podem existir diferentes áreas protegidas ou restritas usando diferentes esquemas de autenticação.
+
+**[Basic](https://en.wikipedia.org/wiki/Basic_access_authentication)**<br/>
+Na autenticação HTTP Basic, o cliente envia um header com as credenciais para a validação e login do usuário **em _toda_ requisição**: `Authorization: Basic <base64(user:password)>`; por exemplo: `Authorization: Basic am9objpwYXNz`. Utilizando o cURL, uma requisição com credenciais seria:
+```bash
+curl -u user_name:user-password@09 http://server.com
+```
+*O cURL realiza a conversão dos parâmetros do login para a base64 de forma automática.
+
+**[Digest](https://en.wikipedia.org/wiki/Digest_access_authentication)**<br/>
+Já o HTTP Digest é mais seguro que o Basic pois não envia os dados de login em base64, com ele também é possível enviar credenciais mas o header `Authorization: Digest ...` deve ser montado com base nas informações enviadas pelo servidor, para que sejam trafegadas de forma cifrada e com um *nonce* para evitar replay attacks.<br/>
 Primeiro o cliente faz uma requisição sem autenticação, e então o servudir responde com um desafio `401 Unauthorized` e um header `WWW_Authenticate`, que deve ser respondido pelo cliente com a requisição autenticada, ou seja, com o desafio resolvido e os campos de autenticação preenchidos.
 | FIELD       | SIGNIFICADO                                           |
 | ----------- | ----------------------------------------------------- |
@@ -238,7 +255,7 @@ Outro exemplo de requisição HTTP Digest usando `curl`. O cURL cuida de tudo au
 curl --digest -u raphael:password@09 https://exemplo.com/area-restrita
 ```
 
-Mas é questão é que, basicamente toda aplicação web realiza a autenticação de usuários, porém, solicitar as credenciais do usuário a cada acesso à aplicação pode afetar a experiência do usuário, e é por isso que atualmente muitas aplicações web utilizam *Cookies*.<br/>
+Mas a questão é que, basicamente toda aplicação web realiza a autenticação de usuários, porém, solicitar as credenciais do usuário a cada acesso à aplicação pode afetar a experiência do usuário, e é por isso que atualmente muitas aplicações web utilizam *Cookies*.<br/>
 Cookies são pequenos arquivos de dados que um servidor envia ao navegador, o qual os armazena localmente para enviá-los de volta ao servidor em requisições futuras. Eles são usados para autenticação e login em sessões do usuário, armazenamento de preferências do site, rastreamento e analytics. Os headers fields `Cookie` e `Set-Cookie` podem ser usados na comunicação para definir as regras de armazenamento de estado. Cookies permitem ao servidor manter estado entre requisições — ou seja, tornar o sistema **stateful**.
 - **`Set-Cookie` — server**: quando o usuário realiza um login na aplicação, o cliente envia a requisição para o servidor, este que então envia o cookie ao cliente para que armazene as credenciais, podendo ser uma chave de sessão ou token de autenticação, pois não se armazena dados de login diretamente no cookie.
 ```http
