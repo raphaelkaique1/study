@@ -267,17 +267,17 @@
   - Conceitos de criptografia.
   - Implementação de criptografia em comunicações.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/owasp_top_10.md">OWASP Top 10</a>**
-  - Compreensão das principais ameaças de segurança.
-  - Estratégias para mitigação.
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/oauth2.md">OAuth2:</a>**
+  - Entendimento do protocolo OAuth2.
+  - Implementação de autenticação e autorização baseadas em OAuth2.
 
 * **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/jwt_json_web_tokens.md">JWT (JSON Web Tokens)</a>**
   - Compreensão do formato e funcionamento dos JSON Web Tokens.
   - Utilização de JWT para autenticação.
 
-* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/oauth2.md">OAuth2:</a>**
-  - Entendimento do protocolo OAuth2.
-  - Implementação de autenticação e autorização baseadas em OAuth2.
+* **<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.4-seguranca_autenticacao_e_autorizacao/owasp_top_10.md">OWASP Top 10</a>**
+  - Compreensão das principais ameaças de segurança.
+  - Estratégias para mitigação.
 
 ## <a href="https://github.com/raphaelkaique1/study/tree/main/6-desenvolvimento_desktop">6. Desenvolvimento Desktop</a>
 ### <a id="introducao_ao_desenvolvimento_de_software_para_desktop" href="https://github.com/raphaelkaique1/study/tree/main/6-desenvolvimento_desktop/6.1-introducao_ao_desenvolvimento_de_software_para_desktop">6.1 Introdução ao Desenvolvimento de Software para Desktop</a>
