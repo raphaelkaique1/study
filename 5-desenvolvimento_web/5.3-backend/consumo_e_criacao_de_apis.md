@@ -1,4 +1,4 @@
-# API
+# [API](https://jsonapi.org)
 Quando queremos realizar um pedido em um restaurante, basta informar ao garçom qual prato queremos e em seguida ele nos trás o pedido. É basicamente assim que uma API funciona.<br/>
 O termo API é uma abreviação para **A**pplication **P**rogramming **I**nterface, que pode ser descrita como um conjunto de rotinas e padrões de programação para acesso a um software.<br/>
 Uma API é um software que executa uma função específica, mas não tem uma interface de usuário, ou seja, não existe algo com o qual é possível interagir diretamente. Em vez disso, existe uma interface que outro software usa. Quando uma API está na nuvem, ela tem um endereço na web. Quando o software chama a API usando esse endereço, a chamada inicia uma conversa com a API para que o software possa enviar e receber dados.<br/>
@@ -750,6 +750,27 @@ paths:
           description: Unexpected error.
           schema:
             $ref: '#/definitions/error'
+  /resources/{id}:
+    get:
+      summary: Return a Resource
+      description: This endpoint returns the specified resource.
+      parameters:
+        - name: id
+          in: path
+          description: Resource ID.
+          required: true
+          type: integer
+      tags:
+        - Resources
+      responses:
+        200:
+          description: Returns a Resource.
+          schema:
+            $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
     put:
       summary: Update Resource
       description: Updates the resource specified by ID.
@@ -794,27 +815,6 @@ paths:
             $ref: '#/definitions/resources'
         404:
           description: Resource ID not found.
-          schema:
-            $ref: '#/definitions/resources'
-        default:
-          description: Unexpected error.
-          schema:
-            $ref: '#/definitions/error'
-  /resources/{id}:
-    get:
-      summary: Return a Resource
-      description: This endpoint returns the specified resource.
-      parameters:
-        - name: id
-          in: path
-          description: Resource ID.
-          required: true
-          type: integer
-      tags:
-        - Resources
-      responses:
-        200:
-          description: Returns a Resource.
           schema:
             $ref: '#/definitions/resources'
         default:
