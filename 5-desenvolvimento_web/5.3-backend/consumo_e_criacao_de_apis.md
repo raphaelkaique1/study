@@ -23,7 +23,7 @@ O básico de toda aplicação dinâmica é realizar a manipulação de dados, co
 Na maioria das aplicações, a classificação dos dados é feita de forma hierarquica, onde se tem um identificador global — que agrupa dados do mesmo tipo, como por exemplo uma lista de usuários — para que então, seja possível localizar o elemento que se deseja.<br/>
 De forma resumida, **um recurso** *é uma entidade acessada pela API*. Por exemplo:
 > **recurso:** *`usuário`* — **id**: `www.website.com`**`/user`**
-Por convenção, a boa prática diz que a nomeação de um recurso deve sempre ser formada por um **substantivo**, nunca por um **verbo**, pois um recurso trata-se de algo que se deseja manipular, por exemplo `user`, `network`, `description` e etc.
+Por convenção, a boa prática diz que a nomeação de um recurso deve sempre ser formada por um **substantivo no plural**, nunca por um **verbo**, pois um recurso trata-se de algo que se deseja manipular, por exemplo `user`, `network`, `description` e etc.
 
 ### `URI`
 Uma forma eficiente de se localizar um recurso é usando uma **U**niform **R**esource **I**dentifier. *Um identificador uniforme de recursos é uma cadeia de caracteres compacta usada para identificar ou denominar um recurso na internet*.
@@ -666,5 +666,121 @@ Dessa forma a resposta já informa quais ações são possíveis e o cliente pod
 
 ## SOAP
 **S**imple **O**bject **A**ccess **P**rotocol é um protocolo que se utiliza envelopado no HTTP para realizar chamadas **RPC** — Remote Procedure Call. Diferente do REST, que é apenas um modelo arquitetural de requisições HTTP simples, e suporta vários tipos de formatos como XML, JSON e YAML, o SOAP suporta somente XML.
+
+## [SWAGGER](https://swagger.io)
+Este é um framework muito utilizado para design de projeto, construção seguindo *patterns* e documentação de APIs.
+
+### [EDITOR](https://editor.swagger.io/)
+Esta é uma ferramenta do swagger que permite projetar, estruturar e documentar a APIs HTTP RESTful no formato `YAML` e visualizar a documentação em tempo real sendo escrita em **MarkDown** para uma melhor visualização, e realizar o build da API em uma das muitas linguagens que ele suporta.<br/>
+
+**CABEÇALHO INICIAL**<br/>
+Ao escrever uma API no [swagger editor](https://swagger.io/docs/open-source-tools/swagger-editor/), é necessário configurar algumas informações no cabeçalho inicial que são obrigatórias:
+- **openapi — string required**: especifica qual versão da especificação usada para o design da API.
+- **info — object**: informa metadados sobre a API que podem ser usados pelo cliente caso necessário.
+  - **title — string required**: nome da aplicação.
+  - **version — string required**: versão da aplicação `MAJOR.MINOR.PATCH`.
+  - **description — string**: uma breve descrição sobre a aplicação, pode-se usar a **[GFM syntax](https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#GitHub-flavored-markdown)** para uma representação textual mais rica.
+  - **termsOfService — string**: os termos de serviço para uso da API.
+  - [**contact — object**](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#contact-object): informações de contato do desenvolvedor ou suporte da API.
+  - [**license — object**](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#license-object): a licença utilizada pela API.
+- **host — string**: url com o domínio do serviço.
+- **schemes — string array**: lista de esquemas e protocolos que a API suporta.
+- **produces — string array**: recursos e serviços (MIME Types) que a API disponibiliza.
+- **definitions — object**: objeto que armazena os tipos de dados produzidos e consumidos nas operações.
+- **basePath — string**: versão a API com URL base prefixada com o endereço de todos os caminhos dos endpoints e recursos.
+- **[paths — object required](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#paths-object)**: contém os caminhos invididuais (podendo ser também caminhos em branco, ou seja, vazios) relativos dos endpoints, sendo anexao ao `basePath` para construir a URL completa. Devem **obrigatoriamente** iniciar com **`/`**.
+
+Um exemplo de uma API básica projetada no swagger seria:
+```yaml
+openapi: 3.0.0
+info:
+  title: Swagger Sample App
+  description: |
+    This is a sample server resources server.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: API Support
+    url: http://www.swagger.io/support
+    email: support@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.1
+host: api.swagger.com
+schemes:
+  - https
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /resources:
+    get:
+      summary: Resources Types
+      description: |
+        Returns all Resources from the system that the user has access to.
+      tags:
+        - Resources
+      responses:
+        200:
+          description: |
+            A list of Resources.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
+  /resources{id}:
+    get:
+      summary: Return a Resource
+      description: |
+        This endpoint returns the specified resource.
+      parameters:
+      - name: id
+        in: path
+        description: Resource ID.
+        required: true
+        type: integer
+      tags:
+        - Resources
+      responses:
+        200:
+          description: |
+            Returns a Resource.
+          schema:
+            $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
+definitions:
+  resources:
+    type: object
+    properties:
+      id:
+        type: string
+        description: |
+          A detailed description of the resources's features and characteristics.
+      name:
+        type: string
+        description: |
+          Name of resources.
+      description:
+        type: string
+        description: |
+          A general description of the resources.
+  error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/administracao_de_servidores_linux.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#backend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.3-backend/banco_de_dados.md">next</a>
