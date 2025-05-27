@@ -690,13 +690,12 @@ Ao escrever uma API no [swagger editor](https://swagger.io/docs/open-source-tool
 - **basePath — string**: versão a API com URL base prefixada com o endereço de todos os caminhos dos endpoints e recursos.
 - **[paths — object required](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#paths-object)**: contém os caminhos invididuais (podendo ser também caminhos em branco, ou seja, vazios) relativos dos endpoints, sendo anexao ao `basePath` para construir a URL completa. Devem **obrigatoriamente** iniciar com **`/`**.
 
-Um exemplo de uma API básica projetada no swagger seria:
+Um exemplo de uma API básica que realiza um CRUD projetada no swagger seria:
 ```yaml
-openapi: 3.0.0
+swagger: "2.0"
 info:
   title: Swagger Sample App
-  description: |
-    This is a sample server resources server.
+  description: This is a sample server resources server.
   termsOfService: http://swagger.io/terms/
   contact:
     name: API Support
@@ -716,14 +715,12 @@ paths:
   /resources:
     get:
       summary: Resources Types
-      description: |
-        Returns all Resources from the system that the user has access to.
+      description: Returns all Resources from the system that the user has access to.
       tags:
         - Resources
       responses:
         200:
-          description: |
-            A list of Resources.
+          description: Available Resources.
           schema:
             type: array
             items:
@@ -732,23 +729,120 @@ paths:
           description: Unexpected error.
           schema:
             $ref: '#/definitions/error'
-  /resources{id}:
-    get:
-      summary: Return a Resource
-      description: |
-        This endpoint returns the specified resource.
+    post:
+      summary: Create Resource
+      description: Create a new resource on the system.
       parameters:
-      - name: id
-        in: path
-        description: Resource ID.
-        required: true
-        type: integer
+        - name: resource
+          in: body
+          description: New Resource.
+          required: true
+          schema:
+            $ref: '#/definitions/resources'
+      tags:
+        - Resources
+      responses:
+        201:
+          description: New resource created.
+          schema:
+            $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
+    put:
+      summary: Update Resource
+      description: Updates the resource specified by ID.
+      parameters:
+        - name: resource
+          in: body
+          description: Resource Update.
+          required: true
+          schema:
+            $ref: '#/definitions/resources'
       tags:
         - Resources
       responses:
         200:
-          description: |
-            Returns a Resource.
+          description: Resource updated.
+          schema:
+            $ref: '#/definitions/resources'
+        404:
+          description: Resource ID not found.
+          schema:
+            $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
+    patch:
+      summary: Edit Resource
+      description: Edits the resource specified by ID.
+      parameters:
+        - name: resource
+          in: body
+          description: Resource Edited.
+          required: true
+          schema:
+            $ref: '#/definitions/resources'
+      tags:
+        - Resources
+      responses:
+        200:
+          description: Resource edits saved.
+          schema:
+            $ref: '#/definitions/resources'
+        404:
+          description: Resource ID not found.
+          schema:
+            $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
+  /resources/{id}:
+    get:
+      summary: Return a Resource
+      description: This endpoint returns the specified resource.
+      parameters:
+        - name: id
+          in: path
+          description: Resource ID.
+          required: true
+          type: integer
+      tags:
+        - Resources
+      responses:
+        200:
+          description: Returns a Resource.
+          schema:
+            $ref: '#/definitions/resources'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/error'
+    delete:
+      summary: Delete a Resource
+      description: This endpoint deletes the specified resource.
+      parameters:
+        - name: id
+          in: path
+          description: Resource ID.
+          required: true
+          type: integer
+      tags:
+        - Resources
+      responses:
+        204:
+          description: No Content.
+          schema:
+            $ref: '#/definitions/resources'
+        410:
+          description: Resource Gone.
+          schema:
+            $ref: '#/definitions/resources'
+        404:
+          description: Resource ID not found.
           schema:
             $ref: '#/definitions/resources'
         default:
@@ -758,19 +852,19 @@ paths:
 definitions:
   resources:
     type: object
+    required:
+      - name
+      - description
     properties:
       id:
-        type: string
-        description: |
-          A detailed description of the resources's features and characteristics.
+        type: integer
+        description: A detailed description of the resources's features and characteristics.
       name:
         type: string
-        description: |
-          Name of resources.
+        description: Name of resources.
       description:
         type: string
-        description: |
-          A general description of the resources.
+        description: A general description of the resources.
   error:
     type: object
     properties:
