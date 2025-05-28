@@ -137,12 +137,11 @@ regexp_match(text, /cara/); /* [
 
 ```js
 // caracteres simples
-const regexp_match = (txt, exp) => console.log(txt.match(exp));
+const regexp_match = (text, exp) => console.log(text.match(exp));
 
 const char = `1,2,3,4,5,6,a.b c!d?e`;
 console.log(char.split(/,/)); // [ '1', '2', '3', '4', '5', '6', 'a.b c!d?e' ]
 regexp_match(char, /,/); // [ ',', index: 1, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
-
 regexp_match(char, /,/g); // [ ',', ',', ',', ',', ',', ',' ]
 console.log(char.match(/,/g).length); // 6
 regexp_match(char, /A/g); // null
@@ -172,9 +171,25 @@ regexp_match(char, /1.2/g);  // meta: [ '1,2' ]
 regexp_match(char, /1..2/g); // null - ou seja, não existe na string um valor 1 e 2 com 2 caracteres entre eles
 regexp_match(char, /1..,/g); // [ '1,2,' ]
 
-const jack_sparrow = "Agora, traga-me aquele horizonte.";
+const float = `8.3,7.1,8.8,10.0,8,9`;
+regexp_match(float, /8../g); // [ '8.3', '8.8', '8,9' ]
+regexp_match(float, /8\../g); // [ '8.3', '8.8' ]
+regexp_match(float, /.\../g); // [ '8.3', '7.1', '8.8', '0.0' ]
+
+const files = `lista de arquivos mp3: sertanejo.mp3,funk.mp3,pagode.mp3,rap.mp3,metal.mp3,clássica.mp3`;
+console.log(files.match(/\.mp3/g)); // [ '.mp3', '.mp3', '.mp3', '.mp3', '.mp3', '.mp3' ]
+console.log(files.match(/\.mp3/g).length); // 6
+console.log(files.match(/\w+\.mp3/g)); /* [
+  'sertanejo.mp3',
+  'funk.mp3',
+  'pagode.mp3',
+  'rap.mp3',
+  'metal.mp3',
+  'ssica.mp3'
+] */
 
 // pipe `|` — operador lógico `OU`
+const jack_sparrow = "Agora, traga-me aquele horizonte.";
 console.log(jack_sparrow.match(/T|ga/));
 /* [
   'ga',
@@ -196,23 +211,12 @@ console.log(jack_sparrow.match(/a|e/gi));
   'e', 'e', 'e'
 ] */
 
-const float = `8.3,7.1,8.8,10.0,8,9`;
-regexp_match(float, /8../g); // [ '8.3', '8.8', '8,9' ]
-regexp_match(float, /8\../g); // [ '8.3', '8.8' ]
-regexp_match(float, /.\../g); // [ '8.3', '7.1', '8.8', '0.0' ]
+const sim_nao_sei = `Você precisa responder sim, não ou não sei!`;
+regexp_match(sim_nao_sei, /sim|não|sei/g);      // [ 'sim', 'não', 'não', 'sei' ]
+regexp_match(sim_nao_sei, /sim|não sei|não/g);  // [ 'sim', 'não', 'não sei' ]
+regexp_match(sim_nao_sei, /sim|não\ssei|não/g); // [ 'sim', 'não', 'não sei' ]
 
-const files = `lista de arquivos mp3: sertanejo.mp3,funk.mp3,pagode.mp3,rap.mp3,metal.mp3,clássica.mp3`;
-console.log(files.match(/\.mp3/g)); // [ '.mp3', '.mp3', '.mp3', '.mp3', '.mp3', '.mp3' ]
-console.log(files.match(/\.mp3/g).length); // 6
-console.log(files.match(/\w+\.mp3/g)); /* [
-  'sertanejo.mp3',
-  'funk.mp3',
-  'pagode.mp3',
-  'rap.mp3',
-  'metal.mp3',
-  'ssica.mp3'
-] */
-
+// espaços em branco
 const tab_text = `
 ca	r
 r	o s!
