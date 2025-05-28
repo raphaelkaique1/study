@@ -158,6 +158,10 @@ regexp_match(char, /b c!d/); /* [
 // meta caracteres
 // . ? * + - ^ $ | [ ] ( ) \ :
 
+// unicode
+const unicode_symbols = `aʬc௵e`;
+regexp_match(unicode_symbols, /\u02AC|\u0BF5/g); // [ 'ʬ', '௵' ]
+
 // o meta carctere `.` é um "conringa", pois representa 1 único caractere qualquer que exista na string da expressão
 console.log(char.split(/\./g));           // [ '1,2,3,4,5,6,a', 'b c!d?e' ]
 console.log(char.split(/,|\.|\?|!| /g));  /* [
@@ -187,6 +191,21 @@ console.log(files.match(/\w+\.mp3/g)); /* [
   'metal.mp3',
   'ssica.mp3'
 ] */
+
+// dotall - o ponto não engloba o `\n`, para resolver isso existe a flag dotall `\s`
+const bomDiaN = `Bom\ndia`;
+const bomDiaT = `Bom\tdia`;
+
+regexp_match(bomDiaN, /./gi);   // [ 'B', 'o', 'm', 'd', 'i', 'a' ]
+regexp_match(bomDiaT, /./gi);   // [ 'B',  'o', 'm', '\t', 'd', 'i', 'a' ]
+regexp_match(bomDiaN, /.../gi); // [ 'Bom', 'dia' ]
+regexp_match(bomDiaT, /.../gi); // [ 'Bom', '\tdi' ]
+
+regexp_match(bomDiaN, /..../gi);  // null
+// flag dotall: `\s`
+regexp_match(bomDiaN, /..../gis); // [ 'Bom\n' ]
+regexp_match(bomDiaN, /.../gis);  // [ 'Bom', '\ndi' ]
+regexp_match(bomDiaN, /./gis);    // [ 'B',  'o', 'm', '\n', 'd', 'i', 'a' ]
 
 // pipe `|` — operador lógico `OU`
 const jack_sparrow = "Agora, traga-me aquele horizonte.";
@@ -233,6 +252,79 @@ regexp_match(spaces, /a +b/g);
 regexp_match(spaces, /a {3}b/g);
 regexp_match(spaces, /a\s+b/g);
 regexp_match(spaces, /a\s{3}b/g);
+
+// conjuntos - para se definir um conjunto de caracteres usa-se `[]`
+const set = `1,2,3,4,5,6,a.b c!d?e[f`;
+regexp_match(set, /02468/g);   // null
+regexp_match(set, /[02468]/g); // [ '2', '4', '6' ]
+regexp_match(set, /[02864]/g); // [ '2', '4', '6' ]
+
+const acapulco = `Pode nadar na água da piscina Tesouro, mas não vá se molhar!`;
+regexp_match(acapulco, /n[aã]/g);    // [ 'na', 'na', 'na', 'nã' ]
+regexp_match(acapulco, /n[aã]./g);   // [ 'nad', 'na ', 'na ', 'não' ]
+regexp_match(acapulco, /.n[aã]./g); // [ ' nad', ' na ', 'ina ', ' não' ]
+
+// intervalos
+regexp_match(set, /[a-z]/g); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+regexp_match(set, /[b-d]/g); // [ 'b', 'c', 'd' ]
+regexp_match(set, /[2-4]/g); // [ '2', '3', '4' ]
+regexp_match(set, /[a-z0-9]/gi); // [ '1', '2', '3', '4', '5', '6', 'a', 'b', 'c', 'd', 'e', 'f' ]
+regexp_match(set, /[a-d0-3]/gi); // [ '1', '2', '3', 'a', 'b', 'c', 'd' ]
+regexp_match(set, /[A-D0-3]/gi); // [ '1', '2', '3', 'a', 'b', 'c', 'd' ]
+regexp_match(set, /[A-D0-3]/g);  // [ '1', '2', '3' ]
+
+// dentro de conjuntos, os meta caracteres se comportam de maneira literal
+const meta = `.?*+-^$`;
+regexp_match(meta, /[.?*+-^$]/g);  // [ '.', '?', '*', '+', '-', '^', '$' ]
+regexp_match(meta, /[.?*+-^$]./g); // [ '.?', '*+', '-^' ]
+regexp_match(meta, /[.]/g);  // [ '.' ]
+regexp_match(meta, /[.]./g); // [ '.?' ]
+/*
+* ao se trabalhar com intervalos, é imprescindível seguir a ordem da tabela UNICODE
+* https://symbl.cc/en/unicode-table/
+*
+* @example
+* regexp_match(range, /[a-Z]/g); // isso não funciona
+*/
+const range = `ABC [abc] a-c 1234`;
+regexp_match(range, /[a-c]/g); // [ 'a', 'b', 'c', 'a', 'c' ]
+regexp_match(range, /a-c/g);   // [ 'a-c' ]
+regexp_match(range, /[A-z]/g); // [ 'A', 'B', 'C', '[', 'a', 'b', 'c', ']', 'a', 'c' ]
+regexp_match(range, /[A-Za-z]/g); // [ 'A', 'B', 'C', 'a', 'b', 'c', 'a', 'c' ]
+
+// shorthands
+const shorthands = `1,2,3,4,5,6,a.b c!d?e\r	-\f
+f_g`;
+regexp_match(shorthands, /\d/g); // [ '1', '2', '3', '4', '5', '6' ]
+regexp_match(shorthands, /\D/g); /* [
+  ',',  ',', ',',  ',', ',',
+  ',',  'a', '.',  'b', ' ',
+  'c',  '!', 'd',  '?', 'e',
+  '\t', '-', '\n', 'f', '_',
+  'g'
+] */
+regexp_match(shorthands, /\w/g); /* [
+  '1', '2', '3', '4',
+  '5', '6', 'a', 'b',
+  'c', 'd', 'e', 'f',
+  '_', 'g'
+] */
+regexp_match(shorthands, /\W/g); /* [
+  ',',  ',', ',',  ',',
+  ',',  ',', '.',  ' ',
+  '!',  '?', '\t', '-',
+  '\n'
+] */
+regexp_match(shorthands, /\s/g); // [ ' ', '\r', '\t', '\f', '\n' ]
+regexp_match(shorthands, /\S/g); /* [
+  '1', ',', '2', ',', '3',
+  ',', '4', ',', '5', ',',
+  '6', ',', 'a', '.', 'b',
+  'c', '!', 'd', '?', 'e',
+  '-', 'f', '_', 'g'
+] */
+regexp_match(shorthands, /\r/g); // [ '\r' ]
+regexp_match(shorthands, /\f/g); // [ '\f' ]
 ```
 
 ## TERMINAL
