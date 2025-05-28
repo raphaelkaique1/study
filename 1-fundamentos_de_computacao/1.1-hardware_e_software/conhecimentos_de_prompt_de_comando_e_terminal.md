@@ -1,5 +1,239 @@
+## REGEXP
+Uma RegExp descreve um padrão de caracteres, usada para validações, buscas e manipulações em strings. De forma bem resumida, uma expressão regular é um método formal de se especificar um padrão de texto.
+```js
+// string
+const hexadec = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
+
+// object RegExp()
+const regexp = new RegExp('9');
+
+// métodos de objeto
+console.log(regexp.test(hexadec)); /* true
+a instância de `regexp` criada contém um dos valores contidos na string `hexadec` */
+
+console.log(regexp.exec(hexadec));
+/* [
+  '9',
+  index: 18,
+  input: '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f',
+  groups: undefined
+] */
+
+
+// RegExp literal
+const alpha = /[a-z]/gi;
+
+// métodos de string
+console.log(hexadec.match(alpha));/* [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+dentro de `hexadec` existem correspondências presentes em `alpha` */
+
+console.log(hexadec.search(alpha)); /* 20
+este método retorna o índice do 1º elemento do parâmetro encontrado na busca */
+
+console.log(hexadec.replace(alpha, '*')); // 0,1,2,3,4,5,6,7,8,9,*,*,*,*,*,*
+
+console.log(hexadec.split(alpha)); // [ '0,1,2,3,4,5,6,7,8,9,', ',', ',', ',', ',', ',', '' ]
+```
+
+Em JS, RegExp é tanto uma função construtora quanto uma sintaxe literal usada para descrever estes padrões.
+- **literals**
+```js
+const regexp = /abc/; // no JS, uma RegExp literal é escrita entre barras `/regexp/`
+```
+- **constructor**
+```js
+const regexp = new RegExp("abc");
+```
+
+Em Ruby por exemplo seria da seguinte forma:
+```ruby
+text = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f"
+regexp = Regexp::new('9')
+puts regexp.match(text) # 9
+
+REGEXP = %r{9}
+puts REGEXP.match(text) # 9
+p REGEXP =~ "095" 		# 1 (true)
+
+alpha = /[a-z]/
+puts text.scan(alpha).join(' ') # a b c d e f
+puts text.split(/,/).join 		# 0123456789abcdef
+
+print text.split(/[aeiou]/) # ["0,1,2,3,4,5,6,7,8,9,", ",b,c,d", ",f"]
+```
+
+Como é possível observar, RegExp é implementado em várias linguagens, contendo vários *flavors*, cada uma com suas particularidades e níveis de suporte, possuindo lagumas mais e outras menos funcionalidades para RegExp.
+
+### FLAGS
+- **`g` — global**: retorna **todas** as recorrências da busca, caso não esteja sinalizado, a expressão irá retornar apenas o 1ª resultado compatível.
+- **`i` — insensitive**: não aplica `Sensitive Case` nos parâmetros de busca, ou seja, ignora a diferença entre maiúsculas e minúsculas.
+- **`m` — multiline**: 
+- **`s` — dotAll**: 
+- **`u` — unicode**:
+- **`y` — sticky**:
+
+```js
+const regexp_match = (txt, exp) => console.log(txt.match(exp));
+
+const text = "Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA."
+
+regexp_match(text, /mansão ou barraco/gi); // [ 'mansão ou barraco' ]
+regexp_match(text, /cara/gi); // [ 'Cara', 'cara' ]
+regexp_match(text, /Cara/g); // [ 'Cara' ]
+regexp_match(text, /cara/); /* [
+  'cara',
+  index: 8,
+  input: 'Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA.',
+  groups: undefined
+] */
+```
+
+### METACARACTERES
+- **REPRESENTANTES**
+  - `.`: **qualquer caractere, exceto nova linha** — `/a.b/` → `a*b`
+  - `[]`: *lista de caracteres* **permitidos** — `/[aeiou]/`
+  - `[^]`: *lista de caracteres* **proibidos** — `/[^0-9]/`
+- **GRUPOS**
+  - `()`: agrupamento e captura — `/(abc)/` captura `abc`
+  - `(?:)`:	não captura — `(?:abc)` agrupa, mas não captura
+  - `(?=)`: lookahead positivo — `/a(?=b)/` casa `a` se seguido por `b`
+  - `(?! )`: lookahead negativo — `/a(?!b)/` casa `a` se não for seguido de `b`
+  - `(?<=)`: lookbehind positivo — `/(?<=\$)\d+/` casa número após `$`
+  - `(?<! )`: lookbehind negativo — `/(?<!@)\w+/` casa palavra não precedida de `@`
+  - `\1...\9`: retrovisor, resgata grupos já definidos.
+- **ÂNCORAS**
+  - `^`: início da string — `/^Olá/`
+  - `$`: fim da string — `/fim$/`
+- **QUANTIFICADORES**
+  - `?`: 0 ou 1 ocorrência (opcional) — `/bo?/` → `b`, `bo`
+  - `*`: 0 ou mais ocorrências — `/bo*/` → `b`, `boo`
+  - `+`: 1 ou mais ocorrências — `/bo+/` → `bo`, `boo`
+  - `{n}`: exatamente n repetições — `/a{3}/` → `aaa`
+  - `{n,}`: pelo menos n — `/a{2,}/` → `aa`, `aaa`, ...
+  - `{n,m}`: entre n e m — `/a{2,4}/`
+- **CONDICIONAIS**
+  - `\`: **escape de caracteres LITERAIS** — `/\./` → ponto real
+  - `\n`: nova linha
+  - `\t`: tabulação
+  - `\r`: retorno de carro
+  - `\f`: avanço de formulário
+  - `\v`: tabulação vertical
+  - `\0`: null (caractere nulo)
+  - `|`: verifica se a string contém algum dos parâmetros informados — `/cão|gato/`
+- **UNICODE**
+  - `\p{L}`: letras (Latin, Árabe, etc.)
+  - `\p{N}`: números
+  - `\p{Script=Greek}`: letras do alfabeto grego
+  - `\p{Emoji}`: emojis
+- **SHORTHANDS**
+  - `\d`: dígito `[0-9]` — `/\d/`
+  - `\D`: não dígito `[^0-9]` — `/\D/`
+  - `\w`: caractere de palavra `\[A-Za-z0-9_]\` — `/\w/`
+  - `\W`: não caractere de palavra `\[^A-Za-z0-9_]\` — `/\W/`
+  - `\s`: espaço em branco — `/\s/`
+  - `\S`: não espaço em branco — `/\S/`
+  - `\b`: fronteira de palavra — `/\bpalavra\b/` → `\bcat\b` casa com a palavra `cat`, mas não `scatter`
+  - `\B`: não fronteira de palavra — `/\Bpalavra\B/` → `\Bcat\B` casa com a palavra `cat` e `scatter`
+
+```js
+// caracteres simples
+const regexp_match = (txt, exp) => console.log(txt.match(exp));
+
+const char = `1,2,3,4,5,6,a.b c!d?e`;
+console.log(char.split(/,/)); // [ '1', '2', '3', '4', '5', '6', 'a.b c!d?e' ]
+regexp_match(char, /,/); // [ ',', index: 1, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
+
+regexp_match(char, /,/g); // [ ',', ',', ',', ',', ',', ',' ]
+console.log(char.match(/,/g).length); // 6
+regexp_match(char, /A/g); // null
+regexp_match(char, /A/gi); // [ 'a' ]
+regexp_match(char, /A/i); // [ 'a', index: 12, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
+regexp_match(char, /2/g); // 2
+regexp_match(char, /b c!d/); /* [
+  'b c!d',
+  index: 14,
+  input: '1,2,3,4,5,6,a.b c!d?e',
+  groups: undefined
+] */
+
+// meta caracteres
+// . ? * + - ^ $ | [ ] ( ) \ :
+
+// o meta carctere `.` é um "conringa", pois representa 1 único caractere qualquer que exista na string da expressão
+console.log(char.split(/\./g));           // [ '1,2,3,4,5,6,a', 'b c!d?e' ]
+console.log(char.split(/,|\.|\?|!| /g));  /* [
+  '1', '2', '3', '4',
+  '5', '6', 'a', 'b',
+  'c', 'd', 'e'
+] */ 
+console.log(char.split(/\*|\.|\?|!| /g)); /* [ '1,2,3,4,5,6,a', 'b', 'c', 'd', 'e' ] */
+regexp_match(char, /1\.2/g); // literal: null
+regexp_match(char, /1.2/g);  // meta: [ '1,2' ]
+regexp_match(char, /1..2/g); // null - ou seja, não existe na string um valor 1 e 2 com 2 caracteres entre eles
+regexp_match(char, /1..,/g); // [ '1,2,' ]
+
+const jack_sparrow = "Agora, traga-me aquele horizonte.";
+
+// pipe `|` — operador lógico `OU`
+console.log(jack_sparrow.match(/T|ga/));
+/* [
+  'ga',
+  index: 10,
+  input: 'Agora, traga-me aquele horizonte.',
+  groups: undefined
+] */
+console.log(jack_sparrow.match(/t|ga/i));
+/* [
+  't',
+  index: 7,
+  input: 'Agora, traga-me aquele horizonte.',
+  groups: undefined
+  ] */
+console.log(jack_sparrow.match(/a|e/gi));
+/* [
+  'A', 'a', 'a',
+  'a', 'e', 'a',
+  'e', 'e', 'e'
+] */
+
+const float = `8.3,7.1,8.8,10.0,8,9`;
+regexp_match(float, /8../g); // [ '8.3', '8.8', '8,9' ]
+regexp_match(float, /8\../g); // [ '8.3', '8.8' ]
+regexp_match(float, /.\../g); // [ '8.3', '7.1', '8.8', '0.0' ]
+
+const files = `lista de arquivos mp3: sertanejo.mp3,funk.mp3,pagode.mp3,rap.mp3,metal.mp3,clássica.mp3`;
+console.log(files.match(/\.mp3/g)); // [ '.mp3', '.mp3', '.mp3', '.mp3', '.mp3', '.mp3' ]
+console.log(files.match(/\.mp3/g).length); // 6
+console.log(files.match(/\w+\.mp3/g)); /* [
+  'sertanejo.mp3',
+  'funk.mp3',
+  'pagode.mp3',
+  'rap.mp3',
+  'metal.mp3',
+  'ssica.mp3'
+] */
+
+const tab_text = `
+ca	r
+r	o s!
+`;
+regexp_match(tab_text, /ca/); // [ 'ca', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tab_text, /ca\t/); // [ 'ca\t', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tab_text, /ca\tr\nr/); // [ 'ca\tr\nr', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tab_text, /ca\tr\nr\t/g); // [ 'ca\tr\nr\t' ]
+regexp_match(tab_text, /ca\tr\nr\to\ss/g); // [ 'ca\tr\nr\to s' ]
+regexp_match(tab_text, /ca\tr\nr\to s!/); // [ 'ca\tr\nr\to s!', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+
+const spaces = `a   b`; // [ 'a   b' ]
+regexp_match(spaces, /a +b/g);
+regexp_match(spaces, /a {3}b/g);
+regexp_match(spaces, /a\s+b/g);
+regexp_match(spaces, /a\s{3}b/g);
+```
+
+## TERMINAL
 ```Shell
-# Linux
+# Linux - ShellScript
 
 user@localhost:~$ # user is logged in to localhost
 # $ = common user
