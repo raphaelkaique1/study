@@ -67,26 +67,10 @@ Como é possível observar, RegExp é implementado em várias linguagens, conten
 ### FLAGS
 - **`g` — global**: retorna **todas** as recorrências da busca, caso não esteja sinalizado, a expressão irá retornar apenas o 1ª resultado compatível.
 - **`i` — insensitive**: não aplica `Sensitive Case` nos parâmetros de busca, ou seja, ignora a diferença entre maiúsculas e minúsculas.
-- **`m` — multiline**: 
-- **`s` — dotAll**: 
-- **`u` — unicode**:
-- **`y` — sticky**:
-
-```js
-const regexp_match = (txt, exp) => console.log(txt.match(exp));
-
-const text = "Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA."
-
-regexp_match(text, /mansão ou barraco/gi); // [ 'mansão ou barraco' ]
-regexp_match(text, /cara/gi); // [ 'Cara', 'cara' ]
-regexp_match(text, /Cara/g); // [ 'Cara' ]
-regexp_match(text, /cara/); /* [
-  'cara',
-  index: 8,
-  input: 'Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA.',
-  groups: undefined
-] */
-```
+- **`m` — multiline**: retorna uma string completa incluido as linhas de quebra de linhas.
+- **`s` — dotAll**: seleciona todos os caracteres incluindo o elemento `\n`.
+- **`u` — unicode**: informa que a string possui elementos UNICODE.
+- **`y` — sticky**: procura o próximo match exatamente em `lastIndex`.
 
 ### METACARACTERES
 - **REPRESENTANTES**
@@ -136,6 +120,20 @@ regexp_match(text, /cara/); /* [
   - `\B`: não fronteira de palavra — `/\Bpalavra\B/` → `\Bcat\B` casa com a palavra `cat` e `scatter`
 
 ```js
+// flags
+const text = "Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA."
+
+regexp_match(text, /mansão ou barraco/gi); // [ 'mansão ou barraco' ]
+regexp_match(text, /cara/gi); // [ 'Cara', 'cara' ]
+regexp_match(text, /Cara/g); // [ 'Cara' ]
+regexp_match(text, /cara/); /* [
+  'cara',
+  index: 8,
+  input: 'Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA.',
+  groups: undefined
+] */
+
+// metacaracteres
 const regexp_match = (txt = "RegExp", exp = / /g) => console.log(txt.match(exp));
 
 // caracteres simples
@@ -202,7 +200,7 @@ console.log(files.match(/\w+\.mp3/g));     /* [
   'ssica.mp3'
 ] */
 
-// dotall - o ponto não engloba o `\n`, para resolver isso existe a flag dotall `\s`
+// dotall - o ponto não engloba o `\n`, para resolver isso existe a flag dotall `s`
 const bomDiaN = `Bom\ndia`;
 const bomDiaT = `Bom\tdia`;
 
@@ -212,7 +210,7 @@ regexp_match(bomDiaN, /.../gi); // [ 'Bom', 'dia' ]
 regexp_match(bomDiaT, /.../gi); // [ 'Bom', '\tdi' ]
 
 regexp_match(bomDiaN, /..../gi);  // null
-// flag dotall: `\s`
+// flag dotall: `s`
 regexp_match(bomDiaN, /..../gis); // [ 'Bom\n' ]
 regexp_match(bomDiaN, /.../gis);  // [ 'Bom', '\ndi' ]
 regexp_match(bomDiaN, /./gis);    // [ 'B',  'o', 'm', '\n', 'd', 'i', 'a' ]
@@ -364,7 +362,101 @@ regexp_match(fogao, /[\wã\s]{4}/g);  // [ 'fog ', 'fogã', 'o fo', 'go f', 'ogo
 regexp_match(fogao, /[\wã\s]{4,}/g); // [ 'fog fogão fogo fogooo' ]
 regexp_match(fogao, /[\wã]{4,}/g);   // [ 'fogão', 'fogo', 'fogooo' ]
 
+// grupos
+const ImNottheOnlyOne = `You say I'm crazy \n
+'Cause you don't think I know what you've done \n
+But when you call me "baby" \n
+I know I'm not the only one \n
+\n
+I know I'm not the only one \n
+I know I'm not the only one \n
+And I know, and I know, and I know, and I know, and I know, and I know, know \n
+I know I'm not the only one`;
+regexp_match(ImNottheOnlyOne, /(I'm not the only one)/g); /* [
+  "I'm not the only one",
+  "I'm not the only one",
+  "I'm not the only one",
+  "I'm not the only one"
+] */
 
+const BOOM = `The future is bulletproof \n
+The aftermath is secondary \n
+It's time to do it now and do it loud \n
+Killjoys, make some noise \n
+Na, na-na, na-na, na-na, na-na \n
+Na, na-na, na-na, na-na \n
+Na, na-na, na-na, na-na \n
+Na-na, na-na, na-na`;
+regexp_match(BOOM, /(na).+/gi); /* [
+  'Na, na-na, na-na, na-na, na-na',
+  'Na, na-na, na-na, na-na',
+  'Na, na-na, na-na, na-na',
+  'Na-na, na-na, na-na'
+] */
+
+const url = `https://www.site.info https://github.com www.school.code.br google.com google.com.br`;
+regexp_match(url, /(https:\/\/)?(www\.)?\w*\.(\w*)?\.?(\w*)?/g); /* [
+  'https://www.site.info',
+  'https://github.com',
+  'www.school.code.br',
+  'google.com',
+  'google.com.br'
+] */
+
+// lookbacks
+const aalpha = `aabcdefghijkk`;
+regexp_match(aalpha, /(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)/g);      // [ 'abcdefghijk' ]
+regexp_match(aalpha, /(a)\1(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)\11/g); // [ 'aabcdefghijkk' ]
+
+const section = `<h3>RegExp</h3><p>Hello world!</p>`;
+regexp_match(section, /<(\w+)>.*<\/(\1)>/gis); // [ '<h3>RegExp</h3>', '<p>Hello world!</p>' ]
+
+const mind = `Lentamente, é uma mente muito lenta.`;
+regexp_match(mind, /(lenta)?(mente)?/gi);                 // [ 'Lentamente', 'mente', 'lenta' ]
+regexp_match(mind, /(lenta|mente)/gi);                    // [ 'Lenta', 'mente', 'mente', 'lenta' ]
+console.log(mind.replace(/(lenta)(mente)/gi, `$2`));      // mente, é uma mente muito lenta.
+console.log(mind.replace(/(lenta)(mente)/gi, `Louca$2`)); // Loucamente, é uma mente muito lenta.
+
+// grupos aninhados
+regexp_match(market, /(hiper|super|mini)?mercado/g); // [ 'hipermercado', 'supermercado', 'mercado', 'minimercado' ]
+regexp_match(market, /((hi|su|)per|mini)?mercado/g); // [ 'hipermercado', 'supermercado', 'mercado', 'minimercado' ]
+
+// grupos não existem dentro de conjuntos, mas conjuntos existem dentro de grupos
+const groups = `(a) ABC`;
+regexp_match(groups, /[(abc)]/gi); // [ '(', 'a', ')', 'A', 'B', 'C' ]
+regexp_match(groups, /([abc])/gi); // [ 'a', 'A', 'B', 'C' ]
+
+// grupos especiais
+const tigers = `Três pratos de trigo para três tigres tristes.`;
+const Super = `supermercado HIPERMERCADO Mercado superação`;
+
+regexp_match(tigers, /[\wÀ-ü]+/g); /* [
+  'Três',   'pratos',
+  'de',     'trigo',
+  'para',   'três',
+  'tigres', 'tristes'
+] */
+
+regexp_match(Super, /[\wÀ-ü]+/g); // [ 'supermercado', 'HIPERMERCADO', 'Mercado', 'superação' ]
+
+// positive lookahead
+regexp_match(tigers, /[\wÀ-ü]+(?=ê)/g);  // [ 'Tr', 'tr' ]
+regexp_match(tigers, /[\wÀ-ü]+(?=\.)/g); // [ 'tristes' ]
+
+// negative lookahead
+regexp_match(tigers, /[\wÀ-ü]+[\s](?!para)/gi); // [ 'Três ', 'pratos ', 'de ', 'para ', 'três ', 'tigres ' ]
+regexp_match(tigers, /[\wÀ-ü]+[\s](?!\.)/gi); /* [
+  'Três ',   'pratos ',
+  'de ',     'trigo ',
+  'para ',   'três ',
+  'tigres '
+] */
+
+// positive lookbehind
+regexp_match(Super, /(?<=super)[\wÀ-ü]+/g); // [ 'mercado', 'ação' ]
+
+// negative lookbehind
+regexp_match(Super, /(?<!super)mercado/gi); // [ 'MERCADO', 'Mercado' ]
 
 // comportamento operadores
 const div = `<div>content one</div><div>content two</div>`;
@@ -376,6 +468,14 @@ regexp_match(div, /<div>.*<\/div>/g); // [ '<div>content one</div><div>content t
 // lazy
 regexp_match(div, /<div>.+?<\/div>/g); // [ '<div>content one</div>', '<div>content two</div>' ]
 regexp_match(div, /<div>.*?<\/div>/g); // [ '<div>content one</div>', '<div>content two</div>' ]
+
+// bordas
+const coffee = `Quero café! Isso aqui é uma porcaria, que não tem m3rd@ nenhuma! \nDesculpe...`;
+
+regexp_match(coffee, /q/gi);      // [ 'Q', 'q', 'q' ]
+regexp_match(coffee, /^q|\.$/gi); // [ 'Q', '.' ]
+regexp_match(coffee, /\bq.*!/gi); // [ 'Quero café! Isso aqui é uma porcaria, que não tem m3rd@ nenhuma!' ]
+regexp_match(coffee, /ne.*/g);    // [ 'nenhuma! ' ]
 
 // shorthands
 const shorthands = `1,2,3,4,5,6,a.b c!d?e\r	-\f
@@ -438,7 +538,7 @@ const phoneNumbers = `Lista telefônica:
                         — 9 78891354
                         — 997852147`;
 
-regexp_match(phoneNumbers, /.\d.{1,}/g);
+regexp_match(phoneNumbers, /.\d.*/g);
 
 // 3. email
 const emails = `e-mails:
