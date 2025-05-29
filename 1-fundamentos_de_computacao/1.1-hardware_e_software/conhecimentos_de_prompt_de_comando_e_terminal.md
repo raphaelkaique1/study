@@ -136,18 +136,18 @@ regexp_match(text, /cara/); /* [
   - `\B`: não fronteira de palavra — `/\Bpalavra\B/` → `\Bcat\B` casa com a palavra `cat` e `scatter`
 
 ```js
-// caracteres simples
-const regexp_match = (text, exp) => console.log(text.match(exp));
+const regexp_match = (txt = "RegExp", exp = / /g) => console.log(txt.match(exp));
 
+// caracteres simples
 const char = `1,2,3,4,5,6,a.b c!d?e`;
 console.log(char.split(/,/)); // [ '1', '2', '3', '4', '5', '6', 'a.b c!d?e' ]
-regexp_match(char, /,/); // [ ',', index: 1, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
-regexp_match(char, /,/g); // [ ',', ',', ',', ',', ',', ',' ]
+regexp_match(char, /,/);      // [ ',', index: 1, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
+regexp_match(char, /,/g);     // [ ',', ',', ',', ',', ',', ',' ]
 console.log(char.match(/,/g).length); // 6
-regexp_match(char, /A/g); // null
-regexp_match(char, /A/gi); // [ 'a' ]
-regexp_match(char, /A/i); // [ 'a', index: 12, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
-regexp_match(char, /2/g); // 2
+regexp_match(char, /A/g);     // null
+regexp_match(char, /A/gi);    // [ 'a' ]
+regexp_match(char, /A/i);     // [ 'a', index: 12, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
+regexp_match(char, /2/g);     // 2
 regexp_match(char, /b c!d/); /* [
   'b c!d',
   index: 14,
@@ -159,8 +159,18 @@ regexp_match(char, /b c!d/); /* [
 // . ? * + - ^ $ | [ ] ( ) \ :
 
 // unicode
-const unicode_symbols = `aʬc௵e`;
-regexp_match(unicode_symbols, /\u02AC|\u0BF5/g); // [ 'ʬ', '௵' ]
+const unicodeAccent = `ÁÉÍÓÚ ÀÈÌÒÙ ÂÊÎÔÛ Ç ÃÕ Ü áéíóú àèìòù âêîôû ç ãõ ü`;
+regexp_match(unicodeAccent, /[À-ü]/g); /* [
+  'Á', 'É', 'Í', 'Ó', 'Ú', 'À', 'È',
+  'Ì', 'Ò', 'Ù', 'Â', 'Ê', 'Î', 'Ô',
+  'Û', 'Ç', 'Ã', 'Õ', 'Ü', 'á', 'é',
+  'í', 'ó', 'ú', 'à', 'è', 'ì', 'ò',
+  'ù', 'â', 'ê', 'î', 'ô', 'û', 'ç',
+  'ã', 'õ', 'ü'
+] */
+
+const unicodeSymbols = `aʬc௵e`;
+regexp_match(unicodeSymbols, /\u02AC|\u0BF5/g); // [ 'ʬ', '௵' ]
 
 // o meta carctere `.` é um "conringa", pois representa 1 único caractere qualquer que exista na string da expressão
 console.log(char.split(/\./g));           // [ '1,2,3,4,5,6,a', 'b c!d?e' ]
@@ -176,14 +186,14 @@ regexp_match(char, /1..2/g); // null - ou seja, não existe na string um valor 1
 regexp_match(char, /1..,/g); // [ '1,2,' ]
 
 const float = `8.3,7.1,8.8,10.0,8,9`;
-regexp_match(float, /8../g); // [ '8.3', '8.8', '8,9' ]
+regexp_match(float, /8../g);  // [ '8.3', '8.8', '8,9' ]
 regexp_match(float, /8\../g); // [ '8.3', '8.8' ]
 regexp_match(float, /.\../g); // [ '8.3', '7.1', '8.8', '0.0' ]
 
 const files = `lista de arquivos mp3: sertanejo.mp3,funk.mp3,pagode.mp3,rap.mp3,metal.mp3,clássica.mp3`;
-console.log(files.match(/\.mp3/g)); // [ '.mp3', '.mp3', '.mp3', '.mp3', '.mp3', '.mp3' ]
+console.log(files.match(/\.mp3/g));        // [ '.mp3', '.mp3', '.mp3', '.mp3', '.mp3', '.mp3' ]
 console.log(files.match(/\.mp3/g).length); // 6
-console.log(files.match(/\w+\.mp3/g)); /* [
+console.log(files.match(/\w+\.mp3/g));     /* [
   'sertanejo.mp3',
   'funk.mp3',
   'pagode.mp3',
@@ -208,44 +218,44 @@ regexp_match(bomDiaN, /.../gis);  // [ 'Bom', '\ndi' ]
 regexp_match(bomDiaN, /./gis);    // [ 'B',  'o', 'm', '\n', 'd', 'i', 'a' ]
 
 // pipe `|` — operador lógico `OU`
-const jack_sparrow = "Agora, traga-me aquele horizonte.";
-console.log(jack_sparrow.match(/T|ga/));
+const JackSparrow = "Agora, traga-me aquele horizonte.";
+console.log(JackSparrow.match(/T|ga/));
 /* [
   'ga',
   index: 10,
   input: 'Agora, traga-me aquele horizonte.',
   groups: undefined
 ] */
-console.log(jack_sparrow.match(/t|ga/i));
+console.log(JackSparrow.match(/t|ga/i));
 /* [
   't',
   index: 7,
   input: 'Agora, traga-me aquele horizonte.',
   groups: undefined
   ] */
-console.log(jack_sparrow.match(/a|e/gi));
+console.log(JackSparrow.match(/a|e/gi));
 /* [
   'A', 'a', 'a',
   'a', 'e', 'a',
   'e', 'e', 'e'
 ] */
 
-const sim_nao_sei = `Você precisa responder sim, não ou não sei!`;
-regexp_match(sim_nao_sei, /sim|não|sei/g);      // [ 'sim', 'não', 'não', 'sei' ]
-regexp_match(sim_nao_sei, /sim|não sei|não/g);  // [ 'sim', 'não', 'não sei' ]
-regexp_match(sim_nao_sei, /sim|não\ssei|não/g); // [ 'sim', 'não', 'não sei' ]
+const simNaoSei = `Você precisa responder sim, não ou não sei!`;
+regexp_match(simNaoSei, /sim|não|sei/g);      // [ 'sim', 'não', 'não', 'sei' ]
+regexp_match(simNaoSei, /sim|não sei|não/g);  // [ 'sim', 'não', 'não sei' ]
+regexp_match(simNaoSei, /sim|não\ssei|não/g); // [ 'sim', 'não', 'não sei' ]
 
 // espaços em branco
-const tab_text = `
+const tabText = `
 ca	r
 r	o s!
 `;
-regexp_match(tab_text, /ca/); // [ 'ca', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-regexp_match(tab_text, /ca\t/); // [ 'ca\t', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-regexp_match(tab_text, /ca\tr\nr/); // [ 'ca\tr\nr', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-regexp_match(tab_text, /ca\tr\nr\t/g); // [ 'ca\tr\nr\t' ]
-regexp_match(tab_text, /ca\tr\nr\to\ss/g); // [ 'ca\tr\nr\to s' ]
-regexp_match(tab_text, /ca\tr\nr\to s!/); // [ 'ca\tr\nr\to s!', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca/); // [ 'ca', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca\t/); // [ 'ca\t', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca\tr\nr/); // [ 'ca\tr\nr', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca\tr\nr\t/g); // [ 'ca\tr\nr\t' ]
+regexp_match(tabText, /ca\tr\nr\to\ss/g); // [ 'ca\tr\nr\to s' ]
+regexp_match(tabText, /ca\tr\nr\to s!/); // [ 'ca\tr\nr\to s!', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
 
 const spaces = `a   b`; // [ 'a   b' ]
 regexp_match(spaces, /a +b/g);
@@ -262,12 +272,12 @@ regexp_match(set, /[02864]/g); // [ '2', '4', '6' ]
 const acapulco = `Pode nadar na água da piscina Tesouro, mas não vá se molhar!`;
 regexp_match(acapulco, /n[aã]/g);    // [ 'na', 'na', 'na', 'nã' ]
 regexp_match(acapulco, /n[aã]./g);   // [ 'nad', 'na ', 'na ', 'não' ]
-regexp_match(acapulco, /.n[aã]./g); // [ ' nad', ' na ', 'ina ', ' não' ]
+regexp_match(acapulco, /.n[aã]./g);  // [ ' nad', ' na ', 'ina ', ' não' ]
 
 // intervalos
-regexp_match(set, /[a-z]/g); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
-regexp_match(set, /[b-d]/g); // [ 'b', 'c', 'd' ]
-regexp_match(set, /[2-4]/g); // [ '2', '3', '4' ]
+regexp_match(set, /[a-z]/g);     // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+regexp_match(set, /[b-d]/g);     // [ 'b', 'c', 'd' ]
+regexp_match(set, /[2-4]/g);     // [ '2', '3', '4' ]
 regexp_match(set, /[a-z0-9]/gi); // [ '1', '2', '3', '4', '5', '6', 'a', 'b', 'c', 'd', 'e', 'f' ]
 regexp_match(set, /[a-d0-3]/gi); // [ '1', '2', '3', 'a', 'b', 'c', 'd' ]
 regexp_match(set, /[A-D0-3]/gi); // [ '1', '2', '3', 'a', 'b', 'c', 'd' ]
@@ -277,8 +287,8 @@ regexp_match(set, /[A-D0-3]/g);  // [ '1', '2', '3' ]
 const meta = `.?*+-^$`;
 regexp_match(meta, /[.?*+-^$]/g);  // [ '.', '?', '*', '+', '-', '^', '$' ]
 regexp_match(meta, /[.?*+-^$]./g); // [ '.?', '*+', '-^' ]
-regexp_match(meta, /[.]/g);  // [ '.' ]
-regexp_match(meta, /[.]./g); // [ '.?' ]
+regexp_match(meta, /[.]/g);        // [ '.' ]
+regexp_match(meta, /[.]./g);       // [ '.?' ]
 /*
 * ao se trabalhar com intervalos, é imprescindível seguir a ordem da tabela UNICODE
 * https://symbl.cc/en/unicode-table/
@@ -287,10 +297,85 @@ regexp_match(meta, /[.]./g); // [ '.?' ]
 * regexp_match(range, /[a-Z]/g); // isso não funciona
 */
 const range = `ABC [abc] a-c 1234`;
-regexp_match(range, /[a-c]/g); // [ 'a', 'b', 'c', 'a', 'c' ]
-regexp_match(range, /a-c/g);   // [ 'a-c' ]
-regexp_match(range, /[A-z]/g); // [ 'A', 'B', 'C', '[', 'a', 'b', 'c', ']', 'a', 'c' ]
+regexp_match(range, /[a-c]/g);    // [ 'a', 'b', 'c', 'a', 'c' ]
+regexp_match(range, /a-c/g);      // [ 'a-c' ]
+regexp_match(range, /[A-z]/g);    // [ 'A', 'B', 'C', '[', 'a', 'b', 'c', ']', 'a', 'c' ]
 regexp_match(range, /[A-Za-z]/g); // [ 'A', 'B', 'C', 'a', 'b', 'c', 'a', 'c' ]
+
+// conjuntos negados
+const blacklist = `1,2,3,a.b c!d?e[f`;
+regexp_match(blacklist, /\D/g);              // [ ',', ',', ',', 'a', '.', 'b', ' ', 'c', '!', 'd', '?', 'e', '[', 'f' ]
+regexp_match(blacklist, /[^0-9]/g);          // [ ',', ',', ',', 'a', '.', 'b', ' ', 'c', '!', 'd', '?', 'e', '[', 'f' ]
+regexp_match(blacklist, /[^\d!\?\[\s,\.]/g); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+
+const code = `1: !"#$%&\'()*+,-./ 2: :;<=>?@`;
+regexp_match(code, /[^!-/:-@\s]/g);          // negando intervalos: [ '1', '2' ]
+
+// quantificadores
+const no = `no nooo nooooo`;
+const na = `na naaa naaaaa`;
+const fog = `fog fogo fogooo`
+
+// ? = 0 || 1
+const primaryNumbers = `0123456789`;
+regexp_match(primaryNumbers, /\d/g);  // [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ]
+regexp_match(primaryNumbers, /\d+/g); // [ '0123456789' ]
+
+regexp_match(no, /no?/gi);    // [ 'no', 'no', 'no' ]
+regexp_match(na, /na?/gi);    // [ 'na', 'na', 'na' ]
+regexp_match(fog, /fogo?/gi); // [ 'fog', 'fogo', 'fogo' ]
+
+// + = 1 || 1>+
+regexp_match(no, /no+/gi);    // [ 'no', 'nooo', 'nooooo' ]
+regexp_match(na, /na+/gi);    // [ 'na', 'naaa', 'naaaaa' ]
+regexp_match(fog, /fogo+/gi); // [ 'fogo', 'fogooo' ]
+
+// * = 0 || 0>+
+regexp_match(no, /no*/gi);    // [ 'no', 'nooo', 'nooooo' ]
+regexp_match(na, /na*/gi);    // [ 'na', 'naaa', 'naaaaa' ]
+regexp_match(fog, /fogo*/gi); // [ 'fog', 'fogo', 'fogooo' ]
+
+// range = {min, max}
+regexp_match(primaryNumbers, /\d{1,2}/g); // [ '01', '23', '45', '67', '89', '0', '12', '34', '5', '56', '78' ]
+regexp_match(primaryNumbers, /\d{1,5}/g); // [ '01234', '56789', '0', '12', '345', '5678' ]
+regexp_match(primaryNumbers, /\d{1}/g);   /* [
+  '0', '1', '2', '3', '4',
+  '5', '6', '7', '8', '9',
+  '0', '1', '2', '3', '4',
+  '5', '5', '6', '7', '8'
+] */ 
+regexp_match(primaryNumbers, /\d{2,}/g);  // [ '0123456789', '12', '345', '5678' ]
+
+regexp_match(no, /o{1,4}/g);    // [ 'o', 'ooo', 'oooo', 'o' ]
+regexp_match(no, /no{3,5}/g);   // [ 'nooo', 'nooooo' ]
+regexp_match(no, /no{3}/g);     // [ 'nooo', 'nooo' ]
+
+regexp_match(na, /a{2,4}/g);    // [ 'aaa', 'aaaa' ]
+regexp_match(na, /na{1,3}/g);   // [ 'na', 'naaa', 'naaa' ]
+regexp_match(na, /na{2,}/g);    // [ 'naaa', 'naaaaa' ]
+
+regexp_match(fog, /fogo{3}/g);  // [ 'fogooo' ]
+regexp_match(fog, /fog{1,}/g);  // [ 'fog', 'fog', 'fog' ]
+
+const fogao = `fog fogão fogo fogooo`
+regexp_match(fogao, /\w{4}/g);       // [ 'fogo', 'fogo' ]
+regexp_match(fogao, /[\wã]{4}/g);    // [ 'fogã', 'fogo', 'fogo' ]
+regexp_match(fogao, /[\wã\s]{4}/g);  // [ 'fog ', 'fogã', 'o fo', 'go f', 'ogoo' ]
+regexp_match(fogao, /[\wã\s]{4,}/g); // [ 'fog fogão fogo fogooo' ]
+regexp_match(fogao, /[\wã]{4,}/g);   // [ 'fogão', 'fogo', 'fogooo' ]
+
+
+
+// comportamento operadores
+const div = `<div>content one</div><div>content two</div>`;
+
+// greedy
+regexp_match(div, /<div>.+<\/div>/g); // [ '<div>content one</div><div>content two</div>' ]
+regexp_match(div, /<div>.*<\/div>/g); // [ '<div>content one</div><div>content two</div>' ]
+
+// lazy
+regexp_match(div, /<div>.+?<\/div>/g); // [ '<div>content one</div>', '<div>content two</div>' ]
+regexp_match(div, /<div>.*?<\/div>/g); // [ '<div>content one</div>', '<div>content two</div>' ]
 
 // shorthands
 const shorthands = `1,2,3,4,5,6,a.b c!d?e\r	-\f
@@ -325,6 +410,42 @@ regexp_match(shorthands, /\S/g); /* [
 ] */
 regexp_match(shorthands, /\r/g); // [ '\r' ]
 regexp_match(shorthands, /\f/g); // [ '\f' ]
+
+// desafios
+// 1. CPF
+const cpfs = `CPF aprovados:
+                — 600.567.890-12
+                — 75789622306
+                — 101156470-90
+                — 200 707 770-90
+                — 765.998.345-23
+                — 165.876.835-06
+                — 759.863.491-58
+                — 004.567.109-09`;
+
+regexp_match(cpfs, /\d.{1,}/g);
+
+// 2. Telefones
+const phoneNumbers = `Lista telefônica:
+                        — (31) 97851-6487
+                        — (11) 98834-7665
+                        — (21) 97681-4117
+                        — (85) 9 9441-0059
+                        — 9 9352-8754
+                        — 99563-1244
+                        — (32) 977549864
+                        — (51) 9 85001478
+                        — 9 78891354
+                        — 997852147`;
+
+regexp_match(phoneNumbers, /.\d.{1,}/g);
+
+// 3. email
+const emails = `e-mails:
+                  — raphael@code.com.br
+                  — ralph@email.com
+                  — raphaelkaique1@gmail.com`;
+regexp_match(emails, /\w+@.+/g);
 ```
 
 ## TERMINAL
