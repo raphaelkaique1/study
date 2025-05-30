@@ -492,12 +492,50 @@ regexp_match(div, /<div>.*<\/div>/g); // [ '<div>content one</div><div>content t
 regexp_match(div, /<div>.+?<\/div>/g); // [ '<div>content one</div>', '<div>content two</div>' ]
 regexp_match(div, /<div>.*?<\/div>/g); // [ '<div>content one</div>', '<div>content two</div>' ]
 
-// bordas
+// bordas de linhas
 const coffee = `Quero café! Isso aqui é uma porcaria, que não tem m3rd@ nenhuma! \nDesculpe...`;
 regexp_match(coffee, /q/gi);      // [ 'Q', 'q', 'q' ]
 regexp_match(coffee, /^q|\.$/gi); // [ 'Q', '.' ]
 regexp_match(coffee, /\bq.*!/gi); // [ 'Quero café! Isso aqui é uma porcaria, que não tem m3rd@ nenhuma!' ]
 regexp_match(coffee, /ne.*/g);    // [ 'nenhuma! ' ]
+
+// bordas de palavras
+const diaNormal = `dia diatonico diafragma media wikipedia bom_dia melodia radial`;
+regexp_match(diaNormal, /\w+dia\w+/gi); // [ 'radial' ]
+regexp_match(diaNormal, /\bdia\w*/gi);  // [ 'dia', 'diatonico', 'diafragma' ]
+regexp_match(diaNormal, /\bdia\w+/gi);  // [ 'diatonico', 'diafragma' ]
+regexp_match(diaNormal, /\w+dia\b/gi);  // [ 'media', 'wikipedia', 'bom_dia', 'melodia' ]
+regexp_match(diaNormal, /\w*dia\b/gi);  // [ 'dia', 'media', 'wikipedia', 'bom_dia', 'melodia' ]
+regexp_match(diaNormal, /dia/gi);       /* [
+  'dia', 'dia',
+  'dia', 'dia',
+  'dia', 'dia',
+  'dia', 'dia'
+] */
+regexp_match(diaNormal, /\bdia\b/gi);   // [ 'dia' ]
+/* borda é `\W`, ou seja [^A-z0-9], o que significa que caracteres fora deste range podem causar comportamentos inesperados
+   pois se comportam como delimitadores de borda */
+const diaDificil = `dia diatônico diafragma, média wikipédia bom-dia melodia radial.`;
+regexp_match(diaDificil, /\bdia\b/gi);
+/*dia média wikipédia bom-dia
+[ 'dia', 'dia', 'dia', 'dia' ]*/
+const solucao = /(\S*([^,\.]))?/;
+regexp_match(diaDificil, /(\S*)?dia(\S*)?/gi); /* [
+  'dia',
+  'diatônico',
+  'diafragma,',
+  'média',
+  'wikipédia',
+  'bom-dia',
+  'melodia',
+  'radial.'
+] */
+regexp_match(diaDificil, /([\wÁ-ü-]*)?dia([\wÁ-ü-]*)?/gi); /* [
+  'dia',       'diatônico',
+  'diafragma', 'média',
+  'wikipédia', 'bom-dia',
+  'melodia',   'radial'
+] */
 
 // shorthands
 const shorthands = `1,2,3,4,5,6,a.b c!d?e\r	-\f
