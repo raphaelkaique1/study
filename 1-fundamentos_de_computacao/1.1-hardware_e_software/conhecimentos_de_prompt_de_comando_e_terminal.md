@@ -4,8 +4,8 @@ Uma RegExp descreve um padrão de caracteres, usada para validações, buscas e 
 // string
 const hexadec = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
 
-// object RegExp()
-const regexp = new RegExp('9');
+// object regexp_match()
+const regexp = new regexp_match('9');
 
 // métodos de objeto
 console.log(regexp.test(hexadec)); /* true
@@ -42,7 +42,7 @@ const regexp = /abc/; // no JS, uma RegExp literal é escrita entre barras `/reg
 ```
 - **constructor**
 ```js
-const regexp = new RegExp("abc");
+const regexp = new regexp_match("abc");
 ```
 
 Em Ruby por exemplo seria da seguinte forma:
@@ -84,7 +84,7 @@ Como é possível observar, RegExp é implementado em várias linguagens, conten
   - `(?! )`: lookahead negativo — `/a(?!b)/` casa `a` se não for seguido de `b`
   - `(?<=)`: lookbehind positivo — `/(?<=\$)\d+/` casa número após `$`
   - `(?<! )`: lookbehind negativo — `/(?<!@)\w+/` casa palavra não precedida de `@`
-  - `\1...\9`: retrovisor, resgata grupos já definidos.
+  - `\1...\9`: retrovisor, resgata grupos já definidos
 - **ÂNCORAS**
   - `^`: início da string — `/^Olá/`
   - `$`: fim da string — `/fim$/`
@@ -572,7 +572,7 @@ regexp_match(shorthands, /\r/g); // [ '\r' ]
 regexp_match(shorthands, /\f/g); // [ '\f' ]
 
 // desafios
-// 1. CPF
+// CPF
 const cpfs = `CPF aprovados:
                 — 600.567.890-12
                 — 75789622306
@@ -584,7 +584,7 @@ const cpfs = `CPF aprovados:
                 — 004.567.109-09`;
 regexp_match(cpfs, /\d.{1,}/g);
 
-// 2. Telefones
+// Telefones
 const phoneNumbers = `Lista telefônica:
                         — (31) 97851-6487
                         — (11) 98834-7665
@@ -596,14 +596,45 @@ const phoneNumbers = `Lista telefônica:
                         — (51) 9 85001478
                         — 9 78891354
                         — 997852147`;
-regexp_match(phoneNumbers, /.\d.*/g);
 
-// 3. email
+const numbers = phoneNumbers => phoneNumbers.match(/.\d.*/gi).map(unformatedNumber => {
+    let formatedNumber = unformatedNumber.replace(/\s|\(|\)|-/gi, "");
+    formatedNumber = formatedNumber.length < 11 ? `31${formatedNumber}` : formatedNumber;
+    return `https://wa.me/55${formatedNumber}`;
+});
+
+console.log(numbers(phoneNumbers).sort())
+
+// e-mail
 const emails = `e-mails:
                   — raphael@code.com.br
                   — ralph@email.com
                   — raphaelkaique1@gmail.com`;
 regexp_match(emails, /\w+@.+/g);
+
+// IP
+const byteList = `0 1 10 20 29 30 99 192 199 201 249 255 256 312 1010 1512`;
+//                               0-99    1 0-99 2 0-4 \d 25 0-5
+regexp_match(byteList, /\b(\d{1,2}|1\d{2}|2[0-4]\d|25[0-5])\b/g);
+const IPList = `
+Inválidos:
+    192.268.0.1
+    1.333.1.1
+    192.168.0.256
+    256.256.256.256
+
+Válidos:
+    192.168.0.1
+    127.0.0.1
+    10.0.0.255
+    10.11.12.0
+    255.255.255.255
+`;
+const byteRange = "(\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])";
+const ipv4 = new RegExp(`\\b${byteRange}\\.${byteRange}\\.${byteRange}\\.${byteRange}\\b`, 'g');
+regexp_match(IPList, ipv4);
+
+// password
 ```
 
 ## TERMINAL
