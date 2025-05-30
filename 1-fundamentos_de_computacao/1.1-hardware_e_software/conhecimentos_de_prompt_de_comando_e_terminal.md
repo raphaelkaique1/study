@@ -120,21 +120,68 @@ Como é possível observar, RegExp é implementado em várias linguagens, conten
   - `\B`: não fronteira de palavra — `/\Bpalavra\B/` → `\Bcat\B` casa com a palavra `cat` e `scatter`
 
 ```js
+const regexp_match = (txt = "RegExp", exp = / /g) => console.log(txt.match(exp));
 // flags
 const text = "Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA."
-
+// global & insensitive case
 regexp_match(text, /mansão ou barraco/gi); // [ 'mansão ou barraco' ]
-regexp_match(text, /cara/gi); // [ 'Cara', 'cara' ]
-regexp_match(text, /Cara/g); // [ 'Cara' ]
-regexp_match(text, /cara/); /* [
+regexp_match(text, /cara/gi);              // [ 'Cara', 'cara' ]
+regexp_match(text, /Cara/g);               // [ 'Cara' ]
+regexp_match(text, /cara/);                /* [
   'cara',
   index: 8,
   input: 'Caramba cara, qualquer casa, mansão ou barraco, que ela escolher eu vou CASAR E MORAR LÁ COM ELA.',
   groups: undefined
 ] */
 
-// metacaracteres
-const regexp_match = (txt = "RegExp", exp = / /g) => console.log(txt.match(exp));
+// dotall - o metacaractere ponto não engloba o `\n`, para resolver isso existe a flag dotall `s`
+const bomDiaN = `Bom\ndia`;
+const bomDiaT = `Bom\tdia`;
+regexp_match(bomDiaN, /./gi);     // [ 'B', 'o', 'm', 'd', 'i', 'a' ]
+regexp_match(bomDiaT, /./gi);     // [ 'B',  'o', 'm', '\t', 'd', 'i', 'a' ]
+regexp_match(bomDiaN, /.../gi);   // [ 'Bom', 'dia' ]
+regexp_match(bomDiaT, /.../gi);   // [ 'Bom', '\tdi' ]
+regexp_match(bomDiaN, /..../gi);  // null
+// flag dotall: `s`
+regexp_match(bomDiaN, /..../gis); // [ 'Bom\n' ]
+regexp_match(bomDiaN, /.../gis);  // [ 'Bom', '\ndi' ]
+regexp_match(bomDiaN, /./gis);    // [ 'B',  'o', 'm', '\n', 'd', 'i', 'a' ]
+/*
+* o metacaractere `.` usado com a flag dotall, consegue capturar quebras de linha `\n`
+* entretanto, ele considera apenas 1 linha, ou seja, se a string estiver envolvida em "``"
+* e de fato possuir quebras de linha, o dotall não funciona
+* para isso existe a flag multiline, que interpreta linha a linha da string
+*/
+// multiline
+const CriaScript = `Eu programo em C#, então eu trabalho usando o **
+A vida de junior é fácil, porque não tem trabalho nenhum
+Sem espaço no mercado, a IA já tá melhor que eu
+Não sei qual linguagem escolho, junior tudo hoje se fu—
+
+Python é bem fácil, porque ele não tipa
+Então poderia escolher C
+Tentei brincar com Java, dá estresse, então eu passo
+E C++ é menos porque eu não sei OOP
+Back-end tá difícil, então eu apostei no front
+Fiquei mais de uma hora só mudando uma fonte
+Centralizar o div é o próprio Inferno de Dante
+E o meu LinkedIn tá mais parado que estante
+
+Meu portfólio já tá lá no GitHub
+Clonei Nubank e fiz minha Pokédex
+Era melhor eu voltar pra engenharia
+Onde as merda' que eu fazia eu consertava com durex`;
+regexp_match(CriaScript, /\n/g); /* [
+  '\n', '\n', '\n', '\n',
+  '\n', '\n', '\n', '\n',
+  '\n', '\n', '\n', '\n',
+  '\n', '\n', '\n', '\n',
+  '\n'
+] */
+regexp_match(CriaScript, /^(\w).+\1$/gi);  // null
+regexp_match(CriaScript, /^(\w).+\1$/gis); // null - dotall não funciona aqui
+// a flag multiline considera cada linha de forma independente
+regexp_match(CriaScript, /^(\w).+\1$/gim); // [ 'E o meu LinkedIn tá mais parado que estante' ]
 
 // caracteres simples
 const char = `1,2,3,4,5,6,a.b c!d?e`;
@@ -146,15 +193,12 @@ regexp_match(char, /A/g);     // null
 regexp_match(char, /A/gi);    // [ 'a' ]
 regexp_match(char, /A/i);     // [ 'a', index: 12, input: '1,2,3,4,5,6,a.b c!d?e', groups: undefined ]
 regexp_match(char, /2/g);     // 2
-regexp_match(char, /b c!d/); /* [
+regexp_match(char, /b c!d/);  /* [
   'b c!d',
   index: 14,
   input: '1,2,3,4,5,6,a.b c!d?e',
   groups: undefined
 ] */
-
-// meta caracteres
-// . ? * + - ^ $ | [ ] ( ) \ :
 
 // unicode
 const unicodeAccent = `ÁÉÍÓÚ ÀÈÌÒÙ ÂÊÎÔÛ Ç ÃÕ Ü áéíóú àèìòù âêîôû ç ãõ ü`;
@@ -169,25 +213,25 @@ regexp_match(unicodeAccent, /[À-ü]/g); /* [
 
 const unicodeSymbols = `aʬc௵e`;
 regexp_match(unicodeSymbols, /\u02AC|\u0BF5/g); // [ 'ʬ', '௵' ]
-
 // o meta carctere `.` é um "conringa", pois representa 1 único caractere qualquer que exista na string da expressão
 console.log(char.split(/\./g));           // [ '1,2,3,4,5,6,a', 'b c!d?e' ]
 console.log(char.split(/,|\.|\?|!| /g));  /* [
   '1', '2', '3', '4',
   '5', '6', 'a', 'b',
   'c', 'd', 'e'
-] */ 
-console.log(char.split(/\*|\.|\?|!| /g)); /* [ '1,2,3,4,5,6,a', 'b', 'c', 'd', 'e' ] */
-regexp_match(char, /1\.2/g); // literal: null
-regexp_match(char, /1.2/g);  // meta: [ '1,2' ]
-regexp_match(char, /1..2/g); // null - ou seja, não existe na string um valor 1 e 2 com 2 caracteres entre eles
-regexp_match(char, /1..,/g); // [ '1,2,' ]
+] */
 
+// meta caracteres
+// . ? * + - ^ $ | [ ] ( ) \ :
+console.log(char.split(/\*|\.|\?|!| /g)); // [ '1,2,3,4,5,6,a', 'b', 'c', 'd', 'e' ]
+regexp_match(char, /1\.2/g);              // literal: null
+regexp_match(char, /1.2/g);               // meta: [ '1,2' ]
+regexp_match(char, /1..2/g);              // null - ou seja, não existe na string um valor 1 e 2 com 2 caracteres entre eles
+regexp_match(char, /1..,/g);              // [ '1,2,' ]
 const float = `8.3,7.1,8.8,10.0,8,9`;
 regexp_match(float, /8../g);  // [ '8.3', '8.8', '8,9' ]
 regexp_match(float, /8\../g); // [ '8.3', '8.8' ]
 regexp_match(float, /.\../g); // [ '8.3', '7.1', '8.8', '0.0' ]
-
 const files = `lista de arquivos mp3: sertanejo.mp3,funk.mp3,pagode.mp3,rap.mp3,metal.mp3,clássica.mp3`;
 console.log(files.match(/\.mp3/g));        // [ '.mp3', '.mp3', '.mp3', '.mp3', '.mp3', '.mp3' ]
 console.log(files.match(/\.mp3/g).length); // 6
@@ -199,21 +243,6 @@ console.log(files.match(/\w+\.mp3/g));     /* [
   'metal.mp3',
   'ssica.mp3'
 ] */
-
-// dotall - o ponto não engloba o `\n`, para resolver isso existe a flag dotall `s`
-const bomDiaN = `Bom\ndia`;
-const bomDiaT = `Bom\tdia`;
-
-regexp_match(bomDiaN, /./gi);   // [ 'B', 'o', 'm', 'd', 'i', 'a' ]
-regexp_match(bomDiaT, /./gi);   // [ 'B',  'o', 'm', '\t', 'd', 'i', 'a' ]
-regexp_match(bomDiaN, /.../gi); // [ 'Bom', 'dia' ]
-regexp_match(bomDiaT, /.../gi); // [ 'Bom', '\tdi' ]
-
-regexp_match(bomDiaN, /..../gi);  // null
-// flag dotall: `s`
-regexp_match(bomDiaN, /..../gis); // [ 'Bom\n' ]
-regexp_match(bomDiaN, /.../gis);  // [ 'Bom', '\ndi' ]
-regexp_match(bomDiaN, /./gis);    // [ 'B',  'o', 'm', '\n', 'd', 'i', 'a' ]
 
 // pipe `|` — operador lógico `OU`
 const JackSparrow = "Agora, traga-me aquele horizonte.";
@@ -237,7 +266,6 @@ console.log(JackSparrow.match(/a|e/gi));
   'a', 'e', 'a',
   'e', 'e', 'e'
 ] */
-
 const simNaoSei = `Você precisa responder sim, não ou não sei!`;
 regexp_match(simNaoSei, /sim|não|sei/g);      // [ 'sim', 'não', 'não', 'sei' ]
 regexp_match(simNaoSei, /sim|não sei|não/g);  // [ 'sim', 'não', 'não sei' ]
@@ -248,13 +276,12 @@ const tabText = `
 ca	r
 r	o s!
 `;
-regexp_match(tabText, /ca/); // [ 'ca', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-regexp_match(tabText, /ca\t/); // [ 'ca\t', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-regexp_match(tabText, /ca\tr\nr/); // [ 'ca\tr\nr', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-regexp_match(tabText, /ca\tr\nr\t/g); // [ 'ca\tr\nr\t' ]
+regexp_match(tabText, /ca/);              // [ 'ca', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca\t/);            // [ 'ca\t', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca\tr\nr/);        // [ 'ca\tr\nr', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
+regexp_match(tabText, /ca\tr\nr\t/g);     // [ 'ca\tr\nr\t' ]
 regexp_match(tabText, /ca\tr\nr\to\ss/g); // [ 'ca\tr\nr\to s' ]
-regexp_match(tabText, /ca\tr\nr\to s!/); // [ 'ca\tr\nr\to s!', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
-
+regexp_match(tabText, /ca\tr\nr\to s!/);  // [ 'ca\tr\nr\to s!', index: 1, input: '\nca\tr\nr\to s!\n', groups: undefined ]
 const spaces = `a   b`; // [ 'a   b' ]
 regexp_match(spaces, /a +b/g);
 regexp_match(spaces, /a {3}b/g);
@@ -266,7 +293,6 @@ const set = `1,2,3,4,5,6,a.b c!d?e[f`;
 regexp_match(set, /02468/g);   // null
 regexp_match(set, /[02468]/g); // [ '2', '4', '6' ]
 regexp_match(set, /[02864]/g); // [ '2', '4', '6' ]
-
 const acapulco = `Pode nadar na água da piscina Tesouro, mas não vá se molhar!`;
 regexp_match(acapulco, /n[aã]/g);    // [ 'na', 'na', 'na', 'nã' ]
 regexp_match(acapulco, /n[aã]./g);   // [ 'nad', 'na ', 'na ', 'não' ]
@@ -305,7 +331,6 @@ const blacklist = `1,2,3,a.b c!d?e[f`;
 regexp_match(blacklist, /\D/g);              // [ ',', ',', ',', 'a', '.', 'b', ' ', 'c', '!', 'd', '?', 'e', '[', 'f' ]
 regexp_match(blacklist, /[^0-9]/g);          // [ ',', ',', ',', 'a', '.', 'b', ' ', 'c', '!', 'd', '?', 'e', '[', 'f' ]
 regexp_match(blacklist, /[^\d!\?\[\s,\.]/g); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
-
 const code = `1: !"#$%&\'()*+,-./ 2: :;<=>?@`;
 regexp_match(code, /[^!-/:-@\s]/g);          // negando intervalos: [ '1', '2' ]
 
@@ -315,10 +340,6 @@ const na = `na naaa naaaaa`;
 const fog = `fog fogo fogooo`
 
 // ? = 0 || 1
-const primaryNumbers = `0123456789`;
-regexp_match(primaryNumbers, /\d/g);  // [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ]
-regexp_match(primaryNumbers, /\d+/g); // [ '0123456789' ]
-
 regexp_match(no, /no?/gi);    // [ 'no', 'no', 'no' ]
 regexp_match(na, /na?/gi);    // [ 'na', 'na', 'na' ]
 regexp_match(fog, /fogo?/gi); // [ 'fog', 'fogo', 'fogo' ]
@@ -334,6 +355,7 @@ regexp_match(na, /na*/gi);    // [ 'na', 'naaa', 'naaaaa' ]
 regexp_match(fog, /fogo*/gi); // [ 'fog', 'fogo', 'fogooo' ]
 
 // range = {min, max}
+const primaryNumbers = `0123456789`;
 regexp_match(primaryNumbers, /\d{1,2}/g); // [ '01', '23', '45', '67', '89', '0', '12', '34', '5', '56', '78' ]
 regexp_match(primaryNumbers, /\d{1,5}/g); // [ '01234', '56789', '0', '12', '345', '5678' ]
 regexp_match(primaryNumbers, /\d{1}/g);   /* [
@@ -341,8 +363,15 @@ regexp_match(primaryNumbers, /\d{1}/g);   /* [
   '5', '6', '7', '8', '9',
   '0', '1', '2', '3', '4',
   '5', '5', '6', '7', '8'
-] */ 
+] */
 regexp_match(primaryNumbers, /\d{2,}/g);  // [ '0123456789', '12', '345', '5678' ]
+
+const fogao = `fog fogão fogo fogooo`
+regexp_match(fogao, /\w{4}/g);       // [ 'fogo', 'fogo' ]
+regexp_match(fogao, /[\wã]{4}/g);    // [ 'fogã', 'fogo', 'fogo' ]
+regexp_match(fogao, /[\wã\s]{4}/g);  // [ 'fog ', 'fogã', 'o fo', 'go f', 'ogoo' ]
+regexp_match(fogao, /[\wã\s]{4,}/g); // [ 'fog fogão fogo fogooo' ]
+regexp_match(fogao, /[\wã]{4,}/g);   // [ 'fogão', 'fogo', 'fogooo' ]
 
 regexp_match(no, /o{1,4}/g);    // [ 'o', 'ooo', 'oooo', 'o' ]
 regexp_match(no, /no{3,5}/g);   // [ 'nooo', 'nooooo' ]
@@ -355,14 +384,9 @@ regexp_match(na, /na{2,}/g);    // [ 'naaa', 'naaaaa' ]
 regexp_match(fog, /fogo{3}/g);  // [ 'fogooo' ]
 regexp_match(fog, /fog{1,}/g);  // [ 'fog', 'fog', 'fog' ]
 
-const fogao = `fog fogão fogo fogooo`
-regexp_match(fogao, /\w{4}/g);       // [ 'fogo', 'fogo' ]
-regexp_match(fogao, /[\wã]{4}/g);    // [ 'fogã', 'fogo', 'fogo' ]
-regexp_match(fogao, /[\wã\s]{4}/g);  // [ 'fog ', 'fogã', 'o fo', 'go f', 'ogoo' ]
-regexp_match(fogao, /[\wã\s]{4,}/g); // [ 'fog fogão fogo fogooo' ]
-regexp_match(fogao, /[\wã]{4,}/g);   // [ 'fogão', 'fogo', 'fogooo' ]
 
 // grupos
+
 const ImNottheOnlyOne = `You say I'm crazy \n
 'Cause you don't think I know what you've done \n
 But when you call me "baby" \n
@@ -404,12 +428,13 @@ regexp_match(url, /(https:\/\/)?(www\.)?\w*\.(\w*)?\.?(\w*)?/g); /* [
 ] */
 
 // lookbacks
+
 const aalpha = `aabcdefghijkk`;
 regexp_match(aalpha, /(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)/g);      // [ 'abcdefghijk' ]
 regexp_match(aalpha, /(a)\1(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)\11/g); // [ 'aabcdefghijkk' ]
 
 const section = `<h3>RegExp</h3><p>Hello world!</p>`;
-regexp_match(section, /<(\w+)>.*<\/(\1)>/gis); // [ '<h3>RegExp</h3>', '<p>Hello world!</p>' ]
+regexp_match(section, /<(\w+)>.*<\/(\1)>/gi); // [ '<h3>RegExp</h3>', '<p>Hello world!</p>' ]
 
 const mind = `Lentamente, é uma mente muito lenta.`;
 regexp_match(mind, /(lenta)?(mente)?/gi);                 // [ 'Lentamente', 'mente', 'lenta' ]
@@ -418,6 +443,7 @@ console.log(mind.replace(/(lenta)(mente)/gi, `$2`));      // mente, é uma mente
 console.log(mind.replace(/(lenta)(mente)/gi, `Louca$2`)); // Loucamente, é uma mente muito lenta.
 
 // grupos aninhados
+const market = `hipermercado supermercado mercado minimercado`;
 regexp_match(market, /(hiper|super|mini)?mercado/g); // [ 'hipermercado', 'supermercado', 'mercado', 'minimercado' ]
 regexp_match(market, /((hi|su|)per|mini)?mercado/g); // [ 'hipermercado', 'supermercado', 'mercado', 'minimercado' ]
 
@@ -442,19 +468,16 @@ regexp_match(Super, /[\wÀ-ü]+/g); // [ 'supermercado', 'HIPERMERCADO', 'Mercad
 // positive lookahead
 regexp_match(tigers, /[\wÀ-ü]+(?=ê)/g);  // [ 'Tr', 'tr' ]
 regexp_match(tigers, /[\wÀ-ü]+(?=\.)/g); // [ 'tristes' ]
-
 // negative lookahead
 regexp_match(tigers, /[\wÀ-ü]+[\s](?!para)/gi); // [ 'Três ', 'pratos ', 'de ', 'para ', 'três ', 'tigres ' ]
-regexp_match(tigers, /[\wÀ-ü]+[\s](?!\.)/gi); /* [
+regexp_match(tigers, /[\wÀ-ü]+[\s](?!\.)/gi);   /* [
   'Três ',   'pratos ',
   'de ',     'trigo ',
   'para ',   'três ',
   'tigres '
 ] */
-
 // positive lookbehind
 regexp_match(Super, /(?<=super)[\wÀ-ü]+/g); // [ 'mercado', 'ação' ]
-
 // negative lookbehind
 regexp_match(Super, /(?<!super)mercado/gi); // [ 'MERCADO', 'Mercado' ]
 
@@ -471,7 +494,6 @@ regexp_match(div, /<div>.*?<\/div>/g); // [ '<div>content one</div>', '<div>cont
 
 // bordas
 const coffee = `Quero café! Isso aqui é uma porcaria, que não tem m3rd@ nenhuma! \nDesculpe...`;
-
 regexp_match(coffee, /q/gi);      // [ 'Q', 'q', 'q' ]
 regexp_match(coffee, /^q|\.$/gi); // [ 'Q', '.' ]
 regexp_match(coffee, /\bq.*!/gi); // [ 'Quero café! Isso aqui é uma porcaria, que não tem m3rd@ nenhuma!' ]
@@ -522,7 +544,6 @@ const cpfs = `CPF aprovados:
                 — 165.876.835-06
                 — 759.863.491-58
                 — 004.567.109-09`;
-
 regexp_match(cpfs, /\d.{1,}/g);
 
 // 2. Telefones
@@ -537,7 +558,6 @@ const phoneNumbers = `Lista telefônica:
                         — (51) 9 85001478
                         — 9 78891354
                         — 997852147`;
-
 regexp_match(phoneNumbers, /.\d.*/g);
 
 // 3. email
