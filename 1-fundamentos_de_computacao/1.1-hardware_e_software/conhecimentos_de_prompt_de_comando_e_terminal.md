@@ -607,10 +607,14 @@ console.log(numbers(phoneNumbers).sort())
 
 // e-mail
 const emails = `e-mails:
+                  — 0n@code.com.br
+                  — r4lp@code.com.br
                   — raphael@code.com.br
                   — ralph@email.com
+                  — raphael-kaique@email.com
+                  — raphael.kaique_1@email.com
                   — raphaelkaique1@gmail.com`;
-regexp_match(emails, /\w+@.+/g);
+regexp_match(emails, /\w.+@.+/g);
 
 // IP
 const byteList = `0 1 10 20 29 30 99 192 199 201 249 255 256 312 1010 1512`;
@@ -635,6 +639,16 @@ const ipv4 = new RegExp(`\\b${byteRange}\\.${byteRange}\\.${byteRange}\\.${byteR
 regexp_match(IPList, ipv4);
 
 // password
+const password = `
+123456789
+cod3r
+QUASE123!
+#0pA1
+@sjeSASf5A%gAs6dgf213#fAS
+
+Strong@3993`;
+
+regexp_match(password, /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%&*-_.~^]).{8,16}$/gm);
 ```
 
 ## TERMINAL
