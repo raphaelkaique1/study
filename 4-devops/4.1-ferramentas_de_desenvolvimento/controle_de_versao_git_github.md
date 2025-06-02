@@ -655,21 +655,20 @@ echo "done"
 ### git stagin area
 ### git branches
 ### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
-Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, para simplificarmos a nossa forma de trabalho foi criado o `gitflow`, um pugglin para o Git.<br/>
-O segredo do gitflow, é o trabalho com branches bem definidas e estabelecer o fluxo de trabalho para o envio de código de um branch para o outro.
+Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, e afim de simplificar e padronizar a forma de trabalho existe o `gitflow`, um plugin de produtividade para o Git que trabalha com branches bem definidas e estabelece o fluxo de desenvolvimento para o envio de código de um branch para a outra.
 
 ![Image](https://github.com/user-attachments/assets/300d2ced-f295-4d66-9325-4d464150fde1)
 
 - **master || main**<br/>
-Este é o branch principal, onde reside o código que já está pronto para lançamento.
+Esta é a branch principal, onde reside o código que já está pronto para lançamento.
 - **hotfix**<br/>
-São branches destinados à correções rápidas e alternativas para resolução de bugs pequenos que precisam ser enviados logo para produção.
+São branches destinadas à correções rápidas e alternativas para resolução de bugs pequenos que precisam ser enviados logo para produção.
 - **release**<br/>
-É a branche onde cada alteração significativa no código em develop é enviada para produção como uma nova versão do software.
+É a branche onde cada alteração significativa no código em `develop` é enviada para produção como uma nova versão do software.
 - **develop**<br/>
-É o branch de desenvolvimento, onde acontece a integração das funcionalidades desenvolvidas. Essas funcionalidades são criadas nos branches do tipo **features**.
+É a branch de desenvolvimento, onde ocorre a integração das funcionalidades desenvolvidas. Essas funcionalidades são criadas nos branches do tipo **`features`**.
 - **features**<br/>
-Branches designidas para a criação das funcionalidades onde podem ser realizados teste unitários, e em seguida enviadas para serem testadas na branch develop.
+Branches designidas para a criação das funcionalidades onde podem ser realizados teste unitários e em seguida enviadas para serem testadas na branch `develop`.
 
 Para instalar e usar o git flow deve-se seguir os seguintes passos:<br/>
 ```git flow <branch_name> <process_status: start || finish> <workflow_name>```
@@ -698,12 +697,12 @@ gt flow release finish
 
 ### git LFS
 ### submodules
-Um submodulo do git nada mais é do que um repositório dentro do outro, e ainda, a versão desse repositório está travada. Isso constitui um sistema de gestão de dependências bem simples e integrado usando o próprio git. Ou seja, é uma forma de distribuirmos nosso código junto com as bibliotecas e demais requisitos que são necessários o embarque automáticamente no repositório git principal.<br/>
+Um submodulo do git nada mais é do que um repositório git dentro de outro, com o detalhe de que a versão inclusa do repositório permanece *"travada"*. Isso constitui um sistema de gestão de dependências bem simples e integrado usando o próprio git. É uma forma de distribuição do código integrado com as bibliotecas e demais requisitos que são necessários o embarque automáticamente no repositório git principal.<br/>
 Mas é preciso muita atenção, pois o fluxo de trabalho pode acabar se tornando complexo se não for bem compreendido este conceito, pois os submodulos podem ser recursivos, ou seja, um repositório pode conter outros submodulos e ainda cada um deles conterem mais submodulos.<br/>
 Vejamos como adicionar um submodulo:<br/>
 `git submodule add <url_repo> <dir_name>`
 ```bash
-# navegue até o repositório do projeto principal, e então adicione o repositório da dependência do projeto
+# navegue até o repositório do projeto principal, e então adicione o repositório da dependência do projeto com o comando `git submodule add https://url-repo.com dir_reppo_name`
 git submodule add https://github.com/user/repo dir_name
 cat .gitmodules # isso mostra o caminho para a referência do diretório no submodulo
 [submodule "dir_name"]
@@ -712,8 +711,8 @@ cat .gitmodules # isso mostra o caminho para a referência do diretório no subm
 # agora podemos incluir este módulo ao nosso repositório remoto, e sempre que nosso projeto for clonado, essa referência será clonada também
 git commit -a -m "Commit changes"
 ```
-Este é o caso do módulo do `node.js` por exemplo. O arquivo do submodulo dentro do nosso diretório é apenas uma entrada para o repositório original do submodulo. Ou seja, um submodulo é uma referência para o git qual versão queremos usar no nosso projeto e onde buscar os arquivos do diretório submodulo indicado.<br/>
-Isso é bem interessante para a distribuição de dependências do nosso projeto, onde quando uma versão específica da depedência é necessária para nosso software, podemos subí-la no nosso projeto sem necessariamente ter que incluir os arquivos no diretório, podemos apenas referenciá-los.
+Este é o caso do `node_nodules` por exemplo. O arquivo do submodulo dentro do nosso diretório é apenas uma entrada para o repositório original do submodulo. Ou seja, um submodulo é uma referência para o git de qual versão será usada no projeto e onde buscar os arquivos do diretório submodulo indicado.<br/>
+Esta é uma boa prática para a distribuição de dependências do projeto quando uma versão específica da depedência é necessária para software, pode ser inclusa no projeto sem necessariamente incluir os arquivos no diretório – o que tornaria o projeto pesado e com um alto potencial de *quebra* caso um submodulo referencie outro módulo que foi deprecado ou atualizado enquanto a versão atual do projeto aponta para uma versão inexistente – bastando apenas referenciá-los.
 
 ### hooks - post update && pre commit
 
