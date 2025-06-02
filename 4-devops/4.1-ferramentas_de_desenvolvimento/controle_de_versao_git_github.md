@@ -782,30 +782,7 @@ git clone https://github.com/user_name/repository_name.git || git clone git@gith
 ### STATES
 Existem diferentes possíveis estados que o Git pode classificar os arquivos dentro de um repositório.
 
-```mermaid
-stateDiagram-v2
-    direction LR
-
-    [*] --> Modificado : novo ou editado\n(workspace)
-    Modificado --> Preparado : git add
-    Preparado --> Confirmado : git commit
-    Confirmado --> Modificado : nova edição\n(volta ao início)
-
-    state Modificado {
-        [*] --> ArquivoModificado
-        ArquivoModificado --> Preparado : git add
-    }
-
-    state Preparado {
-        [*] --> ArquivoPreparado
-        ArquivoPreparado --> Confirmado : git commit
-    }
-
-    state Confirmado {
-        [*] --> ArquivoConfirmado
-        ArquivoConfirmado --> ArquivoModificado : edição
-    }
-```
+![Image](https://raw.githubusercontent.com/shyoutarou/Git_GitHUB/master/.github/treestados.png)
 
 | **Commit**            | Um ponto de salvamento. Contém alterações e uma mensagem descritiva.                 |
 | **Branch**            | Uma ramificação. Útil para desenvolver novas funcionalidades sem afetar o principal. |
