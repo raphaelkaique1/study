@@ -654,7 +654,7 @@ echo "done"
 ## GIT
 É um sistema de versionamento de código, que armazena os registros de versão como **_snapshots_** do estado do conteúdo além da referência – em formato de *hash* – para localizar este snapshoot. A maioria das operações realizadas pelo Git são locais, e por isso boa parte das operações são extremamente rápidas devido a facilidade de acessar os arquivos no computador. Apesar de funcionar localmente, a principal vantagem do Git é poder se conectar com serviços de armazenamento de repositório remoto, como o **GitHub** ou **GitLab** por exemplo.
 
-## INSTALL
+### INSTALL
 Para instalar o [Git no Linux](https://git-scm.com/downloads/linux), basta utilizar o terminal e instalar via `apt`:
 ```shell
 # instalando o git
@@ -666,7 +666,7 @@ git -v # || git --version
 # git version 2.43.0
 ```
 
-## SET
+### SET
 Com o Git instalado será necessário realizar algumas configurações de ambiente para que funcione corretamente. O comando **`git config`** é usado para configurar variáveis de ambiente do Git, como:
 - user name
 - email
@@ -687,7 +687,7 @@ Essas configurações podem ser salvas em diferentes níveis chamados de *escopo
 
 O uso do escopo de configurações é útil para criar ambientes diferentes para cada projeto, proporcionando maior controle e organização ao desenvolvedor. Casos de uso de escopos de configuração incluem por exemplo quando o dev utiliza um e-mail particular para projetos pessoais e um corporativo para projetos empresariais, ou quando um determinado projeto usa uma codificação, editor ou ferramenta diferente, ou em abientes corporativos quando o administrador precisa definir padrões para todos os usuários da máquina, entre vários outros possíveis cenários.
 
-- **`--system`** – configurações padrões de ambiente<br/>
+#### `--system` – configurações padrões de ambiente
 Usado geralmente por administradores de servbidor para configurar ferramentas de edição e formatos de saída padrão, também como regras organizacionais para todos os usuários do sistema.
 ```sh
 # configurando o ambiente padrão
@@ -696,7 +696,7 @@ sudo git config --system core.editor nano # `core.editor`: define o ambiente de 
 sudo git config --system --list
 ```
 
-- **`--global`** – dados do usuário<br/>
+#### `--global`** – dados do usuário
 Usado para armazenar configurações para **todos os projetos Git**, como:
 ```sh
 # configurando usuário, credenciais e ambiente
@@ -714,7 +714,7 @@ git config --global credential.helper cache-store                    # credentia
 # portanto, deve-se ter cuidado ao usar esse método em sistemas compartilhados ou em ambientes menos seguros
 ```
 
-- **`--local`** – específico por projeto<br/>
+#### `--local` – específico por projeto
 Usado para configurações específicas **entre diferentes projetos**, por exemplo:
 ```bash
 git config --local user.name "dev_team"
@@ -730,10 +730,10 @@ sudo git config --system --list # exibe todas as configurações do sistema
 ```
 > Também é possível alterar as opções diretamente no arquivo de configurações do Git `.gitconfig`, mas a maneira correta e segura de realizar modificações de configurações de ambiente é usar o `git config`.
 
-## REPOSITORY
+### REPOSITORY
 Um repositório nada mais é do que um projeto versionado pelo Git, podendo ser local ou remoto.
 
-**local**<br/>
+#### local
 Como o Git é um software que opera localmente, todo repositório – seja local ou remoto – deve ser iniciado na máquina do usuário, e isso é feito navegando até o diretório do projeto e iniciando o Git `git init`:
 ```sh
 # navegando até o diretório que contém os arquivos do projeto
@@ -745,12 +745,13 @@ git init  # inicia o serviço de versionamento do git \
 ```
 Agora o repositório do projeto está pronto para trabalhar com o Git, permitindo que os arquivos contidos nele sejam versionados localmente e remotamente.
 
-**remote**<br/>
+#### remote
 Para se trabalhar com repositórios remotos é necessário que o desenvolvedor possua uma conta na plataforma de hospedagem do código, como por exemplo o **GitHub**, que é uma das mais populares plataformas online utilizadas para armazenar histórico de versionamentos de código Git.<br/>
 Para realizar as configurações de repositório via CLI, o usuário deve possuir as credenciais associadas à conta na máquina local, e a forma de fazer isso varia de serviço para serviço.<br/>
 O GitHub permite a criação, gerenciamento e clonagem de repositórios tanto pela GUI do seu site quanto por CLI.
 
-**creating a new remote repo**
+**creating a new remote repo**<br/>
+Cria um novo repositório remoto na conta indicada, onde é ligado ao repositório local para que este tenha suas modificações e históricos armazenados no servidor.
 ```sh
 sudo apt install curl -y                                               # 0. ferramenta para envio de informações ao servidor via HTTP
 # 1. envia ao servidor do GitHub a credencial do usuário e os dados para criação do repositório
@@ -771,8 +772,10 @@ git remote add origin https://github.com/user_name/repository_name.git # 8. cone
 git push -u origin main                                                # 9. envia os arquivos do repositório para o diretório criado
 ```
 
-**cloning existing remote repo**
+**cloning existing remote repo**<br/>
+Realiza uma cópia completa de um repositório remoto existente, bem como todos os arquivos e todo o histórico de versões de cada um.
 ```sh
+# methods: HTTP || SSH
 git clone https://github.com/user_name/repository_name.git || git clone git@github.com:user_name/repo_name.git
 # Username: user_name
 # Password: personal_access_token
@@ -780,17 +783,42 @@ git clone https://github.com/user_name/repository_name.git || git clone git@gith
 ```
 
 ### STATES
-Existem diferentes possíveis estados que o Git pode classificar os arquivos dentro de um repositório.
+Existem diferentes estados que o Git pode classificar os arquivos dentro de um repositório.
+
+![Image](https://git-scm.com/book/pt-br/v2/images/areas.png)
+
+- **`commited`**: os arquivos estão sendo rastreados pelo Git, e os dados estão armazenados de forma segura no banco de dados local.
+- **`modified`**: o arquivo está monitorado pelo Git, possui um histórico de versões, e seu estado atual indica que sofreu modificações ainda não salvas no banco de dados local.
+- **`staged`**: o arquivo modificado agora tem uma versão salva das alterações que está pronta para o *`commit`*, ou seja, o estado atual das modificações foi adicionado à *área de preparação* **stagin area**, isto indica que o Git reconhece as alterações feitas e elas farão parte do próximo *`commit`*.
+
+Básicamente, o Git usa estas 3 areas para conter cada estado de um arquivo, sendo o `working directory` o espaço no sisitema de arquivos onde os arquivos versionados e não versionados existem, sendo o espaço para o trabalho direto com os arquivos, criando, editando, deletando e movendo-os. Cada mudança em um arquivo é detectada pelo Git, e o comando `git status` exibe os estados dos arquivos como modificados ou não rastreados – no caso de novos arquivos criados em um diretório Git.<br/>
+Já a `stagin area` é a área de preparação – também chamada de *índice* – onde os arquivos e suas alterações entram antes de serem confirmados no histórico com `git commit`. É um espaço intermediário onde o Git armazena quais mudanças serão inclusas no próximo `commit`. Ao executar o comando `git add .` os arquivos indicados são considerados *"preparados para commit`*, e um detalhe interessante é que o Git permite realizar commits parciais, mesmo com múltiplas mudanças no projeto.<br/>
+Por fim, o `git repository` nada mais é do que o banco de dados permanente que contém todas as alterações inclusas nos commits. Este banco de dados interno do Git `.git` armazena commits, históricos de branches, árvores de arquivos (blobs e trees), tags, entre outras coisas. Cada `git commit -m "message"` realizado grava os arquivos da stagin area nesse respositório, fazendo com que as alterações façam parte do histórico do projeto.<br/>
+Após o commit, os arquivos voltam ao estado *"clean"*, até que sejam modificados novamente.
+
+```plaintext
++----------------------+    git add    +-------------------+    git commit    +-------------------+
+|  Working Directory   | ------------> |   Staging Area    | ---------------> |  Git Repository   |
+| (Diretório de trab.) |               | (Área de preparo) |                  | (Histórico local) |
++----------------------+               +-------------------+                  +-------------------+
+```
+
+Uma forma mais intuitiva de se entender como o Git rastreia e grava as alterações é como mostra o fluxo a seguir:
 
 ![Image](https://raw.githubusercontent.com/shyoutarou/Git_GitHUB/master/.github/treestados.png)
 
-| **Commit**            | Um ponto de salvamento. Contém alterações e uma mensagem descritiva.                 |
-| **Branch**            | Uma ramificação. Útil para desenvolver novas funcionalidades sem afetar o principal. |
-| **Merge**             | Junta mudanças de uma branch em outra.                                               |
-| **Clone**             | Cópia completa de um repositório remoto.                                             |
-| **Pull**              | Atualiza seu repositório local com mudanças do remoto.                               |
-| **Push**              | Envia suas mudanças locais para o repositório remoto.                                |
-| **Staging Area**      | Área intermediária onde você prepara os arquivos para commit.                        |
+- **untracked**: são os novos arquivos e alterações em andamento que ainda não foram para a **stagin area**, ou seja, ainda não foram adicionados no `git add .` para que o Git entenda o conteúdo e monitore as alterações.
+- **unmodified**: aqui, os arquivos já são conhecidos pelo Git e contem o estado que o Git conhece, ou seja, não sofreram nenhuma modificação e estão *up to date* de acordo com o último **commit** ao qual entraram. Cada commit é um ponto de salvamento de estado e histórico de modificações sofridas no arquivo, além de conter as alterações – que podem ser comparadas com `git diff` – também possuem um *hash* que identifica e diferencia um commit de outro, assim mantendo versões diferentes de estado e um histórico de alterações dos documentos, além de uma mensagem descritiva em cada commit onde o desenvolvedor informa o que o fez ou o motivo que o levou a fazer as tais alterações.
+- **modified**: neste ponto os arquivos já são rastreados e existem modificações neles que são percebidas pelo Git, mas que ainda estão em andamento e não estão salvas, por isso não estão na **stagin area**, são os arquivos modificados que _**ainda irão para a stagin area** após terem suas modificações finalizadas e adicionadas pelo `git add .` para que o Git as reconheça e veja quais foram as alterações nos estados atual e anterior do arquivo_.
+- **staged**: aqui estão os arquivos monitorados que possuem suas alterações adicionadas à **staging area**, que serão inclusos ao próximo commit e em seguida assumirão novamente o estado de *unmodified*.
+
+### ANALYSIS
+
+### WORKFLOW
+- **Branch**: Uma ramificação. Útil para desenvolver novas funcionalidades sem afetar o principal.
+- **Merge**: Junta mudanças de uma branch em outra.
+- **Pull**: Atualiza seu repositório local com mudanças do remoto.
+- **Push**: Envia suas mudanças locais para o repositório remoto.
 
 **Boas Práticas**
 - Commits frequentes e com mensagens claras.
@@ -808,7 +836,6 @@ O comando:
 git init
 ```
 **Inicializa um novo repositório Git vazio** dentro da pasta atual. Ou seja, transforma um diretório comum em um **repositório Git**, permitindo que você comece a **versionar arquivos** nele.
-
 
 ## 🎯 Resultado do `git init`
 * Cria uma **pasta oculta** chamada **`.git`** no diretório atual.
