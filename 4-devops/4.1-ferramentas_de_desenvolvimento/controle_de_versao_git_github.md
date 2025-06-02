@@ -1,14 +1,14 @@
 # CONTROLE DE VERSÃO
- O controle de versão é um sistema que registra o histórico de mudanças feitas em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo recuperar versões anteriores, acompanhar modificações, rastrear cada alteração, minimizar o risco de perda de código ou arquivos importantes e a colaboração de forma eficiente. É uma das mais importantes ferramentas de qualquer projeto de software bem desenvolvido, pois garante a qualidade no desenvolvimento.<br/>
- Existem 3 tipos básicos de controle de versão:
- - **LOCAL**<br/>
- Feito manualmente com ferramentas simples, armazenados no próprio computador ou em um servidor local.
- - **CENTRALIZADO - CVCS**<br/>
- Usa um único servidor com acesso via internet que contém todas as versões, por exemplo **SNV**.
- - **DISTRIBUÍDO - DVCS**<br/>
- Cada usuário tem uma cópia completa do respositório, como por exemplo no **Git** ou **Mercuiral**.
+O controle de versão é um sistema que registra o histórico de mudanças feitas em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo recuperar versões anteriores, acompanhar modificações, rastrear cada alteração, minimizar o risco de perda de código ou arquivos importantes e a colaboração de forma eficiente. É uma das mais importantes ferramentas de qualquer projeto de software bem desenvolvido, pois garante a qualidade no desenvolvimento.<br/>
+Existem 3 tipos básicos de controle de versão:
+- **LOCAL**<br/>
+Feito manualmente com ferramentas simples, armazenados no próprio computador ou em um servidor local.
+- **CENTRALIZADO - CVCS**<br/>
+Usa um único servidor com acesso via internet que contém todas as versões, por exemplo **SNV**.
+- **DISTRIBUÍDO - DVCS**<br/>
+Cada usuário tem uma cópia completa do respositório, como por exemplo no **Git** ou **GitLab**.
 
- Mas antes de iniciar o versionamento de qualquer projeto, primeiro precisamos de saber alguns conceitos sobre **ambiente de desenvolvimento** para entendermos quais são os arquivos de desenvolvimento privados, quais são os arquivos de produção públicos, quais licenças aplicam as versões do software e as ferramentas de versionamento, rastreamento de atividades e também **intgration** e **deployment**.
+Mas antes de iniciar o versionamento de qualquer projeto, primeiro precisamos de saber alguns conceitos sobre **ambiente de desenvolvimento** para entendermos quais são os arquivos de desenvolvimento privados, quais são os arquivos de produção públicos, quais licenças aplicam as versões do software e as ferramentas de versionamento, rastreamento de atividades e também **integration** e **deployment**.
 
 ## FLUXO DE TRABALHO PARA DESENVOLVIMENTO DE SOFTWARE
 Antes de iniciarmos o planejamento da arquitetura de um projeto, precisamos primeiro estruturar nosso ambiente de desenvolvimento. Este é um passo importante para que o fluxo de trabalho seja fluído e constante, pois não adianta seguir um modelo de estrutura de codificação se nem o ambiente de desenvolvimento possui uma boa organização. Estrutura de arquivos, descrição do projeto e a utilização de Agile Methodologies como Kanbam ou Scrum nos ajudam a criar um ambiente de programação elevado e funcional. Um ambiente de desenvolvimento bem estruturado se inicia na organização do desktop, das pastas do ambiente de desenvolvimento e a estrutura para o ambiente de produção, a documentação extensíva e a documentação básica e mais outros assuntos.<br/>
@@ -140,7 +140,7 @@ A estrutura básica inclui:
 
 Essas informações são o básico de qualquer README, porém podem ser adicionadas outras informações como contribuição, estrutura do código e contato de acordo com a necessidade. Vejamos 2 templates para situações de detalhamento diferentes:
 
-### **Template 1 - Básico (Essencial)**
+### Template 1 - Básico (Essencial)
 ```md
 # Nome do Projeto
 
@@ -284,249 +284,215 @@ Para criar um arquivo com Comp, basta executar estes comandos no CLI, usando o S
 
 O site compilado será criado na pasta `output`. pronta para ser copiada para um ambiente web.
 ```
+
 ## LICENSE
 A **Licença de Código** define as regras de uso, distribuição, modificação e comercialização de um software. Sem uma licença explícita, um software é considerado **proprietário** por padrão, o que significa que ninguém pode usá-lo ou modificá-lo legalmente sem permissão do autor.
 
-## **Tipos de Licenças de Código**<br/>As licenças de software são geralmente classificadas em **proprietárias** ou **livres (open source)**.  
+### Tipos de Licenças de Código<br/>
+As licenças de software são geralmente classificadas em **proprietárias** ou **livres (open source)**.
 
-### **1. Licenças Proprietárias**  
-- O código-fonte **não** é disponibilizado livremente.  
-- O uso, modificação e redistribuição são **restritos** pelo detentor dos direitos.  
-- Exemplos:  
-  - **Microsoft Windows**  
-  - **Adobe Photoshop**  
-  - **Oracle Database**  
+### Licenças Proprietárias
+- O código-fonte **não** é disponibilizado livremente.
+- O uso, modificação e redistribuição são **restritos** pelo detentor dos direitos.
+- Exemplos:
+  - **Microsoft Windows**
+  - **Adobe Photoshop**
+  - **Oracle Database**
 
----
-
-### **2. Licenças Open Source (Código Aberto)**  
+### Licenças Open Source
 Permitem acesso ao código-fonte e geralmente permitem modificações e redistribuição, mas com algumas restrições dependendo do tipo de licença.
 
-#### **2.1. Licenças Permissivas**  
-- Permitem o uso, modificação e distribuição sem muitas restrições.  
-- O software pode ser incorporado a projetos proprietários.  
-- Exemplos:  
-  - **MIT**  
-  - **Apache 2.0**  
-  - **BSD**  
+- **Licenças Permissivas**
+  - Permitem o uso, modificação e distribuição sem muitas restrições.
+  - O software pode ser incorporado a projetos proprietários.
+  - Exemplos:
+    - **MIT**
+    - **Apache 2.0**
+    - **BSD**
 
-#### **2.2. Licenças Copyleft (Restritivas)**  
-- O software modificado ou derivado **deve** manter a mesma licença.  
-- Exigem que o código-fonte seja sempre disponibilizado.  
-- Exemplos:  
-  - **GPL (General Public License)**  
-  - **LGPL (Lesser General Public License)**  
-  - **AGPL (Affero GPL)**  
+- **Licenças Copyleft – Restritivas**
+  - O software modificado ou derivado **deve** manter a mesma licença.
+  - Exigem que o código-fonte seja sempre disponibilizado.
+  - Exemplos:
+    - **GPL – General Public License**
+    - **LGPL – Lesser General Public License**
+    - **AGPL – Affero GPL**
 
-#### **2.3. Licenças Específicas para Documentação ou Criatividade**  
-- **Creative Commons (CC-BY, CC-BY-SA, etc.)**: Muito usada para documentação de software.  
-- **GNU FDL (Free Documentation License)**: Específica para manuais e tutoriais.  
+- **Licenças Específicas para Documentação ou Criatividade**  
+  - **Creative Commons – CC-BY, CC-BY-SA...**: Muito usada para documentação de software.  
+  - **GNU FDL – Free Documentation License**: Específica para manuais e tutoriais.  
 
----
-**Aqui está um resumo das licenças mencionadas, organizadas por categoria e com explicações sobre suas permissões e restrições.**
----
+**Cada licença possui suas particularidades, abaixo tem-se um resumo das licenças organizadas por categoria e com explicações sobre suas permissões e restrições.**
 
-## **1. Licenças Permissivas (Mais Livres)**
+1. **Licenças Permissivas**<br/>
 Permitem o uso, modificação e redistribuição sem muitas restrições, geralmente exigindo apenas atribuição de créditos.
 
-### **1.1. Apache License 2.0 (Apache-2.0)**
+**1.1. Apache License 2.0**
 - Permite uso, modificação e distribuição.
 - Requer atribuição do autor original.
 - Possui uma cláusula de patentes que protege os contribuintes contra processos judiciais.
 
-### **1.2. Boost Software License 1.0 (BSL-1.0)**
+**1.2. Boost Software License 1.0 – BSL-1.0**
 - Sem restrições sobre uso ou modificação.
 - Apenas requer que o aviso de copyright seja mantido.
 
-### **1.3. BSD Licenses**
-- **BSD 2-Clause (BSD-2-Clause)**: Apenas exige atribuição ao autor original.  
-- **BSD 3-Clause (BSD-3-Clause, BSD-3-Clause-Clear)**: Adiciona restrição para evitar uso do nome do autor em promoções.  
-- **BSD 4-Clause (BSD-4-Clause)**: Inclui uma cláusula extra proibindo uso promocional, mas raramente usada hoje.  
-- **BSD Zero-Clause (0BSD)**: Nenhuma restrição, permite até remover a atribuição.  
+**1.3. BSD Licenses**
+- **BSD 2-Clause**: Apenas exige atribuição ao autor original.  
+- **BSD 3-Clause – BSD-3-Clause / BSD-3-Clause-Clear**: Adiciona restrição para evitar uso do nome do autor em promoções.  
+- **BSD 4-Clause**: Inclui uma cláusula extra proibindo uso promocional, mas raramente usada hoje.  
+- **BSD Zero-Clause – 0BSD**: Nenhuma restrição, permite até remover a atribuição.  
 
-### **1.4. MIT License (MIT)**
+**1.4. MIT License**
 - Extremamente permissiva, usada amplamente por projetos open-source.
 - Permite uso, modificação e distribuição sem restrições.
 - Apenas requer atribuição.
 
-### **1.5. ISC License (ISC)**
+**1.5. ISC License – ISC**
 - Similar à licença MIT, com texto mais curto.
 
-### **1.6. The Unlicense (Unlicense)**
+**1.6. The Unlicense**
 - Coloca o software no domínio público, sem restrições.
 
-### **1.7. zLib License (Zlib)**
+**1.7. zLib License**
 - Permite uso livremente, mas exige que alterações sejam claramente marcadas.
 
----
-
-## **2. Licenças Copyleft (Mais Restritivas)**
+**2. Licenças Copyleft – Restritivas**<br/>
 Exigem que o software derivado mantenha a mesma licença.
 
-### **2.1. GNU Licenses**
-- **GPL (General Public License)**: Obriga que qualquer software derivado também use GPL.  
+**2.1. GNU Licenses**
+- **GPL – General Public License**: Obriga que qualquer software derivado também use GPL.  
   - **GPL-2.0**: Menos flexível.  
   - **GPL-3.0**: Melhor proteção contra patentes e restrições de hardware.  
-- **AGPL (Affero GPL - AGPL-3.0)**: Similar ao GPL, mas obriga a disponibilização do código mesmo que o software seja acessado via web (SaaS).  
-- **LGPL (Lesser General Public License)**: Menos restritiva que a GPL, permitindo uso em software proprietário.  
+- **AGPL – Affero GPL - AGPL-3.0**: Similar ao GPL, mas obriga a disponibilização do código mesmo que o software seja acessado via web (SaaS).  
+- **LGPL – Lesser General Public License**: Menos restritiva que a GPL, permitindo uso em software proprietário.  
 
-### **2.2. Mozilla Public License 2.0 (MPL-2.0)**
+**2.2. Mozilla Public License 2.0 – MPL-2.0**
 - Requer que apenas arquivos modificados permaneçam open-source.
 - Permite integração com software proprietário.
 
-### **2.3. Eclipse Public License (EPL-1.0, EPL-2.0)**
+**2.3. Eclipse Public License – EPL-1.0 / EPL-2.0**
 - Permite uso comercial, mas exige que alterações sejam compartilhadas.
 
-### **2.4. European Union Public License (EUPL-1.1)**
+**2.4. European Union Public License – EUPL-1.1**
 - Semelhante ao GPL, mas compatível com leis da União Europeia.
-
----
-
-## **3. Licenças Criativas e Educacionais**
+ 
+**3. Licenças Criativas e Educacionais**<br/>
 Focadas em documentação, materiais educacionais e fontes.
 
-### **3.1. Creative Commons (CC)**
-- **CC0-1.0**: Equivalente ao domínio público.  
-- **CC-BY-4.0**: Permite qualquer uso, desde que o autor seja citado.  
-- **CC-BY-SA-4.0**: Igual à anterior, mas exige que obras derivadas mantenham a mesma licença.  
+**3.1. Creative Commons – CC**
+- **CC0-1.0**: Equivalente ao domínio público.
+- **CC-BY-4.0**: Permite qualquer uso, desde que o autor seja citado.
+- **CC-BY-SA-4.0**: Igual à anterior, mas exige que obras derivadas mantenham a mesma licença.
 
-### **3.2. Educational Community License (ECL-2.0)**
+**3.2. Educational Community License – ECL-2.0**
 - Parecida com Apache 2.0, mas voltada para software educacional.
 
-### **3.3. LaTeX Project Public License (LPPL-1.3c)**
+**3.3. LaTeX Project Public License – LPPL-1.3c**
 - Específica para documentos e pacotes LaTeX.
 
-### **3.4. SIL Open Font License (OFL-1.1)**
+**3.4. SIL Open Font License – OFL-1.1**
 - Voltada para fontes tipográficas, permitindo redistribuição e modificação.
 
----
-
-## **4. Licenças Proprietárias e Específicas**
+**4. Licenças Proprietárias e Específicas**<br/>
 Licenças que misturam elementos abertos e fechados.
 
-### **4.1. Microsoft Public License (MS-PL)**
+**4.1. Microsoft Public License – MS-PL**
 - Permite uso comercial, mas não pode ser combinada com software GPL.
 
-### **4.2. PostgreSQL License**
+**4.2. PostgreSQL License**
 - Semelhante à licença BSD, voltada para o banco de dados PostgreSQL.
 
-### **4.3. Open Software License (OSL-3.0)**
+**4.3. Open Software License – OSL-3.0**
 - Parecida com a GPL, mas menos popular.
 
----
+**5. Licenças Humorísticas**<br/>
+Criadas informalmente, mas ainda legalmente válidas.
 
-## **5. Licenças Humorísticas**
-Criadas de forma informal, mas ainda legalmente válidas.
-
-### **5.1. Do What The F*ck You Want To Public License (WTFPL)**
+**5.1. Do What The F*ck You Want To Public License – WTFPL**
 - Sem restrições, literalmente permite "fazer o que quiser" com o código.
 
 ## LOG
- O arquivo `log` é onde começamos a prototipar o versionamento do código. Neste tipo de arquivo podemos encontrar mudanças de um backup para o trabalho atual entre outros registros de eventos e atividades que ocorrem em um sistema computacional. Esses registros, geralmente em formato de texto, incluem informações como data e hora (timestamp), tipo de evento, origem e detalhes adicionais relevantes. A principal função dos arquivos de log é fornecer uma trilha de auditoria que auxilia na monitoração, diagnóstico e solução de problemas em sistemas de TI.
+O arquivo `log` é onde começamos a prototipar o versionamento do código. Neste tipo de arquivo podemos encontrar mudanças de um backup para o trabalho atual entre outros registros de eventos e atividades que ocorrem em um sistema computacional. Esses registros, geralmente em formato de texto, incluem informações como data e hora (timestamp), tipo de evento, origem e detalhes adicionais relevantes. A principal função dos arquivos de log é fornecer uma trilha de auditoria que auxilia na monitoração, diagnóstico e solução de problemas em sistemas de TI.
 
 **Principais tipos de arquivos de log:**
-
 - **Logs de eventos:** Registram atividades gerais do sistema, fornecendo uma trilha de auditoria para solucionar problemas.
-
 - **Logs do sistema:** Contêm registros de eventos do sistema operacional, como alterações, mensagens de inicialização, erros e alertas.
-
 - **Logs de acesso:** Documentam solicitações de arquivos ou recursos, incluindo informações sobre quem acessou, quando e de onde.
-
 - **Logs de segurança:** Monitoram eventos relacionados à segurança, como tentativas de login, alterações de permissões e possíveis intrusões.
-
-- **Logs de alterações:** O **`CHANGE LOG`** mantêm um histórico cronológico de modificações realizadas em sistemas ou aplicações, facilitando o controle de versões e auditorias. citeturn0search0
+- **Logs de alterações:** O **`CHANGE LOG`** mantêm um histórico cronológico de modificações realizadas em sistemas ou aplicações, facilitando o controle de versões e auditorias.
 
 **Importância dos arquivos de log:**
-
 - **Monitoramento e manutenção:** Permitem acompanhar o desempenho e a saúde de sistemas e aplicações, identificando e solucionando problemas de forma proativa.
-
 - **Segurança:** Ajudam na detecção de atividades suspeitas ou não autorizadas, fortalecendo a postura de segurança da organização.
-
 - **Auditoria e conformidade:** Fornecem registros detalhados que são essenciais para auditorias internas e para garantir a conformidade com regulamentações e políticas corporativas.
-
-- **Análise de desempenho:** Oferecem insights sobre o uso de recursos e comportamento do sistema, auxiliando na otimização e planejamento de capacidade. citeturn0search0
+- **Análise de desempenho:** Oferecem insights sobre o uso de recursos e comportamento do sistema, auxiliando na otimização e planejamento de capacidade.
 
 **Desafios no gerenciamento de logs:**
-
 - **Volume de dados:** Sistemas modernos geram uma quantidade massiva de logs, tornando o armazenamento e a análise um desafio significativo.
-
 - **Variedade de formatos:** Diferentes sistemas e aplicações produzem logs em formatos variados, dificultando a padronização e a análise integrada.
-
-- **Velocidade de geração:** A rapidez com que os logs são gerados pode superar a capacidade de processamento manual, exigindo soluções automatizadas e escaláveis. citeturn0search0
+- **Velocidade de geração:** A rapidez com que os logs são gerados pode superar a capacidade de processamento manual, exigindo soluções automatizadas e escaláveis.
 
 ## RELEASES
 Um **release** é uma versão específica de um software que é disponibilizada ao público ou a um grupo de usuários. Cada release pode incluir novas funcionalidades, correções de bugs e melhorias de desempenho.  
 
-### **Tipos de Releases:**  
-1. **Major Release** (Versão principal) → Mudanças significativas, podendo quebrar compatibilidade.  
-2. **Minor Release** (Atualização menor) → Novos recursos adicionados sem quebrar compatibilidade.  
-3. **Patch Release** (Correção) → Pequenas melhorias e correções de bugs.  
-4. **Pre-release** → Versões beta, alfa ou candidatas a lançamento (RC - Release Candidate).  
-5. **LTS (Long Term Support)** → Versões com suporte de longo prazo, estáveis para produção.  
+**Tipos de Releases:**
+1. **Major Release – versão principal** – Mudanças significativas, podendo quebrar compatibilidade.
+2. **Minor Release – atualização menor** – Novos recursos adicionados sem quebrar compatibilidade.
+3. **Patch Release – correção** – Pequenas melhorias e correções de bugs.
+4. **pre-release** – Versões beta, alfa ou candidatas a lançamento (RC - Release Candidate).
+5. **LTS (Long Term Support)** – Versões com suporte de longo prazo, estáveis para produção.
 
-O **Versionamento Semântico (Semantic Versioning - SemVer)** é um padrão para nomear versões de software de forma previsível e consistente. Nele, cada número tem um significado específico, geralmente dividido em três partes: **MAJOR.MINOR.PATCH**.  
+O **Versionamento Semântico – Semantic Versioning - SemVer** – é um padrão para nomear versões de software de forma previsível e consistente. Nele, cada número tem um significado específico, geralmente dividido em três partes: **MAJOR.MINOR.PATCH**.  
 
-### **1. MAJOR (Mudanças que quebram compatibilidade)**
-Indica uma **versão principal** e é incrementado quando há mudanças significativas ou incompatíveis no software, como:  
-- Alterações que quebram a compatibilidade com versões anteriores.  
-- Novas funcionalidades ou reestruturações completas.  
+1. **MAJOR – mudanças que quebram compatibilidade**<br/>
+Indica uma **versão principal** e é incrementado quando há mudanças significativas ou incompatíveis no software, como:
+- Alterações que quebram a compatibilidade com versões anteriores.
+- Novas funcionalidades ou reestruturações completas.
 
-**Exemplo**: De 1.0.0 para 2.0.0, o software provavelmente não será compatível com a versão anterior.  
+**Exemplo**: De **`1`**`.0.0` para **`2`**`.0.0`, o software provavelmente não será compatível com a versão anterior.
 
----
+2. **MINOR – novos recursos, mas compatível com versões anteriores**<br/>
+Indica uma **versão secundária** e é incrementado quando são adicionadas **novas funcionalidades** ao software de forma **compatível** com a versão anterior.
+- Não quebra a compatibilidade existente.
+- Geralmente envolve melhorias significativas ou novos recursos.
 
-### **2. MINOR (Novos recursos, mas compatível com versões anteriores)**  
-Indica uma **versão secundária** e é incrementado quando são adicionadas **novas funcionalidades** ao software de forma **compatível** com a versão anterior.  
-- Não quebra a compatibilidade existente.  
-- Geralmente envolve melhorias significativas ou novos recursos.  
+**Exemplo**: De `1.`**`0`**`.0` para `1.`**`1`**`.0`, funcionalidades novas foram introduzidas, mas o sistema permanece compatível com 1.0.0.
 
-**Exemplo**: De 1.0.0 para 1.1.0, funcionalidades novas foram introduzidas, mas o sistema permanece compatível com 1.0.0.  
-
----
-
-### **3. PATCH (Correção de bugs ou pequenas melhorias)**  
+3. **PATCH – correção de bugs ou pequenas melhorias**<br/>
 Indica **correções ou ajustes** menores no software. É incrementado para:  
 - Correção de bugs.  
 - Melhorias de desempenho ou ajustes internos que não alteram as funcionalidades.  
 
-**Exemplo**: De 1.0.0 para 1.0.1, foram corrigidos problemas ou implementadas pequenas melhorias sem impacto no uso geral.  
+**Exemplo**: De `1.0.`**`0`** para `1.0.`**`1`**, foram corrigidos problemas ou implementadas pequenas melhorias sem impacto no uso geral.
 
----
+**Regras do SemVer:**
+1. **Mudança MAJOR – 1.x.x → 2.0.0**
+  - Introdução de mudanças **incompatíveis** com versões anteriores.
+  - Pode remover ou alterar APIs.
 
-### **Regras do SemVer:**  
-1. **Mudança MAJOR (1.x.x → 2.0.0)**  
-   - Introdução de mudanças **incompatíveis** com versões anteriores.  
-   - Pode remover ou alterar APIs.  
+2. **Mudança MINOR – 1.0.x → 1.1.0**
+  - Adiciona funcionalidades **novas**, mas sem quebrar compatibilidade.
+  - APIs existentes permanecem funcionando.
 
-2. **Mudança MINOR (1.0.x → 1.1.0)**  
-   - Adiciona funcionalidades **novas**, mas sem quebrar compatibilidade.  
-   - APIs existentes permanecem funcionando.  
+3. **Mudança PATCH – 1.0.0 → 1.0.1**
+  - Apenas **correções de bugs** ou pequenas melhorias.
+  - Nenhuma funcionalidade nova é adicionada.
 
-3. **Mudança PATCH (1.0.0 → 1.0.1)**  
-   - Apenas **correções de bugs** ou pequenas melhorias.  
-   - Nenhuma funcionalidade nova é adicionada.  
+| VERSÃO    | ALTERAÇÃO                                              |
+|-----------|--------------------------------------------------------|
+| **1.0.0** | Primeiro lançamento estável.                           |
+| **1.1.0** | Novo recurso adicionado sem quebrar compatibilidade.   |
+| **1.1.1** | Pequena correção de bug.                               |
+| **2.0.0** | Mudanças que quebram compatibilidade com a versão 1.x. |
 
----
-
-### **Exemplos Práticos:**  
-| Versão    | O que mudou?                                          |
-|-----------|-------------------------------------------------------|
-| **1.0.0** | Primeiro lançamento estável                           |
-| **1.1.0** | Novo recurso adicionado sem quebrar compatibilidade   |
-| **1.1.1** | Pequena correção de bug                               |
-| **2.0.0** | Mudanças que quebram compatibilidade com a versão 1.x |
-
----
-
-### **Extensões do SemVer:**  
+**Extensões do SemVer:**
 1. **Pre-release (Versões experimentais):**  
-   - **1.2.0-alpha.1** (Versão alfa)  
-   - **1.2.0-beta.3** (Versão beta)  
-   - **1.2.0-rc.1** (Release Candidate, quase final)  
+  - **1.2.0-alpha.1** – versão alfa
+  - **1.2.0-beta.3** – versão beta
+  - **1.2.0-rc.1** – Release Candidate
 
-2. **Build Metadata:**  
-   - Exemplo: `1.2.0+20240218`  
-   - Indica uma versão específica para fins internos.  
+2. **Build Metadata:**
+  - Indica uma versão específica para fins internos, exemplo: `1.2.0+20240218`
 
 ### Exemplo Prático: Versão **2.5.3**  
 - **2**: Mudança maior, como uma reformulação de arquitetura ou inclusão de funcionalidades incompatíveis com versões anteriores.  
@@ -539,55 +505,43 @@ Essa prática ajuda os desenvolvedores e usuários a entender rapidamente o impa
 Um **arquivo TODO** é um documento de texto simples utilizado por desenvolvedores e gerentes de projetos para registrar tarefas pendentes, ideias ou bugs a serem resolvidos em um projeto. A simplicidade e a flexibilidade desses arquivos permitem que sejam facilmente integrados ao fluxo de trabalho, sem a necessidade de ferramentas complexas de gerenciamento de tarefas.
 
 **Principais características de um arquivo TODO:**
-
 - **Formato Simples:** Por serem arquivos de texto puro, podem ser criados e editados em qualquer editor de texto, facilitando sua manipulação e versionamento.
-
 - **Estrutura Flexível:** Não há uma estrutura rígida, permitindo que cada equipe ou indivíduo adapte o arquivo às suas necessidades específicas.
-
 - **Integração com Controle de Versão:** Podem ser facilmente incluídos em sistemas de controle de versão, como o Git, mantendo o histórico de alterações das tarefas junto com o código-fonte.
 
 **Formatos Comuns de Arquivos TODO:**
-
 - **TODO.txt:** Segue uma convenção onde cada linha representa uma tarefa, podendo incluir prioridades, datas de criação e conclusão, contextos e projetos associados. Por exemplo:
-
-  ```md
-  (A) 2025-02-18 Revisar documentação do projeto +Documentação @Escritório
-  (B) 2025-02-19 Implementar função de login +Autenticação @Desenvolvimento
-  ```
-
-  Nesse formato, `(A)` indica a prioridade, seguida da data de criação, descrição da tarefa, projeto (`+Projeto`) e contexto (`@Contexto`).
+```md
+(A) 2025-02-18 Revisar documentação do projeto +Documentação @Escritório
+(B) 2025-02-19 Implementar função de login +Autenticação @Desenvolvimento
+```
+Nesse formato, `(A)` indica a prioridade, seguida da data de criação, descrição da tarefa, projeto (`+Projeto`) e contexto (`@Contexto`).
 
 - **TODO.md:** Utiliza a sintaxe Markdown para organizar as tarefas, permitindo a criação de listas de tarefas com checkboxes, seções e subtarefas. Exemplo:
+```md
+# Projeto X
 
-  ```md
-  # Projeto X
+## Funcionalidades
 
-  ## Funcionalidades
+- [ ] Implementar cadastro de usuários
+  - [ ] Criar formulário de cadastro
+  - [ ] Validar dados de entrada
+- [ ] Desenvolver API de autenticação
 
-  - [ ] Implementar cadastro de usuários
-    - [ ] Criar formulário de cadastro
-    - [ ] Validar dados de entrada
-  - [ ] Desenvolver API de autenticação
+## Bugs
 
-  ## Bugs
+- [ ] Corrigir erro no módulo de pagamento
+```
 
-  - [ ] Corrigir erro no módulo de pagamento
-  ```
-
-  Aqui, os itens `- [ ]` representam tarefas a serem feitas, enquanto `- [x]` indicaria tarefas concluídas.
+Aqui, os itens `- [ ]` representam tarefas a serem feitas, enquanto `- [x]` indicaria tarefas concluídas.
 
 **Vantagens do Uso de Arquivos TODO:**
-
 - **Facilidade de Uso:** Não requerem ferramentas ou softwares específicos; um simples editor de texto é suficiente.
-
 - **Portabilidade:** Por serem arquivos de texto, podem ser facilmente compartilhados e acessados em diferentes sistemas e plataformas.
-
 - **Histórico de Alterações:** Quando versionados junto com o código, permitem rastrear o progresso e as mudanças nas tarefas ao longo do tempo.
 
 **Considerações Adicionais:**
-
 - **Personalização:** Cada equipe ou desenvolvedor pode adaptar o formato e a estrutura do arquivo TODO conforme suas necessidades e preferências.
-
 - **Limitações:** Para projetos maiores ou equipes numerosas, pode ser necessário utilizar ferramentas mais robustas de gerenciamento de tarefas para garantir uma coordenação eficiente.
 
 Em resumo, o arquivo TODO é uma ferramenta simples e eficaz para o acompanhamento de tarefas e organização de projetos, especialmente útil em ambientes de desenvolvimento ágeis e colaborativos.
@@ -695,7 +649,6 @@ echo "done"
 ```
 
 ## GIT
-
 ### .git
 ### .gitignore
 ### .gitkeep
