@@ -789,11 +789,11 @@ Existem diferentes estados que o Git pode classificar os arquivos dentro de um r
 
 - **`commited`**: os arquivos estão sendo rastreados pelo Git, e os dados estão armazenados de forma segura no banco de dados local.
 - **`modified`**: o arquivo está monitorado pelo Git, possui um histórico de versões, e seu estado atual indica que sofreu modificações ainda não salvas no banco de dados local.
-- **`staged`**: o arquivo modificado agora tem uma versão salva das alterações que está pronta para o *`commit`*, ou seja, o estado atual das modificações foi adicionado à *área de preparação* **stagin area**, isto indica que o Git reconhece as alterações feitas e elas farão parte do próximo *`commit`*.
+- **`staged`**: o arquivo modificado agora tem uma versão salva das alterações que está pronta para o *`commit`*, ou seja, o estado atual das modificações foi adicionado à *área de preparação* **staging area**, isto indica que o Git reconhece as alterações feitas e elas farão parte do próximo *`commit`*.
 
 Básicamente, o Git usa estas 3 areas para conter cada estado de um arquivo, sendo o `working directory` o espaço no sisitema de arquivos onde os arquivos versionados e não versionados existem, sendo o espaço para o trabalho direto com os arquivos, criando, editando, deletando e movendo-os. Cada mudança em um arquivo é detectada pelo Git, e o comando `git status` exibe os estados dos arquivos como modificados ou não rastreados – no caso de novos arquivos criados em um diretório Git.<br/>
-Já a `stagin area` é a área de preparação – também chamada de *índice* – onde os arquivos e suas alterações entram antes de serem confirmados no histórico com `git commit`. É um espaço intermediário onde o Git armazena quais mudanças serão inclusas no próximo `commit`. Ao executar o comando `git add .` os arquivos indicados são considerados *"preparados para commit`*, e um detalhe interessante é que o Git permite realizar commits parciais, mesmo com múltiplas mudanças no projeto.<br/>
-Por fim, o `git repository` nada mais é do que o banco de dados permanente que contém todas as alterações inclusas nos commits. Este banco de dados interno do Git `.git` armazena commits, históricos de branches, árvores de arquivos (blobs e trees), tags, entre outras coisas. Cada `git commit -m "message"` realizado grava os arquivos da stagin area nesse respositório, fazendo com que as alterações façam parte do histórico do projeto.<br/>
+Já a `staging area` é a área de preparação – também chamada de *índice* – onde os arquivos e suas alterações entram antes de serem confirmados no histórico com `git commit`. É um espaço intermediário onde o Git armazena quais mudanças serão inclusas no próximo `commit`. Ao executar o comando `git add .` os arquivos indicados são considerados *"preparados para commit`*, e um detalhe interessante é que o Git permite realizar commits parciais, mesmo com múltiplas mudanças no projeto.<br/>
+Por fim, o `git repository` nada mais é do que o banco de dados permanente que contém todas as alterações inclusas nos commits. Este banco de dados interno do Git `.git` armazena commits, históricos de branches, árvores de arquivos (blobs e trees), tags, entre outras coisas. Cada `git commit -m "message"` realizado grava os arquivos da staging area nesse respositório, fazendo com que as alterações façam parte do histórico do projeto.<br/>
 Após o commit, os arquivos voltam ao estado *"clean"*, até que sejam modificados novamente.
 
 ```plaintext
@@ -807,14 +807,85 @@ Uma forma mais intuitiva de se entender como o Git rastreia e grava as alteraç�
 
 ![Image](https://raw.githubusercontent.com/shyoutarou/Git_GitHUB/master/.github/treestados.png)
 
-- **untracked**: são os novos arquivos e alterações em andamento que ainda não foram para a **stagin area**, ou seja, ainda não foram adicionados no `git add .` para que o Git entenda o conteúdo e monitore as alterações.
+- **untracked**: são os novos arquivos e alterações em andamento que ainda não foram para a **staging area**, ou seja, ainda não foram adicionados no `git add .` para que o Git entenda o conteúdo e monitore as alterações.
 - **unmodified**: aqui, os arquivos já são conhecidos pelo Git e contem o estado que o Git conhece, ou seja, não sofreram nenhuma modificação e estão *up to date* de acordo com o último **commit** ao qual entraram. Cada commit é um ponto de salvamento de estado e histórico de modificações sofridas no arquivo, além de conter as alterações – que podem ser comparadas com `git diff` – também possuem um *hash* que identifica e diferencia um commit de outro, assim mantendo versões diferentes de estado e um histórico de alterações dos documentos, além de uma mensagem descritiva em cada commit onde o desenvolvedor informa o que o fez ou o motivo que o levou a fazer as tais alterações.
-- **modified**: neste ponto os arquivos já são rastreados e existem modificações neles que são percebidas pelo Git, mas que ainda estão em andamento e não estão salvas, por isso não estão na **stagin area**, são os arquivos modificados que _**ainda irão para a stagin area** após terem suas modificações finalizadas e adicionadas pelo `git add .` para que o Git as reconheça e veja quais foram as alterações nos estados atual e anterior do arquivo_.
+- **modified**: neste ponto os arquivos já são rastreados e existem modificações neles que são percebidas pelo Git, mas que ainda estão em andamento e não estão salvas, por isso não estão na **staging area**, são os arquivos modificados que _**ainda irão para a staging area** após terem suas modificações finalizadas e adicionadas pelo `git add .` para que o Git as reconheça e veja quais foram as alterações nos estados atual e anterior do arquivo_.
 - **staged**: aqui estão os arquivos monitorados que possuem suas alterações adicionadas à **staging area**, que serão inclusos ao próximo commit e em seguida assumirão novamente o estado de *unmodified*.
 
 ### ANALYSIS
+É comum que durante o desenvolvimento algumas alterações realizadas precisem ser desfeitas, por conta de modificações nas requisições, por não se possível realizar sua integração com o resto do programa, ou apenas por não se adequarem ao que foi solicitado, e para isso o Git possui ferramentas de análise e gerenciamento das versões do projeto.
+
+#### `git diff`
+Este comando permite visualizar ambos os estados – original e modificado – de um arquivo, comparando o conteúdo entre diferentes estágios do Git, exibindo linha a linha o que foi adicionado, modificado ou removido. Compara `Working Directory` com o que está salvo no último commit `HEAD`, ideal para ver o que falta ir para a *staging area*.
+```sh
+raphaelkaique1@mach-1:~/Dev/.env/Git (main) $ git diff
+diff --git a/app.js b/app.js
+index e69de29..5f1d7d3 100644
+--- a/app.js
++++ b/app.js
+@@ -0,0 +1,3 @@
++console.log("Olá mundo!");
++console.log("Novo log!");
++console.log("Fim do teste.");
+```
+
+**significado do output**
+- **`+`**: linha adicionada
+- **`-`**: linha removida
+- **`@@`**: trecho `hunk` de mudança com contexto
+- **`a/ b/`**: arquivos antes/depois
+
+Além de poder comparar as diferenças de apenas um arquivo específico.
+```sh
+git diff main dev
+```
+
+Também é possível especificar quais alterações se deseja comparar, utilizando a flag `--staged` ou `--cached`, é possível comparar a Staging Area com o último commit `HEAD`. Isto é ideal para verificar exatamente o que será salvo no próximo commit.
+```sh
+git diff --staged || git diff --cached
+```
+
+Ou ver as diferenças entre 2 commits, comparando as mudanças entre 2 pontos do histórico, apenas indicando os hashes dos commits desejados `git diff <commit1> <commit2>`.
+```sh
+git diff 4a7c8b2 e9ff1da
+```
+
+Até mesmo poder comparar diferenças entre branches.
+```sh
+git diff main dev
+```
+
+As flags `git diff`**`--name-only`** e `git diff`**`--stat`** exibem saídas resumidas, ideias quando se deseja verificar apenas quais arquivos foram alterados sem exibir o conteúdo e as estatísticas resumidas, respectivamente.
+
+#### `git log`
+Exibe o histórico de commits de um repositório, contendo tudo o que já foi confirmado no repositório local.
+```sh
+git log
+commit 1a2b3c4d5e6f7g8h9i0j
+Author: raphaelkaique1 <raphaelkaiquediassantos1@gmail.com>
+Date:   Mon Jun 1 15:30:00 2025 -0300
+
+    fix: fixed authentication bug
+
+```
+
+**flags úteis**
+| comando                        | ação                                                   |
+| ------------------------------ | ------------------------------------------------------ |
+| `git log --oneline`            | Resumo de um commit por linha.                         |
+| `git log --graph`              | Exibe a ramificação em formato gráfico.                |
+| `git log -p`                   | Exibe as `diffs` feitas em cada commit.                |
+| `git log --author="João"`      | Filtra commits de um autor específico.                 |
+| `git log --since="2 days ago"` | Lista commits recentes até a data especificada.        |
+| `git log --stat`               | Exibe um resumo dos arquivos alterados em cada commit. |
+
+
+#### `git restore`
+Restaura arquivos para um estado anterior, serve para desfazer alterações no diretório de trabalho ou mesmo na staging area.
+
 
 ### WORKFLOW
+Para evitar que o código principal sofra muitas modificações e fique "bagunçado", os desenvolvedores usam métodos para criar ambientes separados de desenvolvimento e de produção com o Git, que possibilita o trabalho com uma "linha de raciocínio" onde o desenvolvedor pode realizar quaisquer modificações e testá-las sem alterar e possivelmente quebrar o código principal, para isto existem as branches.
 - **Branch**: Uma ramificação. Útil para desenvolver novas funcionalidades sem afetar o principal.
 - **Merge**: Junta mudanças de uma branch em outra.
 - **Pull**: Atualiza seu repositório local com mudanças do remoto.
@@ -907,7 +978,7 @@ Nunca mexa manualmente dentro de `.git`, **a menos que saiba exatamente o que es
 
 ### .gitignore
 ### .gitkeep
-### git stagin area
+### git g area
 ### git branches
 
 ### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
