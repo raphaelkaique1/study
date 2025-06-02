@@ -1,5 +1,8 @@
-# CONTROLE DE VERSÃO
-O controle de versão é um sistema que registra o histórico de mudanças feitas em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo recuperar versões anteriores, acompanhar modificações, rastrear cada alteração, minimizar o risco de perda de código ou arquivos importantes e a colaboração de forma eficiente. É uma das mais importantes ferramentas de qualquer projeto de software bem desenvolvido, pois garante a qualidade no desenvolvimento.<br/>
+# VERSIONAMENTO
+É o processo de atribuir identificadores únicos a diferentes estados ou revisões de um conteúdo, podendo ser aplicado à arquivos e vários outros tipos de mídia. Cada versão representa uma *fotografia no tempo* de como aquele conteúdo estava.
+
+## CONTROLE DE VERSÃO
+O controle de versão é um sistema que registra o histórico de mudanças feitas em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo recuperar versões anteriores, acompanhar modificações, rastrear cada alteração, minimizando o risco de perda de código ou arquivos importantes e permitindo a colaboração de forma eficiente. É uma das mais importantes ferramentas de qualquer projeto de software bem desenvolvido, pois garante a qualidade no desenvolvimento.<br/>
 Existem 3 tipos básicos de controle de versão:
 - **LOCAL**<br/>
 Feito manualmente com ferramentas simples, armazenados no próprio computador ou em um servidor local.
@@ -649,11 +652,260 @@ echo "done"
 ```
 
 ## GIT
-### .git
+É um sistema de versionamento de código, que armazena os registros de versão como **_snapshots_** do estado do conteúdo além da referência – em formato de *hash* – para localizar este snapshoot. A maioria das operações realizadas pelo Git são locais, e por isso boa parte das operações são extremamente rápidas devido a facilidade de acessar os arquivos no computador. Apesar de funcionar localmente, a principal vantagem do Git é poder se conectar com serviços de armazenamento de repositório remoto, como o **GitHub** ou **GitLab** por exemplo.
+
+## INSTALL
+Para instalar o [Git no Linux](https://git-scm.com/downloads/linux), basta utilizar o terminal e instalar via `apt`:
+```shell
+# instalando o git
+sudo apt install git -y
+# instalando e atualizando dependências necessárias
+sudo apt update && sudo apt upgrade -y
+# verificando a instalação
+git -v # || git --version
+# git version 2.43.0
+```
+
+## SET
+Com o Git instalado será necessário realizar algumas configurações de ambiente para que funcione corretamente. O comando **`git config`** é usado para configurar variáveis de ambiente do Git, como:
+- user name
+- email
+- standard IDE
+- tokens
+- merge tools
+- alias
+- etc...
+
+Essas configurações podem ser salvas em diferentes níveis chamados de *escopos*.
+| escopo     | comando                | prioridade | hierarquia | escopo de efeito                                                                             | escopo de alterações                                        |
+| ---------- | ---------------------- | ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **System** | `git config --system`  | BAIXA      |  `root`    | `/etc/gitconfig` – Linux / macOS – ou `C:\Program Files\Git\mingw64\etc\gitconfig` – Windows | **Todos os usuários de todos os repositórios no SO atual.** |
+| **Global** | `git config --global`  | MÉDIA      |  `user`    | `~/.gitconfig` – Linux / macOS – ou `%USERPROFILE%\.gitconfig` – Windows                     | **Todos os repositórios do usuário atual.**                 |
+| **Local**  | `git config [--local]` | ALTA       |  `user`    | `.git/config` dentro do repositório atual                                                    | **Somente ao repositório atual.**                           |
+
+> O Git **usa a configuração mais específica disponível**, ou seja, se um valor estiver definido tanto em `--global` quanto em `--local`, **o `--local` vence**.
+
+O uso do escopo de configurações é útil para criar ambientes diferentes para cada projeto, proporcionando maior controle e organização ao desenvolvedor. Casos de uso de escopos de configuração incluem por exemplo quando o dev utiliza um e-mail particular para projetos pessoais e um corporativo para projetos empresariais, ou quando um determinado projeto usa uma codificação, editor ou ferramenta diferente, ou em abientes corporativos quando o administrador precisa definir padrões para todos os usuários da máquina, entre vários outros possíveis cenários.
+
+- **`--system`** – configurações padrões de ambiente<br/>
+Usado geralmente por administradores de servbidor para configurar ferramentas de edição e formatos de saída padrão, também como regras organizacionais para todos os usuários do sistema.
+```sh
+# configurando o ambiente padrão
+sudo git config --system core.editor nano # `core.editor`: define o ambiente de desenvolvimento padrão para acompanhar as modificações
+# visualizando as configurações definidas
+sudo git config --system --list
+```
+
+- **`--global`** – dados do usuário<br/>
+Usado para armazenar configurações para **todos os projetos Git**, como:
+```sh
+# configurando usuário, credenciais e ambiente
+git config --global core.editor "codium --wait"                      # define o editor padrão do usuário em questão setado em `global`
+git config --global user.name "raphaelkaique1"                       # por questões de padronização e evitar conflitos, usa-se as informações de login cadastradas no serviço de hospedagem remota
+git config --global user.email "raphaelkaiquediassantos1@gmail.com"  # ou seja, o mesmo user_name e e-mail da conta existente na plataforma de armazenamento de repostórios online
+git config --global credential.helper cache-store                    # credential.helper: armazena e gerencia credenciais
+#
+# `cache`: armazena memória em cache por um período padrão de 15 minutos \
+# para configurar a duração do cache usa-se a flag `--timeout` e atribuir o tempo desejado em segundos \
+# exemplo: `cache --timeout=3600`
+#
+# `cache-store`: armazena credenciais permanentemente em um arquivo de texto simples no disco
+# por se tratar de um arquivo de texto, as informações da credencial são visíveis em texto simples \
+# portanto, deve-se ter cuidado ao usar esse método em sistemas compartilhados ou em ambientes menos seguros
+```
+
+- **`--local`** – específico por projeto<br/>
+Usado para configurações específicas **entre diferentes projetos**, por exemplo:
+```bash
+git config --local user.name "dev_team"
+git config --local user.email "dev_team@business.com"
+```
+
+Para visualizar as configurações, usa-se a flag `--list`:
+```sh
+git config --list               # exibe todas as configurações
+git config --local --list       # exibe apenas as configurações locais
+git config --global --list      # exibe apenas as configurações globais
+sudo git config --system --list # exibe todas as configurações do sistema
+```
+> Também é possível alterar as opções diretamente no arquivo de configurações do Git `.gitconfig`, mas a maneira correta e segura de realizar modificações de configurações de ambiente é usar o `git config`.
+
+## REPOSITORY
+Um repositório nada mais é do que um projeto versionado pelo Git, podendo ser local ou remoto.
+
+**local**<br/>
+Como o Git é um software que opera localmente, todo repositório – seja local ou remoto – deve ser iniciado na máquina do usuário, e isso é feito navegando até o diretório do projeto e iniciando o Git `git init`:
+```sh
+# navegando até o diretório que contém os arquivos do projeto
+cd ~/project_dir
+git init  # inicia o serviço de versionamento do git \
+# que a partir do momento da sua inicilização conhece todos os arquivos contidos no diretório indicado \
+# permitindo ao usuário controlar o que o Git deve monitorar, armazenar ou remover das versões commitadas
+# e também cria um repositório onde irá armazenar trabalhar e armazenar suas configurações, o `./.git`
+```
+Agora o repositório do projeto está pronto para trabalhar com o Git, permitindo que os arquivos contidos nele sejam versionados localmente e remotamente.
+
+**remote**<br/>
+Para se trabalhar com repositórios remotos é necessário que o desenvolvedor possua uma conta na plataforma de hospedagem do código, como por exemplo o **GitHub**, que é uma das mais populares plataformas online utilizadas para armazenar histórico de versionamentos de código Git.<br/>
+Para realizar as configurações de repositório via CLI, o usuário deve possuir as credenciais associadas à conta na máquina local, e a forma de fazer isso varia de serviço para serviço.<br/>
+O GitHub permite a criação, gerenciamento e clonagem de repositórios tanto pela GUI do seu site quanto por CLI.
+
+**creating a new remote repo**
+```sh
+sudo apt install curl -y                                               # 0. ferramenta para envio de informações ao servidor via HTTP
+# 1. envia ao servidor do GitHub a credencial do usuário e os dados para criação do repositório
+# token: [https://github.com/settings/tokens/new](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#como-criar-um-personal-access-token-classic)
+curl -u "user_name":"personal_token-ghp_1234567890abcdef1234567890abcdef123456" https://api.github.com/user/repos -d '{"name":"repository_name", "description":"repo description", "private":false}'
+cd ~/project_name                                                      # 2. navegar até o diretório do projeto
+echo > .gitkeep                                                        # 3. caso ainda não existam arquivos, pode-se usar o `.gitkeep` para forçar o Git a versionar e manter a estrutura da pasta
+# o arquivo `.gitkeep` é uma convenção não oficial, que usa o arquivo vazio para forçar o Git a versionar uma pasta vazia
+# este artifício é usado em projetos onde a estrutura de diretórios é importante, mesmo antes de conter arquivos reais
+# pois, por padrão, o Git não versiona diretórios vazios, ou seja, se houver uma pasta vazia no projeto ela será ignorada pelo Git
+# não sendo monitorada ou visualizada pelo `git status` e nem enviada ao repositório remoto
+git init                                                               # 4. iniciar o Git no diretório
+# extra - caso necessário: touch .gitignore
+git add .                                                              # 5. adiciona todos os arquivos do diretório à staging area
+git commit -m "feat: create repo"                                      # 6. ponto de salvamento onde o snapshoot do novo estado atual dos arquivos é gerado
+git branch -M main                                                     # 7. cria a banch principal
+git remote add origin https://github.com/user_name/repository_name.git # 8. conecta o repositório local ao remoto
+git push -u origin main                                                # 9. envia os arquivos do repositório para o diretório criado
+```
+
+**cloning existing remote repo**
+```sh
+git clone https://github.com/user_name/repository_name.git || git clone git@github.com:user_name/repo_name.git
+# Username: user_name
+# Password: personal_access_token
+# git config --global credential.helper cache-store
+```
+
+### STATES
+Existem diferentes possíveis estados que o Git pode classificar os arquivos dentro de um repositório.
+
+```mermaid
+stateDiagram-v2
+    direction LR
+
+    [*] --> Modificado : novo ou editado\n(workspace)
+    Modificado --> Preparado : git add
+    Preparado --> Confirmado : git commit
+    Confirmado --> Modificado : nova edição\n(volta ao início)
+
+    state Modificado {
+        [*] --> ArquivoModificado
+        ArquivoModificado --> Preparado : git add
+    }
+
+    state Preparado {
+        [*] --> ArquivoPreparado
+        ArquivoPreparado --> Confirmado : git commit
+    }
+
+    state Confirmado {
+        [*] --> ArquivoConfirmado
+        ArquivoConfirmado --> ArquivoModificado : edição
+    }
+```
+
+| **Commit**            | Um ponto de salvamento. Contém alterações e uma mensagem descritiva.                 |
+| **Branch**            | Uma ramificação. Útil para desenvolver novas funcionalidades sem afetar o principal. |
+| **Merge**             | Junta mudanças de uma branch em outra.                                               |
+| **Clone**             | Cópia completa de um repositório remoto.                                             |
+| **Pull**              | Atualiza seu repositório local com mudanças do remoto.                               |
+| **Push**              | Envia suas mudanças locais para o repositório remoto.                                |
+| **Staging Area**      | Área intermediária onde você prepara os arquivos para commit.                        |
+
+**Boas Práticas**
+- Commits frequentes e com mensagens claras.
+- Nomear branches de forma descritiva: `feature/login`, `bugfix/erro-404`.
+- Fazer pull antes do push para evitar conflitos.
+- Nunca commitar arquivos sensíveis (use .gitignore).
+- Use pull requests para revisão de código em equipe.
+
+### `.git`
+É a **base de tudo no Git**.
+## 🧱 Comando: `git init`
+### 📌 O que ele faz?
+O comando:
+```bash
+git init
+```
+**Inicializa um novo repositório Git vazio** dentro da pasta atual. Ou seja, transforma um diretório comum em um **repositório Git**, permitindo que você comece a **versionar arquivos** nele.
+
+
+## 🎯 Resultado do `git init`
+* Cria uma **pasta oculta** chamada **`.git`** no diretório atual.
+* Essa pasta contém **todos os dados internos do Git** necessários para versionamento:
+  * Histórico de commits
+  * Branches
+  * Configurações locais
+  * Objetos do Git (blobs, trees, commits)
+  * Referências (refs)
+  * Área de staging (index)
+  * Logs
+
+## 📁 O que é o diretório `.git`?
+### 🧠 Resumo:
+É o **"coração" do repositório Git**. Ele guarda **todo o histórico, estrutura e metadados** do projeto.
+Você raramente precisa mexer diretamente dentro dele, mas entender o que há lá dentro ajuda muito.
+
+### 📦 Estrutura típica do `.git`:
+```plaintext
+.git/
+├── HEAD               <- aponta para o branch atual (ex: refs/heads/main)
+├── config             <- configurações locais do repositório
+├── description        <- usado em servidores Git, pode ser ignorado localmente
+├── hooks/             <- scripts automáticos que podem ser executados em eventos do Git
+├── info/              <- ignora arquivos manualmente (ex: exclude)
+├── objects/           <- onde ficam todos os commits, arquivos e árvores (com hash)
+├── refs/              <- onde ficam ponteiros para branches e tags
+├── logs/              <- histórico detalhado de movimentos dos ponteiros
+└── index              <- área de staging (pré-commit)
+```
+
+## 🧪 Exemplo prático:
+```bash
+mkdir meu-projeto
+cd meu-projeto
+git init
+```
+
+Agora, se você rodar:
+```bash
+ls -a
+```
+
+Você verá:
+```plaintext
+.  ..  .git
+```
+
+E se fizer:
+```bash
+git status
+```
+O Git já começa a monitorar o projeto.
+
+## 🧠 Importância do `.git`
+* Sem a pasta `.git`, **não há repositório Git**.
+* Se você deletá-la: o diretório **deixa de ser versionado**, e você **perde todo o histórico**.
+* Ao clonar um repositório (`git clone`), a pasta `.git` também vem junto.
+
+
+## 🧯 Dica de segurança
+Nunca mexa manualmente dentro de `.git`, **a menos que saiba exatamente o que está fazendo** — alterações erradas podem corromper o repositório.
+
+## resumo
+| Ação       | Resultado                                                 |
+| ---------- | --------------------------------------------------------- |
+| `git init` | Inicializa um novo repositório Git                        |
+| `.git/`    | Pasta oculta que contém toda a estrutura de versionamento |
+
 ### .gitignore
 ### .gitkeep
 ### git stagin area
 ### git branches
+
 ### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, e afim de simplificar e padronizar a forma de trabalho existe o `gitflow`, um plugin de produtividade para o Git que trabalha com branches bem definidas e estabelece o fluxo de desenvolvimento para o envio de código de um branch para a outra.
 
@@ -672,19 +924,21 @@ Branches designidas para a criação das funcionalidades onde podem ser realizad
 
 Para instalar e usar o git flow deve-se seguir os seguintes passos:<br/>
 ```git flow <branch_name> <process_status: start || finish> <workflow_name>```
+
 ```sh
 sudo apt install -y git-flow
-git flow init # no diretório do projeto inicie o git flow
+git flow init              # no diretório do projeto inicie o git flow
 git flow feature start doc # exemplo: este comando da `start` em uma `feature` com o nome `doc`, que neste caso serve para trabalhar a documentação do projeto
-git branch # podemos ver a branch criada
+git branch                 # podemos ver a branch criada
   develop
 * feature/doc
   main
 # após realizar as alterações deve-se atualizar a branch
 git commit -a -m "Commit changes"
-gt flow feature finish # indica que as alterações necessárias foram encerradas, então o git-flow realiza o merge das alterações dessa branch no branch `develop` e então a branch `feature` é apagada localmente
-
-# vamos agora criar uma release do software para ser mesclada com a branch main lançando assim uma nova versão do programa
+gt flow feature finish # este comando indica que as alterações necessárias foram encerradas
+# então o git-flow realiza o merge das alterações dessa branch no branch `develop` e então a branch `feature` é apagada localmente
+#
+# para lançar uma nova versão do programa, basta criar uma `release` do software e mesclá-la com a branch `main`
 git flow release start 0.1
 git branch # podemos ver a branch criada
   main
@@ -696,67 +950,28 @@ gt flow release finish
 ```
 
 ### git LFS
+
 ### submodules
 Um submodulo do git nada mais é do que um repositório git dentro de outro, com o detalhe de que a versão inclusa do repositório permanece *"travada"*. Isso constitui um sistema de gestão de dependências bem simples e integrado usando o próprio git. É uma forma de distribuição do código integrado com as bibliotecas e demais requisitos que são necessários o embarque automáticamente no repositório git principal.<br/>
 Mas é preciso muita atenção, pois o fluxo de trabalho pode acabar se tornando complexo se não for bem compreendido este conceito, pois os submodulos podem ser recursivos, ou seja, um repositório pode conter outros submodulos e ainda cada um deles conterem mais submodulos.<br/>
 Vejamos como adicionar um submodulo:<br/>
 `git submodule add <url_repo> <dir_name>`
 ```bash
-# navegue até o repositório do projeto principal, e então adicione o repositório da dependência do projeto com o comando `git submodule add https://url-repo.com dir_reppo_name`
+# deve-se navegar até o repositório do projeto principal e então adicionar o repositório da dependência do projeto
 git submodule add https://github.com/user/repo dir_name
-cat .gitmodules # isso mostra o caminho para a referência do diretório no submodulo
+cat .gitmodules # isso exibe o caminho para a referência do diretório no submodulo
 [submodule "dir_name"]
   path = dir_name
   url = https://github.com/user/repo
-# agora podemos incluir este módulo ao nosso repositório remoto, e sempre que nosso projeto for clonado, essa referência será clonada também
-git commit -a -m "Commit changes"
+# agora é possível incluir este módulo ao repositório remoto
+git commit -a -m "Commit changes" # assim, sempre que o projeto for clonado essa referência será clonada também
 ```
 Este é o caso do `node_nodules` por exemplo. O arquivo do submodulo dentro do nosso diretório é apenas uma entrada para o repositório original do submodulo. Ou seja, um submodulo é uma referência para o git de qual versão será usada no projeto e onde buscar os arquivos do diretório submodulo indicado.<br/>
 Esta é uma boa prática para a distribuição de dependências do projeto quando uma versão específica da depedência é necessária para software, pode ser inclusa no projeto sem necessariamente incluir os arquivos no diretório – o que tornaria o projeto pesado e com um alto potencial de *quebra* caso um submodulo referencie outro módulo que foi deprecado ou atualizado enquanto a versão atual do projeto aponta para uma versão inexistente – bastando apenas referenciá-los.
 
 ### hooks - post update && pre commit
 
-```Shell
-git --version # git version x.xx.x
-
-# install git
-sudo apt update upgrade -y
-sudo apt install git curl -y
-
-# git config
-git config --global user.name "<name>"
-git config --global user.email "<address@email.com>"
-git config --global credential.helper cache-store # cache: stores credentials in memory for a default period of 15 minutes. To configure the cache duration, you must use the --timeout flag and assign the desired time in seconds, example: cache --timeout=3600 || store: permanently stores credentials in a plain text file on disk. Because the file is plain, the credentials are visible in clear text, so caution should be taken when using this method on shared systems or in less secure environments.
-git config --list # git config --global user=name/email & +
-nano ~/.gitconfig # user info edit
-
-# new repository
-cd ~/<file_directory>
-echo > .gitkeep
-git init
-# touch .gitignore
-git add .
-git commit -m "Commit changes"
-curl -u <user_name>:<personal_token> https://api.github.com/user/repos -d '{"name":"<repository_name>"}' # [https://github.com/settings/tokens/new](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#como-criar-um-personal-access-token-classic)
-git branch -M main
-git remote add origin https://github.com/<user_name>/<repository_name>.git
-git push -u origin main
-
-# existing repository
-git remote add origin https://github.com/<user_name>/<repository_name>.git
-git branch -M main
-git push -u origin main
-
-# clone repository
-git clone https://github.com/<user_name>/<repository_name>.git
-Username: OWNER_USERNAME
-Password: PERSONAL_ACCESS_TOKEN
-git config --global credential.helper cache
-
-# creating new branch
-cd ~/<file_directory>
-git init
-
+```shell
 # shorthand:
 git checkout -b <branch_name> # get out of main branch and goes to the new branch
 git checkout <branch_name> # goes to the branch especified
@@ -805,5 +1020,6 @@ git checkout <file_name>
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/progit.pdf">progit</a>
 
 ## GITHUB
+
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
