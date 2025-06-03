@@ -730,6 +730,27 @@ sudo git config --system --list # exibe todas as configurações do sistema
 ```
 > Também é possível alterar as opções diretamente no arquivo de configurações do Git `.gitconfig`, mas a maneira correta e segura de realizar modificações de configurações de ambiente é usar o `git config`.
 
+#### `.git`
+O diretório `.git` é onde o Git armazena todos os metadados e o banco de dados de objetos do projeto. É a base de tudo no Git, sendo o que é copiado quando um repositório é clonado.<br/>
+O comando `git init` **inicializa um novo repositório Git vazio** dentro da pasta atual, ou seja, transforma um diretório comum em um **repositório Git**, permitindo realizar o **versionamento dos arquivos** contidos nele.<br/>
+O que permite que um diretório comum se torne um repositório Git são os metadados que o Git possui dentro de uma **pasta oculta** chamada **`.git`** no diretório atual. Essa pasta contém **todos os dados internos do Git** necessários para versionamento, como o histórico de commits, as branches, configurações locais, objetos do Git – `blobs`, `trees`, `commits`, referências – `refs`, staging area – `index`, logs, entre outras coisas necessárias para o funcionamento correto do Git.<br/>
+Ou seja, este diretório é o **"coração" do repositório Git**, que guarda **todo o histórico, estrutura e metadados** do projeto. Raramente é necessário realizar alteraçoes diretamente nele, mas entender o que ele contem é essencial.<br/>
+Sem essa pasta `.git` **não há repositório Git**, quando deletada o diretório deixa de ser versionado, dessa maneira perdendo todo o histórico. Por isso, nunca se deve alterar manualmente nenhum arquivo deste diretório, , **a menos que se saiba exatamente o que está fazendo** — alterações erradas podem corromper o repositório. Ao invés disso, deve-se sempre optar por utilizar as próprias ferramentas que o Git possui, como por exemplo `git config`.
+
+**estrutura `.git`**
+```plaintext
+.git/
+├── HEAD         <- aponta para o branch atual, por exemplo: refs/heads/main
+├── config       <- configurações locais do repositório
+├── description  <- usado em servidores Git, pode ser ignorado localmente
+├── hooks/       <- scripts automáticos que podem ser executados em eventos do Git
+├── info/        <- ignora arquivos manualmente, por exemplo: exclude
+├── objects/     <- armazenamento de todos os commits, arquivos e árvores, utilizando hash
+├── refs/        <- onde ficam ponteiros para branches e tags
+├── logs/        <- histórico detalhado de movimentos dos ponteiros
+└── index        <- área de staging, pré-commit
+```
+
 ### REPOSITORY
 Um repositório nada mais é do que um projeto versionado pelo Git, podendo ser local ou remoto.
 
@@ -757,7 +778,7 @@ sudo apt install curl -y                                               # 0. ferr
 # 1. envia ao servidor do GitHub a credencial do usuário e os dados para criação do repositório
 # token: [https://github.com/settings/tokens/new](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#como-criar-um-personal-access-token-classic)
 curl -u "user_name":"personal_token-ghp_1234567890abcdef1234567890abcdef123456" https://api.github.com/user/repos -d '{"name":"repository_name", "description":"repo description", "private":false}'
-cd ~/project_name                                                      # 2. navegar até o diretório do projeto
+cd ~/project_dir                                                       # 2. navegar até o diretório do projeto
 echo > .gitkeep                                                        # 3. caso ainda não existam arquivos, pode-se usar o `.gitkeep` para forçar o Git a versionar e manter a estrutura da pasta
 # o arquivo `.gitkeep` é uma convenção não oficial, que usa o arquivo vazio para forçar o Git a versionar uma pasta vazia
 # este artifício é usado em projetos onde a estrutura de diretórios é importante, mesmo antes de conter arquivos reais
@@ -776,7 +797,7 @@ git push -u origin main                                                # 9. envi
 Realiza uma cópia completa de um repositório remoto existente, bem como todos os arquivos e todo o histórico de versões de cada um.
 ```sh
 # methods: HTTP || SSH
-git clone https://github.com/user_name/repository_name.git || git clone git@github.com:user_name/repo_name.git
+git clone https://github.com/user_name/repository_name.git || git clone git@github.com:user_name/repository_name.git
 # Username: user_name
 # Password: personal_access_token
 # git config --global credential.helper cache-store
@@ -803,6 +824,37 @@ Após o commit, os arquivos voltam ao estado *"clean"*, até que sejam modificad
 +----------------------+               +-------------------+                  +-------------------+
 ```
 
+#### `add`
+Prepara os arquivos indicados para serem salvos no próximo commit, movendo-os da "área de trabalho" para a staging area. Este comando adiciona arquivos novos – que ainda não são conhecidos ao Git no repositório em questão – ao *"tracking list"* do Git, para que ele reconheça os arquivos e seus conteúdos. O comando `git add` não salva alterações e arquivos no histórico, apenas marca-os para serem salvos. Ele permite controlar o que pode ser adcionado, sendo arquivos e modificações inteiras ou apenas parte das mudanças feitas.<br/>
+Ao utilizar o `.`, o **`git add .`** adiciona todos os arquivos no diretório atual ao *tracking* do Git, que antes verifica no **`.gitignore`** se existem arquivos que não devem ser inclusos automaticamente à staging area.
+
+| comando               | ação                                                     |
+| --------------------- | -------------------------------------------------------- |
+| `git add arquivo.txt` | Adiciona um arquivo específico à staging.                |
+| `git add .`           | Adiciona **todos os arquivos modificados** no diretório. |
+| `git add *.js`        | Adiciona todos os arquivos `.js`.                        |
+| `git add -p`          | Permite selecionar trechos `hunks` interativamente.      |
+
+#### `commit`
+Aqui sim de fato as alterações e mudanças em arquivos *staged* são salvas no histórico do repositório local, este comando é quem cria o *snapshoot* do estado atual dos arquivos selecionados.<br/>
+Sempre que executado, o Git gera automaticamente um **hash criptográfico** exclusivo composto por 40 caracteres hexadecimais, que serve como um identificador daquele commit. O Git usa o algoritmo **S**ecure **H**ash **A**lgorithm - **1** para gerar o hash. **O conteúdo do commit é transformado em uma string única, contendo o conteúdo exato dos arquivos – ou seja, o snapshoot dos arquivos versionados – juntamente com outras informações como o autor, timestamp do commit, a mensagem inclusa, commit pai se houver, entre outros metadados, e, toda essa estrutura é processada pelo SHA-1 para gerar o _checksum_, assim, qualquer mudança mínima em qualquer parte gera um hash totalmente diferente.**. Este hash é como um **CPF** para cada commit, sendo único e imutável, e é usado pelo Git para identificar os commits no histórico de mudanças, permitindo assim compará-los, retornar o projeto ao estado de commits anteriores, entre outras possibilidades.
+
+| comando                             | ação                                                                                                    |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `git commit -m "Add login feature"` | Cria um commit; é obrigatório possuir uma mensagem.                                                     |
+| `git commit -a -m "Commit rápido"`  | Adiciona e commita **arquivos rastreados** direto, shorthand de `git add . && git commit -m "message"`. |
+| `git commit --amend`                | Altera o último commit; útil para corrigir mensagens, por exemplo.                                      |
+
+**Boas Práticas**
+- Nomear branches de forma descritiva: `feature/login`, `bugfix/erro-404`.
+- Fazer pull antes do push para evitar conflitos.
+- Nunca realizar um pull diretamente na main branch, ou um merge sem antes estar certo de que seu repositório local está atualizado ou se as alterações podem ser inclusas na main, sempre usar pull requests para revisão de código em equipe.
+- Nunca commitar arquivos sensíveis, usar `.gitignore` para bloquear arquivos deste tipo de serem salvos no histórico.
+- Commits frequentes e com mensagens claras, mensagens de commit devem ser curtas e descritivas **no presente**, adotando uma convenção de commits sempre que possível:
+  - ✔️ `fix: corrige validação do formulário`
+  - ❌ `arrumei o bug`
+  - ❌ evitar mensagens vagas como: `atualizações`, `teste`, `final` e etc.
+
 Uma forma mais intuitiva de se entender como o Git rastreia e grava as alterações é como mostra o fluxo a seguir:
 
 ![Image](https://raw.githubusercontent.com/shyoutarou/Git_GitHUB/master/.github/treestados.png)
@@ -812,10 +864,26 @@ Uma forma mais intuitiva de se entender como o Git rastreia e grava as alteraç�
 - **modified**: neste ponto os arquivos já são rastreados e existem modificações neles que são percebidas pelo Git, mas que ainda estão em andamento e não estão salvas, por isso não estão na **staging area**, são os arquivos modificados que _**ainda irão para a staging area** após terem suas modificações finalizadas e adicionadas pelo `git add .` para que o Git as reconheça e veja quais foram as alterações nos estados atual e anterior do arquivo_.
 - **staged**: aqui estão os arquivos monitorados que possuem suas alterações adicionadas à **staging area**, que serão inclusos ao próximo commit e em seguida assumirão novamente o estado de *unmodified*.
 
-### ANALYSIS
+### TOOLS
 É comum que durante o desenvolvimento algumas alterações realizadas precisem ser desfeitas, por conta de modificações nas requisições, por não se possível realizar sua integração com o resto do programa, ou apenas por não se adequarem ao que foi solicitado, e para isso o Git possui ferramentas de análise e gerenciamento das versões do projeto.
 
-#### `git diff`
+#### `status`
+Fornece uma visão detalhada com informações sobre o repositório, sendo muito útil para análises durante a preparação de commits. As informações incluem modificações locais, arquivos na staging area, arquivos novos não rastreados, conflitos, branch atual e tracking remoto.
+```sh
+git status
+```
+
+| informação                        | significado                                                                                      |
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 🟢 **Branch atual**               | Qual a branch ativa no working directory.                                                        |
+| 🌱 **Commits pendentes de envio** | Commits locais que ainda não foram enviados ao repositório remoto.                               |
+| 🟨 **Arquivos modificados**       | Quais arquivos foram alterados desde o último commit.                                            |
+| 🟦 **Arquivos staged**            | Quais arquivos foram adicionados à **área de staging** com `git add`.                            |
+| 🔴 **Arquivos não rastreados**    | Novos arquivos que ainda não fazem parte do repositório, ou seja, não estão sob controle do Git. |
+| ⚠️ **Conflitos de merge**         | Quais arquivos estão em conflito após o `git merge`.                                             |
+
+
+#### `diff`
 Este comando permite visualizar ambos os estados – original e modificado – de um arquivo, comparando o conteúdo entre diferentes estágios do Git, exibindo linha a linha o que foi adicionado, modificado ou removido. Compara `Working Directory` com o que está salvo no último commit `HEAD`, ideal para ver o que falta ir para a *staging area*.
 ```sh
 raphaelkaique1@mach-1:~/Dev/.env/Git (main) $ git diff
@@ -857,129 +925,189 @@ git diff main dev
 
 As flags `git diff`**`--name-only`** e `git diff`**`--stat`** exibem saídas resumidas, ideias quando se deseja verificar apenas quais arquivos foram alterados sem exibir o conteúdo e as estatísticas resumidas, respectivamente.
 
-#### `git log`
+#### `log`
 Exibe o histórico de commits de um repositório, contendo tudo o que já foi confirmado no repositório local.
 ```sh
 git log
 commit 1a2b3c4d5e6f7g8h9i0j
 Author: raphaelkaique1 <raphaelkaiquediassantos1@gmail.com>
 Date:   Mon Jun 1 15:30:00 2025 -0300
-
     fix: fixed authentication bug
-
 ```
 
 **flags úteis**
-| comando                        | ação                                                   |
-| ------------------------------ | ------------------------------------------------------ |
-| `git log --oneline`            | Resumo de um commit por linha.                         |
-| `git log --graph`              | Exibe a ramificação em formato gráfico.                |
-| `git log -p`                   | Exibe as `diffs` feitas em cada commit.                |
-| `git log --author="João"`      | Filtra commits de um autor específico.                 |
-| `git log --since="2 days ago"` | Lista commits recentes até a data especificada.        |
-| `git log --stat`               | Exibe um resumo dos arquivos alterados em cada commit. |
+| comando                             | ação                                                   |
+| ----------------------------------- | ------------------------------------------------------ |
+| `git log --oneline`                 | Resumo de um commit por linha.                         |
+| `git log --graph`                   | Exibe a ramificação em formato gráfico.                |
+| `git log -p`                        | Exibe as `diffs` feitas em cada commit.                |
+| `git log --author="raphaelkaique1"` | Filtra commits de um autor específico.                 |
+| `git log --since="2 days ago"`      | Lista commits recentes até a data especificada.        |
+| `git log --stat`                    | Exibe um resumo dos arquivos alterados em cada commit. |
 
+#### `restore`
+Restaura arquivos para um estado anterior, desfazendo alterações no diretório de trabalho ou mesmo na staging area.
 
-#### `git restore`
-Restaura arquivos para um estado anterior, serve para desfazer alterações no diretório de trabalho ou mesmo na staging area.
+**`Working Directory`**<br/>
+Para desfazer modificações no diretório de trabalho, basta indicar quais arquivos devem ser restaurados ao seu estado do último commit. Ao desfazer alterações feitas em um arquivo com `git restore`, o documento em questão retorna à sua última versão confirmada no `HEAD`, ou seja, ele perde quaisquer edições não salvas.
+```sh
+git restore file_name.ext
+```
 
+**`from: staging area – to: unstage`**<br/>
+Este comando remove o arquivo adicionado à staging area, mas mantém suas alterações realizadas no diretório de trabalho. É especialmente útil quando se quer remover um arquivo ainda em teste adicionado acidentalmente com `git add .`.
+```sh
+git restore --staged file_name.ext
+```
+
+**`commited`**<br/>
+Este comando restaura um arquivo ao seu mesmo estado do último commit ou um específico.
+```sh
+git restore --source=commit_hash-0123456789abcdef file_name.ext
+```
+
+#### `.gitignore`
+*
 
 ### WORKFLOW
-Para evitar que o código principal sofra muitas modificações e fique "bagunçado", os desenvolvedores usam métodos para criar ambientes separados de desenvolvimento e de produção com o Git, que possibilita o trabalho com uma "linha de raciocínio" onde o desenvolvedor pode realizar quaisquer modificações e testá-las sem alterar e possivelmente quebrar o código principal, para isto existem as branches.
-- **Branch**: Uma ramificação. Útil para desenvolver novas funcionalidades sem afetar o principal.
-- **Merge**: Junta mudanças de uma branch em outra.
-- **Pull**: Atualiza seu repositório local com mudanças do remoto.
-- **Push**: Envia suas mudanças locais para o repositório remoto.
+Para evitar que o programa principal sofra muitas modificações e se torne "bagunçado" e difícil de rastrear e entender seu histório de alterações, os desenvolvedores usam métodos para criar ambientes separados de desenvolvimento e de produção com o Git, que possibilita o trabalho com uma "linha de raciocínio" onde o desenvolvedor pode realizar quaisquer modificações e testes sem alterar – e possivelmente quebrar – o código principal, para isto existem os *workflows*.<br/>
+Um workflow Git é uma estratégia organizada de como equipes usam o Git para colaborar em um projeto. Ele define como e quando as alterações no código são feitas, testadas, revisadas e integradas ao código principal. Ele tem como principal objetivo proteger o código principal – geralmente a branch `main` – e permitir o trabalho paralelo, em que vários devs trabalham em partes e recursos diferentes ao mesmo tempo, garantindo a qualidade e segurança nas mudanças que chegam à produção.
 
-**Boas Práticas**
-- Commits frequentes e com mensagens claras.
-- Nomear branches de forma descritiva: `feature/login`, `bugfix/erro-404`.
-- Fazer pull antes do push para evitar conflitos.
-- Nunca commitar arquivos sensíveis (use .gitignore).
-- Use pull requests para revisão de código em equipe.
+#### BRANCH
+Uma branch é uma ramificação do diretório principal do projeto que contém uma cópia de todos os arquivos, especialmente útil para desenvolver novas funcionalidades sem afetar o código principal, pode-se dizer que é uma linha independente de desenvolvimento<br/>
+Por padrão, todo repositório Git começa com uma branch denominada `main` – ou `master` em versões mais antigas. É possível criar várias branches para um mesmo projeto, cada uma com uma finalidade como por exemplo branches permanentes de versões beta, até mesmo versões paralelas – *`forks`* – do projeto, ou então temporárias para desenvolver funcionalidades, corrigir bugs e testar experimentos. **Cada branch é uma cópia do estado atual do projeto – ou seja, a branch copia os arquivos exatamente como estão a partir do momento da sua criação**; mas totalmente separada da linha principal – até a decisão de integrá-la.
 
-### `.git`
-É a **base de tudo no Git**.
-## 🧱 Comando: `git init`
-### 📌 O que ele faz?
-O comando:
-```bash
-git init
+##### `branch`
+Este comando possui recursos que permitem criar, listar, renomear e deletar branches `git branch --options branch_name`.
+
+| comando                                         | ação                                                     |
+| ----------------------------------------------- | -------------------------------------------------------- |
+| `git branch`                                    | Lista todas as branches locais.                          |
+| `git branch -r`                                 | Lista todas as branches remotas.                         |
+| `git branch -a`                                 | Lista **todas** as branches.                             |
+| `git branch branch_name`                        | Cria uma nova branch a partir da branch atual.           |
+| `git branch -m old_branch_name new_branch_name` | Renomeia uma branch local.                               |
+| `git branch -vv`                                | Lista as branches com mais detalhes, incluindo upstream. |
+| `git branch --merged`                           | Mostra branches já mescladas com a atual.                |
+| `git branch --no-merged`                        | Mostra branches **não mescladas** com a atual.           |
+
+##### `upstream`
+O `upstream` é a referência da branch remota associada a uma branch local que o Git usa por padrão para enviar o `push` e receber o `pull` com as atualizações.<br/>
+Quando uma branch local é criada e conectada a uma branch remota, a remota passa a ser chamada de `upstream`, isso permite encurtar comandos mais simples como `git push` e `git pull`.<br/>
+Sem uma upstream remota configurada não é possível realizar ações no repositório `origin` através da branch local.
+
+```sh
+git checkout -b new-feat
+git push --set-upstream origin new-feat
 ```
-**Inicializa um novo repositório Git vazio** dentro da pasta atual. Ou seja, transforma um diretório comum em um **repositório Git**, permitindo que você comece a **versionar arquivos** nele.
+O exemplo acima cria uma branch e define sua *upstream*, enviando a branch **`new-feat`** para o repositório remoto `origin` e definindo `origin/new-feat` como a base de `push` e `pull` da branch `new-feat` local. Com isso, é possível usar apenas `git pull` e `git push`, que o Git entende com *"quem"* a branch local está pareada.
 
-## 🎯 Resultado do `git init`
-* Cria uma **pasta oculta** chamada **`.git`** no diretório atual.
-* Essa pasta contém **todos os dados internos do Git** necessários para versionamento:
-  * Histórico de commits
-  * Branches
-  * Configurações locais
-  * Objetos do Git (blobs, trees, commits)
-  * Referências (refs)
-  * Área de staging (index)
-  * Logs
+Para verificar a upstream de uma branch usa-se o comando `git branch -vv`:
+```sh
+ralph@mach-1:~/Dev/GitHub/study (studying) $ git branch -vv
+  main     22dec67 [origin/main] feat: update Git
+* studying 22dec67 [origin/studying] feat: update Git
+```
+Isso significa que a branch local `studying` está *trackeando* – conectada – a branch `studying` no repositório remoto `origin`, `origin/studying`.
 
-## 📁 O que é o diretório `.git`?
-### 🧠 Resumo:
-É o **"coração" do repositório Git**. Ele guarda **todo o histórico, estrutura e metadados** do projeto.
-Você raramente precisa mexer diretamente dentro dele, mas entender o que há lá dentro ajuda muito.
-
-### 📦 Estrutura típica do `.git`:
-```plaintext
-.git/
-├── HEAD               <- aponta para o branch atual (ex: refs/heads/main)
-├── config             <- configurações locais do repositório
-├── description        <- usado em servidores Git, pode ser ignorado localmente
-├── hooks/             <- scripts automáticos que podem ser executados em eventos do Git
-├── info/              <- ignora arquivos manualmente (ex: exclude)
-├── objects/           <- onde ficam todos os commits, arquivos e árvores (com hash)
-├── refs/              <- onde ficam ponteiros para branches e tags
-├── logs/              <- histórico detalhado de movimentos dos ponteiros
-└── index              <- área de staging (pré-commit)
+É possível alterar a upstream de uma branch já existente:
+```sh
+git branch --set-upstream-to=origin/remote_branch_name
 ```
 
-## 🧪 Exemplo prático:
-```bash
-mkdir meu-projeto
-cd meu-projeto
-git init
+##### `switch`
+Uma branch pode ser criada com o comando:
+```sh
+git switch -c new-feat # cria e muda para a nova branch baseada na atual
 ```
 
-Agora, se você rodar:
-```bash
-ls -a
+Para alternar e navegar entre as branches, basta informar à qual branch se deseja *ir* ao realizar o checktout da branch atual:
+```sh
+git switch branch_name
 ```
 
-Você verá:
-```plaintext
-.  ..  .git
+por exemplo:
+```sh
+ralph@mach-1:~/Dev/GitHub/study (studying) $ git switch main && git branch -v
+M       4-devops/4.1-ferramentas_de_desenvolvimento/controle_de_versao_git_github.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+* main     22dec67 feat: update Git
+  studying 22dec67 feat: update Git
+ralph@mach-1:~/Dev/GitHub/study (main) $ git switch studying 
+M       4-devops/4.1-ferramentas_de_desenvolvimento/controle_de_versao_git_github.md
+Switched to branch 'studying'
+Your branch is up to date with 'origin/studying'.
 ```
 
-E se fizer:
-```bash
-git status
+Para criar uma branch localmente, conectá-la a branch remota e realizar a atualização com o `pull` basta utilizar:
+```sh
+git fetch origin && git switch -c feature-x origin/feature-x
 ```
-O Git já começa a monitorar o projeto.
+Isto garante que o respositório remoto foi atualizado – `git fetch origin` – antes de realizar o `pull`, então cria a branch local `feature-x`, conecta-a `origin/feature-x` e a ativa como a branch atual localmente.
 
-## 🧠 Importância do `.git`
-* Sem a pasta `.git`, **não há repositório Git**.
-* Se você deletá-la: o diretório **deixa de ser versionado**, e você **perde todo o histórico**.
-* Ao clonar um repositório (`git clone`), a pasta `.git` também vem junto.
+##### `merge`
+O `merge` integra o histórico de mudanças de uma branch em outra, normalmente na branch `main`. Quando o desenvolvimento da branch paralela é finalizado, é possível mesclar essa ramificação de volta à branch principal, isso é feito seguindo o seguinte processo:
+```sh
+git checkout main   # 1. não é possível realizar o merge com o Git trabalhando na branch que se deseja mesclar com a "desatualizada"
+# então, em 1º lugar, deve-se ir para a branch que será alvo da integração, ou seja, a branch que vai receber as alterações
+# para que o Git trabalhe nela e entenda que ela sofrerá a mesclagem
+git merge new-feat  # 2. o comando `git merge side_branch` faz com que todas as informações na branch indicada sejam tragas para a branch atual
+# e não havendo conflitos, essas modificações na branch paralela serão incluídas na branch alvo
+```
+O exemplo acima faz com que as mudanças feitas na branch **`new-feat`** sejam enviadas à branch **`main`**.
 
+###### TIPOS DE MERGE
+- **fast-forward**: ocorre quando a branch principal de destino `main` não sofreu alterações desde que a nova branch foi criada, resultado num merge de sucesso.
+- **commit-to-merge**: é o contexto em que 2 branches divergiram, evoluindo separadamente contendo alterações diferentes que precisam ser reconciliadas, e para isso o Git cria um novo commit de merge para juntar os 2 históricos.
+- **conflict**: quando ocorrem diferentes alterações de 2 branches diferentes nas mesmas partes ou existem mudanças incompatíveis entre os históricos – como por exemplo um arquivo que foi alterado em uma branch e deletado em outra – estas precisam ser resolvidas antes de serem mescladas. Quando o Git não consegue reconciliar automaticamente tais mudanças durante o merge este conflito deve ser resolvido manualmente – escolhendo qual alteração manter ou realizar uma nova combinando as 2 – com o comando `git merge --strategy-option`. Uma alternativa seria o envio forçado das alterações com `git push --force`, que força a sobrescrita da branch remota com o histórico da branch local mesmo que isto divirja do que está no repositório remoto, enviando o histórico local para o repositório remoto ignorando conflitos de histórico – dessa forma apagando o conteúdo do remoto e substituindo pelo histórico local; normalmente ao usar o `git push`, o Git verifica se a branch remota compartilha o mesmo histórico que a branch local – isto é, se a branch local *"continua"* de onde a remota parou – e, se os históricos forem divergentes o Git impede o `push` para evitar a perda de dados. Porém esta prática não é recomendada por conta dos riscos de perdas envolvidos, e somente deve ser utilizada em último caso e se de acordo com a equipe de desenvolvimento envolvida no projeto.
 
-## 🧯 Dica de segurança
-Nunca mexa manualmente dentro de `.git`, **a menos que saiba exatamente o que está fazendo** — alterações erradas podem corromper o repositório.
+##### `branch --delete`
+Ao finalizar a tarefa de uma branch paralela, esta pode ser deletada caso seu objetivo de existir tenha chegado ao fim.
 
-## resumo
-| Ação       | Resultado                                                 |
-| ---------- | --------------------------------------------------------- |
-| `git init` | Inicializa um novo repositório Git                        |
-| `.git/`    | Pasta oculta que contém toda a estrutura de versionamento |
+###### local
+Uma branch só pode ser deletada localmente usando a flag `-d` se ela já foi mesclada com sua branch raiz – ou alguma outra branch; caso contrário, o Git exibe um alerta para evitar perda de trabalho, e se realmente for o caso de excluir a branch sem antes salvar as alterações, pode-se usar a flg `-D` para forçar sua remoção.
+```sh
+git branch -d branch_name || git branch -D branch_name
+```
 
-### .gitignore
-### .gitkeep
-### git g area
-### git branches
+###### remote
+Para deletar uma branch do repositório remoto – como o GitHub por exemplo – usa-se o comando:
+```sh
+git push origin --delete branch_name || git push origin :branch_name # shorthand
+```
+Isso remove a branch do repositório remoto `origin`.
+
+###### BOAS PRÁTICAS
+Deve-se tomar alguns cuidados antes de deletar uma branch, como **nunca deletar a branch em que se está atualmente**, deve-se mudar antes para outra branch, além de confirmar se o trabalho da branch já está salvo e verificar se não existem outras pessoas trabalhando na branch.
+```sh
+git checkout main                       # 1. mudar para a main
+git branch --merged                     # 2. verificar se a branch já foi mesclada (opcional)
+git branch -d minha-feature             # 3. deletar a branch local
+git push origin --delete minha-feature  # 4. deleter a branch remota
+```
+
+##### `pull`
+Este comando atualiza o repositório local com as mudanças existentes no remoto, ou seja, quando outros devs enviam alterações no repositório remoto, o comando **`git pull remote_repo_name remote_branch_name`** baixa essas mudanças e as integra ao repositório local.
+```sh
+git pull origin main
+```
+O exemplo acima realiza o download das mudanças na branch principal `main` do repositório remoto `origin` e realiza um merge com sua própria cópia local. **É importante destacar que as mudanças serão mescladas na branch em que o Git se encontra ativo no momento do `pull`.**
+
+Para realizar o pull de alguma outra branch no repositório remoto que não exista localmente, o Git não criará automaticamente a branch remota localmente, na realidade ele fará um `merge` ou um `rebase` dos dados requisitados na branch atual, o que pode causar conflitos.
+```sh
+ralph@mach-1:~/Dev/GitHub/study (studying) git pull origin main # causará um conflito, pois a branch solicitada é a `main` enquanto a atual é `studying`
+# a forma correta de se criar localmente e conectar à branch remota para realizar a atualização é utilizando o `switch`
+```
+
+##### `push`
+Envia as mudanças locais na branch indicada para o repositório remoto. Depois de fazer commits localmente, este comando envia as mudanças para o repositório remoto, tornando-as visívais para todos os colaboradores.
+```sh
+git push origin new-feat
+```
+O exemplo acima envia as alterações da branch local `new-feat` para a branch `new-feat` no repositório remoto, independente de qual a branch ativa no momento do `push` – ou seja, a branch indicada no comando será atualizada remotamente com as alterações desta mesma branch localmente. A partir de lá, podem ser feitos *pull requests* para mesclar esta branch à principal caso seja o objetivo.
+
+Caso a branch atual seja a que será atualizada remotamente, basta usar somente **`git push`**, e o Git interpretará os campos omitidos como sendo o repositório remoto associado ao rastreamento – `upstream` – e a branch atualmente ativa.
 
 ### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, e afim de simplificar e padronizar a forma de trabalho existe o `gitflow`, um plugin de produtividade para o Git que trabalha com branches bem definidas e estabelece o fluxo de desenvolvimento para o envio de código de um branch para a outra.
@@ -1025,6 +1153,7 @@ gt flow release finish
 ```
 
 ### git LFS
+*
 
 ### submodules
 Um submodulo do git nada mais é do que um repositório git dentro de outro, com o detalhe de que a versão inclusa do repositório permanece *"travada"*. Isso constitui um sistema de gestão de dependências bem simples e integrado usando o próprio git. É uma forma de distribuição do código integrado com as bibliotecas e demais requisitos que são necessários o embarque automáticamente no repositório git principal.<br/>
@@ -1045,56 +1174,10 @@ Este é o caso do `node_nodules` por exemplo. O arquivo do submodulo dentro do n
 Esta é uma boa prática para a distribuição de dependências do projeto quando uma versão específica da depedência é necessária para software, pode ser inclusa no projeto sem necessariamente incluir os arquivos no diretório – o que tornaria o projeto pesado e com um alto potencial de *quebra* caso um submodulo referencie outro módulo que foi deprecado ou atualizado enquanto a versão atual do projeto aponta para uma versão inexistente – bastando apenas referenciá-los.
 
 ### hooks - post update && pre commit
-
-```shell
-# shorthand:
-git checkout -b <branch_name> # get out of main branch and goes to the new branch
-git checkout <branch_name> # goes to the branch especified
-
-# repository status
-cd ~/<file_directory>
-git status
-git remote add <branch_name> <original_repository_url> # keeps the local repository up to date with changes from the original remote repository
-
-# add file working tree
-## git add <file_name>.<type_file>
-
-# commit file in branch
-## git commit -m "Commit changes"
-
-# shorthand:
-git commit -a -m "Commit changes"
-
-# push file in branch
-git push -u origin <branch_name>
-
-# update branch changes
-git pull <remote_branch> <actual_local_branch>
-git pull origin <branch_name> # git pull = git fetch (download the remote/main branch) {+ git diff = shows old and new changes} + git merge (includes downloaded changes in local files)
-
-# branches
-git branch --help
-git branch -v
-git branch -M main
-git branch -d <branch_name> # deletes especified branch
-
-# commit history
-git log # git shortlog
-# clear
-git show <value_hash>
-
-# undo
-git reset <value_hash>
-git checkout <file_name>
-
-.gitignore
-#/dir
-#/dir/*.file
-#.file
-```
+*
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/progit.pdf">progit</a>
 
 ## GITHUB
-
+O GitHub facilita o compartilhamento de código e a colaboração entre desenvolvedores, além de garantir que o projeto possua um "*backup* na nuvem", onde cada interessado no repositório possui localmente em sua máquina uma versão física completa do repositório, que pode ser modificada e alterada, enquanto o servidor armazena a versão principal.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
