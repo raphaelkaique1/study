@@ -761,6 +761,25 @@ Este comando acessa a documentação oficial e detalhada do comando especificado
 ### REPOSITORY
 Um repositório nada mais é do que um projeto versionado pelo Git, podendo ser local ou remoto.
 
+#### `bare`
+Este é um tipo especial de repositório Git que não possui uma cópia de trabalho dos arquivos, ou seja, não possui um *working directory*. Contém apenas os arquivos de controle e histórico do Git, e por isso não pode ser usado para edição direta de código, **sua principal função é servir como repositório central para colaboração, ou seja, um servidor Git interno, sendo o destino de `push`es e a fonte de `pull`s e `clone`s**. Por manter o armazenamento centralizado do projeto, são usados principalmente como mirrors de código ou então como pontos de integração CI/CD.
+```sh
+git init --bare repo_name.git
+```
+
+Um repositório Git bare possui a seguinte estrutura:
+```txt
+repo_name.git/
+├── HEAD
+├── config
+├── refs/
+├── objects/
+└── ... outros diretórios Git
+```
+> O conteúdo da pasta `.git` de um repositório comum vira a raiz do bare. Ele não tem arquivos como `index.html`, `main.py`, `README.md` e etc.
+
+Uma restrição importante a se destacar é que, um repositório bare não deve ter nenhuma branch *"checkoutada"*, pois não possui working tree, o que impede rodar comandos como `add`, `commit`, `status` ou editar arquivos diretamente, e qualquer tentativa disso resultará em erro.
+
 #### local
 Como o Git é um software que opera localmente, todo repositório – seja local ou remoto – deve ser iniciado na máquina do usuário, e isso é feito navegando até o diretório do projeto e iniciando o Git `git init`:
 ```sh
@@ -930,7 +949,6 @@ git status
 | 🟦 **arquivos staged**            | Quais arquivos foram adicionados à **área de staging** com `git add`.                            |
 | 🔴 **arquivos não rastreados**    | Novos arquivos que ainda não fazem parte do repositório, ou seja, não estão sob controle do Git. |
 | ⚠️ **conflitos de merge**         | Quais arquivos estão em conflito após o `git merge`.                                             |
-
 
 ##### `diff`
 Este comando permite visualizar ambos os estados – original e modificado – de um arquivo, comparando o conteúdo entre diferentes estágios do Git, exibindo linha a linha o que foi adicionado, modificado ou removido. Compara `Working Directory` com o que está salvo no último commit `HEAD`, ideal para ver o que falta ir para a *staging area*.
