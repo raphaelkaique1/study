@@ -652,7 +652,8 @@ echo "done"
 ```
 
 ## GIT
-É um sistema de versionamento de código, que armazena os registros de versão como **_snapshots_** do estado do conteúdo além da referência – em formato de *hash* – para localizar este snapshoot. A maioria das operações realizadas pelo Git são locais, e por isso boa parte das operações são extremamente rápidas devido a facilidade de acessar os arquivos no computador. Apesar de funcionar localmente, a principal vantagem do Git é poder se conectar com serviços de armazenamento de repositório remoto, como o **GitHub** ou **GitLab** por exemplo.
+É um sistema de controle e versionamento de código distribuído, que armazena os registros de versão como **_snapshots_** do estado do conteúdo além da referência – em formato de *hash* – para localizar este snapshoot. A maioria das operações realizadas pelo Git são locais, e por isso boa parte das operações são extremamente rápidas devido a facilidade de acessar os arquivos no computador. Apesar de funcionar localmente, a principal vantagem do Git é poder se conectar com serviços de armazenamento de repositório remoto, como o **GitHub** ou **GitLab** por exemplo.<br/>
+Diz-se se *distribuído* pois, diferente de outros sistemas de versionamento como o Mercurial ou o Subverse por exemplo, o Git não centraliza o armazenamento e acesso ao código, ele permite que cada desenvolvedor tenha sua própria cópia completa dos arquivos do projeto localmente, assim, cada clone tem todo o repositório – com todo seu histórico de commits, branches e versões.
 
 ### INSTALL
 Para instalar o [Git no Linux](https://git-scm.com/downloads/linux), basta utilizar o terminal e instalar via `apt`:
@@ -691,7 +692,7 @@ O uso do escopo de configurações é útil para criar ambientes diferentes para
 Usado geralmente por administradores de servbidor para configurar ferramentas de edição e formatos de saída padrão, também como regras organizacionais para todos os usuários do sistema.
 ```sh
 # configurando o ambiente padrão
-sudo git config --system core.editor nano # `core.editor`: define o ambiente de desenvolvimento padrão para acompanhar as modificações
+sudo git config --system core.editor nano # `core.editor`: define editor de texto para mensagens e configurações do Git
 # visualizando as configurações definidas
 sudo git config --system --list
 ```
@@ -751,6 +752,12 @@ Sem essa pasta `.git` **não há repositório Git**, quando deletada o diretóri
 └── index        <- área de staging, pré-commit
 ```
 
+#### `help`
+Este comando acessa a documentação oficial e detalhada do comando especificado diretamente no terminal. Ao executá-lo, a **man page** do commando é aberta, ela contém a descrição, sintaxe, flags disponíveis, exemplos e comportamentos esperados.
+- **`git help [command]`**
+- **`man git-command`**
+- **`git command --help`**
+
 ### REPOSITORY
 Um repositório nada mais é do que um projeto versionado pelo Git, podendo ser local ou remoto.
 
@@ -803,6 +810,11 @@ git clone https://github.com/user_name/repository_name.git || git clone git@gith
 # git config --global credential.helper cache-store
 ```
 
+Também é possível renomear o repositório local durante sua clonagem, basta informar seu novo nome ao final da linha de comando de clonagem:
+```sh
+git clone protocol://path.com/user_name/repo_name.git new_repo-dir_name
+```
+
 ### STATES
 Existem diferentes estados que o Git pode classificar os arquivos dentro de um repositório.
 
@@ -836,15 +848,32 @@ Ao utilizar o `.`, o **`git add .`** adiciona todos os arquivos no diretório at
 | `git add *.js`        | Adiciona todos os arquivos `.js`.                        |
 | `git add -p`          | Permite selecionar trechos `hunks` interativamente.      |
 
+#### `rm`
+Remove arquivo do working directory, além de marcar esta remoção para o próximo commit. Ou seja, ele deleta o arquivo fisicamente e o remove do controle de versão.<br/>
+Quando o usuário deleta o arquivo manualmente e em seguida envia as alterações atuais para a staging area, o Git entende que o arquivo foi deletado e a mudança será incluída no próximo commit, resumindo, ele detecta a remoção e a marca para commit.<br/>
+Este comando é especialmente útil quando se deseja apenas remover o arquivo do Git, mas ainda mantê-lo no disco. Sendo essencial para remover um arquivo como `.env` do versionamento sem apagá-lo da máquina por exemplo.
+```sh
+git rm --cached file_name.ext
+```
+
 #### `commit`
 Aqui sim de fato as alterações e mudanças em arquivos *staged* são salvas no histórico do repositório local, este comando é quem cria o *snapshoot* do estado atual dos arquivos selecionados.<br/>
 Sempre que executado, o Git gera automaticamente um **hash criptográfico** exclusivo composto por 40 caracteres hexadecimais, que serve como um identificador daquele commit. O Git usa o algoritmo **S**ecure **H**ash **A**lgorithm - **1** para gerar o hash. **O conteúdo do commit é transformado em uma string única, contendo o conteúdo exato dos arquivos – ou seja, o snapshoot dos arquivos versionados – juntamente com outras informações como o autor, timestamp do commit, a mensagem inclusa, commit pai se houver, entre outros metadados, e, toda essa estrutura é processada pelo SHA-1 para gerar o _checksum_, assim, qualquer mudança mínima em qualquer parte gera um hash totalmente diferente.**. Este hash é como um **CPF** para cada commit, sendo único e imutável, e é usado pelo Git para identificar os commits no histórico de mudanças, permitindo assim compará-los, retornar o projeto ao estado de commits anteriores, entre outras possibilidades.
 
-| comando                             | ação                                                                                                    |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `git commit -m "Add login feature"` | Cria um commit; é obrigatório possuir uma mensagem.                                                     |
-| `git commit -a -m "Commit rápido"`  | Adiciona e commita **arquivos rastreados** direto, shorthand de `git add . && git commit -m "message"`. |
-| `git commit --amend`                | Altera o último commit; útil para corrigir mensagens, por exemplo.                                      |
+- **`git commit`**: Cria um commit e abre o editor de texto para escrever a mensagem.
+- **`git commit -m "feat: add login feature"`**: Cria um commit com a mensagem incluída na CLI.
+- **`git commit -a -m "fix: commit rápido"`**: Adiciona e commita os arquivos rastreados direto, shorthand de `git add . && git commit -m "message"`.
+- **`git commit --amend` [options]**: Altera o último commit. Para que o amend ocorra no caso de edições de arquivos é preciso que os arquivos corrigidos estejam na staging area.
+  - `--no-edit`: usa a mesma mensagem do commit anterior, sem abrir o editor.
+  - `-m "mensagem"`: Substitui a mensagem diretamente pela informada.
+  - `--date=<data>`: Altera a data do commit.
+  - `--author="Nome <email>"`: Altera o autor do commit.
+  - `--reset-author`: Reseta o autor para o usuário atual do Git.
+  - `--allow-empty`: Permite criar mesmo sem mudanças nos arquivos.
+  - `--allow-empty-message`: Permite criar com mensagem de commit vazia.
+  - `--no-verify`: Ignora os *hooks* de pré-commit.
+  - `--signoff`: Adiciona uma assinatura `Signed-off-by: Nome <email>`.
+  - `--gpg-sign[=<key-id>]`: Assina o commit com GPG.
 
 **Boas Práticas**
 - Nomear branches de forma descritiva: `feature/login`, `bugfix/erro-404`.
@@ -864,6 +893,24 @@ Uma forma mais intuitiva de se entender como o Git rastreia e grava as alteraç�
 - **unmodified**: aqui, os arquivos já são conhecidos pelo Git e contem o estado que o Git conhece, ou seja, não sofreram nenhuma modificação e estão *up to date* de acordo com o último **commit** ao qual entraram. Cada commit é um ponto de salvamento de estado e histórico de modificações sofridas no arquivo, além de conter as alterações – que podem ser comparadas com `git diff` – também possuem um *hash* que identifica e diferencia um commit de outro, assim mantendo versões diferentes de estado e um histórico de alterações dos documentos, além de uma mensagem descritiva em cada commit onde o desenvolvedor informa o que o fez ou o motivo que o levou a fazer as tais alterações.
 - **modified**: neste ponto os arquivos já são rastreados e existem modificações neles que são percebidas pelo Git, mas que ainda estão em andamento e não estão salvas, por isso não estão na **staging area**, são os arquivos modificados que _**ainda irão para a staging area** após terem suas modificações finalizadas e adicionadas pelo `git add .` para que o Git as reconheça e veja quais foram as alterações nos estados atual e anterior do arquivo_.
 - **staged**: aqui estão os arquivos monitorados que possuem suas alterações adicionadas à **staging area**, que serão inclusos ao próximo commit e em seguida assumirão novamente o estado de *unmodified*.
+
+#### `tag`
+As tags são marcadores especiais em commits, e servem para marcar pontos importantes no histórico, como versões de lançamento por exemplo. São úteis para marcar versões do software, gerando versões de releases do projeto em plataformas de hospedagem na nuvem. Existem 2 tipos de tags no Git:
+- **lightweight**: um marcador direto para um commit, como um branch fixo, sem metadados.
+  - **`git tag`**: cria um "rótulo" para um ponto específico no estado do histórico do commit.
+- **annotated**: armazena autor, data, mensagem e pode ser assinada com GPG, recomendada para versões oficiais.
+  - **`git tag -a tag_name -m "message"`**: cria uma tag anotada no commit atual.
+  - **`git tag -a tag_name commit_hash_0123456789abcdef -m "message"`**: cria uma tag anotada no commit especificado.
+- **tools**
+  - **`git tag`**: lista todas as tags.
+  - **`git tag -l "v1.*"`**: busca tags que combinam com o padrão especificado.
+  - **`git show tag_name:`** exibe o commit com a tag especificada.
+  - **`git tag -d tag_name`**: deleta a tag localmente.
+  - **`git push origin tag_name`**: envia uma tag para o repositório remoto.
+  - **`git push origin --tags`**: envia todas as tags para o repositório remoto.
+  - **`git push origin --delete tag_name`**: deleta a tag do repositório remoto.
+  - **`git switch tag_name`**: navega para a tag especificada.
+  - **`git switch -c nova-branch tag_name`**: cria uma branch a partir de uma tag e move o ponteiro para a nova branch.
 
 ### TOOLS
 É comum que durante o desenvolvimento algumas alterações realizadas precisem ser desfeitas, por conta de modificações nas requisições, por não se possível realizar sua integração com o resto do programa, ou apenas por não se adequarem ao que foi solicitado, e para isso o Git possui ferramentas de análise e gerenciamento das versões do projeto.
@@ -938,14 +985,15 @@ Date:   Mon Jun 1 15:30:00 2025 -0300
 ```
 
 **flags úteis**
-| comando                             | ação                                                   |
-| ----------------------------------- | ------------------------------------------------------ |
-| `git log --oneline`                 | Resumo de um commit por linha.                         |
-| `git log --graph`                   | Exibe a ramificação em formato gráfico.                |
-| `git log -p`                        | Exibe as `diffs` feitas em cada commit.                |
-| `git log --author="raphaelkaique1"` | Filtra commits de um autor específico.                 |
-| `git log --since="2 days ago"`      | Lista commits recentes até a data especificada.        |
-| `git log --stat`                    | Exibe um resumo dos arquivos alterados em cada commit. |
+| comando                             | ação                                                                                                                      |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `git log --oneline`                 | Resumo encurtado de 1 commit por linha.                                                                                   |
+| `git log --pretty=oneline`          | Resumo detalhado de 1 commit por linha.                                                                                   |
+| `git log --graph`                   | Exibe a ramificação em formato gráfico.                                                                                   |
+| `git log -p [-n]`                   | Exibe as `diffs` feitas em cada commit, o parametro `-n` define quais serão os últimos commits recentes a serem exibidos. |
+| `git log --author="raphaelkaique1"` | Filtra commits por um autor específico.                                                                                   |
+| `git log --since="2 days ago"`      | Lista commits recentes até a data especificada.                                                                           |
+| `git log --stat`                    | Exibe um resumo dos arquivos alterados em cada commit.                                                                    |
 
 ##### `show`
 Este comando exibe informações detalhadas sobre um commit específico como o autor, timestamp, mensagem de commit e as diffs feitas pelo commit. Se usado sem argumento `git show` irá exibir o commit mais recente `HEAD`.
@@ -961,20 +1009,20 @@ git show commit_value_hash_0123456789abcdef123456
   - reverte commits inteiros
   - afeta o histório de commits e também o ponteiro HEAD
 
-| comando                         | efeito                                               |
-| ------------------------------- | ---------------------------------------------------- |
-| `git reset --soft HEAD~1`       | Desfaz um commit, mas mantem as alterações.          |
-| `git restore --staged file.txt` | Desfaz `git add`, mas mantem a alteração no arquivo. |
-| `git restore file.txt`          | Descarta edições em um arquivo específico.           |
-| `git reset --hard HEAD~1`       | Apaga tudo: commit, staging e alterações locais.     |
+| comando                              | efeito                                                                                                                        |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| `git reset --soft HEAD~[n]`          | Desfaz o(s) commit(s) especificado(s), mas mantem as alterações; o valor `n` define o número de commits que se deseja voltar. |
+| `git reset --hard HEAD~[n]`          | Apaga tudo: commit, staging e alterações locais.                                                                              |
+| `git restore --staged file_name.ext` | Desfaz `git add`, mas mantem a alteração no arquivo.                                                                          |
+| `git restore [file_name.ext \|\| .]` | Descarta edições, restaurando o estado do último commit.                                                                      |
 
 ##### `reset`
 Este comando **afeta um commit inteiro**, reposicionando o ponteiro da branch atual para um commit anterior indicado pelo hash. Usado para voltar a um estado anterior do commit ou da index.
-| flag               | efeito                                                      |
-| ------------------ | ----------------------------------------------------------- |
-| `--soft`           | Mantém tudo na staging area – index.                        |
-| `--mixed` (padrão) | Remove da staging area mas mantém no diretório de trabalho. |
-| `--hard`           | Apaga tudo: staging e diretório de trabalho.                |
+| flag               | efeito                                                          |
+| ------------------ | --------------------------------------------------------------- |
+| `--soft`           | cancela o commit e o arquivo volta para a staging area – index. |
+| `--mixed` (padrão) | remove da staging area mas mantém no working directory.         |
+| `--hard`           | desfaz o commit e deleta todas as alterações.                   |
 
 ##### `restore`
 **Restaura arquivos para um estado anterior**, desfazendo alterações no diretório de trabalho ou mesmo na staging area.
@@ -1099,8 +1147,8 @@ Para evitar que o programa principal sofra muitas modificações e se torne "bag
 Um workflow Git é uma estratégia organizada de como equipes usam o Git para colaborar em um projeto. Ele define como e quando as alterações no código são feitas, testadas, revisadas e integradas ao código principal. Ele tem como principal objetivo proteger o código principal – geralmente a branch `main` – e permitir o trabalho paralelo, em que vários devs trabalham em partes e recursos diferentes ao mesmo tempo, garantindo a qualidade e segurança nas mudanças que chegam à produção.
 
 #### BRANCH
-Uma branch é uma ramificação do diretório principal do projeto que contém uma cópia de todos os arquivos, especialmente útil para desenvolver novas funcionalidades sem afetar o código principal, pode-se dizer que é uma linha independente de desenvolvimento<br/>
-Por padrão, todo repositório Git começa com uma branch denominada `main` – ou `master` em versões mais antigas. É possível criar várias branches para um mesmo projeto, cada uma com uma finalidade como por exemplo branches permanentes de versões beta, até mesmo versões paralelas – *`forks`* – do projeto, ou então temporárias para desenvolver funcionalidades, corrigir bugs e testar experimentos. **Cada branch é uma cópia do estado atual do projeto – ou seja, a branch copia os arquivos exatamente como estão a partir do momento da sua criação**; mas totalmente separada da linha principal – até a decisão de integrá-la.
+Uma branch é uma ramificação do diretório principal do projeto que contém uma cópia de todos os arquivos, especialmente útil para desenvolver novas funcionalidades sem afetar o código principal; pode-se dizer que é uma linha independente de desenvolvimento<br/>
+Por padrão, todo repositório Git começa com uma branch denominada `main` – ou `master` em versões mais antigas. É possível criar várias branches para um mesmo projeto, cada uma com uma finalidade como por exemplo branches permanentes de versões beta, até mesmo versões paralelas do projeto, ou então temporárias para desenvolver funcionalidades, corrigir bugs e testar experimentos. **Cada branch é uma cópia do estado atual do projeto – ou seja, a branch copia os arquivos exatamente como estão a partir do momento da sua criação**; mas totalmente separada da linha principal – até a decisão de integrá-la.
 
 ##### `branch`
 Este comando possui recursos que permitem criar, listar, renomear e deletar branches `git branch --options branch_name`.
@@ -1427,11 +1475,156 @@ Em seguida, basta salvá-lo em `.git/hooks/post-update` e torná-lo executável:
 chmod +x .git/hooks/post-update
 ```
 
----
-
-<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/progit.pdf">progit</a>
+### <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/progit.pdf">PROGIT</a>
 
 ## GITHUB
-O GitHub facilita o compartilhamento de código e a colaboração entre desenvolvedores, além de garantir que o projeto possua um "*backup* na nuvem", onde cada interessado no repositório possui localmente em sua máquina uma versão física completa do repositório, que pode ser modificada e alterada, enquanto o servidor armazena a versão principal.
+O GitHub é uma plataforma gratuita de hospedagem de código que facilita o compartilhamento e a colaboração entre desenvolvedores, além de garantir que o projeto possua um "*backup* na nuvem", permitindo que cada interessado no repositório possua localmente em sua máquina uma versão física completa do repositório, que pode ser modificada e alterada livrementa, enquanto o servidor armazena a versão principal.
+
+### AUTH-KEYS
+O GitHub possui 2 formas principais de autenticação para acessar repositórios e interargir via CLI, o **GitHub Personal Access Token** e a **SSH Key**.
+
+#### **PAT**
+Um token é uma senha gerada pelo GitHub, com permissões e escopos configuráveis. É ideal para autenticar operações Git via HTTPS, ou chamadas API REST, como cURL por exemplo. Sendo mais seguro que senhas, pois pode ter escopo limitado e ainda revogado, também é fácil implementá-lo em scripts automatizados de CI/CD, pois é compatível com qualquer máquina sem necessitar configurações extras.<br/>
+O token é gerado em ["developer settings"](https://github.com/settings/tokens), sendo usado para autenticar as credenciais no lugar da senha da conta, por isto deve ser guardado com segurança após sua criação. Por exemplo quando se realiza um clone via HTTPS:
+```sh
+git clone https://github.com/user/repo.git
+Username: user_name
+Password: ghp_123456abcdef_PAT
+```
+> Em comandos cURL, deve ser informado via header `Authorization: token ghp_123456abcdef_PAT`
+
+#### FG-PAT
+O Fine-grained Personal Access Token é um tipo mais recente e mais seguro de token de autenticação pessoal, criado para substituir os `Personal Access Tokens - classic` com um controle de acesso mais refinado — ou seja, permite especificar com maior precisão o que o token pode ou não fazer. Possui um período de validade que garante que expire e seja revogado individualmente, sem afetar outros tokens. Ele pode conceder acesso somente a determinados repositórios e delimitar a realização de determinadas as ações.<br/>
+Por exemplo, um FGPAT pode ser criado para acessar apenas o repositório `project` durantes apenas 30 dias, com permissão leitura e escrita no código mas sem gerenciamento de colaboradores ou de branches.<br/>
+Para criar um FGPAT, deve-se acessar **(Tokens Fine-grained tokes)[https://github.com/settings/personal-access-tokens]**, preencher os campos:
+- **nome**
+- **data de expiração**
+- **repositórios específicos**
+- **permissões detalhadas**
+
+E então armazenar e utilizar o token gerado assim como em **PAT**.
+
+#### SSH-KEY
+Este método usa um par público e privado de chaves criptográficas assimétricas para autenticar o usuário no servidor do GitHub. A chave pública deve ser adiciona à conta GitHub do usuário para que o cliente possa utilizar a chave privada local para realizar automaticamente a autenticação via SSH.<br/>
+Para que a autenticação aconteça, o usuário deve gerar um par de chaves na máquina utilizando o **`ssh-keygen`**. Para gerar uma chave SSH utilizando este método, é necessário possuir o OpenSSH instalado, que já é embarcado por padrão na maioria das distribuições Linux.
+```sh
+ssh-keygen -t ed25519 -C "user_email@email.com"
+```
+> `-t ed25519`: especifica o tipo de criptografia, é mais moderno e seguro que padrão RSA.<br/>
+> `-C`: adiciona um comentário à chave, normalmente o e-mail do criador.
+
+Então, basta seguir as instruções e atender as solicitações requisitadas. Para uma criação padrão de chaves, siga o recomendado durante o processo, pressionando `Enter` para os requisitos opcionais. **É possível criar chaves com parâmetros personalizados como com outro nome e uma senha por exemplo, mas isto pode causar conflitos se não souber o que se está fazendo exatamente, por isso o recomendado para a criação das chaves é manter os parâmetros padrões.**<br/>
+Ao final da configuração, sera exibida uma saída como:
+```sh
+Your identification has been saved in /home/user_name/.ssh/id_ed25519
+Your public key has been saved in /home/user_name/.ssh/id_ed25519.pub
+```
+Por fim, para associar a chave à conta GitHub e ter acesso ao repositório remoto, basta copiá-la:
+```sh
+cat ~/.ssh/id_ed25519.pub
+```
+Adicionar selecionando [New SSH Key](https://github.com/settings/keys), e então basta nomeá-la e clicar em `salvar`.<br/>
+Depois de adicionar ao GitHub é possível testar a conexão:
+```sh
+ssh -T git@github.com
+```
+Se estiver tudo certo, será exibida uma mensagem como esta no terminal:
+```md
+Hi user_name! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+Usa-se **URLs SSH** para fazer `clone`, `push` e `pull` em um repositório, não sendo mais necessário informar usuário e token a cada ação, sendo um método ideal para uso diário no terminal.
+```sh
+git clone git@github.com:user_name/repo.git
+```
+
+#### GPG-KEY
+Uma GNU Privacy Guard key é uma chave criptográfica usada para assinar digitalmente commits e tags no Git, garantindo autenticidade e integridade. Ela serve como uma forma de comprovar o autor de uma alteração no código, sem que seja possível forjar isso. Assinar um commit com uma GPG key é como colocar uma assinatura digital criptografada. Isso faz com que, ao ver um commit no GitHub, ou mesmo em outro sistema, ele apareça como `✅ verified`, para evitar falsificação de identidade e aumentar a rastreabilidade.<br/>
+Ao gerar o par de chaves GPG, a **privada** *é usada para assinar commits localmente*, enquanto a **pública** *é usada pelo GitHub para que validar as assinaturas*.<br/>
+Para gerar uma GPG key, basta utilizar o GnuPG que já vem embarcado na maioria das distros Linux, configurar alguns parâmetros durante a criação e então configurar o Git para que use a chave:
+```sh
+gpg --full-generate-key # gera a chave
+# alguns parâmtros requisitados durante a criação:
+#   type: RSA and RSA || default
+#   size: 4096 bits (LONG)
+#   expiration: 0 || define
+#   username & e-amil: info === GitHub
+#   password: optional
+#
+# após gerada, deve-se obter o ID da chave para configurá-la
+git config --global user.signingkey $(gpg --list-secret-keys --keyid-format LONG | grep '^sec' | sed -E 's|.*\/([0-9A-F]+).*|\1|')
+git config --global commit.gpgsign true
+# agora, ao fazer commits, eles são assinados usando a GPG key
+```
+
+Feito isto, basta obter a chave pública para configurá-la no GitHub:
+```sh
+gpg --armor --export $(gpg --list-secret-keys --keyid-format LONG | grep '^sec' | sed -E 's|.*\/([0-9A-F]+).*|\1|')
+```
+Colar a chave em **[`New GPG key`](https://github.com/settings/keys)**, e está habilitada para realizar assinaturas nos commits realizados.
+
+### PULL REQUESTS
+Um **P**ull **R**equest é uma solicitação para que alterações feitas em um **fork** ou em uma branch de desenvolvimento sejam mescladas com outra branch — geralmente a `main` ou `develop` de um repositório principal.<br/>
+Basicamente, se diz ao mantenedor do projeto para que revise e avalie as alterações propostas e, se aceitas, as incorpore no repositório principal.
+
+#### Fluxo do Pull Request no GitHub
+##### GUI
+O GitHub disponibiliza ferramentas na sua GUI, para que o PR seja feito manualmente no website:
+
+1. criar uma nova branch no repositório local:
+```bash
+git checkout -b new_feat
+```
+2. Implementar as alterações no código.
+3. Enviar as atualizações para o repositório remoto, normalmente um *fork*:
+```bash
+git push origin new_feat
+```
+4. crie um Pull Request:
+  - Acessar o repositório proprietário no GitHub.
+  - Selecionar: `Compare & Pull Request`.
+  - Escolher:
+     - **base:** o repositório e branch destino, por exemplo a `main` do projeto original `upstream`.
+     - **compare:** a branch com as alterações.
+   * Escrever uma descrição clara das alterações feitas.
+   * Por fim, selecionar: `Create Pull Request`.
+
+Um bom exemplo seria de um fork feito de `github.com/original/repo` para `github.com/local_user/repo`.
+1. Realiza mudanças na branch `GUI-layout`
+2. Faz-se um `push` para `local_user/repo:GUI-layout`
+3. Então, no GitHub cria-se um PR de:
+  - **`local_user/GUI-layout`** -> **`original/main`**
+
+##### CLI
+Também é possível realizar um Pull Request via CLI utilizando o ferramentas CLI e a API do GitHub.
+
+###### cURL
+Para realizar o PR com o cURL, é necessário possuir: um personal access token com permissão para criar PRs, os dados do fork e do repositório original, e claro, já ter realizado o `push` da branch local para o fork remoto.
+```sh
+curl -X POST
+  -H "Authorization: token PERSONAL_ACCESS_TOKEN-ghp_123456abcdef"
+  -H "Accept: application/vnd.github+json"
+  https://api.github.com/repos/ORIGINAL_AUTHOR_NAME/ORIGINAL_REPO_NAME/pulls
+  -d '{
+    "title": "PR TITLE",
+    "head": "LOCAL_USER:own_branch",
+    "base": "main",
+    "body": "Pull request description."
+  }'
+```
+
+###### gh
+Ou ainda com a opção nativa do GitHub, o [GitHub CLI – `gh`](https://cli.github.com/). Esta é uma ferramenta oficial que permite interagir com o GitHub diretamente do terminal — incluindo criar pull requests de forks.
+
+```bash
+sudo apt install gh -y
+gh auth login            # só é necessário realizar 1 única vez
+git push origin new_feat # envia sua branch para o seu fork
+gh pr create --base main --head local_user_:new_feat --repo original_author/original_repo_name
+
+# --base branch_name: branch de destino no repositório original
+# --head local_user:new_feat: a branch autalizada no fork
+# --repo: repositório de destino
+```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
