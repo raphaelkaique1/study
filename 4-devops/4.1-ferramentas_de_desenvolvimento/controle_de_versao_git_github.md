@@ -9,7 +9,7 @@ Feito manualmente com ferramentas simples, armazenados no próprio computador ou
 - **CENTRALIZADO - CVCS**<br/>
 Usa um único servidor com acesso via internet que contém todas as versões, por exemplo **SNV**.
 - **DISTRIBUÍDO - DVCS**<br/>
-Cada usuário tem uma cópia completa do repositório, como por exemplo no **Git** ou **GitLab**.
+Cada usuário tem uma cópia completa do repositório.
 
 Mas antes de iniciar o versionamento de qualquer projeto, primeiro precisamos de saber alguns conceitos sobre **ambiente de desenvolvimento** para entendermos quais são os arquivos de desenvolvimento privados, quais são os arquivos de produção públicos, quais licenças aplicam as versões do software e as ferramentas de versionamento, rastreamento de atividades e também **integration** e **deployment**.
 
@@ -1027,12 +1027,13 @@ git show commit_value_hash_0123456789abcdef123456
   - reverte commits inteiros
   - afeta o histório de commits e também o ponteiro HEAD
 
-| comando                              | efeito                                                                                                                        |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `git reset --soft HEAD~[n]`          | Desfaz o(s) commit(s) especificado(s), mas mantem as alterações; o valor `n` define o número de commits que se deseja voltar. |
-| `git reset --hard HEAD~[n]`          | Apaga tudo: commit, staging e alterações locais.                                                                              |
-| `git restore --staged file_name.ext` | Desfaz `git add`, mas mantem a alteração no arquivo.                                                                          |
-| `git restore [file_name.ext \|\| .]` | Descarta edições, restaurando o estado do último commit.                                                                      |
+| comando                                                     | efeito                                                                                                                        |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `git reset --soft HEAD~[n]`                                 | Desfaz o(s) commit(s) especificado(s), mas mantem as alterações; o valor `n` define o número de commits que se deseja voltar. |
+| `git reset --hard HEAD~[n]`                                 | Apaga tudo: commit, staging e alterações locais.                                                                              |
+| `git restore --staged file_name.ext`                        | Desfaz `git add`, mas mantem a alteração no arquivo.                                                                          |
+| `git restore --source [commit_hash] [file_name.ext \|\| .]` | Recupera para o working directory o estado conforme o commit especificado.                                                    |
+| `git restore [file_name.ext \|\| .]`                        | Descarta edições, restaurando o estado do último commit.                                                                      |
 
 ##### `reset`
 Este comando **afeta um commit inteiro**, reposicionando o ponteiro da branch atual para um commit anterior indicado pelo hash. Usado para voltar a um estado anterior do commit ou da index.
@@ -1064,60 +1065,6 @@ git restore --source=commit_hash-0123456789abcdef file_name.ext
 ```
 
 #### KEEP-GOING
-##### `rebase`
-O comando `git rebase` é usado para mover commits da branch atual como uma continuidade em outra base, geralmente uma branch mais atualizada. Ele reescreve o histórico para que pareça que os commits da branch atual foram criados **depois** dos da branch de base.<br/>
-É especialmente útil quando se deseja manter um histório linear e limpo antes de realizar um `push` em branches de colaboração para alinhar com o estado atual da `main`, ou também em *pull requests*, para evitar conflitos com a branch principal.<br/>
-Entretanto, deve-se evitar usá-lo em branches compartilhadas, pois, como o histórico é reescrito, todos que estiverem trabalhando na mesma branch irão enfrentar conflitos e problemas de sincronização, e nestes casos utilizar `merge` pode ser o mais indicado.
-
-Por exemplo este histórico que contem 2 branches com diferentes commits:
-```text
-main:     A---B---C
-                \
-feature:         D---E
-```
-
-Ao executar:
-```sh
-git checkout feature
-git fetch origin
-git rebase origin/main
-```
-
-O Git irá mover os commits `D` e `E` de `feature` para aplicar `A-B-C` em `main`, e em então **reaplicar `D` e `E`** no *final* de `main`:
-```text
-main:     A---B---C
-                        \
-feature (rebase):        D'--E'
-```
-Isso irá criar uma única *linha de acontecimentos* no histórico de `main`, e todos os commits que já foram de `feature` agora são uma *continuação* em `main`. `D'` e `E'` são **novos commits na `main`**, idênticos a `D` e `E` – de `feature` – em conteúdo, mas com hashes diferentes.
-
-Para atualizar o repositório local, é necessário utilizar a flag `--force`, pois o rebase altera o histórico da branch.
-```sh
-git push --force
-```
-
-É possível realizar o rebase de forma interativa com a flag `-i`, que permite editar, reorganizar, combinar ou remover commits de forma manual.<br/>
-Por exemplo, ao executar:
-```sh
-git rebase -i HEAD~3
-```
-
-Tem-se uma saída como esta:
-```text
-pick 1234567 commit A
-pick 89abcde commit B
-pick f012345 commit C
-```
-
-Onde `pick` pode ser substituído por algum dos comandos abaixo:
-| comando  | ação                          |
-| -------- | ----------------------------- |
-| `pick`   | manter o commit.              |
-| `reword` | editar a mensagem do commit.  |
-| `edit`   | pausar para alterar conteúdo. |
-| `squash` | fundir com commit anterior.   |
-| `drop`   | remover o commit.             |
-
 ##### `push --force`
 Usado para forçar a atualização de uma branch remota com o conteúdo da branch local, sobrescrevendo e substituindo o histórico remoto pelo o local. É útil após um `rebase` para manter o histórico remoto linear e coeso.<br/>
 O Git por padrão realiza uma comparação dos históricos da branch remota e local após um `push`, e caso eles sejam diferentes o envio falha. O `--force` diz ao Git para ignorar essa verificação e atualizar o remoto com o que existe localmente. Isso reescreve todo o histórico remoto com o novo histórico local da branch.<br/>
@@ -1260,6 +1207,7 @@ git checkout main   # 1. não é possível realizar o merge com o Git trabalhand
 # para que o Git trabalhe nela e entenda que ela sofrerá a mesclagem
 git merge new-feat  # 2. o comando `git merge side_branch` faz com que todas as informações na branch indicada sejam tragas para a branch atual
 # e não havendo conflitos, essas modificações na branch paralela serão incluídas na branch alvo
+# em seguida é aberto o editor de texto para que o usuário escreva uma mensagem, pois um novo commit é criado para "marcar" o merge
 ```
 O exemplo acima faz com que as mudanças feitas na branch **`new-feat`** sejam enviadas à branch **`main`**.
 
@@ -1267,6 +1215,87 @@ O exemplo acima faz com que as mudanças feitas na branch **`new-feat`** sejam e
 - **fast-forward**: ocorre quando a branch principal de destino `main` não sofreu alterações desde que a nova branch foi criada, resultado num merge de sucesso.
 - **commit-to-merge**: é o contexto em que 2 branches divergiram, evoluindo separadamente contendo alterações diferentes que precisam ser reconciliadas, e para isso o Git cria um novo commit de merge para juntar os 2 históricos.
 - **conflict**: quando ocorrem diferentes alterações de 2 branches diferentes nas mesmas partes ou existem mudanças incompatíveis entre os históricos – como por exemplo um arquivo que foi alterado em uma branch e deletado em outra – estas precisam ser resolvidas antes de serem mescladas. Quando o Git não consegue reconciliar automaticamente tais mudanças durante o merge este conflito deve ser resolvido manualmente – escolhendo qual alteração manter ou realizar uma nova combinando as 2 – com o comando `git merge --strategy-option`. Uma alternativa seria o envio forçado das alterações com `git push --force`, que força a sobrescrita da branch remota com o histórico da branch local mesmo que isto divirja do que está no repositório remoto, enviando o histórico local para o repositório remoto ignorando conflitos de histórico – dessa forma apagando o conteúdo do remoto e substituindo pelo histórico local; normalmente ao usar o `git push`, o Git verifica se a branch remota compartilha o mesmo histórico que a branch local – isto é, se a branch local *"continua"* de onde a remota parou – e, se os históricos forem divergentes o Git impede o `push` para evitar a perda de dados. Porém esta prática não é recomendada por conta dos riscos de perdas envolvidos, e somente deve ser utilizada em último caso e se de acordo com a equipe de desenvolvimento envolvida no projeto.
+
+**`--squash`**<br/>
+O merge naturalmente mantem a ordem de criação de cada commit nas branches, por exemplo, se a partir de uma determinada branch `main` for criada uma nova branch `feat`, e cada uma seguir commitando até o ponto em que vão se unir, *a ordem de cada commit criado em cada uma será mantida no histórico de commits após a integração*. Digamos que após a criação da branch `feat`, a `main` ela sofreu **1 commit**, e então a `feat` teve **2 commits**, e **outro commit foi feito novamente** na `main`, por fim a `feat` teve **mais 1 commit e então foi realizado o merge `git merge target_branch_name --squash`**, a ordem do histórico de commits na main após o merge seria a seguinte: **`main_commit-1` → `feat_commit-1` → `feat_commit-2` → `main_commit-2` → `feat_commit-3` → `merge_main_commit`**
+
+**pre-merge**
+```text
+main:   ·---M1---M2---M3
+              \
+feature:       F1---F2---F3
+```
+
+**post-merge**
+```text
+main:   ·---M1         M2    MMC
+              \       /  \  /
+feature:       F1---F2    F3
+```
+
+**Um merge com a flag `--squash` não cria o *`commit de merge`* tradicional automaticamente e nem mescla os históricos de commits, apenas importa as atualizações commitadas da branch alvo para a staging area da branch de destino como um único conjunto de mudanças, mantendo o histórico "original" de commits da branch de destino.** É particularmente útil para não poluir o histório da branch principal.
+```sh
+git checkout main
+git pull main
+git merge feat --squash
+git commit -m "feat: add feature from feature branch"
+```
+
+Após um `--squash`, o Git não marca a `merge` como feita, isso significa que a branch `feat` continuará existindo – ou seja, não será *"reintegrada"* à branch principal – e isso pode causar conflitos em um merge futuro que tente mesclar as branches.
+
+##### `rebase`
+O comando `git rebase` funciona de maneira semelhante ao merge importando as atualizações nos arquivos e unificando o histórico de commits das branches envolvidas. Mas com um porém, ele reescreve o histórico para que pareça que os commits da branch atual foram criados **depois** dos da branch de base, ou seja, coloca todo o histórico de commits da branch alvo em "linha", sem mesclar no histórico da branch de destino cada commit na ordem em que foi criado.<br/>
+É especialmente útil quando se deseja manter um histório linear e limpo antes de realizar um `push` em branches de colaboração para alinhar com o estado atual da `main`, ou também em *pull requests*, para evitar conflitos com a branch principal.<br/>
+Entretanto, deve-se evitar usá-lo em branches compartilhadas, pois, como o histórico é reescrito, todos que estiverem trabalhando na mesma branch irão enfrentar conflitos e problemas de sincronização, e nestes casos utilizar `merge` pode ser o mais indicado.
+
+Por exemplo este histórico que contem 2 branches com diferentes commits:
+```text
+main:     A---B---C
+                \
+feature:         D---E
+```
+
+Ao executar:
+```sh
+git checkout feature
+git fetch origin
+git rebase origin/main
+```
+
+O Git irá mover os commits `D` e `E` de `feature` para aplicar `A-B-C` em `main`, e em então **reaplicar `D` e `E`** no *final* de `main`:
+```text
+main:     A---B---C
+                        \
+feature (rebase):        D'--E'
+```
+Isso irá criar uma única *linha de acontecimentos* no histórico de `main`, e todos os commits que já foram de `feature` agora são uma *continuação* em `main`. `D'` e `E'` são **novos commits na `main`**, idênticos a `D` e `E` – de `feature` – em conteúdo, mas com hashes diferentes.
+
+Para atualizar o repositório local, é necessário utilizar a flag `--force`, pois o rebase altera o histórico da branch.
+```sh
+git push --force
+```
+
+É possível realizar o rebase de forma interativa com a flag `-i`, que permite editar, reorganizar, combinar ou remover commits de forma manual.<br/>
+Por exemplo, ao executar:
+```sh
+git rebase -i HEAD~3
+```
+
+Tem-se uma saída como esta:
+```text
+pick 1234567 commit A
+pick 89abcde commit B
+pick f012345 commit C
+```
+
+Onde `pick` pode ser substituído por algum dos comandos abaixo:
+| comando  | ação                          |
+| -------- | ----------------------------- |
+| `pick`   | manter o commit.              |
+| `reword` | editar a mensagem do commit.  |
+| `edit`   | pausar para alterar conteúdo. |
+| `squash` | fundir com commit anterior.   |
+| `drop`   | remover o commit.             |
 
 ##### `branch --delete`
 Ao finalizar a tarefa de uma branch paralela, esta pode ser deletada caso seu objetivo de existir tenha chegado ao fim.
