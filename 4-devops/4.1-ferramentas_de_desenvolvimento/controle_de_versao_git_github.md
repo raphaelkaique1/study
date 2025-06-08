@@ -935,6 +935,8 @@ As tags são marcadores especiais em commits, e servem para marcar pontos import
 É comum que durante o desenvolvimento algumas alterações realizadas precisem ser desfeitas, por conta de modificações nas requisições, por não se possível realizar sua integração com o resto do programa, ou apenas por não se adequarem ao que foi solicitado, e para isso o Git possui ferramentas de análise e gerenciamento das versões do projeto.
 
 #### ANALYSIS
+O Git possui algumas utilidades para analisar alterações e atualizações localmente.
+
 ##### `status`
 Fornece uma visão detalhada com informações sobre o repositório, sendo muito útil para análises durante a preparação de commits. As informações incluem modificações locais, arquivos na staging area, arquivos novos não rastreados, conflitos, branch atual e tracking remoto.
 ```sh
@@ -1020,6 +1022,7 @@ git show commit_value_hash_0123456789abcdef123456
 ```
 
 #### ROLLBACK
+Além disso, o Git fornece ferramentas de recuperação de estado para projetos, tais como:
 - **`restore`**
   - usado para se trabalhar com arquivos específicos
   - não afeta o histórico de commits
@@ -1064,7 +1067,34 @@ Este comando restaura um arquivo ao seu mesmo estado do último commit ou um esp
 git restore --source=commit_hash-0123456789abcdef file_name.ext
 ```
 
+#### GO-BACK
+Também oferece ferramentas para manipular e se trabalhar de forma refinada com alterações em arquivos, que permitem manter o estado atual mas trazendo informações *"perdidas"*.
+
+##### `cherry-pick`
+Comando usado para aplicar um ou mais commits específicos de outra parte do histórico na branch atual, criando novos commits com o mesmo conteúdo – mas novos hashes. **É uma forma de extrair mudanças seletivas do histórico sem mesclar toda a branch.**
+```sh
+git cherry-pick commit_hash
+```
+Isto aplica os `diff`s do commit especificado na branch atual, criando um novo commit com um novo hash, mas com o mesmo conteúdo existente. Muito usado para obter um hotfix criado em outra branch sem realizar um merge ou rebase, ou também aplicar um commit específico de uma feature inacabada ou ainda extrair mudanças funcionais de uma branch experimental.<br/>
+Deve ser usado mantendo atenção em alguns pontos pois pode causar confusão sobre identidade do commit, devido ao fato de que um commit aplicado via `cherry-pick` é **outro commit**, mesmo que o conteúdo seja o mesmo isso quebra relações de ancestralidade e pode causar duplicação de mudanças em merges futuros, com conflitos difíceis de entender. Sendo indicado para usar em commits isolados, autocontidos e sem dependências.
+
+##### `reflog`
+Este comando exibe o histórico completo de referências do HEAD, ou seja, tudo que o HEAD apontou nos últimos comandos – commits, checkouts, resets, rebases e etc – incluindo aqueles removidos do git log. Ele refistra cada movimentação feita tanto do ponteiro do HEAD quanto de outras referências, como branches por exemplo, permitindo recuperar commits *perdidos* após `reset --hard`, `rebase`, `commit --amend`, `push -f` e etc, identificando "quando" e para "onde" o HEAD se moveu, pois o Git não deleta commits com `reset --hard` ou `rebase`, eles continuam a existir até o garbage collector limpá-los, e o `git reflog` é a janela para alcançá-los. Sendo uma ferramenta poderosa para se recuperar informações perdidas, contudo seu alcance é limitado pois existe e atua apenas localmente, não sendo compartilhado ou versionado e por isso não é visível no repositório remoto.<br/>
+```sh
+git reflog
+# hash entry-point operation
+a3f4e98 HEAD@{0}: reset: moving to HEAD~1
+9b1f2f7 HEAD@{1}: commit: Corrige bug de autenticação
+7c1e2d3 HEAD@{2}: checkout: moving from main to bugfix
+
+# ações
+git reset --hard HEAD@{1}                  # desfaz um reset destrutivo
+git checkout reflog_hash-0123456789abcdef  # recupera um commit excluído com `rebase` ou `commit --amend`
+```
+
 #### KEEP-GOING
+Existem também ferramentas para manipular, salvar e atualizar informações a fim de organizar melhor o histórico do desenvolvimento.
+
 ##### `stash`
 Usado para armazenar temporariamente alterações no working directory e staging area – ou seja, alterações ainda não consolidadas – permitindo retornar a um *"estado limpo"* do repositório **sem perder o progresso atual**. Ou seja, ele guarda as modificações locais não commitadas nos tracked files, staged ou unstaged, na *stash stack*, para que seja possível voltar ao estado "limpo" da branch, mantendo o working directory organizado, permitindo em qualquer momento aplicar essas mudanças no estado principal da branch.<br/>
 Pois por padrão, as modificações não consolidades em uma branch são *transportadas* para outras branches, causando uma desorganização e perda de rastreabilidade – já que as atualizações pode ser acidentalmente carregadas em uma branch em que não deveriam estar. Para evitar soluções ineficientes como gerenciar commits temporários – quando se cria um commit desnecessário para salvar as alterações temporárias e depois ter de removê-lo para manter um histórico linear – usa-se o **`git stash`** para isso.
@@ -1108,14 +1138,14 @@ Se houverem conflitos ao aplicar o `stash`, o Git avisará e permitirá resolvê
 ##### `push --force`
 É usado para forçar a atualização de uma branch remota com o conteúdo da branch local, sobrescrevendo e substituindo o histórico remoto pelo o local. É útil após um `rebase` para manter o histórico remoto linear e coeso.<br/>
 O Git por padrão realiza uma comparação dos históricos da branch remota e local após um `push`, e caso eles sejam diferentes o envio falha. O `--force` diz ao Git para ignorar essa verificação e atualizar o remoto com o que existe localmente. Isso reescreve todo o histórico remoto com o novo histórico local da branch.<br/>
-Por exemplo, o comando a seguir reescreve todo o histório da branch `main` no remoto `origin` com o conteúdo da `main local`:
+Por exemplo, o comando a seguir reescreve todo o histório da branch `dev` no remoto `origin` com o conteúdo da `dev local`:
 ```sh
-git push --force origin main
+git push -f origin dev
 ```
 
 Contudo, este comando pode apagar commits que estão *apenas* no repositório remoto, e para evitar esta perda de dados é aconselhável utilizar o método seguro **`--force-with-lease`**, que só força o push se não existirem novas mudanças na branch remota desde o último `fetch` local.
 ```sh
-git push --force-with-lease origin main
+git push --force-with-lease origin dev
 ```
 
 #### `.gitignore`
@@ -1175,14 +1205,15 @@ O comando `git remote` é usado para gerenciar os repositórios remotos conectad
 Por exemplo, o comando `git remote add name url` é usado para vincular um repositório remoto a um repositório Git local, vinculando e permitindo o `push` e o `pull` entre o repositório local e o remoto. E um projeto local criado com `git init` ainda não existe nenhum vínculo que o conecte a um repositório remoto. Para isso, usa-se o comando `git remote add origin https://github.com/user/repo.git`, e a partir daí é possível realizar o `push` do repositório local para o repositório remoto `origin` na branch `main`.<br/>
 Alguns projetos contam com múltiplos remotos, por exemplo um *fork* clonado que precisa acompanhar o repositório original para obter atualizações, pode ser adicionado ao local para que possua 2 fontes de atualizações `fetch` – o original e o fork – `git remote add upstream https://github.com/original/main.git`. A partir daí é possível buscar atualizações do projeto original com `git fetch upstream`.
 
-| comando                       | ação                                           |
-| ----------------------------- | ---------------------------------------------- |
-| `git remote`                  | Lista os nomes dos remotos.                    |
-| `git remote -v`               | Lista os remotos com URLs.                     |
-| `git remote add name url`     | Adiciona à branch local um repositório remoto. |
-| `git remote rename a b`       | Renomeia um remoto.                            |
-| `git remote remove name`      | Remove um repositório remoto.                  |
-| `git remote set-url name url` | Altera a URL do repositório remoto.            |
+| comando                       | ação                                                               |
+| ----------------------------- | ------------------------------------------------------------------ |
+| `git remote`                  | Lista os nomes dos remotos.                                        |
+| `git remote -v`               | Lista os remotos com URLs.                                         |
+| `git remote add name url`     | Adiciona à branch local um repositório remoto.                     |
+| `git remote rename a b`       | Renomeia um remoto.                                                |
+| `git remote remove name`      | Remove um repositório remoto.                                      |
+| `git remote set-url name url` | Altera a URL do repositório remoto.                                |
+| `git remote show name`        | Exibe as diferenças entre o local e o remoto na branch em questão. |
 
 ##### `upstream`
 O `upstream` é a referência da branch remota associada a uma branch local que o Git usa por padrão para enviar o `push` e receber o `pull` com as atualizações.<br/>
@@ -1191,7 +1222,7 @@ Sem uma upstream remota configurada não é possível realizar ações no reposi
 
 ```sh
 git checkout -b new-feat
-git push --set-upstream origin new-feat
+git push --set-upstream origin new-feat # git push -u remote_name branch_name
 ```
 O exemplo acima cria uma branch e define sua *upstream*, enviando a branch **`new-feat`** para o repositório remoto `origin` e definindo `origin/new-feat` como a base de `push` e `pull` da branch `new-feat` local. Com isso, é possível usar apenas `git pull` e `git push`, que o Git entende com *"quem"* a branch local está pareada.
 
@@ -1206,6 +1237,14 @@ Isso significa que a branch local `studying` está *trackeando* – conectada �
 É possível alterar a upstream de uma branch já existente:
 ```sh
 git branch --set-upstream-to=origin/remote_branch_name
+```
+
+**Uma upstream precisa ser definida apenas uma vez**, ela é criada na 1ª vez em que uma nova branch é empurrada usando `-u` ou `--set-upstream`, ao utilizar apenas `git push remote_name branch_name`, nenhum rastreamento é configurado, o que exige que todo `push` e `pull` tenham especificados o remoto e a branch.<br/>
+Na criação de uma upstream o Git grava as informações setadas no repositório local:
+```ini
+[branch "branch_name"]
+    remote = remote_name
+    merge = refs/heads/branch_name
 ```
 
 ##### `switch`
@@ -1363,7 +1402,7 @@ git push origin --delete minha-feature  # 4. deleter a branch remota
 ```
 
 ##### `fetch`
-Baixa atualizações do repositório remoto sem aplicar as mudanças automaticamente à branch atual, muito usado quando se trabalha em *forks*. Após analisar as mudanças é possível realizar o merge. ***O comando `git pull` realiza o `fetch` e o `merge` automaticamente, unindo as mudanças de uma branch à outra.**
+Baixa atualizações do repositório remoto sem aplicar as mudanças automaticamente à branch atual, muito usado quando se trabalha em *forks*. O `fetch` é a **origem** – ou seja, *de onde* – o Git deve importar dados para o repositório em questão. Após analisar as mudanças é possível realizar o merge. ***O comando `git pull` realiza o `fetch` e o `merge` automaticamente, unindo as mudanças de uma branch à outra.**
 ```sh
 git clone https://github.com/user/side_project.git                    # clona o fork
 cd side_project
@@ -1405,13 +1444,17 @@ ralph@mach-1:~/Dev/GitHub/study (studying) git pull origin main # causará um co
 ```
 
 ##### `push`
-Envia as mudanças locais na branch indicada para o repositório remoto. Depois de fazer commits localmente, este comando envia as mudanças para o repositório remoto, tornando-as visívais para todos os colaboradores.
+Envia as mudanças locais na branch indicada para o repositório remoto `git push remote_name branch_name`. Depois de fazer commits localmente, este comando envia as mudanças para o repositório remoto, tornando-as visíveis para todos os colaboradores.
 ```sh
 git push origin new-feat
 ```
 O exemplo acima envia as alterações da branch local `new-feat` para a branch `new-feat` no repositório remoto, independente de qual a branch ativa no momento do `push` – ou seja, a branch indicada no comando será atualizada remotamente com as alterações desta mesma branch localmente. A partir de lá, podem ser feitos *pull requests* para mesclar esta branch à principal caso seja o objetivo.
 
-Caso a branch atual seja a que será atualizada remotamente, basta usar somente **`git push`**, e o Git interpretará os campos omitidos como sendo o repositório remoto associado ao rastreamento – `upstream` – e a branch atualmente ativa.
+Caso a branch atual seja a que será atualizada remotamente, basta usar somente **`git push`**, e o Git interpretará os campos omitidos como sendo o repositório remoto associado ao rastreamento – `upstream` – e a branch atualmente ativa.<br/>
+No caso onde várias branches devem ser enviadas para o remoto de origem, basta usar a flag `--all`.
+```sh
+git push origin --all
+```
 
 ##### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, e afim de simplificar e padronizar a forma de trabalho existe o `gitflow`, um plugin de produtividade para o Git que trabalha com branches bem definidas e estabelece o fluxo de desenvolvimento para o envio de código de um branch para a outra.
@@ -1713,5 +1756,7 @@ gh pr create --base main --head local_user_:new_feat --repo original_author/orig
 # --head local_user:new_feat: a branch autalizada no fork
 # --repo: repositório de destino
 ```
+
+## GITLAB
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
