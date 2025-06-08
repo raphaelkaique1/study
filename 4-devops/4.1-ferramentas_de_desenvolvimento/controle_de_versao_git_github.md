@@ -1405,12 +1405,14 @@ git push origin --delete minha-feature  # 4. deleter a branch remota
 Baixa atualizações do repositório remoto sem aplicar as mudanças automaticamente à branch atual, muito usado quando se trabalha em *forks*. O `fetch` é a **origem** – ou seja, *de onde* – o Git deve importar dados para o repositório em questão. Após analisar as mudanças é possível realizar o merge. ***O comando `git pull` realiza o `fetch` e o `merge` automaticamente, unindo as mudanças de uma branch à outra.**
 ```sh
 git clone https://github.com/user/side_project.git                    # clona o fork
-cd side_project
+cd ./side_project/                                                    # navega até o dir
 git remote add upstream https://github.com/original-autor/projeto.git # adiciona o repositório original como "upstream"
 git remote -v                                                         # verifica os remotos
-git fetch upstream                                                    # busca atualizações do repositório original
-git checkout main                                                     # vai para a branch main do fork
-git merge upstream/main                                               # mescla as mudanças do original com o projeto
+git fetch upstream                                                    # busca atualizações do repositório original armazenado em upstream/main
+git checkout upstream/main                                            # vai para a branch main do fork
+# agora é possível visualizar todas as atualizações baixadas
+git checkout main                                                     # retorna para a main local
+git merge upstream/main                                               # mescla as mudanças baixadas do original com a branch atual do projeto
 ```
 
 O projeto em questão possui 2 remotos associados para recebimento e envio de atualizações, entretanto, apenas o `origin` – remoto do fork – aceita ações do tipo `fetch`, enquanto o `upstream` serve apenas para `fetch` e atualizar o `origin` com novas mudanças, ou seja, não aceita o `fetch` pois normalmente não se tem permissões para tal:
