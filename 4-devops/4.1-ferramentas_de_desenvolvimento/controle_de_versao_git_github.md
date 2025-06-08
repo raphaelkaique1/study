@@ -1065,8 +1065,48 @@ git restore --source=commit_hash-0123456789abcdef file_name.ext
 ```
 
 #### KEEP-GOING
+##### `stash`
+Usado para armazenar temporariamente alterações no working directory e staging area – ou seja, alterações ainda não consolidadas – permitindo retornar a um *"estado limpo"* do repositório **sem perder o progresso atual**. Ou seja, ele guarda as modificações locais não commitadas nos tracked files, staged ou unstaged, na *stash stack*, para que seja possível voltar ao estado "limpo" da branch, mantendo o working directory organizado, permitindo em qualquer momento aplicar essas mudanças no estado principal da branch.<br/>
+Pois por padrão, as modificações não consolidades em uma branch são *transportadas* para outras branches, causando uma desorganização e perda de rastreabilidade – já que as atualizações pode ser acidentalmente carregadas em uma branch em que não deveriam estar. Para evitar soluções ineficientes como gerenciar commits temporários – quando se cria um commit desnecessário para salvar as alterações temporárias e depois ter de removê-lo para manter um histórico linear – usa-se o **`git stash`** para isso.
+
+| comando                                 | efito                                                            |
+| --------------------------------------- | ---------------------------------------------------------------- |
+| `git stash`                             | Salva alterações rastreadas e staged.                            |
+| `git stash -u \|\| --include-untracked` | Salva também arquivos não rastreados.                            |
+| `git stash -a \|\| --all`               | Salva até arquivos ignorados em `.gitignore`.                    |
+| `git stash list`                        | Lista todos os stashes armazenados.                              |
+| `git stash show`                        | Mostra um resumo do que foi guardado no último stash.            |
+| `git stash show -p`                     | Mostra o diff completo do último stash.                          |
+| `git stash apply [index]`               | Aplica o stash informado ou o mais recente, mantendo-o na pilha. |
+| `git stash pop [index]`                 | Aplica o stash informado ou o mais recente, e o remove da pilha. |
+| `git stash drop [index]`                | Descarta um stash específico.                                    |
+| `git stash clear`                       | Remove todos os stashes.                                         |
+
+Por exemplo uma branch `dev` utilizada para testes está em um ponto funcional mas precisa implementar alterações que mudam algumas muitas funções. Para que não se perca o estado funcional sem precisar criar um `commit` *desnecessário* – pois as alterações ainda não estão finalizadas e não faz sentido consolidar algo incompleto – é possível criar um stash para alterar o que se deseja e caso as alterações não sejam mais necessárias retonar ao estado original da branch, ou então aplicar tais mudanças e seguir com o desenvolvimento.
+```sh
+git branch --list
+  main
+* feat      # working directory active
+
+git status
+# modified: app.js
+# modified: styles.css
+
+# antes de mudar de branch salva-se as alterações em um stash para que não sejam perdidas
+git stash
+
+git status
+# working tree clean
+
+git stash pop                         # retorna às mudanças em andamento
+git stash list                        # stash@{0}: WIP on feat: 0123456 feat: add feat X
+git stash show -p stash@{0}           # exibe o diff das mudanças armazenadas
+git stash save "edition description"  # nomeia o stash
+```
+Se houverem conflitos ao aplicar o `stash`, o Git avisará e permitirá resolvê-los como em um merge normal.
+
 ##### `push --force`
-Usado para forçar a atualização de uma branch remota com o conteúdo da branch local, sobrescrevendo e substituindo o histórico remoto pelo o local. É útil após um `rebase` para manter o histórico remoto linear e coeso.<br/>
+É usado para forçar a atualização de uma branch remota com o conteúdo da branch local, sobrescrevendo e substituindo o histórico remoto pelo o local. É útil após um `rebase` para manter o histórico remoto linear e coeso.<br/>
 O Git por padrão realiza uma comparação dos históricos da branch remota e local após um `push`, e caso eles sejam diferentes o envio falha. O `--force` diz ao Git para ignorar essa verificação e atualizar o remoto com o que existe localmente. Isso reescreve todo o histórico remoto com o novo histórico local da branch.<br/>
 Por exemplo, o comando a seguir reescreve todo o histório da branch `main` no remoto `origin` com o conteúdo da `main local`:
 ```sh
