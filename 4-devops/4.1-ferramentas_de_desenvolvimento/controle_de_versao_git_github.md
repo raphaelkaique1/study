@@ -1506,6 +1506,202 @@ git commit -a -m "Commit changes"
 gt flow release finish # gt flow release finish [version]
 ```
 
+##### [gitmoji](https://gitmoji.dev/)
+Esta é uma ferramenta open source para padronizar commits diretamente na CLI, é uma convenção que utiliza emojis no início das mensagens de commit com o objetivo de indicar visualmente o tipo de mudança feita no código, padronizando e categorizando commits rapidamente com base em ícones visuais, o que ajuda no preenchimento das mensagens evitando textos vagos e incompreensíveis, adicionando semântica leve ao histórico, o que facilita a leitura rápida de logs de commit. Pode ser usado simplesmente como uma página de guia para padronização de emojis, ou ser instalado via `npm` para acesso às facilidades via terminal.<br/>
+Para isto, basta executar o comando a seguir no diretório do projeto – no mesmo nível que o diretório Git `.git`.
+```sh
+npm install --save-dev gitmoji-cli
+```
+Com o gitmoji instalado, é possível utilizar a ferramenta atravpes do utilitário `gitmoji` via terminal. Utilizando o parâmetro `-l` é possível visualizar a listagem de todos os emojis e suas respectivas representatividades.
+```sh
+gitmoji -l
+✔ Gitmojis fetched successfully, these are the new emojis:
+🎨 - :art: - Improve structure / format of the code.
+⚡️ - :zap: - Improve performance.
+🔥 - :fire: - Remove code or files.
+🐛 - :bug: - Fix a bug.
+🚑️ - :ambulance: - Critical hotfix.
+✨ - :sparkles: - Introduce new features.
+📝 - :memo: - Add or update documentation.
+🚀 - :rocket: - Deploy stuff.
+💄 - :lipstick: - Add or update the UI and style files.
+🎉 - :tada: - Begin a project.
+✅ - :white_check_mark: - Add, update, or pass tests.
+🔒️ - :lock: - Fix security or privacy issues.
+🔐 - :closed_lock_with_key: - Add or update secrets.
+🔖 - :bookmark: - Release / Version tags.
+🚨 - :rotating_light: - Fix compiler / linter warnings.
+🚧 - :construction: - Work in progress.
+💚 - :green_heart: - Fix CI Build.
+⬇️ - :arrow_down: - Downgrade dependencies.
+⬆️ - :arrow_up: - Upgrade dependencies.
+📌 - :pushpin: - Pin dependencies to specific versions.
+👷 - :construction_worker: - Add or update CI build system.
+📈 - :chart_with_upwards_trend: - Add or update analytics or track code.
+♻️ - :recycle: - Refactor code.
+➕ - :heavy_plus_sign: - Add a dependency.
+➖ - :heavy_minus_sign: - Remove a dependency.
+🔧 - :wrench: - Add or update configuration files.
+🔨 - :hammer: - Add or update development scripts.
+🌐 - :globe_with_meridians: - Internationalization and localization.
+✏️ - :pencil2: - Fix typos.
+💩 - :poop: - Write bad code that needs to be improved.
+⏪️ - :rewind: - Revert changes.
+🔀 - :twisted_rightwards_arrows: - Merge branches.
+📦️ - :package: - Add or update compiled files or packages.
+👽️ - :alien: - Update code due to external API changes.
+🚚 - :truck: - Move or rename resources (e.g.: files, paths, routes).
+📄 - :page_facing_up: - Add or update license.
+💥 - :boom: - Introduce breaking changes.
+🍱 - :bento: - Add or update assets.
+♿️ - :wheelchair: - Improve accessibility.
+💡 - :bulb: - Add or update comments in source code.
+🍻 - :beers: - Write code drunkenly.
+💬 - :speech_balloon: - Add or update text and literals.
+🗃️ - :card_file_box: - Perform database related changes.
+🔊 - :loud_sound: - Add or update logs.
+🔇 - :mute: - Remove logs.
+👥 - :busts_in_silhouette: - Add or update contributor(s).
+🚸 - :children_crossing: - Improve user experience / usability.
+🏗️ - :building_construction: - Make architectural changes.
+📱 - :iphone: - Work on responsive design.
+🤡 - :clown_face: - Mock things.
+🥚 - :egg: - Add or update an easter egg.
+🙈 - :see_no_evil: - Add or update a .gitignore file.
+📸 - :camera_flash: - Add or update snapshots.
+⚗️ - :alembic: - Perform experiments.
+🔍️ - :mag: - Improve SEO.
+🏷️ - :label: - Add or update types.
+🌱 - :seedling: - Add or update seed files.
+🚩 - :triangular_flag_on_post: - Add, update, or remove feature flags.
+🥅 - :goal_net: - Catch errors.
+💫 - :dizzy: - Add or update animations and transitions.
+🗑️ - :wastebasket: - Deprecate code that needs to be cleaned up.
+🛂 - :passport_control: - Work on code related to authorization, roles and permissions.
+🩹 - :adhesive_bandage: - Simple fix for a non-critical issue.
+🧐 - :monocle_face: - Data exploration/inspection.
+⚰️ - :coffin: - Remove dead code.
+🧪 - :test_tube: - Add a failing test.
+👔 - :necktie: - Add or update business logic.
+🩺 - :stethoscope: - Add or update healthcheck.
+🧱 - :bricks: - Infrastructure related changes.
+🧑‍💻 - :technologist: - Improve developer experience.
+💸 - :money_with_wings: - Add sponsorships or money related infrastructure.
+🧵 - :thread: - Add or update code related to multithreading or concurrency.
+🦺 - :safety_vest: - Add or update code related to validation.
+✈️ - :airplane: - Improve offline support.
+```
+
+Com `gitmoji --help` é possível observar todos os parâmetros que podem ser utilizados com o gitmoji:
+| comando         | ação                                            |
+| --------------- | ----------------------------------------------- |
+| `--commit, -c`  | Commit interativo usando o terminal.            |
+| `--config, -g`  | Configuração de preferências gitmoji-cli.       |
+| `--init, -i`    | Inicializa gitmoji como um commit hook.         |
+| `--list, -l`    | List all the available gitmojis.                |
+| `--remove, -r`  | Remove a previously initialized commit hook.    |
+| `--search, -s`  | Busca gitmojis.                                 |
+| `--update, -u`  | Sincroniza a lista de emojis com o repositório. |
+| `--version, -v` | Imprime a versão instalada do gitmoji-cli.      |
+
+Existem 2 maneiras de se utilizar o gitmoji nos commits, sendo uma manual e outra através de um **hook**:
+- **manual**: **`git add . && gitmoji -c`** este comando adiciona os arquivos à staging area e então abre um menu do utilitário `gitmoji` para se criar o commit de forma interativa:
+```sh
+gitmoji -c
+? Choose a gitmoji: begin
+❯ 🎉  - Begin a project. 
+  ⏪️  - Revert changes. 
+  🍱  - Add or update assets.
+? Choose a gitmoji: 🎉  - Begin a project.
+? Enter the commit title [14/48]: Initial commit
+? Enter the commit message: Starting versioning of the 
+.alias/ directory
+[main (root-commit) 57b1a07] 🎉 Initial commit
+ 1 files changed, 50 insertions(+)
+ create mode 100644 file.ext
+git log --oneline 
+57b1a07 (HEAD -> main) 🎉 Initial commit
+```
+- **hook**: após inicializar o gitmoji no diretório do projeto **`gitmoji --init`**, ele interceptará toda ação de `git commit -m "message"`, e irá continuar o processo de commit dinâmico:
+```sh
+gitmoji -i
+✔ Gitmoji commit hook created successfully
+touch file
+git add .
+git commit # aqui é onde o hook é chamado, e ao invés de se abrir o core editor padrão
+# que seria aberto para a escrita da mensagem no git commit, o gitmoji intercepta a ação
+# e segue o processo de criação de mensagens de commit padronizadas, o mesmo que `gitmoji -c`
+? Choose a gitmoji: 🧪  - Add a failing test.
+? Enter the commit title [18/48]: Testing gitmoji -i
+? Enter the commit message: Creating the gitmoji hook for intercepting and 
+managing commit messages
+[main 22211e1] 🧪 Testing gitmoji -i
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file
+```
+
+As maiores vantagens do gitmoji em relação a outras convenções incluem sua leitura visual rápida e intuitiva, alta integração com ferramentas CI/CD e de versionamento automático, um contra porém é que apesar de ser menos verbosa que a **Conventional Commits**, emojis nem sempre são universais, e em grandes projetos podem acabar causando ruído visual, o que pode ser compensado com títulos objetivos e concisos, além de mensagens detalhadas e claras nos commits. É ideal para projetos com foco em legibilidade e times pequenos ou com alta comunicação, mas deve ser evitado em ambientes onde o código precisa gerar changelogs automáticos a partir do commit, ou em ambientes corporativos com forte automação CI/CD baseada em mensagens.<br/>
+O `gitmoji` é uma camada estética de semântica, quando usado com disciplina, propósito e alinhamento é um utilitário poderoso, mas não tão útil quando se necessita de rastreabilidade automatizada – emojis são adorno, não estrutura, e adorno sem estrutura vira enfeite confuso.
+
+##### [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+Convenção semântica para mensagens de commit usada para tornar o histórico legível por humanos *e* máquinas. Serve como base para automaão de changelogs, versionamento semântico e integração com ferramentas de CI/CD. Sua principal utilidade é ser integrado e utilizado em ferramentas como `semantic-release` para o versionamento semântico – SemVer, gerando changelogs automáticos com `standard-version` a partir dos commits, e impor padrões – antes mesmo do `push` para validações por CI com `commitlint`.
+```sh
+type(escopo_opcional): detailed description
+```
+
+- Tipos Comuns:
+  - **`feat`**: nova funcionalidade
+  - **`fix`**: correção de bug
+  - **`docs`**: documentação
+  - **`refactor`**: refatoração
+  - **`test`**: testes
+  - **`chore`**: tarefas auxiliares
+  - **`perf`**: melhorias de desempenho
+  - **`ci`**: alterações no pipeline
+- Sufixos Especiais:
+  - **`!`**: mudança breaking → `feat!: remove autenticação anônima`
+- Exemplos:
+  - **`feat`**: adiciona login via OAuth
+  - **`fix(auth)`**: corrige token expirado
+  - **`refactor(core)`**: reorganiza lógica de autenticação
+  - **`chore(ci)`**: atualiza versão do Node no pipeline
+
+Para ser usado de forma eficiente, é necessário que seja implementado em projetos condizentes com sua robustez, ou seja, projetos que necessitem de extensa documentação, pois em times pequenos, o overhead pode matar a fluidez, onde uma convenção que exige mais disciplina do que o valor que entrega acaba ignorada ou sabotada. Além disso, exige maturidade do time, para que não acabe se usando de forma vaga uma convenção criada para ser profunda, pois o tipo `fix` não descreve *qual* bug foi resolvido, e `feat` não informa o *impacto* que a funcionalidade tem, sem uma descrição rica a estrutura se torna cosmética e a semântica superficial.<br/>
+Seu principal objetivo é escrever mensagens para a *máquina*, a convenção incentiva formatação padrão para facilitar o uso e integração com ferramentas de automação. Concluindo, esta convenção é útil quando o projeto exige rastreabilidade automatizada e padronização semântica — mas inútil ou contraproducente se usado sem convicção, se usado em versionamento manual ou em times pequenos, se torna peso morto; mas se o CI/CD, changelog e SemVer são estratégicos no projeto, não usar essa convenção é perder automação "gratuita".<br/>
+Uma forma de garantir seu uso correto no projeto é com o **`commitlint`**, que padroniza e avalia as mensagens de commits antes de serem enviadas ao repositório remoto, garantindo assim desde o desenvolvimento o enquadro das mensagens no formato `conventional commits`.
+
+Para instalar o [commitlint](https://github.com/conventional-changelog/commitlint), é necessário navegar até o diretório do projeto e utilizar o comando:
+```sh
+npm install --save-dev @commitlint/{cli,config-conventional} husky
+echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+npm set-script prepare "husky install"
+npm run prepare
+npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || exit 1'
+npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1" || exit 1'
+```
+
+Para testar se uma mensagem de commit atende os padrões do conventional commits, usa-se o comando abaixo, que direciona o texto para o `commitlint/cli`, que analisa e retorna o resultado do teste da mensagem enviada:
+```sh
+echo "type(scope): detailed description" | commitlint
+```
+
+##### [commitizen](https://commitizen.github.io/cz-cli/)    
+Por fim, a mais popular ferramenta de padronização de mensagens de commit, que automatiza a criação de mensagens de commit conforme formato pré-definido — geralmente o Conventional Commits — substituindo a escrita manual da mensagem de commit por um promp interativo, minimizando erros e garantindo padronização.<br/>
+Trás consigo uma imposição leve de padrão, que elimina a necessidade do desenvolvedor memorizar sintaxe, além de evitar commits fora dos padrões como `fixes`, `stuff`, `update` e etc, que sabotam changelogs, semântica e automação. É integrado diretamente com ferramentas como **commitlint**, **semantic-release** e **changelog** automático.
+
+Para usá-lo, é necessário [instalá-lo](https://github.com/commitizen/cz-cli) no diretório do projeto:
+```sh
+npm install --save-dev commitizen @commitlint/{cli,config-conventional} husky
+echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+npx commitizen init cz-conventional-changelog --save-dev --save-exact
+npm set-script prepare "husky install"
+npm run prepare
+npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || exit 1'
+npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1" || exit 1'
+```
+
+Agora basta usar **`npx cz`** para commitar, ou apenas o **`git commit`**, e então o hook do commitizen será executado para a criação da mensagem de commit.
+
 ##### LFS
 O Git **L**arge **F**ile **S**ystem é uma extensão oficial usada para lidar com arquivos grandes como imagens, vídeos, áudio, binários, datasets, entre outros, que não devem ser armazenados diretamente no repositório Git, pois isso tornaria o repositório lento e pesado.<br/>
 O Git é extremamente eficiente para arquivos de texto, mas para arquivos binários por exemplo não é tão eficiente, pois cada versão é salva como um arquivo inteiro, ou também arquivos grandes, pois ocupam espaço desnecessários aumentando rapidamente o tamanho do repositório e tornando o `clone`, `fetch` e `checkout` lentos.<br/>
@@ -1765,5 +1961,7 @@ gh pr create --base main --head local_user_:new_feat --repo original_author/orig
 ```
 
 ## GITLAB
+Assim como o GitHub, esta é uma plataforma de hospedagem de código Git com funcionalidades para colaboração, controle de versão, revisão de código, continuous integration and development e DevOps em geral. Também oferece interface web, integração com ferramentas externas, controle de permissões e automação.<br/>
+As principais diferenças entre o GitHub e o GitLab estão na arquitetura e flexibilidade de ambos. Enquanto o GitHub foca na experiência do desenvolvedor e colaboração entre devs, o GitLab foca em pipeline, controle e automação de ponta a ponta, sendo o GitHub mais indicado por sua facilidade de uso e utilidade como "rede social de código", enquanto o GitLab é mais profundo e autônomo. Se o projeto precisa de exposição pública, agilidade e colaboração leve, o GitHub é a melhor escolha, mas se o foco é integração DevOps completa, controle interno e customização profunda, então o GitLab é mais coerente. Escolher mal a ferramenta gera dívida estrutural – GitHub com gambiarras de CI e CD acaba se tornando um monstro, GitLab sem necessidade de uso do seu arsenal é burocratização desnecessária. Uma forma de avaliar qual a melhor ferramenta para o projeto é determinar qual o foco do projeto, *colaboração fluida* ou *domínio sobre a máquina DevOps*, e a resposta irá definir qual a melhor plataforma.
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
