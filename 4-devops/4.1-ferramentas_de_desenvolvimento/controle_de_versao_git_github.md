@@ -1480,25 +1480,30 @@ Para instalar e usar o git flow deve-se seguir os seguintes passos:<br/>
 ```sh
 sudo apt install -y git-flow
 git flow init              # no diretório do projeto inicie o git flow
-git flow feature start doc # exemplo: este comando da `start` em uma `feature` com o nome `doc`, que neste caso serve para trabalhar a documentação do projeto
+# ao iniciar, ele se encarrega de configurar as branches principais, de desenvolvimento e as de suporte
+# sendo as de suporte aquelas que são excluídas logo após a finalização do trabalho, ou seja, que não serão mais utilizdas
+git flow feature start doc # git flow feature start feat_name
+# exemplo: este comando inicia o `start` em uma `feature` com o nome `doc`: `feature/doc`
+# que neste exemplo serve para trabalhar a documentação do projeto
 git branch                 # podemos ver a branch criada
   develop
-* feature/doc
+* feature/docz
   main
 # após realizar as alterações deve-se atualizar a branch
-git commit -a -m "Commit changes"
-gt flow feature finish # este comando indica que as alterações necessárias foram encerradas
+git commit -a -m "commit changes"
+gt flow feature finish # git flow feature finish [branch_name]
+# este comando indica que as alterações necessárias foram encerradas
 # então o git-flow realiza o merge das alterações dessa branch no branch `develop` e então a branch `feature` é apagada localmente
 #
 # para lançar uma nova versão do programa, basta criar uma `release` do software e mesclá-la com a branch `main`
-git flow release start 0.1
+git flow release start 0.1.0 # git flow release start [version]
 git branch # podemos ver a branch criada
   main
   develop
-* release/0.1
+* release/0.1.0
 # após realizar as alterações deve-se atualizar a branch
 git commit -a -m "Commit changes"
-gt flow release finish
+gt flow release finish # gt flow release finish [version]
 ```
 
 ##### LFS
