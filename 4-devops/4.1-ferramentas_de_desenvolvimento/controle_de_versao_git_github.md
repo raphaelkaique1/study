@@ -1458,6 +1458,15 @@ No caso onde várias branches devem ser enviadas para o remoto de origem, basta 
 git push origin --all
 ```
 
+Caso seja necessário *realocar* os commits feitos numa branch em outra, basta redirecionar o push da branch atual para a branch de destino. Se a branch alvo não existir no remoto ela será criada, e se já existir então será atualizada para refletir o conteúdo da branch atual – isso pode sobrescrever o histórico remoto ou ser rejeitado em caso de protected branches.
+```sh
+git push origin actual_branch:target_branch
+```
+Por exemplo, um push de uma `main` local para uma branch remota usada para deploy:
+```sh
+git push origin main:production
+```
+
 ##### [git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 Como visto em **RELEASES**, existem diferenças significativas entre as versões do código que é disponibilizado no ambiente de produção. Cada tipo de release contém uma linha de trabalho que trata diferentes áreas do software. O Git é muito complexo e não existe uma única forma de usá-lo, e afim de simplificar e padronizar a forma de trabalho existe o `gitflow`, um plugin de produtividade para o Git que trabalha com branches bem definidas e estabelece o fluxo de desenvolvimento para o envio de código de um branch para a outra.
 
