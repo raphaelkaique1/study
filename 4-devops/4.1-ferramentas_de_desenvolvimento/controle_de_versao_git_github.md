@@ -834,6 +834,20 @@ Também é possível renomear o repositório local durante sua clonagem, basta i
 git clone protocol://path.com/user_name/repo_name.git new_repo-dir_name
 ```
 
+Por fim, também é possível clonar apenas parte do repositório, basta apenas utilizar a flag **`-n`** e então com o `checkout` definir o ponteiro do HEAD qual o arquivo ou diretório se deseja acessar.
+```sh
+git clone -n git@github.com:user_name/repository_name.git
+ls
+# não contem nada até ser definido com o HEAD
+git checkout HEAD file_name.ext && ls
+Updated 1 path from abc123
+file_name.ext
+git checkout HEAD dir_name/ && ls
+Updated 3 paths from abc123
+file_name.ext
+dir_name/
+```
+
 ### STATES
 Existem diferentes estados que o Git pode classificar os arquivos dentro de um repositório.
 
