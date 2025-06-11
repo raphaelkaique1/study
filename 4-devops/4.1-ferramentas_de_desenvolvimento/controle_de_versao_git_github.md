@@ -653,7 +653,8 @@ echo "done"
 
 ## GIT
 É um sistema de controle e versionamento de código distribuído, que armazena os registros de versão como **_snapshots_** do estado do conteúdo além da referência – em formato de *hash* – para localizar este snapshoot. A maioria das operações realizadas pelo Git são locais, e por isso boa parte das operações são extremamente rápidas devido a facilidade de acessar os arquivos no computador. Apesar de funcionar localmente, a principal vantagem do Git é poder se conectar com serviços de armazenamento de repositório remoto, como o **GitHub** ou **GitLab** por exemplo.<br/>
-Diz-se se *distribuído* pois, diferente de outros sistemas de versionamento como o Mercurial ou o Subverse por exemplo, o Git não centraliza o armazenamento e acesso ao código, ele permite que cada desenvolvedor tenha sua própria cópia completa dos arquivos do projeto localmente, assim, cada clone tem todo o repositório – com todo seu histórico de commits, branches e versões.
+Diz-se se *distribuído* pois, diferente de outros sistemas de versionamento como o Mercurial ou o Subverse por exemplo, o Git não centraliza o armazenamento e acesso ao código, ele permite que cada desenvolvedor tenha sua própria cópia completa dos arquivos do projeto localmente, assim, cada clone tem todo o repositório – com todo seu histórico de commits, branches e versões.<br/>
+Além disso, o Git se destaca entre outros sistemas de versões justamente pelo seu modo de _armazenamento de estado_, o snapshot, que é um grande diferencial, pois nos outros sistemas, o que é armazenado não são estados do projeto, apenas as diferenças entre os arquivos alterados, então digamos que um projeto que utiliza Mercurial ou Subverse está em seu estágio inicial, então alterações são feitas nos arquivos A e C, então numa nova versão alterações novamente são feitas em C, na versão 4 apenas em A e B e na versão final existem mudanças apenas em B e C. É de se esperar que ele registre as diferenças salvas nos arquivos entre as versões existentes, o problema é que, caso seja necessário retornar à versão 3 po exemplo, o que é devolvido pelo sistema de versionamento não é o estado completo do projeto, apenas a diferença das alterações realizadas em determinados aquivos naquele checkpoint – ou seja, neste caso apenas as mudanças feitas no arquivo C, os demais arquivos ou seriam exibidas as diferenças apenas ou ainda estariam de acordo com a versão 5 – o que pode não ser muito útil para recuperar versões funcionais do projeto. Já o Git com seu sistema de snapshoots armazena o estado completo de todos os arquivos do ponto requerido, o que é muito útil para o controle de releases por exemplo.
 
 ### INSTALL
 Para instalar o [Git no Linux](https://git-scm.com/downloads/linux), basta utilizar o terminal e instalar via `apt`:
@@ -697,7 +698,7 @@ sudo git config --system core.editor nano # `core.editor`: define editor de text
 sudo git config --system --list
 ```
 
-#### `--global`** – dados do usuário
+#### `--global` – dados do usuário
 Usado para armazenar configurações para **todos os projetos Git**, como:
 ```sh
 # configurando usuário, credenciais e ambiente
@@ -1021,6 +1022,7 @@ Date:   Mon Jun 1 15:30:00 2025 -0300
 **flags úteis**
 | comando                             | ação                                                                                                                      |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `git log [file_name]`               | Exibe informações referentes ao arquivo específico, se omisso exibe o log de todo o repositório.                          |
 | `git log --oneline`                 | Resumo encurtado de 1 commit por linha.                                                                                   |
 | `git log --pretty=oneline`          | Resumo detalhado de 1 commit por linha.                                                                                   |
 | `git log --graph`                   | Exibe a ramificação em formato gráfico.                                                                                   |
@@ -1040,6 +1042,9 @@ Além disso, o Git fornece ferramentas de recuperação de estado para projetos,
 - **`restore`**
   - usado para se trabalhar com arquivos específicos
   - não afeta o histórico de commits
+- **`revert`**
+  - usado para se trabalhar com arquivos e commits
+  - afeta o histórico de commits e também o ponteiro HEAD
 - **`reset`**
   - reverte commits inteiros
   - afeta o histório de commits e também o ponteiro HEAD
@@ -1051,6 +1056,26 @@ Além disso, o Git fornece ferramentas de recuperação de estado para projetos,
 | `git restore --staged file_name.ext`                        | Desfaz `git add`, mas mantem a alteração no arquivo.                                                                          |
 | `git restore --source [commit_hash] [file_name.ext \|\| .]` | Recupera para o working directory o estado conforme o commit especificado.                                                    |
 | `git restore [file_name.ext \|\| .]`                        | Descarta edições, restaurando o estado do último commit.                                                                      |
+
+##### `revert`
+Desfaz um commit específico, mas de maneira não destrutiva **criando um novo commit** *que inverte as alterações de um commit anterior*, preservando o histórico, sendo mais seguro de se utilizar em repositórios compartilhados do que `reset`.<br/>
+Pode causar conflitos se o commit afetado modificou arquivos em conflito com o estado atual da branch, mas o Git solicitará resolvê-los manualmente antes de concluir.
+```sh
+# revertendo um commit específico
+git revert commit_hash-0123456789abcdef
+
+# revertendo múltiplos commits
+git revert commit_hash0-0123456789abcdef commit_hash1-0123456789abcdef commit_hash2-0123456789abcdef
+# ou, revertendo múltiplos commits com um único revert
+git revert --no-commit commit_hash1-0123456789abcdef^..commit_hash3-0123456789abcdef
+# ou movendo o HEAD
+git revert --no-commit HEAD~3..HEAD
+
+# revertendo um intervalo de commits – commits entre (d)o mais novo (para)e o mais antigo
+git revert b1c2d3e^..d4c3b2a
+# ou, revertendo com um intervalo inclusivo – ou seja, reverte os commits mais recentes antes do HEAD incluindo o próprio HEAD
+git revert HEAD~3..HEAD
+```
 
 ##### `reset`
 Este comando **afeta um commit inteiro**, reposicionando o ponteiro da branch atual para um commit anterior indicado pelo hash. Usado para voltar a um estado anterior do commit ou da index.
