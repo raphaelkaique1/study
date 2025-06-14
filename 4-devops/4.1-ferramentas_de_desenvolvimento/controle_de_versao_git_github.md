@@ -1722,10 +1722,16 @@ Para instalar o [commitlint](https://github.com/conventional-changelog/commitlin
 ```sh
 npm install --save-dev @commitlint/{cli,config-conventional} husky
 echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
-npm set-script prepare "husky install"
+npm pkg set scripts.prepare="husky install"
 npm run prepare
-npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || exit 1'
-npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1" || exit 1'
+echo '#!/bin/sh
+. "$(dirname "$0")/h"
+
+exec < /dev/tty && npx cz --hook || exit 1' > .husky/_/prepare-commit-msg
+echo '#!/bin/sh
+. "$(dirname "$0")/h"
+
+npx --no -- commitlint --edit "$1" || exit 1' > .husky/_/commit-msg
 ```
 
 Para testar se uma mensagem de commit atende os padrões do conventional commits, usa-se o comando abaixo, que direciona o texto para o `commitlint/cli`, que analisa e retorna o resultado do teste da mensagem enviada:
@@ -1742,10 +1748,16 @@ Para usá-lo, é necessário [instalá-lo](https://github.com/commitizen/cz-cli)
 npm install --save-dev commitizen @commitlint/{cli,config-conventional} husky
 echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
 npx commitizen init cz-conventional-changelog --save-dev --save-exact
-npm set-script prepare "husky install"
+npm pkg set scripts.prepare="husky install"
 npm run prepare
-npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || exit 1'
-npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1" || exit 1'
+echo '#!/bin/sh
+. "$(dirname "$0")/h"
+
+exec < /dev/tty && npx cz --hook || exit 1' > .husky/_/prepare-commit-msg
+echo '#!/bin/sh
+. "$(dirname "$0")/h"
+
+npx --no -- commitlint --edit "$1" || exit 1' > .husky/_/commit-msg
 ```
 
 Agora basta usar **`npx cz`** para commitar, ou apenas o **`git commit`**, e então o hook do commitizen será executado para a criação da mensagem de commit.
