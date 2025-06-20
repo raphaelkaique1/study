@@ -882,14 +882,6 @@ Ao utilizar o `.`, o **`git add .`** adiciona todos os arquivos no diretório at
 | `git add *.js`        | Adiciona todos os arquivos `.js`.                        |
 | `git add -p`          | Permite selecionar trechos `hunks` interativamente.      |
 
-#### `rm`
-Remove arquivo do working directory, além de marcar esta remoção para o próximo commit. Ou seja, ele deleta o arquivo fisicamente e o remove do controle de versão.<br/>
-Quando o usuário deleta o arquivo manualmente e em seguida envia as alterações atuais para a staging area, o Git entende que o arquivo foi deletado e a mudança será incluída no próximo commit, resumindo, ele detecta a remoção e a marca para commit.<br/>
-Este comando é especialmente útil quando se deseja apenas remover o arquivo do Git, mas ainda mantê-lo no disco. Sendo essencial para remover um arquivo como `.env` do versionamento sem apagá-lo da máquina por exemplo.
-```sh
-git rm --cached file_name.ext
-```
-
 #### `commit`
 Aqui sim de fato as alterações e mudanças em arquivos *staged* são salvas no histórico do repositório local, este comando é quem cria o *snapshoot* do estado atual dos arquivos selecionados.<br/>
 Sempre que executado, o Git gera automaticamente um **hash criptográfico** exclusivo composto por 40 caracteres hexadecimais, que serve como um identificador daquele commit. O Git usa o algoritmo **S**ecure **H**ash **A**lgorithm - **1** para gerar o hash. **O conteúdo do commit é transformado em uma string única, contendo o conteúdo exato dos arquivos – ou seja, o snapshoot dos arquivos versionados – juntamente com outras informações como o autor, timestamp do commit, a mensagem inclusa, commit pai se houver, entre outros metadados, e, toda essa estrutura é processada pelo SHA-1 para gerar o _checksum_, assim, qualquer mudança mínima em qualquer parte gera um hash totalmente diferente.**. Este hash é como um **CPF** para cada commit, sendo único e imutável, e é usado pelo Git para identificar os commits no histórico de mudanças, permitindo assim compará-los, retornar o projeto ao estado de commits anteriores, entre outras possibilidades.
@@ -929,7 +921,7 @@ Uma forma mais intuitiva de se entender como o Git rastreia e grava as alteraç�
 - **staged**: aqui estão os arquivos monitorados que possuem suas alterações adicionadas à **staging area**, que serão inclusos ao próximo commit e em seguida assumirão novamente o estado de *unmodified*.
 
 #### `tag`
-As tags são marcadores especiais em commits, e servem para marcar pontos importantes no histórico, como versões de lançamento por exemplo. São úteis para marcar versões do software, gerando versões de releases do projeto em plataformas de hospedagem na nuvem. Existem 2 tipos de tags no Git:
+As tags são marcadores especiais em commits, e servem para marcar pontos importantes no histórico, como versões de lançamento ou marcar estágio de desenvolvimento de recursos por exemplo. São úteis para marcar versões do software, gerando versões de releases do projeto em plataformas de hospedagem na nuvem. Existem 2 tipos de tags no Git:
 - **lightweight**: um marcador direto para um commit, como um branch fixo, sem metadados.
   - **`git tag`**: cria um "rótulo" para um ponto específico no estado do histórico do commit.
 - **annotated**: armazena autor, data, mensagem e pode ser assinada com GPG, recomendada para versões oficiais.
@@ -989,7 +981,7 @@ index e69de29..5f1d7d3 100644
 
 Além de poder comparar as diferenças de apenas um arquivo específico.
 ```sh
-git diff main dev
+git diff fileName.ext
 ```
 
 Também é possível especificar quais alterações se deseja comparar, utilizando a flag `--staged` ou `--cached`, é possível comparar a Staging Area com o último commit `HEAD`. Isto é ideal para verificar exatamente o que será salvo no próximo commit.
@@ -1221,7 +1213,7 @@ Pois por padrão, as modificações não consolidades em uma branch são *transp
 | `git stash -a \|\| --all`               | Salva até arquivos ignorados em `.gitignore`.                    |
 | `git stash list`                        | Lista todos os stashes armazenados.                              |
 | `git stash show`                        | Mostra um resumo do que foi guardado no último stash.            |
-| `git stash show -p`                     | Mostra o diff completo do último stash.                          |
+| `git stash show -p [index]`             | Mostra o diff completo do último stash.                          |
 | `git stash apply [index]`               | Aplica o stash informado ou o mais recente, mantendo-o na pilha. |
 | `git stash pop [index]`                 | Aplica o stash informado ou o mais recente, e o remove da pilha. |
 | `git stash drop [index]`                | Descarta um stash específico.                                    |
@@ -1261,6 +1253,44 @@ git push -f origin dev
 Contudo, este comando pode apagar commits que estão *apenas* no repositório remoto, e para evitar esta perda de dados é aconselhável utilizar o método seguro **`--force-with-lease`**, que só força o push se não existirem novas mudanças na branch remota desde o último `fetch` local.
 ```sh
 git push --force-with-lease origin dev
+```
+
+#### DELETE
+O Git possui alguns comandos de remoção segura de arquivos, que além de eliminar arquivos desnecessários, melhoram o desempenho da execução de comandos e otimizam a performance do repositório.
+
+##### `rm`
+Remove arquivo do working directory, além de marcar esta remoção para o próximo commit. Ou seja, ele deleta o arquivo fisicamente e o remove do controle de versão.<br/>
+Quando o usuário deleta o arquivo manualmente e em seguida envia as alterações atuais para a staging area, o Git entende que o arquivo foi deletado e a mudança será incluída no próximo commit, resumindo, ele detecta a remoção e a marca para commit.<br/>
+Este comando é especialmente útil quando se deseja apenas remover o arquivo do Git, mas ainda mantê-lo no disco. Sendo essencial para remover um arquivo como `.env` do versionamento sem apagá-lo da máquina por exemplo.
+```sh
+git rm --cached file_name.ext
+```
+
+##### `clean`
+Este comando verifica arquivos unstaged e od limpa do working directory, mais utilizado para limpar arquivos temporários ou aqueles gerados automaticamente – que não precisam ser ignorados intencionalmente com `.gitingore`.
+```sh
+git clean
+```
+
+##### `gc`
+O **`garbage collector`** identifica arquivos que não são mais necessários e os deleta, otimizando a performance em geral do repositório.
+```sh
+git gc
+```
+
+##### `fsck`
+O **F**ile **S**ystem **C**hec**K** verifica a integridade de arquivos bem como sua conectividade detectando possíveis corrupções.
+```sh
+git fsck
+```
+
+#### EXTRA
+O Git possui vários utilitários além de controlar diretamente o repositório.
+
+##### `archive`
+Este comando transforma o repositório em um arquivo compactado.
+```sh
+git archive --format frmt --output file_name.frmt branch_name
 ```
 
 #### `.gitignore`
@@ -1439,7 +1469,7 @@ git commit -m "feat: add feature from feature branch"
 Após um `--squash`, o Git não marca a `merge` como feita, isso significa que a branch `feat` continuará existindo – ou seja, não será *"reintegrada"* à branch principal – e isso pode causar conflitos em um merge futuro que tente mesclar as branches.
 
 ##### `rebase`
-O comando `git rebase` funciona de maneira semelhante ao merge importando as atualizações nos arquivos e unificando o histórico de commits das branches envolvidas. Mas com um porém, ele reescreve o histórico para que pareça que os commits da branch atual foram criados **depois** dos da branch de base, ou seja, coloca todo o histórico de commits da branch alvo em "linha", sem mesclar no histórico da branch de destino cada commit na ordem em que foi criado.<br/>
+O comando **`git rebase actual_branch target_branch -i`** funciona de maneira semelhante ao merge importando as atualizações nos arquivos e unificando o histórico de commits das branches envolvidas. Mas com um porém, ele reescreve o histórico para que pareça que os commits da branch atual foram criados **depois** dos da branch de base, ou seja, coloca todo o histórico de commits da branch alvo em "linha", sem mesclar no histórico da branch de destino cada commit na ordem em que foi criado.<br/>
 É especialmente útil quando se deseja manter um histório linear e limpo antes de realizar um `push` em branches de colaboração para alinhar com o estado atual da `main`, ou também em *pull requests*, para evitar conflitos com a branch principal.<br/>
 Entretanto, deve-se evitar usá-lo em branches compartilhadas, pois, como o histórico é reescrito, todos que estiverem trabalhando na mesma branch irão enfrentar conflitos e problemas de sincronização, e nestes casos utilizar `merge` pode ser o mais indicado.
 
@@ -1546,6 +1576,11 @@ git remote set-url --push upstream no_push
 git remote -v
 upstream  https://github.com/original-autor/projeto.git (fetch)
 upstream  (no push) (push)
+```
+
+Ao utilizar a flag **`-a`**, o `fetch` busca todas as branches disponíveis no repositório.
+```sh
+git fetch -a
 ```
 
 ##### `pull`
