@@ -1206,7 +1206,7 @@ Existem também ferramentas para manipular, salvar e atualizar informações a f
 Usado para armazenar temporariamente alterações no working directory e staging area – ou seja, alterações ainda não consolidadas – permitindo retornar a um *"estado limpo"* do repositório **sem perder o progresso atual**. Ou seja, ele guarda as modificações locais não commitadas nos tracked files, staged ou unstaged, na *stash stack*, para que seja possível voltar ao estado "limpo" da branch, mantendo o working directory organizado, permitindo em qualquer momento aplicar essas mudanças no estado principal da branch.<br/>
 Pois por padrão, as modificações não consolidades em uma branch são *transportadas* para outras branches, causando uma desorganização e perda de rastreabilidade – já que as atualizações pode ser acidentalmente carregadas em uma branch em que não deveriam estar. Para evitar soluções ineficientes como gerenciar commits temporários – quando se cria um commit desnecessário para salvar as alterações temporárias e depois ter de removê-lo para manter um histórico linear – usa-se o **`git stash`** para isso.
 
-| comando                                 | efito                                                            |
+| comando                                 | efeito                                                           |
 | --------------------------------------- | ---------------------------------------------------------------- |
 | `git stash`                             | Salva alterações rastreadas e staged.                            |
 | `git stash -u \|\| --include-untracked` | Salva também arquivos não rastreados.                            |
