@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.4-interface_grafica_do_usuario_gui/interacao_com_o_usuario.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#interface_grafica_do_usuario_gui">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.5-conectividade_e_comunicacao/integracao_de_apis_para_desktop.md">next</a>

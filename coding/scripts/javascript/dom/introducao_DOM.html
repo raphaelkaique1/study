@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<style>
+    :root {
+        --document: rgb(255, 255, 0);
+        --element: rgb(145, 255, 0);
+        --attribute: rgb(255, 81, 0);
+        --content: rgb(195, 0, 255);
+    }
+    body {
+        background-color: #fff;
+        color: #000;
+        min-width: 68.75rem;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .pli {
+        content: "";
+        display: flex;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        background-color: #000;
+        margin: 0.313rem;
+    }
+    .span-list-item {
+        margin: 0 0 0 1.563rem;
+    }
+    .box {
+        width: 6rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+    .document {
+        background-color: var(--document);
+    }
+    .element {
+        background-color: var(--element);
+    }
+    .attribute {
+        background-color: var(--attribute);
+    }
+    .content {
+        background-color: var(--content);
+    }
+    .map {
+        display: grid;
+        grid-template-areas: "m";
+        justify-items: center;
+        transition: transform 0.5s ease-in-out;
+    }
+    .m {
+        grid-area: m;
+    }
+    @media screen and (max-width: 1280px) {
+        body {
+            font-size: 1rem;
+        }
+        .map {
+            transform: scale(0.8);
+            margin-left: 0;
+        }
+        .consult {
+            transform: scale(0.8);
+        }
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+        "a1 a2 a3"
+        "a4 a4 a4"
+        "a5 a5 a5";
+        grid-gap: 0.1rem;
+        justify-items: center;  /* Alinha horizontalmente (eixo X) */
+        align-items: center;  /* Alinha verticalmente (eixo Y) */
+    }
+    .a1 {
+        grid-area: a1;
+        justify-self: end;
+    }
+    .a2 {
+        grid-area: a2;
+        text-align: center;
+    }
+    .a4 {
+        grid-area: a4;
+        text-align: center;
+    }
+    .a5 {
+        grid-area: a5;
+        text-align: center;
+    }
+    .consult {
+        display: grid;
+        grid-template-areas:
+            "a b";
+        grid-gap: 0.625rem;
+        grid-template-columns: 8rem;
+        transition: transform 0.5s ease-in-out;
+    }
+    .a {
+        grid-area: a;
+        text-align: start;
+    }
+    .b {
+        grid-area: b;
+    }
+    .start {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "a01 a02 a03"
+            "a04 a05 a06"
+            "a07 a08 a09"
+            "a10 a11 a12";
+        grid-gap: 1rem;
+    }
+    .a02 {
+        grid-area: a02;
+        text-align: center;
+    }
+    .a05 {
+        grid-area: a05;
+        text-align: center;
+    }
+    .a08 {
+        grid-area: a08;
+        text-align: center;
+    }
+    .a11 {
+        grid-area: a11;
+        text-align: center;
+    }
+    .a12 {
+        grid-area: a12;
+        text-align: center;
+    }
+    .middle {
+        display: grid;
+        grid-template-areas:
+            "b1 b2 b3 b4 b5 b6"
+            "b7 b8 b9 b10 b11 b12";
+        grid-gap: 1rem 2rem;
+    }
+    .b1 {
+        grid-area: b1;
+        text-align: center;
+    }
+    .b2 {
+        grid-area: b2;
+        text-align: center;
+    }
+    .b3 {
+        grid-area: b3;
+        text-align: center;
+    }
+    .b4 {
+        grid-area: b4;
+        text-align: center;
+    }
+    .b5 {
+        grid-area: b5;
+        text-align: center;
+    }
+    .b6 {
+        grid-area: b6;
+        text-align: center;
+    }
+    .b7 {
+        grid-area: b7;
+        text-align: center;
+    }
+    .b9 {
+        grid-area: b9;
+        text-align: center;
+    }
+    .end {
+        display: grid;
+        grid-template-areas:
+            "c1 c2 c3 c4 c5 c6 c7 c8 c9"
+            "c10 c11 c12 c13 c14 c15 c16 c17 c18"
+            "c19 c20 c21 c22 c23 c24 c25 c26 c27";
+        grid-gap: 2rem 2rem;
+    }
+    .c1 {
+        grid-area: c1;
+        text-align: center;
+    }
+    .c2 {
+        grid-area: c2;
+        text-align: center;
+    }
+    .c3 {
+        grid-area: c3;
+        text-align: center;
+    }
+    .c4 {
+        grid-area: c4;
+        text-align: center;
+    }
+    .c5 {
+        grid-area: c5;
+        text-align: center;
+    }
+    .c6 {
+        grid-area: c6;
+        text-align: center;
+    }
+    .c7 {
+        grid-area: c7;
+        text-align: center;
+    }
+    .c8 {
+        grid-area: c8;
+        text-align: center;
+    }
+    .c9 {
+        grid-area: c9;
+        text-align: center;
+    }
+    .c10 {
+        grid-area: c10;
+        text-align: center;
+    }
+    .c11 {
+        grid-area: c11;
+        text-align: center;
+    }
+    .c13 {
+        grid-area: c13;
+        text-align: center;
+    }
+    .c15 {
+        grid-area: c15;
+        text-align: center;
+    }
+    .c17 {
+        grid-area: c17;
+        text-align: center;
+    }
+    .c19 {
+        grid-area: c19;
+        text-align: center;
+    }
+    .line {
+        width: 0.125rem;
+        height: 1rem;
+        border: #333 solid 1px;
+        border-radius: 1rem;
+        background-color: #333;
+    }
+    .backTop {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        align-content: center;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="center">
+        <h1 id="top">
+            <span>Seletor</span>: comando utilizado para identificar um elemento DOM (representação dos elementos HTML).
+        </h1>
+    </div>
+    <div class="map">
+        <div class="m line" style="height: 13rem;"></div>
+        <div class="m line" style="height: 1px; width: 10.5rem; margin: 10.5rem 0 0 5rem;"></div>
+        <div class="m line" style="
+            height: 2.7rem;
+            width: 27rem;
+            margin: 13rem 0 0 -18rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+        "></div>
+        <div class="m line" style="
+            height: 2.7rem;
+            width: 18rem;
+            margin: 13rem 0 0 9rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+        "></div>
+        <div class="m line" style="
+            height: 2.7rem;
+            width: 7rem;
+            margin: 16rem 0 0 -38rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+            border-right: transparent;
+        "></div>
+        <div class="m line" style="height: 3rem; margin: 16rem 0 0 -9.1rem;"></div>
+        <div class="m line" style="height: 6.5rem; margin: 16rem 0 0 9.1rem;"></div>
+        <div class="m line" style="height: 1px; width: 10.5rem; margin: 16rem 0 0 35rem;"></div>
+        <div class="m line" style="
+            height: 2.7rem;
+            width: 36em;
+            margin: 22.5rem 0 0 -18rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+        "></div>
+        <div class="m line" style="
+            height: 7.7rem;
+            width: 36em;
+            margin: 22.5rem 0 0 18rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+        "></div>
+        <div class="m line" style="
+            height: 1.7rem;
+            width: 7rem;
+            margin: 27rem 0 0 -62rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+        "></div>
+        <div class="m line" style="
+            height: 1.7rem;
+            width: 1px;
+            margin: 25.4rem 0 0 -58rem;
+        "></div>
+        <div class="m line" style="
+            height: 3.7rem;
+            width: 1px;
+            margin: 29rem 0 0 -69.2rem;
+        "></div>
+        <div class="m line" style="
+            height: 1px;
+            width: 10.5rem;
+            margin: 25.4rem 0 0 -50.2rem;
+        "></div>
+        <div class="m line" style="
+            height: 1px;
+            width: 10.5rem;
+            margin: 25.4rem 0 0 -10.2rem;
+        "></div>
+        <div class="m line" style="
+            height: 3.8rem;
+            width: 10.5rem;
+            margin: 25.4rem 0 0 29rem;
+            background-color: transparent;
+            border-radius: 0;
+            border: #333 solid 0.19rem;
+            border-bottom: transparent;
+            border-right: transparent;
+        "></div>
+        <div class="m line" style="
+            height: 1px;
+            width: 10.5rem;
+            margin: 25.4rem 0 0 62rem;
+        "></div>
+        <div class="m container">
+            <div class="a1">
+                <div class="consult">
+                    <div class="a">
+                        <h2><span style="font-size: 2rem;">ÁRVORE</span> <span style="font-size: 3.5rem;">DOM</span></h2>
+                    </div>
+                    <div class="b">
+                        <ul class="plu">
+                            <li class="pli document"><span class="span-list-item">documento</span></li>
+                            <li class="pli element"><span class="span-list-item">elemento</span></li>
+                            <li class="pli attribute"><span class="span-list-item">atributo</span></li>
+                            <li class="pli content"><span class="span-list-item">conteúdo</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="a2">
+                <div class="start">
+                    <div class="a02 box document">document</div>
+                    <div class="a05 box element">html</div>
+                    <div class="a08 box element">body</div>
+                    <div class="a11 box element">div</div>
+                    <div class="a12 box attribute">atributo</div>
+                </div>
+            </div>
+            <div class="a4">
+                <div class="middle">
+                    <div class="b1 box element">h1</div>
+                    <div class="b7 box content">conteúdo</div>
+                    <div class="b2 box attribute">atributo</div>
+                    <div class="b3 box element">h2</div>
+                    <div class="b9 box content">conteúdo</div>
+                    <div class="b4 box element">ul</div>
+                    <div class="b5 box element">script</div>
+                    <div class="b6 box attribute">atributo</div>
+                </div>
+            </div>
+            <div class="a5">
+                <div class="end">
+                    <div class="c2 box element">li</div>
+                    <div class="c3 box attribute">atributo</div>
+                    <div class="c4 box element">li</div>
+                    <div class="c5 box attribute">atributo</div>
+                    <div class="c6 box element">li</div>
+                    <div class="c7 box attribute">atributo</div>
+                    <div class="c8 box element">li</div>
+                    <div class="c9 box attribute">atributo</div>
+                    <div class="c10 box element">em</div>
+                    <div class="c11 box content">conteúdo</div>
+                    <div class="c13 box content">conteúdo</div>
+                    <div class="c15 box content">conteúdo</div>
+                    <div class="c17 box content">conteúdo</div>
+                    <div class="c19 box content">conteúdo</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="center">Tipos de Seletores</h2>
+    <p class="center">Todos os seletores são chamados a partir do document. os principais são:</p>
+    <div class="center">
+        <ul id="tipos_seletores">
+            <li>getElementById("")</li>
+            <li>querySelector("")</li>
+            <li>getElementsByName("")</li>
+            <li>getElementsByClassName("")</li>
+        </ul>
+    </div>
+</body>
+<footer>
+    <div name="backTop" class="backTop"><a href="#top">🔝</a></div>
+</footer>
+</html>
+<script>
+    // document.body.style.backgroundColor = "#000"
+    document.querySelector("h1").style.borderBottom = "#111 solid 2px"
+    document.querySelector("h1>span").style.color = "rgb(0, 130, 255)"
+    document.getElementById("tipos_seletores").style.border = "#111 solid 2px"
+    /* -------------------------------------------------------------------- */
+    document.getElementsByName("backTop")[0].style.fontSize = "1.5rem"
+    document.getElementsByClassName("backTop")[0].style.border = "#333 solid 2px"
+</script>

@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.6-seguranca_em_aplicacoes_desktop/praticas_de_seguranca.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#seguranca_em_aplicacoes_desktop">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.6-seguranca_em_aplicacoes_desktop/autenticacao_e_autorizacao_em_aplicacoes_desktop.md">next</a>

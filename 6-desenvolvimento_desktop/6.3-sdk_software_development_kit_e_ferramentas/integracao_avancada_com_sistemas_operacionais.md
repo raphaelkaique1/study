@@ -1,0 +1,2 @@
+
+<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.3-sdk_software_development_kit_e_ferramentas/ferramentas_de_desenvolvimento_integradas_ides_para_desktop.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#sdk_software_development_kit_e_ferramentas">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/6-desenvolvimento_desktop/6.4-interface_grafica_do_usuario_gui/design_de_interfaces_para_desktop_ui_ux.md">next</a>

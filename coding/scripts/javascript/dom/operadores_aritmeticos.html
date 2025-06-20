@@ -1,0 +1,33 @@
+<script>
+    function show(o){
+        alert(`${n1} ${o} ${n2} = ${r}`)
+    }
+    var sm = (a, b) => {return Number(a) + Number(b)}
+    var sb = (a, b) => {return Number(a) - Number(b)}
+    var m = (a, b) => {return Number(a) * Number(b)}
+    var d = (a, b) => {return Number(a) / Number(b)}
+
+    var n1, n2, r, o
+    n1 = prompt("1º n°:")
+    n2 = prompt("2º n°:")
+
+    n1 > n2 ? alert(`${n1} > ${n2}`) : (n1 == n2? alert(`${n1} == ${n2}`): alert(`${n1} < ${n2}`))
+
+    o = prompt("[+] [-] [x] [/]: ")
+    if(o == "+"){
+        r = sm(n1, n2)
+        show(o)
+    } else if(o == "-") {
+        r = sb(n1, n2)
+        r = Number(n1) - Number(n2)
+        show(o)
+    } else if(o == "x") {
+        r = m(n1, n2)
+        r = Number(n1) * Number(n2)
+        show(o)
+    } else if(o == "/") {
+        r = d(n1, n2)
+        r = Number(n1) / Number(n2)
+        show(o)
+    } else {alert("Opção inválida.")}
+</script>
