@@ -1440,7 +1440,7 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log(aluno.endereco.cidade); // "Belo Horizonte"
  ```
 
- Para acessarmos as *propriedades* de um objeto, primeiro o declaramos e, usando o *seletor `.`* escolhemos qual método ou propriedade do objeto queremos. Exemplo:
+ Para acessarmos as *propriedades* de um objeto, primeiro o declaramos e, usando o **seletor `. – dot notation`** escolhemos qual método ou propriedade do objeto queremos. Este seletor é usado quando se conhece o nome da propriedade, sendo a forma mais concisa e legível. Exemplo:
  ```js
  const Pessoa = {
   nome: "Raphael",
@@ -1453,6 +1453,22 @@ console.log(resultado); // Saída: ["10", "20"]
  console.log(Pessoa.nome);      // "Raphael"
  console.log(Pessoa.profissao); // "software developer"
  Pessoa.saudacao(); // Olá! Me chamo Raphael e trabalho como software developer.
+ ```
+
+ Outra maneira de acessar os valores dentro dos objetos é utilizando o **seletor de chaves `[] – bracket notation`**, que possibilita acessar as propriedades usando strings ou variáveis, sendo usado nos casos onde o nome da propriedade é dinâmico ou contém caracteres inválidos para o `dot notation`:
+ ```js
+ const dados = {
+    "nome": "Raphael",
+    "sobrenome": "k",
+    "nome completo": "Raphael K"
+ };
+
+ console.log(dados["nome"]);           // Raphael
+ 
+ const chave = "sobrenome";
+ console.log(dados[chave]) ;           // K
+
+ console.log(dados["nome completo"]);  // Raphael K
  ```
 
 ###### COMMONS
@@ -2656,7 +2672,7 @@ var n3 = !"Gato"; // !t retorna false
 
 Outro operador **relacional de comparação** é o **`in`**, que retorna verdadeiro se a propriedade especificada estiver em determinado objeto.
 ```js
-valorPropriedade in nomeOjeto
+valorPropriedade in nomeObjeto
 ```
 Onde `valorPropriedade` pode ser uma string ou expressão numérica que representa um nome de propriedade ou um índice de array, e `nomeObjeto` é o nome de um objeto para a realização da verificação de seu conteúdo. Os exemplos a seguir mostram alguns usos deste operador:
 ```js
@@ -2739,25 +2755,61 @@ a = a ^ b;  // a agora é 3 (011) → valor original de b
 console.log(a, b); // 3, 5
 ```
 
-O **operador condicional ternário** é o único operador que utiliza 3 operandos, podendo ter 1 de 2 valores baseados no resultado da condição:
+O **operador condicional ternário `?`** é o único operador que utiliza 3 operandos, podendo ter 1 de 2 valores baseados no resultado da condição:
 ```js
-condicao ? valor1 : valor2;
+condicao ? valor_se_verdadeiro : valor_se_falso;
 ```
 
-Se `condicao` for verdadeira, o operador terá o valor de `valor1`. Caso contrário, terá o valor de `valor2`. É possível utilizar o operador condicional em qualquer lugar onde utilizaria um operador padrão. Por exemplo:<br/>
+Se `condicao` for verdadeira, o operador terá o valor de `valor_se_verdadeiro`. Caso contrário, terá o valor de `valor_se_falso`. É possível utilizar o operador condicional em qualquer lugar onde utilizaria um operador padrão. Por exemplo:
 
 **atribuição de variável**
 ```js
 var status = idade >= 18 ? "adulto" : "menor de idade";
 ```
 
-**condições combinadas**
-```js
-let permissao = idade >= 18 && "Pode entrar."; // Retorna "Pode entrar." ou false
-console.log(permissao);
+**Diferenças entre Condições Combinadas: Ternário `?` x Nullish Coalescing `??` x OR `||` x AND `&&`**
+| operador | operação                                                                     | exemplo                         |
+|----------|----------------------------------------------------------------------------- |---------------------------------|
+| `? :`    | Avaliar condição booleana.                                                   | `idade >= 18 ? "ok" : "negado"` |
+| `&&`     | Avalia se uma condição é *truly* e executa o comando seguinte caso positivo. | `valor && "default"`            |
+| `??`     | Verificar se o valor é `null` ou `undefined`.                                | `valor ?? "default"`            |
+| `\|\|`   | Verificar se o valor é *falsy*: `0`, `""`, `false`, `null`, `undefined`.     | `valor \|\| "default"`          |
 
-let nome = username || "anônimo"; // Se username for `null` ou `""`, usa "anônimo"
-console.log(nome);
+Essas estruturas são *alternativas ao ternário* quando se quer **executar algo apenas se uma condição for verdadeira**:
+```js
+console.log(0 ?? "default"); //         0 - porque o resultado não é `null` ou `undefined`
+console.log(0 && "default")  //         0 - porque o resultado é truly
+console.log(0 || "default"); // "default" - porque 0 é falsy
+```
+
+Por exemplo:
+```js
+// &&
+let show = true;
+show && console.log("show"); // show
+
+show = false;
+show && console.log("show"); // console.log() não é executado
+
+/* ----- */ 
+
+let age = 18;
+const access = age >= 18 && "OK";
+console.log(access); // OK
+
+age = 17;
+const ACCESS = age >= 18 && "OK";
+console.log(ACCESS); // false
+
+
+// ||
+let username;
+const name = username || "anon";
+console.log(name); // anon
+
+username = "raphaelkaique1"
+const NAME = username || "anon";
+console.log(NAME); // raphaelkaique1
 ```
 
 **condicional simples**
@@ -2765,6 +2817,11 @@ console.log(nome);
 let isAdmin = true;
 let mensagem = "Usuário " + (isAdmin ? "Admin" : "Comum");
 console.log(mensagem); // Usuário Admin
+```
+
+**Template Strings**
+```js
+console.log(`Status: ${idade >= 18 ? "Adulto" : "Menor"}`);
 ```
 
 **aninhado**
@@ -2811,8 +2868,76 @@ let isLogged = "Logged"; // == let isLogged = true;
 isLogged ? console.log("Bem-vindo!") : console.warn("Acesso negado."); // Bem-vindo!
 ```
 
-**O **operador vírgula** simplesmente avalia ambos de seus operandos e _retorna o valor do 2º_.** Este operador é utilizado primariamente dentro de um laço `for` para permitir que multiplas variáveis sejam atualizadas cada vez através do laço.<br/>
-Por exemplo, se `a` é uma matri bidimensional com 10 elementos em um lado, o código a seguir utiliza o operador vírgula para incrementar 2 variáveis de uma só vez (ao invés de realizar um _`for` aninhado_):
+**nested ternary**
+```js
+const nota = 7;
+const resultado = nota >= 7 ? "Aprovado" : nota >= 5 ? "Recuperação" : "Reprovado";
+```
+
+Outro possível uso para o operador **`?`** é avaliar expressões de encadeamento **`?.`**, funciona como um **`optional chaining`** _verificando se o valor anterior é **`null`** ou **`undefined`** antes de tentar acessar a propriedade ou índice seguinte_.
+
+É equivalente a um *shorthand* de `if`:
+```js
+let a = ["true"];
+console.log(a[0]?.split('')); // [ 't', 'r', 'u', 'e' ]
+console.log(a[1]?.split('')); // undefined
+
+console.log(a[1].split('')); /* isso resultará em um erro, pois a função `split()` não consegue acessar um valor válido
+                 ^
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Object.<anonymous> (/home/ralph/Dev/.env/js/main.js:33:18)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0 */
+
+// equivalente `if`
+a[1] ? console.log(a[1].split('')) : console.log(typeof a[1]); // undefined
+```
+
+Essa abordagem é útil para evitar erros em acesso de estruturas aninhadas incertas, como por exemplo:
+```js
+user?.profile?.avatar?.url
+```
+Se `user`, `profile`, ou `avatar` forem `undefined`, isso não quebra o código.
+
+- **`?.()` – chamada condicional de função**: chama uma função apenas se ela existir – ou seja, se ela não for `null` ou `undefined`. Se a função **não** existir, retorna `undefined` sem laçar um erro.
+```js
+const usuario = {
+  nome: "Raphael",
+  saudacao: function () {
+    return "OK";
+  }
+};
+
+console.log(usuario.saudacao?.());  // "OK"
+console.log(usuario.despedida?.()); // undefined (sem erro)
+
+console.log(usuario.despedida());   // Error: usuario.despedida is not a function
+```
+
+- **`?.[]` – acesso condicional de índice**: acessa um índice ou propriedade de um objeto somente se ele existir, evitando erros ao tentar acessar propriedades de objetos que podem ser `null` ou `undefined`.
+```js
+const dados = {
+  cliente: {
+    nome: "Raphael"
+  }
+};
+
+console.log(dados.cliente?.["nome"]);  // "Raphael"
+console.log(dados.endereco?.["rua"]);  // undefined (sem erro)
+
+console.log(dados.endereco["rua"]);    // Error: Cannot read properties of undefined
+```
+
+**O `operador vírgula` simplesmente avalia ambos de seus operandos e _retorna o valor do 2º_.** Este operador é utilizado primariamente dentro de um laço `for` para permitir que multiplas variáveis sejam atualizadas cada vez através do laço.<br/>
+Por exemplo, se `a` é uma matriz bidimensional com 10 elementos em um lado, o código a seguir utiliza o operador vírgula para incrementar 2 variáveis de uma só vez (ao invés de realizar um _`for` aninhado_):
 ```js
 let a = [
     ["\\", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
