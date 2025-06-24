@@ -1647,7 +1647,7 @@ git flow feature start doc # git flow feature start feat_name
 # que neste exemplo serve para trabalhar a documentação do projeto
 git branch                 # podemos ver a branch criada
   develop
-* feature/docz
+* feature/doc
   main
 # após realizar as alterações deve-se atualizar a branch
 git commit -am "commit changes"
@@ -2013,7 +2013,7 @@ E então armazenar e utilizar o token gerado assim como em **PAT**.
 Este método usa um par público e privado de chaves criptográficas assimétricas para autenticar o usuário no servidor do GitHub. A chave pública deve ser adiciona à conta GitHub do usuário para que o cliente possa utilizar a chave privada local para realizar automaticamente a autenticação via SSH.<br/>
 Para que a autenticação aconteça, o usuário deve gerar um par de chaves na máquina utilizando o **`ssh-keygen`**. Para gerar uma chave SSH utilizando este método, é necessário possuir o OpenSSH instalado, que já é embarcado por padrão na maioria das distribuições Linux.
 ```sh
-ssh-keygen -t ed25519 -C "user_email@email.com"
+ssh-keygen [-t ed25519 -C "user_email@email.com"]
 ```
 > `-t ed25519`: especifica o tipo de criptografia, é mais moderno e seguro que padrão RSA.<br/>
 > `-C`: adiciona um comentário à chave, normalmente o e-mail do criador.
