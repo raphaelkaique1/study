@@ -734,7 +734,7 @@ sudo git config --system --list # exibe todas as configurações do sistema
 
 #### `.git`
 O Git é baseado em **repositórios**, que contêm todas as versões do código e também as cópias de cada desenvolvedor. O diretório `.git` é onde o Git armazena todos os metadados e o banco de dados de objetos do projeto. O `.git` é a base de tudo no Git, sendo o que é copiado quando um repositório é clonado.<br/>
-**O comando `git init` inicializa um novo repositório Git vazio** dentro da pasta atual, ou seja, transforma um diretório comum em um **repositório Git**, permitindo realizar o **versionamento dos arquivos** contidos nele.<br/>
+**O comando `git init --initial-branch=main` inicializa um novo repositório Git vazio** dentro da pasta atual, ou seja, transforma um diretório comum em um **repositório Git**, permitindo realizar o **versionamento dos arquivos** contidos nele.<br/>
 O que permite que um diretório comum se torne um repositório Git são os metadados que o Git possui dentro de uma **pasta oculta** chamada **`.git`** no diretório atual. Essa pasta contém **todos os dados internos do Git** necessários para versionamento, como o histórico de commits, as branches, configurações locais, objetos do Git – `blobs`, `trees`, `commits`, referências – `refs`, staging area – `index`, logs, entre outras coisas necessárias para o funcionamento correto do Git.<br/>
 Ou seja, este diretório é o **"coração" do repositório Git**, que guarda **todo o histórico, estrutura e metadados** do projeto. Raramente é necessário realizar alteraçoes diretamente nele, mas entender o que ele contem é essencial.<br/>
 Sem essa pasta `.git` **não há repositório Git**, quando deletada o diretório deixa de ser versionado, dessa maneira perdendo todo o histórico. Por isso, nunca se deve alterar manualmente nenhum arquivo deste diretório, , **a menos que se saiba exatamente o que está fazendo** — alterações erradas podem corromper o repositório. Ao invés disso, deve-se sempre optar por utilizar as próprias ferramentas que o Git possui, como por exemplo `git config`.
@@ -815,7 +815,12 @@ git init                                                               # 4. inic
 # extra - caso necessário: touch .gitignore
 git add .                                                              # 5. adiciona todos os arquivos do diretório à staging area
 git commit -m "feat: create repo"                                      # 6. ponto de salvamento onde o snapshoot do novo estado atual dos arquivos é gerado
+#
 git branch -M main                                                     # 7. cria a banch principal
+#
+# para substituir o comando de renomeação de branches `-M`, é possível iniciar o git
+# configurando o nome da branch com a flag `--initial-branch=branch_name` 
+#
 git remote add origin https://github.com/user_name/repository_name.git # 8. conecta o repositório local ao remoto
 git push -u origin main                                                # 9. envia os arquivos do repositório para o diretório criado
 ```
@@ -875,18 +880,19 @@ Após o commit, os arquivos voltam ao estado *"clean"*, até que sejam modificad
 Prepara os arquivos indicados para serem salvos no próximo commit, movendo-os da "área de trabalho" para a staging area. Este comando adiciona arquivos novos – que ainda não são conhecidos ao Git no repositório em questão – ao *"tracking list"* do Git, para que ele reconheça os arquivos e seus conteúdos. O comando `git add` não salva alterações e arquivos no histórico, apenas marca-os para serem salvos. Ele permite controlar o que pode ser adcionado, sendo arquivos e modificações inteiras ou apenas parte das mudanças feitas.<br/>
 Ao utilizar o `.`, o **`git add .`** adiciona todos os arquivos no diretório atual ao *tracking* do Git, que antes verifica no **`.gitignore`** se existem arquivos que não devem ser inclusos automaticamente à staging area.
 
-| comando               | ação                                                     |
-| --------------------- | -------------------------------------------------------- |
-| `git add arquivo.txt` | Adiciona um arquivo específico à staging.                |
-| `git add .`           | Adiciona **todos os arquivos modificados** no diretório. |
-| `git add *.js`        | Adiciona todos os arquivos `.js`.                        |
-| `git add -p`          | Permite selecionar trechos `hunks` interativamente.      |
+| comando                      | ação                                                                                                                                                                                   |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `git add arquivo.txt`        | Adiciona um arquivo específico à staging.                                                                                                                                              |
+| `git add .`                  | Adiciona **todos os arquivos modificados** no diretório.                                                                                                                               |
+| `git add *.js`               | Adiciona todos os arquivos `.js`.                                                                                                                                                      |
+| `git add -p [file_name.ext]` | Permite selecionar trechos `hunks` interativamente para serem adicionados e commitados um por vez. Quando omisso o nome do arquivo realiza a operação em todos os arquivos untrackeds. |
 
 #### `commit`
 Aqui sim de fato as alterações e mudanças em arquivos *staged* são salvas no histórico do repositório local, este comando é quem cria o *snapshoot* do estado atual dos arquivos selecionados.<br/>
 Sempre que executado, o Git gera automaticamente um **hash criptográfico** exclusivo composto por 40 caracteres hexadecimais, que serve como um identificador daquele commit. O Git usa o algoritmo **S**ecure **H**ash **A**lgorithm - **1** para gerar o hash. **O conteúdo do commit é transformado em uma string única, contendo o conteúdo exato dos arquivos – ou seja, o snapshoot dos arquivos versionados – juntamente com outras informações como o autor, timestamp do commit, a mensagem inclusa, commit pai se houver, entre outros metadados, e, toda essa estrutura é processada pelo SHA-1 para gerar o _checksum_, assim, qualquer mudança mínima em qualquer parte gera um hash totalmente diferente.**. Este hash é como um **CPF** para cada commit, sendo único e imutável, e é usado pelo Git para identificar os commits no histórico de mudanças, permitindo assim compará-los, retornar o projeto ao estado de commits anteriores, entre outras possibilidades.
 
-- **`git commit`**: Cria um commit e abre o editor de texto para escrever a mensagem.
+- **`git commit`**: Cria um commit com todos os arquivos e abre o editor de texto para escrever a mensagem.
+- **`git commit file_name-1.ext file_name-2.ext`**: Cria um commit com os arquivos especificados adicionados à staging area e abre o editor de texto para escrever a mensagem.
 - **`git commit -m "feat: add login feature"`**: Cria um commit com a mensagem incluída na CLI.
 - **`git commit -a -m "fix: commit rápido"`**: Adiciona e commita os arquivos rastreados direto, shorthand de `git add . && git commit -m "message"`.
 - **`git commit --amend [options]`**: Altera o último commit. Para que o amend ocorra no caso de edições de arquivos é preciso que os arquivos corrigidos estejam na staging area.
@@ -2139,5 +2145,147 @@ gh pr create --base main --head local_user_:new_feat --repo original_author/orig
 ## GITLAB
 Assim como o GitHub, esta é uma plataforma de hospedagem de código Git com funcionalidades para colaboração, controle de versão, revisão de código, continuous integration and development e DevOps em geral. Também oferece interface web, integração com ferramentas externas, controle de permissões e automação.<br/>
 As principais diferenças entre o GitHub e o GitLab estão na arquitetura e flexibilidade de ambos. Enquanto o GitHub foca na experiência do desenvolvedor e colaboração entre devs, o GitLab foca em pipeline, controle e automação de ponta a ponta, sendo o GitHub mais indicado por sua facilidade de uso e utilidade como "rede social de código", enquanto o GitLab é mais profundo e autônomo. Se o projeto precisa de exposição pública, agilidade e colaboração leve, o GitHub é a melhor escolha, mas se o foco é integração DevOps completa, controle interno e customização profunda, então o GitLab é mais coerente. Escolher mal a ferramenta gera dívida estrutural – GitHub com gambiarras de CI e CD acaba se tornando um monstro, GitLab sem necessidade de uso do seu arsenal é burocratização desnecessária. Uma forma de avaliar qual a melhor ferramenta para o projeto é determinar qual o foco do projeto, *colaboração fluida* ou *domínio sobre a máquina DevOps*, e a resposta irá definir qual a melhor plataforma.
+
+Além de realizar o controle de versão e hospedar o código da aplicação, o GitLab possui recursos para ajudar o time de desenvolvimento, fornecendo ferramentas para teste, packing da aplicação e para a criação de todo o pipeline do deploy.
+
+### PIPELINE
+O GitLab utiliza o YAML para a criação de pipelines, que **deve ser criado com um nome determinado pelo `name space` do GitLab** para que seja interpretado corretamente: **`.gitlab-ci.yml`**.<br/>
+O Pipeline do GitLab permite o trabalho com **`stages`**, em que cada estágio pode possuir um grupo de **`jobs`**:
+- Os **`stages`** são as fases principais do pipeline, pode-se dizer que são os *"passos de execução"*, e cada stage representa um **bloco lógico de tarefas**, como **build**, **test** e **deploy** por exemplo, sendo executados em sequência, ou seja, *o próximo stage só inicia se o anterior for bem sucedido*
+- Já os **`jobs`** *são as unidades de execução dentro de cada `stage`*, onde **cada job descreve uma tarefa específica que será executada**, como rodar testes ou compilar um módulo por exemplo. *Vários jobs podem rodar em paralelo dentro de um mesmo stage, desde que não possuam dependência entre si.*
+- **Cada job possui um atributo *`script`* obrigatório, que contem as instruções que o job deve realizar**, e *cada script pode conter vários passos e instruções a serem executadas*. Os scripts em Pipelines devem ser escritos de acordo com a linguagem utilizada pela máquina para realizar operações no sistema, que em sua grande maioria serão em `ShellScript`, ou a linguagem adequada ao servidor do projeto.
+- Além destes atributos básicos, existem alguns outros utilitários como o atributo **`before_script`**, que são comandos executados antes da execução de um script dentro de um job. Server para realizar preparações de ambiente para a execução correta do script, como definição de variáveis por exemplo.
+- Outro atributo desta natureza é o **`after_script`**, que executa comandos após a execução do script. Sendo mais utilizado para a *limpeza* do ambiente após a execução dos testes, removendo arquivos temporários gerados em testes ou durante o build por exemplo.
+- O atributo **`needs`** cria dependências entre jobs, muito útil para gerenciar diferentes jobs executando dentro dos mesmos stages.
+```yaml
+stages:
+  - test
+  - build
+  - deploy
+
+test_execution:
+  stage: test
+  before_script:
+    - echo "preparing venv for tests"
+  script:
+    - echo "running integration tests"
+
+test_integration:
+  stage: test
+  script:
+    - echo "starting unit tests"
+    - echo "starting build tests"
+  after_script:
+    - echo "clearing staging area and deleting venv and temp files"
+
+build_job:
+  stage: build
+  script:
+    - echo "compiling application"
+
+push_image:
+  stage: deploy
+  script:
+    - echo "pushing image"
+
+prod_deploy:
+  needs:
+    - push_image
+  stage: deploy
+  script:
+    - echo "running deploy"
+```
+
+- Também é possível utilizar arquivos externos de scripts para a execução de scripts dentro de Pipelines, facilitando a leitura em casos de scripts grandes.
+```yml
+stages:
+  - test
+
+test_execution:
+  stage: test
+  before_script:
+    - chmod +x ./path_file/script.sh
+  script:
+    - ./path_file/script.sh
+```
+
+- Pode-se ainda criar pipelines personalizados para cada branch, podendo separar ambientes de desenvolvimento, testes, integração, homologação e produção, com processos de validação diferentes para cada um, evitando por exemplo que a pipeline da branch principal envie uma nova feature ainda em desenvolvimento e revisão para produção.<br/>
+Para isto, basta especificar nos jobs a serem executados nas determinadas branchs utilizando o atributo **`only`**.
+```yml
+stages:
+  - test
+  - build
+  - deploy
+
+test_execution:
+  stage: test
+  before_script:
+    - chmod +x ./path_file/script.sh
+  script:
+    - ./path_file/script.sh
+
+build_job:
+  stage: build
+  script:
+    - echo "compiling application"
+
+push_image:
+  only:
+    - main
+    - develop
+  stage: deploy
+  script:
+    - echo "pushing image"
+
+prod_deploy:
+  only:
+    - main
+  needs:
+    - push_image
+  stage: deploy
+  script:
+    - echo "running deploy"
+```
+
+- O atributo `only` é muito útil para projetos pequenos, onde existem poucas branches a terem regras definidas e por isso um único script de Pipeline é o suficiente, no caso de grandes projetos onde tem-se vários processos e ambientes, utilizar o atributo `only` pode acabar sendo repetitivo, poluir o script dificultando a leitura e tornar o acompanhamento muito complexo. Para resolver este problema pode-se utilizar as **`Workflow Rules`**, que definem as regras para que uma Pipeline seja escrita totalmente dedicada a uma branch específica, podendo separar a lógica em scripts para cada cenário.
+```yml
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH != "main"
+      when: never
+    - when: always
+
+# essa definição faz com que os stages só sejam executados se a variável de ambiente que armazena a branch atual
+# for igual a `main`
+
+stages:
+  - test
+  - build
+  - deploy
+
+test_execution:
+  stage: test
+  before_script:
+    - chmod +x ./path_file/script.sh
+  script:
+    - ./path_file/script.sh
+
+build_job:
+  stage: build
+  script:
+    - echo "compiling application"
+
+push_image:
+  stage: deploy
+  script:
+    - echo "pushing image"
+
+prod_deploy:
+  needs:
+    - push_image
+  stage: deploy
+  script:
+    - echo "running deploy"
+```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
