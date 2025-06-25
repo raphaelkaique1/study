@@ -2288,4 +2288,76 @@ prod_deploy:
     - echo "running deploy"
 ```
 
+- Como o GitLab executa os Pipelines em containers, uma outra possibilidade é a de poder escolher a imagem da VM para executar o script com **`image`**, sendo útil para garantir que os comandos definidos no Pipeline sejam executados adequadamente.
+```yml
+image: node:19.1
+
+stages:
+  - test
+  - build
+  - deploy
+
+test_execution:
+  stage: test
+  before_script:
+    - npm --version
+    - chmod +x ./path_file/script.sh
+  script:
+    - ./path_file/script.sh
+
+build_job:
+  stage: build
+  script:
+    - echo "compiling application"
+
+push_image:
+  stage: deploy
+  script:
+    - echo "pushing image"
+
+prod_deploy:
+  needs:
+    - push_image
+  stage: deploy
+  script:
+    - echo "running deploy"
+```
+
+- Além disto, é possível ser ainda mais específico, determinado uma imagem diferente para cada job conforme necessário.
+```yml
+image: node:19.1
+
+stages:
+  - test
+  - build
+  - deploy
+
+test_execution:
+  image: node:21.1
+  stage: test
+  before_script:
+    - npm --version
+    - chmod +x ./path_file/script.sh
+  script:
+    - ./path_file/script.sh
+
+build_job:
+  image: node:20.1
+  stage: build
+  script:
+    - echo "compiling application"
+
+push_image:
+  stage: deploy
+  script:
+    - echo "pushing image"
+
+prod_deploy:
+  needs:
+    - push_image
+  stage: deploy
+  script:
+    - echo "running deploy"
+```
+
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/continuous_integration_e_continuous_deployment_ci_cd.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#ferramentas_de_desenvolvimento">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.1-ferramentas_de_desenvolvimento/ambientes_virtuais_venv_virtualenv.md">next</a>
