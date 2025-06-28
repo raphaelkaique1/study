@@ -1,4 +1,4 @@
-# DESENVOLVIMENTO BACK END
+# DESENVOLVIMENTO BACK-END
  Este profissional é o encarregado de trabalhar no *lado do servidor*. Na prática, é quem está nos *bastidores* permitindo com que o usuário desfrute da sua navegação com o máximo de conforto. Para se tornar um desenvolvedor back-end, é necessário ter um amplo conhecimento em várias linguagens, bem como estar familiarizado com *bancos de dados*. Estes são os desafios do programador back-end:
  - **Possui extenso conhecimento em linguagens e frameworks**<br/>
  É importante que se tenha um conhecimento sólido destes tipos de linguagens para o desenvolvimento completo e eficiente de seu trabalho, entre algumas mais destacadas encontram-se:

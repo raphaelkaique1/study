@@ -3,7 +3,7 @@
  Uma *página web*, também conhecida como *página da Internet*, é um documento adapatado para a web e geralmente faz parte de um website, Sua principal característica são os *hyperlinks* para outras páginas, que é a base da web. Dentro de uma página web, podemos encontrar todo tipo de conteúdo. Uma das divisões que podemos fazer entre todos os tipos de páginas web existentes poderia ser a diferença entre *páginas estáticas* e *páginas dinâmicas*.<br/>
  Para entender a comunicação mais básica que ocorre na internet, devemos saber que ela envolve um **servidor web**, como *ISS*, *Apache* ou *NGINX*, que contém os arquivos HTML, CSS e JavaScript das páginas web; e um cliente, neste caso o navegador (*Chrome, Firefox, Edge* e etc). O servidor web e o cliente comunicam-se via **HTTPS (Hypertext Transfer Protocol Secure)**, que *é um conjunto de regras que permitem a transferência de informações via arquivos na Internet*. A comunicação entre eles começa quando o usuário, através do navegador, entra no *endereço de um website* (conhecido como **url** – Uniform Resource Locator), gerando uma solicitação ao servidor web onde a página está hospedada (via HTTPS) para encontrar os arquivos dela. O servidor web então responde à solicitação e retorna os arquivos do site (resposta HTTPS). A resposta chega ao navegador como uma cópia HTML da página web, e é neste ponto que o usuário pode vê-la em sua tela.
 
-## DESENVOLVIMENTO FRONT END
+## DESENVOLVIMENTO FRONT-END
  O desenvolvimento *front-end tem como foco de trabalho a tradução do design e das funcionalidades propostas para uma* **interface de usuário (GUI – Graphic User Interface)** concentrando-se no manuseio de **[HTML](#html)**, **[CSS](#css)** e **[JAVASCRIPT](https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.2-javascript/sintaxe_e_funcionalidades_ecmascript.md)** (geralmente são as linguagens mais utilizadas para este fim). Para isso, usasse uma série de *bibliotecas*, *frameworks* e *padrões de design* criados e testados pela comunidade, com os quais é possível trabalhar de forma eficiente.<br/>
  Quando uma página web é carregada no navegador, os códigos HTML, CSS e JavaScript estão sendo executados dentro de um ambiente de execução, a guia do navegador. Isso é como uma fábrica que pega a matéria prima, ou seja o código, e transforma em um produto, que é a página web.<br/>
  O objetivo principal do desenvolvedor front-end está relacionado à otimização dos recursos consumidos por uma aplicação, através do servidor. Um exemplo disso é o *tempo de carga (carregamento de "tela")*. Quanto menor o tempo de carga, melhor será a experiência do usuário. Meio segundo de tempo de carregamento de página pode afetar significativamente a conversão do usuário. Portanto, o tempo é essencial para qualquer website. Ninguém gosta de esperar, especialmente os usuários que estão cada vez mais acostumados à velocidade. O desenvolvedor do front-end é responsável por melhorar os tempos de carregamento, assim melhorando a experiência do usuário e, por fim, como objetivo final obter mais leads ou vendas.<br/>
@@ -36,7 +36,7 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
 ### <span id="html">HTML</span>
  A origem do HTML data de 1980, quando o físico Tim Berners-Lee, um trabalhador do CERN (Organização Européia de Pesquisa Nuclear), propôs um novo sistema de *"hypertext"* para compartilhar documentos.<br/>
  Para que possamos exibir as informações desejadas com a formatação, é necessário que cada trecho de texto tenha uma **marcação** indicando qual é o significado dele. Essa marcação também influencia a maneira com que cada trecho do texto será exibido.<br/>
- **HyperText Markup Language**, é uma *linguagem de marcação* que define a estrutura do conteúdo no documento; é uma "linguagem" composta de um connjunto *etiquetas*, ou **tags**, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc. As tags são os blocos de construção do HTML, usadas para marcar o início e o fim de seus elementos e definir a estrutura de uma página. Cada tag é cercada por colchetes angulares `< >` e pode conter **atributos** *que fornecem informações adicionais sobre o elemento*, estes são parâmetros que utilizam a sintaxe: **`atributo="valor"`**. Para definir uma imagem por exemplo, usamos a tag **`<img>`** e, para indicar o caminho que está essa imagem, usamos o atributo **`src`**: **`<img src="../path/image.png"/>`**. A tag `img` não possui conteúdo por si só, e sim carrega ali o conteúdo de um arquivo externo (a imagem). Nesses casos, não é necessário usar uma tag de fechamento. **Algumas tags são autofechadas**, *o que significa que não possuem uma tag de fechamento correspondente*, entretanto a maioria possui um par de **abertura** e **fechamento** com o conteúdo entre elas, sendo a de fechamento semelhantes a de abertura, mas inclui uma barra `/` antes do nome da tag, como `</tag>`. **O papel das `tags` é dar uma representação ao conteúdo contido entre sua abertura e fechamento. Diversas tags são disponibilizadas pela linguagem HTML e cada uma possui uma funcionalidade específica.**<br/>
+ **HyperText Markup Language**, é uma *linguagem de marcação* que define a estrutura do conteúdo no documento através da indexação dos componentes; é uma "linguagem" composta de um connjunto *etiquetas*, ou **tags**, que são as estruturas da linguagem de marcação que contem instruções sobre como devem ser interpretadas, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc. As tags são os blocos de construção do HTML, usadas para marcar o início e o fim de seus elementos e definir a estrutura de uma página. Cada tag é cercada por colchetes angulares `< >` e pode conter **atributos** *que fornecem informações adicionais sobre o elemento*, estes são parâmetros que utilizam a sintaxe: **`atributo="valor"`**. Para definir uma imagem por exemplo, usamos a tag **`<img>`** e, para indicar o caminho que está essa imagem, usamos o atributo **`src`**: **`<img src="../path/image.png"/>`**. A tag `img` não possui conteúdo por si só, e sim carrega o conteúdo de um arquivo externo (a imagem). Nesses casos, não é necessário usar uma tag de fechamento. **Algumas tags são autofechadas**, *o que significa que não possuem uma tag de fechamento correspondente*, entretanto a maioria possui um par de **abertura** e **fechamento** com o conteúdo entre elas, sendo a de fechamento semelhantes a de abertura, mas inclui uma barra `/` antes do nome da tag, como `</tag>`. **O papel das `tags` é dar uma representação ao conteúdo contido entre sua abertura e fechamento. Diversas tags são disponibilizadas pela linguagem HTML e cada uma possui uma funcionalidade específica.**<br/>
  O HTML não é uma linguagem de programação em si, embora às vezes seja referido coloquialmente como uma linguagem de programação, é composto simplesmente por uma série de **tags** que o navegador interpreta de uma forma ou de outra para exibir e moldar conteúdos diferentes na tela.<br/>
  HTML é a linguagem utilizada para o desenvolvimento de páginas na Internet, e possui tags para imagens, hyperlinks, quebras de linha, listas, tabelas e etc.<br/>
  Classicamente, diz-se que as linguagens de programação incluem 3 capacidades básicas para gerar fluxos de processo:
@@ -68,9 +68,9 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
 
 ##### ESTRUTURA DE UMA PÁGINA WEB
  Um documento HTML válido precisa seguir **obrigatoriamente** a estrutura composta pela instrução **`!<DOCTYPE>`** e as tags:
- 1. **`html`**
- 2. **`head`**
- 3. **`body`**
+ 1. **`html`**: estrutura que define o início e o fim do conteúdo do documento.
+ 2. **`head`**: carrega os _metadados_ do documento, ela contem elementos que são indiretamente ligados ao documento, ou seja, informações que não pertencem ao conteúdo em si mas são necessárias para carregar informações sobre a descrição, estilos, scripts entre outras coisas da página.
+ 3. **`body`**: 
 
  Um exemplo simples de código HTML poderia ser:
 ```html
@@ -362,6 +362,27 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
  Quando queremos indicar que um texto é um título em nossa página, utilizamos as tags de *heading* em sua marcação. As tags `<h></h>` são usadas para títulos, variando hierarquicamente em ordem de importância de `h1` (o mais importante) a `h6` (menor importância). As tags de heading não apenas mudam o tamanho do texto, mas, os motores de busca também dão importância a essas tags. A ordem de importância tem impacto nas ferramentas que processam HTML. As ferramentas de indexação de conteúdo para buscas, como o Google, Bing entre outros, levam em consideração essa ordem e relevância. Os navegadores especiais para acessibilidade também interpretam o conteúdo dessas tags de maneira a diferenciar seu conteúdo e facilitar a navegação do usuário pelo documento. Os próprios cabeçalhos geram uma quebra de linha.<br/>
  *A tag `h1` só pode ser utilizada 1 única vez em cada página, porque não pode existir mais de um conteúdo mais importante da página, então recomenda-se sempre que haja apenas uma tag `h1` **por página**, pois para fins de SEO, o mecanismo de busca sempre procurará pelo título principal.* Essa tag é utilizada para o nome, ou seja, o título principal da página, e a tag `h2` como um *subtítulo* ou *título de seções* dentro do documento.<br/>
  *Quando temos vários subtítulos de `h`, os agrupamos com a tag `<hgroup></hgroup>`.*
+
+ - **`h1`**: Representa o **título principal** da página. Deve ser usado apenas 1 vez por página, geralmente contém o assunto mais importante.
+ - **`h2`**: Representa um **subtítulo** ou uma **seção principal** dentro da estrutura do conteúdo. Pode haver vários `h2` para diferentes seções da página.
+ - **`h3`**: Usado para **subseções dentro de uma seção `h2`**. Pode ser visto como um *"capítulo"* ou *tópico dentro da seção anterior*.
+ - **`h4`**: Representa uma **subseção de um `h3`**, ajudando a organizar melhor o conteúdo em níveis mais profundos. Podendo ser usado como um subtítulo para descrever o assunto abordado em uma seção.
+ - **`h5`**: Utilizado para **subdivisões de uma `h4`**, geralmente como subtítulos de seções ou complementares à estrutura superior.
+ - **`h6`**: Usado para detalhamentos específicos dentro de uma **subseção de `h5`**.
+
+Exemplo:
+```html
+<h1>Manual do Usuário</h1>
+  <h2>Instalação</h2>
+    <h3>Requisitos do Sistema</h3>
+    <h3>Procedimento de Instalação</h3>
+      <h4>Windows</h4>
+        <h5>Instalação Automática</h5>
+        <h5>Instalação Manual</h5>
+      <h4>Linux</h4>
+        <h5>Usando o Terminal</h5>
+          <h6>Comandos Avançados</h6>
+```
 
 ###### PARÁGRAFO
  Para informar ao navegador que ele exiba um texto em um parágrafo, deve-se escrevê-lo entre as tags `<p>texto do parágrafo</p>`, com o texto separado por uma margem em branco acima e abaixo.
@@ -775,7 +796,12 @@ a abertura da tabela.**
  A tag `figure` é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.
 
 **IMAGENS**<br/>
- As imagens dentro de uma página web são incluídas dentro da tag `figure` que define uma imagem em conjunto com a tag `<img>` (que não tem par de fechamento), indicando para o navegador que uma imagem deve ser renderizada naquele local.<br/>
+ A tag que possibilita a renderização de imagens no documento é a **`<img/>`**, que através do atributo obrigatório **`src`** é possível indicar o local do armazenamento da imagem a ser usada.<br/>
+ O conteúdo no atritbuto **`alt`** será utilizado apenas quando a imagem não for carregada – a imagem não existe mais no caminho informado ou o caminho está desatualizado – ou pelos leitores de tela de acessibilidade.
+ ```html
+ <img src="image_path/img.ext" title="Image title." alt="Accessibility description." />
+ ```
+ As imagens dentro de uma página web são incluídas dentro da tag **`figure`** que define uma imagem em conjunto com a tag **`<img/>`**, indicando para o navegador que uma imagem deve ser renderizada naquele local.<br/>
  Ao utilizá-la, é necessário especificar o caminho onde a imagem está localizada, seja um caminho para um diretório local ou um endereço na internet; **isso é feito com o atributo `src`, que é um atributo obrigatório para exibir a imagem e aponta para a sua localização.**<br/>
  **Outros atributos não obrigatórios mas ALTAMENTE RECOMENDADOOS PARA O SEO, são os atributos `alt`, `title` e `figcaption`.**
  - **`alt` alternative**: *Permite exibir uma mensagem alternativa no lugar da imagem caso ela não possa ser encontrada e exibida.*
@@ -863,12 +889,12 @@ Aqui falaremos sobre como adicionar legendas.
 
 ###### FORMULÁRIOS
  Os formulários tem o propósito de coletar informações fornecidas pelos visitantes do site, que são então enviadas ao servidor para serem processadas.<br/>
- Para que ele seja útil, é importante que o formulário fornecido seja acompanhado por um código do lado do servidor, que chamaremos de *"agente de processamento"*, que se encarrega de receber e processar as informações. Este processamento pode consistir, por exemplo, em armazenar as informações ou enviá-las por e-mail.<br/>
+ Para que ele seja útil, é importante que o formulário fornecido seja acompanhado por um código do lado do servidor, chamado *"agente de processamento"*, que se encarrega de receber e processar as informações. Este processamento pode consistir, por exemplo, em armazenar as informações ou enviá-las por e-mail.<br/>
  Um formulário é identificado pela tag `form`, e é basicamente um recipiente para controles. Cada controle em um formulário tem o objetivo de coletar informações inseridas pelos usuários em formulários que podem variar de linhas de texto, a upload de arquivos, datas, senhas e muito mais. Uma vez que os usuários tenham preenchido o fomulário com dados, eles podem ser enviados ao servidor para que o agente de processamento gerencie as informações coletadas.<br/>
  **Os usuários interagem com os formulários através dos chamados controles.** De forma simplificada, um controle é definido como *um objeto que é exibido na tela e que pode ser modificado pelo usuário*. Por exemplo, um botão, uma caixa de texto, um menu suspenso e etc.<br/>
- **Os formulários geralmente fazem uso da tag *`action`*, que se refere à página para a qual as informações no formulário serão encaminhadas.**
+ **Os formulários geralmente fazem uso da tag *`action`*, que se refere à página para a qual as informações no formulário serão encaminhadas, ou seja, o destino do conteúdo digitado pelo usuário – que será "ativado" quando o usuário enviar o formulário.**
 ```html
-<form action="https://server.php"></form>
+<form action="https://server.php/API"></form>
 ```
  *Se não for enviado para nenhuma outra página, é deixado vazio, para utilizar as informações na mesma página.*
 ```html
@@ -877,7 +903,23 @@ Aqui falaremos sobre como adicionar legendas.
  Isto geralmente é seguido pelo atributo `method`, que pode ser `post` ou `get`.<br/>
  A diferença entre os métodos `get` e `post` reside na forma como os dados são enviados para o destino quando o botão de enviar é pressionado.<br/>
  Enquanto o método `get` envia os dados usando a URL, o método `post` os envia de forma oculta ao usuário.<br/>
- O método `get` exibe na URL os dados inseridos no formulário quando é enviada ao servidor, por isso, é pouco confiável, pois com o conhecimento certo é fácil interpretar os dados. Portanto, sempre que formulários forem enviados, o método ideal é o `post`, no qual os dados são ocultos.<br/>
+ O método `get` exibe na URL os dados inseridos no formulário quando é enviada ao servidor como parâmetros de consulta `query string: https://exemplo.com/busca?termo=livros&categoria=romance`, por isso, é pouco confiável, pois com o conhecimento certo é fácil interpretar os dados, além de possuir um tamanho limite de comprimento. Este método é normalmente usado para **requisições sem efeitos colaterais**, como pesquisas em bancos de dados, filtros e navegação, podeno também ser compartilhados já que os dados estão na URL.<br/>
+ Portanto, sempre que formulários forem enviados, o método ideal é o `post`, no qual os dados são ocultos à URL pois são enviados no corpo da requisição HTTP, sendo mais seguro para dados sensíveis como senhas ou informações pessoais, assim sendo mais usado para **requisições que alteram o estado** no servidor.<br/>
+```html
+<!-- GET: ideal para buscas -->
+<form method="get" action="/buscar">
+  <input type="text" name="q" placeholder="Pesquisar...">
+  <button type="submit">Buscar</button>
+</form>
+
+<!-- POST: ideal para envio de dados privados -->
+<form method="post" action="/login">
+  <input type="text" name="usuario">
+  <input type="password" name="senha">
+  <button type="submit">Entrar</button>
+</form>
+```
+
  A tag `enctype` nos permite carregar e enviar arquivos ao servidor. Ele define o tipo de codificação de dados que será usado ao enviar um formulário. Quando o formulário é enviado, os dados dos campos são convertidos em pares de chave-valor e são codificados na URL. Esse tipo de codificação é usado principalmente para dados de formulário simples, como texto e números. Esse tipo de codificação é o padrão para a maioria dos formulários:
 ```html
 <form enctype="application/x-www-form-urlencoded"></form>
@@ -930,19 +972,85 @@ Aqui falaremos sobre como adicionar legendas.
     <>...</>
 </form>
 ```
-
- **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.**
+ - _**A tag `name` É OBRIGATÓRIA, pois é o nome ao qual nos referimos quando o enviamos ao servidor, ou seja, se o nomearmos "`Nome`", poderemos recuperá-lo no servidor para processar o dado no valor atribuído.**_ *Neste exemplo, os dados do formulário, ou seja, **o valor inserido no campo `query`** serão enviados como parte da URL: **`https://exemplo.com/search?query=valorFornecidoPeloUsuário`**.<br/>
+ **Normalmente, as propriedades `name` e `id` recebem o mesmo nome, embora não seja obrigatório.**
 ```html
- <input type="" name=""/>
-```
-
- - _**A tag `name` É OBRIGATÓRIA, pois é o nome ao qual nos referimos quando o enviamos ao servidor, ou seja, se o nomearmos "`Nome`", poderemos recuperá-lo com `$_post("Nome")` ou `$_get("Nome")`.**_ *Neste exemplo, os dados do formulário, ou seja, **o valor inserido no campo `query`** serão enviados como parte da URL, como **https://exemplo.com/buscar?query=valorFornecidoPeloUsuário.*** Normalmente, as propriedades `name` e `id` recebem o mesmo nome, embora não seja obrigatório.
-```html
-<form method="GET" action="/buscar">
-  <input type="text" name="query" placeholder="Buscar"/>
+<form method="GET" action="/search">
+  <input type="text" name="term" placeholder="Buscar..."/>
   <button type="submit">Pesquisar</button>
 </form>
 ```
+ No exemplo acima, se o usuário digitar **`BMW`**, o navegador para a requisição no **`action`** indicado:
+```sh
+GET /search?term=BMW
+```
+ Então um servidor em **`Node.JS`** por exemplo, pode realizar o processamento com base nas informações recebidas:
+```js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// rota para lidar com GET /search
+app.get('/search', (req, res) => {
+  const term = req.query.term; // obtem o valor da URL `query string`
+  
+  // exemplo de lógica: simula uma busca no "banco de dados"
+  const cars = [
+    'bmw',
+    'ferrari',
+    'nissan',
+    'toyota'
+  ];
+
+  // filtra carros que contêm o termo buscado (case insensitive)
+  const result = cars.filter(car =>
+    car.toLowerCase().includes(term.toLowerCase())
+  );
+
+  // retorna os resultados, podendo ser em JSON ou HTML
+  res.send(`<h1>Resultados para "${term}":</h1><ul>${
+    result.map(title => `<li>${title}</li>`).join('')
+  }</ul>`);
+});
+
+// inicia o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
+```
+ Então, enquanto a tag `form` é utilizada para criar os formulários – ou seja, solicitar informações aos usuários – a tag **`input`** é o campo onde estarão os itens do formulário. **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.** Através da propriedade **`type`**, a tag `input` entende qual o componente deve representar na tela.<br/>
+ O atributo **`name`** é obrigatório, tanto para relacionar à o `input` ao `form` em questão, quanto para identificar o dado enviado ao servidor. Ela é essencial para que o backend saiba **qual o valor correspondente a qual campo**.
+```html
+ <input type="" name=""/>
+```
+Quando um formulário é enviado, o navegador monta os dados como pares **`nome=valor`**, onde o que vai no campo **`nome`** é o **identificador do dado valor**. Por exemplo:
+```html
+<form method="get" action="/buscar">
+  <input type="text" name="term" placeholder="Digite algo...">
+  <button type="submit">Buscar</button>
+</form>
+```
+Se o usuário digitar `livros` neste exemplo, a URL gerada será:
+```shell
+# /API?name=value
+/buscar?termo=livros
+# /buscar = API servidor
+# termo = name
+# livros = valor
+```
+Quando este outro formulário por exemplo é enviado:
+```html
+<form method="post">
+  <input type="text" name="email" value="raphael@email.com">
+  <input type="password" name="senha" value="psswrd@00">
+  <button type="submit">Entrar</button>
+</form>
+```
+Os dados que chegam ao servidor são como:
+```shell
+email=raphael@email.com&senha=psswrd@09
+```
+**Se o atributo `name` não existir no input, o campo em questão não é enviado ao servidor, justamente por não haver um identificador para o dado.**
 
  - **ELEMENTOS DE VALIDAÇÃO**
     - **`required`**: *Indica que é **OBRIGATÓRIO** preencher o campo para o envio do formulário.*
@@ -2674,6 +2782,7 @@ A propriedade background permite controlar o plano de fundo de um elemento, incl
 ```
 
 ##### IMAGENS
+
 
 ##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
