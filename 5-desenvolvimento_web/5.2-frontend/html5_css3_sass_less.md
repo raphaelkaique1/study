@@ -15,7 +15,7 @@
 ##### WEB SITE
  **Um Web Site é uma coleção de páginas HTML estáticas**, ou seja, não interagem com um banco de dados através de uma linguagem de servidor web. Aqui, todo o conteúdo do site está escrito diretamente no documento HTML, assim como as imagens e outras mídias. Claro que, para qualquer página Web ser fornecida e disponibilizada publicamente, a mesma deve estar hospedada em um simples servidor Web – *hospedagem de sites*.<br/>
  Uma **página web estática** *está focada principalmente na exibição de informações permanentes*, onde o usuário se limita a somente visualizar essas informações, sem poder interagir com a página em questão. Este usuário só pode interagir com a página estática através dos elementos permitidos, como clicar em links e botões, ou preencher formulários. Quando falamos em "estática", podemos também dizer que a página web tem um número fixo de páginas, ou seja, da forma como foi projetada e armazenada no servidor web, ela é recebida pelo navegador e vista pelo usuário como um número fixo de páginas HTML. Podemos dizer que sites estáticos não armazenam informações externas, somente aquelas contidas no seu código fonte (armazenadas no servidor). Sites estáticos não são tão complexos tecnicamente quanto sites dinâmicos, além de também não são tão versáteis e eficazes quando de trata de oferecer funcionalidades. Simplificando, em um website estático, veremos as mesmas informações, layout e conteúdo sempre que o visitarmos, a menos que alguém aplique mudanças no código fonte manualmente. Um website estático possui algumas vantagens devido sua natureza estática, a complexidade e o tempo de desenvolvimento são menores, por que não requerem o uso de multiplas linguagens de programação ou de um banco de dados, e, por isso seu custo de desenvolvimento e implantação são baixos; por conta dessa característica "simplista", possuem um *tempo de carregamento extremamente rápido*, pois são *pré-construídos* e não possuem scripts complexos que levam tempo para executar ações, ainda mais com o advento do *Jamstack* como gerador de sites estáticos focado em desempenho e velocidade, incuindo o *Jekyll*, *GatsbyJS SSG*, *Eleventy*, *Headless CMS*, *Netlify CMS*, *Siteleaf CMS* e *Forestry CMS*. Além disso, é importante incorporar a *CDN (Content Delivery Network)* para gerenciar recursos de multimídia; ela pode gerar um aumento no custo de carregamento de uma página estática dependendo de suas características.
-##### WEB SITE
+##### APLICAÇÃO WEB
  **Uma Aplicação Web pode conter uma coleção de páginas, porém o conteúdo destas páginas é montado dinamicamente,** ou seja, é carregado através de *solicitações*, ou *requisições*, à um banco de dados, que conterá armazenado os textos e indicação dos caminhos das imagens ou mídias que a página precisa exibir. Porém um HTML não tem acesso direto à um banco de dados, e esta comunicação deve ser feita por meio de uma linguagem de programação de servidor Web. Esta aplicação escrita com uma linguagem de servidor que tem o poder de acessar o banco de dados e montar a página HTML conforme o solicitado pelo navegador. Estas solicitações podem ser feitas de várias maneiras, inclusive utilizando *JavaScript*. Portanto uma Aplicação Web é mais complexa porque precisa de uma linguagem de servidor para poder intermediar as solicitações do navegador, um banco de dados, e muitas vezes (porém não obrigatoriamente) exibir páginas HTML com estes conteúdos.<br/>
  Um **site dinâmico** *é aquele que contém aplicações dentro do próprio site, proporcionando maior interatividade com o navegante*. Exemplos de aplicações dinâmicas são pesquisas e votações, fóruns de suporte, livros de visitas, envio de e-mails, reservas de produtos, pedidos online, e etc. *É importante não confundir multimídia e interatividade com páginas dinâmicas.* Uma página web estática pode conter vários tipos de mídia e interativa através de links e hyperlinks, sem ser dinâmica em si. Já em páginas dinâmicas, o conteúdo é normalmente gerado no momento da visualização e pode, portanto, variar; enquanto páginas estáticas o conteúdo é normalmente predeterminado. As páginas web dinâmicas são interativas e funcionais, ao invés de simplesmente informativas. Naturalmente, isto requer mais do que apenas código HTML e CSS. Os sites dinâmicos baseiam seu comportamento e funcionalidadesem 2 tipos de programação: *front-end (lado do cliente – faz requisições)* e *back-end (lado do servidor – responde às requisições)*. As instruções do lado do cliente são códigos JavaScript, que são executados no navegador. Instruções do lado do servidor são escritas em linguagens de script, tais como ASP.Net, PHP, Python, entre outras, que são executadas para criar o que o usuário solicitou em sua interação com a página. Uma vez que as instruções tenham sido executadas no servidor, uma nova resposta HTTPS é devolvida ao navegador, exibindo ao usuário o que foi solicitado. O resultado final é o mesmo que em um site estático: uma página HTML que o usuário vê do navegador. *O importante nessa classificação entre dinâmica e estática é que, uma página web estática não pode ser modificada pelo usuário, enquanto que a dinâmica sim e armazena estes dados alterados.* Entre as vantagens de um site dinâmico, está a possibilidade de que ele pode gerenciar informações através de banco de dados. Isto permite ao usuário solicitar facilmente informações de forma organizada e estruturada dentro de uma tabéla ou catálogo, assim como criar e exibir conteúdo de acordo com o tipo de usuário que acessa a página; além de que, seu conteúdo pode ser gerenciado através de um *CMS (Content Management System – software que permite criar, editar, organizar e publicar conteúdo digital)*. O conteúdo armazenado no CMS pode incluir uma variedade de arquivos, desde texto às imagens exibidas, layouts da página, configurações do site e muito mais. Isto permite flexibilidade ao criar o site, e também, que vários usuários manipulem o conteúdo conforme necessário, fazendo com que se tenha um custo de manutenção menor do que seria em alterar o conteúdo em uma página estática por exemplo. Como as informações podem ser gerenciadas através de um CMS, há pouco ou nenhum custo quando se trata de manutenção dessas informações. Em contra partida, por conta de tantas funcionalidades, seu desenvolvimento e implementação podem possuir um alto custo. Além do custo do desenvolvimento da aplicação, há o custo do desenvolvimento do banco de dados onde o conteúdo a ser exibido será armazenado. O dsesenvolvimento pode aumentar seu custo ainda mais a medida que novas funcionalidades são adicionadas. Embora os custos de manutenção possam ser menores, este custo de desenvolvimento inicial é algo a se considerar durante a elaboração do projeto e definição do escopo de acordo com a necessidade. Também podem haver limitações técnicas no projeto. Há depender da arquitetura escolhida, como o conteúdo é baseado principalmente nas informações contidas no banco de dados e a apresentação ao usuário é baseada na estrutura do banco, isto pode tornar o projeto "engessado" complicando a criação de livre vontade, pois é mais fácil optar por uma única abordagem para todas as páginas. Dependendop do CMS, pode ser difícil criar vários layouts ou modelos que permitam que diferentes tispo de conteúdo sejam exibidos de diferentes maneiras.
 
@@ -92,6 +92,7 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
 
 ###### CONCEITOS
  Os comentários em HTML possuem a seguinte sintáxe: `<!-- comentário -->`. Por convenção, a *página principal* de qualquer projeto web é normalmente chamada de **index.html**.<br/>
+ Outra convenção de boa prática é manter o documento *indentado*, pois, como é possível perceber, a estrutura de uma página HTML consiste em tags dentro de outras tags, e sem uma devida organização, o código pode se tornar difícil de ler e compreender.<br/>
  Uma página HTML consiste a princípio de 2 partes distintas, o **head** e o **body**, nas quais as tags são distribuídas:
 ```html
 ╭──<!DOCTYPE>───────────╮       <!DOCTYPE html>
@@ -107,6 +108,7 @@ _*A única linguagem que um navegador Web consegue interpretar para a exibição
 | ╰─</body>─────────────────╯ |     </body>
 ╰──</hmtl>────────────────────╯ </html>
 ```
+
 ###### ORGANIZAÇÃO DO HEAD
  O **head** *(cabeçalho da página)* contém os **metadados**, que são dados que o usuário não vê, mas que o *navegador* considera úteis. Os *metaelementos*, ou *metamarcas*, fornecem informações descritivas sobre a página; o *title* da página e possíveis *links* para páginas CSS ou JavaScript. Vejamos:
  - **`<!DOCTYPE html>`**: Declara o tipo de documento e a versão do HTML. Indica para o navegador qual versão do HTML deve ser utilizada para exibir a página. Quando não colocamos essa instrução a página é exibida numa espécie de *"modo de compatibilidade"* na qual algumas tags e estilizações não funcionam corretamente, principalmente as tags e estilizações mais atuais. _A declaração do DOCTYPE, pode ser escrita toda em maiúsculo ou toda em minúsculo ou com a primeira letra maiúscula: `<!DOCTYPE HTML>`, `<!DOCTYPE html>`, `<!Doctype HTML>`, `<!Doctype html>`, `<!doctype html>`, `<!doctype HTML>`. **O resultado será o mesmo para todos os casos.**_
@@ -222,8 +224,13 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 └───────────────────────────────┘
 ```
 
- Essa distribuição é indicativa, qualquer elemento pode ser omitido ou movido de acordo com o projeto. _*Somente as tags **`head`** e **`body`** são obrigatórias_, porém, a inclusão de todos estes elementos melhora o posicionamento *SEO*. **Search Engine Optimization** é um conjunto de estratégias e técnicas usadas para melhorar a visibilidade de um site nos resultados orgânicos (não pagos) dos mecanismos de busca.<br/>
+ Essa distribuição é indicativa, qualquer elemento pode ser omitido ou movido de acordo com o projeto. _*Somente as tags **`head`** e **`body`** são obrigatórias_, porém, a inclusão de todos estes elementos melhora o posicionamento *SEO*. **Search Engine Optimization** é um conjunto de estratégias e técnicas usadas para melhorar a visibilidade de um site nos resultados orgânicos não pagos dos mecanismos de busca.<br/>
  `header`, `main` e `footer` podem ser aplicados em qualquer parte do documento, exemplo:
+ - **`header`**: define uma seção de cabeçalho de uma página ou de uma parte dela, sendo usada para agrupar o logo, título, menu de navegação e informações iniciais. Pode haver mais de 1 header por seção em páginas.
+ - **`main`**: representa o conteúdo principal da página, abriga textos, artigos, seções entre outros elementos que são o foco principal do site. Deve haver apenas 1 por página.
+ - **`footer`**: seção de rodapé da página ou de um bloco específico que contem informações extras como links de contato, informações de direitos autorais e demais itens relacionados.
+
+ Essas tags ajudam na estrutura semântica do HTML, tornando o conteúdo mais compreensível para navegadores, leitores de tela e mecanismos de busca. Toda essa organização semântica indica aos mecânismos de busca que o site possui uma estrutura bem definida e alinhada com os conceitos de acessibilidade, o que soma pontos para elencar o site entre os primeiros nos resultados de pesquisas.
 
 ```html
 <!DOCTYPE html>
@@ -256,7 +263,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
             <section id="about">
                 <h2>About Me</h2>
                 <p>
-                    Working in software development since 2020. Specialized in TypeScript and its ecosystem (JavaScript, Node.js, Express.js, Nest.js, React.js, Vue.js, Angular.js, Next.js, among others).
+                    Working in software development since 2020. Specialized in JavaScript and its ecosystem (TypeScript, Node.js, Express.js, Nest.js, React.js, Vue.js, Angular.js, Next.js, among others).
                 </p>
                 <p>
                     Experience in complex projects, with strong knowledge of databases, servers, APIs, systems integration and software architecture. Skilled in collaborative environments and agile methodologies, always seeking innovation and efficiency in processes with the objective of delivering scalable solutions in high-performance environments.
@@ -285,18 +292,101 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
     </body>
 </html>
 ```
+ - A tag `aside` é utilizada para representar um conteúdo complementar ao conteúdo principal como uma barra lateral que contem links relacionados ao conteúdo ou mesmo informações extras, ou seja, está relacionada a informações paralelas à informação do conteúdo principal da página, como banners e informações adicionais.
+ - O elemento `nav` é usado para agrupar blocos de links, como uma seção menu para navegação no site, agrupando-os por assuntos ou em listas de navegação interna da página.
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Semântico</title>
+</head>
+<body>
+
+  <header>
+    <h1>Hello HTML!</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Apresentação</a></li>
+        <li><a href="#">História</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Documentação</a></li>
+      </ul>
+        <h2>Cursos</h2>
+        <li><a href="#">XML</a></li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">HTMX</a></li>
+      <ul>
+    </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h2>Bem-vindo HTML</h2>
+      <p>Este é o conteúdo principal da página. Este é o campo para exibir textos, imagens, vídeos e muito mais.</p>
+    </article>
+
+    <aside>
+      <h3>Informações adicionais</h3>
+      <ul>
+        <li><a href="#">Artigo relacionado 1.</a></li>
+        <li><a href="#">Artigo relacionado 2.</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
+```
 
  Para melhorar ainda mais o SEO, utilizamos as tags `section` e `article`, que são usadas para agrupar partes do documento de acordo com sua relação com o conteúdo:
- - Usamos a tag `section` para *agrupar conteúdos similares*, indicando que o conteúdo dentro dela pertence a uma área ou parte específica da página.<br/>Normalmente, é recomendada a utilização de um título dentro de uma `section` para definir claramente o tópico daquela seção, isso melhora a estrutura e a hierarquia do conteúdo.<br/>Não se deve utilizar a tag `section` para agrupar elementos arbitrários ou partes que não têm um propósito semântico claro, por exemplo, usá-la apenas para estilizar ou agrupar blocos sem conteúdo temático específico não é recomendado.
- - A tag `article` representa um conteúdo independente, como um post de blog, uma notícia ou um comentário. É indicada para partes de conteúdo independente e autossuficiente, que podem ser reutilizadas, distribuídas ou lido *fora do contexto da página*, de forma autônoma (por exemplo, uma seção de publicações ou projetos).
- - Embora o `div` também agrupe elementos, ele não tem significado semântico. Ele é utilizado para fins de estruturação e estilização, mas não comunica o conteúdo de forma tão clara e eficiente.
+ - A tag **`section`** define um bloco ou um grupo de informações sobre um conteúdo em particular, é usada para *agrupar conteúdos similares*, indicando que o conteúdo dentro dela pertence a uma área ou parte específica da página.<br/>
+ Resumidamente, esta tag permite criar sessões na página, dividindo-as por conteúdo e ainda utilizando a semântica em favor do documento, dando assim mais significado ao código e o construindo com mais definição.<br/>
+ Normalmente, é recomendada a utilização de um título dentro de uma `section` para definir claramente o tópico daquela seção, isso melhora a estrutura e a hierarquia do conteúdo.<br/>
+ Não se deve utilizar a tag `section` para agrupar elementos arbitrários ou partes que não têm um propósito semântico claro, por exemplo, usá-la apenas para estilizar ou agrupar blocos sem conteúdo temático específico não é recomendado.
+ - A tag **`article`** representa um conteúdo independente, como um post de blog, uma notícia ou um comentário. É indicada para partes de conteúdo independente e autossuficiente, que podem ser reutilizadas, distribuídas ou lido *fora do contexto da página*, de forma autônoma como por exemplo, uma seção de publicações ou projetos.<br/>
+ Assim como a tag `section`, esta tag utilizza sua semântica para dividir as informações, agora com um propósito mais específico. Semanticamente, vários articles sobre um tema são agrupados na `section` referente a ele.
+ - Embora o **`div`** também agrupe elementos, ele não tem significado semântico. Ele é utilizado para fins de estruturação e estilização, mas não comunica o conteúdo de forma tão clara e eficiente.
+
+```html
+<main>
+    <section id="news">
+        <section id="finances">
+            <article id="bitcoin">
+                <p>Bitcoin...</p>
+                <p>BTC...</p>
+            </article>
+            <article id="ethereum">
+                <p>Ethereum...</p>
+                <p>ETH...</p>
+            </article>
+        </section>
+        <section id="geopolitics">
+            <article id="west">
+                <p>USA...</p>
+                <p>EU...</p>
+            </article>
+            <article id="east">
+                <p>CHINA...</p>
+                <p>RUSSIA...</p>
+            </article>
+        </section>
+    </section>
+</main>
+```
 
  Então, a hierarquia de uma boa estrutura do `body` num documento html seria:
  <ol>
     <li>
         <strong><code>header</code>: Cabeçalho da página.</strong><br/>Contém os elementos de introdução da página. Geralmente, ele inclui:
         <ul>
-            <li><strong>Logo ou nome do site/pessoa:</strong> Pode ser um título <code>h1</code> ou um logo em imagem.</li>
+            <li><strong>Logo ou nome do site:</strong> Pode ser um título <code>h1</code> ou um logo em imagem.</li>
             <li><strong>Navegação principal:</strong> Links principais de navegação, como menu de navegação <code>nav</code>.</li>
             <li><strong>Informações introdutórias:</strong> Um slogan ou descrição curta do site, se necessário.</li>
         </ul>
@@ -315,6 +405,15 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
             </li>
             <li style="list-style-type: none"><span>2.2.</span>
                 <strong><code>article</code>: Agrupamento de conteúdo independente.</strong><br/>Utilizado para conteúdos que são autossuficientes e podem ser distribuídos ou lidos fora do contexto da página. Dentro dele podemos ter:
+                <ul>
+                    <li><strong>Subtítulos</strong>: Para informar do que se trata o conteúdo.</li>
+                    <li><strong>Parágrafos</strong>: Para o conteúdo textual.</li>
+                    <li><strong>Imagens</strong>: Imagens relevantes.</li>
+                    <li><strong>Links</strong>: Links internos ou externos relevantes para a informação.</li>
+                </ul>
+            </li>
+            <li style="list-style-type: none"><span>2.3.</span>
+                <strong><code>aside</code>: Agrupamento de conteúdo extra relacionado ao conteúdo principal.</strong><br/>Utilizado para conteúdos que complementam informações dentro de um <code>main</code>. Dentro dele podemos ter:
                 <ul>
                     <li><strong>Subtítulos</strong>: Para informar do que se trata o conteúdo.</li>
                     <li><strong>Parágrafos</strong>: Para o conteúdo textual.</li>
@@ -475,6 +574,31 @@ O exemplo acima fará com que o usuário que clicar no link seja levado à porç
 <a href="https://github.com/raphaelkaique1"><img src="https://avatars.githubusercontent.com/u/182110258" alt="Fulltechware Logo"></a>
 ```
 <a href="https://github.com/fulltechware/" title="Fulltechware's github profile" target="_blank"><img width="150rem" src="https://avatars.githubusercontent.com/u/182110258" alt="Fulltechware Logo"></a>
+
+###### PATHS
+Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados para referenciar arquivos como imagens, folhas de estilo, scripts, páginas e outros recursos. Existem diferentes tipos de caminhos e entender cada um é fundamental para a navegação de um web site ou uma aplicação web.
+
+1. **absolute**: é o caminho que aponta para uma URL completa na web, ou seja, independente da localização do arquivo HTML no projeto o link irá funcionar, pois aponta diretamente para o recurso.
+```html
+<a href="https://raphaelkaique1.github.io/raphaelkaique1/main/index.html">raphaelkaique1</a>
+```
+
+2. **root-relative**: caminho relativo à raiz do site, geralmente a pasta pública do servidor. Inicia com uma barra **`/`**, se o site estiver hospedado em **`https://website.com`**, o caminho **`/img/logo.png`** apontará para **`https://website.com/img/logo.png`**.
+```html
+<img src="/img/logo.png" alt="Logo"/>
+```
+
+3. **relative-path**: indica o caminho a partir do arquivo HTML atual, ideal para sites locais ou projetos em pastas tornando o projeto portável pois funciona mesmo ao mover o site para outro domínio.
+```html
+<!-- index.html -->
+<link rel="stylesheet" href="css/style.css"/>
+<a href="about.html">about</a>
+```
+
+4. **directory-above**: caminho relativo que navega entre os diretórios a partir do arquivo atual.
+```html
+<img src="../img/logo.png" alt="Logo"/>
+```
 
 ###### LISTAS
  **_*Podemos combinar todos os tipos de listas que veremos a seguir uns com os outros, a depender da necessidade; <u>mas sempre pensando no SEO</u>._**<br/>
@@ -1258,6 +1382,35 @@ email=raphael@email.com&senha=psswrd@09
 </form>
 ```
 
+###### `data-info`
+Este atributo personalizável é muito utilizado como uma forma de armazenar informações e dados extras – geralmente temporários como IDs, nomes, categorias e etc – em elementos HTML sem bagunçar a estrutura e afetar a apresentação da página. **É particularmente útil para que o script possa acessar e manipular tais dados.**<br/>
+Sua sintaxe básica informa que o atributo deve começar com **`data-*`** e em seguida o **nome personalizado**, e então atribuir-lhe uma **string como valor**.
+```html
+<h4 data-name="Raphael" data-id="999">raphaelkaique1</h4>
+```
+Agora então, é possível que o JS acesse os dados do elemento:
+```html
+<h4 id="user" data-name="Raphael" data-user_id="999">raphaelkaique1</h4>
+<script>
+    const div = document.getElementById("user");
+
+    console.log(div.dataset.name);     // "Raphael"
+    console.log(div.dataset.user_id);  // "999"
+
+    // modificando os dados
+    div.dataset.name = "Kaique";
+</script>
+```
+
+Em resumo, este atributo serve para definir mais informações para os componentes de tela, para que possam servir para pesquisas filtrando suas informações, permitindo que buscas elaboradas sejam realizadas pela leitura do código HTML semanticamente. Outro bom exemplo é o de um áudio, onde é possível utilizar este atributo para definir o autor, a duração do áudio e etc.
+```html
+<audio controls="controls">
+    <source src="https://www.youtube.com/watch?v=lx0eir2xF5E" type="audio/mp3" data-duration="1min12secs" data-artist="CriaScript" />
+</audio>
+```
+
+Os valores armazenados no atributo não alteram em nada a renderização do elemento em tela, sendo úteis apenas para as linguagens de script. O HTML agrupa estes atributos e os disponibiliza para os scripts, para que estes posam filtrar elementos da página para exibir apenas os que atenderem ao filtro por exemplo.
+
 ###### VIAS E ROTAS
  Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. Existem 2 tipos de caminhos, porém, **recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**:
  1. **caminho relativo**: especifica a localização em relação ao documento atual.
@@ -1265,8 +1418,9 @@ email=raphael@email.com&senha=psswrd@09
     - **`src="dir/file.ext`**: **O arquivo está localizado em uma pasta na raiz do site atual.**
     - **`src="../file.ext`**: **O arquivo está localizado na pasta um nível acima da pasta atual.**
  2. **caminho absoluto**: especifica a localização completa incluindo o domínio.
-    - **`src="https://site.com/image.png` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
+ - **`src="https://site.com/image.png"` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
 
+###### TAGS
 <table border="1px">
     <caption>LISTA DE TAGS</caption>
     <colgroup>
@@ -1889,9 +2043,9 @@ email=raphael@email.com&senha=psswrd@09
 ##### ESTILIZAÇÃO
  Para se criar instruções de estilo, *primeiro é declarado a qual **seletor** será aplicado, e em seguida o bloco de declaração é criado;* dentro das chaves, ou seja, do bloco de instrução, usamos um par de **propriedade** e **atributo** para realizar a estilização. Os seletores são padrões usados para manipular os elementos que se dejesa estilizar. Para se criar um estilo, as *instruções* são divididas em 2 grupos:
  - **seletores**: Especificam dentro da página web quais elementos serão afetados, sua declaração vai depender do seu tipo:
-    - **`id`**: deve-se usar `#` para se referir ao elemento.
-    - **`class`**: usa-se `.`, e atinge todos os elementos atribuídos à mesma classe.
-    - **`tag`**: caso seja necessário aplicar um estilo a todos elementos do mesmo tipo usa-se a identificação da `tag`.
+    - **`id`**: deve-se usar **`#`** para se referir ao elemento.
+    - **`class`**: usa-se **`.`**, e atinge todos os elementos atribuídos à mesma classe.
+    - **`tag`**: caso seja necessário aplicar um estilo a todos elementos do mesmo tipo usa-se a identificação da **`tag`**.
  - **bloco de declaração**: Contém entre chaves seguidas após o seletor `{...}` as regras de estilo para o elemento em questão.
     - **propriedade**: *Define qual característica será alterada.* Como por exemplo `color`.
     - **atributo**: *Define a alteração a ser feita naquela propriedade*, como por exemplo aplicar a cor `#333`. 
@@ -2061,6 +2215,33 @@ email=raphael@email.com&senha=psswrd@09
  }
  ```
  **No exemplo acima nós deixamos nosso seletor mais específico para os `p` que estão dentro de uma tag `body`, portanto a cor do parágrafo será azul.**
+
+ ###### TRANSPOSIÇÃO
+ Além disto, a hierarque do grau de especificidade também existe na declaração no atributo de seleção dentro do elemento HTML, pois, como pode ser aplicada mais de uma classe no mesmo elemento, se uma classe realizar alterações que sobrepõe a ao estilo aplicado por outra classe, a que irá prevalecer é da classe mais ao final declarada no elemento.
+ ```html
+ <style>
+    .main-font {
+        font-size: 1rem;
+    }
+
+    .title-font {
+        font-size: 3rem;
+        font-family: monospace;
+    }
+
+    .highlighted-font {
+        font-weight: 900;
+        color: #fff;
+        background-color: #000;
+        font-family: sans-serif;
+    }
+ </style>
+
+ <div class="main-font title-font highlighted-font">Hello world!<div>
+ ```
+ No caso do exemplo acima, os estilos que serão aplicados na `div` serão:
+ - os das classes `highlighted-font` que sobrescreve apenas a propriedade **`font-family`** em `title-font` mas mantem o `font-size` que será atribuído ao elemento por outra classe pois não foi declarada em `highlighted-font`
+ - e o **`font-size`** da classe `title-font` que sobrescreve o estilo em `main-font`.
 
  ###### HERANÇA
  A cascata do CSS, significa justamente a possibilidade de elementos filhos herdarem características de estilização de elementos superiores, estas definidas por suas propriedades, que podem ou não passar aos seus descendentes seus valores. Ao invés de colocar as propriedade em cada um dos elementos textuais da página, podemos por exemplo colocar no elemento superior a estas tags, neste caso usaremos o elemento `body`.
