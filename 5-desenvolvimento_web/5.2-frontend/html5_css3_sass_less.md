@@ -3877,7 +3877,8 @@ A propriedade background permite controlar o plano de fundo de um elemento, incl
  ![Image](https://github.com/user-attachments/assets/ac2022bc-5d38-475a-9fd1-b9d4bb2adaf4)
 
 #### GRID
-A idéia do grid é exatamente de não precisar mudar a estrutura do HTML e que toda a parte de posicionamento de layout fique apenas no CSS. O grid transforma um elemento em um **grid container** da mesma forma que um elemento se torna flex container, e após definir um grid container é necessário definir sua estrutura. Este é um sistema de layout **bidimensional** que permite criar laytous mais sofisticados com facilidade, oferecendo uma maneira simples de definir *colunas* e *linhas* como uma *tabela*, para posicionar os itens de forma precisa dentro de um container. Usando grid não é necessário mudar em nada a estrutura do HTML, para conseguir o efeito desejado diferente do `flex` em caso de estruturas bidimensionais, mantendo a separação de estrutura de conteúdo e estilização além de também manter a simplicidade e legibilidade no CSS.
+A idéia do grid é exatamente de não precisar mudar a estrutura do HTML e que toda a parte de posicionamento de layout fique apenas no CSS. O grid transforma um elemento em um **grid container** da mesma forma que um elemento se torna flex container, e após definir um grid container é necessário definir sua estrutura. Este é um sistema de layout **bidimensional** que permite criar laytous mais sofisticados com facilidade, oferecendo uma maneira simples de definir *colunas* e *linhas* como uma *tabela*, para posicionar os itens de forma precisa dentro de um container. Usando grid não é necessário mudar em nada a estrutura do HTML, para conseguir o efeito desejado diferente do `flex` em caso de estruturas bidimensionais, mantendo a separação de estrutura de conteúdo e estilização além de também manter a simplicidade e legibilidade no CSS.<br/>
+Ou seja, o GRID basicamente divide a tela em várias fatias de diferentes proporções, criando assim um layout desacoplado e de alta responsividade.
 
 ##### SINTAXE
  Para usar o **`grid`**, é necessário definir um container *"grade"* usando a propriedae `grid`, e em seguida especificar as linhas e colunas usando as propriedades:
@@ -3898,6 +3899,7 @@ A idéia do grid é exatamente de não precisar mudar a estrutura do HTML e que 
     gap: 1rem;
  }
  ```
+
 ###### MEDIDAS
  No exemplo anterior, `1fr 1fr 1fr` divide o espaço igualmente em 3 partes, porém podemos definir algo como `1fr 2fr 1fr`, que separa o espaço total em 4 partes onde **a primeira coluna ocupará 1/4 do espaço**, **a segunda ocupará 2/4 do espaço sendo o dobro da primeira** e **a terceira coluna ocupará o 1/4 restante**.
 
@@ -3973,7 +3975,8 @@ A idéia do grid é exatamente de não precisar mudar a estrutura do HTML e que 
  - Existirão conteúdos duplicados entre sites "diferentes", podendo prejudicar o SEO se não for feito com cuidado.
  - Lidar com redirects entre URLs móveis e normais, dependendo do dispositivo. O usuário pode receber um link para uma página vista no site de base desktop, mas se abrir este link no celular, terá que visualizar a versão mobile deste link, sendo redirecionado automaticamente, e a mesma coisa no caso contrário. Uma dificuldade estará no servidor para detectar se o usuário está vindo de um dispositivo móvel ou não, e redirecioná-lo para o lugar certo. Isso costuma envolver código no servidor que detecte o navegador do usuário usando o User-Agent do navegador.<br/>
  Hoje em dia não existe tanto essa crença de que o site precisa ser exatamente a mesma experiência do que no Desktop. Podemos criar experiências exclusivas para cada tipo de dispositivo, mas é importante que o usuário ainda consiga fazer as funções, por exemplo realizar uma compra.<br/>
- Pensando nisso, nasceu o **responsive design**, que é uma abordagem de desenvolvimento web que permite que os sites se ajustem automaticamente a diferentes tamanhos de tela e dispositivos, proporcionando uma experiência de usuário consistente e otimizada, seja em um computador desktop, tablet ou smartphone.
+ Pensando nisso, nasceu o **responsive design**, que é uma abordagem de desenvolvimento web que permite que os sites se ajustem automaticamente a diferentes tamanhos de tela e dispositivos, proporcionando uma experiência de usuário consistente e otimizada, seja em um computador desktop, tablet ou smartphone.<br/>
+ O Design Responsivo é uma técnica de estruturação em que o site se adapta ao navegador sem precisar de diversos estilos para cada resolução, é basicamente um código inteligente que se adapta à tela do usuário para funcionar independente da plataforma utilizada.
 
  #### RESPONSIVE WEB DESIGN
  Pequenas mudanças feitas usando `@media` tentando otimizar a experiência do usuário em diversos dispositivos tornando a UX mais atraente, é o que o mercado chama de **Web Design Responsivo**. O termo surgiu num famoso artigo de Ethan Marcotte e diz o seguinte:<br/>
@@ -3988,17 +3991,21 @@ A idéia do grid é exatamente de não precisar mudar a estrutura do HTML e que 
  É a técnica que visa iniciar o desenvolvimento pela área mais simples e limitada, com mais restrições, ou seja, o mobile. O uso da tela pequena forçar a criação de páginas mais simples, focadas e objetivas. Depois, a adaptação pra Desktop com media queries, é apenas uma questão de readaptar o layout. A abordagem *desktop-first* começa pelo ambiente mais livre e vai tentando cortar coisas quando chega no mobile. Esse tipo de adaptação é, na prática, muito mais trabalhosa e inviável.
 
  #### VIEWPORT
- Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. A **`viewport`** *é a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.<br/>
+ Para criar layouts responsivos, é importante primeiro entender como a exibição da página funciona no dispositivo. Um dos agentes que realiza a adaptação da aplicação ao tamanho de tela disponível é o **`viewport`**, este representa *a área visível da página web no navegador*. Usar propriedades de `viewport` ajuda a criar layouts que se ajustam dinamicamente ao tamanho da tela.<br/>
+ Usando esta metatag no `head` da página, pode-se definir algumas propriedades de escala, e desta forma orientar a página a como se comportar de acordo com a situação.<br/>
  A partir dela moldamos como o conteúdo deve ser exibido, sempre orientados pelo *design responsivo* para que as páginas sejam exibidas corretamente na maioria dos dispositivos.<br/>
  Imaginemos um site com media queries otimizadas para telas menores. Se tentássemos rodar este exemplo em um iPhone ou Android, ainda estaria sendo exibida a versão Desktop da página. A regra do max-width no media query é completamente ignorada. Na verdade, a questão é que os smartphones modernos têm telas grandes e resoluções altas, justamente para permitir exibir sites complexos feitos para Desktop. A tela de um iPhone SE por exemplo é 1280px por 720px. Celulares Android já chegam a 4K. Ainda assim, a experiência desses celulares é bem diferente dos Desktops. 4K em uma tela de 4 polegadas é bem diferente de 4K em um notebook de 16 polegadas, a resolução muda. Celulares costumam ter uma resolução em dpi bem maior que Desktops.<br/>
  Os smartphones entendem que considerar a tela como 4K não ajudará o usuário a visualizar a página otimizada para telas menores. Há então o conceito de **device-width** que, resumidamente, representa um número em pixels que o fabricante do aparelho considera como mais próximo da sensação que o usuário tem ao visualizar a tela. Nos iPhones, por exemplo, o device-width é considerado como 370px, mesmo com a tela tendo uma resolução bem mais alta. Por padrão, iPhones, Androids e afins costumam considerar o tamanho da tela visível, chamada de viewport, como grande o suficiente para comportar os sites Desktop normais. Por isso o exemplo foi renderizado sem zoom, como se fosse visualizado no Desktop. A Apple criou então uma solução que depois foi copiada pelos outros smartphones, que é configurar o valor que julgarmos mais adequado para o viewport:
  ```html
- <meta name="viewport" content="width=370">
+ <meta name="viewport" content="width=370" />
  ```
- Isso faz com que a tela seja considerada com largura de 370px, fazendo com que o layout mobile finalmente funcione, e também as media queries.** Melhor ainda, é a possibilidade de configurar o viewport com o valor device-width definido pelo fabricante, dando mais flexibilidade com dispositivos diferentes com tamanhos diferentes**:
+ Isso faz com que a tela seja considerada com largura de 370px, fazendo com que o layout mobile finalmente funcione, e também as media queries. **Melhor ainda, é a possibilidade de configurar o viewport com o valor device-width definido pelo fabricante, dando mais flexibilidade com dispositivos diferentes com tamanhos diferentes**. Isso é possível com o atributo **`content`**, que é onde são inseridas as configurações específicas da viewport.
  ```html
- <meta name="viewport" content="width=device-width">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  ```
+ - No atributo **`content`** define à qual tamanho de tela a página deve se adaptar
+ - A forma de realizar uma adaptação dinâmicamente é usando a propriedade **`device-width`** no **`width`**, assim, se obtém automaticamente o tamanho da tela no dispositivo atual. Ou seja, essa propriedade define a largura da viewport igual à largura física da tela do dispositivo, evitando que o site fique "esticado" ou "encolhido" em diferentes tamanhos de tela.
+ - Enquanto que no **`initial-scale`** define-se a escala de adaptação da tela, ou seja, o nível do zoom inicial da página quando ela é carregada, que no caso do exemplo acima é de **`1:1`**, que significa *sem zoom = 100%*, se fosse `2.0` a página teria um zoom de 200% por exemplo.
 
  #### MEDIA TYPES
  Uma abordagem que costumas ser muito utilizada é a de ter um único site, acessível em todos os dispositivos móveis. Adeptos da ideia da Web única (One Web) consideram que o melhor para o usuário é ter o mesmo site do Desktop normal também acessível no mundo móvel. É o melhor para o desenvolvedor também, que não precisará manter vários sites diferentes. E é o que garante a compatibilidade com a maior gama de aparelhos diferentes.<br/>
