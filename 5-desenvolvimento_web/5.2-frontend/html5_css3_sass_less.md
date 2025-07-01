@@ -917,7 +917,8 @@ a abertura da tabela.**
 </table>
 
 ###### MULTIMÍDIA
- A tag `figure` é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.
+ A tag **`figure`** é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.<br/>
+ A tag **`source`** junto ou não do atributo **`src`** é utilizada para indicar o caminho até o arquivo de mídia, para que possa ser carregado e exibido na página.
 
 **IMAGENS**<br/>
  A tag que possibilita a renderização de imagens no documento é a **`<img/>`**, que através do atributo obrigatório **`src`** é possível indicar o local do armazenamento da imagem a ser usada.<br/>
@@ -947,18 +948,25 @@ a abertura da tabela.**
  - **SVG**: gráficos vetoriais escaláveis, ideais para ícones e logotipos.
 
 **ÁUDIO**<br/>
- O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada tipo reproduz um áudio.<br/>
+ O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada uma reproduz um áudio.<br/>
  Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
  Possui os seguintes atributos:
  - **`src`**: necessário para especificar o caminho do áudio.
  - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
  - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
  - **`loop`**: O áudio é reproduzido em loop.
+```html
+<audio controls>
+    <source src="audio.ogg" type="audio/ogg" />
+    <source src="audio.mp3" type="audio/mpeg" />
+</audio>
+```
 
 **VÍDEOS**<br/>
- Semelhante a trabalhar com imagens, para a sua inclusão, usa-se a tag `video` (*que tem um par de fechamento*).<br/>
+ Semelhante a trabalhar com imagens, para a sua inclusão, usa-se a tag `video`, *que possui um par de fechamento*. Essa tag permite inserir facilmente na página mídias de vídeo e controlá-las com maior facilidade, não apenas nas propriedades visuais como tamanho do vídeo e botões, como também utilizar códigos mais complexos como scripts para modificar a execução do vídeo, pausando ele por componentes externos ao vídeo por exemplo.<br/>
  Possui os seguintes atributos:
- - **`src`**: Permite especificar o caminho onde o vídeo está armazenado. **Pode-se usar `src` como tag, incluindo várias tags apontando para diferentes formatos de vídeo, permitindo ao navegador escolher o formato que ele consegue reproduzir.** *Não é obrigatória, pode-se usar apenas como atributo ou uma única tag, o uso de múltiplas tags apenas garante que o vídeo seja reproduzido em diversos navegadores.*
+ - **`src`**: Permite especificar o caminho onde o vídeo está armazenado. **Pode-se usar a tag `source`, incluindo várias tags apontando para diferentes formatos de vídeo, permitindo ao navegador escolher o formato que ele consegue reproduzir.** *Não é obrigatória, pode-se usar apenas como atributo ou uma única tag, o uso de múltiplas tags apenas garante que o vídeo seja reproduzido em diversos navegadores.*
+ - **`type`**: informa o tipo do conteúdo e qual o seu formato de reprodução.
  - **`controls`**: Adiciona controles visuais ao vídeo.
  - **`autoplay`**: O vídeo é executado automaticamente quando a página é carregada.
  - **`loop`**: O vídeo é executado em loop.
@@ -992,6 +1000,7 @@ Aqui falaremos sobre como adicionar legendas.
     <video controls autoplay loop poster="capa.jpg">
         <source src="video.mp4" type="video/mp4">
         <source src="video.ogg" type="video/ogg">
+        <source src="capa.jpg" type="video/jpeg"> <!-- também pode ser usado para definir uma imagem de capa -->
         <track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português">
         <track src="legendas-en.vtt" kind="subtitles" srclang="en" label="English">
     </video>
@@ -1410,6 +1419,15 @@ Em resumo, este atributo serve para definir mais informações para os component
 ```
 
 Os valores armazenados no atributo não alteram em nada a renderização do elemento em tela, sendo úteis apenas para as linguagens de script. O HTML agrupa estes atributos e os disponibiliza para os scripts, para que estes posam filtrar elementos da página para exibir apenas os que atenderem ao filtro por exemplo.
+
+###### `time`
+Esta tag define datas de forma precisa sem que o usuário precise ler a data na forma como foi armazenada, desta forma é possível criar filtros para datas mesmo não as utilizando visualmente.
+```html
+<p>
+    A próxima aula será em <time datetime="2025-06">Junho</time>.
+    A próxima aula será no <time datetime="2025-07">próximo mês</time>.
+</p>
+```
 
 ###### VIAS E ROTAS
  Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. Existem 2 tipos de caminhos, porém, **recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**:
