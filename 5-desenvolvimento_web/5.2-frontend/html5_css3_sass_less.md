@@ -10,7 +10,7 @@
  O desenvolvimento *front-end tem como foco de trabalho a tradução do design e das funcionalidades propostas para uma* **interface de usuário (GUI – Graphic User Interface)** concentrando-se no manuseio de **[HTML](#html)**, **[CSS](#css)** e **[JAVASCRIPT](https://github.com/raphaelkaique1/study/blob/main/2-linguagens_de_programacao/2.2-javascript/sintaxe_e_funcionalidades_ecmascript.md)** (geralmente são as linguagens mais utilizadas para este fim). Para isso, usasse uma série de *bibliotecas*, *frameworks* e *padrões de design* criados e testados pela comunidade, com os quais é possível trabalhar de forma eficiente.<br/>
  Quando uma página web é carregada no navegador, os códigos HTML, CSS e JavaScript estão sendo executados dentro de um ambiente de execução, a guia do navegador. Isso é como uma fábrica que pega a matéria prima, ou seja o código, e transforma em um produto, que é a página web.<br/>
  O objetivo principal do desenvolvedor front-end está relacionado à otimização dos recursos consumidos por uma aplicação, através do servidor. Um exemplo disso é o *tempo de carga (carregamento de "tela")*. Quanto menor o tempo de carga, melhor será a experiência do usuário. Meio segundo de tempo de carregamento de página pode afetar significativamente a conversão do usuário. Portanto, o tempo é essencial para qualquer website. Ninguém gosta de esperar, especialmente os usuários que estão cada vez mais acostumados à velocidade. O desenvolvedor do front-end é responsável por melhorar os tempos de carregamento, assim melhorando a experiência do usuário e, por fim, como objetivo final obter mais leads ou vendas.<br/>
- A manutenção e escrita de códigos em tecnologias HTML e CSS pode ser um desafio por não serem muito dinâmicas. Não possuem ciclos, funções, objetos ou condições. Resumindo, todas as ferramentas disponíveis em outras linguagens de programação para a criação de código de manutenção não estão existem nessas tecnologias. Entretanto, ainda é possível graças à ajuda de processadores de CSS como *Stylus*, *LESS* ou *SASS*, o que pode ampliar as capacidades do CSS. Enquanto que, para HTML, há motores disponíveis para cada linguagem back-end. Ao trabalhar com frameworks, verá que já possuem motores de renderização predefinidos, como *ERB* e *HAML* (em *RAILS*), *JADE* e *ectjs* (em *NodeJS*) ou *Blade* (em *Laravel*). Isto faz com que os motores funcionem adicionando o código da linguagem ao modelo. *Quando uma solicitação chega ao servidor, este processa o template, transforma o código incorporado (HTML puro) e o envia para o navegador.* Além disso, também estão inclusas algumas ferramentas no JavaScript como *Backbone, AngularJS, Foundation e EmberJS* que facilitam a criação de páginas responsívas e otimizadas.<br/>
+ A manutenção e escrita de códigos em tecnologias HTML e CSS pode ser um desafio por não serem muito dinâmicas. Não possuem ciclos, funções, objetos ou condições. Resumindo, todas as ferramentas disponíveis em outras linguagens de programação para a criação de código de manutenção não estão existem nessas tecnologias. Entretanto, ainda é possível graças à ajuda de processadores de CSS como *Stylus*, *LESS* ou *SASS*, o que pode ampliar as capacidades do CSS. Enquanto que, para HTML, há motores disponíveis para cada linguagem back-end. Ao trabalhar com frameworks, verá que já possuem motores de renderização predefinidos, como *ERB* e *HAML* (em *RAILS*), *JADE* e *ectjs* (em *NodeJS*) ou *Blade* (em *Laravel*). Isto faz com que os motores funcionem adicionando o código da linguagem ao modelo. *Quando uma solicitação chega ao servidor, este processa o template, transforma o código incorporado (HTML puro) e o envia para o navegador.* Além disso, também estão inclusas algumas ferramentas no JavaScript como *Backbone, AngularJS, Foundation e EmberJS* que facilitam a criação de páginas responsivas e otimizadas.<br/>
  Na programação web uma coisa é constante: não é fácil criar páginas capazes de parecer "bem" em todos os tipos de navegadores. Este é um ponto delicado para qualquer um que tenha que lidar com tal tarefa. A ideia é *não perder tráfego*, mesmo se for utilizado o *Internet Explorer 7*, especialmente se o serviço ou produto estiver focado em um público que utiliza esse navegador em particular. Para resolver este problema, existem scripts chamados *Polyfils*, que adicionam as capacidades de um navegador moderno usando JavaScript. Como nos navegadores, há uma infinidade de **telas**: smartphones, desktops, notebooks, tablets, smart tvs, e etc. Mesmo dentro do campo dos smartphones, são numerosas as variantes dependendo do dispositivo e da marca. O desenvolvedor front-end está encarregador de fazer o site funcionar para a maioria das telas.
 
 #### ESTÁTICO x DINÂMICO
@@ -41,7 +41,8 @@ As webpages se utilizam de HTML para fazer a formatação dos dados, e é import
 ### <span id="html">HTML</span>
  A origem do HTML data de 1980, quando o físico Tim Berners-Lee, um trabalhador do CERN (Organização Européia de Pesquisa Nuclear), propôs um novo sistema de *"hypertext"* para compartilhar documentos.<br/>
  Para que possamos exibir as informações desejadas com a formatação, é necessário que cada trecho de texto tenha uma **marcação** indicando qual é o significado dele. Essa marcação também influencia a maneira com que cada trecho do texto será exibido.<br/>
- **HyperText Markup Language**, é uma *linguagem de marcação* que define a estrutura do conteúdo no documento através da indexação dos componentes; é uma "linguagem" composta de um connjunto *etiquetas*, ou **tags**, que são as estruturas da linguagem de marcação que contem instruções sobre como devem ser interpretadas, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc. As tags são os blocos de construção do HTML, usadas para marcar o início e o fim de seus elementos e definir a estrutura de uma página. Cada tag é cercada por colchetes angulares `< >` e pode conter **atributos** *que fornecem informações adicionais sobre o elemento*, estes são parâmetros que utilizam a sintaxe: **`atributo="valor"`**. Para definir uma imagem por exemplo, usamos a tag **`<img>`** e, para indicar o caminho que está essa imagem, usamos o atributo **`src`**: **`<img src="../path/image.png"/>`**. A tag `img` não possui conteúdo por si só, e sim carrega o conteúdo de um arquivo externo (a imagem). Nesses casos, não é necessário usar uma tag de fechamento. **Algumas tags são autofechadas**, *o que significa que não possuem uma tag de fechamento correspondente*, entretanto a maioria possui um par de **abertura** e **fechamento** com o conteúdo entre elas, sendo a de fechamento semelhantes a de abertura, mas inclui uma barra `/` antes do nome da tag, como `</tag>`. **O papel das `tags` é dar uma representação ao conteúdo contido entre sua abertura e fechamento. Diversas tags são disponibilizadas pela linguagem HTML e cada uma possui uma funcionalidade específica.**<br/>
+ **HyperText Markup Language**, é uma *linguagem de marcação* que define a estrutura do conteúdo no documento através da indexação dos componentes; é uma "linguagem" composta de um connjunto *etiquetas*, ou **tags**, que são as estruturas da linguagem de marcação que contem instruções sobre como devem ser interpretadas, com as quais dizemos ao programa para (e como) nos mostrar textos, imagens, vídeos e etc. As tags são os blocos de construção do HTML, usadas para marcar o início e o fim de seus elementos e definir a estrutura de uma página. Cada tag é cercada por colchetes angulares `< >` e pode conter **atributos** *que fornecem informações adicionais sobre o elemento*, estes são parâmetros que utilizam a sintaxe: **`atributo="valor"`**. Para definir uma imagem por exemplo, usamos a tag **`<img>`** e, para indicar o caminho que está essa imagem, usamos o atributo **`src`**: **`<img src="../path/image.png"/>`**. A tag `img` não possui conteúdo por si só, e sim carrega o conteúdo de um arquivo externo (a imagem). Nesses casos, não é necessário usar uma tag de fechamento. **Algumas tags são autofechadas**, *o que significa que não possuem uma tag de fechamento correspondente*, entretanto a maioria possui um par de **abertura** e **fechamento** com o conteúdo entre elas, sendo a de fechamento semelhantes a de abertura, mas inclui uma barra `/` antes do nome da tag, como `</tag>`. A razão pela qual se inlcui uma barra ao final de tags *auto fechadas* como **`<img/>`** por exemplo, deve-se por serem **tags vazias**, isso significa que este tipo de tags não precisam de uma tag de abertura e nem de fechamento, e a convenção de boas práticas determina que **toda e qualquer tag deve ser fechada, incluindo as tags vazias** – no desenvolvimento com ReactJS por exemplo este conceito é muito importante. Por isso coloca-se a barra ao final de tags autofechadas **`<tag/>`**, para indicar ao navegador que ela se inicia e se fecha em si mesma, garantindo assim a reutilização do código num futuro com possíveis novas normas em vigor.<br/>
+ **O papel das `tags` é dar uma representação ao conteúdo contido entre sua abertura e fechamento. Diversas tags são disponibilizadas pela linguagem HTML e cada uma possui uma funcionalidade específica.**<br/>
  O HTML não é uma linguagem de programação em si, embora às vezes seja referido coloquialmente como uma linguagem de programação, é composto simplesmente por uma série de **tags** que o navegador interpreta de uma forma ou de outra para exibir e moldar conteúdos diferentes na tela.<br/>
  HTML é a linguagem utilizada para o desenvolvimento de páginas na Internet, e possui tags para imagens, hyperlinks, quebras de linha, listas, tabelas e etc.<br/>
  Classicamente, diz-se que as linguagens de programação incluem 3 capacidades básicas para gerar fluxos de processo:
@@ -78,7 +79,8 @@ As webpages se utilizam de HTML para fazer a formatação dos dados, e é import
  - **ELEMENTOS GENÉRICOS**: Elementos para qualquer tipo de uso. As únicas tags que são de propósito genérico e que são usadas apenas para facilitar a estilização no CSS são as tags `div` e `span`. Essas duas tags não representam nenhum conteúdo necessariamente. `div` representa uma divisão de blocos e `span` uma marcação para texto sem quebrar a linha do texto. Como exemplo, um dos elementos genéricos chamado `div`, que significa *divisão*, serve para dividir um documento em diferentes partes. Por tanto, se quisermos criar um *card* com uma imagem e informações, podemos fazer isso com o elemento `div`. O problema de utilizar estes elementos é que não são muito descritivos semanticamente falando. Não sabemos para que servem. Durante o desenvolvimento, sabemos que aquele elemento `div` que criamos serve para exibir *cards* na página, mas como identificar isso em uma manutenção futura? Podemos dar alguma semântica aos nossos elementos `div` usando **atributos**, para identificarmos facilmente seu propósito.
 
  **ATRIBUTOS**<br/>
- Permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Alguns dos atributos mais importantes são o `id` e `class`. *A **`class`** é um atributo que **identifica múltiplos elementos**, enquanto o **`id`** é uma **identidade única para cada elemento**, podendo assim nos referirmos a ele.* Além destes, existem várious outros atributos que podem ser inseridos nas tags.
+ Algumas tags possuem atributos que podem ser modificados conforme necessário. Atributos permitem identificar ou associar elementos, além de adicionar mais semântica ao código, acrescentando informações ao item em que se encontra etiquetado. Devem ser preferencialmente escritos em letras minúsculas para atender às conveções, e os **valores dos atributos devem sempre estar entre aspas, simples `''` ou duplas `""`, a escolha é indiferente ao documento e ao navegador, apenas aconselha-se que apenas um tipo seja utilizado para manter a padronização no documento. Deve-se atentar também ao caso de um valor que tenha aspas, para isso deve-se usar um tipo diferente, por exemplo: `name='Edson Arantes "Pelé" do Nascimento'`.**<br/>
+ Existem vários atributos no HTML, alguns que funcionam apenas em determinadas tags, outros personalizados podem ser criados, mas no geral alguns dos atributos mais importantes são o `id` e `class`. *O **`class`** é um atributo que **identifica múltiplos elementos**, enquanto o **`id`** é uma **identidade única para cada elemento**, podendo assim nos referirmos a ele.* Além destes, existem vários outros atributos que podem ser inseridos nas tags.
 
 ##### ESTRUTURA DE UMA PÁGINA WEB
  Um documento HTML válido precisa seguir **obrigatoriamente** a estrutura composta pela instrução **`!<DOCTYPE>`** e as tags:
@@ -131,7 +133,7 @@ As webpages se utilizam de HTML para fazer a formatação dos dados, e é import
  A especificação do HTML obriga a presença da tag de conteúdo `title` dentro dela, permitindo definir o título do documento, que poder ser visto na barra de título ou aba da janela do navegador. Caso contrário, a página não será um documento HTML válido.<br/>
  Outra configuração muito importante, principalmente em documentos HTML cujo conteúdo é escrito em um idioma como o português, que contém caracteres "especiais" como acentos e cedilha, é a codificação do conjunto de caracteres chamada de *encoding* ou *charset*. Podemos configurar qual codificação queremos utilizar em nosso documento por meio da configuração de charset na tag `meta`. Um dos valores mais comuns usados hoje em dia é o UTF-8, também chamado de Unicode. Há outras possibilidades, como o latin1, muito usado antigamente. O UTF-8 é a recomendação atual para encoding na Web por ser amplamente suportada em navegadores e editores de código, além de ser compatível com praticamente todos os idiomas do mundo.
    - **`title`**: Texto que será exibido na aba do navegador para identificação da página.
-   - **`<meta charset="UTF-8">`**: O tipo e conjunto de caracteres. Cada conjunto de caracteres foi criado para atender a diferentes necessidades e regiões do mundo. Atualmente, UTF-8 é o mais utilizado globalmente, devido à sua compatibilidade e eficiência. Além do UTF-8, existem vários outros conjuntos de caracteres (codificações) usados para representar texto em sistemas computacionais. Eles podem ser agrupados em diferentes categorias, dependendo de sua abrangência e propósito:
+   - **`<meta charset="UTF-8">`**: O tipo e conjunto de caracteres. Por padrão, os navegadores interpretam (quando não específicado) os textos de documentos HTML no formato ASCII 2, mas ao longo do tempo foram criados vários conjuntos de caracteres para atender a diferentes necessidades e regiões do mundo, para que o texto do conteúdo fosse escrito de maneira mais concisa do que incluir vários caracteres codificados em ASCII no meio da leitura. Atualmente, **UTF-8** é o mais utilizado globalmente, devido à sua compatibilidade e eficiência. Além do UTF-8, existem vários outros conjuntos de caracteres usados para representar texto em sistemas computacionais. Eles podem ser agrupados em diferentes categorias, dependendo de sua abrangência e propósito:
       - **1. Unicode (Codificações Padrão)**
         Unicode é um padrão universal que mapeia caracteres de quase todos os idiomas. Ele pode ser representado por diferentes codificações, como:
         - **UTF-8** (mais comum e eficiente, usa de 1 a 4 bytes por caractere)
@@ -499,12 +501,12 @@ Exemplo:
 
 ###### PARÁGRAFO
  Para informar ao navegador que ele exiba um texto em um parágrafo, deve-se escrevê-lo entre as tags `<p>texto do parágrafo</p>`, com o texto separado por uma margem em branco acima e abaixo.
- > Podemos usar uma linha horizontal de tamanho e expessura que determinarmos no CSS, escrevemos esta separação com a tag `<hr/>`, para separar um parágrafo do outro, ou também, utilizar a tag `<br/>` para saltar uma linha.
+ > Podemos usar uma linha horizontal de tamanho e expessura que determinarmos no CSS, escrevemos esta *separação* com a tag **`<hr/>`**, para separar um parágrafo do outro, ou também, utilizar a tag **`<br/>`** para *saltar* uma linha.
 
 ###### FORMATAÇÃO
- A tag `pre` significa *"texto pré formatado"*, e permite que o navegador interprete o texto escrito da forma em que está no documento, respeitando as quebras de linha, espaços e etc.<br/>
+ A tag **`pre`** significa *texto pré formatado*, e permite que o navegador interprete o texto escrito da forma em que está no documento, respeitando as quebras de linha, espaços e etc.<br/>
  *Na ausência da tag `pre`, o navegador não leva em conta que o código fonte contém quebras de linha, espaços em branco e etc no texto.*<br/>
- script:
+ Exemplo:
 ```html
 <p> 1. Este parágrafo contém
     espaços em branco    e também
@@ -528,7 +530,7 @@ Exemplo:
 </pre>
 
 ###### <span id="marcador">HYPERLINKS</span>
- *Links* ou *Hyperlinks*, são textos ou objetos sobre os quais podemos clicar para nos levar para outra parte do documento, outra página do mesmo site ou mesmo para outro site na Internet, entre outras funções.<br/>
+ *Links* ou *Hyperlinks*, são textos ou objetos compostos por uma URL com o endereço do destino sobre os quais pode-se clicar para chegar em outra parte do documento, outra página do mesmo site ou mesmo em outro site na Internet, entre outras funções.<br/>
  No hyperlink, distinguimos as seguintes partes:
  - Abertura e fechamento da tag de hyperlink `<a>...</a>`.
  - O atributo `href="https://url.domain"` contendo o caminho para o endereço desejado.
@@ -597,7 +599,7 @@ Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados 
 <a href="https://raphaelkaique1.github.io/raphaelkaique1/main/index.html">raphaelkaique1</a>
 ```
 
-2. **root-relative**: caminho relativo à raiz do site, geralmente a pasta pública do servidor. Inicia com uma barra **`/`**, se o site estiver hospedado em **`https://website.com`**, o caminho **`/img/logo.png`** apontará para **`https://website.com/img/logo.png`**.
+2. **root-relative**: caminho relativo à raiz do site, geralmente a pasta pública do servidor. Inicia-se com uma barra **`/`**, se o site estiver hospedado em **`https://website.com`**, o caminho **`/img/logo.png`** apontará para **`https://website.com/img/logo.png`**.
 ```html
 <img src="/img/logo.png" alt="Logo"/>
 ```
@@ -617,15 +619,19 @@ Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados 
 ###### LISTAS
  **_*Podemos combinar todos os tipos de listas que veremos a seguir uns com os outros, a depender da necessidade; <u>mas sempre pensando no SEO</u>._**<br/>
  Listas nos permitem criar conjuntos de elementos ordenados em uma página, todos geralmente precedidos por simbolos ou números em sequência. Os tipos de listas são os seguintes:
- - Listas desordenadas
- - Listas ordenadas
- - Listas de definição
+ - Listas desordenadas: adiciona um marcador antes de cada elemento.
+ - Listas ordenadas: enumera os itens de forma ordenada.
+ - Listas de definição: contém termos e suas definições.
 
 **LISTAS NÃO ORDENADAS**<br/>
- Para este tipo de lista usa-se a tag `ul` (*unordered list*); para acrescentar um item deve-se usar a tag `li` (*list item*).<br/>
+ Para este tipo de lista usa-se a tag **`ul`** (*unordered list*); para acrescentar um item deve-se usar a tag **`li`** (*list item*).<br/>
  Mesmo se não indicarmos nada na etiqueta `li`, o marcador de item de lista será gerado automaticamente.<br/>
- *Por padrão, as listas não ordenadas são compostas de pontos.* **Mas se quisermos podemos definir o símbolos de marcação.**<br/>
- No passado, usava-se o atributo `type`, porém este método está depreciado, sendo substituído por outro métodos usando CSS.
+ *Por padrão, as listas não ordenadas são compostas de pontos.* **Mas se quisermos podemos definir o símbolos de marcação conforme desejar.**<br/>
+ No passado, usava-se o atributo `type`, porém este método está depreciado, sendo substituído por outro métodos usando CSS como o `list-style-type` por exemplo, mas para conhecimento, os tipos são:
+ - `disc`: • (padrão)
+ - `circle`: ○
+ - `square`: ■ / □
+ - `none`: Sem marcador.
 
 ```html
 <ul>
@@ -651,10 +657,15 @@ Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados 
 </ul>
  
 **LISTAS ORDENADAS**<br/>
- Para definirmos uma lista ordenada, usamos a tag `ol` (*ordened list*), onde cada elemento da lista será escrito com a mesma tag que para as listas não ordenadas, ou seja, a tag `li`.<br/>
+ Para definirmos uma lista ordenada, usamos a tag **`ol`** (*ordened list*), onde cada elemento da lista será escrito com a mesma tag que para as listas não ordenadas, ou seja, a tag **`li`**.<br/>
  *Mas como são listas ordenadas, os símbolos padrão serão números, e estes serão gerados automaticamente em ordem a medida que são adicionados novos itens à lista.*<br/>
  No passado, usava-se o atributo `value` para definir o número para um item, mas este método não é mais utilizado e nem recomendado, caso queira realizar uma lista com valores personalizados, é melhor que se faça com uma lista não ordenada. Este atributo não aceita valores que não sejam números inteiros, caso contrário, ele irá truncar o valor ou seguir a ordem normal da lista.<br/>
- Somente por meio do CSS podemos mudar os tipos de números que nossa lista de pedidos nos motrará.
+ O atributo para alterar o tipo de ordenação da lista é o `type`, que pode ser de algum dos seguintes:
+ - `type="1"`: padrão → 1, 2, 3...
+ - `type="A"`: maiúsculas → A, B, C...
+ - `type="a"`: minúsculas → a, b, c...
+ - `type="I"`: romanos maiúsculos → I, II, III...
+ - `type="i"`: romanos minúsculos → i, ii, iii...
 
 ```html
 <ol>
@@ -680,6 +691,54 @@ Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados 
     <li>Terceiro item.</li>
     <li value="10">Outro item usando atributo `value`</li>
 </ol>
+
+ Outro atributo útil é o `start`, que simplesmente inicia a lista a partir de um valor definido:
+```html
+<ol start="5">
+  <li>5º item</li>
+  <li>6º item</li>
+  <li>7º item</li>
+  <li>8º item</li>
+  <li>9º item</li>
+</ol>
+```
+<ol start="5">
+  <li>5º item</li>
+  <li>6º item</li>
+  <li>7º item</li>
+  <li>8º item</li>
+  <li>9º item</li>
+</ol>
+
+ O atributo `reversed` inverte a ordem da lista automaticamente de acordo com a quantidade de itens existentes.
+```html
+<ol reversed>
+  <li>Item 3</li>
+  <li>Item 2</li>
+  <li>Item 1</li>
+</ol>
+```
+<ol reversed>
+  <li>Item 3</li>
+  <li>Item 2</li>
+  <li>Item 1</li>
+</ol>
+
+ Todos os atributos podem ser combinados para a criação de uma lista:
+```html
+<ol type="I" start="3" reversed>
+  <li>3º item</li>
+  <li>2º item</li>
+  <li>1º item</li>
+</ol>
+```
+<ol type="I" start="3" reversed>
+  <li>3º item</li>
+  <li>2º item</li>
+  <li>1º item</li>
+</ol>
+
+ **Mas o ideal é que somente se altere o tipo de ordenação da lista por meio do CSS, para manter o documento HTML limpo e organizado.**
 
 **LISTAS DE DEFINIÇÃO**<br/>
  Este tipo de listas não é usado com frequência, mas iremos conhecê-lo para entendermos seu significado caso nos deparemos com este tipo de código em uma página we.<br/>
@@ -961,6 +1020,78 @@ a abertura da tabela.**
  - **PNG**: suporta transparência e é utilizado para gráficos com menos cores.
  - **GIF**: suporta animações, mas é limitado a 256 cores.
  - **SVG**: gráficos vetoriais escaláveis, ideais para ícones e logotipos.
+
+O uso de imagens nos documentos traz um resultado mais rico para a página, mas que algumas vezes podem acabar *pesando* no desempenho e performance da página, tornando a aplicação lenta, mas existem algumas técnicas e atributos para evitar isto, ajudando os navegadores a otimizar *como*, *quando* e *qual qualidade* a imagem é carregada.
+
+- **`loading`**: este atributo permite definir o tipo de carregamento da imagem.
+  - **`lazy`**: este valor faz com que a imagem seja carregada **apenas** quando estiver perto de ser exibida na tela.
+  - **`eager`**: valor padrão que carrega a imagem imediamente, junto com o carregamento de todo o conteúdo do documento.
+
+```html
+<img src="img.jpg" loading="lazy" alt="Image description." />
+```
+
+- **`decoding`**: este atributo permite controlar como a imagem é decodificada pelo navegador.
+  - **`async`**: valor recomendado pois decodifica a imagem de forma assíncrona, tornando o carregamento mais veloz.
+  - **`sync`**: define que a decodificação seja feita de forma síncrona, mas pode travar o `render` e por isso deve ser usado apenas quando necessário.
+  - **`auto`**: valor padrão, onde o navegador decide qual o melhor tipo a ser usado.
+
+```html
+<img src="img.jpg" decoding="async" alt="Image description." />
+```
+
+- **`width`** / **`height`**: define as dimensões da imagem evitando *reflows* e otimizando a renderização, ajudando o navegador a reservar espaço e evitar saltos de layout **Cumulative Layout Shift**. **Aceita todos os tipos de valores de tamanho existentes, caso implícito o navegador entenderá como sendo __`px`__.*
+
+```html
+<img src="img.jpg" width="500" height="500" alt="Image description." />
+```
+
+- **``**: .
+  - **``**: .
+
+```html
+<img src="img.jpg" alt="Image description." />
+```
+
+- **`srcset`** / **`sizes`**: fornece múltiplas versões da imagem para diferentes tamanhos de tela e resoluções, muito utilizado para imagens responsivas.
+```html
+<img 
+  src="image-800.jpg" 
+  srcset="image-400.jpg 400w, image-800.jpg 800w, image-1200.jpg 1200w"
+  sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+  alt="Image description."
+/>
+```
+
+Para melhorar o posicionamento SEO de uma imagem em um documento, além da tag `figure` também pode-se usar a tag **`picture`** para tornar a aplicação mais responsiva.<br/>
+Esta tag fornece múltiplas versões da mesma imagem em formatos e tamanhos diferentes, permitindo ao navegador escolher a melhor versão de acordo com o dispositivo ou suporte à formatos. Ela trabalha com os atributos **`source`** assim como nos demais tipos de mídia para oferer mais opções e contém 1 única **`img`** como fallback.
+- **`picture`**: campo que informa ao navegador quais as opções de renderização para um recurso.
+  - **`source`**: informa os caminhos para cada recurso.
+    - **`srcset`**: caminho para a imagem.
+    - **`type`**: atributo que informa o navegador qual o tipo da imagem – para a melhor qualidade na sua exibição.
+```html
+<picture>
+  <source srcset="image.avif" type="image/avif">
+  <source srcset="image.webp" type="image/webp">
+  <img src="image.jpg"   alt="Image description.">
+</picture>
+```
+> O navegador tentará carregar do 1º para o último atributo em ordem caso algum não seja suportado.
+
+Então, enquanto `figure` fornece um agrupamento do conteúdo de mídia e suas informações como legendas por exemplo, `picture` informa ao navegador todas as opções para a exibição do determinado recurso.<br/>
+**A melhor prática para a exibição de uma imagem em uma aplicação web é a utilização de ambas as tags, para obter controle, acessibilidade e semântica.**
+```html
+<figure>
+  <picture>
+    <source srcset="sol.avif" type="image/avif">
+    <source srcset="sol.webp" type="image/webp">
+    <img src="sol.jpg" alt="Paisagem ao pôr do sol.">
+  </picture>
+  <figcaption>Paisagem ao pôr do sol na Serra da Mantiqueira.</figcaption>
+</figure>
+```
+
+Além do uso correto das estruturas e seus atributos, para uma melhor qualidade na exibição das imagens e performance da página é escolher corretamente o melhor e mais adequado formato, além de utilizar técnicas como a compressão das imagens, CDNs e placeholder com baixa qualidade para a otimização do desempenho.
 
 **ÁUDIO**<br/>
  O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada uma reproduz um áudio.<br/>
@@ -2999,7 +3130,7 @@ A propriedade background permite controlar o plano de fundo de um elemento, incl
 ```
 
 ##### IMAGENS
-
+As imagens são usadas no design para criar interfaces mais agradáveis, podem ter diversas aplicações nos documentos web, é possível utilizá-las como decoração para uma página, como plano de fundo, como complemento de informação do conteúdo, como hyperlinks, gráficos vetoriais, entre outros exemplos.
 
 ##### CORES
  Podem ser aplicadas a quase qualquer coisa no documento HTML.
@@ -4165,6 +4296,67 @@ Agora o navegador vai ler primeiro a cor preta e depois vai substituir pela cor 
 A função `multicolor()` não é um CSS válido portanto o navegador vai ler a cor preta primeiro e depois vai tentar ler a função, mas como essa função não existe o navegador ignora a sobrescrita e mantém a cor de fundo preta.
 
 Essa é a melhor maneira de manter a compatibilidade com browsers mais antigos. Seguindo o conceito de *Progressive Enhancement*, começa-se a utilizando propriedades baseadas em versões anteriores e então vai se acrescendo propriedades mais atuais, assim naturalmente tornando o site mais responsívo e compatível com os diversos navegadores.
+
+### LQIP
+Afim de tornar a navegação eficiente e agradável, uma forma de se oferecer ao usuário uma experiência completa quando este interage com o produto e de forma intuitiva conseguir navegar pela aplicação é utilizar técnicas de fallback para criar a sensação de uma interface fluida e orgânica, e uma dessas técnicas é a de dar ao usuário a *sensação de carregamento rápido*, assim melhorando a sua experiência.<br/>
+O **L**ow **Q**uality **I**mage **P**laceholder, ou também *efeito blur-up*, é uma técnica muito usada para melhorar a percepção de performance do carregamento de imagens, se aproveitando do fallback para exibir uma versão pequena e borrada da imagem enquanto a versão em alta resolução ainda está carregando, evitando assim *layout shifts*.<br/>
+Existem diferentes maneiras de se aplicar o *blur-up*, mas as 2 principais são:
+
+- **Background**: usa-se 2 imagens, a pequena e borrada é usada como background enquanto a imagem de alta resolução será exibida sobre o background após carregada. Exemplo:
+```html
+<style>
+  figure {
+    width: 3rem;
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    transition: opacity 0.5s ease;
+  }
+
+  .image-low {
+    z-index: 1;
+    filter: blur(5px);
+  }
+
+  .image-high {
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .image-high.loaded {
+    opacity: 1;
+  }
+</style>
+
+<figure>
+  <!-- imagem de baixa qualidade (LQIP) -->
+  <img src="imagem-baixa.jpg" alt="Carregando..." class="image-low"/>
+
+  <!-- imagem em alta resolução -->
+  <img src="imagem-alta.jpg" alt="Imagem em alta resolução." class="image-high" onload="this.classList.add('loaded')"/>
+</figure>
+```
+
+- **Placeholder**: converte-se a versão LQIP para **base64** e a embute no HTML como `src`, tendo assim um placeholder com a imagem de baixa qualidade até que a imagem final seja renderizada. Funciona melhor quando combinada com uma biblioteca de *lazy loading* como **[lazysizes](https://github.com/aFarkas/lazysizes)** por exemplo.
+```html
+<img
+  src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD..."
+  data-src="imagem-final.jpg"
+  class="lazyload"
+  alt="Descrição da imagem."
+/>
+```
+
+Além das formas *"nativas"* – usadas no HTML, CSS e JS puros – frameworks de desenvolvimento web e outras ferramentas também fornecem maneiras para aplicar esta técnica:
+- **Next.js** com `<Image placeholder="blur" />` gera o blur automaticamente.
+- **Gatsby** com `gatsby-image` ou `gatsby-plugin-image`.
+- **Cloudinary**, **Imgix** ou **ImageKit** geram versões LQIP dinamicamente.
+- **Squoosh** ou **TinyPNG** para gerar manualmente a versão LQIP.
 
 #### PADRÕES
 O conceito de desacoplar estilos usando classes é extremamente benéfico para a facilidade de manutenção do código, mas para cada elemento estilizado é necessário pensar em um nome diferente, e isso pode ficar complicado rapidamente sem um padrão para seguir. Existem vários padrões de CSS, veremos alguns deles:
