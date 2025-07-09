@@ -774,6 +774,16 @@ Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados 
  5. **`tbody`**: Elemento semântico para agrupar o corpo (*células*) da tabela.
  6. **`tfoot`**: Elemento semântico para agrupar o rodapé da tabela.
 
+ Existem alguns atributos para a estilização de tabelas que não são mais utilizados, o ideal é que toda a parte de personalização seja feita com CSS e que se mantenha o HTML limpo contendo apenas o conteúdo de informação. A título didático, alguns dos atributos existentes são:
+ - `width`: define a largura da tabela.
+ - `height`: define a altura da tabela.
+ - `border`: define a largura da borda da tabela.
+ - `bgcolor`: define uma cor de fundo tanto para a tabela inteira quanto para células específicas.
+ - `align`: define o alinhamento horizontal do texto nas células.
+ - `valign`: define o alinhamento vertical do texto nas células.
+ - `cellpadding`: define a distância entre o texto e a borda da célula.
+ - `cellspacing`: define o espaço entre uma célula e outra.
+
 _*Quando o conteúdo de uma célula estiver vazio, deve-se usar um espaço em branco, que é escrito em HTML como: `&nbsp;`; isto fará com que sua página seja exibida corretamente, pois alguns navegadores tem problemas para renderizar células vazias._<br/>
 Exemplo de uma tabela simples:
 ```html
@@ -1154,7 +1164,53 @@ Aqui falaremos sobre como adicionar legendas.
 ```
 
 **IMPORTANDO CONTEÚDO**<br/>
- Com o **`iframe`** *é possível exibir uma página web dentro de outra página web*. Ele pode ser estilizado com CSS de acordo com o layout da página hospedeira.
+ Com `frame` é possível inserir mais de um documento dentro da mesma tela do navegador, podendo determinar a maneira como os documentos serão exibidos – horizontalmente ou verticalmente. *Cada documento HTML dentro de outro é chamado de `frame` e cada `frame` é independente.*<br/>
+ Embora isso ajude a organizar o conteúdo das páginas, algumas desvantagens são notáveis, como a maior necessidade de atenção do desenvolvedor para manter os documentos HTML e também a dificuldade para a impressão de uma página.<br/>
+ Basicamente o `frame` faz com que o documento se divida, e cada uma das partes é uma página diferente independente das demais. Para ilustrar, um bom exeplo seria uma bandeja de refeitório, onde em cada parte é possível colocar um alimento diferente sem que ele se misture aos outros.<br/>
+ A sintaxe básica para a inclusão de um `frame` necessita da tag `frameset`, que agrupa o conjunto de frames que serão usados. Essa tag é quem carrega as definições básicas como os frames seram divididos em linhas ou colunas e também o tamanho das mesmas.
+ ```html
+ <frameset cols="30%, 70%">
+   <frame src="page_1.html"/>
+   <frame src="page_2.html"/>
+ </frameset>
+ ```
+ O exemplo acima mostra a divisão dos frames com porcentagem do tamanho a ser ocupado na tela, mas todos os valores de medidas disponíveis podem ser utilizados.<br/>
+ Caso seja necessário que um frame possua um tamanho *inicial mínimo* e ocupe o espaço restante disponível basta utilizar um `*`:
+ ```html
+ <frameset cols="20%, 20%, *">
+   <frame src="page_1.html"/>
+   <frame src="page_2.html"/>
+ </frameset>
+ ```
+ No HTML4 era aconselhável usar a tag `noframes` para fornecer um conteúdo alternativo aos navegadores que não suportavam frames.
+ ```html
+ <frameset cols="50%,50%">
+   <frame src="page_1.html"/>
+   <frame src="page_2.html"/>
+   <noframes>
+     <body>
+       Seu navegador não suporta frames. Por favor, atualize-o.
+     </body>
+   </noframes>
+ </frameset>
+ ```
+
+ **No entanto, atualmente no HTML5 tanto o `frameset`, `frame` quanto o `nomframes` estão obsoletos e não devem ser mais utilizados. Para substituí-los foi criada uma tag mais semântica e com maior controle, o `iframe`.**
+ ```html
+  <style>
+    iframe {
+      width: 100%;
+      height: 30vh;
+      border: none;
+    }
+  </style>
+
+  <iframe src="page_1.html">
+    Seu navegador não suporta iframes.
+  </iframe>
+ ```
+
+ O **`iframe`** *é uma alternativa moderna ao `frame` para exibir uma página web dentro de outra página web*. Ele pode ser estilizado com CSS de acordo com o layout da página hospedeira.
 ```html
 <iframe src="url" title="description"></iframe>
 ```
@@ -1171,7 +1227,7 @@ Aqui falaremos sobre como adicionar legendas.
  Para que ele seja útil, é importante que o formulário fornecido seja acompanhado por um código do lado do servidor, chamado *"agente de processamento"*, que se encarrega de receber e processar as informações. Este processamento pode consistir, por exemplo, em armazenar as informações ou enviá-las por e-mail.<br/>
  Um formulário é identificado pela tag `form`, e é basicamente um recipiente para controles. Cada controle em um formulário tem o objetivo de coletar informações inseridas pelos usuários em formulários que podem variar de linhas de texto, a upload de arquivos, datas, senhas e muito mais. Uma vez que os usuários tenham preenchido o fomulário com dados, eles podem ser enviados ao servidor para que o agente de processamento gerencie as informações coletadas.<br/>
  **Os usuários interagem com os formulários através dos chamados controles.** De forma simplificada, um controle é definido como *um objeto que é exibido na tela e que pode ser modificado pelo usuário*. Por exemplo, um botão, uma caixa de texto, um menu suspenso e etc.<br/>
- **Os formulários geralmente fazem uso da tag *`action`*, que se refere à página para a qual as informações no formulário serão encaminhadas, ou seja, o destino do conteúdo digitado pelo usuário – que será "ativado" quando o usuário enviar o formulário.**
+ **Os formulários geralmente fazem uso da tag *`action`*, que se refere à página para a qual as informações no formulário serão encaminhadas, ou seja, o destino do conteúdo digitado pelo usuário – que será "ativado" quando o usuário enviar o formulário.** Este atributo está intimamente ligado ao botão *`submit`*, uma vez que o endereço contido nele será acessado quando o botão for clicado. O destino em `action` recebe através do método escolhido em `method` as informações contidas no formulário quando este for submetido. 
 ```html
 <form action="https://server.php/API"></form>
 ```
@@ -1236,7 +1292,7 @@ Aqui falaremos sobre como adicionar legendas.
    - **`fieldset`**: Agrupa elementos relacionados dentro de um formulário.
    - **`legend`**: Fornece uma descrição para o conteúdo de um `fieldset`.
 
- Vejamos alguns dos atributos que podem ser usados na tag `form`:
+ Vejamos alguns dos atributos que podem ser usados na tag `form` e em seus controles:
  - **`disabled/enabled` (bool)**: *Informa que o campo exibido não permite alteração do usuário.*
  ```html
  <input value="🚫" disabled/>
@@ -1297,8 +1353,9 @@ app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
 ```
- Então, enquanto a tag `form` é utilizada para criar os formulários – ou seja, solicitar informações aos usuários – a tag **`input`** é o campo onde estarão os itens do formulário. **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.** Através da propriedade **`type`**, a tag `input` entende qual o componente deve representar na tela.<br/>
- O atributo **`name`** é obrigatório, tanto para relacionar à o `input` ao `form` em questão, quanto para identificar o dado enviado ao servidor. Ela é essencial para que o backend saiba **qual o valor correspondente a qual campo**.
+ Então, enquanto a tag `form` é utilizada para *criar* os formulários – ou seja, solicitar informações aos usuários – a tag **`input`** é o campo onde estarão os *itens* do formulário. **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.** Através da propriedade **`type`**, a tag `input` entende qual o componente deve representar na tela.<br/>
+ Em outras palavras, o elemento que alimenta um formulário com informações incluídas pelo usuários é o **`input`**, eles são os responsáveis por exibir no navegador os campos que possibilitam a entrada de algum tipo de dado por parte do usuário, enquanto o atributo **`type`** determina o tipo do elemento.<br/>
+ **O atributo _`name`_ é obrigatório, tanto para relacionar à o `input` ao `form` em questão, quanto para identificar o dado enviado ao servidor. Ela é essencial para que o backend saiba **qual o valor correspondente a qual campo**.
 ```html
  <input type="" name=""/>
 ```
@@ -1340,7 +1397,7 @@ email=raphael@email.com&senha=psswrd@09
 
  - **ATRIBUTOS INFORMATIVOS**
     - **`placeholder`**: Exibe um texto informativo para o usuário *sem ocupar* o campo.
-    - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option), juntamente com o atributo `name` (chave e valor = name e value)**
+    - **`value`**: Exibe um texto informativo para o usuário *ocupando* o campo. **Sua principal função é no back-end, que recebe o valor contido nela (normalmente é o mesmo valor de option), juntamente com o atributo `name` (chave e valor = name e value).**
     - **`label`**: Define um rótulo visível, *diferente do valor real da opção*.
   - **ATRIBUTOS DE CONTROLE DE INTERAÇÃO**
     - **`multiple`**: Utilizado principalmente nos campos de entrada de tipo `file` e `email`, e **permite que o usuário selecione ou insira vários valores ao mesmo tempo**.
@@ -1390,14 +1447,21 @@ email=raphael@email.com&senha=psswrd@09
     ```
  - **FAIXA DE VALORES**
     - Para os casos abaixo, o valor do `value` junto com o valor atribuído ao `name`, é a informação que chega ao servidor quando o usuário submete o formulário.
-        - **`radio`**: Permite a seleção de somente uma entre várias opções, todas do mesmo grupo (nome). Cada vez que uma opção é selecionada, a outra opção que foi selecionada é automaticamente desmarcada. **Apenas uma opção pode ser selecionada por vez, e para definir isso o valor atribuído ao `name` deve ser igual para todos, para que o navegador entenda que estão relacionados e garantir a exclusividade da seleção da selação, desmarcando outra quando uma é selecionada.**
+        - **`radio`**: Permite a seleção de somente uma entre várias opções, todas do mesmo grupo (nome). Cada vez que uma opção é selecionada, a outra opção que foi selecionada é automaticamente desmarcada. **Apenas uma opção pode ser selecionada por vez, e para definir isso o valor atribuído ao `name` deve ser igual para todos pois ele diz o grupo ao qual pertence o marcador, para que o navegador entenda que estão relacionados e garantir a exclusividade da seleção, desmarcando outra quando uma é selecionada.**
         ```html
-        <input type="radio" name="sexo" value="masculino"/> Masculino
-        <input type="radio" name="sexo" value="feminino"/> Feminino
+        <input type="radio" name="sexo" value="masculino"/>
+        <label for="masculino">Masculino</label>
+
+        <input type="radio" name="sexo" value="feminino"/>
+        <label for="feminino">Feminino</label>
         ```
-        - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. Embora várias checkbox sejam normalmente exibidas juntas, **cada uma é completamente independente das outras**.
+        - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. Embora várias checkbox sejam normalmente exibidas juntas, **cada uma é completamente independente das outras**. Utilizam o mesmo conceito de grupos e valores, onde devem ser agrupadas e então receber um valor específico para cada uma delas, que será associado ao campo `name` para que o `value` seja tratado no servidor.
         ```html
-        <input type="checkbox" name="quest" value="yes"/> M5 <input type="checkbox" name="quest" value="no"/> M3
+        <input type="checkbox" name="quest" value="yes"/>
+        <label for="yes">M5</label>
+
+        <input type="checkbox" name="quest" value="no"/>
+        <label for="no">M3</label>
         ```
           - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.
           ```html
@@ -1415,31 +1479,31 @@ email=raphael@email.com&senha=psswrd@09
         - Para alterar este comportamento, usa-se o atribuito `selected` na opção que se deseja manter pré selecionada.
         ```html
         <select>
-            <option label="1"/>
-            <option label="2"/>
-            <option label="3" selected/>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
         </select>
         ```
         - Para especificar o número de valores visíveis, usa-se o atributo `size`.
         ```html
         <select size="3">
-            <option label="1"/>
-            <option label="2"/>
-            <option label="3"/>
-            <option label="4"/>
-            <option label="5"/>
-            <option label="6"/>
-            <option label="7"/>
-            <option label="8"/>
-            <option label="9"/>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
         </select>
         ```
         - Para permitir que o usuário selecione mais de um valor usa-se o atributo **`multiple`**.
         ```html
         <select multiple>
-            <option value="bmw">BMW</option>
-            <option value="audi">AUDI</option>
-            <option value="mercedes">MERCEDES</option>
+          <option value="bmw">BMW</option>
+          <option value="audi">AUDI</option>
+          <option value="mercedes">MERCEDES</option>
         </select>
         ```
       - **É usado com `datalist` e `select`.**
