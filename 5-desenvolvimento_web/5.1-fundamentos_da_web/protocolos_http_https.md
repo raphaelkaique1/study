@@ -308,4 +308,30 @@ O que realmente acontece durante a comunicação cliente-servidor segue os segui
 }
 ```
 
+## CGI
+O **C**ommon **G**ateway **I**nterface é um antigo padrão que permite que servidores web executem programas externos, geralmente scripts, e usem sua saída como resposta a uma requisição HTTP. Em resumo, CGI é um protocolo usado para tratar requisições do cliente web e retornar conteúdo, é a ponte entre o servidor web e programas que geram conteúdo dinâmico.
+
+Quando uma URL como a do seguinte exemplo é acessada:
+```bash
+http://website.com/script.cgi?name=Raphael
+```
+O servidor web executa um **script CGI**, podendo ser em Python, C ou Shell ou qualquer outra linguagem de script que o servidor possa executar, que processa a requisição, gera uma resposta em HTML ou JSON por exemplo e envia de volta ao navegador:
+
+1. O navegador faz uma requisição HTTP ao servidor.
+2. O servidor detecta que a URL `script.cgi` aponta para um script CGI.
+3. O script é executado como um processo separado.
+   1. O servidor usa do CGI para passar os dados da requisição para o script via variáveis de ambiente, como `QUERY_STRING` por exemplo.
+   2. O servidor captura a saída do script.
+4. O script gera saída, geralmente HTML, precedida por um cabeçalho:
+```html
+Content-type: text/html
+
+<html><body><h1>Olá, Raphael!<h1></body></html>
+```
+5. O servidor envia essa resposta HTTP ao navegador com base na saída do script.
+
+Um CGI é um serviço que atende uma requisição por vez, o que significa que cada requisição gera um processo separado e isso acaba consumindo muitos recursos, por isso é pouco eficiente para sites com muito tráfego e não é mais utilizado atualmente, sendo substituído por formas modernas como o FastCGI, APIs e backends REST, ou mesmo métodos próprios de frameworks backend como Laravel, Node, Rails, entre outros.<br/>
+Entretanto, é importante ressaltar que o CGI **não** é um protocolo como HTTP ou mesmo o REST. **O HTTP é um protocolo de comunicação entre cliente e servidor** *com a finalidade de trocar mensagens via web*, enquanto **o REST é um estilo de arquitetura que padroniza o design de APIs com boas práticas** e que *usa o HTTP para criá-las*, já **o CGI é uma _interface_ para a padronização de integração entre o servidor web e programas externos** que *executa um script `.cgi` quando determinada URL é acessada*, ou seja, ele permite execução de programas no servidor e gera conteúdo de forma dinâmica em conjunto com o HTTP.<br/>
+**Em outras palavras, REST e HTTP são sobre _comunicação de sistemas_, enquanto o CGI é sobre _como o servidor executa scripts para gerar uma resposta_, o CGI não transporta dados como o HTTP faz, e nem define como estruturar recursos ou URLs como o REST, é basicamente um _mecanismo de execução_ que define como o servidor deve rodar scripts e também como esses scripts devem se comunicar com o servidor — usando variáveis de ambiente e I/O padrão.**
+
 <a href="https://github.com/raphaelkaique1/study/blob/main/4-devops/4.3-ferramentas_de_monitoramento/prometheus_grafana.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#fundamentos_da_web">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/html5_css3_sass_less.md">next</a>
