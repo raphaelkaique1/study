@@ -1666,7 +1666,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
     <tbody>
         <tr>
             <th>&lt;!-- --&gt;</th>
-            <td>Define um comentário</td>
+            <td>Define um comentário.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -1686,7 +1686,12 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>abbr</th>
-            <td>Define uma abreviação</td>
+            <td>Define uma abreviação.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <th>acronym</th>
+            <td>Define um acrônimo.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -1790,7 +1795,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
             <td>✅</td>
         </tr>
         <tr>
-            <th>delete</th>
+            <th>delete / del</th>
             <td>Define um texto deletado.</td>
             <td>✅</td>
         </tr>
@@ -1815,8 +1820,13 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
             <td>✅</td>
         </tr>
         <tr>
+            <th>dfn</th>
+            <td>Marca a definição de um termo.</td>
+            <td>✅</td>
+        </tr>
+        <tr>
             <th>em</th>
-            <td>Define ênfase a um texto tornando-o itálico</td>
+            <td>Define ênfase a um texto tornando-o itálico.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -1896,7 +1906,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>ins</th>
-            <td>Define o que foi inserido em um documento</td>
+            <td>Define o que foi inserido em um documento.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -1916,7 +1926,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>legend</th>
-            <td>Define um título para os elementos <code>fieldset</code>, <code>figure</code> e <code>details</code></td>
+            <td>Define um título para os elementos <code>fieldset</code>, <code>figure</code> e <code>details</code>.</td>
             <td>✅</td>
         </tr>
         <tr>
