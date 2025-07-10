@@ -114,7 +114,7 @@ As webpages se utilizam de HTML para fazer a formatação dos dados, e é import
 ╭──<!DOCTYPE>───────────╮       <!DOCTYPE html>
 |                       |
 ╰───────────────────────╯
-╭───<html>────────────────────╮ <html lang="en">
+╭─<html>──────────────────────╮ <html lang="en">
 | ╭─<head>──────────────────╮ |     <head>
 | |                         | |         <meta charset="UTF-8">
 | |                         | |         <title>Webpage</title>
@@ -122,7 +122,7 @@ As webpages se utilizam de HTML para fazer a formatação dos dados, e é import
 | ╭─<body>──────────────────╮ |     <body>
 | |                         | |         <h1>Welcome!</h1>
 | ╰─</body>─────────────────╯ |     </body>
-╰──</html>────────────────────╯ </html>
+╰─</html>─────────────────────╯ </html>
 ```
 
 ###### ORGANIZAÇÃO DO HEAD
