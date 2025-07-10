@@ -1776,7 +1776,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>cite</th>
-            <td>Define o título de uma obra.</td>
+            <td>Define o autor de uma citação.</td>
             <td>✅</td>
         </tr>
         <tr>
