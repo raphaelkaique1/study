@@ -1781,7 +1781,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>col</th>
-            <td>Se refere à colunas em uma tabela.</td>
+            <td>Se refere às colunas em uma tabela.</td>
             <td>❌</td>
         </tr>
         <tr>
