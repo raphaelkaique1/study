@@ -591,6 +591,55 @@ O exemplo acima fará com que o usuário que clicar no link seja levado à porç
 ```
 <a href="https://github.com/fulltechware/" title="Fulltechware's github profile" target="_blank"><img width="150rem" src="https://avatars.githubusercontent.com/u/182110258" alt="Fulltechware Logo"></a>
 
+Além dos caminhos para outras localizações na web, os links possuem uma outra funcionalidade, o **esquemas de URI**, que são protocolos que acionam diferentes tipos de ação diretamente no dispositivo do usuário como iniciar chamadas, abrir apps, enviar mensagens entre outras inúmeras opções. Todos eles podem ser combinados com *`query strings`* para incluir textos na mensagem ou preencher o título de um e-mail por exemplo. Alguns dos esquemas mais comuns são:
+
+- **email**: abre o cliente de email padrão com o endereço preenchido, e pode incluir `subject`, `body`, `cc` e `bcc` (cópia oculta) via query string.
+```html
+<a href="mailto:name@email.com?subject=Hello%20World">send e-mail</a>
+
+<a href="mailto:contact@company.com?subject=Budget&body=Hi,%20I%20would%20like%20a%20quote.&cc=another@company.com&bcc=hidden@company.com">
+  Enviar e-mail
+</a>
+```
+
+- **telefone**: inicia uma chamada telefônica nos dispositivos que suportam este serviço, também pode ser usado para links de aplicativos de comunicação que oferecem este serviço.
+```html
+<a href="tel:+5531996653731">+55 (31) 9 9665-3731</a>
+```
+
+- **sms**: abre o app de mensagens de texto com o número informado – alguns sistemas suportam `?body=Mensagem`.
+```html
+<a href="sms:+5531996653731?body=Hi">send SMS</a>
+```
+
+- **geolocalização**: abre o serviço de mapas com a localização informada.
+```html
+<a href="geo:-23.5505,-46.6333">São Paulo</a>
+```
+
+- **custom URL schemes**: alguns aplicativos oferecem seus próprios esquemas para permitir integração direta.
+  - WhatsApp:
+    - `https://wa.me/5531996653731?text=Hello`
+    - `https://api.whatsapp.com/send?phone=5531996653731&text=👋😄`
+  - Facebook Messenger:
+    - `fb-messenger://user-thread/user_id`
+  - Skype:
+    - `skype:live:username?chat`
+    - `skype:live:username?call`
+  - Zoom:
+    - `zoommtg://zoom.us/join?confno=953101359`
+
+É importante notar que nem todos os navegadores, clientes e sistemas operações suportam todos os parâmetros, o comportamento pode variar, o suporte depende entre estes fatores também das permissões do usuário, além de que os caracteres especiais devem ser convertidos via URL encoding. Alguns outros esquemas menos utilizados:
+| protocolo               | uso                                                      |
+| ----------------------- | -------------------------------------------------------- |
+| `data:`                 | Embute conteúdo direto na URL, como imagens por exemplo. |
+| `file:`                 | Abre arquivos locais, mas é limitado por segurança.      |
+| `intent:`               | Específico para abrir apps em sistemas Android.          |
+| `market:`               | Android Play Store.                                      |
+| `itms:` ou `itms-apps:` | iOS App Store.                                           |
+| `magnet:`               | Usado por torrents.                                      |
+| `irc:`                  | Inicia um cliente IRC.                                   |
+
 ###### PATHS
 Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados para referenciar arquivos como imagens, folhas de estilo, scripts, páginas e outros recursos. Existem diferentes tipos de caminhos e entender cada um é fundamental para a navegação de um web site ou uma aplicação web.
 
@@ -882,33 +931,37 @@ a abertura da tabela.**
 <table>
     <!-- area de cabeçalho -->
     <caption>SOFTWARE DEVELOPER</caption>
-    <tr>
-        <th>&nbsp;</th> <!-- COLUNA 1 -->
-        <th>front-end</th> <!-- COLUNA 2 -->
-        <th>back-end</th> <!-- COLUNA 3 -->
-        <th>devops</th> <!-- COLUNA 4 -->
-    </tr>
+    <thead> <!-- grupo de cabeçalho -->
+      <tr>
+          <th>&nbsp;</th> <!-- COLUNA 1 -->
+          <th>front-end</th> <!-- COLUNA 2 -->
+          <th>back-end</th> <!-- COLUNA 3 -->
+          <th>devops</th> <!-- COLUNA 4 -->
+      </tr>
+    </thead>
     <!-- LINHA 1 -->
-    <tr>
-        <th>junior</th> <!-- COLUNA 1 -->
-        <td>GUI</td> <!-- COLUNA 2 -->
-        <td>API</td> <!-- COLUNA 3 -->
-        <td>CI/CD</td> <!-- COLUNA 4 -->
-    </tr>
-    <!-- LINHA 2 -->
-    <tr>
-        <th>full</th> <!-- COLUNA 1 -->
-        <td>UX/UI</td> <!-- COLUNA 2 -->
-        <td>SERVER-SIDE</td> <!-- COLUNA 3 -->
-        <td>MONIT</td> <!-- COLUNA 4 -->
-    </tr>
-    <!-- LINHA 3 -->
-    <tr>
-        <th>senior</th> <!-- COLUNA 1 -->
-        <td>SEO</td> <!-- COLUNA 2 -->
-        <td>DB</td> <!-- COLUNA 3 -->
-        <td>INFRA/CLOUD</td> <!-- COLUNA 4 -->
-    </tr>
+    <tbody> <!-- corpo de informações da tabela -->
+      <tr>
+          <th>junior</th> <!-- COLUNA 1 -->
+          <td>GUI</td> <!-- COLUNA 2 -->
+          <td>API</td> <!-- COLUNA 3 -->
+          <td>CI/CD</td> <!-- COLUNA 4 -->
+      </tr>
+      <!-- LINHA 2 -->
+      <tr>
+          <th>full</th> <!-- COLUNA 1 -->
+          <td>UX/UI</td> <!-- COLUNA 2 -->
+          <td>SERVER-SIDE</td> <!-- COLUNA 3 -->
+          <td>MONIT</td> <!-- COLUNA 4 -->
+      </tr>
+      <!-- LINHA 3 -->
+      <tr>
+          <th>senior</th> <!-- COLUNA 1 -->
+          <td>SEO</td> <!-- COLUNA 2 -->
+          <td>DB</td> <!-- COLUNA 3 -->
+          <td>INFRA/CLOUD</td> <!-- COLUNA 4 -->
+      </tr>
+    </tbody>
 </table>
 ```
 <table border="1px">
@@ -940,31 +993,31 @@ a abertura da tabela.**
 </table>
 
  Aqui é facil ver como cada célula do cabeçalho da tabela fornece informações para o restante das células da coluna a qual pertecem. Alguns agentes, tais com navegadores de voz, fazem a mesma análise quando devem informar ao usuário qual célula de cabeçalho está associada a uma determinada célula. Mas, em algum casos, é preciso fornecer mais dados para evitar ambiguidades. Para isso exsite o atributo **`scope`**.
- - **`scope` escopo**: *Fornece um mecanismo para indiciar explicitamente quais células de cabeçalho ele afeta.* **Este atributo só pode ser declarado em UMA CÉLULA DE CABEÇALHO** e tomar os valores `col`, `row`, `colgroup`e `rowgroup`.<br/>
+ - **`scope` escopo**: *Fornece um mecanismo para indiciar explicitamente quais células de cabeçalho ele afeta.* **Este atributo só pode ser declarado em células de cabeçalho** e tomar os valores `col`, `row`, `colgroup`e `rowgroup`.<br/>
  Os valores `col` e `row` indicam que a célula de cabeçalho fornece informações para as demais células da coluna ou linha em que está presente.<br/>
  No exemplo a seguir, a célula no canto superior esquerdo da tabela forneceria informações ambíguas se o atributo `scope` não estivesse presente; em outras palavras, isso afetaria as células de sua coluna, bem como as células da sua linha. *A presença deste atributo deixou claro que as células afetadas por este cabeçalho são aquelas na mesma linha.*
 ```html
 <table>
     <tr>
         <th scope="row">Dia</th>
-        <th>Hoje</th>
-        <th>Amanhã</th>
-        <th>Depois de Amanhã</th>
+        <th scope="col">Hoje</th>
+        <th scope="col">Amanhã</th>
+        <th scope="col">Depois de Amanhã</th>
     </tr>
     <tr>
-        <th>Condição</th>
+        <th scope="row">Condição</th>
         <td>Ensolarado</td>
         <td>Parcialmente nublado</td>
         <td>Nublado</td>
     </tr>
     <tr>
-        <th>Temperatura</th>
+        <th scope="row">Temperatura</th>
         <td>19°C</td>
         <td>17°C</td>
         <td>12°C</td>
     </tr>
     <tr>
-        <th>Ventos</th>
+        <th scope="row">Ventos</th>
         <td>E 13 km/h</td>
         <td>E 11 km/h</td>
         <td>S 16 km/h</td>
