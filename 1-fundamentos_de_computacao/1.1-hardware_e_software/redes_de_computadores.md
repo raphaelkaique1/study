@@ -65,15 +65,15 @@ As tecnologias que conectam os dispositivos podem usar fios, sinais eletromagné
   * **Redes Móveis**:
     -  **LTE**: Operam em várias bandas de frequência para oferecer serviços móveis de alta velocidade e capacidade. Cada geração de rede móvel utiliza bandas diferentes para melhorar a cobertura e a capacidade.
 
-**Conceitos Relacionados**<br/>
-**- Reflexão**: Quando uma onda encontra um obstáculo, parte dela pode ser refletida de volta, como o eco em um cômodo.<br/>
-**- Refração**: Mudança na direção da onda ao passar de um meio para outro com diferente densidade, alterando a velocidade e o comprimento de onda.<br/>
-**- Difração**: A curvatura e a dispersão de ondas ao passar por uma abertura ou contornar um obstáculo.<br/>
-**- Interferência**: A sobreposição de duas ou mais ondas que resulta em uma nova forma de onda.
+**Conceitos Relacionados**
+- **Reflexão**: Quando uma onda encontra um obstáculo, parte dela pode ser refletida de volta, como o eco em um cômodo.<br/>
+- **Refração**: Mudança na direção da onda ao passar de um meio para outro com diferente densidade, alterando a velocidade e o comprimento de onda.<br/>
+- **Difração**: A curvatura e a dispersão de ondas ao passar por uma abertura ou contornar um obstáculo.<br/>
+- **Interferência**: A sobreposição de duas ou mais ondas que resulta em uma nova forma de onda.
 
-**Recepção de sinais**: É o processo de capturar os sinais transmitidos e convertê-los de volta em dados.<br/>
-**- Demodulação**: O sinal recebido é demodulado para extrair os dados de informação.<br/>
-**- Decodificação**: Os dados são decodificados para restaurar a forma original das informações.
+**Recepção de sinais**: É o processo de capturar os sinais transmitidos e convertê-los de volta em dados.
+- **Demodulação**: O sinal recebido é demodulado para extrair os dados de informação.<br/>
+- **Decodificação**: Os dados são decodificados para restaurar a forma original das informações.
 
 ### Rede
   Conjunto de dispositivos autônomos e interconectados com a finalidade de trocar dados por meio de uma única tecnologia.
