@@ -1333,13 +1333,67 @@ Aqui falaremos sobre como adicionar legendas.
 <button>submit<button>  <!-- veremos como implementar isto adiante -->
 ```
 
- No exemplo acima, quando o usuário clicar em *submit**, a ação que será executada é a de enviar os dados para a url especificada usando o método `get`.<br/>
+ No exemplo acima, quando o usuário clicar em *`submit`*, a ação que será executada é a de enviar os dados para a url especificada usando o método `get`.<br/>
  Usando o método `get`, teriamos algo assim por exemplo:<br/>
  `https://www.mydomain.com/newuser.php?name=Raphael&lastname=Santos&email=raphaelkaiquediassantos1%40gmail.com`<br/>
  Podemos distinguir várias partes dessa URL: `https://www.mydomain.com/newuser.php` é o próprio site.<br/>
  **O símbolo `?` é seguido por pares de dados com seu `nome` e `valor`, separados pelo símbolo `&`.** *Os pares `data1=value1`, `data2=value2`, `data3=value3`... refletem o nome dos campos enviados pelo formulário.*<br/>
  Por exemplo: `name=Raphael`, `lastname=Santos` e etc, nos informa que o campo do formulário chamado `nome` chega com o valor `Raphael`, enquanto o campo `lastname` chega atribuído ao valor `Santos`. Estes valores são recebidos na página web de destino do fomulário.<br/>
  **Note que para separar o primeiro par do próprio endereço usamos o símbolo `?`, já para separar os pares restantes uns dos outros usamos o símbolo `&`.**
+
+ Também é possível especificar o método de HTTP de um determinado elemento além do `method` escolhido em `form`, o atributo que permite isto é o **`formmethod`**. **Este atributo é usado somente em elementos de submissão como `button` e `input` com o `type="submit"` para especificar o método HTTP que será usado ao enviar o formulário, sobrepondo o atributo `method` do próprio `form`.**
+ ```html
+ <form action="/processar" method="post">
+   <input type="text" name="msg"/>
+
+   <button type="submit">Enviar com POST (padrão do form)</button>
+   <button type="submit" formmethod="get">Enviar com GET (sobrescreve)</button>
+ </form>
+ ```
+ > O atributo `formmethod` define qual método HTTP será usado para enviar os dados do formulário quando aquele botão for utilizado para o envio, ignorando o valor do atributo `method` no `<form>`.
+
+ Alguns atributos possuem compatibilidade com outros atributos do tipo `<form>` e seguem o mesmo princípio de sobrescrever valores do `<form>`:
+ | atributo         | descrição                                                                                        |
+ | ---------------- | ------------------------------------------------------------------------------------------------ |
+ | `formaction`     | Define o destino da submissão.                                                                   |
+ | `formmethod`     | Define o método de submissão.                                                                    |
+ | `formenctype`    | Define o tipo de codificação (`application/x-www-form-urlencoded`, `multipart/form-data`, etc.). |
+ | `formtarget`     | Define onde a resposta será exibida (`_blank`, `_self`, etc.).                                   |
+ | `formnovalidate` | Ignora validação HTML5 se presente.                                                              |
+
+ > O valor `"dialog"` **não é aceito em `formmethod`**, apenas em `method` no `<form>` diretamente.
+
+ Como este exemplo que contém 2 botões com métodos diferentes:
+ ```html
+ <form action="/process" method="post">
+   <input type="text" name="email" required>
+
+   <button type="submit">salvar (POST)</button>
+   <button type="submit" formmethod="get" formaction="/view">visualizar (GET)</button>
+ </form>
+ ```
+ Neste cenário, clicar em "`salvar`" envia com `POST` para `/process`, enquanto que clicar em "`visualizar`" envia com `GET` para `/view`.
+
+ Um uso muito comum para este tipo de técnica é em aplicações de compras por exemplo, onde o usuário pode escolher enviar um produto ao seu carrinho para finalizar a compra ou salvar o item em uma lista de favoritos para ser comprado mais tarde, ou também na criação de documentos onde ele pode salvar o arquivo em edição ou visualizá-lo seu formato atual antes de prosseguir.
+ ```html
+ <form action="/submit" method="post" enctype="application/x-www-form-urlencoded" target="_self">
+   <input type="text" name="user" required>
+
+   <!-- botão 1: envia utilizando os atributos em `form` -->
+   <button type="submit">send</button>
+
+   <!-- botão 2: sobrescreve vários atributos -->
+   <button
+     type="submit"
+     formaction="/view"
+     formmethod="get"
+     formenctype="application/x-www-form-urlencoded"
+     formtarget="_blank"
+   >
+     preview
+   </button>
+ </form>
+ ```
 
 **ENTRADA DE DADOS EM FORMULÁRIOS**<br/>
  Os controles de entrada de dados em formulários geralmente são controles visuais e permite que o usuário insira dados ou selecione opções. Seu uso depende do tipo de controle e também do tipo de informações.
@@ -1655,6 +1709,60 @@ email=raphael@email.com&senha=psswrd@09
     </fieldset>
 </form>
 ```
+ - **DIALOG**<br/>
+ Esta é uma tag semântica que representa uma **caixa de diálogo**, **modal** ou **janela pop-up** *nativamente suportadas no HTML que são interativas, crontoladas via script*. Esta tag quando usada juntamente com `form` dá ao formulário a possibilidade de utilizar o método `dialog`.<br/>
+ O atributo `method="dialog"` é uma funcionalidade específica para o elemento `form` quando usado dentro de uma tag `dialog`, ele não é um método tradicional como `GET` ou `POST`, mas sim um **método especial que instrui o formulário a fechar a tag `dialog` onde este estiver contido ao ser enviado com `submit`**, e ao fechar ele pode opcionalmente retornar um valor para o script.
+ ```html
+ <dialog id="myDialog">
+   <form method="dialog">
+     <p><label>Nome: <input type="text" name="name"/></label></p>
+     <menu>
+       <button type="submit" value="cancel">Cancelar</button>
+       <button type="submit" value="confirm">Confirmar</button>
+     </menu>
+   </form>
+ </dialog>
+
+ <button onclick="document.getElementById('myDialog').showModal()">send a message</button>
+ ```
+ Quando um `form` dentro de um `dialog` é submetido com o método `dialog`, o elemento é automaticamente fechado e o botão que disparou o envio pode definir o valor de `dialog.returnValue`, porém esta submissão não realiza requisições HTTP como faria com `GET` ou `POST` por exemplo, ele na verdade age como um *mecanismo de interação com a interface* — útil para simular um tipo de retorno de chamada ou captura de decisão do usuário.
+ ```js
+ const dialog = document.querySelector('myDialog');
+
+ dialog.addEventListener('close', () => {
+   console.log("Valor retornado:", dialog.returnValue);
+ });
+ ```
+
+ Mas é possível utilizar a tag `dialog` com algum dos métodos de requisção em um formulário, como por exemplo:
+ ```html
+ <dialog id="formDialog">
+   <form method="post" action="/send-data">
+     <label>Email: <input name="email" type="email"/></label>
+     <button type="submit">Enviar</button>
+     <button type="button" onclick="formDialog.close()">Cancelar</button>
+   </form>
+ </dialog>
+
+ <button onclick="formDialog.showModal()">Abrir Formulário</button>
+ ```
+
+ Resumindo, o `form` com `method="dialog"` aciona o evento `submit` normalmente, mas não aciona a navegação nem envia dados para o servidor, o botão que envia o formulário deve ter o atributo `value` definido para que `returnValue` do `dialog` seja útil — **o `dialog.returnValue` sempre será um valor do tipo string**.
+ | atributo/método               | função                                                                    |
+ | ----------------------------- | ------------------------------------------------------------------------- |
+ | `<dialog>`                    | Cria uma caixa de diálogo ou modal — sem JS externo.                      |
+ | `<dialog>` + `<form>`         | Com qualquer `method`.                                                    |
+ | `.show()`                     | Mostra o diálogo de forma **não-modal — não trava a tela no background**. |
+ | `.showModal()`                | Mostra o diálogo de forma **modal — trava a tela no backgroud**.          |
+ | `.close()`                    | Fecha o diálogo programaticamente.                                        |
+ | `method="dialog"` no `<form>` | Fecha o diálogo e retorna o valor do botão pressionado — sem submit real. |
+ | `returnValue`                 | Obtém o valor retornado ao fechar o diálogo via botão.                    |
+
+ > `showModal()` permite que o usuário feche o diálogo com `Esc` ou clicando fora da caixa de diálogo — exceto se isto for bloqueado via script.
+
+ Como o envio não transmite dados, deve-se usar JavaScript para manipular informações preenchidas em inputs dentro do form. Também é possível com o JS criar diálogos customizados onde o botão *"fechar"* não está visível e usa apenas `form method="dialog"` para sair do modal.<br/>
+ Como não há envio de dados ao servidor, não há risco de exposição de dados via URL ou requisições indesejadas, porém dados sensíveis dentro da tag `dialog` ainda devem ser protegidos via JS, já que podem ser acessados pelo DOM. Além de que não é possível usar *`formmethod`* com outros métodos como `GET` e `POST` no mesmo formulário, pois são mutuamente exclusivos.
+ 
 
 ###### `data-info`
 Este atributo personalizável é muito utilizado como uma forma de armazenar informações e dados extras – geralmente temporários como IDs, nomes, categorias e etc – em elementos HTML sem bagunçar a estrutura e afetar a apresentação da página. **É particularmente útil para que o script possa acessar e manipular tais dados.**<br/>
