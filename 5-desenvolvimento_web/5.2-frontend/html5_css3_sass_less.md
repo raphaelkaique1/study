@@ -1248,7 +1248,7 @@ As coordenadas `coords` em `area` definem a posição da área sobre a imagem co
     - `rect`: `coords="(x, y) coordenada_inicial_canto_superior_esquerdo, (w, h) largura_altura_da_area"`
     - `poly`: `coords="(x1, y1) coordenada_ponto-1, (x2, y2) coordenada_ponto-2, (x3, y3) coordenada_ponto-3, ..."`
 - `coords`: coordenadas da posição da área sobre a imagem, variando conforme o `shape`, o tamanho da área é consequência da distância entre os pontos.
-- `href`: link que será acionado ao clicar na área.
+- `href`: link que será acionado ao clicar na área, **não obrigatório**.
 - `alt`: texto alternativo para acessibilidade.
 - `target`: onde abrir o link (ex: `_blank` para nova aba).
 
