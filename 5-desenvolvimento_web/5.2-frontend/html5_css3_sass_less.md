@@ -176,7 +176,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 \<style>   | delimita css interno       | ❌
 \<script>  | delimita scripts incluídos | ❌
 
- - Meta tags não possuem um par fechamento, elas servem para incluir informações que não são exibidar como parte da página, mas sim informar aos navegadores sobre características da página, tais como sua breve descrição e palavras-chave. Elas contém a etiqueta `name`, que é usado para identificar dados de formulário que serão enviados ao servidor quando o formulário for submetido, criação de âncoras e agrupamento de opções, e o atributo *`description`* que é essencial para os motores de busca, pois dá uma breve descrição sobre o assunto da página e ajuda a categorizá-la (substituindo o atributo *"keywords"*). A metatag **`charset="UTF-8"`** por exemplo, informa ao navegador como devem interpretar os caracteres, garantindo a compatibilidade com diferentes idiomas e tornando a página acessível globalmente, sua ausência pode levar a um comprometimento de segurança ou de instabilidade na exibição do documento.
+ - Meta tags não possuem um par fechamento, elas servem para incluir informações que não serão exibidas como parte da página, mas sim informar aos navegadores sobre características da página, tais como sua breve descrição e palavras-chave. Elas contém a etiqueta `name`, que é usado para identificar dados de formulário que serão enviados ao servidor quando o formulário for submetido, criação de âncoras e agrupamento de opções, e o atributo *`description`* que é essencial para os motores de busca, pois dá uma breve descrição sobre o assunto da página e ajuda a categorizá-la (substituindo o atributo *"keywords"*). A metatag **`charset="UTF-8"`** por exemplo, informa ao navegador como devem interpretar os caracteres, garantindo a compatibilidade com diferentes idiomas e tornando a página acessível globalmente, sua ausência pode levar a um comprometimento de segurança ou de instabilidade na exibição do documento.
  - A tag `title` exibe o nome da página no campo de abas do navegador.
  - A ordem das tags é indiferente, exceto pela tag `link`, que, se existir, deve ser colocada idealmente logo após `title`. Tags `link` são usadas para indicar que o documento HTML está relacionado a outro arquivo ou recurso externo. Ele liga nossa página web com outras páginas externas, tais como CSS (*external CSS*), JavaScript e etc. Não possuem par de fechamento. Exemplo:
 
@@ -473,6 +473,37 @@ TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBST
 \<big>text\</big>       | maior       | <big>text</big>       | ✅
 \<sub>text\</sub>       | subescrito  | <sub>text</sub>       | ✅
 \<sup>text\</sup>       | sobrescrito | <sup>text</sup>       | ✅
+
+###### MENU
+**`details`**<br/>
+Este elemento é usado para criar uma seção expandível que o usuário pode abrir e fechar. Particularmente útil para exibir conteúdo sob demanda ou criar menus suspensos com listas de opções.
+```html
+<details>
+  <summary>Menu</summary>
+  <p>Este é o conteúdo oculto que aparece quando o usuário expande.</p>
+</details>
+```
+O elemento **`summary`** define o título visível da seção, e ao clicar nele o conteúdo interno é exibido ou oculto. Sem este elemento, o navegador ainda renderiza o `details`, mas com um botão ou texto genérico.
+
+```html
+<details>
+    <ul>
+        <li><a href="https://raphaelkaique1.github.io/raphaelkaique1/main/">Website</a></li>
+        <li><a href="https://github.com/raphaelkaique1/">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/raphaelkaique1/">LinkedIn</a></li>
+        <li><a href="https://wa.me/5531996653731">WhatsApp</a></li>
+        <li><a href="mailto:raphaelkaiquediassantos1@gmail.com">e-mail</a></li>
+    </ul>
+</details>
+```
+
+O atributo **`open`** abre o menu por padrão quando o documento é carregado.
+```html
+<details open>
+  <summary>Menu Aberto</summary>
+  <p>Esse conteúdo aparece automaticamente ao carregar a página e pode ser fechado manualmente pelo usuário.</p>
+</details>
+```
 
 ###### CABEÇALHO
  Quando queremos indicar que um texto é um título em nossa página, utilizamos as tags de *heading* em sua marcação. As tags `<h></h>` são usadas para títulos, variando hierarquicamente em ordem de importância de `h1` (o mais importante) a `h6` (menor importância). As tags de heading não apenas mudam o tamanho do texto, mas, os motores de busca também dão importância a essas tags. A ordem de importância tem impacto nas ferramentas que processam HTML. As ferramentas de indexação de conteúdo para buscas, como o Google, Bing entre outros, levam em consideração essa ordem e relevância. Os navegadores especiais para acessibilidade também interpretam o conteúdo dessas tags de maneira a diferenciar seu conteúdo e facilitar a navegação do usuário pelo documento. Os próprios cabeçalhos geram uma quebra de linha.<br/>
@@ -994,7 +1025,8 @@ a abertura da tabela.**
 </table>
 
  Aqui é facil ver como cada célula do cabeçalho da tabela fornece informações para o restante das células da coluna a qual pertecem. Alguns agentes, tais com navegadores de voz, fazem a mesma análise quando devem informar ao usuário qual célula de cabeçalho está associada a uma determinada célula. Mas, em algum casos, é preciso fornecer mais dados para evitar ambiguidades. Para isso exsite o atributo **`scope`**.
- - **`scope` escopo**: *Fornece um mecanismo para indiciar explicitamente quais células de cabeçalho ele afeta.* **Este atributo só pode ser declarado em células de cabeçalho** e tomar os valores `col`, `row`, `colgroup`e `rowgroup`.<br/>
+
+ - **`scope` escopo**: *Fornece um mecanismo para indiciar explicitamente quais células de cabeçalho ele afeta.* **Este atributo só pode ser declarado em células de cabeçalho** e tomar os valores `col`, `row`, `colgroup` e `rowgroup`.<br/>
  Os valores `col` e `row` indicam que a célula de cabeçalho fornece informações para as demais células da coluna ou linha em que está presente.<br/>
  No exemplo a seguir, a célula no canto superior esquerdo da tabela forneceria informações ambíguas se o atributo `scope` não estivesse presente; em outras palavras, isso afetaria as células de sua coluna, bem como as células da sua linha. *A presença deste atributo deixou claro que as células afetadas por este cabeçalho são aquelas na mesma linha.*
 ```html
@@ -1053,6 +1085,48 @@ a abertura da tabela.**
     </tr>
 </table>
 
+ - **`colgroup`**: este elemento é usado para agrupar uma ou mais colunas em uma tabela, e geralmente é usado em conjunto com a tag **`col`** para aplicar estilos a colunas inteiras. A tag `col` além de dar uma identidade para cada coluna, quando usada com o atributo `span` dá mais semântica para a tabela pois este atributo define quantas colunas consecutivas o elemento `col` deve abranger – ou seja, quantas colunas ele afeta na tabela, pois quando se tem múltiplos `col` dentro de um `colgroup`, o navegador aplica os estilos nas colunas da esquerda para a direita, respeitando o `span` de cada `col`. O valor padrão de `span` é `1` – pode ser omitido – e este atributo funciona apenas em `col` dentro de `colgroup`.
+```html
+<style>
+    #name {
+        background-color: aquamarine;
+    }
+
+    #info {
+        background-color: aqua;
+    }
+</style>
+
+<table border="1px">
+  <caption>clientes cadastrados</caption>
+  <colgroup>
+      <col span="1" id="name"/>
+      <col span="2" id="info"/>
+  </colgroup>
+  <thead>
+    <th>Nome</th>
+    <th>Telefone</th>
+    <th>email</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Raphael</td>
+      <td>(31) 99665-3731</td>
+      <td>raphaelkaiquediassantos@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Kaíque</td>
+      <td>(31) 99665-3731</td>
+      <td>raphaelkaiquediassantos@gmail.com</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <td colspan="3">Total: 2</td>
+  </tfoot>
+</table>
+```
+Neste exemplo, os elementos da 1ª coluna incluindo o `tfoot` terão o fundo `aquamarine`, e as 2 seguintes terão fundo `aqua`.
+
 ###### MULTIMÍDIA
  A tag **`figure`** é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.<br/>
  A tag **`source`** junto ou não do atributo **`src`** é utilizada para indicar o caminho até o arquivo de mídia, para que possa ser carregado e exibido na página.
@@ -1062,7 +1136,7 @@ a abertura da tabela.**
  A tag que possibilita a renderização de imagens no documento é a **`<img/>`**, que através do atributo obrigatório **`src`** é possível indicar o local do armazenamento da imagem a ser usada.<br/>
  O conteúdo no atritbuto **`alt`** será utilizado apenas quando a imagem não for carregada – a imagem não existe mais no caminho informado ou o caminho está desatualizado – ou pelos leitores de tela de acessibilidade.
  ```html
- <img src="image_path/img.ext" title="Image title." alt="Accessibility description." />
+ <img src="image_path/img.ext" title="Image title." alt="Accessibility description."/>
  ```
  As imagens dentro de uma página web são incluídas dentro da tag **`figure`** que define uma imagem em conjunto com a tag **`<img/>`**, indicando para o navegador que uma imagem deve ser renderizada naquele local.<br/>
  Ao utilizá-la, é necessário especificar o caminho onde a imagem está localizada, seja um caminho para um diretório local ou um endereço na internet; **isso é feito com o atributo `src`, que é um atributo obrigatório para exibir a imagem e aponta para a sua localização.**<br/>
@@ -1092,7 +1166,7 @@ O uso de imagens nos documentos traz um resultado mais rico para a página, mas 
   - **`eager`**: valor padrão que carrega a imagem imediamente, junto com o carregamento de todo o conteúdo do documento.
 
 ```html
-<img src="img.jpg" loading="lazy" alt="Image description." />
+<img src="img.jpg" loading="lazy" alt="Image description."/>
 ```
 
 - **`decoding`**: este atributo permite controlar como a imagem é decodificada pelo navegador.
@@ -1101,20 +1175,20 @@ O uso de imagens nos documentos traz um resultado mais rico para a página, mas 
   - **`auto`**: valor padrão, onde o navegador decide qual o melhor tipo a ser usado.
 
 ```html
-<img src="img.jpg" decoding="async" alt="Image description." />
+<img src="img.jpg" decoding="async" alt="Image description."/>
 ```
 
 - **`width`** / **`height`**: define as dimensões da imagem evitando *reflows* e otimizando a renderização, ajudando o navegador a reservar espaço e evitar saltos de layout **Cumulative Layout Shift**. **Aceita todos os tipos de valores de tamanho existentes, caso implícito o navegador entenderá como sendo __`px`__.*
 
 ```html
-<img src="img.jpg" width="500" height="500" alt="Image description." />
+<img src="img.jpg" width="500" height="500" alt="Image description."/>
 ```
 
 - **``**: .
   - **``**: .
 
 ```html
-<img src="img.jpg" alt="Image description." />
+<img src="img.jpg" alt="Image description."/>
 ```
 
 - **`srcset`** / **`sizes`**: fornece múltiplas versões da imagem para diferentes tamanhos de tela e resoluções, muito utilizado para imagens responsivas.
@@ -1157,6 +1231,29 @@ Então, enquanto `figure` fornece um agrupamento do conteúdo de mídia e suas i
 
 Além do uso correto das estruturas e seus atributos, para uma melhor qualidade na exibição das imagens e performance da página é escolher corretamente o melhor e mais adequado formato, além de utilizar técnicas como a compressão das imagens, CDNs e placeholder com baixa qualidade para a otimização do desempenho.
 
+**MAP**<br/>
+Cria o mapeamento de áreas clicáveis dentro de uma imagem, sendo possível definir diferentes regiões de uma imagem que funcionam como links ou áreas interativas. Para que seja possível utilizá-lo, o elemento `img` deve possuir o atributo `usemap` associado ao `name` da tag `map` para a imagem em questão, e então dentro do `map` deve-se definir as áreas interativas com `area`.<br/>
+As coordenadas `coords` em `area` definem a posição da área sobre a imagem com base no sistema de coordenadas em pixels da imagem – elas não definem o *"tamanho"* da área diretamente, apenas o início e o fim da área mapeada.
+```html
+<img src="brasil.png" usemap="#brasilmap" alt="Mapa do Brasil">
+
+<map name="brasilmap">
+  <area shape="poly" coords="300, 60, 320, 80, 310, 100, 290, 90" href="https://mg.gov.br" alt="Minas Gerais"/>
+  <area shape="rect" coords="50, 50, 150, 100" href="https://sp.gov.br" alt="São Paulo"/>
+  <area shape="circle" coords="200, 80, 30" href="https://rj.gov.br" alt="Rio de Janeiro"/>
+</map>
+```
+- `shape`: define a forma da área, onde os eixos `x, y,` definem o ponto inicial da formação da área enquanto `w, h` definem o valor da largura e altura da área, podendo possuir os valores:
+    - `circle`: `coords="(x, y) coordenada_inicial_centro_circulo, (z) raio_do_circulo"`
+    - `rect`: `coords="(x, y) coordenada_inicial_canto_superior_esquerdo, (w, h) largura_altura_da_area"`
+    - `poly`: `coords="(x1, y1) coordenada_ponto-1, (x2, y2) coordenada_ponto-2, (x3, y3) coordenada_ponto-3, ..."`
+- `coords`: coordenadas da posição da área sobre a imagem, variando conforme o `shape`, o tamanho da área é consequência da distância entre os pontos.
+- `href`: link que será acionado ao clicar na área.
+- `alt`: texto alternativo para acessibilidade.
+- `target`: onde abrir o link (ex: `_blank` para nova aba).
+
+O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamento automático – a menos que seja usado JavaScript para adaptar as coordenadas dinamicamente.
+
 **ÁUDIO**<br/>
  O uso de áudio em páginas web não é recomendado atualmente por ser desconfortável para o usuário, especialmente quando várias abas estão abertas e cada uma reproduz um áudio.<br/>
  Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
@@ -1167,8 +1264,8 @@ Além do uso correto das estruturas e seus atributos, para uma melhor qualidade 
  - **`loop`**: O áudio é reproduzido em loop.
 ```html
 <audio controls>
-    <source src="audio.ogg" type="audio/ogg" />
-    <source src="audio.mp3" type="audio/mpeg" />
+    <source src="audio.ogg" type="audio/ogg"/>
+    <source src="audio.mp3" type="audio/mpeg"/>
 </audio>
 ```
 
@@ -1238,7 +1335,7 @@ Aqui falaremos sobre como adicionar legendas.
  ```
  No HTML4 era aconselhável usar a tag `noframes` para fornecer um conteúdo alternativo aos navegadores que não suportavam frames.
  ```html
- <frameset cols="50%,50%">
+ <frameset cols="50%, 50%">
    <frame src="page_1.html"/>
    <frame src="page_2.html"/>
    <noframes>
@@ -1533,7 +1630,7 @@ email=raphael@email.com&senha=psswrd@09
       - **`wrap`**: *Especifica como o texto deve ser quebrado quando atingir o final da linha.*
         - **`soft`**: Quebra de linha no campo visualmente, mas *sem inserir* uma quebra no texto.
         - **`hard`**: *Insere* uma quebra de linha no texto.
-      - **`spellcheck`="`true`/`false`"**: Especifica se o navegador deve verificar a ortografia do texto digitado.
+      - **`spellcheck="true/false"`**: Especifica se o navegador deve verificar a ortografia do texto digitado.
     - **`password`**: Oculta os caracteres digitados.
     ```html
     <input type="password" name="senha" placeholder="Digite aqui sua senha"/>
@@ -1787,7 +1884,7 @@ Agora então, é possível que o JS acesse os dados do elemento:
 Em resumo, este atributo serve para definir mais informações para os componentes de tela, para que possam servir para pesquisas filtrando suas informações, permitindo que buscas elaboradas sejam realizadas pela leitura do código HTML semanticamente. Outro bom exemplo é o de um áudio, onde é possível utilizar este atributo para definir o autor, a duração do áudio e etc.
 ```html
 <audio controls="controls">
-    <source src="https://www.youtube.com/watch?v=lx0eir2xF5E" type="audio/mp3" data-duration="1min12secs" data-artist="CriaScript" />
+    <source src="https://www.youtube.com/watch?v=lx0eir2xF5E" type="audio/mp3" data-duration="1min12secs" data-artist="CriaScript"/>
 </audio>
 ```
 
@@ -1802,6 +1899,52 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
 </p>
 ```
 
+###### `contenteditable`
+Este atributo pode ser incluído em qualquer elemento para torná-lo editável diretamente pelo usuário na interface do navegador. Ele permite editar quase qualquer conteúdo HTML como texto, imagens, links, tabelas, listas e elementos HTML em geral. Quando omisso, seu valor padrão é `false`, e se um elemento pai possuir `contenteditable="true"` todos os elementos filhos também serão editáveis, a menos que se sobrescreva essa propriedade diratamente no elemento filho.
+```html
+<div contenteditable="true">
+  <h2 contenteditable="false">Não Editável</h2>
+  <p>Editável.</p>
+</div>
+```
+**Este atributo não salva as alterações automaticamente, sendo necessário o uso de JavaScript para capturar e salvar os dados modificados.**
+
+###### `tabindex`
+Este atributo determina e controla a ordem de navegação por teclado entre os elementos focáveis de uma página. Particularmente útil quando é necessário tornar elementos que normalmente não são focáveis acessíveis ao teclado, ou mesmo controlar a navegação por teclado em formulários ou interfaces complexas por exemplo.
+```html
+<div tabindex="0">Este elemento pode receber foco.</div>
+```
+
+| valor | significado                                                                         |
+| ----- | ----------------------------------------------------------------------------------- |
+| `0`   | O elemento **entra na ordem natural** de navegação por Tab.                         |
+| `> 0` | O elemento recebe uma **ordem de foco personalizada**.                              |
+| `-1`  | O elemento **pode receber foco via JavaScript**, mas **não entra** na ordem de Tab. |
+
+```html
+<!-- ordem padrão -->
+<button>click here</button>
+<div tabindex="0">Div focável.</div>
+
+<!-- ordem personalizada -->
+<input tabindex="2" type="text"/>
+<input tabindex="1" type="text"/>
+
+<!-- focável apenas via script -->
+<div tabindex="-1" id="msg">Mensagem.</div>
+
+<script>
+  // focar manualmente o elemento com `tabindex="-1"`
+  document.getElementById("msg").focus();
+</script>
+```
+
+###### `accesskey`
+Permite definir uma tecla de atalho para acessar diretamente elementos na página como links, botões, campos de formulário entre outros elementos. Este atributo associa uma tecla de atalho ao elemento, e então o usuário pode ativar o elemento pressionando a combinação de teclas definida.
+```html
+<button accesskey="s">save</button>
+```
+
 ###### VIAS E ROTAS
  Uma *rota* informa o caminho da localização de um arquivo na estrutura de pastas do site. Os caminhos de arquivos são usados quando se ligam a arquivos externos, tais como: páginas web, conteúdo multimídia, folhas de estilo e arquivos de script. Existem 2 tipos de caminhos, porém, **recomenda-se o uso de caminhos relativos sempre que possível, pois ao utilizá-los, suas páginas web não serão vinculadas à sua URL base atual, todos os links funcionarão em seu próprio site (*localhost*), assim como em seu domínio público atual e em seus domínios públicos futuros.**:
  1. **caminho relativo**: especifica a localização em relação ao documento atual.
@@ -1814,11 +1957,6 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
 ###### TAGS
 <table border="1px">
     <caption>LISTA DE TAGS</caption>
-    <colgroup>
-        <col>
-        <col>
-        <col>
-    </colgroup>
     <thead>
         <tr>
             <th>TAG</th>
@@ -2124,7 +2262,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>meter</th>
-            <td>Define uma medida escalar em uma faixa conhecida.</td>
+            <td>Define uma medida escalar em uma faixa conhecida. <code>meter value="5" min="0" low="3" optimum="7" high="9" max="10"</code></td>
             <td>✅</td>
         </tr>
         <tr>
@@ -2139,7 +2277,7 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
         </tr>
         <tr>
             <th>object</th>
-            <td>Define um objeto incorporado.</td>
+            <td>Define um objeto incorporado. <code>object data="file.pdf"</code></td>
             <td>✅</td>
         </tr>
         <tr>
@@ -4383,11 +4521,11 @@ Ou seja, o GRID basicamente divide a tela em várias fatias de diferentes propor
  Imaginemos um site com media queries otimizadas para telas menores. Se tentássemos rodar este exemplo em um iPhone ou Android, ainda estaria sendo exibida a versão Desktop da página. A regra do max-width no media query é completamente ignorada. Na verdade, a questão é que os smartphones modernos têm telas grandes e resoluções altas, justamente para permitir exibir sites complexos feitos para Desktop. A tela de um iPhone SE por exemplo é 1280px por 720px. Celulares Android já chegam a 4K. Ainda assim, a experiência desses celulares é bem diferente dos Desktops. 4K em uma tela de 4 polegadas é bem diferente de 4K em um notebook de 16 polegadas, a resolução muda. Celulares costumam ter uma resolução em dpi bem maior que Desktops.<br/>
  Os smartphones entendem que considerar a tela como 4K não ajudará o usuário a visualizar a página otimizada para telas menores. Há então o conceito de **device-width** que, resumidamente, representa um número em pixels que o fabricante do aparelho considera como mais próximo da sensação que o usuário tem ao visualizar a tela. Nos iPhones, por exemplo, o device-width é considerado como 370px, mesmo com a tela tendo uma resolução bem mais alta. Por padrão, iPhones, Androids e afins costumam considerar o tamanho da tela visível, chamada de viewport, como grande o suficiente para comportar os sites Desktop normais. Por isso o exemplo foi renderizado sem zoom, como se fosse visualizado no Desktop. A Apple criou então uma solução que depois foi copiada pelos outros smartphones, que é configurar o valor que julgarmos mais adequado para o viewport:
  ```html
- <meta name="viewport" content="width=370" />
+ <meta name="viewport" content="width=370"/>
  ```
  Isso faz com que a tela seja considerada com largura de 370px, fazendo com que o layout mobile finalmente funcione, e também as media queries. **Melhor ainda, é a possibilidade de configurar o viewport com o valor device-width definido pelo fabricante, dando mais flexibilidade com dispositivos diferentes com tamanhos diferentes**. Isso é possível com o atributo **`content`**, que é onde são inseridas as configurações específicas da viewport.
  ```html
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  ```
  - No atributo **`content`** define à qual tamanho de tela a página deve se adaptar
  - A forma de realizar uma adaptação dinâmicamente é usando a propriedade **`device-width`** no **`width`**, assim, se obtém automaticamente o tamanho da tela no dispositivo atual. Ou seja, essa propriedade define a largura da viewport igual à largura física da tela do dispositivo, evitando que o site fique "esticado" ou "encolhido" em diferentes tamanhos de tela.
@@ -4590,7 +4728,7 @@ Existem diferentes maneiras de se aplicar o *blur-up*, mas as 2 principais são:
 ```
 
 Além das formas *"nativas"* – usadas no HTML, CSS e JS puros – frameworks de desenvolvimento web e outras ferramentas também fornecem maneiras para aplicar esta técnica:
-- **Next.js** com `<Image placeholder="blur" />` gera o blur automaticamente.
+- **Next.js** com `<Image placeholder="blur"/>` gera o blur automaticamente.
 - **Gatsby** com `gatsby-image` ou `gatsby-plugin-image`.
 - **Cloudinary**, **Imgix** ou **ImageKit** geram versões LQIP dinamicamente.
 - **Squoosh** ou **TinyPNG** para gerar manualmente a versão LQIP.
