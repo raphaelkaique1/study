@@ -2087,7 +2087,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
         </tr>
         <tr>
             <th>bdo</th>
-            <td>Sobrescreve o endereço do texto.</td>
+            <td>Sobrescreve o endereço do texto. <code>bdo dir="ltr/rtl"</code></td>
             <td>✅</td>
         </tr>
         <tr>
