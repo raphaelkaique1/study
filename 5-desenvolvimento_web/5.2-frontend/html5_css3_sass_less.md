@@ -505,6 +505,56 @@ O atributo **`open`** abre o menu por padrão quando o documento é carregado.
 </details>
 ```
 
+**`menu`**<br/>
+Esta tag tem o objetivo de criar menus contextuais, menus pop-up, barras de ferramentas e listas de ações e de comandos interativos quando um elemento é clicado com o botão direito do mouse. No entanto ela não é amplamente suportada nos navegadores modernos e seu uso foi descontinuado, sendo considerada uma tag obsoleta.
+```html
+<menu label="Options" type="context" id="context-menu">
+  <menuitem onclick="copyText()">Copiar</menuitem>
+  <menuitem onclick="cutText()">Cortar</menuitem>
+  <menuitem onclick="pasteText()">Colar</menuitem>
+  <menuitem onclick="theme()" type="checkbox" checked>Modo escuro</menuitem>
+</menu>
+
+<div contextmenu="context-menu">
+  Clique com o botão direito aqui.
+</div>
+```
+
+- `menu`: define um menu de comandos.
+  - `type`: define o tipo do menu.
+    - `"context"`: menu de contexto.
+    - `"toolbar"`: barra de ferramentas.
+    - `label`: rótulo com o texto visível.
+- `menuitem`: representa um item de comando dentro de um `menu`.
+  - `icon`: ícone exibido ao lado do texto.
+  - `label`: rótulo com o texto visível.
+  - `type`: `"command"`, `"checkbox"`, ou `"radio"`.
+    - `"checked"`: usado com `"checkbox"` ou `"radio"`.
+
+Também é possível aninhá-los, criando sub-menus:
+```html
+<div contextmenu="context-menu">
+  Clique com o botão direito aqui.
+</div>
+
+<menu type="context" id="meu-menu">
+  <menuitem onclick="update()">Contact</menuitem>
+
+  <menu label="Socials" type="context" id="meu-menu">
+    <menuitem icon="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" href="mailto:raphaelkaiquediassantos1@gmail.com">E-mail</menuitem>
+    <menuitem icon="https://static.whatsapp.net/rsrc.php/v4/yP/r/rYZqPCBaG70.png" href="https://wa.me/5531996653731">WhatsApp</menuitem>
+  </menu>
+</menu>
+```
+
+Entretanto como já dito, esta tag foi removida da especificação HTML e não é mais suportada nos navegadores modernos, sendo utilizado o JavaScript para substituir a implementação da funcionalidade pretendida com elementos como `ul`+`li`, `button` ou `div` por exemplo.
+```html
+<ul class="context-menu">
+  <li onclick="copyText()">Copiar</li>
+  <li onclick="pasteText()">Colar</li>
+</ul>
+```
+
 ###### CABEÇALHO
  Quando queremos indicar que um texto é um título em nossa página, utilizamos as tags de *heading* em sua marcação. As tags `<h></h>` são usadas para títulos, variando hierarquicamente em ordem de importância de `h1` (o mais importante) a `h6` (menor importância). As tags de heading não apenas mudam o tamanho do texto, mas, os motores de busca também dão importância a essas tags. A ordem de importância tem impacto nas ferramentas que processam HTML. As ferramentas de indexação de conteúdo para buscas, como o Google, Bing entre outros, levam em consideração essa ordem e relevância. Os navegadores especiais para acessibilidade também interpretam o conteúdo dessas tags de maneira a diferenciar seu conteúdo e facilitar a navegação do usuário pelo documento. Os próprios cabeçalhos geram uma quebra de linha.<br/>
  *A tag `h1` só pode ser utilizada 1 única vez em cada página, porque não pode existir mais de um conteúdo mais importante da página, então recomenda-se sempre que haja apenas uma tag `h1` **por página**, pois para fins de SEO, o mecanismo de busca sempre procurará pelo título principal.* Essa tag é utilizada para o nome, ou seja, o título principal da página, e a tag `h2` como um *subtítulo* ou *título de seções* dentro do documento.<br/>
