@@ -657,6 +657,9 @@ O exemplo acima fará com que o usuário que clicar no link seja levado à porç
  Quando criamos um link, por padrão o navegador abrirá a página de destino na mesma janela, mas é possível solicitar ao navegador que abra "à parte", numa nova aba. Isto é útil, por exemplo, se quisermos abrir uma página externa ao nosso site, mas sem que o visitante perca a nossa. Para isso, usamos o atributo `target` com uma das seguintes opções:
  - `_blank`: Abre o documento vinculado em uma nova aba do navegador.
  - `_self`: Esta é a opção padrão. Abre o documento vinculado na mesma aba em que o link foi clicado.
+ - `frame_name`: Abre no frame especificado.
+ - `_parent`: Abre o link dentro do frame pai substituindo a página que contém o frame, caso não haja se comporta como `self`.
+ - `_top`: Abre no frame mais externo ignorando todos os frames inferiores, caso não haja um também se comporta como `self`.
 
 **ATRIBUTO `title`**<br/>
 É aconselhável colocar este atributo extra toda vez que colocamos um hyperlink como boa prática semântica (melhorando o SEO). Desta forma, obteremos na maioria dos navegadores um efeito *tooltip*, que é uma informação adicional que surge ao posicionar o cursor sobre o link.
@@ -1251,6 +1254,9 @@ O uso de imagens nos documentos traz um resultado mais rico para a página, mas 
 />
 ```
 
+Além de todas as técnicas que podem ser aplicadas ao documento, o ideal é que sempre se otimize ao máximo as imagens, tanto em tamanho quanto em dimensões, melhorando assim tanto seu tempo de download e gasto de banda por parte do navegador quanto para evitar o shift layout sem poluir as tags `img` com `width` e `height` já que as imagens já estarão no seu tamanho ideal.<br/>
+Existem várias ferramentas para redimensionar e comprimir imagens, e o ideal é que se comprima uma imagem ao máximo – ou seja, até o ponto em que não é possível mais otimizar seu tamanho. Uma ferramenta online bastante útil para realizar estes processos é o [easy-resize](https://www.easy-resize.com/en/).
+
 Para melhorar o posicionamento SEO de uma imagem em um documento, além da tag `figure` também pode-se usar a tag **`picture`** para tornar a aplicação mais responsiva.<br/>
 Esta tag fornece múltiplas versões da mesma imagem em formatos e tamanhos diferentes, permitindo ao navegador escolher a melhor versão de acordo com o dispositivo ou suporte à formatos. Ela trabalha com os atributos **`source`** assim como nos demais tipos de mídia para oferer mais opções e contém 1 única **`img`** como fallback.
 - **`picture`**: campo que informa ao navegador quais as opções de renderização para um recurso.
@@ -1281,9 +1287,9 @@ Então, enquanto `figure` fornece um agrupamento do conteúdo de mídia e suas i
 
 Além do uso correto das estruturas e seus atributos, para uma melhor qualidade na exibição das imagens e performance da página é escolher corretamente o melhor e mais adequado formato, além de utilizar técnicas como a compressão das imagens, CDNs e placeholder com baixa qualidade para a otimização do desempenho.
 
-**MAP**<br/>
+**[MAP](https://www.image-map.net/)**<br/>
 Cria o mapeamento de áreas clicáveis dentro de uma imagem, sendo possível definir diferentes regiões de uma imagem que funcionam como links ou áreas interativas. Para que seja possível utilizá-lo, o elemento `img` deve possuir o atributo `usemap` associado ao `name` da tag `map` para a imagem em questão, e então dentro do `map` deve-se definir as áreas interativas com `area`.<br/>
-As coordenadas `coords` em `area` definem a posição da área sobre a imagem com base no sistema de coordenadas em pixels da imagem – elas não definem o *"tamanho"* da área diretamente, apenas o início e o fim da área mapeada.
+As coordenadas `coords` em `area` definem a posição da área sobre a imagem com base no sistema de coordenadas em pixels da imagem – elas não definem o *"tamanho"* da área diretamente, apenas o início e o fim da área mapeada. **Cada par de coordenadas `(x0, y0)` representa um ponto de localização na imagem que ao se unir com outros pontos cria uma área mapeada, sendo sempre da esquerda para a direta o ponto inicial e os demais pontos para a demarcação da área respectivamente.** 
 ```html
 <img src="brasil.png" usemap="#brasilmap" alt="Mapa do Brasil">
 
@@ -1422,6 +1428,53 @@ Aqui falaremos sobre como adicionar legendas.
     <iframe width="966" height="543" src="https://www.youtube.com/embed/lx0eir2xF5E" title="EU SOU DEV JR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </figure>
 ```
+
+Seus principais atributos são:
+- `src`: URL da página que será carregada dentro do iframe.
+- `frameborder`: Define uma borda para o campo de renderização.
+- `width`: Largura do iframe.
+- `height`: Altura do iframe.
+- `title`: Descrição acessível para leitores de tela. Recomendado para acessibilidade.
+- `name`: Nome do iframe, útil para links e formulários que querem direcionar para ele.
+- `allowfullscreen`: Permite que o conteúdo do iframe seja exibido em tela cheia (útil para vídeos).
+- `loading`: Adiciona comportamento de carregamento "lazy" (adiado).
+- `sandbox`: Impõe restrições de segurança ao conteúdo carregado dentro do `iframe`. Seus valores possíveis são:
+  - `"allow-scripts"`: Permite scripts, mas desativa formulários e outras ações.
+  - `"allow-forms"`: Permite o envio de formulários.
+  - `"allow-same-origin"`: Permite que o conteúdo seja tratado como da mesma origem.
+  - `"allow-popups"`: Permite pop-ups.
+  - `"allow-modals"`: Permite modais, `alert()` e `prompt()` por exemplo.
+  - `"allow-presentation"`: Permite usar APIs de apresentação.
+  - `"allow-downloads"`: Permite downloads iniciados por ações do usuário.
+  - `"allow-top-navigation"`: Permite que o iframe mude o local da página pai.
+  - `"allow-top-navigation-by-user-activation"`: Igual ao anterior, mas só após ação do usuário.
+- `referrerpolicy`: Controla qual informação do referenciador será enviada ao `iframe`. Seus valores possíveis são:
+  - `"no-referrer"`: 
+  - `"origin"`: 
+  - `"strict-origin"`: 
+  - `"origin-when-cross-origin"`: 
+  - `"unsafe-url"`: 
+
+> Por padrão, se a página carregada no `iframe` é de outra origem que não do mesmo diretório como domínio, protocolo ou porta diferente, não é possível acessar ou manipular o conteúdo do `iframe` com JavaScript devido a *SOP — Same-Origin Policy*. Além disso, um site malicioso pode incorporar outro site confiável em um `iframe` e usar estilos para enganar o usuário, para evitar isso o site incorporado pode usar algum dos cabeçalho HTTP: **`X-Frame-Options: DENY`**, **`X-Frame-Options: SAMEORIGIN`** ou **`Content-Security-Policy: frame-ancestors 'self' https://parceiro.com;` — Content-Security-Policy (CSP).**
+
+**Uma prática muito comum é utilizar o `iframe` para manter o estado da página ao se clicar em um link `a`, e ao invés de ser acessado e carregado o arquivo – seja na mesma ou em outra aba – inteiro no navegador, este é renderizado no campo `iframe`, mantendo a página hospedeira no mesmo estado – ou seja, sem que esta seja carregada novamente com o novo arquivo ou este arquivo seja aberto em outra aba. Para isto, basta que o `iframe` tenha um `src` vazio com o valor padrão de `about:blank`, um `name` para identificá-lo, e o target de `a` seja o valor do `name` do `iframe`. Apesar de estar em desuso por conta de práticas mais modernas para exibir conteúdo dinâmicamente como o React por exemplo, este método é um suporte nativo do HTML que permite a construção modular de uma aplicação web – ou seja, construir o site em _partes_ e agrupar todas em uma única página, facilitando a arquitetura, entendimento e manutenção de cada parte da aplicação.**
+```html
+    <ul>
+        <li><a href="home.html" target="myFrame">principal</a></li>
+        <li><a href="about.html" target="myFrame">sobre</a></li>
+        <li><a href="projects.html" target="myFrame">projetos</a></li>
+    </ul>
+
+    <iframe loading="lazy" src="about:blank" name="myFrame"></iframe>
+```
+
+Apesar de úteis, `iframe`s mal incorporados podem comprometer o SEO da página principal por questões de acessibilidade – pode causar dificuldades aos leitores de tela se não for bem usado – e interatividade – por conta de segurança e a restrição SOP, além de que o conteúdo do `iframe` não é indexado como parte da página principal, o que pode impactar na pontuação SEO.<br/>
+Cada `iframe` é como uma página nova sendo carregada, o que aumenta o uso de recursos e pode impactar na performance da aplicação, e pode ser particularmente difícil integrá-los à página principal de forma *natural* e *fluída*, então devem ser usados com cautela e apenas quando necessário, buscando sempre métodos modernos para uma interatividade dinâmica com o usuário como:
+- Componentes Web (<custom-element> + Shadow DOM): encapsulamento de UI reutilizável.
+- Single Page Applications (SPA): navegação dinâmica sem recarregar páginas.
+- Micro-frontends: arquitetura moderna para aplicações compostas por partes independentes.
+
+Boas práticas que podem ser aplicadas ao uso dos `iframe`s incluem sempre utilizar `title` para acessibilidade e `loading="lazy"` para performance, além de evitar `iframe`s de terceiros sem controle de segurança e utilizar `sandbox` para isolar conteúdo quando necessário ou `postMessage` com JavaScript para uma comunicação segura entre domínios, sempre adequando o CSS para uma melhor responsividade.
 
 ###### FORMULÁRIOS
  Os formulários tem o propósito de coletar informações fornecidas pelos visitantes do site, que são então enviadas ao servidor para serem processadas.<br/>
