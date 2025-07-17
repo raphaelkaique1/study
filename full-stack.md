@@ -255,7 +255,7 @@
    - Transformar um objeto em uma string
    - Transformar uma string em objeto
    - Manipular um objeto
-- [ ] **Git e GitHub - Fundamentos**:
+- [x] **Git e GitHub - Fundamentos**:
    - Git é um sistema de controle de versão distribuído gratuito e de código aberto projetado para lidar com tudo, desde projetos pequenos a muito grandes com velocidade e eficiência.
    - GitHub é um serviço de hospedagem para desenvolvimento de software e controle de versão usando Git.
    - Criar um repositório
