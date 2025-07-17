@@ -750,6 +750,25 @@ Em HTML e também outras tecnologias web como CSS e JS, os caminhos são usados 
 <img src="../img/logo.png" alt="Logo"/>
 ```
 
+**browser tool**<br/>
+O protocolo `about` acessa recursos internos do navegador, e uma maneira de se abrir páginas em branco sem nenhum conteúdo HTML, CSS ou JS é utilizar o `about:blank`. Esta técnica é utilizada frequentemente como um *ponto de partida* ou mesmo um *placeholder* nas aplicações web. Essa URL sempre exibe uma página completamente vazia, sem elementos visuais nem código, tem diversos usos como para páginas iniciais temporárias, ou um destino neutro ao abrir novas janelas, ou ainda como uma forma segura de criar um `iframe` vazio antes de carregá-lo ou limpá-lo sem necessariamente recarregar a página atual ou redirecionar para outro site.
+```html
+<!-- iframe vazio -->
+<iframe src="about:blank"></iframe>
+
+<!-- fallback de links sem destino, evitando criar âncoras poluindo URL com # -->
+<a href="about:blank">Link sem destino</a>
+
+<script>
+  // injetando conteúdo dinâmicamente
+  const newWindow = window.open("about:blank");
+  newWindow.document.write("<h1>Olá</h1>");
+
+  // destino de redirecionamento temporário
+  window.location.href = "about:blank";
+</script>
+```
+
 ###### LISTAS
  **_*Podemos combinar todos os tipos de listas que veremos a seguir uns com os outros, a depender da necessidade; <u>mas sempre pensando no SEO</u>._**<br/>
  Listas nos permitem criar conjuntos de elementos ordenados em uma página, todos geralmente precedidos por simbolos ou números em sequência. Os tipos de listas são os seguintes:
@@ -1468,7 +1487,7 @@ Seus principais atributos são:
     <iframe loading="lazy" src="about:blank" name="myFrame"></iframe>
 ```
 
-Apesar de úteis, `iframe`s mal incorporados podem comprometer o SEO da página principal por questões de acessibilidade – pode causar dificuldades aos leitores de tela se não for bem usado – e interatividade – por conta de segurança e a restrição SOP, além de que o conteúdo do `iframe` não é indexado como parte da página principal, o que pode impactar na pontuação SEO.<br/>
+Apesar de úteis, um `iframe` mal incorporado pode comprometer o SEO da página principal por questões de acessibilidade – pode causar dificuldades aos leitores de tela se não for bem usado – e interatividade – por conta de segurança e a restrição SOP, além de que o conteúdo do `iframe` não é indexado como parte da página principal, o que pode impactar na pontuação SEO.<br/>
 Cada `iframe` é como uma página nova sendo carregada, o que aumenta o uso de recursos e pode impactar na performance da aplicação, e pode ser particularmente difícil integrá-los à página principal de forma *natural* e *fluída*, então devem ser usados com cautela e apenas quando necessário, buscando sempre métodos modernos para uma interatividade dinâmica com o usuário como:
 - Componentes Web (<custom-element> + Shadow DOM): encapsulamento de UI reutilizável.
 - Single Page Applications (SPA): navegação dinâmica sem recarregar páginas.
