@@ -1468,11 +1468,11 @@ Seus principais atributos são:
   - `"allow-top-navigation"`: Permite que o iframe mude o local da página pai.
   - `"allow-top-navigation-by-user-activation"`: Igual ao anterior, mas só após ação do usuário.
 - `referrerpolicy`: Controla qual informação do referenciador será enviada ao `iframe`. Seus valores possíveis são:
-  - `"no-referrer"`: 
-  - `"origin"`: 
-  - `"strict-origin"`: 
-  - `"origin-when-cross-origin"`: 
-  - `"unsafe-url"`: 
+  - `"no-referrer"`: Não envia nenhuma informação de referenciador.
+  - `"origin"`: Envia apenas a origem *protocolo + domínio*.
+  - `"strict-origin"`: Envia a origem somente em conexões seguras HTTPS.
+  - `"origin-when-cross-origin"`: Envia a URL completa para o mesmo site e apenas a origem para sites diferentes.
+  - `"unsafe-url"`: Sempre envia a URL completa, independentemente do destino.
 
 > Por padrão, se a página carregada no `iframe` é de outra origem que não do mesmo diretório como domínio, protocolo ou porta diferente, não é possível acessar ou manipular o conteúdo do `iframe` com JavaScript devido a *SOP — Same-Origin Policy*. Além disso, um site malicioso pode incorporar outro site confiável em um `iframe` e usar estilos para enganar o usuário, para evitar isso o site incorporado pode usar algum dos cabeçalho HTTP: **`X-Frame-Options: DENY`**, **`X-Frame-Options: SAMEORIGIN`** ou **`Content-Security-Policy: frame-ancestors 'self' https://parceiro.com;` — Content-Security-Policy (CSP).**
 
