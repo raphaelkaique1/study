@@ -1834,23 +1834,31 @@ email=raphael@email.com&senha=psswrd@09
           <option value="mercedes">MERCEDES</option>
         </select>
         ```
+        - Para que seja **obrigatório** que o usuário escolha uma opção que não seja vazia pode-se criar um *placeholder* com um **`value`** vazio juntamente com os atributos **`selected`** e **`disabled`**.
+        ```html
+        <select required>
+          <option selected disabled value="">Select a option...</option>
+          <option value="bmw">BMW</option>
+          <option value="audi">AUDI</option>
+          <option value="mercedes">MERCEDES</option>
+        </select>
+        ```
       - **É usado com `datalist` e `select`.**
           - **`datalist`**: **Cria uma lista de sugestões para um campo `input`, mas o usuário ainda pode digitar um valor personalizado**, as sugestões aparecem conforme o usuário digita, mas ele não é obrigado a escolhê-las. Usado com o atributo `list` em um `input`, ele torna a interação com o formulário mais eficiente, especialmente quando há opções limitadas, como nomes de cidades, e-mails ou produtos.
           ```html
           <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade.">
           <datalist id="cidades">
-              <option value=" "></option>
-              <option label="MG" value="Contagem"/>
-              <option label="MG" value="Belo Horizonte"/>
-              <option label="MG" value="Betim"/>
-              <option label="RJ" value="Rio De Janeiro"/>
-              <option label="SP" value="São Paulo"/>
+            <option value="Contagem">Contagem</option>
+            <option value="Belo Horizonte">Belo Horizonte</option>
+            <option value="Betim">Betim</option>
+            <option value="Rio De Janeiro">Rio De Janeiro</option>
+            <option value="São Paulo">São Paulo</option>
           </datalist>
           ```
           - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**.
           ```html
           <select name="time" id="time" required>
-              <option label="" value=""></option>
+              <option selected disabled value="">Select a option...</option>
               <optgroup label="MG">
                   <option value="cruzeiro">CRUZEIRO</option>
                   <option value="america">AMÉRICA</option>
