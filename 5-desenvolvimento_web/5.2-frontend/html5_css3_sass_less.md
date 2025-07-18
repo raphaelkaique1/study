@@ -1337,10 +1337,10 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
  - **`mediagroup`**: Agrupa vários players para que controlem uns aos outros.
  - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
    - **`controlsList`**: Personaliza os controles nativos do player.
-    - `"nodownload"`: Remove o botão de download.
-    - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
-    - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
-    - `"novolume"`: Oculta o controle de volume.
+     - `"nodownload"`: Remove o botão de download.
+     - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
+     - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
+     - `"novolume"`: Oculta o controle de volume.
  - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
  - **`loop`**: O áudio é reproduzido em loop.
  - **`muted`**: Inicia o áudio sem som.
