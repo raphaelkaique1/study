@@ -1335,6 +1335,11 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
  Possui os seguintes atributos:
  - **`src`**: necessário para especificar o caminho do áudio.
  - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
+   - **`controlsList`**: Personaliza os controles nativos do player.
+   - `"nodownload"`: Remove o botão de download.
+   - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
+   - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
+   - `"novolume"`: Oculta o controle de volume.
  - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
  - **`loop`**: O áudio é reproduzido em loop.
 ```html
@@ -1350,6 +1355,12 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
  - **`src`**: Permite especificar o caminho onde o vídeo está armazenado. **Pode-se usar a tag `source`, incluindo várias tags apontando para diferentes formatos de vídeo, permitindo ao navegador escolher o formato que ele consegue reproduzir.** *Não é obrigatória, pode-se usar apenas como atributo ou uma única tag, o uso de múltiplas tags apenas garante que o vídeo seja reproduzido em diversos navegadores.*
  - **`type`**: informa o tipo do conteúdo e qual o seu formato de reprodução.
  - **`controls`**: Adiciona controles visuais ao vídeo.
+   - **`controlsList`**: Personaliza os controles nativos do player.
+   - `"nodownload"`: Remove o botão de download.
+   - `"nofullscreen"`: Remove o botão de tela cheia.
+   - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
+   - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
+   - `"novolume"`: Oculta o controle de volume.
  - **`autoplay`**: O vídeo é executado automaticamente quando a página é carregada.
  - **`loop`**: O vídeo é executado em loop.
  - **`poster`**: Permite definir uma *imagem "de capa"* ao vídeo, que será exibida antes da reprodução do vídeo.
