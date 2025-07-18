@@ -1334,14 +1334,24 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
  Entretando, é interessante conhecer esta ferramenta. *A etiqueta que nos permite utilizar o áudio é a tag `audio`.*<br/>
  Possui os seguintes atributos:
  - **`src`**: necessário para especificar o caminho do áudio.
+ - **`mediagroup`**: Agrupa vários players para que controlem uns aos outros.
  - **`controls`**: Exibe o painel de controle de áudio, como botões de play, pause, stop, volume e velocidade de reprodução.
    - **`controlsList`**: Personaliza os controles nativos do player.
-   - `"nodownload"`: Remove o botão de download.
-   - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
-   - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
-   - `"novolume"`: Oculta o controle de volume.
+    - `"nodownload"`: Remove o botão de download.
+    - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
+    - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
+    - `"novolume"`: Oculta o controle de volume.
  - **`autoplay`**: O áudio é tocado automaticamente quando a página é carregada.
  - **`loop`**: O áudio é reproduzido em loop.
+ - **`muted`**: Inicia o áudio sem som.
+ - **`preload`**: Permite espeficar algumas características do vídeo antes de ser carregado, por exemplo, quantos quadros o vídeo tem, seu tempo de duração e etc.
+   - `"none"`: Nada é carregado até play.
+   - `"metadata"`: Apenas os metadados como duração e dimensões.
+   - `"auto" / ""`: Carrega completamente ou conforme o navegador julgar conveniente.
+ - **`disableremoteplayback`**: Bloqueia streaming para dispositivos remotos.
+ - **`crossorigin`**: Define política de CORS para o vídeo.
+   - `"anonymous"`
+   - `"use-credentials"`
 ```html
 <audio controls>
     <source src="audio.ogg" type="audio/ogg"/>
@@ -1356,15 +1366,26 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
  - **`type`**: informa o tipo do conteúdo e qual o seu formato de reprodução.
  - **`controls`**: Adiciona controles visuais ao vídeo.
    - **`controlsList`**: Personaliza os controles nativos do player.
-   - `"nodownload"`: Remove o botão de download.
-   - `"nofullscreen"`: Remove o botão de tela cheia.
-   - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
-   - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
-   - `"novolume"`: Oculta o controle de volume.
+     - `"nodownload"`: Remove o botão de download.
+     - `"nofullscreen"`: Remove o botão de tela cheia.
+     - `"noremoteplayback"`: Impede o envio da mídia para outros dispositivos.
+     - `"noplaybackrate"`: Remove controle de velocidade de reprodução.
+     - `"novolume"`: Oculta o controle de volume.
+ - **`playsinline`**: Permite reprodução inline em dispositivos móveis.
+ - **`crossorigin`**: Define política de CORS para o vídeo.
+   - `"anonymous"`
+   - `"use-credentials"`
+ - **`controlsList`**: Permite remover certos controles nativos (nodownload, nofullscreen, etc.).
+ - **`disablePictureInPicture`**: Impede o uso de modo picture-in-picture.
+ - **`disableRemotePlayback`**: Impede envio do vídeo para dispositivos remotos.
  - **`autoplay`**: O vídeo é executado automaticamente quando a página é carregada.
+ - **`muted`**: Inicia o vídeo sem som.
  - **`loop`**: O vídeo é executado em loop.
  - **`poster`**: Permite definir uma *imagem "de capa"* ao vídeo, que será exibida antes da reprodução do vídeo.
  - **`preload`**: Permite espeficar algumas características do vídeo antes de ser carregado, por exemplo, quantos quadros o vídeo tem, seu tempo de duração e etc.
+   - `"none"`: Nada é carregado até play.
+   - `"metadata"`: Apenas os metadados como duração e dimensões.
+   - `"auto" / ""`: Carrega completamente ou conforme o navegador julgar conveniente.
  - **`track`**: **VTT** ou *Video Text Tracks* é um formato de arquivo utilizado para legendas, transcrições ou descrições em áudio de vídeos, indicado para aumentar o SEO (pois leva em consideração questões de acessibilidade). *Possui um formato simples de texto, onde cada linha descreve um intervalo de tempo e o conteúdo de legenda para esse intervalo.* **A tag `<track/>` adiciona legendas, no íveo e proporciona uma interface para os usuários escolherem opções de legenda.**
    - **`src`**: *Especifica o caminho do arquivo de legendas, normalmente em formato VTT.* Deve ser um caminho absoluto ou relativo para o arquivo de legendas.
    - **`label`**: *Este atributo fornece um rótulo legível para o usuário, que aparecerá no menu de seleção de legendas do player de vídeo.* O valor de `label` pode ser usado para exibir o nome da legenda ou descrição para o usuário.
@@ -1374,7 +1395,6 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
      - **`captions`**: *Para legendas ocultas (geralmente para deficientes auditivos, incluindo não apenas a fala, mas também sons de fundo, como "porta batendo").*
      - **`descriptions`**: *Para descrições de áudio, geralmente usadas para pessoas com deficiência visual, descrevendo cenas de um vídeo.*
      - **`chapters`**: *Usado para capítulos de um vídeo (mais raro, mas pode ser utilizado em vídeos longos com capítulos distintos).*
- 
  Exemplo de arquivo VTT:
 ```vtt
 WEBVTT
