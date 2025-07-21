@@ -1,4 +1,4 @@
-# PROTOCOLOS
+# PROTOCOLOS WEB
  **Requisições** são pedidos que o navegador faz a um servidor para receber ou enviar dados. Essas requisições geralmente seguem algum *protocolo*.
  Qualquer aplicação que utiliza comunicação em rede, utiliza algum **protoloco de comunicação**, para que isso seja feito com maior segurança, utilizam-se protocolos com **[SSL/TLS](https://www.youtube.com/watch?v=BVqFpbFiV34)**.<br/>
  O **SSL (Secure Sockets Layer)** e o **TLS (Transport Layer Security)** são protocolos criptográficos fundamentais para a segurança das comunicações na internet. Eles garantem a confidencialidade, integridade e autenticidade dos dados transmitidos entre um cliente e um servidor.
@@ -9,7 +9,7 @@ Desenvolvido pela Netscape na década de 1990, o SSL foi o primeiro protocolo am
 **TLS (Transport Layer Security):**
 O TLS é a evolução do SSL, projetado para corrigir as falhas de segurança do SSL e oferecer uma criptografia mais robusta. Ele é amplamente utilizado para proteger protocolos como HTTP (resultando no HTTPS), SMTP, FTP e outros. O TLS opera em camadas inferiores do modelo OSI, garantindo que os dados sejam transmitidos de forma segura entre as partes envolvidas.
 
-**Como o SSL/TLS Funciona:**
+**SSL/TLS**
 
 1. **Handshake (Aperto de Mão):** Quando um cliente se conecta a um servidor, eles iniciam um processo de negociação para estabelecer uma conexão segura. Durante o handshake, são trocadas informações como certificados digitais e chaves públicas.
 
@@ -271,7 +271,7 @@ Um esquema determina o *como* e *com que protocolo* acessar o recurso indicado, 
   - `file`: Acesso a arquivos locais.<br/>
   Basta indicar o caminho absoluto até o arquivo na barra de pesquisas do navegador: `file:///home/ralph/Dev/.env/web/index.html`.
   - `ftp`: File Transfer Protocol.<br/>
-  
+  Utilizado para transferência de arquivos entre cliente e servidor: `ftp://ftp.exemplo.com/arquivo.txt`.
 - **SERVICES**
   - `mailto`: Enviar e-mails.
   - `tel`: Chamadas telefônicas.
@@ -302,7 +302,20 @@ Um esquema determina o *como* e *com que protocolo* acessar o recurso indicado, 
   - `ws` / `wss`: WebSocket `wss://server.com/socket`.
   - [`http` / `https`: Protocolo HTTP – padrão da web / HTTP seguro – SSL/TLS.](https://letsencrypt.org/pt-br/how-it-works/)
 
-Feita a conexão segura no canal, usamos os métodos **[HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP)** para definir a ação que o cliente deseja realizar sobre um recurso no servidor. O **H**yper **T**ext **T**ransfer **P**rotocol é o protocolo de comunicação que permite a transferência de dados na web, definindo como os clientes e servidores conversam entre si para trocar recursos como dados para um banco de dados, páginas HTML, mídia e etc. Seu funcionamento segue o modelo client-server, onde o cliente envia uma requisição para o servidor, que processa e responde com dados.
+## HYPERTEXT
+O hipertexto é uma estrutura de informação textual que permite conexões não-lineares entre diferentes blocos de texto chamados de **_nodes_**, através de elementos clicáveis conhecidos como **hyperlinks**. Enquanto um hipertexto é uma estrutura textual com ligações, a **hypermedia** é a expansão do hipertexto, incluindo mídias como som, vídeo, imagens entre outros tipos de mídia.<br/>
+O hipertexto quebra a linearidade tradicional de leitura, oferecendo uma estrutura para o armazenamento e apresentação da informação de forma mais parecida com o pensamento humano, permitindo ao leitor escolher o *caminho da leitura*, criando sua própria jornada pelo conhecimento. A própria rede mundial de computadores foi criada baseada neste conceito, utilizando o HTTP e o HTML, pode-se dizer que a web é essencialmente um sistema de documentos hipertextuais interligados, sendo ela um exemplo de hypermedia, pois além de texto, usa outros tipos de mídia como áudio, vídeo, imagens, animações entre vários outros tipos.<br/>
+O hipertexto revolucionou a forma como a informação é armazenada, organizada e acessada, especialmente na web. Ele permite uma experiência de navegação rica, interativa e adaptável, sendo um dos pilares do desenvolvimento web moderno. Por exemplo, o HTML é a linguagem base que se utiliza na web para estruturar hipertextos.
+
+Um hipertexto é composto por:
+- **nodes**: blocos de conteúdo como textos, páginas e trechos que contem informações.
+- **links**: conexões entre os nós, podendo ser internas – levando a uma seção dentro do mesmo documento – ou externas – levando o leitor a outro documento. Na web são compostos pelas URLs, que são esquemas que contem o endereço dos nós.
+- **anchors**: pontos específicos dentro de um nó para onde um link pode apontar.
+
+O hipertexto oferece uma navegação flexível e personalizada ao criar um relacionamento entre conceitos e ao permitir acesso rápido a informações externas, promovendo a interação ativa do usuário, que escolhe *como* e *por onde* navegar, o que facilita a pesquisa e o aprendizado autodirigido. Entretanto, existem pontos para se levar em consideração no seu uso, pois se mal implementado pode gerar desorientação no usuário quando exposto a uma sobrecarga de links, fazendo-o se sentir perdido no hipertexto, além de que os links precisam de manutenções e sanitizações periódicas para que não se tenha problemas com links quebrados.
+
+## HTTP
+Feita a conexão segura no canal através do SSL/TLS, usa-se os métodos **[HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP)** para definir a ação que o cliente deseja realizar sobre um recurso no servidor. O **H**yper **T**ext **T**ransfer **P**rotocol é o protocolo de comunicação que permite a transferência de dados na web, definindo como os clientes e servidores conversam entre si para trocar recursos como dados para um banco de dados, páginas HTML, mídia e etc. Seu funcionamento segue o modelo client-server, onde o cliente envia uma requisição para o servidor, que processa e responde com dados.
 
 [**MÉTODOS**](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods)<br/>
 Os métodos HTTP são as ações que o protocolo define para serem realizadas em uma requisição. Existem vários métodos, cada um realizando um tipo de tarefa, e podemos separá-los em:
