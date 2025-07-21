@@ -19,7 +19,8 @@
 **_*O ideal é que, com o tempo, cada desenvolvedor se especialize em 1 (no máximo 2)._**
 
 ## SERVIDOR
-Um servidor é qualquer computador ou software que espera e responde requisições de outros dispositivos, os clientes.
+Um servidor é qualquer computador ou software que espera e responde requisições de outros dispositivos, os clientes. Servidores são utilizados para executar a lógica de negócio das aplicações, sejam elas com ou sem interação com o usuário, podendo ser um banco de dados para armazenamento e gerenciamento de informação, disponibilizar aplicações e seus arquivos, ou mesmo ambos.<br/>
+Servidores podem ser configurados especialmente para atender à diversas diferentes finalidades, a depender de qual objetivo tem de se cumprir. Um servidor web especificamente é um software responsável por armazenar, processar e entregar páginas web aos usuários através da internet. Quando um site é acessado, o cliente faz uma `request` ao servidor web, que por sua vez responde com os arquivos necessários — HTML, CSS, JS, imagens, etc — para que o conteúdo seja exibido corretamente na tela. Além disso, podem executar a lógica das aplicações, realizar CRUDs em banco de dados, entre outras funções necessárias relacionadas com o projeto.
 
 ## CONTENT DELIVERY NETWORK
 **CDN** é uma **Rede de Distribuição de Conteúdo**. É basicamente uma rede de servidores espalhados pelo mundo que entrega conteúdos como imagens, vídeos, arquivos, scripts e muito mais para os usuários de forma rápida, confiável e segura, usando o servidor mais próximo do usuário.<br/>
