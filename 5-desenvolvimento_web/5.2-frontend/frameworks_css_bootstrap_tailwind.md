@@ -57,7 +57,6 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
  - **Smartphones**: `viewport virtual`.
  - **Atualmente**: design resposivo baseado em grid.
 
-
 ### RESPONSIVE DESIGN
  Um site moderno com um mínimo de qualidade é entendido como sendo responsivo, ou seja, a página se adaptará ao tamanho da tela, seja desktop, tablet, smartphone ou qualquer outra, **sem utilizar a barra de rolagem horizontal**, o que é muito desconfortável. *A barra de rolagem vertical ainda é utilizada.*<br/>
  O projeto responsivo como conhecemos hoje é baseado no uso de **`grid`**, tornando o `viewport virtual` não mais necessário nestas páginas, visto que a *página foi projetada para se adaptar ao `viewport` comum – a tela pequena.<br/>
@@ -204,7 +203,6 @@ Existem vários frameworks, como por exemplo: **`Symfony 4`**, **`Laravel`** ou 
 <p class="bg-light text-dark">
     preto
 </p>
-
 ```
 
  ![Image](https://github.com/user-attachments/assets/9e77f9c7-e65e-4145-9813-8b20a2e1a972)
