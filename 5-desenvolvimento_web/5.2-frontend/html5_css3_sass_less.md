@@ -5005,78 +5005,78 @@ Usando somente HTML, CSS e JS, é possível criar vários tipos diferentes de pr
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8"/>
-  <title>Document</title>
-  <style>
-  * {
-      margin: 0;
-      padding: 0;
-      border: none;
-      font-family: monospace, sans-serif;
-      box-sizing: border-box;
-  }
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          border: none;
+          font-family: monospace, sans-serif;
+          box-sizing: border-box;
+      }
 
-  :root {
-    --light-gray: #f3f3f3;
-    --low-dark: #1a1a1a;
-    --dark-green: #25d366;
-  }
+      :root {
+        --light-gray: #f3f3f3;
+        --low-dark: #1a1a1a;
+        --dark-green: #25d366;
+      }
 
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--low-dark);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--low-dark);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
 
-  .loader {
-    border: .5px solid var(--light-gray);
-    border-top: .5px solid var(--dark-green);
-    border-radius: 50%;
-    width: 3.75rem;
-    height: 3.75rem;
-    animation: spin 1s linear infinite;
-    margin-bottom: .625rem;
-  }
+      .loader {
+        border: .5px solid var(--light-gray);
+        border-top: .5px solid var(--dark-green);
+        border-radius: 50%;
+        width: 3.75rem;
+        height: 3.75rem;
+        animation: spin 1s linear infinite;
+        margin-bottom: .625rem;
+      }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  </style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
 
-  <script>
-  window.addEventListener("load", function() {
-    const preloader = document.getElementById("preloader");
-    const content = document.getElementById("content");
+    <script>
+      window.addEventListener("load", function() {
+        const preloader = document.getElementById("preloader");
+        const content = document.getElementById("content");
 
-    preloader.style.display = "none";
-    content.style.display = "block";
-  });
-  </script>
-</head>
+        preloader.style.display = "none";
+        content.style.display = "block";
+      });
+    </script>
+  </head>
 
-<body>
+  <body>
 
-  <div id="preloader">
-    <div class="loader"></div>
-    <p>Carregando...</p>
-  </div>
+    <div id="preloader">
+      <div class="loader"></div>
+      <p>Carregando...</p>
+    </div>
 
-  <div id="content" style="display: none;">
-    <h1>Website</h1>
-    <p>Conteúdo do site.</p>
-  </div>
+    <div id="content" style="display: none;">
+      <h1>Website</h1>
+      <p>Conteúdo do site.</p>
+    </div>
 
-</body>
+  </body>
 </html>
 ```
 
