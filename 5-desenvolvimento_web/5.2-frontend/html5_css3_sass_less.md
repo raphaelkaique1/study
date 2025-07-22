@@ -2,7 +2,7 @@
  O desenvolvimento web é o processo de criação de websites e aplicativos para a web, e envolve diversas tecnologias e linguagens que trabalham junstas para criar páginas web interativas e funcionais. Para começarmos, precisamos deixar claro que: *Internet* e *Web (World Wide Web)* **não são a mesma coisa**. A Internet é a estrutura na rede que conecta os dipositivos uns aos outros, a fim de estabelecer uma ponte para a counicação entre seus usuários; já a Web é a plataforma onde as aplicações e websites podem ser acessadas e usadas. Um *website* é um *site – localização* na **World Wide Web** que contém documentos, ou *páginas web* hierarquicamente organizadas. Cada documento pode conter textos, imagens, gráficos e etc, que aparecem como informações digitais em uma tela. Cada website tem sua **Home Page**, *que é o primeiro documento que o usuário vê ao entrar no website* digitando o nome de domínio no navegador. O termo *página web* é às vezes usado equivocadamente para se referir a um website. Uma **Página Web** *é parte de um website e é um único arquivo com um nome atribuído*, enquanto um **WebSite** *é uma coleção de arquivos chamada Páginas Web*. Se o compararmos a um livro, um *website* seria o livro inteiro, e uma *página web* seria um capítulo e não uma página do livro, porque muitas vezes é necessário percorrer a tela para ver todo o conteúdo de uma página web, assim como em um livro percorremos várias páginas para ver todo o conteúdo de um capítulo.<br/>
  Uma *webpage* é uma fonte de informações que é adequeada à Word Wide Web e que pode ser acessada por um navegador web, isso quer dizer que ela é um documento feito para atender aos requisitos da rede mundial de computadores, e deve ser capaz de ser visualizada a partir de um programa específico para este fim.<br/>
  Uma *página web*, também conhecida como *página da Internet*, é um documento adaptado para a web e geralmente faz parte de um website, e sua principal característica são os *hyperlinks* para outras páginas, que é a base da web. Dentro de uma página web, podemos encontrar todo tipo de conteúdo. Uma das divisões que podemos fazer entre todos os tipos de páginas web existentes poderia ser a diferença entre *páginas estáticas* e *páginas dinâmicas*.<br/>
- Tanto as webpages quanto websites completos podem estar localizadas em um computador local ou remoto que as disponibiliza através de um *servidor web*. O acesso a elas pode ser restringido apenas ao próprio computador, à redes locais ou ainda ser publicada na rede pública mundial – *a internet*.<br/>
+ Tanto as webpages quanto websites completos podem estar localizadas em um computador local ou remoto que as disponibiliza através de um *servidor web*. O acesso a elas pode ser restringido apenas ao próprio computador, à redes locais ou ainda ser disponibilizada na rede pública mundial – *a internet*.<br/>
  Originalmente, as páginas web eram arquivos estáticos de texto armazenados em servidores web, entretanto, atualmente é comum encontrar servidores que geram dinamicamente os arquivos HTML de acordo com a requisição do navegador, além de existirem ainda maneiras de se obter comportamento dinâmico pelo lado do cliente por meio de implementações de Ajax e JavaScript por exemplo.<br/>
  Para entender a comunicação mais básica que ocorre na **internet**, devemos saber que ela envolve um **servidor web**, como *ISS*, *Apache* ou *NGINX*, que contém os arquivos HTML, CSS e JavaScript das páginas web, e um cliente, neste caso *o navegador*, podendo ser o *Chrome, Firefox, Edge* ou algum entre vários existentes no mercado. O servidor web e o cliente comunicam-se via **H**yper**T**ext **T**ransfer **P**rotocol, que *é um conjunto de regras que permitem a transferência de informações via arquivos na Internet*. A comunicação entre eles começa quando o usuário, através do navegador, entra no *endereço de um website* conhecido como **U**niform **R**esource **L**ocator, gerando uma solicitação ao servidor web onde a página está hospedada – via requisição HTTPS – para encontrar os arquivos dela. O servidor web então responde à solicitação e retorna os arquivos do site – resposta HTTPS. A resposta chega ao navegador como uma cópia HTML da página web, e é neste ponto que o usuário pode vê-la em sua tela.
 
@@ -4990,6 +4990,94 @@ section h2 { /*
     font-size: 40px;
     font-weight: 800;
 }
+```
+
+## UX/UI
+A UI é o meio visual interativo com o qual o usuário entre em contato diretamente em um sistema, aplicação ou site. Ela envolve todos os elementos visuais e funcionais, e por isso é a parte que trata do design da tela, definindo como tudo se apresenta e se comporta ao usuário.<br/>
+Já a UX é a _sensação geral_, é a experiência emocial que o usuário experimenta ao interagir com um sistema, e envolve a facilidade de uso, acessibilidade, velocidade, eficiência e previsibilidade que busca atender à satisfação geral do usuário durante seu uso da aplicação, sendo ela a parte que trata como os elementos funcionam e como isso faz o usuário se sintir durante e após o uso.<br/>
+Basicamente, a UI é um componente da UX, pois incluencia diretamente a experiência, uma UI bem construída gera uma UX positiva enquanto que uma UI ruim mesmo com bom conteúdo pode causar uma UX negativa. A UX é o resultado da soma de todos os elementos, incluindo UI, desempenho, conteúdo e usabilidade, por isso que cada parte da aplicação como um todo deve ser pensada para produzir a melhor experiência possível, assim atraindo cada vez mais usuários para o negócio. 
+
+### PRELOADER
+Uma forma de dar a sensação de que tudo está indo conforme esperado e aumentar a sensação de controle do usuário é a utilização de *indicadores visuais de progresso que exibem quanto do carregamento já foi concluído*. Preloaders são elementos visuais como animações ou ícones que aparecem enquanto um conteúdo está sendo carregado, indicando seu progresso de evolução, que atenuam a frustração do usuário ao criar uma sensação de previsibilidade.<br/>
+Esles são feedbacks visuais imediatos que indicam ao usuário que algo está acontecendo e que o sistema não travou, evitando que ele saia da página por achar que o site *morreu*. Além de que ao ver o progresso ou uma animação, o usuário relaxa e espera com mais paciência, este preenchimento visual reduz a ansiedade, distrai e engaja, criando uma sensação de continuidade.<br/>
+Preloaders passam a impressão de uma aplicação organizada, funcional e profissional, e a transparência no carregamento aumenta a confiança do usuário no sistema, e seu uso aliado com outras técnicas como *skeleton screens* – mostram onde o conteúdo será exibido, antecipando a estrutura da página – e animações fluidas enganam positivamente o cérebro, mesmo que o tempo real não mude, o tempo *percebido* parece menor, ou seja, eles não aceleram o carregamento, mas melhoram radicalmente a percepção sobre ele.<br/>
+Usando somente HTML, CSS e JS, é possível criar vários tipos diferentes de preloaders, além de preloaders prontos que vários frameworks oferecem:
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Document</title>
+  <style>
+  * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      font-family: monospace, sans-serif;
+      box-sizing: border-box;
+  }
+
+  :root {
+    --light-gray: #f3f3f3;
+    --low-dark: #1a1a1a;
+    --dark-green: #25d366;
+  }
+
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--low-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .loader {
+    border: .5px solid var(--light-gray);
+    border-top: .5px solid var(--dark-green);
+    border-radius: 50%;
+    width: 3.75rem;
+    height: 3.75rem;
+    animation: spin 1s linear infinite;
+    margin-bottom: .625rem;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+
+  <script>
+  window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    const content = document.getElementById("content");
+
+    preloader.style.display = "none";
+    content.style.display = "block";
+  });
+  </script>
+</head>
+
+<body>
+
+  <div id="preloader">
+    <div class="loader"></div>
+    <p>Carregando...</p>
+  </div>
+
+  <div id="content" style="display: none;">
+    <h1>Website</h1>
+    <p>Conteúdo do site.</p>
+  </div>
+
+</body>
+</html>
 ```
 
 <a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.1-fundamentos_da_web/protocolos_http_https.md">previous</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study#frontend">study</a>⠀⠀⠀⠀⠀⠀<a href="https://github.com/raphaelkaique1/study/blob/main/5-desenvolvimento_web/5.2-frontend/frameworks_css_bootstrap_tailwind.md">next</a>
