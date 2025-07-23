@@ -464,9 +464,10 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
 TAG                     | USO         | DEMONSTRAÇÃO          | PODE SER SUBSTITUÍDO POR CSS?
 :---:                   | :---:       | :---:                 | :---:
 \<b>text\</b>           | negrito     | <b>text</b>           | ✅
-\<strong>text\</strong> | ênfase      | <strong>text</strong> | ✅
+\<strong>text\</strong> | ênfase      | <strong>text</strong> | ❌
 \<i>text\</i>           | itálico     | <i>text</i>           | ✅
-\<em>text\</em>         | relevância  | <em>text</em>         | ✅
+\<em>text\</em>         | relevância  | <em>text</em>         | ❌
+\<mark>text\</mark>     | destaque    | <mark>text</mark>     | ✅
 \<strike>text\</strike> | riscado     | <strike>text</strike> | ✅
 \<s>text\</s>           | removido    | <s>text</s>           | ✅
 \<del>text\</del>       | deletado    | <del>text</del>       | ✅
@@ -939,7 +940,7 @@ O protocolo `about` acessa recursos internos do navegador, e uma maneira de se a
  - `cellpadding`: define a distância entre o texto e a borda da célula.
  - `cellspacing`: define o espaço entre uma célula e outra.
 
-_*Quando o conteúdo de uma célula estiver vazio, deve-se usar um espaço em branco, que é escrito em HTML como: `&nbsp;`; isto fará com que sua página seja exibida corretamente, pois alguns navegadores tem problemas para renderizar células vazias._<br/>
+_*Quando o conteúdo de uma célula estiver vazio, deve-se usar um espaço em branco, que é escrito em HTML como: `&nbsp;`; isto fará com que a tabela seja exibida corretamente, pois alguns navegadores tem problemas para renderizar células vazias._<br/>
 Exemplo de uma tabela simples:
 ```html
 <table>
