@@ -1259,13 +1259,6 @@ O uso de imagens nos documentos traz um resultado mais rico para a página, mas 
 <img src="img.jpg" width="500" height="500" alt="Image description."/>
 ```
 
-- **``**: .
-  - **``**: .
-
-```html
-<img src="img.jpg" alt="Image description."/>
-```
-
 - **`srcset`** / **`sizes`**: fornece múltiplas versões da imagem para diferentes tamanhos de tela e resoluções, muito utilizado para imagens responsivas.
 ```html
 <img 
