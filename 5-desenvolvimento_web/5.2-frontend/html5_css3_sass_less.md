@@ -1204,7 +1204,15 @@ Neste exemplo, os elementos da 1ª coluna incluindo o `tfoot` terão o fundo `aq
 
 ###### MULTIMÍDIA
  A tag **`figure`** é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.<br/>
- A tag **`source`** junto ou não do atributo **`src`** é utilizada para indicar o caminho até o arquivo de mídia, para que possa ser carregado e exibido na página.
+ A tag **`source`** junto ou não do atributo **`src`** é utilizada para indicar o caminho até o arquivo de mídia, para que possa ser carregado e exibido na página.<br/>
+ Para adicionar mais semântica a um elemento envolto por ela, é possível utilizar a tag `legend` para incluir um título e a tag `figcaption` para adicionar uma descrição para a mídia.
+```html
+<figure>
+  <legend>Título</legend>
+  <></>
+  <figcaption>Legenda</figcaption>
+</figure>
+```
 
 **IMAGENS**<br/>
  As imagens em páginas web são armazenadas também como arquivos separados em servidores web, e o navegador faz o trabalho de baixar todas enquanto a página é processada, mantendo a conexão com o servidor até que todas as informações sejam baixadas e fornecidas quando disponíveis. A grande maioria dos navegadores renderiza as imagens juntamente com os textos e outros materiais na página a ser exibida.<br/>
@@ -1215,13 +1223,13 @@ Neste exemplo, os elementos da 1ª coluna incluindo o `tfoot` terão o fundo `aq
  ```
  As imagens dentro de uma página web são incluídas dentro da tag **`figure`** que define uma imagem em conjunto com a tag **`<img/>`**, indicando para o navegador que uma imagem deve ser renderizada naquele local.<br/>
  Ao utilizá-la, é necessário especificar o caminho onde a imagem está localizada, seja um caminho para um diretório local ou um endereço na internet; **isso é feito com o atributo `src`, que é um atributo obrigatório para exibir a imagem e aponta para a sua localização.**<br/>
- **Outros atributos não obrigatórios mas ALTAMENTE RECOMENDADOOS PARA O SEO, são os atributos `alt`, `title` e `figcaption`.**
+ **Outros atributos não obrigatórios mas ALTAMENTE RECOMENDADOOS PARA O SEO, são os atributos `alt` e `title`.**
  - **`alt` alternative**: *Permite exibir uma mensagem alternativa no lugar da imagem caso ela não possa ser encontrada e exibida.*
  - **`title` título**: *Permite atribuir um título à imagem.*
- - **`figcaption` legenda**: *Permite atribuir uma legenda à imagem.*
 ```html
 <figure>
-    <img src="https://avatars.githubusercontent.com/u/182168576" alt="Logo Tech n' Logic" title="Tech n' Logic" figcaption="Fonte: Tech n' Logic GitHub profile"/>
+    <img src="https://avatars.githubusercontent.com/u/182168576" alt="Logo Tech n' Logic" title="Tech n' Logic"/>
+    <figcaption>Fonte: Tech n' Logic GitHub profile</figcaption>
 </figure>
 ```
 <figure>

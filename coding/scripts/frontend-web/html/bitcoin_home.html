@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Bitcoin é uma rede de pagamento inovadora e um novo tipo de dinheiro. Encontre tudo o que você precisa saber e comece a usar Bitcoin em bitcoin.org."/>
+        <meta name="keywords" content="bitcoin, btc, p2p, blockchain, web3, crypto, currency, cryptocurrency, digital currency, virtual currency, digital money, virtual money"/>
+        <title>Bitcoin</title>
+        <link rel="stylesheet" href="../css/reset.css"/>
+        <link rel="stylesheet" href="../css/bitcoin_home.css"/>
+        <link rel="shortcut icon" href="https://bitcoin.org/favicon.png?1749679667" type="image/x-icon"/>
+        <script src="https://www.youtube.com/iframe_api" defer></script>
+        <script src="../js/bitcoin_home.js" defer></script>
+    </head>
+    <body id="init">
+        <header class="header">
+            <a id="logotop">
+                <figure class="header__logo">
+                    <img width="9.9%" src="https://bitcoin.org/img/icons/logotop.svg?1749679667" alt="Bitcoin" title="Bitcoin"/>
+                </figure>
+            </a>
+            <nav class="header__nav">
+                <ul class="header-nav__list">
+                    <li class="header-nav__item" id="introduction">
+                        <details class="dropdown" open>
+                            <summary class="dropdown__summary">Introdução <ion-icon class="dropdown__icon" name="chevron-down-outline"></ion-icon></summary>
+                            <ul class="dropdown__menu">
+                                <li class="dropdown__item"><a>Pessoas</a></li>
+                                <li class="dropdown__item"><a>Empresas</a></li>
+                                <li class="dropdown__item"><a>Desenvolvedores</a></li>
+                                <li class="dropdown__item"><a>Começando</a></li>
+                                <li class="dropdown__item"><a>Como funciona</a></li>
+                                <li class="dropdown__item"><a>Documentação</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="header-nav__item" id="resources">
+                        <details class="dropdown" open>
+                            <summary class="dropdown__summary">Recursos <ion-icon class="dropdown__icon" name="chevron-down-outline"></ion-icon></summary>
+                            <ul class="dropdown__menu">
+                                <li class="dropdown__item"><a>Recursos</a>
+                                <li class="dropdown__item"><a>Casas de câmbio</a></li>
+                                <li class="dropdown__item"><a>Comunidade</a></li>
+                                <li class="dropdown__item"><a>Vocabulário</a></li>
+                                <li class="dropdown__item"><a>Eventos</a></li>
+                                <li class="dropdown__item"><a>Bitcoin Core</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="header-nav__item" id="inovation"><a>Inovação</a></li>
+                    <li class="header-nav__item">
+                        <details class="dropdown" open>
+                            <summary class="dropdown__summary">Participe <ion-icon class="dropdown__icon" name="chevron-down-outline"></ion-icon></summary>
+                            <ul class="dropdown__menu">
+                                <li class="dropdown__item"><a>Apoie Bitcoin</a>
+                                <li class="dropdown__item"><a>Compre Bitcoin</a></li>
+                                <li class="dropdown__item"><a>Venda Bitcoin</a></li>
+                                <li class="dropdown__item"><a>Desenvolvimento</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="header-nav__item"><a>FAQ</a></li>
+                </ul>
+            </nav>
+            <select class="language-selector" name="idiom" id="idiom">
+                <option value="pt-BR" selected>Português</option>
+                <option value="en-US">English</option>
+            </select>
+        </header>
+        <main class="main">
+            <h1 class="main__title">Bitcoin é uma rede de pagamento inovadora e um novo tipo de dinheiro.</h1>
+            <ul class="main-nav__list" id="start">
+                <li class="main-nav__item"><a>Comece agora mesmo a usar</a></li>
+                <li class="main-nav__item"><a>Escolha sua carteira</a></li>
+                <li class="main-nav__item"><a>Compre Bitcoin</a></li>
+            </ul>
+            <dialog class="video-modal" id="what-is-bitcoin">
+                <button class="video-modal__close-button" id="close-video-modal" type="button" onclick="closeVideoModal()" title="Fechar">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </button>
+                <figure>
+                     <video id="yt-player" title='Vídeo institucional: "O que é Bitcoin?"' alt='Vídeo institucional: "O que é Bitcoin?"'></video>
+                </figure>
+            </dialog>
+            <button class="video-modal__trigger-button" id="open-video-modal" type="button" onclick="openVideoModal()" title="Assistir vídeo">
+                <ion-icon name="play-circle"></ion-icon> O que é Bitcoin?
+            </button>
+            <section class="quick-section" id="quick-view">
+                <h2 class="quick-section__title">Obtenha uma visão geral rápida para</h2>
+                <nav class="quick-section-nav">
+                    <article class="quick-section-nav__item">
+                        <a class="quick-section-nav__link" href="https://en.bitcoin.it/wiki/Digital_currency" target="_blank" rel="noopener noreferrer">
+                            <figure class="quick-section-nav__icon-wrapper" aria-hidden="true">
+                                <ion-icon class="quick-section-nav__icon" name="cash-outline"></ion-icon>
+                            </figure>
+                            <h3 class="quick-section-nav__title">Digital currency</h3>
+                            <p class="quick-section-nav__description">Saiba mais</p>
+                        </a>
+                    </article>
+                    <article class="quick-section-nav__item">
+                        <a class="quick-section-nav__link" href="https://en.bitcoin.it/wiki/Block_chain" target="_blank" rel="noopener noreferrer">
+                            <figure class="quick-section-nav__icon-wrapper" aria-hidden="true">
+                                <ion-icon class="quick-section-nav__icon" name="cube-outline"></ion-icon>
+                            </figure>
+                            <h3 class="quick-section-nav__title">Blockchain</h3>
+                            <p class="quick-section-nav__description">Saiba mais</p>
+                        </a>
+                    </article>
+                    <article class="quick-section-nav__item">
+                        <a class="quick-section-nav__link" href="https://en.bitcoin.it/wiki/Bitcoin" target="_blank" rel="noopener noreferrer">
+                            <figure class="quick-section-nav__icon-wrapper">
+                                <ion-icon class="quick-section-nav__icon" name="logo-bitcoin"></ion-icon>
+                            </figure>
+                            <h3 class="quick-section-nav__title">Bitcoin</h3>
+                            <p class="quick-section-nav__description">Saiba mais</p>
+                        </a>
+                    </article>
+                </nav>
+            </section>
+            <a class="arrow-link" href="#check">
+                <figure class="arrow-wrap" id="check">
+                    <img src="https://bitcoin.org/img/icons/ico_arrow_down.svg?1749679667" alt="Comece a usar"/>
+                </figure>
+            </a>
+            <section class="start-section" id="start_use">
+                <h2 class="start-section__title">Comece agora mesmo a usar</h2>
+                <p class="start-section__description">Bitcoin usa a tecnologia ponto-a-ponto para operar sem a necessidade de uma autoridade central ou banco; as transações com bitcoins são gerenciadas coletivamente pelos usuários da rede. <strong class="start-section__description--highlight">O Bitcoin é código aberto, seu design é público, ninguém é proprietário ou controla o Bitcoin e <a class="start-section__description--link">qualquer um pode participar</a>.</strong> Através das suas várias e únicas características, a rede Bitcoin permite usos interessantes indisponíveis nos sistemas de pagamento anteriores.</p>
+                <ul class="start-section__list">
+                    <li class="start-section__item"><ion-icon class="start-section__item-icon" name="swap-horizontal-outline"></ion-icon><strong class="start-section__item--highlight">Transações rápidas ponto-a-ponto</strong></li>
+                    <li class="start-section__item"><ion-icon class="start-section__item-icon" name="planet-outline"></ion-icon><strong class="start-section__item--highlight">Pagamentos de nível mundial</strong></li>
+                    <li class="start-section__item"><ion-icon class="start-section__item-icon" name="pricetag-outline"></ion-icon><strong class="start-section__item--highlight">Taxas baixas de processamento</strong></li>
+                </ul>
+                <figure class="start-section__logo-wrap">
+                    <img class="start-section__logo" width="25.3%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/800px-Bitcoin.svg.png" alt="Bitcoin" title="Bitcoin"/>
+                </figure>
+                <p class="start-section__button"><a class="start-section__button-link">Comece agora mesmo a usar</a></p>
+            </section>
+        </main>
+        <footer class="footer">
+            <figure class="footer__logo">
+                <img src="https://bitcoin.org/img/icons/logo-footer.svg?1749679667" alt="Bitcoin" title="Bitcoin"/>
+            </figure>
+            <section class="about-section" id="about">
+                <article class="about-section__donate" id="help">
+                    <h4 class="about-section__donate-title">Ajude o Bitcoin.org:</h4>
+                    <button class="about-section__button--open-modal" type="button" onclick="donate.showModal()">Doe</button>
+                    <dialog class="about-section__donate-modal" id="donate">
+                        <button class="about-section__button--close-modal" type="button" onclick="donate.close()"><ion-icon name="close-circle-outline"></ion-icon></button>
+                        <h5 class="about-section__modal-title">Doar para o Bitcoin.org</h5>
+                        <figure class="about-section__modal-info">
+                            <legend>Use o QR code ou o endereço abaixo</legend>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8AXHiAAAFVklEQVR4nO3d0ZLbIAxA0aST///l9LFZPJUjpCu703seuzE4rgYTEPB8PB7vx4D3+081z+dz+7Off8s6q/eb+1nLif62/p36Lplydp9B1q+RWvTfMbCEMLCEeK3/UHnvf4re5Wd1RNdmyq30d7r6IlRfqOv/ifr/tsUSwsAS4vAq/JR5HVSa+UpznBnGyNS5O0ww9RwqXY3dcjP12GIJYWAJYWAJEfaxKJVhgc56MtfulvNtmeS1V7DFEsLAEsLAEuKSPlZl/Kar30RN6RB9s2xZd+iP2WIJYWAJEb4KqSa1M7uha2iikjVBlFMpt6KrLFssIQwsIQwsIQ59rIlVHJU0lK5+VFe26VQmaqWfNzUE8skWSwgDSwgDS4jn+4Lx/85UGKrc3dU1kUx/LDPWl+kvTrHFEsLAEqLtVUgtsKxkfXYtbs3c09RP+91VRJXXcWbYxRZLCANLCANLiHBKp9IP6ezvfFvnFZ+d2shsRWwiV7GWa4slhIElhIElxPMRbG7bOa2QKffbctayqDEaStfmdFOfzTwjWywhDCwhXpUpiCv2Y6eyEHZ/hncOyWRQz76ra2GLJYSBJYSBJcTrDpukZurtShGhNu7tSlnJlHvVxsIRWywhDCwhDCwhDlM61DuXWPWSqbNSb6Wv1pVCHJV7hkqxMTVZ4wwsIcIpnTPUEbZdR7FRP/0j1HFv6/1MPPsMp3Q0wsASwsASIrVKJ6OSvdlV54rIIO1cCRTdX9fGuNQwhcMNGmFgCWFgCXHoY+1OV6w6z8uJdI3n7JZbOQzhrB8VlXP3Vd62WEIYWEJgGaSVmfs7ZLV+W09ndyFTzu5risrsXdliCWFgCWFgCVFKm4lMndtHrTT+dnqlc+XNxLTX2T101WmLJYSBJYSBJUTbeYWZNA9q7IfadaXLVWnWmXvo2qTNFksIA0uI0h6kPwqCztLJoI5ti9wxGzajazHuyhZLCANLCANLiLCPtaIyHM/Kisq9ehqE+t5Tm6lRKUq2WEIYWEIcju6dWNyY0fl66/opnUEMcawqz6jStXC4QeMMLCEMLCFSe5BSe6NT0yCVLFZiSIF6fhVd9+SmIBphYAlhYAlRSpvZfT9T2ZFU2swV0ytT97fqKssWSwgDS4jUglVqqqBiN7uhMsTRtRi38lq/IsMi88xssYQwsIQwsIQIp3QqR6Z1fXZFnRMzNYXyaarPSvXzIrZYQhhYQhhYQhw2BYlM7C1e+exZOdTUUXRdpi+0u8d6Zcyrqx7TZjTCwBIifBV2ZmRmPtt17Aa1v+a3dZzVWZmCIo5v6SzXFksIA0sIA0uI1JTOxEZmZ2VVpmWIrNCrVt50rVh2lY7+KQaWEAaWEOE+751TJF3ldI39VD6buZ+uPuvU6p/dOla2WEIYWEKkNgU5XDw0xROhslj/dt16LZW9mXHHIQ9bLCEMLCEMLCHCtJlMZmLm2q7+TQXVr5vacG5i87fMPTiloxEGlhAGlhCHAwRGKm1csTwxPraiDkuI6p/qj3XtCmSLJYSBJcRroll/PH42q5Vm/g7DDZlyuhahRvV2Lm7tYoslhIElhIElxGFKZyKVg5pWOKtnd0MRKi2lMv3T1SfM1OkqHV3OwBLCwBIilTYTqfQtqPRd6iydrv5j5Xvv7gozxRZLCANLiNQepJToVdOZbUqs6OnMOoi+NzUFFam8Ym2xhDCwhDCwhLhFH6vr5/DURnFdK2SuSAGiVki5ElojDCwhDCwhUgcI3EElvYX4PtQ4VubaznTjzBiiK6E1zsAS4rDxGmUiM5XKWIjq6Zx62Z1yOkNlN0T3YIslhIElhIElxG8eF5ZGozLkowAAAABJRU5ErkJggg==" alt="bc1qp6ejw8ptj9l9pkscmlf8fhhkrrjeawgpyjvtq8"/>
+                            <figcaption>bc1qp6ejw8ptj9l9pkscmlf8fhhkrrjeawgpyjvtq8</figcaption>
+                        </figure>
+                    </dialog>
+                    <a class="about-section__donate-link" href="bitcoin:bc1qp6ejw8ptj9l9pkscmlf8fhhkrrjeawgpyjvtq8">bc1qp6ejw8ptj9l9pkscmlf8fhhkrrjeawgpyjvtq8</a>
+                </article>
+                <article class="about-section__extra" id="extra">
+                    <h5 class="about-section__extra-title">Outros:</h5>
+                    <ul class="about-section__extra-list">
+                        <li class="about-section__extra-item"><a>Legal</a></li>
+                        <li class="about-section__extra-item"><a>Política de Privacidade</a></li>
+                        <li class="about-section__extra-item"><a>Imprensa</a></li>
+                        <li class="about-section__extra-item"><a>Sobre bitcoin.org</a></li>
+                        <li class="about-section__extra-item"><a>Blog</a></li>
+                    </ul>
+                </article>
+            </section>
+            <section class="info-section" id="info">
+                <h6 class="info-section__title">&#169; Bitcoin Project 2009-<span id="current_year"></span> Liberado sob a Licença MIT</h6>
+                <article class="info-section__extra">
+                    <a class="info-section__status">Status da Rede</a>
+                    <a class="info-section__back-button" href="#init" title="Voltar ao início"><ion-icon name="chevron-up-circle-outline"></ion-icon></a>
+                </article>
+            </section>
+        </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>

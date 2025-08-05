@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+/* commons */
+
+:root {
+    --bitcoin: #FF7E00;
+    --link: #3490E6;
+    --off-white: #ffffff;
+    --light-gray: #dfdfdf;
+    --dark-gray: #c0c0c0;
+    --light-black: #13161d;
+    --dark-black: #000;
+    --backdrop-shadow: #000000cc;
+}
+
+/* generals */
+
+* {
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+body {
+    background-color: var(--light-black);
+    color: var(--off-white);
+    font-family: "Titillium Web", Arial, sans-serif;
+    z-index: 1;
+}
+
+ul, summary {
+    list-style: none;
+    color: var(--dark-black);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ion-icon {
+    font-size: x-large;
+    cursor: pointer;
+}
+
+/* header */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--off-white);
+    width: 100vw;
+    max-height: 3.75rem;
+    position: sticky;
+    padding: 1rem 1.5rem;
+    top: 0;
+    z-index: 9;
+}
+
+.header__logo {
+    width: 8.25rem;
+    height: auto;
+}
+
+.header__logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* menu */
+
+.header__nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 1.875rem;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.header-nav__item {
+    width: max-content;
+    margin: 0 1rem;
+}
+
+.header-nav__item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+}
+
+/* dropdown */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown__summary {
+    cursor: default;
+}
+
+.dropdown__icon {
+    font-size: small;
+    color: var(--dark-black);
+    cursor: default;
+    transition: transform 0.2s ease;
+}
+
+.dropdown__menu {
+    width: max-content;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    background-color: var(--off-white);
+    border: 1px solid var(--light-gray);
+    z-index: 9;
+}
+
+.dropdown__item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+
+    &:hover {
+        background-color: var(--light-gray);
+    }
+}
+
+.dropdown__item a {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0.2rem 0.5rem;
+    color: inherit;
+}
+
+.dropdown:hover {
+    .dropdown__menu {
+        display: flex;
+    }
+
+    .dropdown__icon {
+        transform: scale(1, 0.25);
+    }
+}
+
+/* language selector */
+
+.language-selector {
+    border: none;
+    z-index: 9;
+}
+
+/* update */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--off-white);
+    color: var(--dark-black);
+}
+
+.main__title {
+    width: 55rem;
+    margin: 8rem 0 2rem;
+    text-align: center;
+    font-size: 321.5%;
+    font-weight: 300;
+}
+
+.main-nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main-nav__item {
+    width: 18rem;
+    margin: 0 0.25rem;
+    border: solid 1px var(--bitcoin);
+    text-align: center;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.main-nav__item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--bitcoin);
+}
+
+/* highlight */
+
+.main-nav__item:first-child a {
+    background-color: var(--bitcoin);
+    color: var(--off-white);
+}
+
+/* modal */
+
+.video-modal {
+    align-self: center;
+    justify-self: center;
+    border: none;
+
+    &::backdrop {
+        background-color: var(--backdrop-shadow);
+    }
+}
+
+.video-modal__trigger-button {
+    margin: 4rem;
+    display: flex;
+    align-items: center;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.video-modal__trigger-button ion-icon {
+    color: var(--light-black);
+    font-size: 4rem;
+}
+
+.video-modal__close-button {
+    width: 100%;
+    border: none;
+    text-align: end;
+    font-weight: 500;
+    color: var(--off-white);
+}
+
+.video-modal__close-button ion-icon {
+    font-size: xx-large;
+}
+
+/* quick-view */
+
+.quick-section {
+    width: 100%;
+    height: 55rem;
+    background-image: url("https://bitcoin.org/img/hero/overview-bg-repeat.png");
+    background-size: cover;
+}
+
+.quick-section__title {
+    margin: 25rem auto 5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 165.5%;
+    color: var(--off-white);
+}
+
+.quick-section-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-section-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 17rem;
+    height: 13rem;
+    margin: 3rem 1rem 5rem;
+    background-color: var(--dark-black);
+}
+
+.quick-section-nav__link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.quick-section-nav__icon-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.quick-section-nav__icon {
+    color: var(--bitcoin);
+    font-size: 4rem;
+}
+
+.quick-section-nav__title {
+    margin: 0.8rem 0 0.1rem;
+    font-size: larger;
+    font-weight: 600;
+    color: var(--off-white);
+}
+
+.quick-section-nav__description {
+    color: var(--light-gray);
+
+}
+
+/* div arrow */
+
+.arrow-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1.8rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--light-black);
+    transform: rotate(45deg);
+}
+
+.arrow-wrap {
+    transform: rotate(-45deg);
+}
+
+/* start use */
+
+.start-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.start-section__title {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    width: 100%;
+    margin: 2rem 0;
+    text-align: center;
+    color: var(--bitcoin);
+    font-size: 162.5%;
+}
+
+.start-section__description {
+    font-size: 1.5rem;
+    padding: 0 3rem;
+    margin: -3.5rem auto 3rem;
+}
+
+.start-section__description--highlight {
+    font-weight: 700;
+}
+
+.start-section__description--link {
+    color: var(--link);
+    background-color: transparent;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.start-section__list {
+    margin: 1rem 3rem 2rem;
+}
+
+.start-section__item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.3rem;
+    font-size: 1.15rem;
+    line-height: 2.5rem;
+}
+
+.start-section__item--highlight {
+    font-weight: 600;
+}
+
+.start-section__item-icon {
+    cursor: default;
+    color: var(--dark-black);
+}
+
+.start-section__logo-wrap {
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.start-section__logo {
+    transition: transform 5s ease;
+
+    &:hover {
+        transform: rotateY(360deg);
+    }
+}
+
+.start-section__button {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+}
+
+.start-section__button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--off-white);
+    background-color: var(--light-black);
+    width: 15rem;
+    height: 3rem;
+
+    &:hover {
+        opacity: 0.9;
+        text-decoration: none;
+    }
+}
+
+/* footer */
+
+.footer {
+    width: 100vw;
+    position: relative;
+    background-color: var(--off-white);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image: url("https://bitcoin.org/img/hero/hero-bg.svg?1528322191");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        transform: scaleY(-1);
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.footer__logo {
+    padding-top: 8rem;
+    text-align: center;
+}
+
+.footer__logo img {
+    width: 10rem;
+}
+
+.about-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* donate */
+
+.about-section__donate {
+    padding: 3rem;
+}
+
+.about-section__donate-title {
+    font-size: large;
+    font-weight: 600;
+    display: inline;
+    align-self: center;
+}
+
+.about-section__button--open-modal {
+    width: 4rem;
+    height: 2.5rem;
+    font-weight: 500;
+    color: var(--off-white);
+    border: none;
+    background-color: var(--bitcoin);
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        filter: brightness(1.1);
+    }
+}
+
+.about-section__donate-link {
+    display: block;
+    color: var(--link);
+    text-decoration: underline;
+}
+
+.about-section__donate-modal {
+    width: 30rem;
+    height: 25rem;
+    border: 0;
+    border-radius: 1rem;
+    background-color: var(--off-white);
+
+    &::backdrop {
+        background-color: var(--backdrop-shadow);
+    }
+}
+
+.about-section__button--close-modal {
+    width: 100%;
+    display: block;
+    text-align: end;
+    border: none;
+}
+.about-section__button--close-modal ion-icon:hover {
+    color: var(--bitcoin);
+}
+
+.about-section__modal-title {
+    font-size: 162.5%;
+    color: var(--bitcoin);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-section__modal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.about-section__modal-info legend {
+    font-size: larger;
+    color: var(--light-black);
+}
+
+.about-section__modal-info figcaption {
+    color: var(--link);
+    text-decoration: underline;
+}
+
+
+/* extra */
+
+.about-section__extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 3rem;
+}
+
+.about-section__extra-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.about-section__extra-list {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about-section__extra-item a {
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+/* info */
+
+.info-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-black);
+    padding: 1rem 2rem;
+    margin-bottom: 0;
+}
+
+.info-section__title {
+    color: var(--dark-gray);
+}
+
+.info-section__extra {
+    width: 11rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-section__status {
+    color: var(--dark-gray);
+    text-wrap: nowrap;
+
+    &::before {
+        content: "🟢";
+        margin-right: 0.4rem;
+        font-size: 0.8rem;
+    }
+}
+
+.info-section__back-button ion-icon {
+    font-weight: 600;
+    color: var(--dark-gray);
+}
