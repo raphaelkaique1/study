@@ -1900,7 +1900,7 @@ email=raphael@email.com&senha=psswrd@09
       - **É usado com `datalist` e `select`.**
           - **`datalist`**: **Cria uma lista de sugestões para um campo `input`, mas o usuário ainda pode digitar um valor personalizado**, as sugestões aparecem conforme o usuário digita, mas ele não é obrigado a escolhê-las. Usado com o atributo `list` em um `input`, ele torna a interação com o formulário mais eficiente, especialmente quando há opções limitadas, como nomes de cidades, e-mails ou produtos.
           ```html
-          <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade.">
+          <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite sua cidade."/>
           <datalist id="cidades">
             <option value="Contagem">Contagem</option>
             <option value="Belo Horizonte">Belo Horizonte</option>
@@ -1909,7 +1909,7 @@ email=raphael@email.com&senha=psswrd@09
             <option value="São Paulo">São Paulo</option>
           </datalist>
           ```
-          - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**.
+          - **`select`**: Cria um menu suspenso (*dropdown*) com opções predefinidas, onde **o usuário só pode escolher uma das opções fornecidas**. **É obrigatório possuir um atributo `name` para que funcione corretamente.**
           ```html
           <select name="time" id="time" required>
               <option selected disabled value="">Select a option...</option>
