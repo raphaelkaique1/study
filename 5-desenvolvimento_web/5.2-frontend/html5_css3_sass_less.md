@@ -1924,6 +1924,13 @@ email=raphael@email.com&senha=psswrd@09
                   <option value="sao-paulo">SÃO PAULO</option>
               </optgroup>
           </select>
+          <!-- é possível permitir ao usuário selecinar vários itens com o atributo `multiple`, para isso basta utilizar `[]` no atributo `name` e o método `POST`  -->
+          <select name="time[]" id="time" required multiple>
+              <option selected disabled value="">Select a option...</option>
+              <option value="cruzeiro">CRUZEIRO</option>
+              <option value="america">AMÉRICA</option>
+              <option value="atletico">ATLÉTICO</option>
+          </select>
           ```
  - **`date`**: Tipo de data.
     ```html
