@@ -1456,7 +1456,7 @@ Aqui falaremos sobre como adicionar legendas.
  </frameset>
  ```
 
- **No entanto, atualmente no HTML5 tanto o `frameset`, `frame` quanto o `nomframes` estão obsoletos e não devem ser mais utilizados. Para substituí-los foi criada uma tag mais semântica e com maior controle, o `iframe`.**
+ **No entanto, atualmente no HTML5 tanto o `frameset`, `frame` quanto o `noframes` estão obsoletos e não devem ser mais utilizados. Para substituí-los foi criada uma tag mais semântica e com maior controle, o `iframe`.**
  ```html
   <style>
     iframe {
