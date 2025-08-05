@@ -1530,6 +1530,22 @@ Cada `iframe` é como uma página nova sendo carregada, o que aumenta o uso de r
 
 Boas práticas que podem ser aplicadas ao uso dos `iframe`s incluem sempre utilizar `title` para acessibilidade e `loading="lazy"` para performance, além de evitar `iframe`s de terceiros sem controle de segurança e utilizar `sandbox` para isolar conteúdo quando necessário ou `postMessage` com JavaScript para uma comunicação segura entre domínios, sempre adequando o CSS para uma melhor responsividade.
 
+A tag `embed` era usada para inserir conteúdo externo diretamente em uma página, como vídeos, PDFs, animações ou qualquer outro tipo de mídia suportada por plugins ou navegadores.
+```html
+<embed src="file.pdf" type="application/pdf" width="600" height="400"/>
+```
+- `src`: caminho do arquivo a ser incorporado.
+- `type`: tipo MIME do conteúdo.
+- `width`: largura da área embutida.
+- `height`: altura da área embutida.
+
+Porém tem caído em desuso, por haver substituições mais semânticas como `vídeo` e `iframe` por exemplo.
+```html
+<iframe src="file.pdf" width="800" height="600">
+  <p>Erro ao abrir o arquivo. <a href="arquivo.pdf">Clique aqui para baixar.</a></p>
+</iframe>
+```
+
 ###### FORMULÁRIOS
  Os formulários tem o propósito de coletar informações fornecidas pelos visitantes do site, que são então enviadas ao servidor para serem processadas.<br/>
  Para que ele seja útil, é importante que o formulário fornecido seja acompanhado por um código do lado do servidor, chamado *"agente de processamento"*, que se encarrega de receber e processar as informações. Este processamento pode consistir, por exemplo, em armazenar as informações ou enviá-las por e-mail.<br/>
