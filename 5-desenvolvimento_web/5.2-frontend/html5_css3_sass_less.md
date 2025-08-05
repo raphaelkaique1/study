@@ -1838,12 +1838,13 @@ email=raphael@email.com&senha=psswrd@09
         ```
         - **`checkbox`**: Permite a seleção múltipla de uma ou mais opções. Embora várias checkbox sejam normalmente exibidas juntas, **cada uma é completamente independente das outras**. Utilizam o mesmo conceito de grupos e valores, onde devem ser agrupadas e então receber um valor específico para cada uma delas, que será associado ao campo `name` para que o `value` seja tratado no servidor.
         ```html
-        <input type="checkbox" name="quest" value="yes"/>
+        <input type="checkbox" name="quest[]" value="yes"/>
         <label for="yes">M5</label>
 
-        <input type="checkbox" name="quest" value="no"/>
+        <input type="checkbox" name="quest[]" value="no"/>
         <label for="no">M3</label>
         ```
+          - **No caso de uma lista de itens, é necessário utilizar `[]` no atributo `name` juntamente com o método `POST`, para que o servidor identifique que os valores recebidos são todos do mesmo atributo, caso contrário ele utilizará apenas o último valor selecionado pelo usuário.**
           - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.
           ```html
           <input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
