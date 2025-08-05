@@ -1584,7 +1584,7 @@ Boas práticas que podem ser aplicadas ao uso dos `iframe`s incluem sempre utili
 <form action="https://server.php" method="get">
     <>...</>
 </form>
-<button>submit<button>  <!-- veremos como implementar isto adiante -->
+<button>submit<button>
 ```
 
  No exemplo acima, quando o usuário clicar em *`submit`*, a ação que será executada é a de enviar os dados para a url especificada usando o método `get`.<br/>
@@ -1648,6 +1648,24 @@ Boas práticas que podem ser aplicadas ao uso dos `iframe`s incluem sempre utili
    </button>
  </form>
  ```
+
+ O atributo `name` na tag `form` não é obrigatório – diferente dos campos de `input` que são essenciais para o envio dos dados – mas deve ser usado quando se deseja identificar o formulário para manipulá-lo. Por exemplo:
+```html
+<form name="userInfo" action="https://server.php" method="get">
+  <label for="nome">Nome:</label>
+  <input type="text" name="nome" id="nome"/>
+  <button type="button" onclick="showValue()">Verificar</button>
+</form>
+
+<script>
+  // acessa o formulário pelo `name`
+  const form = document.forms["userInfo"];
+
+  // acessa o elemento do formulário em questão
+  const nameValue = form["nome"].value;
+  alert(`Nome: ${nomeValue}`);
+</script>
+```
 
 **ENTRADA DE DADOS EM FORMULÁRIOS**<br/>
  Os controles de entrada de dados em formulários geralmente são controles visuais e permite que o usuário insira dados ou selecione opções. Seu uso depende do tipo de controle e também do tipo de informações.
