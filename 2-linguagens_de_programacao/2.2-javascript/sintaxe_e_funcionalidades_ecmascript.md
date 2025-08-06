@@ -2028,6 +2028,28 @@ obj.novaPropriedade = 123; // sendo extensível, novas propriedades podem ser ad
 console.log(obj.novaPropriedade); // 123
 ```
 
+- **`Object.groupBy`**: Agrupa objetos através de uma propriedade.
+```js
+const people = {
+  { name: "Raphael", age: 30 },
+  { name: "Déborah", age: 30 },
+  { name: "Theo", age: 1 }
+};
+
+const grouped = Object.groupBy(people, p => p.age);
+console.log(grouped); /*
+{
+  1: [
+    { name: "Theo", age: 1 }
+  ],
+
+  30: [
+    {name: "Raphael", age: 30  },
+    {name: "Déborah", age: 30  }
+  ]
+} */
+```
+
 ###### `this`
  Trata-se de uma referência ao objeto que está executando o código no momento, geralmente ao objeto chamado em um método, dessa forma, quando um objeto ou classe quer se referir a si mesmo, ele usa **`this`**. Este método atribui dentro de um objeto ou uma classe, uma variável que recebe um parâmetro, que é o mesmo que declarar uma variável dentro da classe para receber um parâmetro externo. Ele se refere ao contexto de execução atual. Seu comportamento pode mudar dependendo de onde e como é usado. Se não precisarmos de privacidade ou quisermos manter as propriedades acessíveis ao programa, usar **`this` é a melhor opção**.
 
