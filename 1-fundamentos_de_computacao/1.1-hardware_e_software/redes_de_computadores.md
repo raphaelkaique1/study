@@ -115,14 +115,14 @@ Caracterização de uma rede:
  - **GATEWAY**: É o dispositivo que contém os 2: 1 modem + 1 roteador. Um gateway é um dispositivo que serve como ponto de entrada e saída para redes diferentes. No contexto de internet residencial, ele normalmente combina modem e roteador, facilitando a conexão dos dispositivos à internet sem precisar de equipamentos separados. Operadoras de internet geralmente fornecem um gateway para simplificar a instalação. Usuários que querem menos cabos e equipamentos optam por um gateway, pois ele evita ter modem e roteador separados. Empresas utilizam gateways para conectar redes locais a redes externas, como VPNs por exemplo.<br/>
 Embora muitos gateways combinem modem e roteador, o termo *"gateway"* também é usado para equipamentos que fazem conversão de protocolos, segurança de rede, etc. Por exemplo, um gateway pode conectar uma rede local Ethernet a uma rede de telefonia VoIP.
 
-| Característica | Modem                              | Roteador                                                                        | Gateway                        |
-|----------------|------------------------------------|---------------------------------------------------------------------------------|--------------------------------|
-| **Função**     | Conecta à internet                 | Criar, gerenciar e distribuir a internet da rede local para vários dispositivos | Conectar e Distribuir a internet da rede local  |
-| **Conexão**    | Apenas um dispositivo              | Vários dispositivos (Wi-Fi e cabo)                                              | Vários dispositivos (Wi-Fi e cabo) |
-| **Sinal**      | Não gera Wi-Fi                     | Gera Wi-Fi e conecta via cabo                                                   | Gera Wi-Fi e conecta via cabo |
-| **portas Ethernet | 1 porta | Várias portas | Várias portas |
-| **Uso**        | Necessário para acessar a internet | Necessário para distribuir a conexão                                            | Ambos |
-| **Suporte** | Precisa de um *roteador* | Precisa de um *modem* | Não |
+| Característica      | Modem                              | Roteador                                                                        | Gateway                        |
+| ------------------- |------------------------------------|---------------------------------------------------------------------------------|--------------------------------|
+| **Função**          | Conecta à internet                 | Criar, gerenciar e distribuir a internet da rede local para vários dispositivos | Conectar e Distribuir a internet da rede local |
+| **Conexão**         | Apenas um dispositivo              | Vários dispositivos (Wi-Fi e cabo)                                              | Vários dispositivos (Wi-Fi e cabo)             |
+| **Sinal**           | Não gera Wi-Fi                     | Gera Wi-Fi e conecta via cabo                                                   | Gera Wi-Fi e conecta via cabo                  |
+| **portas Ethernet** | 1 porta                            | Várias portas                                                                   | Várias portas                                  |
+| **Uso**             | Necessário para acessar a internet | Necessário para distribuir a conexão                                            | Ambos                                          |
+| **Suporte**         | Precisa de um *roteador*           | Precisa de um *modem*                                                           | Não                                            |
 
 - **modem**: traz a internet até sua casa.
 - **roteador**: distribui essa conexão para vários dispositivos.
@@ -163,8 +163,8 @@ Embora muitos gateways combinem modem e roteador, o termo *"gateway"* também é
 Os computadores usam endereços exclusivos para se localizar na rede. Um endereço IP junto com um endereço MAC, é como as redes encontram dispositivos. Todos os dispositivos conectados à rede tem estes IDs especiais.
 1. **MAC**: Hardware como um laptop ou celular tem um endereço de controle de **ACESSO À MÍDIA**. Endereços MAC são globalmente exclusivos, então nenhuma peça de hardware compartilhará o mesmo endereço MAC. Pense em um endereço MAC como um número de passaporte. Esse número é totalmente exclusivo para cada um e diz às autoridades que aquela pessoa é aquela pessoa.
 2. **IP**: Dispositivos em uma rede incluindo computadores que atendem sites na internet, também têm outro ID chamado endereço de **PROTOCOLO DE INTERNET**. O endereço IP identifica dispositivos em uma rede específica. Um endereço IP é uma ID que um roteador ou servidor atribui a um determinado dispositivo. Endereços IP não precisam ser exclusivos. Em uma rede privada como uma rede residencial, comercial ou escolar, o roteador atribui a todos os dispositivos naquela rede um endereço IP individual que é associado ao endereço MAC do dispositivo. O roteador também recebe um endereço IP (geralmente pelo ISP) porque ele faz a interface entre a internet e a rede privada. O endereço IP da internet que o roteador tem é exclusivo na internet. Cada lugar na internet é localizado por um endereço IP. Quando o usuário fornece um endereço da web em seu navegador, o servidor DNS recebe uma solicitação, resolve o endereço IP e encaminha a solicitação para os servidores da web de destino. Então os servidores da web enviam a página da web para o navegador do usuário. Ele é construído de 2 partes chaves:
-1. **192.168.1**.1: A primeira parte de um IP é o seu ID na internet.
-2. 192.168.1<strong>.1</strong>: A segunda parte é o ID do host.
+3. **192.168.1**.1: A primeira parte de um IP é o seu ID na internet.
+4. 192.168.1<strong>.1</strong>: A segunda parte é o ID do host.
 
 ![Image](https://github.com/user-attachments/assets/36888d56-4b81-4d49-994d-328fc3609c0b)
 
