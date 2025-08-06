@@ -405,11 +405,11 @@ ion-icon {
 }
 
 .start-section__logo {
-    transition: transform 5s ease;
+    transition: transform 3600s ease;
+}
 
-    &:hover {
-        transform: rotateY(360deg);
-    }
+.start-section:hover .start-section__logo {
+    transform: rotateY(360000deg);
 }
 
 .start-section__button {
