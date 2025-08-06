@@ -1399,6 +1399,7 @@ O mapa funciona melhor com imagens de tamanho fixo, ou seja, sem redimensionamen
      - **`captions`**: *Para legendas ocultas (geralmente para deficientes auditivos, incluindo não apenas a fala, mas também sons de fundo, como "porta batendo").*
      - **`descriptions`**: *Para descrições de áudio, geralmente usadas para pessoas com deficiência visual, descrevendo cenas de um vídeo.*
      - **`chapters`**: *Usado para capítulos de um vídeo (mais raro, mas pode ser utilizado em vídeos longos com capítulos distintos).*
+   - **`default`**: Define a legenda em questão como a padrão, usado quando há mais de um idioma de legenda.
  Exemplo de arquivo VTT:
 ```vtt
 WEBVTT
