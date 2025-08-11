@@ -1032,8 +1032,7 @@ _*Quando usados juntos na mesma tabela, desem ser cuidadosamente declarados para
  Há 2 tipos de tags que podem ser definidas em uma tabela, são tipos especiais que contém informações de cabeçalho para um conjunto específico de células, *servem para rotular a tabela*.<br/>
  Os navegadores normalmente representam o ceonteúdo de células especiais como texto centralizado em negrito.
  - **`th` table head**: *Usada para definir uma descrição para uma coluna.*
- - **`caption` description**: *Usada para definir um título para a tabela*; sua posição pode ser definida usando CSS. **Este elemento só é permitido se ele for inserido logo após
-a abertura da tabela.** 
+ - **`caption` description**: *Usada para definir um título para a tabela*; sua posição pode ser definida usando CSS. **Este elemento só é permitido se ele for inserido logo após a abertura da tabela.**
 ```html
 <table>
     <!-- area de cabeçalho -->
