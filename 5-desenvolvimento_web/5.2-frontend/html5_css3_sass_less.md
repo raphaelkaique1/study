@@ -1178,9 +1178,11 @@ _*Quando usados juntos na mesma tabela, desem ser cuidadosamente declarados para
       <col span="2" id="info"/>
   </colgroup>
   <thead>
-    <th>Nome</th>
-    <th>Telefone</th>
-    <th>email</th>
+    <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>email</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
