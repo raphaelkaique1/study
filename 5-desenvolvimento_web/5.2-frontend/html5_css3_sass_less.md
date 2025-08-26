@@ -66,7 +66,7 @@ As webpages se utilizam de HTML para fazer a formatação dos dados, e é import
 **Desde maio de 2019 o desenvolvimento do HTML é mantido pelo [W3C (World Wide Web Consortium)](https://www.w3.org/), WHATWG e a comunidade de desenvolvedores, tendo sua especificação aberta no Github [WHATWG](https://github.com/whatwg/html), e desde este movimento, o HTML é considerado um "padrão vivo" (living standard) onde sua versão a partir da 5 é atualizada continuamente.*
 
 #### WEB SEMÂNTICA
- Os navegadores agindo sozinhos não são capazes de diferenciar o que é *conteúdo* do que é *estrutura* dentro de um documento HTML, e todo documento HTML deve ser construído a partir do pensamento de que os dados nele presentes possam ser encontrados pelos mecanismos de busca e que sejam úteis aos usuários, e para que isso aconteça, devem ser usados elementos que permitem separar a estrutura, o conteúdo e a aparência. Existem elementos HTML capazes de criar uma separação entre a organização do documento e os dados, eles ordenam semanticamente o conteúdo de uma página web. Uma das maneiras para se criar uma separação das responsabilidades de um documento é a utilização dos *elementos semânticos*, que quando usados colocam o website em uma melhor posição no ranking de buscas dos mecanismos, assim atraindo mais usuários ao site, pois ficará mais fácil reconhecer o conteúdo relevante. Além disso, estes elementos favorecem a acessibilidade, pois permitem que os leitores de páginas reconheçam as marcações e facilitem a navegação para os usuários com deficiência visual por exemplo.<br/>
+ Os navegadores agindo sozinhos não são capazes de diferenciar o que é *conteúdo* do que é *estrutura* dentro de um documento HTML, e todo documento HTML deve ser construído a partir do pensamento de que os dados nele presentes possam ser encontrados pelos mecanismos de busca e que sejam úteis aos usuários, e para que isso aconteça, devem ser usados elementos que permitem separar a estrutura, o conteúdo e a aparência. Existem elementos HTML capazes de criar uma separação entre a organização do documento e os dados, eles ordenam semanticamente o conteúdo de uma página web. Uma das maneiras para se criar uma separação das responsabilidades de um documento é a utilização dos *elementos semânticos*, que quando usados colocam o website em uma melhor posição no ranking de buscas dos mecanismos, assim atraindo mais usuários ao site, pois ficará mais fácil reconhecer o conteúdo relevante – pode-se definir semântica como uma disciplina da linguística que se ocupa da significação das palavras e expressões linguísticas bem como das relações de sentido que estas estabelecem entre si. Além disso, estes elementos favorecem a acessibilidade, pois permitem que os leitores de páginas reconheçam as marcações e facilitem a navegação para os usuários com deficiência visual por exemplo.<br/>
  Um elemento semântico é aquele que descreve claramente sua finalidade e significado tanto para o browser quanto para o desenvolvedor, alguns dos vários elementos semânticos servem para arquitetar o conteúdo de um documento, eles são responsáveis por definir áreas ou blocos específicos na página, tais como cabeçalho, menu de navegação e a área destinada ao conteúdo principal. Como cada um destes elementos possui um significado e ajudam a estruturar um documento HTML, pode-se dizer que uma *estrutura semântica* está sendo construída. Quando escrevemos o HTML, marcamos o conteúdo da página com tags que melhor representam o significado daquele conteúdo. Essa técnica é chamada de **S**earch **E**ngine **O**ptimization, que visa aumentar a visibilidade do site por meio da semântica do documento através dos mecanismos de busca. O HTML Semântico aumenta o tráfego orgânico através do uso correto das tags como utilização correta de headings, imagens com textos alternativos descritivos, boa performance na velocidade de carregamento, responsividade, entre outros fatores que implicam na escrita correta de um documento HTML.
 
 ##### ELEMENTOS
@@ -246,7 +246,7 @@ ETIQUETA   | FUNÇÃO                     | OBRIGATÓRIO
  Essa distribuição é indicativa, qualquer elemento pode ser omitido ou movido de acordo com o projeto. _*Somente as tags **`head`** e **`body`** são obrigatórias_, porém, a inclusão de todos estes elementos melhora o posicionamento *SEO*. **Search Engine Optimization** é um conjunto de estratégias e técnicas usadas para melhorar a visibilidade de um site nos resultados orgânicos não pagos dos mecanismos de busca.<br/>
  `header`, `main` e `footer` podem ser aplicados em qualquer parte do documento, exemplo:
  - **`header`**: define uma seção de cabeçalho de uma página ou de uma parte dela, sendo usada para agrupar o logo, título, menu de navegação e informações iniciais. Pode haver mais de 1 header por seção em páginas.
- - **`main`**: representa o conteúdo principal da página, abriga textos, artigos, seções entre outros elementos que são o foco principal do site. Deve haver apenas 1 por página.
+ - **`main`**: representa o conteúdo principal da página, abriga textos, artigos, seções entre outros elementos que são o foco principal do site. Deve haver apenas 1 por página, sendo ela uma tag principal, ou seja, não pode ser filha de nenhuma outra tag além de `body`.
  - **`footer`**: seção de rodapé da página ou de um bloco específico que contem informações extras como links de contato, informações de direitos autorais e demais itens relacionados.
 
  Essas tags ajudam na estrutura semântica do HTML, tornando o conteúdo mais compreensível para navegadores, leitores de tela e mecanismos de busca. Toda essa organização semântica indica aos mecânismos de busca que o site possui uma estrutura bem definida e alinhada com os conceitos de acessibilidade, o que soma pontos para elencar o site entre os primeiros nos resultados de pesquisas.
@@ -1287,11 +1287,12 @@ Esta tag fornece múltiplas versões da mesma imagem em formatos e tamanhos dife
   - **`source`**: informa os caminhos para cada recurso.
     - **`srcset`**: caminho para a imagem.
     - **`type`**: atributo que informa o navegador qual o tipo da imagem – para a melhor qualidade na sua exibição.
+    - **`media`**: define condições de uso como breakpoints de largura, altura, orientação ou densidade de tela para escolher a versão mais adequada do recurso. Este atributo controla não apenas a aparência, mas também qual arquivo de imagem o navegador deve baixar baixar e renderizar, e por isso não pode ser substituído diretamente por CSS.
 ```html
 <picture>
-  <source srcset="image.avif" type="image/avif">
-  <source srcset="image.webp" type="image/webp">
-  <img src="image.jpg"   alt="Image description.">
+  <source srcset="image.avif" type="image/avif" media="(min-width: 1024px)"/>
+  <source srcset="image.webp" type="image/webp" media="(max-width: 1023px)"/>
+  <img src="image.jpg"  alt="Image description."/>
 </picture>
 ```
 > O navegador tentará carregar do 1º para o último atributo em ordem caso algum não seja suportado.
@@ -1301,9 +1302,9 @@ Então, enquanto `figure` fornece um agrupamento do conteúdo de mídia e suas i
 ```html
 <figure>
   <picture>
-    <source srcset="sol.avif" type="image/avif">
-    <source srcset="sol.webp" type="image/webp">
-    <img src="sol.jpg" alt="Paisagem ao pôr do sol.">
+    <source srcset="image.avif" type="image/avif" media="(min-width: 1024px)"/>
+    <source srcset="image.webp" type="image/webp" media="(max-width: 1023px)"/>
+    <img src="image.jpg"  alt="Image description."/>
   </picture>
   <figcaption>Paisagem ao pôr do sol na Serra da Mantiqueira.</figcaption>
 </figure>
@@ -2102,10 +2103,14 @@ Os valores armazenados no atributo não alteram em nada a renderização do elem
 ###### `time`
 Esta tag define datas de forma precisa sem que o usuário precise ler a data na forma como foi armazenada, desta forma é possível criar filtros para datas mesmo não as utilizando visualmente.
 ```html
-<p>
-    A próxima aula será em <time datetime="2025-06">Junho</time>.
-    A próxima aula será no <time datetime="2025-07">próximo mês</time>.
-</p>
+<article>
+  <h2>Agenda do Curso</h2>
+  <p>
+    A aula ao vivo sobre HTML será em <time datetime="2025-06">Junho</time>.
+    Já a aula ao vivo sobre CSS será no <time datetime="2025-07">próximo mês</time>.
+  </p>
+  <p>Artigo publicado em <time pubdate datetime="2025-05">10 de Maio</time> .</p>
+</article>
 ```
 
 ###### `contenteditable`
@@ -2246,7 +2251,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
         </tr>
         <tr>
             <th>bdo</th>
-            <td>Sobrescreve o endereço do texto. <code>bdo dir="ltr/rtl"</code></td>
+            <td>Sobrescreve o endereço do texto <code>bdo dir="ltr/rtl"</code>.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -2256,7 +2261,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
         </tr>
         <tr>
             <th>blockquote</th>
-            <td>Define uma seção que tem outra fonte de informação, utilizado para citações longas.</td>
+            <td>Define uma seção que tem outra fonte de informação, utilizado para citações longas <code>blockquote cite="https://site.com"</code>.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -2471,7 +2476,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
         </tr>
         <tr>
             <th>meter</th>
-            <td>Define uma medida escalar em uma faixa conhecida. <code>meter value="5" min="0" low="3" optimum="7" high="9" max="10"</code></td>
+            <td>Define uma medida escalar em uma faixa conhecida <code>meter value="5" min="0" low="3" optimum="7" high="9" max="10"</code>.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -2486,7 +2491,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
         </tr>
         <tr>
             <th>object</th>
-            <td>Define um objeto incorporado. <code>object data="file.pdf"</code></td>
+            <td>Define um objeto incorporado <code>object data="file.pdf"</code>.</td>
             <td>✅</td>
         </tr>
         <tr>
@@ -2531,7 +2536,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
         </tr>
         <tr>
             <th>q</th>
-            <td>Define uma breve citação.</td>
+            <td>Define uma breve citação <code>blockquote cite="https://site.com"</code>.</td>
             <td>✅</td>
         </tr>
         <tr>
