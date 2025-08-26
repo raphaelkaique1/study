@@ -1759,6 +1759,14 @@ app.listen(port, () => {
 ```html
  <input type="" name=""/>
 ```
+ Para que uma tag `input` seja atrelada a um formulário, esta deve estar posicionada dentro da tag `form`, entretanto, o atributo `form="idForm"` permite a criação de formulários dinâmicos, apenas definindo um `id` para o formulário e então, cada campo de `input` deve conter o atributo `form` referenciando o `id` do formulário ao qual pertence.
+```html
+<form id="form" method="get" action="/buscar"></form>
+<!-- conteúdo -->
+<input form="form" type="text" name="term" placeholder="Digite algo..."/>
+<button form="form" type="submit">Buscar</button>
+```
+
 Quando um formulário é enviado, o navegador monta os dados como pares **`nome=valor`**, onde o que vai no campo **`nome`** é o **identificador do dado valor**. Por exemplo:
 ```html
 <form method="get" action="/buscar">
