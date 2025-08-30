@@ -1,0 +1,219 @@
+/* commons */
+
+:root {
+
+}
+
+/* generals */
+
+* {
+
+}
+
+body {
+
+}
+
+ion-icon {
+
+}
+
+/* header */
+
+.header {
+
+}
+
+/* logo */
+
+.header__logo-wrapper {
+
+}
+
+.header__logo-img {
+
+}
+
+/* search */
+
+.header__search {
+
+}
+
+.header__search-icon {
+
+}
+
+.header__search-field {
+
+}
+
+.header__search-suggestions {
+    
+}
+
+.header__search-button {
+
+}
+
+/* options */
+
+.header__options {
+
+}
+
+.header__options-item {
+
+}
+
+/* side navigation menu */
+
+.sidebar {
+
+}
+
+.sidebar__title {
+
+}
+
+.sidebar__navigation {
+
+}
+
+.sidebar__item {
+
+}
+
+/* main */
+
+.main {
+
+}
+
+/* main content */
+
+.main__content {
+
+}
+
+.main__content-title {
+
+}
+
+.main__content-description {
+
+}
+
+/* content exemples */
+
+.main__examples {
+
+}
+
+.main__examples-title {
+
+}
+
+.main__example-topic {
+
+}
+
+.main__topic-title {
+
+}
+
+.main__topic-item {
+
+}
+
+/* related content */
+
+.main__related {
+
+}
+
+.main__related-title {
+
+}
+
+.main__related-list {
+
+}
+
+.main__related-item {
+
+}
+
+.main__references {
+
+}
+
+.main__references-title {
+
+}
+
+.main__references-list {
+
+}
+
+.main__references-item {
+
+}
+
+/* content category */
+
+.main__category {
+
+}
+
+/* theme menu */
+
+.aside__menu {
+
+}
+
+.aside__menu-title {
+
+}
+
+.aside__menu-options {
+
+}
+
+/* footer */
+
+.footer {
+
+}
+
+.footer__info {
+
+}
+
+.footer__description {
+
+}
+
+.footer__extra {
+
+}
+
+.footer__item {
+
+}
+
+.footer__entities {
+
+}
+
+.footer__entitie {
+
+}
+
+.footer__entitie-item {
+
+}
+
+.footer__entitie-logo {
+
+}

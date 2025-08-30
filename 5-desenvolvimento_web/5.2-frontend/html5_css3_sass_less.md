@@ -2114,10 +2114,10 @@ Esta tag define datas de forma precisa sem que o usuário precise ler a data na 
 <article>
   <h2>Agenda do Curso</h2>
   <p>
-    A aula ao vivo sobre HTML será em <time datetime="2025-06">Junho</time>.
-    Já a aula ao vivo sobre CSS será no <time datetime="2025-07">próximo mês</time>.
+    A aula ao vivo sobre HTML será em <time datetime="2025-06-01T13:00:00-03:00">1º de Junho, às 13:00 horas (horário de Brasília)</time>.
+    Ainda serão divulgados data e horário, mas a aula ao vivo sobre CSS será no <time datetime="2025-07">mês seguinte</time>.
   </p>
-  <p>Artigo publicado em <time pubdate datetime="2025-05">10 de Maio</time> .</p>
+  <p>Artigo publicado em <time pubdate datetime="2025-05-10">10 de Maio de 2025</time>.</p>
 </article>
 ```
 
