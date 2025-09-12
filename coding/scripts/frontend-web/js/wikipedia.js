@@ -1,7 +1,2 @@
-const theme = document.querySelectorAll('input[name="theme"]');
-
-theme.forEach(themeSelected => {
-    themeSelected.addEventListener('change', () => {
-        console.log(themeSelected.value);
-    });
-});
+const html = document.documentElement;
+document.querySelectorAll('input[name="theme"]').forEach(input => input.addEventListener("change", () => html.setAttribute("data-theme", input.value)));
