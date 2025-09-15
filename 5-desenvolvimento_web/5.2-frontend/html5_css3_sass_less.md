@@ -2901,6 +2901,14 @@ Para melhorar a aparência das webpages é possível usar código **CSS**, que p
 ```
  - **Combinar seletores.** *Isso é utilizado para restringir a seleção apenas a elementos específicos.*
  ```css
+ p.class-name {
+     /* 
+     ESPECÍFICO: Ao utilizar este formato é possível selecionar
+     apenas os elementos que contém explicitamente a determinada
+     classe informada.
+     */
+ }
+
  h2, h3, .identification, #card {
      /*
      AGRUPADO: Ao listar os seletores separados por `,`,
