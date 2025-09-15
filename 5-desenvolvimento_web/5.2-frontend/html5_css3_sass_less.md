@@ -3091,8 +3091,8 @@ Para melhorar a aparência das webpages é possível usar código **CSS**, que p
  - **`position`**<br/>
  Define como um elemento é posicionado na página, seus valores possíveis são:
    - **`static`**: comportamento **padrão** *onde os elementos são posicionados conforme sua posição original* ou o fluxo normal da página – não aceita `top`, `bottom` e etc.
-   - **`relative`**: o elemento é posicionado **relativo** *à sua posição original*.
-   - **`absolute`**: o elemento é posicionado **relativo** *ao seu primeiro ancestral com `position: relative`*, ou ao seu container mais próximo.
+   - **`relative`**: o elemento é posicionado **relativo** *à sua posição original*, ou seja, dentro do container em que está.
+   - **`absolute`**: o elemento é posicionado em **relação** *ao seu ancestral posicionado mais próximo* – ou seja, o primeiro pai que tiver `position` diferente do padrão `static`. **Se nenhum ancestral estiver posicionado, ele será relativo ao viewport – então o documento inteiro passa a ser seu _"container"_.**
    - **`fixed`**: posiciona o elemento relativo à janela do navegador ficando fixo na tela, mesmo ao rolar a página.
    - **`sticky`**: posiciona o elemento baseado na posição de rolagem do usuário, ficando fixo ao atingir um limite.
    ```css
@@ -3122,7 +3122,7 @@ Para melhorar a aparência das webpages é possível usar código **CSS**, que p
  }
  ```
  - **`float`**<br/>
- Faz elementos flutuarem à esquerda ou direita enqaunto outros elementos o contornam.
+ Faz elementos flutuarem à esquerda ou direita enquanto outros elementos o contornam.
  ```css
  .img {
      float: left;
