@@ -2708,7 +2708,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
             <td>✅</td>
         </tr>
         <tr>
-            <th>wbr</th>
+            <th>wbr / <pre>&shy;</pre> </th>
             <td>Define uma possível quebra de linha.</td>
             <td>✅</td>
         </tr>
