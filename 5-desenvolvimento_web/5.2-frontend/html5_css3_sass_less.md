@@ -1206,12 +1206,23 @@ Neste exemplo, os elementos da 1ª coluna incluindo o `tfoot` terão o fundo `aq
 ###### MULTIMÍDIA
  A tag **`figure`** é usada para representar qualquer elemento multimídia, sejam vídeos, imagens, sons, animações e etc. Ela melhora o posicionamento SEO da página.<br/>
  A tag **`source`** junto ou não do atributo **`src`** é utilizada para indicar o caminho até o arquivo de mídia, para que possa ser carregado e exibido na página.<br/>
- Para adicionar mais semântica a um elemento envolto por ela, é possível utilizar a tag `legend` para incluir um título e a tag `figcaption` para adicionar uma descrição para a mídia.
+ Para adicionar mais semântica a um elemento envolto por ela, é possível utilizar a tag `figcaption` para incluir um título e adicionar uma descrição para a mídia.
 ```html
 <figure>
-  <legend>Título</legend>
   <></>
   <figcaption>Legenda</figcaption>
+</figure>
+```
+
+Tudo aquilo que existir dentro de `figcaption` representa uma legenda para a imagem. Sua grande vantagem é de que essa legenda não se restringe apenas a um texto simples, mas pode ser composta de uma maneira rica, com títulos, parágrafos, e o que mais for preciso, tudo depende da necessidade de uso.
+```html
+<figure>
+  <></>
+  <figcaption>
+    <!-- <h3>Headings devem ser usados com cautela, apenas se fizerem sentido na estrutura hierarquica do documento, pois podem prejudicar o SEO.</h3> -->
+    <strong>Mais Recomendado para um Título de Legenda</strong>
+    <p>Descrição detalhada da legenda se necessário. No geral, uma `figcaption` pode conter tags de parágrafos, links, listas e etc – quanto mais rico for o detalhamento, mais tags deverão ser inclusas para adicionar semântica.</p>
+  </figcaption>
 </figure>
 ```
 
