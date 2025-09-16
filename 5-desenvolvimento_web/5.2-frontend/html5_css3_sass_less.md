@@ -3452,30 +3452,29 @@ Controla o comportamento do conteúdo que excede os limites do elemento pai, det
  O comprimento **é um número seguido por uma unidade de medida**, como por exemplo **`10px`**. **Não podem haver espaços em branco entre o número e a unidade, entretanto, se o valor for `0` a unidade pode se omitida.**<br/>
  *Para algumas propriedades são permitidos comprimentos negativos.*<br/>
  Existem 3 tipos de unidades de comprimento: a **absoluta**, a **relativa** e as **unidades especiais**.
- 1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
 
- | UNIDADE | DESCRIÇÃO |
- | --- | ---- |
- | **`cm`** | centímetros |
- | **`mm`** | milímetros |
- | **`in`** | polegadas |
+ 1. **Absoluto**: As unidades de comprimento absoluto são **fixas**, e *uma medida expressa em qualquer uma delas fará o elemento ser exibido exatamente com aquele tamanho*. **As unidades de comprimento absoluto não são recomendadas para uso na tela, pois os tamanhos dos dispositivos variam muito, mas podem ser usados se o meio de saída for conhecido, como por exemplo um layout de impressão.**
+ | UNIDADE    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | **`cm`**   | centímetros                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+ | **`mm`**   | milímetros                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+ | **`in`**   | polegadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
  | **`px *`** | pixel – Ele indica que unidades pixel podem variar em dispositivos de alta resolução e impressoras, refletindo uma escala não tradicional. Devido às diferentes densidades de pixels em dispositivos (por exemplo, telas de alta resolução), o “px” é um “pixel de referência” que pode não corresponder a um pixel físico individual. Em resumo, o valor em `px *` garante que os elementos apareçam com dimensões visualmente consistentes, independentemente do dispositivo. |
- | **`pt`** | ponto – Originado do mundo da tipografia, 1pt equivale a 1/72 de uma polegada. Essa unidade é tradicionalmente usada na impressão, onde a medida física exata é importante. Em telas, seu uso é menos comum porque as dimensões absolutas (como pt, cm, in) não se adaptam bem às variações de tamanho e densidade das telas modernas.|
- | **`pc`** | pica – Também vinda da tipografia, a pica é uma unidade derivada dos pontos: 1pc equivale a 12pt. Assim, como 1pt ≈ 1.33px (visto que 96px/72pt ≈ 1.33), temos que 1pc corresponde aproximadamente a 16px. Essa unidade é mais usada em contextos de design gráfico e impressão.|
+ | **`pt`**   | ponto – Originado do mundo da tipografia, 1pt equivale a 1/72 de uma polegada. Essa unidade é tradicionalmente usada na impressão, onde a medida física exata é importante. Em telas, seu uso é menos comum porque as dimensões absolutas (como pt, cm, in) não se adaptam bem às variações de tamanho e densidade das telas modernas.                                                                                                                                          |
+ | **`pc`**   | pica – Também vinda da tipografia, a pica é uma unidade derivada dos pontos: 1pc equivale a 12pt. Assim, como 1pt ≈ 1.33px (visto que 96px/72pt ≈ 1.33), temos que 1pc corresponde aproximadamente a 16px. Essa unidade é mais usada em contextos de design gráfico e impressão.                                                                                                                                                                                                |
 
  2. **Relativo**: As unidades de comprimento relativo, como o próprio nome diz, **especificam um comprimento em relação a outra propriedade de comprimento**. *As unidades de comprimento relativas escalam melhor entre os diferentes meios de renderização, se adaptando melhor entre os diferentes tipos e tamanhos de telas.*
-
- | UNIDADE | DESCRIÇÃO |
- | --- | ---- |
- | **`rem`** | Relativo ao **tamanho da fonte do elemento raiz** – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**. |
- | **`em`** | Relativo ao **tamanho da fonte do elemento pai** – `2em` significa **2 vezes o tamanho da fonte do elemento atual pai direto**. |
- | **`vw`** | Relativo a `x%` da **largura** da tela. |
- | **`vh`** | Relativo a `x%` da **altura** da tela. |
- | **`%`** | Relativo a `x%` do **elemento pai**. |
- | **`vmin`** | Relativo a `x%` da menor dimensão da janela ou interface gráfica – se a viewport tem 1200px de largura e 800px de altura, `1vmin` equivale a **8px** (1% de 800px). |
+ | UNIDADE    | DESCRIÇÃO                                                                                                                                                                     |
+ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | **`rem`**  | Relativo ao **tamanho da fonte do elemento raiz** – `2rem` significa **2 vezes o tamanho da fonte do `root`, ou seja, o documento "raiz"**.                                   |
+ | **`em`**   | Relativo ao **tamanho da fonte do elemento pai** – `2em` significa **2 vezes o tamanho da fonte do elemento atual pai direto**.                                               |
+ | **`vw`**   | Relativo a `x%` da **largura** da tela.                                                                                                                                       |
+ | **`vh`**   | Relativo a `x%` da **altura** da tela.                                                                                                                                        |
+ | **`%`**    | Relativo a `x%` do **elemento pai**.                                                                                                                                          |
+ | **`vmin`** | Relativo a `x%` da menor dimensão da janela ou interface gráfica – se a viewport tem 1200px de largura e 800px de altura, `1vmin` equivale a **8px** (1% de 800px).           |
  | **`vmax`** | Relativo a `x%` da maior dimensão da janela ou interface gráfica – Usando a mesma viewport (1200px de largura e 800px de altura), `1vmax` equivale a **12px** (1% de 1200px). |
- | **`ex`** | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”. |
- | **`ch`** | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0". |
+ | **`ex`**   | Relativo à altura de "x" da fonte atual – raramente utilizado, `1ex` representa aproximadamente a altura de uma letra minúscula “x”.                                          |
+ | **`ch`**   | Relativo a largura do "0", ou seja, o campo de entrada terá largura suficiente para aproximadamente a quantidade definida `x` dígitos "0".                                    |
 
 ```css
 html {
@@ -3537,14 +3536,14 @@ div {
  *Se a fonte estiver armazenada localmente é necessário que esteja na raiz, caso contrário não será usado no documento html.*
  ```css
  @font-face {
-    font-family: 'fonte'; /* armazena a referência à fonte atrelando à variável na memória */
-    src: url('Fonte.ttf'); /* informa o caminho do arquivo da fonte */
+    font-family: 'fonteName';                       /* armazena a referência à fonte atrelando à variável na memória */
+    src: url('Fonte.ttf') || src: url('Fonte.otf'); /* informa o caminho do arquivo da fonte */
  }
 
  div {
     font-style: normal;
     font-weight: bold; /* informa para que use a fonte para as `div`s */
-    font-size: 1rem; /* informa para que use a fonte para as `div`s */
+    font-size: 1rem;   /* informa para que use a fonte para as `div`s */
     font-family: 'fonte', sans-serif; /* informa para que use as fontes para as `div`s
     Nesse caso, o navegador verificará se a fonte "fonte" está disponível e a utilizará para exibir os textos de todos os elementos do nosso documento que, por cascata, herdarão essa propriedade do elemento `div`.
     Caso a fonte "font" não esteja disponível, o navegador verificará a disponibilidade da próxima fonte declarada, ou seja, caso o navegador não encontre essa fonte, ele solicita qualquer fonte que pertença à família "sans-serif", declarada logo a seguir, e a utiliza para exibir o texto, não importa qual seja ela.*/
