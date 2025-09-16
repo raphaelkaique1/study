@@ -1840,6 +1840,7 @@ email=raphael@email.com&senha=psswrd@09
       - **`readonly`**: Define o campo como *somente leitura*. O usuário não pode modificar o conteúdo, mas pode selecioná-lo e copiá-lo.
       - **`maxlength`**: Define o número *máximo* de caracteres que o usuário pode digitar no campo de texto.
       - **`minlength`**: Define o número *mínimo* de caracteres que o usuário deve inserir no campo de texto.
+      - **`size`**: Define o tamanho *exato* de caracteres a serem exibidos no tamanho definido de acordo com a quantidade de caracteres.
       - **`wrap`**: *Especifica como o texto deve ser quebrado quando atingir o final da linha.*
         - **`soft`**: Quebra de linha no campo visualmente, mas *sem inserir* uma quebra no texto.
         - **`hard`**: *Insere* uma quebra de linha no texto.
