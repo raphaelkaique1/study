@@ -1896,7 +1896,8 @@ email=raphael@email.com&senha=psswrd@09
     ```html
     <input type="number" name="volume" min="1" max="100"/>
     ```
-    - **`option`**: Contém os elementos que defiem uma das opções que pode ser selecionada. Por padrão, dependendo de onde é usado, tem seu primeiro elemento da lista selecionado, ou, exibe um campo em branco até que o usuário selecione uma das opções.
+    - **`option`**: Contém os elementos que defiem uma das opções que pode ser selecionada. Por padrão, dependendo de onde é usado, tem seu primeiro elemento da lista selecionado, ou, exibe um campo em branco até que o usuário selecione uma das opções.<br/>
+    Quando não houver nenhum `value` definido na tag, o dado que será enviado é o conteúdo que está entre a abertura e fechamento das tags.
         - Para alterar este comportamento, usa-se o atribuito `selected` na opção que se deseja manter pré selecionada.
         ```html
         <select>
