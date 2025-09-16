@@ -1035,7 +1035,7 @@ _*Quando usados juntos na mesma tabela, desem ser cuidadosamente declarados para
  - **`caption` description**: *Usada para definir um título para a tabela*; sua posição pode ser definida usando CSS. **Este elemento só é permitido se ele for inserido logo após a abertura da tabela.**
 ```html
 <table>
-    <!-- area de cabeçalho -->
+    <!-- área de cabeçalho -->
     <caption>SOFTWARE DEVELOPER</caption>
     <thead> <!-- grupo de cabeçalho -->
       <tr>
