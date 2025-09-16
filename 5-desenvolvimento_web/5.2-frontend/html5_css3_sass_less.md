@@ -4720,7 +4720,7 @@ Ou seja, o GRID basicamente divide a tela em várias fatias de diferentes propor
  ```css
  .item4 {
    grid-column: span 3; /* Mescla 3 colunas */
-   grid-row: span 2; /* Mescla 2 linhas */
+   grid-row: span 2;    /* Mescla 2 linhas */
  }
  ```
 
