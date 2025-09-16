@@ -14,7 +14,7 @@
 
 ## CÓDIGO
  Quando o navegador encontra um bloco de código JavaScript, ele geralmente executa na ordem, de cima para baixo. JavaScript é uma linguagem de programação leve e interpretada. O navegador recebe o código JavaScript em sua forma de texto original e executa o script a partir dele. Do ponto de vista técnico, a maioria dos intérpretes modernos de JavaScript realmente usa uma técnica chamada compilação just-in-time para melhorar o desempenho; o código-fonte JavaScript é compilado em um formato binário mais rápido enquanto o script está sendo usado, para que possa ser executado o mais rápido possível. No entanto, o JavaScript ainda é considerado uma linguagem interpretada, pois a compilação é manipulada em tempo de execução, e não antes.<br/>
- No contexto do desenvolvimento web existem termos como *server-side* e *client-side*. Códigos do lado do cliente são executados no computador do usuário — quando uma página web é visualizada, o código do lado do cliente é baixado, executado e exibido pelo navegador. Códigos do lado do servidor, por outro lado, são executados no servidor e o resultado da execução é baixado e exibido no navegador. Exemplos de linguagens do lado do servidor populares incluem PHP, Python, Ruby, e ASP.NET. E JavaScript! JavaScript também pode ser usada como uma linguagem server-side, por exemplo, no popular ambiente Node.js<br/>
+ No contexto do desenvolvimento web existem termos como *server-side* e *client-side*. Códigos do lado do cliente são executados no computador do usuário — quando uma página web é visualizada, o código do lado do cliente é baixado, executado e exibido pelo navegador. Códigos do lado do servidor, por outro lado, são executados no servidor e o resultado da execução é baixado e exibido no navegador. Exemplos de linguagens do lado do servidor populares incluem PHP, Python, Ruby, e ASP.NET. E JavaScript! JavaScript também pode ser usada como uma linguagem server-side, por exemplo, no popular ambiente Node.js.<br/>
  Há um considerável número de problemas envolvendo o carregamento de scripts na ordem correta. Um problema comum é que todo o HTML de uma página é carregado na ordem em que ele aparece. Se o Javascript estiver sendo usado para manipular o *Document Object Model*, o código não irá funcionar caso o script for carregado e executado antes mesmo dos elementos HTML estarem disponíveis. Nos casos em que o JS é carregado no `head` do documento antes do corpo ser completamente carregado isso irá causar algum erro. Algumas soluções são:
 
  **DOM**
@@ -149,6 +149,24 @@ O conjunto de tipos no JS consiste em `primitives values` e `objects`, onde os *
  ```js
  console.log("Esta é uma declaração.");
  ```
+
+ O JavaScript trabalha por natureza com o conceito de objetos, por isso, alguns objetos já existem por padrão, como o `console` no exemplo anterior. Outro objeto muito utilizado no desenvolvimento de scripts para os navegadores é o `document` — que neste cenário é o objeto _master_. A partir da declaração do objeto, é possível acessar os eventos, os métodos, valores e quaisquer outras alteraçãoes necessárias a serem feitas no documento. Com isso, tem-se a manipulação do documento, através do **DOM**. O exemplo a seguir demonstra como adicionar dados no documento HTML através do JS — e da manipulação do DOM:
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <header>
+    <title>Manipulando Objetos do Documento</title>
+    <meta charset="UTF-8"/>
+  </header>
+  <body>
+    <h1>Olá mundo!</h1>
+    <script>
+       alert(`Olá HTML!`);
+       document.write(`Olá JavaScript! Exibido em: ${Date()}`);
+    </script>
+  </body>
+</html>
+```
 
 #### HOISTING
  É o comportamento em que as declarações, seja de variáveis, funções, classes e etc, são *"elevadas"* **para o topo do seu respectivo escopo, seja global ou de função antes que o código seja executado**.<br/>
