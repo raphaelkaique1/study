@@ -991,7 +991,7 @@
 - [ ] [Fundamentos da Automação Industrial](https://www.primecursos.com.br/fundamentos-da-automacao-industrial/)
 - [ ] [Programação de Máquinas CNC Básico](https://www.primecursos.com.br/programacao-de-maquinas-cnc-basico/)
 
-## Sec
+## Cybersec
 - [ ] [Cybersecurity](https://on.fiap.com.br/nano-courses/course/?id=5876)
 - [ ] [Segurança da informação básico por Password](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da informação avançado por Password](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
