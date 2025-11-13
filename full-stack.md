@@ -596,6 +596,8 @@
 - [ ] [Introdução ao código](https://www.eucapacito.com.br/cursos/introducao-ao-codigo/)
 - [ ] [Análise e projeto de sistemas por IFRO](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Fundamentos de Desenvolvimento Web](https://www.eucapacito.com.br/cursos/fundamentos-de-desenvolvimento-web/)
+- [ ] [Curso de JavaScript - Aprenda criar Rest API em NodeJS](https://www.udemy.com/course/apis-em-javascript-sem-enrolacao/)
+- [ ] [Do Zero à API: Curso de JavaScript e TypeScript - JS/TS](https://www.udemy.com/course/do-zero-a-api-nodejs/)
 - [ ] [Boas práticas em desenvolvimento de software](https://cursos.timtec.com.br/course/boas-praticas-em-desenvolimento-de-software/intro)
 - [ ] [Entendendo e documentando REST / RESTful APIs](https://www.udemy.com/course/restful-apis/)
 - [ ] [Desenvolvimento de APIs em REST](https://cursos.timtec.com.br/course/desenvolvimento-de-apis-em-rest/intro)
@@ -624,6 +626,7 @@
 - [ ] [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP)
 - [ ] [Desenvolvimento Web](https://developer.mozilla.org/pt-BR/docs/Learn_web_development)
 - [ ] [Crie apps com NestJS no AWS ECS e Fargate com AWS CDK](https://www.udemy.com/course/nestjs-aws-ecs-fargate-cdk/)
+- [ ] [Nest.js e React.js do zero ao avançado com typescript [2023]](https://www.udemy.com/course/nestjs-e-reactjs-do-zero-ao-avancado-utilizando-typescript/)
 - [ ] [Docker para desenvolvedores Javascript / Node.JS](https://www.udemy.com/course/docker-nodejs/)
 
 ## Ruby
@@ -899,6 +902,7 @@
 - [ ] [Criação de aplicativos em Android por CFB Cursos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Formação Android Developer](https://web.dio.me/track/formacao-android-developer)
 - [ ] [Xamarim C# por Hugo Vasconcelos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [.NET MAUI - Crie Apps para Android, iOS, Mac e Windows](https://www.udemy.com/course/net-maui-criar-apps-para-android-ios-mac-e-windows/)
 - [ ] [Kotlin na programação de Apps para iniciantes por Tiago Aguiar](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Android e Kotlin na criação de apps por Bruno Santos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [React Native](https://cursos.devsamurai.com.br/React%20Native.zip)
