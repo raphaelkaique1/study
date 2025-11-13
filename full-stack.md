@@ -437,9 +437,11 @@
 
 ## SQL
 - [ ] [Estrutura de dados por IFRO](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Estrutura de Dados](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Fundamentos de Engenharia de Dados](https://www.datascienceacademy.com.br/path-player?courseid=fundamentos-de-engenharia-de-dados)
 - [ ] [INFRAESTRUTURA DE DADOS](https://soulhub.soulcode.com/curso?id=111)
 - [ ] [Metabase](https://plataforma.escoladnc.com.br/learning/metabase/61)
+- [ ] [Banco de Dados 1: fundamentos](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Banco de dados](https://comunidade.ada.tech/cursos/e82b3eb3-e58e-4ad7-b946-a034aa3ac508)
 - [ ] [Banco de Dados e ANSI SQL para iniciantes](https://www.udemy.com/course/bd-ansisql/)
 - [ ] [Minicurso de SQL](https://app.xperiun.com/modulos/minicurso-de-sql)
@@ -791,6 +793,8 @@
 - [ ] [O que é Python?](https://www.devmedia.com.br/curso/o-que-e-python/2015)
 - [ ] [Python: noções introdutórias](https://comunidade.ada.tech/cursos/ad77ffa3-6dde-4efb-9e0d-3b14e60b097b)
 - [ ] [Fundamentos de Python](https://plataforma.escoladnc.com.br/learning/fundamentos-de-python/122)
+- [ ] [Python Fundamental 1](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
+- [ ] [Python Fundamental 2](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Python 3 - Mundo 1 \[40 Horas\]](https://www.cursoemvideo.com/curso/python-3-mundo-1/)
 - [ ] [Python 3 - Mundo 2 \[40 Horas\]](https://www.cursoemvideo.com/curso/python-3-mundo-2/)
 - [ ] [Python 3 - Mundo 3 \[40 Horas\]](https://www.cursoemvideo.com/curso/python-3-mundo-3/)
@@ -878,6 +882,7 @@
 - [ ] [Infraestrutura para sistemas de software por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Design Patterns na programação por Otávio Miranda](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Modelagem de Software usando UML por Bóson treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Projeto de Sistemas Web](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [YAML Zero to Master](https://www.udemy.com/course/yaml-zero-to-master/)
 - [ ] [Formação Automação de Testes com Cypress](https://web.dio.me/track/formacao-automacao-testes-cypress)
 - [ ] [Cybersecurity](https://on.fiap.com.br/nano-courses/course/?id=5876)
@@ -903,6 +908,7 @@
 - [ ] [DevOps & Agile Culture](https://on.fiap.com.br/nano-courses/course/?id=3915)
 
 ## OS
+- [ ] [Sistemas Operacionais](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Android](https://on.fiap.com.br/nano-courses/course/?id=13039)
 - [ ] [Android Studio Básico](https://www.primecursos.com.br/android-studio-basico/)
 - [ ] [Programação Android](https://cursos.timtec.com.br/course/android/intro)
@@ -961,6 +967,7 @@
 - [ ] [Redes de Computadores do Zero por Professor Nattane](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Fundamentos de Redes de Computadores por Hardware Redes Brasil](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Redes de Computadores Pratica e Teórica](https://www.udemy.com/course/redes-de-computadores-pratica-e-teorica/)
+- [ ] [Redes de Computadores](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Redes com Bóson](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Redes de Computadores](https://www.primecursos.com.br/redes-de-computadores/)
 - [ ] [Redes de computadores por IFRO](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -981,6 +988,8 @@
 - [ ] [Machine Learning em Python por Programação Dinâmica](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Modelos Preditivos de Machine Learning por Nerd dos Dados](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Formação Machine Learning Specialist](https://web.dio.me/track/formacao-machine-learning-specialist)
+- [ ] [Inteligência Artificial I - Conhecendo as redes neurais artificiais](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
+- [ ] [Inteligência Artificial II - Aprofundando o estudo das redes neurais artificiais](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Redes Neurais e Deep learning com Python por Universo Discreto](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Redes Neurais por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Visão Computacional por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -995,7 +1004,10 @@
 ## DI/BI
 - [ ] [Aspectos Introdutórios de Business Intelligence](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/aspectos-introdutorios-de-business-intelligence)
 - [ ] [Fundamentos matemáticos](https://comunidade.ada.tech/cursos/6ae189ac-41d8-4ab2-9f52-13e05d29a22a)
+- [ ] [Cálculo Técnico](https://aprendamais.mec.gov.br/course/index.php?categoryid=3)
 - [ ] [Introdução a Estatística Descritiva](https://www.primecursos.com.br/introducao-a-estatistica-descritiva/)
+- [ ] [Estatística: conceitos e representações](https://aprendamais.mec.gov.br/course/index.php?categoryid=3)
+- [ ] [Estatística: medidas de posição e dispersão](https://aprendamais.mec.gov.br/course/index.php?categoryid=3)
 - [ ] [Estatística](https://comunidade.ada.tech/cursos/604d0397-08a9-4dbd-9dbf-cb68a03cb29b)
 - [ ] [Estatística com Python](https://comunidade.ada.tech/cursos/1ee9f40f-0769-6290-888f-6d652778c0bc)
 - [ ] [Introdução a Data Science](https://comunidade.ada.tech/cursos/af778260-7d53-4472-bb1c-519cfdafc2ba)
@@ -1035,6 +1047,8 @@
 - [ ] [Hardware para iniciantes por Rbtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Hardware \[20 Horas\]](https://www.cursoemvideo.com/curso/hardware/)
 - [ ] [Hardware e manutenção de computadores por Bóson treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Manutenção de Computadores: hardware, software e evolução](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
+- [ ] [Manutenção de Computadores: simuladores, sistemas operacionais e montagem](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Manutenção em Hardware por Alan Rodrigo Viotto](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Manutenção de Microcomputador](https://www.primecursos.com.br/manutencao-de-microcomputador/)
 - [ ] [Manutenção de computadores por Curso em Vídeo](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -1048,6 +1062,7 @@
 - [ ] [Noções de Eletricidade](https://www.primecursos.com.br/nocoes-de-eletricidade/)
 - [ ] [Eletrônica Analógica Básica](https://www.primecursos.com.br/eletronica-analogica-basica/)
 - [ ] [Fundamentos da Automação Industrial](https://www.primecursos.com.br/fundamentos-da-automacao-industrial/)
+- [ ] [Automação de Sistemas](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Programação de Máquinas CNC Básico](https://www.primecursos.com.br/programacao-de-maquinas-cnc-basico/)
 
 ## Cybersec
@@ -1066,3 +1081,4 @@
 - [ ] [Segurança da Informação: Módulo 02 \[20 HORAS\]](https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-02-20-horas/)
 - [ ] [Segurança da Informação: Módulo 03 \[20 HORAS\]](https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-03-0-horas/)
 - [ ] [Segurança da Informação: Módulo 04 \[20 HORAS\]](https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-04-20-horas/)
+- [ ] [Softwares de Segurança da Informação](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
