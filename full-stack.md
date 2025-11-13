@@ -449,7 +449,7 @@
 - [ ] [Introdução ao uso de banco de dados e SQL](https://cursos.timtec.com.br/course/introbd/intro)
 - [ ] [Banco de Dados Completo por IFRO](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Banco de Dados por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [SQL - Structed Query Language](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/sql-structured-query-language)
+- [ ] [SQL - Structured Query Language](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/sql-structured-query-language)
 - [ ] [SQL](https://www.primecursos.com.br/sql/)
 - [ ] [Banco de Dados SQL](https://www.udemy.com/course/curso-sql-do-zero-ao-avancado/)
 - [ ] [Banco de Dados e SQL](https://www.udemy.com/course/bancos-de-dados-relacionais-basico-avancado/)
@@ -958,6 +958,8 @@
 
 ## Tools
 - [ ] [Formação OutSystems Fundamentals](https://web.dio.me/track/formacao-outsystems-fundamentals)
+- [ ] [Introdução à Inteligência Artificial: Conceitos Básicos](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-inteligencia-artificial-conceitos-basicos)
+- [ ] [Tópicos em Machine Learning](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/topicos-em-machine-learning)
 - [ ] [Introdução à Machine Learning com Abel Siqueira](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Python para Machine Learning e Análise de dados por Didática Tech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Machine Learning em Python por Programação Dinâmica](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -975,17 +977,22 @@
 - [ ] [Formação ChatGPT for Devs](https://web.dio.me/track/formacao-chatgpt-devs)
 
 ## DI/BI
+- [ ] [Aspectos Introdutórios de Business Intelligence](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/aspectos-introdutorios-de-business-intelligence)
 - [ ] [Fundamentos matemáticos](https://comunidade.ada.tech/cursos/6ae189ac-41d8-4ab2-9f52-13e05d29a22a)
 - [ ] [Introdução a Estatística Descritiva](https://www.primecursos.com.br/introducao-a-estatistica-descritiva/)
 - [ ] [Estatística](https://comunidade.ada.tech/cursos/604d0397-08a9-4dbd-9dbf-cb68a03cb29b)
 - [ ] [Estatística com Python](https://comunidade.ada.tech/cursos/1ee9f40f-0769-6290-888f-6d652778c0bc)
 - [ ] [Introdução a Data Science](https://comunidade.ada.tech/cursos/af778260-7d53-4472-bb1c-519cfdafc2ba)
+- [ ] [Introdução à ciência de dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados)
 - [ ] [Introdução à ciência de dados por Aprenda IA](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Introdução à Ciência de Dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados)
+- [ ] [Introdução à Organização de Dados para Análise Multivariada](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-organizacao-de-dados-para-analise-multivariada)
+- [ ] [Introdução às Técnicas de Análise Fatorial e Conjunta de Dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-tecnicas-de-analise-fatorial-e-conjunta-de-dados)
 - [ ] [Ciência de Dados por Ignorância Zero](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Ciência de Dados por Hashtag Programação](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Fundamentos de Data Science e Inteligência Artificial](https://www.datascienceacademy.com.br/path-player?courseid=fundamentos-de-data-science-e-inteligencia-artificial)
 - [ ] [Imersão em ciência de dados com Insight Lab](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Álgebra Linear e Ciência de Dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/algebra-linear-e-ciencia-de-dados)
 - [ ] [Álgebra Linear](https://comunidade.ada.tech/cursos/f9e6a9ee-7d1d-47f4-b410-a072314697ad)
 - [ ] [Mineração de dados por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Data cleaning e Wrangling](https://plataforma.escoladnc.com.br/learning/data-cleaning-e-wrangling/74)
@@ -1027,12 +1034,13 @@
 - [ ] [Programação de Máquinas CNC Básico](https://www.primecursos.com.br/programacao-de-maquinas-cnc-basico/)
 
 ## Cybersec
-- [ ] [Cybersecurity](https://on.fiap.com.br/nano-courses/course/?id=5876)
 - [ ] [Segurança da informação básico por Password](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da informação avançado por Password](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Cybersecurity](https://on.fiap.com.br/nano-courses/course/?id=5876)
+- [ ] [Identificação de Riscos Cibernéticos](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/identificacao-de-riscos-ciberneticos)
 - [ ] [Segurança da informação por Quer aprender](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da informação por Professor Danilo Vilanova](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da Informação por Dicionário de Informática](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da Informação por IFRO](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da informação por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-
+- [ ] [Cibersegurança: Anatomia Clássica de um Ciberataque](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/ciberseguranca-anatomia-classica-de-um-ciberataque)
