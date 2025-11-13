@@ -4543,7 +4543,7 @@ saudacao("Raphael", () => console.log("Bem-vindo!"));
     - **`slice([start[, end]])`**<br/>
     Retorna um novo array contendo uma cópia superficial de parte do array original, mas sem modificar o original.
     - **`splice(start[, deleteCount[, item1[, item2[, ...]]]])`**<br/>
-    Adiciona, remove ou sbstitui elementos do array e retorna um novo array com os elementos removidos.
+    Adiciona, remove ou substitui elementos do array e retorna um novo array com os elementos removidos.
     - **`toLocaleString([locales[, options]])`**<br/>
     Retorna uma string representado os elementos do array de acordo com as configurações locais.
     - **`toReversed()`**<br/>
