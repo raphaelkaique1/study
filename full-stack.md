@@ -824,7 +824,7 @@
 - [ ] [Introdução ao Java](https://comunidade.ada.tech/cursos/15530e28-9757-4e26-95c6-76ddbf1a30de)
 - [ ] [Java para iniciantes por Curso em Vídeo](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Linguagem Java Básico](https://www.primecursos.com.br/linguagem-java-basico/)
-- [ ] [Java Básico \[40 Horasz]](https://www.cursoemvideo.com/curso/java-basico/)
+- [ ] [Java Básico \[40 Horas\]](https://www.cursoemvideo.com/curso/java-basico/)
 - [ ] [Java](https://cubos.academy/lp/minicurso-java)
 - [ ] [Java por Universidade XTI](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Programação em Java por Bóson](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
