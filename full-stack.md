@@ -987,8 +987,13 @@
 - [ ] [Curso Completo de Shell Script](https://www.udemy.com/course/shell-script/)
 - [ ] [Criando Servidores Linux com Professor José de Assis](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Redes de Computadores do Zero por Professor Nattane](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Conceitos Básicos de Redes](https://www.netacad.com/pt/courses/networking-basics?courseLang=pt-BR)
 - [ ] [Fundamentos de Redes de Computadores por Hardware Redes Brasil](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Fundamentos de Redes](https://www.netacad.com/pt/courses/networking-essentials?courseLang=pt-BR)
 - [ ] [Redes de Computadores Pratica e Teórica](https://www.udemy.com/course/redes-de-computadores-pratica-e-teorica/)
+- [ ] [Dispositivos de Rede e Configuração Inicial](https://www.netacad.com/pt/courses/networking-devices-and-initial-configuration?courseLang=pt-BR)
+- [ ] [Suporte e segurança de rede](https://www.netacad.com/pt/courses/network-support-security?courseLang=pt-BR)
+- [ ] [Técnico em Redes](https://www.netacad.com/pt/career-paths/network-technician?courseLang=pt-BR)
 - [ ] [Redes de Computadores](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
 - [ ] [Redes com Bóson](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Redes de Computadores](https://www.primecursos.com.br/redes-de-computadores/)
@@ -997,6 +1002,8 @@
 - [ ] [Redes de Computadores \[20 Horas\]](https://www.cursoemvideo.com/curso/redes-de-computadores/)
 - [ ] [Curso Prático de Redes de Computadores e Internet \[20 HORAS\]](https://www.cursoemvideo.com/curso/curso-pratico-de-redes-de-computadores-e-internet-20-horas/)
 - [ ] [Curso de Endereçamento IPv4 \[20 HORAS\]](https://www.cursoemvideo.com/curso/curso-de-enderecamento-ipv4-20-horas/)
+- [ ] [Endereçamento de Rede e Solução Básica de Problemas](https://www.netacad.com/pt/courses/network-addressing-and-basic-troubleshooting?courseLang=pt-BR)
+- [ ] [Introdução à IoT e à Transformação Digital](https://www.netacad.com/pt/courses/introduction-iot?courseLang=pt-BR)
 - [ ] [Formação IoT Specialist](https://web.dio.me/track/formacao-iot-specialist)
 
 ## PS
