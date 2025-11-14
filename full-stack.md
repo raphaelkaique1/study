@@ -1123,6 +1123,8 @@
 
 ## Cybersec
 - [ ] [Lei Geral de Proteção de Dados (LGPD)](https://www.ev.org.br/cursos/lei-geral-de-protecao-de-dados-lgpd)
+- [ ] [Fundamentos de segurança cibernética](https://www.netacad.com/pt/courses/cybersecurity-essentials?courseLang=pt-BR)
+- [ ] [Introdução à Cybersegurança](https://www.netacad.com/pt/courses/introduction-to-cybersecurity?courseLang=pt-BR)
 - [ ] [Segurança da informação básico por Password](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Segurança da informação avançado por Password](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Cybersecurity](https://on.fiap.com.br/nano-courses/course/?id=5876)
@@ -1136,7 +1138,13 @@
 - [ ] [Segurança da Informação: Módulo 02 \[20 HORAS\]](https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-02-20-horas/)
 - [ ] [Segurança da Informação: Módulo 03 \[20 HORAS\]](https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-03-0-horas/)
 - [ ] [Segurança da Informação: Módulo 04 \[20 HORAS\]](https://www.cursoemvideo.com/curso/seguranca-da-informacao-modulo-04-20-horas/)
+- [ ] [Gerenciamento de Ameaças Cibernéticas](https://www.netacad.com/pt/courses/cyber-threat-management?courseLang=pt-BR)
+- [ ] [Segurança de endpoint](https://www.netacad.com/pt/courses/endpoint-security?courseLang=pt-BR)
+- [ ] [Defesa de rede](https://www.netacad.com/pt/courses/network-defense?courseLang=pt-BR)
+- [ ] [Network Security](https://www.netacad.com/pt/courses/network-security?courseLang=pt-BR)
+- [ ] [Hacker Ético](https://www.netacad.com/pt/courses/ethical-hacker?courseLang=pt-BR)
 - [ ] [Identificação de Riscos Cibernéticos](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/identificacao-de-riscos-ciberneticos)
 - [ ] [Cibersegurança: Anatomia Clássica de um Ciberataque](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/ciberseguranca-anatomia-classica-de-um-ciberataque)
 - [ ] [Softwares de Segurança da Informação](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
+- [ ] [CyberOps Associate](https://www.netacad.com/pt/courses/cyberops-associate?courseLang=pt-BR)
 - [ ] [Formação Cybersecurity Specialist](https://web.dio.me/track/formacao-cybersecurity)
