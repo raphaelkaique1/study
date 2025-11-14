@@ -1012,6 +1012,8 @@
 
 ## AI
 - [ ] [Introdução à Inteligência Artificial: Conceitos Básicos](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-inteligencia-artificial-conceitos-basicos)
+- [ ] [Introdução à IA moderna](https://www.netacad.com/pt/courses/introduction-to-modern-ai?courseLang=pt-BR)
+- [ ] [Fundamentos de IA com IBM](https://www.netacad.com/pt/courses/ai-ibm-skillsbuild?courseLang=pt-BR)
 - [ ] [Tópicos em Machine Learning](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/topicos-em-machine-learning)
 - [ ] [Introdução à Machine Learning com Abel Siqueira](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Python para Machine Learning e Análise de dados por Didática Tech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -1044,6 +1046,8 @@
 - [ ] [Introdução à ciência de dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados)
 - [ ] [Introdução à ciência de dados por Aprenda IA](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Introdução à Ciência de Dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados)
+- [ ] [Introdução à Ciência de Dados](https://www.netacad.com/pt/courses/introduction-data-science?courseLang=pt-BR)
+- [ ] [Data Science Essentials with Python](https://www.netacad.com/pt/courses/data-science-essentials-with-python?courseLang=en-US)
 - [ ] [Introdução à Organização de Dados para Análise Multivariada](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-organizacao-de-dados-para-analise-multivariada)
 - [ ] [Introdução às Técnicas de Análise Fatorial e Conjunta de Dados](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-tecnicas-de-analise-fatorial-e-conjunta-de-dados)
 - [ ] [Ciência de Dados por Ignorância Zero](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -1055,6 +1059,7 @@
 - [ ] [Mineração de dados por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Data cleaning e Wrangling](https://plataforma.escoladnc.com.br/learning/data-cleaning-e-wrangling/74)
 - [ ] [Análise de Dados Básico](https://plataforma.escoladnc.com.br/learning/analise-de-dados-basico/68)
+- [ ] [Fundamentos da análise de dados](https://www.netacad.com/pt/courses/data-analytics-essentials?courseLang=pt-BR)
 - [ ] [Análise de Dados](https://cubos.academy/lp/minicurso-analise-de-dados)
 - [ ] [Análise de Dados com Python](https://plataforma.escoladnc.com.br/learning/analise-de-dados-com-python/86)
 - [ ] [Análise de dados em Python por Programação Dinâmica](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
