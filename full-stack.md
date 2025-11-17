@@ -1112,6 +1112,7 @@
 - [ ] [Montagem e manutenção de computadores com André](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Manutenção de Notebook com André](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Técnico em Manutenção de Notebooks](https://www.primecursos.com.br/tecnico-em-manutencao-de-notebooks/)
+- [ ] [Especialista em Manutenção, Reparo de PCs e notebooks, Recuperação de Placas, Leitura e Interpretação de Esquemas Elétricos e muito mais.](https://hotmart.com/pt-br/marketplace/produtos/leitura-interpretacao-de-esquemas-eletricos-e-recuperacao-de-placas-de-pcs-e-notebooks-nivel-intermediario/O79919583I?sck=HOTMART_MEM_CA)
 - [ ] [Técnico em Informática](https://www.primecursos.com.br/tecnico-em-informatica/)
 - [ ] [Noções de Eletricidade](https://www.primecursos.com.br/nocoes-de-eletricidade/)
 - [ ] [Eletrônica Analógica Básica](https://www.primecursos.com.br/eletronica-analogica-basica/)
