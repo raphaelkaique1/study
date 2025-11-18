@@ -525,7 +525,6 @@
 - [ ] [Dominando Funções em JavaScript](https://web.dio.me/course/dominando-funcoes-em-javascript/learning/183f95d6-d7cc-4ccb-84d7-f2ecc6f3aa01)
 - [ ] [Trabalhando com Módulos em JavaScript](https://web.dio.me/course/trabalhando-com-modulos-em-javascript/learning/6fa6147d-ab39-4b08-bcf4-f8fb76fea61c)
 - [ ] [Debugging e Error Handling com JavaScript](https://web.dio.me/course/debugging-e-error-handling-com-javascript/learning/abb903e7-981e-4c41-939e-9d9ae5a2fe29)
-- [ ] [Resolvendo Desafios de Código em Javascript](https://web.dio.me/course/resolvendo-desafios-de-codigo-em-javascript/learning/d71feeb5-8827-4cea-8625-35674c11d873)
 - [ ] [JavaScript do Zero](https://cubos.academy/lp/minicurso-javascript-do-zero)
 - [ ] [JavaScript Básico ao Avançado](https://cursos.devsamurai.com.br/JavaScript%20B%C3%A1sico%20ao%20Avan%C3%A7ado.zip)
 - [ ] [Mapas e Conjuntos com JavaScript](https://web.dio.me/course/mapas-e-conjuntos-com-javascript/learning/3886f993-22d5-4241-a764-65ea67d8eb68)
@@ -535,7 +534,9 @@
 - [ ] [JavaScript Essentials 1](https://www.netacad.com/pt/courses/javascript-essentials-1?courseLang=en-US)
 - [ ] [JavaScript Essentials 2](https://www.netacad.com/pt/courses/javascript-essentials-2?courseLang=en-US)
 - [ ] [JavaScript](https://www.netacad.com/pt/learning-collections/javascript?courseLang=en-US)
+- [ ] [Resolvendo Desafios de Código em Javascript](https://web.dio.me/course/resolvendo-desafios-de-codigo-em-javascript/learning/d71feeb5-8827-4cea-8625-35674c11d873)
 - [ ] [JavaScript - Gerador Senhas](https://cursos.devsamurai.com.br/JavaScript%20-%20Gerador%20Senhas.zip)
+- [ ] [Desenvolva um Gerenciador de Pedidos de um Restaurante com JavaScript e Kafka](https://web.dio.me/lab/desenvolva-um-gerenciador-de-pedidos-de-um-restaurante-com-javascript-e-kafka/learning/9d4f9156-8873-4e83-991a-0796b0d6e7d2)
 - [ ] [Aprenda Javascript por Irmão mais Velho](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Curso de JavaScript Completo](https://www.udemy.com/course/javascript-completo-2018-do-iniciante-ao-mestre/)
 - [ ] [JavaScript Completo ES6](https://www.origamid.com/curso/javascript-completo-es6)
@@ -957,6 +958,7 @@
 - [ ] [Testando APIs utilizando Postman por Pessonizando](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Teste de software utilizando Ruby com Rxpec por One Bit Code](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Teste de Software utilizando JavaScript por Angelo Luz](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Trabalhe com Cypress e Teste um E-commerce Desenvolvido em JavaScript](https://web.dio.me/lab/trabalhe-com-cypress-e-teste-um-e-commerce-desenvolvido-em-javascript/learning/0e645409-ba0e-4c2d-835a-48c6a6415a6f)
 
 ## CI/CD
 - [ ] [YAML Zero to Master](https://www.udemy.com/course/yaml-zero-to-master/)
