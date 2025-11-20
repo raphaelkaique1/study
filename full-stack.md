@@ -634,6 +634,8 @@
 - [ ] [Next.js](https://www.origamid.com/curso/nextjs)
 - [ ] [Vue.js 2 Completo](https://www.origamid.com/curso/vue-js-completo)
 - [ ] [Vue JS - Guia Completo (Vue CLI, Vue Router, Vuex e GraphQL)](https://www.udemy.com/course/vue-js-guia-completo/)
+- [ ] [Recriando o Tradicional Jogo Pedra, Papel e Tesoura em Vue.js](https://web.dio.me/lab/recriando-o-tradicional-jogo-pedra-papel-e-tesoura-em-vuejs/learning/8adafa4b-13b8-4d71-87a1-a5e7ace87f4c)
+- [ ] [Desenvolvendo sua Pokédex com Vue.js](https://web.dio.me/lab/desenvolvendo-sua-pokedex-com-vuejs/learning/b34a8709-1ddc-4d5b-9bb9-bb27400ad55a)
 - [ ] [Angular - Curso Introdutório](https://app.rocketseat.com.br/classroom/fundamentos-do-angular)
 - [ ] [Introdução de Typescript para Angular](https://web.dio.me/lives/introducao-de-typescript-para-angular)
 - [ ] [Desenvolvimento Web com AngularJS](https://cursos.timtec.com.br/course/desenvolvimento-web-com-angularjs/intro)
