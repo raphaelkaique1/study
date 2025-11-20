@@ -614,6 +614,7 @@
 - [ ] [Gerenciando Estados com Context API no React](https://web.dio.me/lives/gerenciando-estados-com-context-api-no-react)
 - [ ] [Explorando o poder da Context API do React](https://web.dio.me/lives/explorando-o-poder-da-context-api-do-react)
 - [ ] [Trabalhando com context API no react](https://web.dio.me/lives/trabalhando-com-context-api-no-react)
+- [ ] [Como gerenciar o estado das aplicações com Redux](https://web.dio.me/course/como-gerenciar-o-estado-das-aplicacoes-com-redux/learning/b3c55b6b-095d-401f-b61a-81c9f98f2210)
 - [ ] [Redux com React](https://www.origamid.com/curso/redux-com-react)
 - [ ] [Trabalhando com gerenciamento de estados com React e Redux](https://web.dio.me/lives/trabalhando-com-redux-e-redux-saga-na-pratica)
 - [ ] [ReactJs e Redux - Gerenciando estados de componentes em outro nível](https://web.dio.me/lives/reactjs-e-redux-gerenciando-estados-de-componentes-em-outro-nivel)
