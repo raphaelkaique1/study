@@ -1002,6 +1002,8 @@
 - [ ] [Desenvolvimento Full Stack: Angular, SpringBoot, MySQL, AWS.](https://www.udemy.com/course/draft/4080186/learn/lecture/27581962?start=0#content)
 - [ ] [Formação Java Web Full-Stack e Spring Boot REST API](https://projetojavaweb.com/certificado-aluno/plataforma-curso/aula?codigoCurso=1)
 - [ ] [Comunicação em Tempo Real com Spring Boot, WebSocket e Redis](https://www.udemy.com/course/comunicacao-em-tempo-real-com-spring-boot-websocket-e-redis/)
+- [ ] [Entendendo os aspectos Desenvolvimento Cloud Native](https://web.dio.me/lives/mentoria-01-entendendo-os-aspectos-desenvolvimento-cloud-native)
+- [ ] [Bradesco - Java Cloud Native](https://web.dio.me/track/bradesco-java-cloud-native)
 - [ ] [Spring Boot Expert: JPA, REST, JWT, OAuth2 com Docker e AWS](https://www.udemy.com/course/spring-boot-expert/)
 
 ## C
@@ -1101,6 +1103,7 @@
 - [ ] [Aplicativos com Ionic 3 para iniciantes com Charles França](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Ionic 6 para desenvolvimento de apps com Hugo Vasconcelos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Ionic](https://cursos.devsamurai.com.br/Ionic.zip)
+- [ ] [Ionic: Construindo uma Pokédex usando a API do Pokémon](https://web.dio.me/lab/ionic-construindo-uma-pokedex-usando-a-api-do-pokemon/learning/9537934d-0ee5-4aa5-94f1-aa34ddf6f9e1)
 - [ ] [Compose na criação de Apps por Stack Mobile](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Programação de Apps com Cordova por Professor Dimitri](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 
