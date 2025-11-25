@@ -746,6 +746,7 @@
 - [ ] [Orientação a Objetos com Typescript por Angelo Luz](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Praticando orientação a objetos](https://web.dio.me/lives/pensando-orietado-a-objetos-na-pratica)
 - [ ] [Desenvolvimento Web](https://developer.mozilla.org/pt-BR/docs/Learn_web_development)
+- [ ] [Introdução ao HTTP/HTTPS](https://web.dio.me/course/introducao-ao-http-https/learning/b9ebb4aa-3ac6-4425-bd1f-726d80bd7514)
 - [ ] [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP)
 - [ ] [Formação Node.js Fundamentals](https://web.dio.me/track/formacao-nodejs-fundamentals)
 - [ ] [Arquitetura interna no Node e filas](https://web.dio.me/course/arquitetura-interna-no-node-e-filas/learning/e16070ed-f3e1-4a56-a923-f3406d863a77)
