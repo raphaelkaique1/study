@@ -976,6 +976,7 @@
 - [ ] [Go - Curso Introdutório](https://app.rocketseat.com.br/classroom/go-curso-introdutorio)
 - [ ] [Aprenda a programar em GO por Sidney Souza](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Aprenda Golang do Zero! Desenvolva uma APLICAÇÃO COMPLETA!](https://www.udemy.com/course/aprenda-golang-do-zero-desenvolva-uma-aplicacao-completa/)
+- [ ] [Desenvolvendo um Sistema de Planejamento Financeiro com Golang](https://web.dio.me/lab/desenvolvendo-um-sistema-de-planejamento-financeiro-com-golang/learning/48299c47-8372-42f6-9d95-5e9d1b338a11)
 - [ ] [Desenvolvimento Web com Go - Do Zero ao Deploy](https://www.udemy.com/course/desenvolvimento-web-com-go-do-zero-ao-deploy/)
 - [ ] [Go (Golang) Backend Com Gin, Autenticaçao, CRUD e MongoDB](https://www.udemy.com/course/go-golang-backend-com-gin-autenticacao-crud-e-mongodb/)
 - [ ] [Formação Go Developer](https://web.dio.me/track/formacao-go-developer)
