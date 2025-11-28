@@ -910,6 +910,7 @@
 - [ ] [Programação C# com CRM Dynamics](https://web.dio.me/track/coding-future-avanade-programacao-c-com-crm-dynamics)
 - [ ] [Aplicando os Fundamentos Junto ao CRM Dynamics com C#](https://web.dio.me/lives/projeto-pratico-parte-2-pessistindo-os-dados-da-sua-aplicacao-com-sql-server)
 - [ ] [Formação CRM Dynamics 365 Developer](https://web.dio.me/track/formacao-dynamics-365)
+- [ ] [ASP.NET 2026 do 0 à Azure e GCP com ASP .NET 10 Docker e K8s](https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-aspnet-core-e-docker)
 - [ ] [Microsoft - Azure Advanced #2](https://web.dio.me/track/microsoft-azure-advanced-2)
 - [ ] [Transformar os aplicativos de negócios com o desenvolvimento de fusão](https://learn.microsoft.com/pt-br/training/paths/transform-business-applications-with-fusion-development/?ns-enrollment-type=Collection&ns-enrollment-id=2md8ip7z51wd47)
 - [ ] [Migrar aplicativos ASP.NET para o Azure](https://learn.microsoft.com/pt-br/training/paths/migrate-dotnet-apps-azure/?ns-enrollment-type=Collection&ns-enrollment-id=2md8ip7z51wd47)
