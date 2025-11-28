@@ -967,6 +967,7 @@
 - [ ] [Deploy de aplicações .Net Core com ambiente Dockerizado](https://web.dio.me/lives/deploy-de-aplicacoes-net-core-com-ambiente-dockerizado)
 - [ ] [Docker essencial para a plataforma .NET (Bônus Kubernetes)](https://www.udemy.com/course/docker-essencial-para-a-plataforma-net/)
 - [ ] [End to End engineering](https://web.dio.me/track/wex-end-end-engineering)
+- [ ] [Azure para desenvolvedores JavaScript](https://learn.microsoft.com/pt-br/azure/developer/javascript/)
 
 ## ABAP
 - [ ] [Learning the Basics of ABAP Programming on SAP BTP](https://learning.sap.com/learning-journeys/learn-the-basics-of-abap-programming-on-sap-btp)
