@@ -1156,6 +1156,7 @@
 - [ ] [Algoritmo e lógica de programação em C por Escola TI](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Programação em C por Papo Binário](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [C Advanced](https://www.netacad.com/pt/courses/c-advanced?courseLang=en-US)
+- [ ] [Formação C/C++ Developer](https://web.dio.me/track/formacao-cc-developer)
 
 ## C++
 - [ ] [C++ Essentials 1](https://www.netacad.com/pt/courses/c-plus-plus-essentials-1?courseLang=en-US)
