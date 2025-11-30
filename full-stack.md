@@ -548,6 +548,7 @@
 - [ ] [Manipulando a D.O.M. com JavaScript](https://web.dio.me/course/manipulando-dom-com-javascript/learning/71efe9d7-2b50-42b4-b501-4503750c3701)
 - [ ] [Manipulando a D.O.M. com Javascript](https://web.dio.me/lives/manipulando-a-dom-com-javascript)
 - [ ] [Consumo de API com JavaScript](https://plataforma.escoladnc.com.br/learning/consumo-de-api-com-javascript/96)
+- [ ] [Requisitando Dados de uma API de Criptomoedas](https://web.dio.me/lab/requisitando-dados-de-uma-api-de-criptomoedas/learning/7e2d0653-7c79-4455-b32f-9394ca26424c)
 - [ ] [Mentoria #5: Consumindo APIs feitas em NodeJS em um Front-end com Experts do INTER](https://web.dio.me/lives/mentoria-5-consumindo-apis-feitas-em-nodejs-em-um-front-end-com-experts-do-inter)
 - [ ] [Boas práticas de desenvolvimento Javascript](https://web.dio.me/lives/javascript-assincrono-trabalhando-com-promises-na-pratica-1)
 - [ ] [Desenvolvimento avançado com JavaScript ES6](https://web.dio.me/course/desenvolvimento-avancado-com-javascript-es6/learning/75ee88ab-99f3-4ab8-8620-7efafcb26481)
@@ -1407,12 +1408,18 @@
 - [ ] [NTT DATA - Engenharia de Dados com Python](https://web.dio.me/track/engenharia-dados-python)
 
 ## Web3
-- [ ] [Formação Web3 Fundamentals](https://web.dio.me/track/formacao-web3-fundamentals)
+- [ ] [O que são Criptomoedas e Como Funciona o Mercado de Cripto na Binance](https://web.dio.me/lives/o-que-sao-criptomoedas-e-como-funciona-o-mercado-de-cripto-na-binance)
+- [ ] [Criptomoedas e Blockchain: o Futuro das Finanças e das Carreiras Tech](https://web.dio.me/lives/criptomoedas-e-blockchain-o-futuro-das-financas-e-das-carreiras-tech)
+- [ ] [Entendendo Conceitos de Blockchain](https://web.dio.me/course/visao-geral-sobre-blockchain/learning/40518060-be8f-4874-9cfe-1b84eeb2e187)
 - [ ] [Blockchain](https://on.fiap.com.br/nano-courses/course/?id=12947)
 - [ ] [Blockchain Advanced](https://on.fiap.com.br/nano-courses/course/?id=3911)
-- [ ] [Formação Blockchain Specialist](https://web.dio.me/track/formacao-blockchain)
-- [ ] [Binance - Blockchain Developer with Solidity 2025](https://web.dio.me/track/bootcamp-blockchain-developer-with-solidity-2025)
+- [ ] [Introdução a Programação com Blockchain e Ethereum Smart Contracts](https://web.dio.me/lab/introducao-a-programacao-com-blockchain-e-ethereum-smart-contracts/learning/b7c69d1c-e34c-438a-a5c9-fc0265b4f729)
 - [ ] [Smart Contracts em Solidy Ethereum por Pietro Martins de Oliveira](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Formação Web3 Fundamentals](https://web.dio.me/track/formacao-web3-fundamentals)
+- [ ] [Binance - Blockchain Developer with Solidity](https://web.dio.me/track/coding-the-future-blockchain-developer-with-solidity)
+- [ ] [Binance - Blockchain Developer with Solidity 2025](https://web.dio.me/track/bootcamp-blockchain-developer-with-solidity-2025)
+- [ ] [Estratégias de Armazenamento/Custódia de Criptomoedas](https://web.dio.me/lives/estrategias-de-armazenamento-custodia-de-criptomoedas)
+- [ ] [Formação Blockchain Specialist](https://web.dio.me/track/formacao-blockchain)
 
 ## IT
 - [ ] [IT Essentials 7](https://www.netacad.com/pt/courses/it-essentials-7?courseLang=pt-BR)
