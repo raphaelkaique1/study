@@ -417,6 +417,7 @@
 - [ ] [Bootstrap: Trabalhando com Design Responsivo](https://www.devmedia.com.br/curso/bootstrap-trabalhando-com-design-responsivo/407)
 - [ ] [Bootstrap5](https://www.udemy.com/course/bootstrap-5-curso-completo-3-projetos/)
 - [ ] [Bootstrap 5: Curso Completo e Direto ao Ponto](https://www.udemy.com/course/bootstrap-framework/)
+- [ ] [Mentoria #4: Recriando interfaces com Bootstrap 5](https://web.dio.me/lives/mentoria-4-recriando-interfaces-com-bootstrap-5)
 - [ ] [Frontend - Bootstrap](https://cursos.devsamurai.com.br/Frontend%20-%20Bootstrap.zip)
 
 ## [UX/UI](https://developer.mozilla.org/pt-BR/docs/Web/Performance)
@@ -1555,6 +1556,7 @@
 - [ ] [Chatbots](https://on.fiap.com.br/nano-courses/course/?id=13040)
 - [ ] [Conversando por voz com o ChatGPT utilizando Whisper (OpenAI) e Python](https://web.dio.me/lives/coding-the-future-2)
 - [ ] [Conversando por Voz Com o ChatGPT Utilizando Whisper (OpenAI) e Python](https://web.dio.me/lab/conversando-por-voz-com-o-chatgpt-utilizando-whisper-openai-e-python/learning/91e3c941-0742-411a-aaef-0cf115cead00)
+- [ ] [Criando seu Assistente de Carreira Inteligente com ReactJs, Tailwind Integrado a API da Open AI](https://web.dio.me/lives/coding-the-future-11)
 - [ ] [Formação ChatGPT for Devs](https://web.dio.me/track/formacao-chatgpt-devs)
 - [ ] [Vivo - Python AI Backend Developer](https://web.dio.me/track/coding-future-vivo-python-ai-backend-developer)
 - [ ] [TQI - Modernização com GenAI](https://web.dio.me/track/tqi-modernizacao-com-genai)
