@@ -1523,6 +1523,8 @@
 - [ ] [CCNP Enterprise: Advanced Routing](https://www.netacad.com/pt/courses/ccnp-enterprise-advanced-routing?courseLang=en-US)
 - [ ] [DevNet Associate](https://www.netacad.com/pt/courses/devnet-associate?courseLang=zh-CN)
 - [ ] [Introdução à IoT e à Transformação Digital](https://www.netacad.com/pt/courses/introduction-iot?courseLang=pt-BR)
+- [ ] [Mentoria #5: Introdução ao IOT (Internet das coisas)](https://web.dio.me/lives/mentoria-5-introducao-ao-iot-internet-das-coisas)
+- [ ] [Mentoria #6: IOT e o fluxo de dados](https://web.dio.me/lives/mentoria-6-iot-e-o-fluxo-de-dados)
 - [ ] [Industrial IoT and Control Systems in Energy](https://www.netacad.com/pt/courses/industrial-iot-and-control-systems-in-energy?courseLang=en-US)
 - [ ] [Industrial IoT and Control Systems in Manufacturing](https://www.netacad.com/pt/courses/industrial-iot-and-control-systems-in-manufacturing?courseLang=en-US)
 - [ ] [Formação IoT Specialist](https://web.dio.me/track/formacao-iot-specialist)
