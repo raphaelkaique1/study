@@ -506,6 +506,7 @@
 - [ ] [Neo4J - Análise de Dados com Grafos](https://web.dio.me/track/neo4j-analise-de-dados-com-grafos)
 - [ ] [Banco de Dados SQL Server passo a passo por Trovato](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Bancos de Dados Relacionais (SQL) na AWS com Amazon RDS](https://web.dio.me/lab/bancos-de-dados-relacionais-sql-na-aws-com-amazon-rds/learning/e89d52c7-480c-46a6-9cb5-b6812db04748)
+- [ ] [Projeto - Parte 3: Incluindo segurança com JWT via Banco de Dados](https://web.dio.me/lives/projeto-parte-3-incluindo-seguranca-com-jwt-via-banco-de-dados)
 - [ ] [Formação SQL Database Specialist](https://web.dio.me/track/formacao-sql-db-specialist)
 
 ## [JS/TS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
