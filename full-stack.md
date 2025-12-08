@@ -517,6 +517,7 @@
 - [ ] [Programação do Zero](https://web.dio.me/track/potencia-tech-ifood-programacao-do-zero)
 - [ ] [Construindo seu Portifólio Front-end do Zero com HTML, CSS e JavaScript](https://web.dio.me/lab/construindo-seu-portfolio-front-end-do-zero/learning/81cbe4c1-6e9e-4ce3-be7d-412aef4efb24)
 - [ ] [Multiverso Spider-Man: Criando um Site com HTML, CSS e JavaScript](https://web.dio.me/lab/multiverso-spider-man-criando-um-site-com-html-css-e-javascript/learning/8e433153-5ac9-49ea-b2e6-38a5a93b4f21)
+- [ ] [Recriando o Carrossel de Vendas do Site da Ri Happy com HTML, CSS e JS](https://web.dio.me/lives/recriando-o-carrossel-de-vendas-do-site-da-ri-happy-com-html-css-e-js)
 - [ ] [Criando seu Próprio Jogo da Velha com HTML e Javascript](https://web.dio.me/lab/criando-seu-proprio-jogo-da-velha-com-html-e-javascript/learning/77459b5a-ef9a-4b9f-8806-e76e00a84a97)
 - [ ] [Criando seu Jogo de Memória Estilo Genius](https://web.dio.me/lab/criando-seu-jogo-de-memoria-estilo-genius/learning/997ef1d2-509b-43db-a46d-24074b9c56bd)
 - [ ] [Recriando o Famoso Jogo do Dinossauro sem Internet](https://web.dio.me/lab/recriando-o-famoso-jogo-do-dinossauro-sem-internet/learning/6e0ce884-2c7c-4d61-b2a4-28a0d48d279a)
