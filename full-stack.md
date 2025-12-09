@@ -1377,6 +1377,7 @@
 - [ ] [Infraestrutura Como Código com Serverless Framework na AWS](https://web.dio.me/lab/infraestrutura-como-codigo-com-serverless-framework-na-aws/learning/bc741bc5-977c-49c9-bd5d-44b2381e847a)
 - [ ] [YAML Zero to Master](https://www.udemy.com/course/yaml-zero-to-master/)
 - [ ] [Formação CI/CD com GitLab](https://web.dio.me/track/formacao-gitlab-cicd)
+- [ ] [Trabalhando com Git e GitLab na Prática](https://web.dio.me/course/trabalhando-com-git-e-gitlab-na-pratica/learning/b05c2fe6-9831-445a-a27d-9aa3434a25f8)
 - [ ] [Formação Docker Fundamentals](https://web.dio.me/track/formacao-docker-fundamentals)
 - [ ] [Docker: Utilização Prática no Cenário de Microsserviços](https://web.dio.me/lab/docker-utilizacao-pratica-no-cenario-de-microsservicos/learning/d151f94a-d53c-4ad3-b35a-333307faaf24)
 - [ ] [Formação Kubernetes Fundamentals](https://web.dio.me/track/formacao-kubernetes)
