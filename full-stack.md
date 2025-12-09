@@ -1385,6 +1385,7 @@
 - [ ] [Cloud Fundamentals, Administration and Solution Architect](https://on.fiap.com.br/nano-courses/course/?id=5875)
 - [ ] [Formação Google Cloud Platform (GCP) Specialist](https://web.dio.me/track/formacao-gcp-specialist)
 - [ ] [Hospedagem AWS com Rodolfo Moreira](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Cognizant Cloud Data Engineer](https://web.dio.me/track/cognizant-cloud-data-engineer)
 - [ ] [Cognizant Cloud Data Engineer #2](https://web.dio.me/track/cognizant-cloud-data-engineer-2)
 - [ ] [AWS na prática por canal Um Inventor Qualquer](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [AWS - Cloud Amazon Web Services](https://web.dio.me/track/bootcamp-cloud-aws)
