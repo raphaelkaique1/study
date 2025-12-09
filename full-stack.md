@@ -1372,6 +1372,7 @@
 - [ ] [Formação Quality Assurance (QA) Experience](https://web.dio.me/track/formacao-quality-assurance-experience)
 
 ## CI/CD
+- [ ] [Introdução ao Conceito de DevOps e Preparação do Ambiente GCloud SDK](https://web.dio.me/course/introducao-ao-conceito-de-devops-e-preparacao-do-ambiente-gcloud-sdk/learning/33d1f5a5-ee60-4f58-a013-af53f6b9aa22)
 - [ ] [Cloud para Aplicações Serverless: O Futuro da Arquitetura de Software](https://web.dio.me/lives/cloud-para-aplicacoes-serverless-o-futuro-da-arquitetura-de-software)
 - [ ] [Infraestrutura Como Código com Serverless Framework na AWS](https://web.dio.me/lab/infraestrutura-como-codigo-com-serverless-framework-na-aws/learning/bc741bc5-977c-49c9-bd5d-44b2381e847a)
 - [ ] [YAML Zero to Master](https://www.udemy.com/course/yaml-zero-to-master/)
@@ -1391,6 +1392,8 @@
 - [ ] [Criando Aplicação Serverless com AWS Lambda](https://web.dio.me/lives/criando-aplicacao-serverless-com-aws-lambda)
 - [ ] [Microsoft Azure Cloud Native](https://web.dio.me/track/microsoft-azure-cloud-native)
 - [ ] [Configuração e Deploy na nuvem Microsoft Azure Cloud](https://web.dio.me/course/configuracao-e-deploy-na-nuvem-microsoft-azure-cloud/learning/293a9eed-6e67-43a9-8f8a-074073c8a5d5)
+- [ ] [Implementando Pipelines com Azure DevOps](https://web.dio.me/lives/microsoft-applied-skills-implement-security-through-a-pipeline-using-azure-devops)
+- [ ] [Agente para Criar Processo de Deploy Automatizado com Azure DevOps](https://web.dio.me/lives/criando-um-processo-de-deploy-automatizado-com-azure-devops)
 - [ ] [XP Inc. - Cloud com Inteligência Artificial](https://web.dio.me/track/xp-inc-cloud-com-inteligencia-artificial)
 - [ ] [Formação AZ-204 Certification](https://web.dio.me/track/formacao-az-204-certification)
 - [ ] [Formação AI-102 Certification](https://web.dio.me/track/formacao-ai-102-certification)
