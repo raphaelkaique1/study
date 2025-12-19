@@ -656,6 +656,7 @@
 - [ ] [Front-end em React](https://comunidade.ada.tech/cursos/b60dfd96-34d9-4880-b23e-7e3679eb5391)
 - [ ] [Criando o Front-end com ReactJS](https://web.dio.me/lab/criando-o-front-end-com-reactjs/learning/fe8f0707-8354-48d3-a6ab-b3d96f24ab62)
 - [ ] [LocalizaLabs React Developer](https://web.dio.me/track/localizalabs-react-developer)
+- [ ] [Criando um Site para Encontrar Restaurantes Usando Google Maps que Consulta API do Google](https://web.dio.me/lab/criando-um-site-para-encontrar-restaurantes-usando-google-maps-que-consulta-api-do-google/learning/897248b0-9161-4c93-9cff-645f6eb730e3)
 - [ ] [Práticas avançadas em projetos com ReactJS](https://web.dio.me/course/praticas-avancadas-em-projetos-com-reactjs/learning/8f7be828-9ebd-473c-a215-bf6f04ffea3d)
 - [ ] [Formação React Developer](https://web.dio.me/track/formacao-react-developer)
 - [ ] [Formação Front-end - HTML, CSS, JavaScript, React e +](https://www.udemy.com/course/formacao-front-end-html-css-javascript-react-e/)
@@ -1377,6 +1378,8 @@
 
 ## CI/CD
 - [ ] [Introdução ao Conceito de DevOps e Preparação do Ambiente GCloud SDK](https://web.dio.me/course/introducao-ao-conceito-de-devops-e-preparacao-do-ambiente-gcloud-sdk/learning/33d1f5a5-ee60-4f58-a013-af53f6b9aa22)
+- [ ] [Explore o poder da Engenharia de Dados na Nuvem](https://web.dio.me/lives/explore-o-poder-da-engenharia-de-dados-na-nuvem)
+- [ ] [Importação e Manipulação de Dados na Prática com MicroStrategy](https://web.dio.me/lives/introducao-ao-cloudera-e-google-cloud-platform-gcp)
 - [ ] [Cloud para Aplicações Serverless: O Futuro da Arquitetura de Software](https://web.dio.me/lives/cloud-para-aplicacoes-serverless-o-futuro-da-arquitetura-de-software)
 - [ ] [Infraestrutura Como Código com Serverless Framework na AWS](https://web.dio.me/lab/infraestrutura-como-codigo-com-serverless-framework-na-aws/learning/bc741bc5-977c-49c9-bd5d-44b2381e847a)
 - [ ] [Simplifique o Gerenciamento de Infraestrutura com Terraform na AWS](https://web.dio.me/lab/simplifique-o-gerenciamento-de-infraestrutura-com-terraform-na-aws/learning/125bec86-57f3-4a6a-9cf9-19650e30dfbc)
@@ -1399,6 +1402,7 @@
 - [ ] [Formação Kubernetes Fundamentals](https://web.dio.me/track/formacao-kubernetes)
 - [ ] [Mentoria #4: Introdução ao Cloud Computing e Serverless](https://web.dio.me/lives/mentoria-4-introducao-ao-cloud-computing-e-serveless)
 - [ ] [Cloud Fundamentals, Administration and Solution Architect](https://on.fiap.com.br/nano-courses/course/?id=5875)
+- [ ] [Mentoria 05: Conhecendo o ambiente GCP](https://web.dio.me/lives/mentoria-06-conhecendo-o-ambiente-gcp)
 - [ ] [Formação Google Cloud Platform (GCP) Specialist](https://web.dio.me/track/formacao-gcp-specialist)
 - [ ] [AWS para Iniciantes: Uma Jornada na Computação em Nuvem](https://web.dio.me/lives/aws-para-iniciantes-uma-jornada-na-computacao-em-nuvem)
 - [ ] [Descubra a Nuvem AWS – LocalizaLabs](https://web.dio.me/track/descubra-nuvem-aws-localizalabs-meu-futuro-e-tech)
