@@ -1053,6 +1053,7 @@
 - [ ] [Formação Go Developer](https://web.dio.me/track/formacao-go-developer)
 
 ## Dart
+- [ ] [Primeiros passos com Dart](https://web.dio.me/course/primeiros-passos-com-dart/learning/294c718f-7e78-476f-ad40-de0936481cb9)
 - [ ] [Criando Backend utilizando Dart por Deivid Willyan](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Flutter](https://aulas.cubos.academy/minicurso/1f4fbe4d-bf88-47fe-9e3f-eb5aeb63db25?_gl=1*17mn1iy*_gcl_au*MTA4NDMwOTEzOC4xNzYyMzM2MjIyLjE5NTk5OTc4OTIuMTc2MjM0MDcxMC4xNzYyMzQwNzEx)
 - [ ] [Flutter Básico](https://www.primecursos.com.br/flutter-basico/)
@@ -1069,6 +1070,12 @@
 - [ ] [Flutter - Lista de Leituras](https://cursos.devsamurai.com.br/Flutter%20-%20Lista%20de%20Leituras.zip)
 - [ ] [Flutter - Cardápio online](https://cursos.devsamurai.com.br/Flutter%20-%20Card%C3%A1pio%20online.zip)
 - [ ] [Flutter - Fluck Noris](https://cursos.devsamurai.com.br/Flutter%20-%20Fluck%20Noris.zip)
+- [ ] [Flutter: Do Zero à Produção](https://web.dio.me/lab/flutter-do-zero-a-producao/learning/e55fdb79-32c0-4317-899e-3e047932729f)
+- [ ] [Santander Bootcamp 2023 - Mobile com Flutter](https://web.dio.me/track/santander-bootcamp-2023-mobile-com-flutter)
+- [ ] [Construa a Tela Inicial do App Santander em Flutter com Dart](https://web.dio.me/lives/santander-dev-week-2023-construa-a-tela-inicial-do-app-santander-em-flutter-com-dart)
+- [ ] [Desenvolvendo um Aplicativo de Chat Online Integrado ao Firebase](https://web.dio.me/lab/desenvolvendo-um-aplicativo-de-chat-online-integrado-ao-firebase/learning/78d5146f-5ffe-45c4-ac6e-7b81ffe4a6fc)
+- [ ] [Criando Um App de Podcast Multiplataforma com Flutter](https://web.dio.me/lab/criando-um-app-de-podcast-multiplataforma-com-flutter/learning/93824e46-e958-40dd-8a02-d22e0aff7d86)
+- [ ] [Criando um Gerenciador de Cards de Pokemon com Flutter](https://web.dio.me/lab/criando-um-gerenciador-de-cards-de-pokemon-com-flutter/learning/a8019e19-6fce-42e6-8882-71f7f50f4909)
 - [ ] [Formação Flutter Specialist](https://web.dio.me/track/formacao-flutter-specialist)
 
 ## PHP
