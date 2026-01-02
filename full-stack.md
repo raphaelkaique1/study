@@ -17,7 +17,7 @@
    - Cascading Style Sheets (CSS) é uma linguagem usada para descrever a apresentação de um documento escrito em uma linguagem de marcação como HTML ou XML. CSS pode ser usado para estilos de texto de documentos muito básicos — por exemplo, para alterar a cor e o tamanho de títulos e links. Ele pode ser usado para criar um layout — por exemplo, transformar uma única coluna de texto em um layout com uma área de conteúdo principal e uma barra lateral para informações relacionadas. Pode até ser usado para efeitos como animações.
    - Aprender a estrutura visual de uma página, com 'margin' e 'padding'
    - Estabelecer o tamanho com 'width' e 'height'
-   - Aprender sobre a posição de um elemento ('static', 'relative' ou 'absolute)
+   - Aprender sobre a posição de um elemento ('static', 'relative' ou 'absolute')
    - Aprender sobre o 'display' de exibição de um elemento ('block', 'inline', 'inline-block')
    - Aprender a posicionar imagens em relação ao texto
    - Aprender sobre alinhamento
@@ -544,6 +544,7 @@
 - [ ] [JavaScript Básico ao Avançado](https://cursos.devsamurai.com.br/JavaScript%20B%C3%A1sico%20ao%20Avan%C3%A7ado.zip)
 - [ ] [Mapas e Conjuntos com JavaScript](https://web.dio.me/course/mapas-e-conjuntos-com-javascript/learning/3886f993-22d5-4241-a764-65ea67d8eb68)
 - [ ] [Desmistificando map, filter e reduce](https://web.dio.me/course/desmistificando-map-filter-e-reduce/learning/91aab24a-87b1-4ecd-a8c4-fc3a6bb2ddee)
+- [ ] [Manipulando Arrays no Javascript com Map, Filter e Reduce](https://web.dio.me/course/map-filter-e-reduce/learning/e17e0007-591a-43cc-ae44-e17c14eacef6)
 - [ ] [Map, Filter e Reduce](https://web.dio.me/course/map-filter-e-reduce/learning/e17e0007-591a-43cc-ae44-e17c14eacef6)
 - [ ] [Fundamentos de JavaScript Assíncrono](https://web.dio.me/course/fundamentos-de-javascript-assincrono/learning/44d7e850-eb64-47d6-8249-6cb22b3440b3)
 - [ ] [Entendendo Promises de uma vez por todas](https://web.dio.me/course/entendendo-promises-de-uma-vez-por-todas/learning/013bb40b-1f57-4ccf-9dae-61c1f9d44c5b)
@@ -791,6 +792,7 @@
 - [ ] [MERN: Criando os Pilares de uma Carteira Digital com Node.js, Express e MongoDB](https://web.dio.me/lab/criando-os-pilares-de-uma-carteira-digital-com-nodejs-express-e-mongodb/learning/51b6add2-27a2-4c30-9875-e33c4fedb201)
 - [ ] [Mentoria #7: Utilizando Typescript com NodeJS](https://web.dio.me/lives/mentoria-7-utilizando-typescript-com-nodejs)
 - [ ] [TDD: Entendendo e Praticando em um Backend com Node e Typescript](https://web.dio.me/lab/tdd-entendendo-e-praticando-em-um-backend-com-node-e-typescript/learning/6e8f7e66-005e-4e31-bdef-2eff6a9ee2d0)
+- [ ] [Summit Avanade Node.js](https://web.dio.me/track/tech-woman-summit-avanade-nodejs)
 - [ ] [Tarefas em background utilizando Node.js e Redis](https://web.dio.me/course/tarefas-em-background-utilizando-nodejs-e-redis/learning/e55e50c2-2959-4d21-9675-8e6e15caa12b)
 - [ ] [Tarefas em Background Utilizando Node.js e Redis](https://web.dio.me/lab/tarefas-em-background-utilizando-nodejs-e-redis/learning/2708be80-ec7a-4e8b-bbbb-13f5de3c6f6e)
 - [ ] [Node.js com Banco de Dados Relacionais (SQL)](https://web.dio.me/course/nodejs-com-bancos-de-dados-relacionais-sql/learning/49fec7b7-c03f-415e-acc4-15431f22d61b)
