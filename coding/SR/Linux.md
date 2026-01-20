@@ -149,3 +149,51 @@ Assim como podem ser criadas no processo atual, variáveis também podem ser rem
 ```sh
 unset VAR
 ```
+
+No Linux, também é possível definir e criar variáveis apenas durante a execução de um único comando, as chamadas **variáveis temporárias para um comando** são variáveis definidas para a execução que se deseja e destruídas após a finalização da execução, sem afetar o ambiente do shell atual.
+```sh
+VAR1=value1 VAR2=value2 command
+```
+
+Por exemplo:
+```bash
+LANG=C ls
+```
+O comando `ls` será executado com `LANG=C`, mas o valor **não permanece** depois.
+
+Além de serem usadas diretamente na linha de comandos, também é possível definir uma ou mais variáveis para um script:
+```sh
+dev@localhost:~/Dev$ cat ./script.sh 
+echo $DEBUG
+
+dev@localhost:~/Dev$ DEBUG=true ./script.sh 
+true
+
+dev@localhost:~/Dev$ echo '
+> echo $DEBUG
+> echo $DB_HOST' > ./script.sh
+
+dev@localhost:~/Dev$ cat ./script.sh 
+echo $DEBUG
+echo $DB_HOST
+
+dev@localhost:~/Dev$ DEBUG=true ./script.sh 
+true
+# saída vazia: DB_HOST = vazio
+
+dev@localhost:~/Dev$ DEBUG=true DB_HOST=localhost ./script.sh 
+true
+localhost
+```
+
+Por padrão, o `sudo` remove variáveis de ambiente. Para evitar a execução de um comando e a variável seja perdida, a forma correta é "acessar" o sudo antes de declarar o comando a ser executado:
+
+```sh
+sudo VAR=test command
+```
+
+Diferença entre variável temporária e exportada:
+| Tipo               | Escopo           | Persistência |
+| ------------------ | ---------------- | ------------ |
+| Temporária         | Apenas o comando | Não          |
+| `export VAR=value` | Shell + filhos   | Sim          |
