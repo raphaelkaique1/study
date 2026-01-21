@@ -71,13 +71,11 @@ Realidade:
 ### Variáveis
 São pares de **chave=valor** em um endereço de memória acessível através de um nome que lhe é atribuído, com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Seu valor pode ser atribuído diretamente (de forma literal) ou após o resultado de alguma ação.
 Para que o shell entenda que sua intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si_, é necessário utilizar o **`$`** antes do nome da variável (**`echo $chave`**).  
-Um ponto importante de atenção deve-se para com o nome da variável, que deve ser único, não sendo permitido utilizar nome de comandos nativos ou o mesmo que de variáveis de ambiente (não é possível sobrescrevê-las). 
+Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, não sendo permitido utilizar nome de comandos nativos ou o mesmo que de variáveis de ambiente. 
 
 ##### Literais
-São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado definido.
+São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido. Por serem variáveis, elas podem ter seu valor alterado, reatribuído ou serem removidas.
 
-###### Variáveis Locais
-São variáveis acessíveis apenas pelo ambiente do shell em execução, podendo ser passadas para os subprocessos do shell atual.
 ```sh
 dev@localhost:~$ NICKNAME=raphaelkaique
 dev@localhost:~$ echo NICKNAME
@@ -89,6 +87,39 @@ dev@localhost:~$ echo $NICKNAME
 raphaelkaique1
 ```
 
+#### Dinâmicas
+As variáveis dinâmicas são aquelas que possuem seu valor atribuído sendo o resultado da execução de outro processo (Command Substitution). São declaradas com o comando a ser executado, ou mesmo uma cadeia sequenciada de comandos. O shell executa o comando, captura sua saída padrão (stdout) e armazena o resultado na variável.  
+Sua sintaxe exige que o(s) comando(s) seja(m) declarado(s) entre `$(...)` na atribuição da variável, para que o shell entenda que são comandos e não strings.
+```sh
+dev@localhost:~$ THIS_PATH=pwd
+dev@localhost:~$ echo $THIS_PATH
+pwd
+dev@localhost:~$ THIS_PATH=$(pwd)
+dev@localhost:~$ echo $THIS_PATH
+/home/dev
+dev@localhost:~$
+```
+
+Na realidade, o shell realiza a seguinte sequẽncia de operações:
+1. executa o comando contido em `$(...)`
+2. captura sua saída
+3. atribui essa saída à variável
+
+É possível atribuir quaisquer comandos a uma variável dinâmica.
+```sh
+dev@localhost:~$ FILES_COUNT=$(ls | wc -l) && echo $FILES_COUNT              
+10
+
+dev@localhost:~$ DATA_ATUAL=$(date +"%d/%m/%Y") && HOST=$(hostname); echo "
+> Data: $DATA_ATUAL
+> Host: $HOST"
+
+Data: 20/01/2026
+Host: localhost
+```
+
+###### Variáveis Locais
+São variáveis acessíveis apenas pelo ambiente do shell em execução, _podendo ser passadas para os **subprocessos do shell atual**_.  
 Elas existem para configurar o ambiente de execução de processos, sendo herdadas pelos processos filhos através do processo pai.
 ```sh
 dev@localhost:~$ NICKNAME=raphaelkaique1
@@ -97,8 +128,8 @@ raphaelkaique1 # variável local - pode ser usada somente no shell atual
 dev@localhost:~$ export NICKNAME=raphaelkaique1 # variável de ambiente - pode ser usada em processos filhos
 ```
 
-###### Variáveis de Ambiente
-Enquanto a variável local pode ser acessada apenas dentro do shell em que foi declarada, a variável de ambiente é exportada e passada a processos filhoes, para que a utilizem e a modifiquem quando necessário. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
+---
+Enquanto a variável local pode ser acessada apenas dentro do shell em que foi declarada, a variável de ambiente é exportada e passada a processos filhos, estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
 ```sh
 dev@localhost:~$ env # exibe as variáveis do ambiente atual
 SHELL=/bin/bash
@@ -203,35 +234,6 @@ Diferença entre variável temporária e exportada:
 | Temporária         | Apenas o comando | Não          |
 | `export VAR=value` | Shell + filhos   | Sim          |
 
-#### Dinâmicas
-As variáveis dinâmicas são aquelas que possuem seu valor atribuído sendo o resultado da execução de outro processo (Command Substitution). São declaradas com o comando a ser executado, ou mesmo uma cadeia sequenciada de comandos. O shell executa o comando, captura sua saída padrão (stdout) e armazena o resultado na variável.  
-Sua sintaxe exige que o(s) comando(s) seja(m) declarado(s) entre `$(...)` na atribuição da variável, para que o shell entenda que são comandos e não strings.
-```sh
-dev@localhost:~$ THIS_PATH=pwd
-dev@localhost:~$ echo $THIS_PATH
-pwd
-dev@localhost:~$ THIS_PATH=$(pwd)
-dev@localhost:~$ echo $THIS_PATH
-/home/dev
-dev@localhost:~$
-```
-
-Na realidade, o shell realiza a seguinte sequẽncia de operações:
-1. executa o comando contido em `$(...)`
-2. captura sua saída
-3. atribui essa saída à variável
-
-É possível atribuir quaisquer comandos a uma variável dinâmica.
-```sh
-dev@localhost:~$ FILES_COUNT=$(ls | wc -l) && echo $FILES_COUNT              
-10
-
-dev@localhost:~$ DATA_ATUAL=$(date +"%d/%m/%Y") && HOST=$(hostname); echo "
-> Data: $DATA_ATUAL
-> Host: $HOST"
-
-Data: 20/01/2026
-Host: localhost
-```
+###### Variáveis de Ambiente
 
 ### Environment
