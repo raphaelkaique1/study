@@ -118,6 +118,61 @@ Data: 20/01/2026
 Host: localhost
 ```
 
+#### Remover
+Assim como podem ser criadas no processo atual, **variáveis também podem ser removidas**, esta prática libera espaço não utilizado na memória.
+```sh
+unset VAR
+```
+
+#### Variáveis Temporárias e Multiplas Variáveis
+No Linux, também é possível definir e criar variáveis apenas durante a execução de um único comando, as chamadas **variáveis temporárias para um comando** são variáveis definidas para a execução que se deseja e destruídas após a finalização da execução, sem afetar o ambiente do shell atual.
+```sh
+VAR1=value1 VAR2=value2 command
+```
+
+Por exemplo:
+```bash
+LANG=C ls
+```
+O comando `ls` será executado com `LANG=C`, mas o valor **não permanece** depois.
+
+Além de serem usadas diretamente na linha de comandos, também é possível definir uma ou mais variáveis para um script:
+```sh
+dev@localhost:~/Dev$ cat ./script.sh 
+echo $DEBUG
+
+dev@localhost:~/Dev$ DEBUG=true ./script.sh 
+true
+
+dev@localhost:~/Dev$ echo '
+> echo $DEBUG
+> echo $DB_HOST' > ./script.sh
+
+dev@localhost:~/Dev$ cat ./script.sh 
+echo $DEBUG
+echo $DB_HOST
+
+dev@localhost:~/Dev$ DEBUG=true ./script.sh 
+true
+# saída vazia: DB_HOST = vazio
+
+dev@localhost:~/Dev$ DEBUG=true DB_HOST=localhost ./script.sh 
+true
+localhost
+```
+
+Por padrão, o `sudo` remove variáveis de ambiente. Para evitar a execução de um comando e a variável seja perdida, a forma correta é "acessar" o sudo antes de declarar o comando a ser executado:
+
+```sh
+sudo VAR=test command
+```
+
+Diferença entre variável temporária e exportada:
+| Tipo               | Escopo           | Persistência |
+| ------------------ | ---------------- | ------------ |
+| Temporária         | Apenas o comando | Não          |
+| `export VAR=value` | Shell + filhos   | Sim          |
+
 ###### Variáveis Locais
 São variáveis acessíveis apenas pelo ambiente do shell em execução, _podendo ser passadas para os **subprocessos do shell atual**_.  
 Elas existem para configurar o ambiente de execução de processos, sendo herdadas pelos processos filhos através do processo pai.
@@ -128,8 +183,8 @@ raphaelkaique1 # variável local - pode ser usada somente no shell atual
 dev@localhost:~$ export NICKNAME=raphaelkaique1 # variável de ambiente - pode ser usada em processos filhos
 ```
 
----
-Enquanto a variável local pode ser acessada apenas dentro do shell em que foi declarada, a variável de ambiente é exportada e passada a processos filhos, estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
+As variáveis declaradas são visíveis apenas dentro da árvore de processos iniciada por um determinado processo, normalmente um shell. Cada processo tem seu próprio ambiente, e quando um processo cria outro processo (`fork`/`exec`), este novo processo é conhecido como _subprocesso_, ou _processo filho_, que **herda uma cópia do ambiente do pai**, e essa herança é unidirecional, ou seja, apenas do pai para o filho (nunca do filho para o pai).
+Enquanto a variável declarada apeans localmente pode ser acessada apenas dentro do shell em que foi criada, a variável de ambiente é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
 ```sh
 dev@localhost:~$ env # exibe as variáveis do ambiente atual
 SHELL=/bin/bash
@@ -180,59 +235,6 @@ GDMSESSION=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 _=/usr/bin/env
 ```
-
-Assim como podem ser criadas no processo atual, **variáveis também podem ser removidas**, esta prática libera espaço não utilizado na memória.
-```sh
-unset VAR
-```
-
-No Linux, também é possível definir e criar variáveis apenas durante a execução de um único comando, as chamadas **variáveis temporárias para um comando** são variáveis definidas para a execução que se deseja e destruídas após a finalização da execução, sem afetar o ambiente do shell atual.
-```sh
-VAR1=value1 VAR2=value2 command
-```
-
-Por exemplo:
-```bash
-LANG=C ls
-```
-O comando `ls` será executado com `LANG=C`, mas o valor **não permanece** depois.
-
-Além de serem usadas diretamente na linha de comandos, também é possível definir uma ou mais variáveis para um script:
-```sh
-dev@localhost:~/Dev$ cat ./script.sh 
-echo $DEBUG
-
-dev@localhost:~/Dev$ DEBUG=true ./script.sh 
-true
-
-dev@localhost:~/Dev$ echo '
-> echo $DEBUG
-> echo $DB_HOST' > ./script.sh
-
-dev@localhost:~/Dev$ cat ./script.sh 
-echo $DEBUG
-echo $DB_HOST
-
-dev@localhost:~/Dev$ DEBUG=true ./script.sh 
-true
-# saída vazia: DB_HOST = vazio
-
-dev@localhost:~/Dev$ DEBUG=true DB_HOST=localhost ./script.sh 
-true
-localhost
-```
-
-Por padrão, o `sudo` remove variáveis de ambiente. Para evitar a execução de um comando e a variável seja perdida, a forma correta é "acessar" o sudo antes de declarar o comando a ser executado:
-
-```sh
-sudo VAR=test command
-```
-
-Diferença entre variável temporária e exportada:
-| Tipo               | Escopo           | Persistência |
-| ------------------ | ---------------- | ------------ |
-| Temporária         | Apenas o comando | Não          |
-| `export VAR=value` | Shell + filhos   | Sim          |
 
 ###### Variáveis de Ambiente
 
