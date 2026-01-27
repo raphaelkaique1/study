@@ -70,7 +70,7 @@ Realidade:
 
 ## Script Programming
 ### Variáveis
-São pares de **chave=valor** em um endereço de memória acessível através de um nome que lhe é atribuído, com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Seu valor pode ser atribuído diretamente ou após o resultado de alguma ação.
+São pares de **chave=valor** em um endereço de memória acessível através de um nome que lhe é atribuído, com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Ela pode ser inicialização com um valor atribuído diretamente ou obter seu valor após o resultado de alguma execução.  
 Para que o shell entenda que sua intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si_, é necessário utilizar o **`$`** antes do nome da variável (**`echo $chave`**).  
 Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, não sendo permitido utilizar nome de comandos nativos ou o mesmo que de variáveis de ambiente. 
 
