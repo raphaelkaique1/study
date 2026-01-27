@@ -456,4 +456,4 @@
 
 ---
 
-<div align="center">Copyright &copy; 2025 <a href="https://github.com/raphaelkaique1">Raphael Kaíque Dias Santos</a></div>
+<div align="center">Copyright &copy; 2026 <a href="https://github.com/raphaelkaique1">Raphael Kaíque Dias Santos</a></div>
