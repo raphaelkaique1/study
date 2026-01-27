@@ -58,7 +58,7 @@ Por isso, é importante saber que o `sh` atualmente trabalha como uma interface 
 | Embedded        | BusyBox `sh`          |
 
 Este conhecimento evita muitos problemas de compatibilidade encarados diariamente, pois por conta deste detalhe, desenvolvedores desavidados são pegos no erro conceitual:
-> "Se roda no Linux, é `sh`.
+> "Se roda no Linux, é `sh`."  
 Realidade:
 - O ambiente de desenvolvimento em Linux usa `bash`
 - O container em produção usa `dash`
