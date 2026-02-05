@@ -1,13 +1,56 @@
 # ShellScript
-O **Shell SH** (ou simplesmente `sh`) é o shell padrão histórico dos sistemas Unix, sendo ele interpretado por qualquer Shell que pretenda atender o padrão POSIX. Pode-se dizer que o `sh` é um contrato padronizado para interpretadores de comandos, sendo a linguagem de script que realiza a ponte direta entre o usuário e o kernel do sistema operacional.  
+O **Shell SH** (ou simplesmente `sh`) é o shell padrão histórico dos sistemas Unix, sendo ele interpretado por qualquer Kernel que utilize shell e pretenda atender o padrão POSIX. O Kernel é o núcleo do sistema operacional, sendo o único software que roda em modo privilegiado (ring 0), ele é o responsável pelo gerenciamento da CPU (processos, threads, scheduler), da memória (virtual, paging), de dispositivos (drivers), sistema de arquivos, rede e segurança. Nenhum programa acessa hardware diretamente, tudo passa antes pelo kernel, implicita ou explicitamente. O Kernel na verdade não entende comandos, nem shell, compreende praticamente apenas chamadas de sistema (syscalls). O shell é um programa de usuário (ring 3), sendo ele quem lê texto, interpreta comandos, decide e solicita ao Kernel o que executar.
+```
+  User
+   ↓
+ Shell
+   ↓  syscalls
+ Kernel
+   ↓
+Hardware
+```
+
+Enquanto o Kernel não compreende o que é `ls` por exemplo, o Shell não executa nada sozinho, ou seja, quando o usuário digita `ls` no terminal o que realmente acontece é:
+1. `sh` recebe a linha
+2. faz [parsing]() e [expansão]()
+3. cria um processo filho `fork`
+4. substitui o processo por `/bin/ls` usando `execve`
+5. o Kernel então carrega o binário
+6. e o binário carregado executa as instruções no Kernel
+7. `ls` chama `stat()`, `getdents()` e `write()`
+8. o Kernel acessa o disco e realiza as execuções dos binários
+9. e após a finalização o resultado é printado no terminal
+
+> O kernel nunca viu "ls" como um comando, apenas como um binário
+
+Pode-se dizer que o `sh` é um contrato padronizado para interpretadores de comandos, sendo a linguagem de script que realiza a ponte direta entre o usuário e o kernel do sistema operacional.  
 Nativamente, o `sh` permite executar comandos do sistema (incluindo comandos encadeados) e controlar fluxos lógicos, sendo amplamente usado para a automatização de tarefas via script.  
-Sua função real no sistema é traduzir ao sistema operacional o que o usuário espera que seja feito através de comandos amigáveis a humanos, então, quando o comando `ls -l /var/log` é executado no terminal, o que realmente acontece no fluxo é:
+Sua função real é traduzir ao sistema operacional o que o usuário espera que seja feito através de comandos amigáveis a humanos, então, quando o comando `ls -l /var/log` é executado no terminal, o que realmente acontece no fluxo é:
 1. `sh` interpreta o comando
 2. resolve variáveis, expansões e redirecionamentos
 3. invoca chamadas de sistema como `fork` e `exec` por exemplo
 4. kernel executa o binário
 
 > O `sh` não executa nada por si só, ele apenas _orquestra_ a execução.
+
+Outro bom exemplo seria a execução do comando:
+```sh
+ls | grep foo > out.txt
+```
+
+O shell:
+- cria o pipe
+- redireciona
+- executa processos
+
+Enquanto quem executa cada binário correspondente:
+- `ls`
+- `grep`
+- `write`
+
+O Kernel apenas fornece primitivas. Entretanto, apesar de parecer banal, shell em um sistema baseado em Unix é opcional, mas o kernel não. É possível utilizar qualquer serviço de shell (bash, zsh ou fish por exemplo) e executar binários sem shell. Quando não existe um Shell, o Kernel sobe normalmente, executa o PID 1, roda serviços e aplicações, sem o Shell apenas não existe interação humana (mas o sistema funciona normalmente), embedded e containers fazem isso o tempo todo, mas é impossível rodar Linux sem kernel, pois sem ele não existe comunicação e manipulação de hardware.
+
+> Em poucas palavras, pode-se resumir este conceito em: **Shell fala, Kernel age.**
 
 ## POSIX Shell
 Visto que o Shell SH é a _"linguagem"_ padrão para execução de comandos de SOs baseados em Unix através do terminal de comandos, os interpretadores de Shell precisam ser **SH compatíveis**, e para serem considerados compatíveis com script `sh` eles devem respeitar o padrão **POSIX Shell** e necessariamente atender as características mínimas que se esperam:
