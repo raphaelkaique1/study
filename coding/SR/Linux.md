@@ -162,7 +162,7 @@ Host: localhost
 ```
 
 #### Remover
-Assim como podem ser criadas no processo atual, **variáveis também podem ser removidas**, esta prática libera espaço não utilizado na memória.
+Assim como podem ser criadas no processo atual, **variáveis também podem ser removidas**, esta prática libera espaço não utilizado na memória. A sintaxe deste comando exige o verdadeiro nome da variável seja informado para que funcione, exatamente como foi declarada `VAR=valor` (não como a sua referência `$VAR`).
 ```sh
 # unset VAR
 dev@localhost:~$ VAR='var_1'
@@ -231,7 +231,8 @@ dev@localhost:~$ export NICKNAME=raphaelkaique1 # variável deste ambiente - pod
 ```
 
 As variáveis declaradas são visíveis apenas dentro da árvore de processos iniciada por um determinado processo, normalmente um shell. Cada processo tem seu próprio ambiente, e quando um processo cria outro processo (`fork`/`exec`), este novo processo é conhecido como _subprocesso_, ou _processo filho_, que **herda uma cópia do ambiente do pai**, e essa herança é unidirecional, ou seja, apenas do pai para o filho (nunca do filho para o pai).  
-Enquanto a variável declarada apenas localmente pode ser acessada sinebte dentro do shell em que foi criada, a variável de ambiente local é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
+Enquanto a variável declarada apenas localmente pode ser acessada somente dentro do shell em que foi criada, a variável local é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer moficação feita por eles NÃO afeta o valor da variável no processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai.  
+Essas variáveis são usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
 ```sh
 dev@localhost:~$ env # exibe as variáveis do ambiente atual
 SHELL=/bin/bash
