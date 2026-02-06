@@ -1,5 +1,5 @@
 # ShellScript
-O **Shell SH** (ou simplesmente `sh`) é o shell padrão histórico dos sistemas Unix, sendo ele interpretado por qualquer Kernel que utilize shell e pretenda atender o padrão POSIX. O Kernel é o núcleo do sistema operacional, sendo o único software que roda em modo privilegiado (ring 0), ele é o responsável pelo gerenciamento da CPU (processos, threads, scheduler), da memória (virtual, paging), de dispositivos (drivers), sistema de arquivos, rede e segurança. Nenhum programa acessa hardware diretamente, tudo passa antes pelo kernel, implicita ou explicitamente. O Kernel na verdade não entende comandos, nem shell, compreende praticamente apenas chamadas de sistema (syscalls). O shell é um programa de usuário (ring 3), sendo ele quem lê texto, interpreta comandos, decide e solicita ao Kernel o que executar.
+O **Shell SH** (ou simplesmente `sh`) é o shell padrão histórico dos sistemas Unix, sendo ele interpretado por qualquer Kernel que utilize shell e pretenda atender o padrão POSIX. O Kernel é o núcleo do sistema operacional, sendo o único software que roda em modo privilegiado (ring 0), ele é o responsável pelo gerenciamento da CPU (processos, threads e scheduler), da memória (virtual e paging), de dispositivos (drivers), sistema de arquivos (files system), rede (networks, endereços e direcionamentos) e segurança (antivírus e firewall). Nenhum programa acessa hardware diretamente, tudo passa antes pelo kernel, implícita ou explicitamente. O Kernel não entende comandos e nem shell, na verdade compreende apenas chamadas de sistema (syscalls). O shell é um programa de usuário (ring 3), sendo ele quem lê texto, interpreta comandos, decide e solicita ao Kernel o que executar.
 ```
   User
    ↓
@@ -10,7 +10,7 @@ O **Shell SH** (ou simplesmente `sh`) é o shell padrão histórico dos sistemas
 Hardware
 ```
 
-Enquanto o Kernel não compreende o que é `ls` por exemplo, o Shell não executa nada sozinho, ou seja, quando o usuário digita `ls` no terminal o que realmente acontece é:
+Enquanto o Kernel não compreende o que é `ls` por exemplo, o Shell não executa nada sozinho. Ou seja, quando o usuário digita `ls` no terminal o que realmente acontece é:
 1. `sh` recebe a linha
 2. faz [parsing]() e [expansão]()
 3. cria um processo filho `fork`
@@ -31,7 +31,7 @@ Sua função real é traduzir ao sistema operacional o que o usuário espera que
 3. invoca chamadas de sistema como `fork` e `exec` por exemplo
 4. kernel executa o binário
 
-> O `sh` não executa nada por si só, ele apenas _orquestra_ a execução.
+> O `sh` não executa nada por si só, ele apenas _orquestra_ a execução dos comandos no kernel.
 
 Outro bom exemplo seria a execução do comando:
 ```sh
@@ -43,12 +43,12 @@ O shell:
 - redireciona
 - executa processos
 
-Enquanto quem executa cada binário correspondente:
+Enquanto cada binário correspondente é executado:
 - `ls`
 - `grep`
 - `write`
 
-O Kernel apenas fornece primitivas. Entretanto, apesar de parecer banal, shell em um sistema baseado em Unix é opcional, mas o kernel não. É possível utilizar qualquer serviço de shell (bash, zsh ou fish por exemplo) e executar binários sem shell. Quando não existe um Shell, o Kernel sobe normalmente, executa o PID 1, roda serviços e aplicações, sem o Shell apenas não existe interação humana (mas o sistema funciona normalmente), embedded e containers fazem isso o tempo todo, mas é impossível rodar Linux sem kernel, pois sem ele não existe comunicação e manipulação de hardware.
+O Kernel apenas fornece primitivas. Entretanto, apesar de parecer banal, shell é opcional em sistemas, mas o kernel não. É possível utilizar qualquer serviço de shell (bash, zsh ou fish por exemplo) e executar binários sem shell. Quando não existe um Shell, o Kernel sobe normalmente, executa o PID 1 (systemd), roda serviços e aplicações, sem o Shell apenas não existe interação humana (mas o sistema funciona normalmente), embedded e containers fazem isso o tempo todo, mas é impossível rodar Linux sem kernel, pois sem ele não existe comunicação e manipulação de hardware.
 
 > Em poucas palavras, pode-se resumir este conceito em: **Shell fala, Kernel age.**
 
@@ -82,8 +82,8 @@ O _"mínimo comum"_ que um interpretador deve suportar está descrito no **núcl
   - `$?`
   - `0 = sucesso` _convenção_
 
-Entretanto, apesar de ser comumente visto em scripts baseados em Linux, os comandos listados a seguir não são explicitamente garantidos pelo POSIX, sendo em suma extensões de shell específico (geralmente `bash`):
-- Arrays
+Entretanto, apesar de ser comumente visto em scripts executados em Linux, os comandos listados a seguir não são explicitamente garantidos pelo POSIX, sendo em suma extensões de shell específico (geralmente `bash`):
+- [Arrays=({0..9})](https://quickref.me/bash#bash-arrays)
 - `[[ ... ]]`
 - `(( ... ))`
 - `source`
@@ -103,7 +103,7 @@ Por isso, é importante saber que o `sh` atualmente trabalha como uma interface 
 Este conhecimento evita muitos problemas de compatibilidade encarados diariamente, pois por conta deste detalhe, desenvolvedores desavidados são pegos no erro conceitual:
 > "Se roda no Linux, é `sh`."  
 
-Realidade:
+Mas na realidade:
 - O ambiente de desenvolvimento em Linux usa `bash`
 - O container em produção usa `dash`
 - O embedded usa `ash`
@@ -114,12 +114,11 @@ Realidade:
 ## Script Programming
 ### Variáveis
 São pares de **chave=valor** em um endereço de memória acessível através de um nome que lhe é atribuído, com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Este dado pode ser tanto um valor atribuído diretamente logo na declaração da variável iniciando-a assim com um valor, quanto um valor resultante de alguma execução que só lhe será atribuído após a finalização da operação.  
-Para que o shell entenda que sua intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si_, é necessário utilizar o **`$`** antes do nome da variável (**`echo $chave`**).  
-Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, sendo proibido utilizar nomes de comandos nativos ou de variáveis de ambiente. 
+Para que o shell entenda que a intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si (como uma string)_, é necessário utilizar o símbolo **`$`** antes do nome da variável (**`root@host# echo $chave # output: valor`**).  
+Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, sendo proibído utilizar nomes de comandos nativos ou de variáveis de ambiente. 
 
 ##### Literais
-São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido. Por serem variáveis, elas podem ter seu valor alterado, reatribuído ou serem removidas.
-
+São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
 ```sh
 dev@localhost:~$ NICKNAME=raphaelkaique
 dev@localhost:~$ echo NICKNAME
@@ -144,7 +143,7 @@ dev@localhost:~$ echo $THIS_PATH
 dev@localhost:~$
 ```
 
-Na realidade, o shell realiza a seguinte sequẽncia de operações:
+Na realidade, o shell realiza a seguinte sequência de operações:
 1. executa o comando contido em `$(...)`
 2. captura sua saída
 3. atribui essa saída à variável
@@ -165,11 +164,21 @@ Host: localhost
 #### Remover
 Assim como podem ser criadas no processo atual, **variáveis também podem ser removidas**, esta prática libera espaço não utilizado na memória.
 ```sh
-unset VAR
+# unset VAR
+dev@localhost:~$ VAR='var_1'
+dev@localhost:~$ echo $VAR
+var_1
+dev@localhost:~$ unset $VAR
+dev@localhost:~$ echo $VAR
+var_1
+dev@localhost:~$ unset VAR
+dev@localhost:~$ echo $VAR
+
+dev@localhost:~$ 
 ```
 
 #### Variáveis Temporárias e Multiplas Variáveis
-No Linux, também é possível definir e criar variáveis apenas durante a execução de um único comando, as chamadas **variáveis temporárias para um comando** são variáveis definidas para a execução que se deseja e destruídas após a finalização da execução, sem afetar o ambiente do shell atual.
+No Linux, também é possível definir e criar variáveis apenas durante a execução de um único comando, as chamadas **variáveis temporárias**. São variáveis definidas para a execução que se deseja e destruídas após a finalização da execução, sem afetar o ambiente do shell atual.
 ```sh
 VAR1=value1 VAR2=value2 command
 ```
@@ -191,11 +200,6 @@ true
 dev@localhost:~/Dev$ echo '
 > echo $DEBUG
 > echo $DB_HOST' > ./script.sh
-
-dev@localhost:~/Dev$ cat ./script.sh 
-echo $DEBUG
-echo $DB_HOST
-
 dev@localhost:~/Dev$ DEBUG=true ./script.sh 
 true
 # saída vazia: DB_HOST = vazio
@@ -206,7 +210,6 @@ localhost
 ```
 
 Por padrão, o `sudo` remove variáveis de ambiente. Para evitar a execução de um comando e a variável seja perdida, a forma correta é "acessar" o sudo antes de declarar o comando a ser executado:
-
 ```sh
 sudo VAR=test command
 ```
@@ -224,11 +227,11 @@ Elas existem para configurar o ambiente de execução de processos, sendo herdad
 dev@localhost:~$ NICKNAME=raphaelkaique1
 dev@localhost:~$ echo $NICKNAME
 raphaelkaique1 # variável local - pode ser usada somente no shell atual
-dev@localhost:~$ export NICKNAME=raphaelkaique1 # variável de ambiente - pode ser usada em processos filhos
+dev@localhost:~$ export NICKNAME=raphaelkaique1 # variável deste ambiente - pode ser usada em processos filhos
 ```
 
-As variáveis declaradas são visíveis apenas dentro da árvore de processos iniciada por um determinado processo, normalmente um shell. Cada processo tem seu próprio ambiente, e quando um processo cria outro processo (`fork`/`exec`), este novo processo é conhecido como _subprocesso_, ou _processo filho_, que **herda uma cópia do ambiente do pai**, e essa herança é unidirecional, ou seja, apenas do pai para o filho (nunca do filho para o pai).
-Enquanto a variável declarada apeans localmente pode ser acessada apenas dentro do shell em que foi criada, a variável de ambiente é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
+As variáveis declaradas são visíveis apenas dentro da árvore de processos iniciada por um determinado processo, normalmente um shell. Cada processo tem seu próprio ambiente, e quando um processo cria outro processo (`fork`/`exec`), este novo processo é conhecido como _subprocesso_, ou _processo filho_, que **herda uma cópia do ambiente do pai**, e essa herança é unidirecional, ou seja, apenas do pai para o filho (nunca do filho para o pai).  
+Enquanto a variável declarada apenas localmente pode ser acessada sinebte dentro do shell em que foi criada, a variável de ambiente local é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai. São usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
 ```sh
 dev@localhost:~$ env # exibe as variáveis do ambiente atual
 SHELL=/bin/bash
