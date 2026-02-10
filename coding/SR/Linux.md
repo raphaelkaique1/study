@@ -287,3 +287,135 @@ _=/usr/bin/env
 ###### Variáveis de Ambiente
 
 ### Environment
+
+Variáveis persistentes
+
+## Resposta curta
+
+👉 **`export TESTE=123` só torna a variável disponível para os *processos filhos* do shell atual.**
+Ela **não** fica disponível para outros shells já abertos nem para novos terminais independentes.
+
+Ou seja:
+
+* Terminal A: `export TESTE=123` ✅
+* Terminal B (já aberto ou aberto depois): `echo $TESTE` ❌ (não existe)
+
+---
+
+## Por quê isso acontece?
+
+Cada terminal (shell) é um **processo independente** no sistema.
+
+* Variáveis de ambiente:
+
+  * São herdadas **apenas no momento da criação do processo**
+  * Fluem **do pai → filho**
+  * **Nunca** do filho → pai
+  * **Nunca** entre processos irmãos
+
+Então:
+
+```
+Terminal A (bash)
+ ├─ export TESTE=123
+ └─ filho → script.sh   (TESTE disponível)
+
+Terminal B (bash)
+ └─ processo separado   (TESTE não existe)
+```
+
+---
+
+## O que o `export` realmente faz?
+
+```bash
+export TESTE=123
+```
+
+* Cria a variável no shell atual
+* Marca essa variável para ser **herdada por processos filhos**
+
+Exemplo:
+
+```bash
+export TESTE=123
+bash
+echo $TESTE   # funciona
+```
+
+Mas:
+
+```bash
+exit
+echo $TESTE   # não funciona
+```
+
+---
+
+## Como tornar a variável disponível em **todos os shells**?
+
+Você precisa torná-la **persistente**, colocando-a em arquivos de inicialização.
+
+### Para um usuário:
+
+```bash
+~/.bashrc
+```
+
+ou
+
+```bash
+~/.profile
+```
+
+Exemplo:
+
+```bash
+export TESTE=123
+```
+
+Depois:
+
+* Abra um novo terminal, ou
+* Rode:
+
+```bash
+source ~/.bashrc
+```
+
+---
+
+### Para todo o sistema:
+
+```bash
+/etc/environment
+```
+
+Exemplo:
+
+```text
+TESTE=123
+```
+
+⚠️ Sem `export` nesse arquivo.
+
+---
+
+## Tabela-resumo
+
+| Situação                         | TESTE disponível? |
+| -------------------------------- | ----------------- |
+| Mesmo shell                      | ✅                |
+| Processos filhos                 | ✅                |
+| Outro terminal já aberto         | ❌                |
+| Novo terminal (sem persistência) | ❌                |
+| Novo terminal (com `.bashrc`)    | ✅                |
+
+---
+
+## Regra de ouro 🧠
+
+> **Variáveis de ambiente não são globais do sistema, são locais ao processo e seus filhos.**
+
+* **Básico**: Diferença entre `.bashrc`, `.profile`, `.bash_profile`
+* **Avançado**: Como serviços (`systemd`) lidam com variáveis de ambiente
