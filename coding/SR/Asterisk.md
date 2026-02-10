@@ -1,4 +1,4 @@
-'''
+```sh
 Asterisk 13
 VM -> Rede: Modo Bridge
 ssh user_login@host_ip || ssh host_ip -user_login
@@ -37,7 +37,7 @@ CLI> core restart now                       # reinicia o asterisk
 # etc/init.d/asterisk stop || core stop now # desativa o asterisk
 # etc/init.d/asterisk start || asterisk     # inicia o asterisk
 
-nano /etc/asterisk/asterisk.conf   # [OPTIONS] verbose = 99 -> habilita modo verboso | maxfiles = 10000
+nano /etc/asterisk/asterisk.conf   # [OPTIONS] verbose = 99 -> habilita modo verboso | maxfiles = 10000 -> evita lentidão no servidor
 nano /etc/asterisk/logger.conf     # full: habilita todos os logs
 tail -n 30 /var/asterisk/logs/full # exibe os logs
 
@@ -193,4 +193,4 @@ CLI> channel request hangup [all || SIP/user-id] # desliga chamadas
     - IVR - Interactive Voice Response (URA - Unidade de Resposta Audível): Sistema automático de atendimento de chamadas. Permite tocar mensagens gravadas, receber entrada via DTMF (teclas do telefone), direcionar chamadas para ramais, filas ou setores, encaminhar chamadas conforme horário e integrar com banco de dados.
 - AMI (Asterisk Management Interface): Permite chamar comandos no Asterisk de uma interface externa via TCP/IP. Muito usado para discadores (click-to-call).
 - ARI (Asterisk REST Interface): É a interface mais moderna, combina funcionalidades do AGI e AMI. Ele permite o uso de objetos do Asterisk através de APIs RESTful e dá acesso a eventos por websocket.
-'''
+```
