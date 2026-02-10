@@ -1,5 +1,3 @@
-#!/bin/bash
-
 '''
 Asterisk 13
 VM -> Rede: Modo Bridge
