@@ -35,7 +35,7 @@ exten => 1000,n,Dial(PJSIP/2000)
 
 > Isso é uma DSL (Domain-Specific Language) própria e não programação imperativa tradicional. É uma máquina de estados baseada em contextos e extensões.
 
-O Asterisk implementa principalmente os protocolos:
+O Asterisk pode se conectar tanto a softphones quanto a operadoras SIP Trunk, gateways GSM, placas E1 ou até mesmo WebRTC (usando DTLS-SRTP), implementa principalmente os protocolos:
 - RTP (RFC 3550): transporte de mídia
 - IAX2 (protocolo próprio): mais eficiente em NAT traversal
 - SIP (RFC 3261): padrão dominante de sinalização VoIP
