@@ -1,17 +1,17 @@
 # Asterisk
-É um software open source que implementa as funções de um PBX (Private Branch Exchange) – central telefônica – em um único programa, permitindo estabelecer e controlar chamadas entre dispositivos de rede e também entre dispositivos e a rede pública de telefonia comutada (PSTN).  
-Ele funciona como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais, por exemplo:
-- Como IP-PBX completo, gerenciando ramais internos e roteando chamadas externas via SIP ou IAX.
+É um software de central telefônica open source que implementa as funções de um PBX (Private Branch Exchange) em um único programa, permitindo estabelecer e controlar chamadas entre dispositivos de rede e também entre dispositivos e a rede pública de telefonia comutada (PSTN). Ele surgiu como uma proposta disruptiva para substituir PABXs proprietários de alto custo por uma solução executada em hardware comum com Linux.  
+Conceitualmente, o Asterisk não é apenas um "servidor VoIP", ele é um motor de processamento de chamadas. Ele implementa sinalização (SIP, IAX/IAX2), controle de chamadas, execução lógica (dialplan), manipulação de mídia (RTP), integração com PSTN via placas (E1/FXO/FXS) e permite automação via AGI/ARI, funcionando como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais, por exemplo:
+- Como IP-PBX completo, gerenciando ramais internos e roteando chamadas externas via SIP ou IAX/IAX2.
 - Como servidor IVR/URA, oferecendo menus interativos com respostas por tecla (DTMF) ou reconhecimento de voz.
 - Como servidor de conferência e distribuição automática de chamadas (ACD) para call centers.
 - Como gateway PSTN/VoIP quando integrado com hardware DAHDI ou adaptadores ATA.
 
 > Seu nome deriva do símbolo de tecla `*` de telefone, usado em discagem DTMF.
 
-Ele é um framework de telecomunicações que suporta protocolos de VoIP como SIP, MGCP e H.323, além do próprio IAX nativo para conectar instâncias Asterisk. Ele pode ser estendido por módulos, scripts de dialplan e APIs, por exemplo:
+Ele é um framework de telecomunicações que suporta protocolos de VoIP como SIP, MGCP e H.323, além do próprio IAX/IAX2 nativo para conectar instâncias Asterisk. Ele pode ser estendido por módulos, scripts de dialplan e APIs, por exemplo:
 
 - AGI (Asterisk Gateway Interface): Permite chamar programas externos em qualquer linguagem de programação, passando parâmetros e recebendo informações (comandos ou resultados). Muito usado para URA*.
-- IVR - Interactive Voice Response (URA - Unidade de Resposta Audível): Sistema automático de atendimento de chamadas. Permite tocar mensagens gravadas, receber entrada via DTMF (teclas do telefone), direcionar chamadas para ramais, filas ou setores, encaminhar chamadas conforme horário e integrar com banco de dados.
+- IVR – Interactive Voice Response (URA – Unidade de Resposta Audível): Sistema automático de atendimento de chamadas. Permite tocar mensagens gravadas, receber entrada via DTMF (teclas do telefone), direcionar chamadas para ramais, filas ou setores, encaminhar chamadas conforme horário e integrar com banco de dados.
 - AMI (Asterisk Management Interface): Permite chamar comandos no Asterisk de uma interface externa via TCP/IP. Muito usado para discadores (click-to-call).
 - ARI (Asterisk REST Interface): É a interface mais moderna, combina funcionalidades do AGI e AMI. Ele permite o uso de objetos do Asterisk através de APIs RESTful e dá acesso a eventos por websocket.
 
