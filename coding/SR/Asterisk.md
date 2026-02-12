@@ -16,7 +16,7 @@ Ele é um framework de telecomunicações que suporta protocolos de VoIP como SI
 - ARI (Asterisk REST Interface): É a interface mais moderna, combina funcionalidades do AGI e AMI. Ele permite o uso de objetos do Asterisk através de APIs RESTful e dá acesso a eventos por websocket.
 
 ```sh
-Asterisk 13
+Asterisk 13 & Debian
 VM -> Rede: Modo Bridge
 ssh user_login@host_ip || ssh host_ip -user_login
 
@@ -26,12 +26,6 @@ iptables -F && systemctl stop firewalld && systemctl disable firewalld
 nano /etc/selinux/config # SELINUX=disabled
 setenforce 0
 cd /usr/src
-
-# pjsip
-# wget https://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-18.26.4.tar.gz
-# tar xvzf asterisk-18.26.4.tar.gz
-# cd ./asterisk-18.26.4.tar.gz
-
 wget https://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-13.23.1.tar.gz
 tar xvzf asterisk-13.23.1.tar.gz
 cd ./asterisk-13.23.1.tar.gz
@@ -51,11 +45,11 @@ systemctl status asterisk           # systemctl start asterisk && systemctl enab
 asterisk -rvvvvv                            # Asterisk CLI
 CLI> core reload                            # carrega as alterações feitas
 CLI> core restart now                       # reinicia o asterisk
-# etc/init.d/asterisk stop || core stop now # desativa o asterisk
-# etc/init.d/asterisk start || asterisk     # inicia o asterisk
+# /etc/init.d/asterisk stop || core stop now # desativa o asterisk
+# /etc/init.d/asterisk start || asterisk     # inicia o asterisk
 
 nano /etc/asterisk/asterisk.conf   # [OPTIONS] verbose = 99 -> habilita modo verboso | maxfiles = 10000 -> evita lentidão no servidor
-nano /etc/asterisk/logger.conf     # full: habilita todos os logs
+nano /etc/asterisk/logger.conf     # full -> habilita todos os logs
 tail -n 30 /var/asterisk/logs/full # exibe os logs
 
 cp /etc/asterisk/sip.conf /etc/asterisk/sip.conf.bkp && nano /etc/asterisk/sip.conf && asterisk -r # cria contas SIP
@@ -178,8 +172,8 @@ nano /etc/asterisk/extensions.conf # criar contextos
 # ; exten         => _ZXXX,    1,                NoOp(OK)
 # ; ↳ object_name
 
-[out]                                     # ao atingir este contexto, execute os comandos abaixo
-exten => _ZXXX,1,NoOp(OK)                 # imprime a msg na CLI
+[out]                                     # "ao atingir este contexto, execute os comandos abaixo"
+exten => _ZXXX,1,NoOp(OK)                 # imprime a msg "OK" na CLI
         same => n,Dial(SIP/${EXTEN},30)   # define o dialplan(protocolo/${variável_numero_discado=_ZXXX})
 	    same => n,Hangup()
 
@@ -194,7 +188,7 @@ CLI> channel request hangup [all || SIP/user-id] # desliga chamadas
 
 # ; CHANNELs
 # ; herança de opções: as opções são definidas antes e os objetos as herdam
-# [channels]
+# [channel]
 # context=default
 # signalling=fxs_ks
 # group=1
