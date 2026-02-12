@@ -1,3 +1,16 @@
+# Asterisk
+É um software open source que implementa as funções de um PBX (Private Branch Exchange) – central telefônica – em um único programa, permitindo estabelecer e controlar chamadas entre dispositivos de rede e também entre dispositivos e a rede pública de telefonia comutada (PSTN).  
+Ele funciona como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais.
+
+> Seu nome deriva do símbolo de tecla `*` de telefone, usado em discagem DTMF.
+
+Ele é um framework de telecomunicações que suporta protocolos de VoIP como SIP, MGCP e H.323, além do próprio IAX nativo para conectar instâncias Asterisk. Ele pode ser estendido por módulos, scripts de dialplan e APIs, por exemplo:
+
+- AGI (Asterisk Gateway Interface): Permite chamar programas externos em qualquer linguagem de programação, passando parâmetros e recebendo informações (comandos ou resultados). Muito usado para URA*.
+- IVR - Interactive Voice Response (URA - Unidade de Resposta Audível): Sistema automático de atendimento de chamadas. Permite tocar mensagens gravadas, receber entrada via DTMF (teclas do telefone), direcionar chamadas para ramais, filas ou setores, encaminhar chamadas conforme horário e integrar com banco de dados.
+- AMI (Asterisk Management Interface): Permite chamar comandos no Asterisk de uma interface externa via TCP/IP. Muito usado para discadores (click-to-call).
+- ARI (Asterisk REST Interface): É a interface mais moderna, combina funcionalidades do AGI e AMI. Ele permite o uso de objetos do Asterisk através de APIs RESTful e dá acesso a eventos por websocket.
+
 ```sh
 Asterisk 13
 VM -> Rede: Modo Bridge
@@ -187,10 +200,4 @@ CLI> channel request hangup [all || SIP/user-id] # desliga chamadas
 # USER ID: 1000   (ramal)
 # SIP IP: 1000@IP (ramal@ip_servidor-asterisk)
 # PASSWORD: s1000 (senha ramal)
-
---- EXTRA ---
-- AGI (Asterisk Gateway Interface): Permite chamar programas externos em qualquer linguagem de programação, passando parâmetros e recebendo informações (comandos ou resultados). Muito usado para URA*.
-    - IVR - Interactive Voice Response (URA - Unidade de Resposta Audível): Sistema automático de atendimento de chamadas. Permite tocar mensagens gravadas, receber entrada via DTMF (teclas do telefone), direcionar chamadas para ramais, filas ou setores, encaminhar chamadas conforme horário e integrar com banco de dados.
-- AMI (Asterisk Management Interface): Permite chamar comandos no Asterisk de uma interface externa via TCP/IP. Muito usado para discadores (click-to-call).
-- ARI (Asterisk REST Interface): É a interface mais moderna, combina funcionalidades do AGI e AMI. Ele permite o uso de objetos do Asterisk através de APIs RESTful e dá acesso a eventos por websocket.
 ```
