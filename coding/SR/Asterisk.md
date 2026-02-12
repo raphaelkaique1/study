@@ -1,6 +1,6 @@
 # Asterisk
 É um software de central telefônica open source que implementa as funções de um PBX (Private Branch Exchange) em um único programa, permitindo estabelecer e controlar chamadas entre dispositivos de rede e também entre dispositivos e a rede pública de telefonia comutada (PSTN). Ele surgiu como uma proposta disruptiva para substituir PABXs proprietários de alto custo por uma solução executada em hardware comum com Linux.  
-Conceitualmente, o Asterisk não é apenas um "servidor VoIP", ele é um motor de processamento de chamadas. Ele implementa sinalização (SIP, IAX/IAX2), controle de chamadas, execução lógica (dialplan), manipulação de mídia (RTP), integração com PSTN via placas (E1/FXO/FXS) e permite automação via AGI/ARI, funcionando como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais, por exemplo:
+Conceitualmente, o Asterisk não é apenas um "servidor VoIP", ele é um B2BUA (Back-to-Back User Agent) com motor de processamento de chamadas com capacidade de comutação de mídia e execução de lógica telefônica com DSL própria de controle (ele encerra uma sessão SIP e cria outra internamente, portanto controla estado, mídia e lógica). Ele implementa sinalização (SIP, IAX/IAX2), controle de chamadas, execução lógica (dialplan), manipulação de mídia (RTP), integração com PSTN via placas (E1/FXO/FXS) e permite automação via AGI/ARI, funcionando como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais, por exemplo:
 - Como IP-PBX completo, gerenciando ramais internos e roteando chamadas externas via SIP ou IAX/IAX2.
 - Como servidor IVR/URA, oferecendo menus interativos com respostas por tecla (DTMF) ou reconhecimento de voz.
 - Como servidor de conferência e distribuição automática de chamadas (ACD) para call centers.
@@ -35,7 +35,7 @@ exten => 1000,n,Dial(PJSIP/2000)
 
 > Isso é uma DSL (Domain-Specific Language) própria e não programação imperativa tradicional. É uma máquina de estados baseada em contextos e extensões.
 
-O Asterisk pode se conectar tanto a softphones quanto a operadoras SIP Trunk, gateways GSM, placas E1 ou até mesmo WebRTC (usando DTLS-SRTP), implementa principalmente os protocolos:
+O Asterisk pode se conectar tanto a softphones quanto a operadoras SIP Trunk, gateways GSM, placas E1 ou até mesmo WebRTC (usando DTLS-SRTP; com PJSIP + DTLS + SRTP + ICE, o Asterisk pode atuar como backend WebRTC, permitindo chamadas direto do navegador. Contudo, para ambientes grandes, normalmente ele fica atrás de um SBC), implementa principalmente os protocolos:
 - RTP (RFC 3550): transporte de mídia
 - IAX2 (protocolo próprio): mais eficiente em NAT traversal
 - SIP (RFC 3261): padrão dominante de sinalização VoIP
