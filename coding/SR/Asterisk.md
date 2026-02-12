@@ -1,6 +1,10 @@
 # Asterisk
 É um software open source que implementa as funções de um PBX (Private Branch Exchange) – central telefônica – em um único programa, permitindo estabelecer e controlar chamadas entre dispositivos de rede e também entre dispositivos e a rede pública de telefonia comutada (PSTN).  
-Ele funciona como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais.
+Ele funciona como um softswitch que pode operar como central telefônica IP (IP-PBX), servidor de corrreio de voz, sistema de respostas interativas (IVR), conferência, gateway VoIP-PSTN e muito mais, por exemplo:
+- Como IP-PBX completo, gerenciando ramais internos e roteando chamadas externas via SIP ou IAX.
+- Como servidor IVR/URA, oferecendo menus interativos com respostas por tecla (DTMF) ou reconhecimento de voz.
+- Como servidor de conferência e distribuição automática de chamadas (ACD) para call centers.
+- Como gateway PSTN/VoIP quando integrado com hardware DAHDI ou adaptadores ATA.
 
 > Seu nome deriva do símbolo de tecla `*` de telefone, usado em discagem DTMF.
 
