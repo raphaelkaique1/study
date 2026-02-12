@@ -15,6 +15,32 @@ Ele é um framework de telecomunicações que suporta protocolos de VoIP como SI
 - AMI (Asterisk Management Interface): Permite chamar comandos no Asterisk de uma interface externa via TCP/IP. Muito usado para discadores (click-to-call).
 - ARI (Asterisk REST Interface): É a interface mais moderna, combina funcionalidades do AGI e AMI. Ele permite o uso de objetos do Asterisk através de APIs RESTful e dá acesso a eventos por websocket.
 
+## Arquitetura e Funcionamento
+O Asterisk é modular, no seu núcleo há o core de chamadas, e em volta dele existem módulos carregáveis que implementam:
+- Canais (chan_sip, chan_pjsip, chan_dahdi)
+- Codecs (g711, g729, opus e etc)
+- Aplicações de dialplan (Dial, Playback, Queue, MeetMe, ConfBridge)
+- Interfaces externas (AGI, AMI, ARI)
+
+Ele trabalha com 3 planos distintos:
+1. Sinalização (SIP/IAX2): estabelece, modifica e encerra sessões
+2. Mídia (RTP): transporta áudio/vídeo
+3. Controle lógico (Dialplan): decide o que fazer com a chamada
+
+O dialplan é o coração da lógica, é definido em **`extensions.conf`** e funciona como um interpretador declarativo baseado em prioridades:
+
+exten => 1000,1,Answer()  
+exten => 1000,n,Playback(welcome)  
+exten => 1000,n,Dial(PJSIP/2000)  
+
+> Isso é uma DSL (Domain-Specific Language) própria e não programação imperativa tradicional. É uma máquina de estados baseada em contextos e extensões.
+
+O Asterisk implementa principalmente os protocolos:
+- RTP (RFC 3550): transporte de mídia
+- IAX2 (protocolo próprio): mais eficiente em NAT traversal
+- SIP (RFC 3261): padrão dominante de sinalização VoIP
+- PJSIP (substituiu chan_sip): stack SIP moderna recomendada
+
 ```sh
 Asterisk 13 & Debian
 VM -> Rede: Modo Bridge
