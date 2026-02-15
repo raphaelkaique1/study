@@ -91,7 +91,7 @@ Entretanto, apesar de ser comumente visto em scripts executados em Linux, os com
 - [Process Substitution `<()`]()
 - [`declare`](), [`local`]()
 
-Por isso, é importante saber que o `sh` atualmente trabalha como uma interface (sendo um _padrão para comandos_), e não como um binário específico. Ao declarar `/bin/sh/` para a execução, cada sistema definirá e direcionará os comandos para serem executados pelo seu interpretador de shell padrão:
+Por isso, é importante saber que o `sh` atualmente trabalha como uma interface (sendo um _padrão para comandos_), e não como um binário específico. Ao declarar `/bin/sh/` para a execução, cada sistema definirá e direcionará os comandos para serem executados pelo seu interpretador padrão de shell:
 | Sistema         | `/bin/sh` aponta para |
 | --------------- | --------------------- |
 | Debian / Ubuntu | `dash`                |
@@ -113,9 +113,9 @@ Mas na realidade:
 
 ## Script Programming
 ### Variáveis
-São pares de **chave=valor** em um endereço de memória acessível através de um nome que lhe é atribuído, com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Este dado pode ser tanto um valor atribuído diretamente logo na declaração da variável iniciando-a assim com um valor, quanto um valor resultante de alguma execução que só lhe será atribuído após a finalização da operação.  
+São pares de **`chave=valor`** alocados em um endereço na memória volátil acessíveis através do nome que lhe é atribuído (chave) com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Este dado pode ser tanto um valor atribuído diretamente logo na declaração da variável iniciando-a assim com um valor, quanto o resultado de alguma execução que só lhe será atribuído após a finalização da operação.  
 Para que o shell entenda que a intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si (como uma string)_, é necessário utilizar o símbolo **`$`** antes do nome da variável (**`root@host# echo $chave # output: valor`**).  
-Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, sendo proibído utilizar nomes de comandos nativos ou de variáveis de ambiente. 
+Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, sendo proibido utilizar nomes de comandos nativos ou de variáveis de ambiente. 
 
 ##### Literais
 São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
@@ -131,7 +131,7 @@ raphaelkaique1
 ```
 
 #### Dinâmicas
-As variáveis dinâmicas são aquelas que possuem seu valor atribuído sendo o resultado da execução de outro processo (Command Substitution). São declaradas com o comando a ser executado, ou mesmo uma cadeia sequenciada de comandos. O shell executa o comando, captura sua saída padrão (stdout) e armazena o resultado na variável.  
+As variáveis dinâmicas são aquelas que não são inicializadas com um valor específico, mas sim com uma função, e terão como valor atribuído o resultado da execução deste ou de outro processo (Command Substitution). São declaradas com o comando a ser executado, ou mesmo uma cadeia sequenciada de comandos. O shell executa o comando, captura sua saída padrão (stdout) e armazena o resultado na variável.  
 Sua sintaxe exige que o(s) comando(s) seja(m) declarado(s) entre `$(...)` na atribuição da variável, para que o shell entenda que são comandos e não strings.
 ```sh
 dev@localhost:~$ THIS_PATH=pwd
@@ -140,7 +140,6 @@ pwd
 dev@localhost:~$ THIS_PATH=$(pwd)
 dev@localhost:~$ echo $THIS_PATH
 /home/dev
-dev@localhost:~$
 ```
 
 Na realidade, o shell realiza a seguinte sequência de operações:
@@ -152,19 +151,18 @@ Na realidade, o shell realiza a seguinte sequência de operações:
 ```sh
 dev@localhost:~$ FILES_COUNT=$(ls | wc -l) && echo $FILES_COUNT              
 10
-
 dev@localhost:~$ DATA_ATUAL=$(date +"%d/%m/%Y") && HOST=$(hostname); echo "
 > Data: $DATA_ATUAL
 > Host: $HOST"
-
 Data: 20/01/2026
 Host: localhost
 ```
 
+> No Bourne Shell original, usava-se a sistaxe `backtricks` para capturar a saída de um command substitution no shell, porém, apesar de ainda ser suportada (para compatibilidade histórica) tornou-se legada por ser difíci de aninhar, nada legível e gerar problemas com escaping. Após o POSIX, a forma moderna e correta passou a ser o `$()` pois além de ser formalmente definida no padrão POSIX, é mais legível, o que permite aninhamento natural e mais previsível.
+
 #### Remover
-Assim como podem ser criadas no processo atual, **variáveis também podem ser removidas**, esta prática libera espaço não utilizado na memória. A sintaxe deste comando exige o verdadeiro nome da variável seja informado para que funcione, exatamente como foi declarada `VAR=valor` (não como a sua referência `$VAR`).
+Assim como são criadas no processo atual, **variáveis podem ser removidas**, essa é uma boa prática pois libera espaço não utilizado na memória. A sintaxe deste comando exige o verdadeiro nome da variável seja informado para que funcione, exatamente como foi declarada `VAR=valor` (não como a sua referência `$VAR`): `unset VAR`.
 ```sh
-# unset VAR
 dev@localhost:~$ VAR='var_1'
 dev@localhost:~$ echo $VAR
 var_1
@@ -173,8 +171,7 @@ dev@localhost:~$ echo $VAR
 var_1
 dev@localhost:~$ unset VAR
 dev@localhost:~$ echo $VAR
-
-dev@localhost:~$ 
+# saída vazia: VAR = não reconhecida
 ```
 
 #### Variáveis Temporárias e Multiplas Variáveis
@@ -187,29 +184,35 @@ Por exemplo:
 ```bash
 LANG=C ls
 ```
+
 O comando `ls` será executado com `LANG=C`, mas o valor **não permanece** depois.
+```sh
+dev@localhost:~/Dev$ ls
+'Ambiente de Impressão' 'Configurações Locais'
+dev@localhost:~/Dev$ LANG=C ls
+'Ambiente de Impress'$'\303\243''o' 'Configura'$'\303\247\303\265''es Locais'
+dev@localhost:~/Dev$ ls
+'Ambiente de Impressão' 'Configurações Locais'
+```
 
 Além de serem usadas diretamente na linha de comandos, também é possível definir uma ou mais variáveis para um script:
 ```sh
 dev@localhost:~/Dev$ cat ./script.sh 
 echo $DEBUG
-
 dev@localhost:~/Dev$ DEBUG=true ./script.sh 
 true
-
 dev@localhost:~/Dev$ echo '
 > echo $DEBUG
 > echo $DB_HOST' > ./script.sh
 dev@localhost:~/Dev$ DEBUG=true ./script.sh 
 true
 # saída vazia: DB_HOST = vazio
-
 dev@localhost:~/Dev$ DEBUG=true DB_HOST=localhost ./script.sh 
 true
 localhost
 ```
 
-Por padrão, o `sudo` remove variáveis de ambiente. Para evitar a execução de um comando e a variável seja perdida, a forma correta é "acessar" o sudo antes de declarar o comando a ser executado:
+Por padrão, o `sudo` remove variáveis de ambiente. Para evitar a execução de um comando e a variável seja perdida, a forma correta é "acessar" o super usuário antes de declarar o comando a ser executado:
 ```sh
 sudo VAR=test command
 ```
@@ -231,7 +234,7 @@ dev@localhost:~$ export NICKNAME=raphaelkaique1 # variável deste ambiente - pod
 ```
 
 As variáveis declaradas são visíveis apenas dentro da árvore de processos iniciada por um determinado processo, normalmente um shell. Cada processo tem seu próprio ambiente, e quando um processo cria outro processo (`fork`/`exec`), este novo processo é conhecido como _subprocesso_, ou _processo filho_, que **herda uma cópia do ambiente do pai**, e essa herança é unidirecional, ou seja, apenas do pai para o filho (nunca do filho para o pai).  
-Enquanto a variável declarada apenas localmente pode ser acessada somente dentro do shell em que foi criada, a variável local é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer moficação feita por eles NÃO afeta o valor da variável no processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai.  
+Enquanto a variável declarada localmente pode ser acessada somente dentro do shell em que foi criada, a variável local é exportada para o "ambiente" do processo e assim passada a processos filhos. Estes podem ler e utilizar a informação do valor das variáveis de ambiente herdadas, mas qualquer modificação feita por eles NÃO afeta o valor da variável no processo pai, em outras palavaras, processos filhos podem utilizar essas variáveis, mas alterações feitas por eles não são refletidas no processo pai.  
 Essas variáveis são usadas pelo sistema operacional e também pelos programas para definir comportamentos, configurações e caminhos padrão. 
 ```sh
 dev@localhost:~$ env # exibe as variáveis do ambiente atual
