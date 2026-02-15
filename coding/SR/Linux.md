@@ -12,7 +12,7 @@ Hardware
 
 Enquanto o Kernel não compreende o que é `ls` por exemplo, o Shell não executa nada sozinho. Ou seja, quando o usuário digita `ls` no terminal o que realmente acontece é:
 1. `sh` recebe a linha
-2. faz [parsing]() e [expansão]()
+2. faz [`parsing`]() e [`expansão`]()
 3. cria um processo filho `fork`
 4. substitui o processo por `/bin/ls` usando `execve`
 5. o Kernel então carrega o binário
@@ -31,7 +31,7 @@ Sua função real é traduzir ao sistema operacional o que o usuário espera que
 3. invoca chamadas de sistema como `fork` e `exec` por exemplo
 4. kernel executa o binário
 
-> O `sh` não executa nada por si só, ele apenas _orquestra_ a execução dos comandos no kernel.
+> O `sh` não executa nada por si só, ele apenas _orquestra_ a ordem de execução dos comandos no kernel.
 
 Outro bom exemplo seria a execução do comando:
 ```sh
@@ -48,12 +48,12 @@ Enquanto cada binário correspondente é executado:
 - `grep`
 - `write`
 
-O Kernel apenas fornece primitivas. Entretanto, apesar de parecer banal, shell é opcional em sistemas, mas o kernel não. É possível utilizar qualquer serviço de shell (bash, zsh ou fish por exemplo) e executar binários sem shell. Quando não existe um Shell, o Kernel sobe normalmente, executa o PID 1 (systemd), roda serviços e aplicações, sem o Shell apenas não existe interação humana (mas o sistema funciona normalmente), embedded e containers fazem isso o tempo todo, mas é impossível rodar Linux sem kernel, pois sem ele não existe comunicação e manipulação de hardware.
+O Kernel apenas fornece primitivas. Entretanto, apesar de parecer banal, shell é opcional em sistemas, mas o kernel não. É possível utilizar qualquer serviço de shell (bash, zsh ou fish por exemplo) e executar binários sem um script shell. Quando não existe um shell, o Kernel sobe normalmente, executa o PID 1 (systemd), roda serviços e aplicações, sem um Shell apenas não existe interação humana (mas o sistema funciona normalmente), embedded e containers fazem isso o tempo todo, mas é impossível rodar Linux sem kernel, pois sem ele não existe comunicação e manipulação de hardware.
 
 > Em poucas palavras, pode-se resumir este conceito em: **Shell fala, Kernel age.**
 
 ## POSIX Shell
-Visto que o Shell SH é a _"linguagem"_ padrão para execução de comandos de SOs baseados em Unix através do terminal de comandos, os interpretadores de Shell precisam ser **SH compatíveis**, e para serem considerados compatíveis com script `sh` eles devem respeitar o padrão **POSIX Shell** e necessariamente atender as características mínimas que se esperam:
+Visto que o Shell SH Script é a _"linguagem"_ padrão para execução de comandos de SOs baseados em Unix através do terminal de comandos, os interpretadores de ShellScript precisam ser **SH compatíveis**, e para serem considerados compatíveis com script `sh` eles devem respeitar o padrão **POSIX Shell** e necessariamente atender as características mínimas que se esperam:
 - variáveis simples `VAR=value`
 - pipes `|`
 - redirecionamentos `<`, `>`, `>>`
@@ -61,8 +61,8 @@ Visto que o Shell SH é a _"linguagem"_ padrão para execução de comandos de S
 - funções básicas `function() {}`
 - exit codes `$?`
 
-O POSIX (Portable Operating System Interface) foi criado para resolver o problema de compatibilidade, pois com o sucesso do Unix nos anos 80, cada fornecedor desenvolveu seu próprio shell, o que gerava problemas em portabilidade e execução de programas, pois apesar de cada um afirmar que o seu interpretador era compatível com `sh`, não havia de fato um padrão que descrevesse o que era o `sh`, até o surgimento do POSIX. Ele propõe uma sintaxe e define comportamentos que se esperam que um interpretador shell entenda e execute.  
-`#!/bin/sh`
+O POSIX (Portable Operating System Interface) foi criado para resolver o problema de compatibilidade, pois com o sucesso do Unix nos anos 80, cada fornecedor desenvolveu seu próprio shell, o que gerava problemas em portabilidade e execução de programas, pois apesar de cada um afirmar que o seu interpretador era compatível com `sh` script, não havia de fato um padrão que descrevesse o que era o ShellScript, até o surgimento do POSIX. Ele propõe uma sintaxe e define comportamentos que se esperam que um interpretador shell entenda e execute.  
+`#!/bin/sh`  
 O _"mínimo comum"_ que um interpretador deve suportar está descrito no **núcleo padronizado do Shell**:
 - **Linguagem**
   - variáveis escalares
@@ -83,15 +83,15 @@ O _"mínimo comum"_ que um interpretador deve suportar está descrito no **núcl
   - `0 = sucesso` _convenção_
 
 Entretanto, apesar de ser comumente visto em scripts executados em Linux, os comandos listados a seguir não são explicitamente garantidos pelo POSIX, sendo em suma extensões de shell específico (geralmente `bash`):
-- [Arrays=({0..9})](https://quickref.me/bash#bash-arrays)
-- `[[ ... ]]`
-- `(( ... ))`
-- `source`
-- RegExp avançado
-- Process Substitution `<()`
-- `declare`, `local`
+- [`Arrays=({0..9})`](https://quickref.me/bash#bash-arrays)
+- [`[[ ... ]]`]()
+- [`(( ... ))`]()
+- [`source`]()
+- [RegExp avançado]()
+- [Process Substitution `<()`]()
+- [`declare`](), [`local`]()
 
-Por isso, é importante saber que o `sh` atualmente trabalha como uma interface (sendo um _padrão para comandos_), e não como um binário específico. Por isso, ao declarar `/bin/sh/` para a execução, cada sistema definirá e direcionará os comandos para serem executados pelo seu interpretador de shell padrão:
+Por isso, é importante saber que o `sh` atualmente trabalha como uma interface (sendo um _padrão para comandos_), e não como um binário específico. Ao declarar `/bin/sh/` para a execução, cada sistema definirá e direcionará os comandos para serem executados pelo seu interpretador de shell padrão:
 | Sistema         | `/bin/sh` aponta para |
 | --------------- | --------------------- |
 | Debian / Ubuntu | `dash`                |
