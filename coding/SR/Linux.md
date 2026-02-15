@@ -287,57 +287,21 @@ DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 _=/usr/bin/env
 ```
 
-###### Variáveis de Ambiente
+###### Variáveis Persistentes de Ambiente
+O método `export VAR='local'` só torna a variável disponível para os processos filhos do shell atual, ou seja, não é possível usá-la em outros shells já abertos nem em novos terminais independentes (pois ela não existe para nenhum deles).
+* Terminal A: `export VAR='local'` - disponível para subprocessos
+* Terminal B (já aberto ou aberto depois): `echo $VAR` - não existe neste processo
 
-### Environment
-
-Variáveis persistentes
-
-## Resposta curta
-
-👉 **`export TESTE=123` só torna a variável disponível para os *processos filhos* do shell atual.**
-Ela **não** fica disponível para outros shells já abertos nem para novos terminais independentes.
-
-Ou seja:
-
-* Terminal A: `export TESTE=123` ✅
-* Terminal B (já aberto ou aberto depois): `echo $TESTE` ❌ (não existe)
-
----
-
-## Por quê isso acontece?
-
-Cada terminal (shell) é um **processo independente** no sistema.
-
-* Variáveis de ambiente:
-
-  * São herdadas **apenas no momento da criação do processo**
-  * Fluem **do pai → filho**
-  * **Nunca** do filho → pai
-  * **Nunca** entre processos irmãos
-
-Então:
-
+Isso acontece porque cada terminal (shell) é um processo independente no sistema, então cada variável declarada em um shell pode ser herdada apenas no momento da criação do processo, fluindo do processo pai para o processo filho, por isso não é possível compartilhá-las entre processos irmãos e nem passadas do filho para o pai. Então:
 ```
 Terminal A (bash)
- ├─ export TESTE=123
- └─ filho → script.sh   (TESTE disponível)
+ ├─ export VAR='local'
+ └─ filho → script.sh   (VAR disponível)
 
 Terminal B (bash)
- └─ processo separado   (TESTE não existe)
+ └─ processo separado   (VAR não existe)
 ```
-
----
-
-## O que o `export` realmente faz?
-
-```bash
-export TESTE=123
-```
-
-* Cria a variável no shell atual
-* Marca essa variável para ser **herdada por processos filhos**
-
+----------
 Exemplo:
 
 ```bash
@@ -352,8 +316,7 @@ Mas:
 exit
 echo $TESTE   # não funciona
 ```
-
----
+----------
 
 ## Como tornar a variável disponível em **todos os shells**?
 
