@@ -287,7 +287,7 @@ DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 _=/usr/bin/env
 ```
 
-###### Variáveis Persistentes de Ambiente
+###### Variáveis Globais
 O método `export VAR='local'` só torna a variável disponível para os processos filhos do shell atual, ou seja, não é possível usá-la em outros shells já abertos nem em novos terminais independentes (pois ela não existe para nenhum deles).
 * Terminal A: `export VAR='local'` - disponível para subprocessos
 * Terminal B (já aberto ou aberto depois): `echo $VAR` - não existe neste processo
@@ -301,87 +301,46 @@ Terminal A (bash)
 Terminal B (bash)
  └─ processo separado   (VAR não existe)
 ```
-----------
-Exemplo:
 
-```bash
-export TESTE=123
-bash
-echo $TESTE   # funciona
+Por isso quando é preciso disponibilizar uma variável em todo o ambiente, é necessário torná-la persistente, colocando-a em arquivos de inicialização de sessão de login (TTY).
+
+- user (sessão local):
+```sh
+dev@localhost:~$ echo 'export VAR=9' >> ~/.bashrc
+dev@localhost:~$ tail -n 1 ~/.bashrc 
+export VAR=9
+dev@localhost:~$ source ~/.bashrc 
+dev@localhost:~$ echo $VAR
+9
+dev@localhost:~$ VAR=1
+dev@localhost:~$ echo $VAR
+1
+dev@localhost:~$ tail -n 1 ~/.bashrc
+export VAR=9
 ```
 
-Mas:
-
+- root (sessão global):
 ```bash
-exit
-echo $TESTE   # não funciona
-```
-----------
+dev@localhost:~$ sudo su
+root@localhost:~$# cat /etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+root@localhost:~$# echo 'VAR=9' >> /etc/environment
+root@localhost:~$# cat /etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+VAR=9
+root@localhost:~$# echo $VAR
 
-## Como tornar a variável disponível em **todos os shells**?
-
-Você precisa torná-la **persistente**, colocando-a em arquivos de inicialização.
-
-### Para um usuário:
-
-```bash
-~/.bashrc
-```
-
-ou
-
-```bash
-~/.profile
-```
-
-Exemplo:
-
-```bash
-export TESTE=123
-```
-
-Depois:
-
-* Abra um novo terminal, ou
-* Rode:
-
-```bash
-source ~/.bashrc
+root@localhost:~$# source /etc/environment
+root@localhost:~$# echo $VAR
+9
+root@localhost:~$# VAR=0
+root@localhost:~$# echo $VAR
+0
+root@localhost:~$# cat /etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+VAR=9
 ```
 
 ---
-
-### Para todo o sistema:
-
-```bash
-/etc/environment
-```
-
-Exemplo:
-
-```text
-TESTE=123
-```
-
-⚠️ Sem `export` nesse arquivo.
-
----
-
-## Tabela-resumo
-
-| Situação                         | TESTE disponível? |
-| -------------------------------- | ----------------- |
-| Mesmo shell                      | ✅                |
-| Processos filhos                 | ✅                |
-| Outro terminal já aberto         | ❌                |
-| Novo terminal (sem persistência) | ❌                |
-| Novo terminal (com `.bashrc`)    | ✅                |
-
----
-
-## Regra de ouro 🧠
-
-> **Variáveis de ambiente não são globais do sistema, são locais ao processo e seus filhos.**
-
 * **Básico**: Diferença entre `.bashrc`, `.profile`, `.bash_profile`
 * **Avançado**: Como serviços (`systemd`) lidam com variáveis de ambiente
