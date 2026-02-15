@@ -304,7 +304,7 @@ Terminal B (bash)
 
 Por isso quando é preciso disponibilizar uma variável em todo o ambiente, é necessário torná-la persistente, colocando-a em arquivos de inicialização de sessão de login (TTY).
 
-- user (sessão local):
+- user (TTY local):
 ```sh
 dev@localhost:~$ echo 'export VAR=9' >> ~/.bashrc
 dev@localhost:~$ tail -n 1 ~/.bashrc 
@@ -319,7 +319,7 @@ dev@localhost:~$ tail -n 1 ~/.bashrc
 export VAR=9
 ```
 
-- root (sessão global):
+- root (TTY global):
 ```bash
 dev@localhost:~$ sudo su
 root@localhost:~$# cat /etc/environment
@@ -340,7 +340,3 @@ root@localhost:~$# cat /etc/environment
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 VAR=9
 ```
-
----
-* **Básico**: Diferença entre `.bashrc`, `.profile`, `.bash_profile`
-* **Avançado**: Como serviços (`systemd`) lidam com variáveis de ambiente
