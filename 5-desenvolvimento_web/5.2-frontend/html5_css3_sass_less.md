@@ -1553,7 +1553,7 @@ Seus principais atributos são:
 
 Apesar de úteis, um `iframe` mal incorporado pode comprometer o SEO da página principal por questões de acessibilidade – pode causar dificuldades aos leitores de tela se não for bem usado – e interatividade – por conta de segurança e a restrição SOP, além de que o conteúdo do `iframe` não é indexado como parte da página principal, o que pode impactar na pontuação SEO.<br/>
 Cada `iframe` é como uma página nova sendo carregada, o que aumenta o uso de recursos e pode impactar na performance da aplicação, e pode ser particularmente difícil integrá-los à página principal de forma *natural* e *fluída*, então devem ser usados com cautela e apenas quando necessário, buscando sempre métodos modernos para uma interatividade dinâmica com o usuário como:
-- Componentes Web (<custom-element> + Shadow DOM): encapsulamento de UI reutilizável.
+- Componentes Web (`<custom-element>` + Shadow DOM): encapsulamento de UI reutilizável.
 - Single Page Applications (SPA): navegação dinâmica sem recarregar páginas.
 - Micro-frontends: arquitetura moderna para aplicações compostas por partes independentes.
 
