@@ -10,7 +10,7 @@ O **Shell SH** (ou simplesmente `sh`) é o shell padrão histórico dos sistemas
 Hardware
 ```
 
-Enquanto o Kernel não compreende o que é `ls` por exemplo, o Shell não executa nada sozinho. Ou seja, quando o usuário digita `ls` no terminal o que realmente acontece é:
+Enquanto o Kernel não compreende o que é `ls` por exemplo, o Shell não executa nada sozinho. Ou seja, quando o usuário digita `ls -l` no terminal o que realmente acontece é:
 1. `sh` recebe a linha
 2. faz [`parsing`]() e [`expansão`]()
 3. cria um processo filho `fork`
@@ -112,12 +112,14 @@ Mas na realidade:
 **Utilizar o padrão POSIX é o único árbitro confiável.**
 
 ## Script Programming
+Um shell script é uma sequência de comandos e construções da linguagem do shell, executadas em userland, que orquestram programas via kernel.
+
 ### Variáveis
 São pares de **`chave=valor`** alocados em um endereço na memória volátil acessíveis através do nome que lhe é atribuído (chave) com a finalidade de armazenar algum dado que pode ser alterado a qualquer momento. Este dado pode ser tanto um valor atribuído diretamente logo na declaração da variável iniciando-a assim com um valor, quanto o resultado de alguma execução que só lhe será atribuído após a finalização da operação.  
 Para que o shell entenda que a intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si (como uma string)_, é necessário utilizar o símbolo **`$`** antes do nome da variável (**`root@host# echo $chave # output: valor`**).  
 Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, sendo proibido utilizar nomes de comandos nativos ou de variáveis de ambiente. 
 
-##### Literais
+##### Estáticas
 São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
 ```sh
 dev@localhost:~$ NICKNAME=raphaelkaique
