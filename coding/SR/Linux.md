@@ -305,8 +305,7 @@ Terminal B (bash)
 ```
 
 Por isso quando é preciso disponibilizar uma variável em todo o ambiente, é necessário torná-la persistente, colocando-a em arquivos de inicialização de sessão de login (TTY).
-
-- user (TTY local):
+- user `~/.bashrc` (TTY local):
 ```sh
 dev@localhost:~$ echo 'export VAR=9' >> ~/.bashrc
 dev@localhost:~$ tail -n 1 ~/.bashrc 
@@ -320,8 +319,7 @@ dev@localhost:~$ echo $VAR
 dev@localhost:~$ tail -n 1 ~/.bashrc
 export VAR=9
 ```
-
-- root (TTY global):
+- root `/etc/environment` (TTY global):
 ```bash
 dev@localhost:~$ sudo su
 root@localhost:~$# cat /etc/environment
