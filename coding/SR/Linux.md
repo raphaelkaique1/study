@@ -119,6 +119,23 @@ São pares de **`chave=valor`** alocados em um endereço na memória volátil ac
 Para que o shell entenda que a intenção é resgatar o conteúdo da variável declarada _e não o nome da variável em si (como uma string)_, é necessário utilizar o símbolo **`$`** antes do nome da variável (**`root@host# echo $chave # output: valor`**).  
 Um ponto importante de atenção deve-se para com o nome da variável, que precisa ser único, sendo proibido utilizar nomes de comandos nativos ou de variáveis de ambiente. 
 
+#### Remover
+Assim como são criadas no processo atual, **variáveis podem ser removidas**, essa é uma boa prática pois libera espaço não utilizado na memória. A sintaxe deste comando exige o verdadeiro nome da variável seja informado para que funcione, exatamente como foi declarada `VAR=valor` (não como a sua referência `$VAR`): `unset VAR`.
+```sh
+dev@localhost:~$ VAR='var_1'
+dev@localhost:~$ echo $VAR
+var_1
+dev@localhost:~$ unset $VAR
+dev@localhost:~$ echo $VAR
+var_1
+dev@localhost:~$ unset VAR
+dev@localhost:~$ echo $VAR
+# saída vazia: VAR = não reconhecida
+```
+
+#### TIPOS
+Pelo fato de Shell Script não ter o objetivo de ser uma linguagem de dados mas sim ser uma linguagem de orquestração, ele não é _"fracamente tipado"_, na verdade Shell é não tipado no nível da linguagem e tipado no nível do processo.
+
 ##### Estáticas
 São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
 ```sh
@@ -132,7 +149,7 @@ dev@localhost:~$ echo $NICKNAME
 raphaelkaique1
 ```
 
-#### Dinâmicas
+##### Dinâmicas
 As variáveis dinâmicas são aquelas que não são inicializadas com um valor específico, mas sim com uma função, e terão como valor atribuído o resultado da execução deste ou de outro processo (Command Substitution). São declaradas com o comando a ser executado, ou mesmo uma cadeia sequenciada de comandos. O shell executa o comando, captura sua saída padrão (stdout) e armazena o resultado na variável.  
 Sua sintaxe exige que o(s) comando(s) seja(m) declarado(s) entre `$(...)` na atribuição da variável, para que o shell entenda que são comandos e não strings.
 ```sh
@@ -161,20 +178,6 @@ Host: localhost
 ```
 
 > No Bourne Shell original, usava-se a sistaxe `backtricks` para capturar a saída de um command substitution no shell, porém, apesar de ainda ser suportada (para compatibilidade histórica) tornou-se legada por ser difíci de aninhar, nada legível e gerar problemas com escaping. Após o POSIX, a forma moderna e correta passou a ser o `$()` pois além de ser formalmente definida no padrão POSIX, é mais legível, o que permite aninhamento natural e mais previsível.
-
-#### Remover
-Assim como são criadas no processo atual, **variáveis podem ser removidas**, essa é uma boa prática pois libera espaço não utilizado na memória. A sintaxe deste comando exige o verdadeiro nome da variável seja informado para que funcione, exatamente como foi declarada `VAR=valor` (não como a sua referência `$VAR`): `unset VAR`.
-```sh
-dev@localhost:~$ VAR='var_1'
-dev@localhost:~$ echo $VAR
-var_1
-dev@localhost:~$ unset $VAR
-dev@localhost:~$ echo $VAR
-var_1
-dev@localhost:~$ unset VAR
-dev@localhost:~$ echo $VAR
-# saída vazia: VAR = não reconhecida
-```
 
 #### Variáveis Temporárias e Multiplas Variáveis
 No Linux, também é possível definir e criar variáveis apenas durante a execução de um único comando, as chamadas **variáveis temporárias**. São variáveis definidas para a execução que se deseja e destruídas após a finalização da execução, sem afetar o ambiente do shell atual.
@@ -225,7 +228,7 @@ Diferença entre variável temporária e exportada:
 | Temporária         | Apenas o comando | Não          |
 | `export VAR=value` | Shell + filhos   | Sim          |
 
-###### Variáveis Locais
+#### Variáveis Locais
 São variáveis acessíveis apenas pelo ambiente do shell em execução, _podendo ser passadas para os **subprocessos do shell atual**_.  
 Elas existem para configurar o ambiente de execução de processos, sendo herdadas pelos processos filhos através do processo pai.
 ```sh
@@ -289,7 +292,7 @@ DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 _=/usr/bin/env
 ```
 
-###### Variáveis Globais
+#### Variáveis Globais
 O método `export VAR='local'` só torna a variável disponível para os processos filhos do shell atual, ou seja, não é possível usá-la em outros shells já abertos nem em novos terminais independentes (pois ela não existe para nenhum deles).
 * Terminal A: `export VAR='local'` - disponível para subprocessos
 * Terminal B (já aberto ou aberto depois): `echo $VAR` - não existe neste processo
