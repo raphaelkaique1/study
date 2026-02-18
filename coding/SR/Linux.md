@@ -175,7 +175,7 @@ Cada tipo de aspas define quais expansões são permitidas.
 - `"..."`: permite expansão de variáveis e comandos, mas impedem word splitting e globbing.
 
 A diferença crítica no uso de aspas duplas está na expansão e em como o shell enxerga os valores.
-- sem aspas o shell realiza IFS, e cada valor é separado a partir do espaço em branco como delimitador, então cada parte da variável se torna um argumento diferente. Além disso, seu comportamento no globbing é contra-intuitívo, pois quando usado `*` sem aspas, o comando expande.
+- sem aspas o shell realiza IFS, e cada valor é separado a partir do espaço em branco como delimitador, então cada parte da variável se torna um argumento diferente pois o resultado é considerado pelo shell uma string com quebra de linha interna `\n`. Além disso, seu comportamento no globbing é contra-intuitívo, pois quando usado `*` sem aspas, o comando expande.
 ```sh
 dev@localhost:~$  VAR="hello world"
 dev@localhost:~$  echo $VAR # neste caso o shell vê 2 argumento
@@ -186,7 +186,7 @@ script shell_script
 dev@localhost:~$ ls
 script  shell_script
 ```
-- com aspas o espaço em branco é preservado, por isso não é feito IFS, assim o valor contido entre elas não é "quebrado" e o shell enxerga como um único argumento. Já aqui, o globbing não sofre expansão, apenas será impresso como caractere.
+- com aspas o espaço em branco é preservado, por isso não é feito IFS, assim o valor contido entre elas não é "quebrado" e o shell enxerga como um único argumento, o que protege a expansão e torna seu comportamento previsível pois a estrutura interna da string é preservada, em muitos casos o output visual se parece muito com o resultado do uso de nenhuma aspa, pois o shell recebe cada argumento para o comando, porém semanticamente não são iguais, o que pode gerar bugs quando mal interpretados em loops por exemplo. Já aqui, o globbing não sofre expansão, apenas será impresso como caractere.
 ```sh
 dev@localhost:~$ VAR="hello world"
 dev@localhost:~$ echo "$VAR" # 1 único argumento
@@ -194,6 +194,8 @@ hello world
 dev@localhost:~$ echo "*"
 *
 ```
+
+> Isso vale também para atribuição de comandos à variáveis `VAR=$(whoami && pwd) != VAR="$(whoami && pwd)"?`, pois sem aspas cada saída será atribuída como uma string em uma nova linha na variável, o que pode causar comportamento inesperado, mas quando protegida com aspas o valor é apenas uma "única string".
 
 ##### Estáticas
 São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
