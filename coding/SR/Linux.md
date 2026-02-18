@@ -134,7 +134,35 @@ dev@localhost:~$ echo $VAR
 ```
 
 #### TIPOS
-Pelo fato de Shell Script não ter o objetivo de ser uma linguagem de dados mas sim ser uma linguagem de orquestração, ele não é _"fracamente tipado"_, na verdade Shell é não tipado no nível da linguagem e tipado no nível do processo.
+Pelo fato de Shell Script não ter o objetivo de ser uma linguagem de dados mas sim ser uma linguagem de orquestração, ele não é _"fracamente tipado"_, na verdade Shell não é tipado no nível da linguagem, mas sim tipado no nível do processo, ou seja, utiliza tipagem baseada em contexto. Por exemplo, o uso de uma flag de condicional de inteiros `[ "$x" -eq 10 ]` força uma interpretação numérica, já `[ "$x" = 10 ]` é comparação textual direta — mesma variável, 2 comportamentos. Praticamente, o shell não armazena tipos, apenas conteúdo textual.  
+No POSIX shell, toda variável é essencialmente tipada como uma sequência de bytes (string), não existem inteiros reais, booleanos reais, arrays, estruturas, objetos e nenhum outro tipo composto nativo. No exemplo a seguir, todos os valores são considerados apenas strings:
+```sh
+x=10
+y=abc
+z=10abc
+```
+
+Toda a aritmética envolvendo números funciona através de um mecanismo de expansão, não por tipo. Ao se realizar operações matemáticas `echo $((10 + 5))` é ativado o arithmetic expansion, fazendo com que internamente o shell interprete o conteúdo como um número, para assim convertê-lo em um valor e possibilitar a execução do cálculo. Por conta de sua natureza, mesmo o resultado de uma soma terá como valor atribuído à variável sendo uma string.  
+Este conceito aplica-se também à booleanos pois no shell usa-se `0 = sucesso && !0 = erro`, entretanto isso não é realmente um valor de estado (true/false), mas sim status de saída de processo. Por exemplo em `if command; then echo 'ok'; fi;`, o `if` não testa valor lógico, ele testa e compara o exit code do comando.
+
+Por isso, em se falando de estruturas de dados, formalmente no POSIX sh existem apenas:
+- strings
+- parâmetros posicionais (`"$1"`, `"$2"`...)
+- lista de argumentos (`"$@"`)
+- variáveis de ambiente
+
+Não existe de fato uma estrutura interna, apenas _simulação de estruturas_ onde o shell usa primariamente texto para montar e manipular os dados.
+```sh
+list="a b c d"
+for item in $list; do
+    echo "$item"
+done
+```
+
+> Nem mesmo a estrutura de `key=value` é real, apenas "mapa" simulado. O `key_value="user=raphael"` necessida de parsing manual.
+> Não se usa espaço fora de aspas na criação deste tipo pois se trata de uma variável especial no shell que define quais caracteres delimitam campos quando ocorre IFS.
+
+
 
 ##### Estáticas
 São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
