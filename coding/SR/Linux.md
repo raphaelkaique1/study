@@ -162,7 +162,38 @@ done
 > Nem mesmo a estrutura de `key=value` é real, apenas "mapa" simulado. O `key_value="user=raphael"` necessida de parsing manual.
 > Não se usa espaço fora de aspas na criação deste tipo pois se trata de uma variável especial no shell que define quais caracteres delimitam campos quando ocorre IFS.
 
+Como tudo é string no shell, as aspas comunmente usadas para envolver uma sequência caracteres na declaração de uma string possuem comportamentos diferentes, no shell elas não são apenas delimitadores de texto, elas controlam expansão.  
+O shell possui um mecanismo central chamado _word expansion_, que faz com que antes da execução de um comando ele realize expansões:
+- de variáveis
+- de comando
+- aritmética
+- de pathname (globbing `*`)
+- fiel splitting/spacing (IFS)
 
+Cada tipo de aspas define quais expansões são permitidas.
+- `'...'`: tudo contido entre aspas simples é tratado como texto literal e nada é expandido (nem mesmo char escape funciona).
+- `"..."`: permite expansão de variáveis e comandos, mas impedem word splitting e globbing.
+
+A diferença crítica no uso de aspas duplas está na expansão e em como o shell enxerga os valores.
+- sem aspas o shell realiza IFS, e cada valor é separado a partir do espaço em branco como delimitador, então cada parte da variável se torna um argumento diferente. Além disso, seu comportamento no globbing é contra-intuitívo, pois quando usado `*` sem aspas, o comando expande.
+```sh
+dev@localhost:~$  VAR="hello world"
+dev@localhost:~$  echo $VAR # neste caso o shell vê 2 argumento
+hello
+world
+dev@localhost:~$ echo * # expande para arquivos do diretório
+script shell_script
+dev@localhost:~$ ls
+script  shell_script
+```
+- com aspas o espaço em branco é preservado, por isso não é feito IFS, assim o valor contido entre elas não é "quebrado" e o shell enxerga como um único argumento. Já aqui, o globbing não sofre expansão, apenas será impresso como caractere.
+```sh
+dev@localhost:~$ VAR="hello world"
+dev@localhost:~$ echo "$VAR" # 1 único argumento
+hello world
+dev@localhost:~$ echo "*"
+*
+```
 
 ##### Estáticas
 São aquelas que possuem um valor atribuído na sua declaração, ou seja, são inicializadas com algum dado previamente definido pelo usuário. Por serem _variáveis_, elas podem ter seu valor alterado, reatribuído ou serem removidas.
