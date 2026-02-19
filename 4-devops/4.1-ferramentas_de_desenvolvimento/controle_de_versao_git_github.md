@@ -1676,7 +1676,7 @@ gt flow release finish # gt flow release finish [version]
 Esta é uma ferramenta open source para padronizar commits diretamente na CLI, é uma convenção que utiliza emojis no início das mensagens de commit com o objetivo de indicar visualmente o tipo de mudança feita no código, padronizando e categorizando commits rapidamente com base em ícones visuais, o que ajuda no preenchimento das mensagens evitando textos vagos e incompreensíveis, adicionando semântica leve ao histórico, o que facilita a leitura rápida de logs de commit. Pode ser usado simplesmente como uma página de guia para padronização de emojis, ou ser instalado via `npm` para acesso às facilidades via terminal.<br/>
 Para isto, basta executar o comando a seguir no diretório do projeto – no mesmo nível que o diretório Git `.git`.
 ```sh
-npm install --save-dev gitmoji-cli
+npm i -g gitmoji-cli
 ```
 Com o gitmoji instalado, é possível utilizar a ferramenta atravpes do utilitário `gitmoji` via terminal. Utilizando o parâmetro `-l` é possível visualizar a listagem de todos os emojis e suas respectivas representatividades.
 ```sh
