@@ -14,3 +14,9 @@ setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumcpap && getcap /usr/bin/dumpcap
 dpkg-reconfigure wireshark-common
 reboot
 ```
+
+- `ip.addr == 192.168.1.1` || `ip.addr eq 192.168.1.1` - IO
+- `!(ip.addr == 192.168.1.1)` - !IO
+- `ip.src == 192.168.1.1` - emitter
+- `ip.dst == 192.168.1.1` - receiver
+- `prtcl` and `not prtcl`
