@@ -11,5 +11,6 @@ sudo su
 apt-get update && apt-get install -y wireshark
 groupadd wireshark && adduser $USER wireshark && chgrp wireshark /usr/bin/dumpcap && chmod 750 /usr/bin/dumpcap
 setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumcpap && getcap /usr/bin/dumpcap
+dpkg-reconfigure wireshark-common
 reboot
 ```
