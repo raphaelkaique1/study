@@ -230,7 +230,7 @@ CLI> channel request hangup [all || SIP/user-id] # desliga chamadas
 ```sh
 #!/bin/bash
 
-# asterisk
+# sudo su
 apt-get update && apt-get upgrade -y && apt-get install -y asterisk
 
 echo '
