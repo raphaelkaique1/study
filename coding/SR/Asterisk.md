@@ -275,5 +275,5 @@ exten => 7000,1,Answer()
  same => n,Hangup()' >> /etc/asterisk/extensions.conf
 
 asterisk -rx "core reload"
-# channel originate Local/600@conferencia application ConfBridge 1
+# channel originate Local/7000@chat application ConfBridge 1
 ```
