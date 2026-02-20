@@ -233,6 +233,10 @@ CLI> channel request hangup [all || SIP/user-id] # desliga chamadas
 # sudo su
 apt-get update && apt-get upgrade -y && apt-get install -y asterisk
 
+ufw allow 5060/udp
+ufw allow 6000/udp
+ufw allow 6001/udp
+
 echo '
 [transport-udp]
 type=transport
