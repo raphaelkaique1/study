@@ -225,3 +225,55 @@ CLI> channel request hangup [all || SIP/user-id] # desliga chamadas
 # SIP IP: 1000@IP (ramal@ip_servidor-asterisk)
 # PASSWORD: s1000 (senha ramal)
 ```
+
+## asterisk
+```sh
+#!/bin/bash
+
+# asterisk
+sudo apt-get update && sudo apt-get upgrade -y && apt-get install -y asterisk
+
+sudo echo '
+[transport-udp]
+type=transport
+protocol=udp
+bind=0.0.0.0
+' >> /etc/asterisk/pjsip.conf
+
+sudo for (( i = 1000; i < 1111; i++ )); do echo "
+[$i]
+type=endpoint
+context=chat
+disallow=all
+allow=ulaw
+auth=$i-auth
+aors=$i
+
+[$i-auth]
+type=auth
+auth_type=userpass
+username=$i
+password=$i
+
+[$i]
+type=aor
+max_contacts=1" >> /etc/asterisk/pjsip.conf; done
+
+sudo echo '
+[default_bridge]
+type=bridge
+max_members=100
+
+[default_user]
+type=user
+music_on_hold_when_empty=yes ' >> /etc/asterisk/confbridge.conf
+
+sudo echo '
+[chat]
+exten => 7000,1,Answer()
+ same => n,ConfBridge(1,default_bridge,default_user)
+ same => n,Hangup()' >> /etc/asterisk/extensions.conf
+
+sudo asterisk -rx "core reload"
+# channel originate Local/600@conferencia application ConfBridge 1
+```
