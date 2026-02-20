@@ -33,6 +33,27 @@ exten => 1000,1,Answer()
 exten => 1000,n,Playback(welcome)  
 exten => 1000,n,Dial(PJSIP/2000)  
 
+```sh
+# ; DIALPLANs
+# ; grupo simples: todos na mesma linha
+# ; [object_name]     ↱ ramal  ↱ priority order  ↱ application
+# ; exten         => _ZXXX,    1,                NoOp(OK)
+# ; ↳ object_name
+
+[out]                                     # "ao atingir este contexto, execute os comandos abaixo"
+exten => _ZXXX,1,NoOp(OK)                 # imprime a msg "OK" na CLI
+        same => n,Dial(SIP/${EXTEN},30)   # define o dialplan(protocolo/${variável_numero_discado=_ZXXX})
+	    same => n,Hangup()
+
+# ; CHANNELs
+# ; herança de opções: as opções são definidas antes e os objetos as herdam
+[channel]
+context=default
+signalling=fxs_ks
+group=1
+channel => 1
+```
+
 > Isso é uma DSL (Domain-Specific Language) própria e não programação imperativa tradicional. É uma máquina de estados baseada em contextos e extensões.
 
 O Asterisk pode se conectar tanto a softphones quanto a operadoras SIP Trunk, gateways GSM, placas E1 ou até mesmo WebRTC (usando DTLS-SRTP; com PJSIP + DTLS + SRTP + ICE, o Asterisk pode atuar como backend WebRTC, permitindo chamadas direto do navegador. Contudo, para ambientes grandes, normalmente ele fica atrás de um SBC), implementa principalmente os protocolos:
@@ -45,44 +66,23 @@ O Asterisk pode se conectar tanto a softphones quanto a operadoras SIP Trunk, ga
 # sudo su
 
 # /etc/asterisk/*.conf - configurações do ambiente
-/etc/init.d/asterisk start || asterisk      # inicia o asterisk
-/etc/init.d/asterisk stop || core stop now  # desativa o asterisk
-nano /etc/asterisk/asterisk.conf            # [OPTIONS] verbose = 99 -> habilita modo verboso | maxfiles = 10000 -> evita lentidão no servidor
-nano /etc/asterisk/logger.conf     			# full -> habilita todos os logs
-nano /etc/asterisk/extensions.conf 			# criar contextos
-asterisk -rvvvvv                            # Asterisk CLI
-tail -n 30 /var/asterisk/logs/full          # exibe os logs
-CLI> core reload                            # carrega as alterações feitas
-CLI> core restart now                       # reinicia o asterisk
-CLI> help application_name                  # documentação
-
-# ; DIALPLANs
-# ; grupo simples: todos na mesma linha
-# ; [object_name]     ↱ ramal  ↱ priority order  ↱ application
-# ; exten         => _ZXXX,    1,                NoOp(OK)
-# ; ↳ object_name
-
-[out]                                     # "ao atingir este contexto, execute os comandos abaixo"
-exten => _ZXXX,1,NoOp(OK)                 # imprime a msg "OK" na CLI
-        same => n,Dial(SIP/${EXTEN},30)   # define o dialplan(protocolo/${variável_numero_discado=_ZXXX})
-	    same => n,Hangup()
-
-CLI> dialplan show [rule_name]                       # exibe as regras existentes
-CLI> help [command[command[...]]]                    # menu de ajuda e instruções
+/etc/init.d/asterisk start || asterisk               # inicia o asterisk
+/etc/init.d/asterisk stop || core stop now           # desativa o asterisk
+nano /etc/asterisk/asterisk.conf                     # [OPTIONS] verbose = 99 -> habilita modo verboso | maxfiles = 10000 -> evita lentidão no servidor
+nano /etc/asterisk/logger.conf                       # full -> habilita todos os logs
+nano /etc/asterisk/extensions.conf                   # criar contextos
+asterisk -rvvvvv                                     # Asterisk CLI
+tail -n 30 /var/asterisk/logs/full                   # exibe os logs
+CLI> core restart now                                # reinicia o asterisk
 CLI> core reload || service_name reload              # carrega alterações realizadas
 CLI> core help                                       # exibe as aplicações disponíveis
+CLI> help application_name                           # documentação
+CLI> help [command[command[...]]]                    # menu de ajuda e instruções
 CLI> core show applications                          # exibe as aplicações disponíveis
 CLI> core show channels                              # exibe as chamadas em ligação
+CLI> dialplan show [rule_name]                       # exibe as regras existentes
 CLI> pjsip show contacts || pjsip show contact [_X.] # exibe todos os ramais registrados / contas criadas
 CLI> channel request hangup [all || SIP/user-id]     # desliga chamadas
-
-# ; CHANNELs
-# ; herança de opções: as opções são definidas antes e os objetos as herdam
-# [channel]
-# context=default
-# signalling=fxs_ks
-# group=1
-# channel => 1
 
 # fazer chamada   (softphone)
 # USER ID: 1000   (ramal)
@@ -90,7 +90,7 @@ CLI> channel request hangup [all || SIP/user-id]     # desliga chamadas
 # PASSWORD: s1000 (senha ramal)
 ```
 
-## asterisk
+## asterisk server
 ```sh
 #!/bin/bash
 
