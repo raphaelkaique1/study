@@ -1900,9 +1900,9 @@ email=raphael@email.com&senha=psswrd@09
         ```
          - **No caso de uma lista de itens, é necessário utilizar `[]` no atributo `name` juntamente com o método `POST`, para que o servidor identifique que os valores recebidos são todos do mesmo atributo, caso contrário ele utilizará apenas o último valor selecionado pelo usuário.**
          - **EM TODOS OS ATRIBUTOS DE SELEÇÃO DE OPÇÕES, É POSSÍVEL MANTER UMA OPÇÃO SELECIONADA FIXADAMENTE. `checked`**. Embora seja redundante que o nome do atributo e seu valor sejam idênticos, é **obrigatório** declará-lo desta forma, por que os atributos em **XHTML** não podem ter valores vazios.
-          ```html
-          <input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
-          ```
+         ```html
+         <input type="radio" checked="checked"/> <input type="checkbox" checked="checked"/>
+         ```
     - **`Number`**: Números genéricos, juntamente com `min`, `max` e `step`.
     ```html
     <input type="number" min="0" max="10" step="2" placeholder="Duplo" value="0"/>
