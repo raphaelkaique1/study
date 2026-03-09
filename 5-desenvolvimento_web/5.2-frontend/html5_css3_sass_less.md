@@ -2202,7 +2202,7 @@ Permite definir uma tecla de atalho para acessar diretamente elementos na págin
     - **`src="dir/file.ext`**: **O arquivo está localizado em uma pasta na raiz do site atual.**
     - **`src="../file.ext`**: **O arquivo está localizado na pasta um nível acima da pasta atual.**
  2. **caminho absoluto**: especifica a localização completa incluindo o domínio.
- - **`src="https://site.com/image.png"` **: **Uma rota absoluta é o endereço URL completo de um arquivo.**
+ - **`src="https://site.com/image.png"`**: **Uma rota absoluta é o endereço URL completo de um arquivo.**
 
 ###### TAGS
 <table border="1px">
