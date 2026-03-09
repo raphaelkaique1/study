@@ -1781,7 +1781,7 @@ app.listen(port, () => {
 ```
  Então, enquanto a tag `form` é utilizada para *criar* os formulários – ou seja, solicitar informações aos usuários – a tag **`input`** é o campo onde estarão os *itens* do formulário. **Os elementos de entrada de um formulário podem ser definidos através do uso da tag `input` usando o atributo `type`, seguido de algum valor.** Através da propriedade **`type`**, a tag `input` entende qual o componente deve representar na tela.<br/>
  Em outras palavras, o elemento que alimenta um formulário com informações incluídas pelo usuários é o **`input`**, eles são os responsáveis por exibir no navegador os campos que possibilitam a entrada de algum tipo de dado por parte do usuário, enquanto o atributo **`type`** determina o tipo do elemento.<br/>
- **O atributo _`name`_ é obrigatório, tanto para relacionar à o `input` ao `form` em questão, quanto para identificar o dado enviado ao servidor. Ela é essencial para que o backend saiba **qual o valor correspondente a qual campo**.
+ O atributo _`name`_ é obrigatório, tanto para relacionar à o `input` ao `form` em questão, quanto para identificar o dado enviado ao servidor. Ela é essencial para que o backend saiba **qual o valor correspondente a qual campo**.
 ```html
  <input type="" name=""/>
 ```
