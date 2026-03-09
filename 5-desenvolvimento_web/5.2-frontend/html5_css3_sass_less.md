@@ -3567,7 +3567,7 @@ div {
  }
  ```
 
-###### ESTILOS PARA LISTAS E LINKS**
+###### ESTILOS PARA LISTAS E LINKS
  Os estilos para listas e links permitem personalizar a aparência de elementos comuns – listas e hiperlinks – de maneira a enriquecer o design do site sem alterar a estrutura. A seguir, veremos como controlar marcadores chamados de *bullets* em listas e como estilizar links, seguindo a regra "LoVe HAte”, que define os estados dos links.
 
 1. **ESTILIZANDO LINKS**
