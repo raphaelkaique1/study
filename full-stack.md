@@ -328,6 +328,8 @@
 > base stack
 - linux
 - git
+- docker
+- kubernetes
 - SQL
   - Embedded
     - SQLite
