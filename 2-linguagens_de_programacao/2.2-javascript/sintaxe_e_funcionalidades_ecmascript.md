@@ -2529,7 +2529,7 @@ console.log(dicionario.get("nome")); // Raphael
 
 ```
 
-###### [`WeakMap()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakMap\)
+###### [`WeakMap()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 Estrutura de armazenamento de dados semelhante ao `Map()`, porém não é iterável, aceita apenas objetos como chave e estes objetos não não impedidos de serem coletados pelo *garbage collector*.
 ```js
 const weakMap = new WeakMap();
