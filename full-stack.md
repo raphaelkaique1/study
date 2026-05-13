@@ -476,7 +476,7 @@
 - [x] [SEO para iniciantes com Caio Rodrigues](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [x] [SEO para sites com Vicente Sampaio](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [x] [SEO mão na massa por Agência Klens](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Advanced SEO - Structured Data Schema Markup for SEO 2020](https://www.udemy.com/course/advanced-seo-structured-data-schema-markup-for-seo-2020/)
+- [x] [Advanced SEO - Structured Data Schema Markup for SEO 2020](https://www.udemy.com/course/advanced-seo-structured-data-schema-markup-for-seo-2020/)
 - [ ] [Product Analytics](https://plataforma.escoladnc.com.br/learning/product-analytics/ac)
 - [ ] [XML and XML Schema Definition in Easy Steps](https://www.udemy.com/course/xml-and-xml-schema-definition-in-easy-steps/)
 - [ ] [HTMX Do zero ao profissional com projetos reais](https://www.udemy.com/course/htmx-completo/)

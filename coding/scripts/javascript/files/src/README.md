@@ -1,1 +1,0 @@
-# [**<-**](https://github.com/raphaelkaique1/study/tree/main/coding/scripts/javascript/files)
