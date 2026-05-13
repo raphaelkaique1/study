@@ -1,6 +1,6 @@
 # Full-stack
 ## Nivel 1
-- [ ] **HTML - Fundamentos**:
+- [x] **HTML - Fundamentos**:
    - HTML é uma linguagem de marcação que define a estrutura do seu conteúdo. HTML consiste em uma série de elementos que você usa para mostrar algo de uma determinada maneira ou agir de uma certo modo. As tags podem criar um hiperlink de uma palavra ou imagem para outro lugar, podem colocar palavras em itálico, podem aumentar ou diminuir a fonte e assim por diante.
    - Aprender quais tags são necessárias para um HTML básico
    - Criar um parágrafo de texto
@@ -457,25 +457,25 @@
 - [ ] [Formação OutSystems Fundamentals](https://web.dio.me/track/formacao-outsystems-fundamentals)
 
 ## [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [ ] [Introdução ao HTML5](https://www.primecursos.com.br/introducao-ao-html-5/)
-- [ ] [HTML5 para Iniciantes por Mauro de Boni](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [HTML Básico](https://www.primecursos.com.br/html-basico/)
-- [ ] [HTML Essentials](https://www.netacad.com/pt/courses/html-essentials?courseLang=en-US)
-- [ ] [HTML5 - Introdução ao front-end](https://cursos.timtec.com.br/course/html5/intro)
-- [ ] [Frontend - HTML Básico](https://cursos.devsamurai.com.br/Frontend%20-%20HTML%20B%C3%A1sico.zip)
-- [ ] [HTML5 por Node Studio Treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Learn HTML](https://www.codecademy.com/learn/learn-html)
-- [ ] [HTML5 [40 Horas]](https://www.cursoemvideo.com/curso/html5/)
-- [ ] [HTML](https://comunidade.ada.tech/cursos/829a58a4-5871-410f-883a-4653fcccb0b6)
-- [ ] [HTML completo com Professor Dimitri](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [HTML Developer](https://web.dio.me/track/formacao-html-web-developer)
-- [ ] [SEO para iniciantes com Caio Rodrigues](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [SEO Básico](https://www.primecursos.com.br/seo-basico/)
-- [ ] [SEO: Módulo 01](https://www.cursoemvideo.com/curso/curso-pratico-de-seo-modulo-01/)
-- [ ] [SEO: Módulo 02](https://www.cursoemvideo.com/curso/curso-pratico-de-seo-modulo-02/)
-- [ ] [Segredos do SEO](https://www.primecursos.com.br/segredos-do-seo-google-panda-amp-penguin/)
-- [ ] [SEO para sites com Vicente Sampaio](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [SEO mão na massa por Agência Klens](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [Introdução ao HTML5](https://www.primecursos.com.br/introducao-ao-html-5/)
+- [x] [HTML5 para Iniciantes por Mauro de Boni](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [HTML Básico](https://www.primecursos.com.br/html-basico/)
+- [x] [HTML Essentials](https://www.netacad.com/pt/courses/html-essentials?courseLang=en-US)
+- [x] [HTML5 - Introdução ao front-end](https://cursos.timtec.com.br/course/html5/intro)
+- [x] [Frontend - HTML Básico](https://cursos.devsamurai.com.br/Frontend%20-%20HTML%20B%C3%A1sico.zip)
+- [x] [HTML5 por Node Studio Treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [Learn HTML](https://www.codecademy.com/learn/learn-html)
+- [x] [HTML5 [40 Horas]](https://www.cursoemvideo.com/curso/html5/)
+- [x] [HTML](https://comunidade.ada.tech/cursos/829a58a4-5871-410f-883a-4653fcccb0b6)
+- [x] [HTML completo com Professor Dimitri](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [HTML Developer](https://web.dio.me/track/formacao-html-web-developer)
+- [x] [SEO Básico](https://www.primecursos.com.br/seo-basico/)
+- [x] [Segredos do SEO](https://www.primecursos.com.br/segredos-do-seo-google-panda-amp-penguin/)
+- [x] [SEO: Módulo 01](https://www.cursoemvideo.com/curso/curso-pratico-de-seo-modulo-01/)
+- [x] [SEO: Módulo 02](https://www.cursoemvideo.com/curso/curso-pratico-de-seo-modulo-02/)
+- [x] [SEO para iniciantes com Caio Rodrigues](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [SEO para sites com Vicente Sampaio](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [SEO mão na massa por Agência Klens](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Advanced SEO - Structured Data Schema Markup for SEO 2020](https://www.udemy.com/course/advanced-seo-structured-data-schema-markup-for-seo-2020/)
 - [ ] [Product Analytics](https://plataforma.escoladnc.com.br/learning/product-analytics/ac)
 - [ ] [XML and XML Schema Definition in Easy Steps](https://www.udemy.com/course/xml-and-xml-schema-definition-in-easy-steps/)
