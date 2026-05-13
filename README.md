@@ -3,7 +3,7 @@
 - **[CIÊNCIA DA COMPUTAÇÃO](https://github.com/Universidade-Livre)**
 - **[TRILHA DE APRENDIZADO](https://roadmap.sh/roadmaps)**
 - **[DEV-T](https://github.com/raphaelkaique1/study/blob/main/full-stack.md)**
-- **[STACKS](https://quickref.me/)**
+- **[LINGUAGENS DE PROGRAMAÇÃO](https://quickref.me/)**
 
 ## COMPUTER SCIENCE: FULL STACK CYCLE
 
