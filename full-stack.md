@@ -477,9 +477,9 @@
 - [x] [SEO para sites com Vicente Sampaio](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [x] [SEO mão na massa por Agência Klens](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [x] [Advanced SEO - Structured Data Schema Markup for SEO 2020](https://www.udemy.com/course/advanced-seo-structured-data-schema-markup-for-seo-2020/)
-- [ ] [Product Analytics](https://plataforma.escoladnc.com.br/learning/product-analytics/ac)
-- [ ] [HTMX Do zero ao profissional com projetos reais](https://www.udemy.com/course/htmx-completo/)
-- [ ] [HTMX do básico ao avançado com projetos](https://www.udemy.com/course/htmx-do-basico-ao-avancado-com-projetos/)
+- [x] [Product Analytics](https://plataforma.escoladnc.com.br/learning/product-analytics/ac)
+- [x] [HTMX Do zero ao profissional com projetos reais](https://www.udemy.com/course/htmx-completo/)
+- [x] [HTMX do básico ao avançado com projetos](https://www.udemy.com/course/htmx-do-basico-ao-avancado-com-projetos/)
 
 ## [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [ ] [Frontend - Entendendo o HTML com o CSS](https://cursos.devsamurai.com.br/Frontend%20-%20Entendo%20o%20HTML%20com%20o%20CSS.zip)
