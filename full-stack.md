@@ -360,17 +360,17 @@
 
 # LINKS
 ## VCS
-- [ ] [Git e Versionamento](https://comunidade.ada.tech/cursos/37f4b5d2-dbab-4c45-ab61-aac1ba2c7d19)
-- [ ] [Versionamento de Código (GIT) por Rbtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Versionamento com GIT por Angelo Luz](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [GIT](https://www.w3schools.com/git/default.asp)
-- [ ] [Introdução ao Git e GitHub](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ao-git-e-github)
-- [ ] [GitHub para iniciantes](https://developer.mozilla.org/pt-BR/docs/conflicting/MDN/Community/Contributing/Getting_started)
-- [ ] [Git e GitHub do básico ao avançado (c/ gist e GitHub Pages)](https://www.udemy.com/course/git-e-github-do-basico-ao-avancado-c-gist-e-github-pages/)
-- [ ] [Git e GitHub completo com Professor José de Assis](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Git e GitHub: Controle, Colaboração e Compartilhamento de Código](https://soulhub.soulcode.com/curso?id=112)
-- [ ] [Git & GitHub](https://www.w3schools.com/git/default.asp)
-- [ ] [Formação Github Certification](https://web.dio.me/track/formacao-github-certification)
+- [x] [Git e Versionamento](https://comunidade.ada.tech/cursos/37f4b5d2-dbab-4c45-ab61-aac1ba2c7d19)
+- [x] [Versionamento de Código (GIT) por Rbtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [Versionamento com GIT por Angelo Luz](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [GIT](https://www.w3schools.com/git/default.asp)
+- [x] [Introdução ao Git e GitHub](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ao-git-e-github)
+- [x] [GitHub para iniciantes](https://developer.mozilla.org/pt-BR/docs/conflicting/MDN/Community/Contributing/Getting_started)
+- [x] [Git e GitHub do básico ao avançado (c/ gist e GitHub Pages)](https://www.udemy.com/course/git-e-github-do-basico-ao-avancado-c-gist-e-github-pages/)
+- [x] [Git e GitHub completo com Professor José de Assis](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [Git e GitHub: Controle, Colaboração e Compartilhamento de Código](https://soulhub.soulcode.com/curso?id=112)
+- [x] [Git & GitHub](https://www.w3schools.com/git/default.asp)
+- [x] [Formação Github Certification](https://web.dio.me/track/formacao-github-certification)
 
 ## OS
 - [ ] [Como funcionam os Sistemas Operacionais com Marcos Lavarda](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
