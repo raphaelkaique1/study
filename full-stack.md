@@ -350,12 +350,16 @@
 - Sass
 
 > skill stack
-0. [JS/TS] Node, Drivers, HTML, CSS, JTScript
-1. [JS] Express, Sequelize/Knex, htmx/Alpine, Pico
+0. [PHP]
+   - PHP, PDO, HTML, CSS
+   - Slim, RedBeanPHP, HTMX, Bootstrap
+   - Laravel, Eloquent + 4
+   - Symfony, Doctrine + 5
+1. [JS] Express, Sequelize/Knex, Alpine, Pico
 2. [JS] Fastify, Prisma/Slonik, Solid, Tailwind
 3. [TS] Nest, TypeORM/Drizzle, Angular, Foundation
-5. [TS] React, Next, JSS (Modular)
 4. [JS] Vue, Nuxt, Uno (integrated)
+5. [TS] React, Next, JSS (Modular)
 ```
 
 # LINKS
