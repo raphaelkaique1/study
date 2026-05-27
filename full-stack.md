@@ -363,18 +363,6 @@
 ```
 
 # LINKS
-## VCS
-- [x] [Git e Versionamento](https://comunidade.ada.tech/cursos/37f4b5d2-dbab-4c45-ab61-aac1ba2c7d19)
-- [x] [Versionamento de Código (GIT) por Rbtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [x] [Versionamento com GIT por Angelo Luz](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [x] [GIT](https://www.w3schools.com/git/default.asp)
-- [x] [Introdução ao Git e GitHub](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ao-git-e-github)
-- [x] [GitHub para iniciantes](https://developer.mozilla.org/pt-BR/docs/conflicting/MDN/Community/Contributing/Getting_started)
-- [x] [Git e GitHub do básico ao avançado (c/ gist e GitHub Pages)](https://www.udemy.com/course/git-e-github-do-basico-ao-avancado-c-gist-e-github-pages/)
-- [x] [Git e GitHub completo com Professor José de Assis](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [x] [Git e GitHub: Controle, Colaboração e Compartilhamento de Código](https://soulhub.soulcode.com/curso?id=112)
-- [x] [Git & GitHub](https://www.w3schools.com/git/default.asp)
-- [x] [Formação Github Certification](https://web.dio.me/track/formacao-github-certification)
 
 ## OS
 - [ ] [Como funcionam os Sistemas Operacionais com Marcos Lavarda](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
@@ -448,6 +436,19 @@
 - [ ] [Industrial IoT and Control Systems in Energy](https://www.netacad.com/pt/courses/industrial-iot-and-control-systems-in-energy?courseLang=en-US)
 - [ ] [Industrial IoT and Control Systems in Manufacturing](https://www.netacad.com/pt/courses/industrial-iot-and-control-systems-in-manufacturing?courseLang=en-US)
 - [ ] [Formação IoT Specialist](https://web.dio.me/track/formacao-iot-specialist)
+
+## VCS
+- [x] [Git e Versionamento](https://comunidade.ada.tech/cursos/37f4b5d2-dbab-4c45-ab61-aac1ba2c7d19)
+- [x] [Versionamento de Código (GIT) por Rbtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [Versionamento com GIT por Angelo Luz](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [GIT](https://www.w3schools.com/git/default.asp)
+- [x] [Introdução ao Git e GitHub](https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ao-git-e-github)
+- [x] [GitHub para iniciantes](https://developer.mozilla.org/pt-BR/docs/conflicting/MDN/Community/Contributing/Getting_started)
+- [x] [Git e GitHub do básico ao avançado (c/ gist e GitHub Pages)](https://www.udemy.com/course/git-e-github-do-basico-ao-avancado-c-gist-e-github-pages/)
+- [x] [Git e GitHub completo com Professor José de Assis](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [x] [Git e GitHub: Controle, Colaboração e Compartilhamento de Código](https://soulhub.soulcode.com/curso?id=112)
+- [x] [Git & GitHub](https://www.w3schools.com/git/default.asp)
+- [x] [Formação Github Certification](https://web.dio.me/track/formacao-github-certification)
 
 ## PS
 - [ ] [Introdução à Gestão de Projetos](https://www.ev.org.br/cursos/introducao-a-gestao-de-projetos)
@@ -629,6 +630,32 @@
 - [ ] [Bancos de Dados Relacionais (SQL) na AWS com Amazon RDS](https://web.dio.me/lab/bancos-de-dados-relacionais-sql-na-aws-com-amazon-rds/learning/e89d52c7-480c-46a6-9cb5-b6812db04748)
 - [ ] [Projeto - Parte 3: Incluindo segurança com JWT via Banco de Dados](https://web.dio.me/lives/projeto-parte-3-incluindo-seguranca-com-jwt-via-banco-de-dados)
 - [ ] [Formação SQL Database Specialist](https://web.dio.me/track/formacao-sql-db-specialist)
+
+## PHP
+- [ ] [Introdução à linguagem de programação PHP](https://cursos.timtec.com.br/course/introphp/intro)
+- [ ] [PHP para iniciantes por Curso em Vídeo](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [PHP Básico \[40 Horas\]](https://www.cursoemvideo.com/curso/php-basico/)
+- [ ] [PHP 7 básico com Carlos Ferreira](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Programação usando PHP com Hugo Vasconcelos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Aprenda PHP completo por Node Studio Treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Desenvolvimento Web PHP](https://cursos.timtec.com.br/course/desenvolvimento-web-php/intro)
+- [ ] [SPTech Desenvolvimento Back-end](https://web.dio.me/track/sp-tech-desenvolvimento-back-end)
+- [ ] [Formação PHP Experience](https://web.dio.me/track/formacao-php-experience)
+- [ ] [Programação orientada a objeto usando PHP por Curso em Vídeo](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca) ([PHP POO \[40 Horas\]](https://www.cursoemvideo.com/curso/php-poo/))
+- [ ] [Curso de PHP Moderno: Módulo 01 \[40 Horas\]](https://www.cursoemvideo.com/curso/curso-de-php-moderno-modulo-01/)
+- [ ] [PHP e MySQL Básico](https://www.primecursos.com.br/php-e-mysql-basico/)
+- [ ] [Primeiros passos com CodeIgniter](https://www.devmedia.com.br/curso/curso-codeigniter/1894)
+- [ ] [Framework Codeigniter (PHP) para iniciantes por RBtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Framework Laravel (PHP) para iniciantes por RBtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Laravel: Criando um carrinho de compras em PHP](https://www.devmedia.com.br/curso/laravel-criando-um-carrinho-de-compras-em-php/1958)
+- [ ] [Construindo uma Aplicação MVC com Laravel 7 para Consulta de CEP](https://web.dio.me/lab/construindo-uma-aplicacao-mvc-com-laravel-7-para-consulta-de-cep/learning/a78f9b42-6a4e-44e1-8379-71719a3812f2)
+- [ ] [Laravel: Construindo uma API do Zero](https://web.dio.me/lab/laravel-construindo-uma-api-do-zero/learning/4637d979-ed66-4d04-b64b-25371088a47e)
+- [ ] [Construindo uma API com Laravel para Cadastro e Controle de Usuários Utilizando JWT](https://web.dio.me/lab/construindo-uma-api-com-laravel-para-cadastro-e-controle-de-usuarios-utilizando-jwt/learning/d534fd8d-5f37-4928-8ee3-53cb3b83c913)
+- [ ] [Usando o Livewire Para Dar Mais Vida as Suas Aplicações Laravel com PHP](https://web.dio.me/lab/usando-o-livewire-para-dar-mais-vida-as-suas-aplicacoes-laravel-com-php/learning/9b0cfd5f-b87c-404b-874b-3511ff6d4431)
+- [ ] [Desenvolvimento Web Avançado com PHP, Laravel e Vue.JS](https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/)
+- [ ] [Clube Full-Stack](https://www.udemy.com/course/clube-fullstack/)
+- [ ] [APIs REST utilizando PHP e Slim Framework por Code Easy](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Criação de Servidor Ubuntu + Apache + PHP + MySQL + Laravel](https://www.udemy.com/course/criacao-de-servidor-ubuntu-apache-php-mysql-laravel/)
 
 ## [JS/TS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [ ] [Introdução a criação de sites](https://cursos.timtec.com.br/course/introducao-a-criacao-de-sites/intro)
@@ -948,41 +975,6 @@
 - [ ] [Crie apps com NestJS no AWS ECS e Fargate com AWS CDK](https://www.udemy.com/course/nestjs-aws-ecs-fargate-cdk/)
 - [ ] [Docker para desenvolvedores Javascript / Node.JS](https://www.udemy.com/course/docker-nodejs/)
 
-## PHP
-- [ ] [Introdução à linguagem de programação PHP](https://cursos.timtec.com.br/course/introphp/intro)
-- [ ] [PHP para iniciantes por Curso em Vídeo](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [PHP Básico \[40 Horas\]](https://www.cursoemvideo.com/curso/php-basico/)
-- [ ] [PHP 7 básico com Carlos Ferreira](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Programação usando PHP com Hugo Vasconcelos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Aprenda PHP completo por Node Studio Treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Desenvolvimento Web PHP](https://cursos.timtec.com.br/course/desenvolvimento-web-php/intro)
-- [ ] [SPTech Desenvolvimento Back-end](https://web.dio.me/track/sp-tech-desenvolvimento-back-end)
-- [ ] [Formação PHP Experience](https://web.dio.me/track/formacao-php-experience)
-- [ ] [Programação orientada a objeto usando PHP por Curso em Vídeo](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca) ([PHP POO \[40 Horas\]](https://www.cursoemvideo.com/curso/php-poo/))
-- [ ] [Curso de PHP Moderno: Módulo 01 \[40 Horas\]](https://www.cursoemvideo.com/curso/curso-de-php-moderno-modulo-01/)
-- [ ] [PHP e MySQL Básico](https://www.primecursos.com.br/php-e-mysql-basico/)
-- [ ] [Primeiros passos com CodeIgniter](https://www.devmedia.com.br/curso/curso-codeigniter/1894)
-- [ ] [Framework Codeigniter (PHP) para iniciantes por RBtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Framework Laravel (PHP) para iniciantes por RBtech](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Laravel: Criando um carrinho de compras em PHP](https://www.devmedia.com.br/curso/laravel-criando-um-carrinho-de-compras-em-php/1958)
-- [ ] [Construindo uma Aplicação MVC com Laravel 7 para Consulta de CEP](https://web.dio.me/lab/construindo-uma-aplicacao-mvc-com-laravel-7-para-consulta-de-cep/learning/a78f9b42-6a4e-44e1-8379-71719a3812f2)
-- [ ] [Laravel: Construindo uma API do Zero](https://web.dio.me/lab/laravel-construindo-uma-api-do-zero/learning/4637d979-ed66-4d04-b64b-25371088a47e)
-- [ ] [Construindo uma API com Laravel para Cadastro e Controle de Usuários Utilizando JWT](https://web.dio.me/lab/construindo-uma-api-com-laravel-para-cadastro-e-controle-de-usuarios-utilizando-jwt/learning/d534fd8d-5f37-4928-8ee3-53cb3b83c913)
-- [ ] [Usando o Livewire Para Dar Mais Vida as Suas Aplicações Laravel com PHP](https://web.dio.me/lab/usando-o-livewire-para-dar-mais-vida-as-suas-aplicacoes-laravel-com-php/learning/9b0cfd5f-b87c-404b-874b-3511ff6d4431)
-- [ ] [Desenvolvimento Web Avançado com PHP, Laravel e Vue.JS](https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/)
-- [ ] [Clube Full-Stack](https://www.udemy.com/course/clube-fullstack/)
-- [ ] [APIs REST utilizando PHP e Slim Framework por Code Easy](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Criação de Servidor Ubuntu + Apache + PHP + MySQL + Laravel](https://www.udemy.com/course/criacao-de-servidor-ubuntu-apache-php-mysql-laravel/)
-
-## Go
-- [ ] [Go - Curso Introdutório](https://app.rocketseat.com.br/classroom/go-curso-introdutorio)
-- [ ] [Aprenda a programar em GO por Sidney Souza](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Aprenda Golang do Zero! Desenvolva uma APLICAÇÃO COMPLETA!](https://www.udemy.com/course/aprenda-golang-do-zero-desenvolva-uma-aplicacao-completa/)
-- [ ] [Desenvolvendo um Sistema de Planejamento Financeiro com Golang](https://web.dio.me/lab/desenvolvendo-um-sistema-de-planejamento-financeiro-com-golang/learning/48299c47-8372-42f6-9d95-5e9d1b338a11)
-- [ ] [Desenvolvimento Web com Go - Do Zero ao Deploy](https://www.udemy.com/course/desenvolvimento-web-com-go-do-zero-ao-deploy/)
-- [ ] [Go (Golang) Backend Com Gin, Autenticaçao, CRUD e MongoDB](https://www.udemy.com/course/go-golang-backend-com-gin-autenticacao-crud-e-mongodb/)
-- [ ] [Formação Go Developer](https://web.dio.me/track/formacao-go-developer)
-
 ## Ruby
 - [ ] [Ruby on Rails para iniciantes com Jackson Pires](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Iniciando com Ruby e Orientação a Objetos](https://www.udemy.com/course/poo-ruby/)
@@ -1001,6 +993,15 @@
 - [ ] [Desenvolvendo REST / RESTful APIs com Ruby on Rails](https://www.udemy.com/course/rubyonrails-api/)
 - [ ] [TDD com Ruby on Rails, RSpec e Capybara](https://www.udemy.com/course/rails-tdd/)
 - [ ] [Docker para desenvolvedores Ruby on Rails](https://www.udemy.com/course/docker-rails/)
+
+## Go
+- [ ] [Go - Curso Introdutório](https://app.rocketseat.com.br/classroom/go-curso-introdutorio)
+- [ ] [Aprenda a programar em GO por Sidney Souza](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Aprenda Golang do Zero! Desenvolva uma APLICAÇÃO COMPLETA!](https://www.udemy.com/course/aprenda-golang-do-zero-desenvolva-uma-aplicacao-completa/)
+- [ ] [Desenvolvendo um Sistema de Planejamento Financeiro com Golang](https://web.dio.me/lab/desenvolvendo-um-sistema-de-planejamento-financeiro-com-golang/learning/48299c47-8372-42f6-9d95-5e9d1b338a11)
+- [ ] [Desenvolvimento Web com Go - Do Zero ao Deploy](https://www.udemy.com/course/desenvolvimento-web-com-go-do-zero-ao-deploy/)
+- [ ] [Go (Golang) Backend Com Gin, Autenticaçao, CRUD e MongoDB](https://www.udemy.com/course/go-golang-backend-com-gin-autenticacao-crud-e-mongodb/)
+- [ ] [Formação Go Developer](https://web.dio.me/track/formacao-go-developer)
 
 ## C
 - [ ] [C Essentials 1](https://www.netacad.com/pt/courses/c-essentials-1?courseLang=en-US)
@@ -1614,7 +1615,6 @@
 - [ ] [Ionic: Construindo uma Pokédex usando a API do Pokémon](https://web.dio.me/lab/ionic-construindo-uma-pokedex-usando-a-api-do-pokemon/learning/9537934d-0ee5-4aa5-94f1-aa34ddf6f9e1)
 - [ ] [Compose na criação de Apps por Stack Mobile](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
 - [ ] [Programação de Apps com Cordova por Professor Dimitri](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-
 
 ## QA
 - [ ] [Testes de Software para Iniciantes por Mauro de Boni](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
