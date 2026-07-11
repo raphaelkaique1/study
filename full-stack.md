@@ -350,11 +350,13 @@
 - Sass
 
 > skill stack
-0. [PHP]
-   - PHP, PDO, HTML, CSS
-   - Slim, RedBeanPHP, HTMX, Bootstrap
-   - Laravel, Eloquent + 4
-   - Symfony, Doctrine + 5
+0. [PHP + HTMX]
+   - PHP, PDO, CSS, SQLite
+   - Slim, IdiORM, SASS, Firebird
+   - CodeIgniter, Paris, Tailwind, MariaDB
+   - CakePHP, RedBeanPHP, Bootstrap, MySQL
+   - Laravel, Eloquent + 4 (PostreSQL)
+   - Symfony, Doctrine + 5 (Oracle)
 1. [JS] Express, Sequelize/Knex, Alpine, Pico
 2. [JS] Fastify, Prisma/Slonik, Solid, Tailwind
 3. [TS] Nest, TypeORM/Drizzle, Angular, Foundation
