@@ -358,6 +358,7 @@
    - CakePHP, CakePHP ORM, MySQL
    - Laravel, Eloquent + 4 (PostreSQL)
    - Symfony, Doctrine + 5 (Oracle)
+   - Laminas Project (Zend Framework)
 1. [JS] Express, Sequelize/Knex, Alpine, Pico
 2. [JS] Fastify, Prisma/Slonik, Solid, Tailwind
 3. [TS] Nest, TypeORM/Drizzle, Angular, Foundation
