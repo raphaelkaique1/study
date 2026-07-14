@@ -352,12 +352,12 @@
 > skill stack
 0. [PHP + HTMX + Tailwind]
    - PHP, PDO, SQLite
-   - Slim, NoSQL (MongoDB) / RedBeanPHP, FireBird
-   - CodeIgniter, Paris (Idiorm), SQL Server 
-   - Yii, ActiveRecord, MariaDB
+   - Slim, NoSQL (MongoDB)
+   - CodeIgniter, RedBeanPHP, MariaDB
    - CakePHP, CakePHP ORM, MySQL
-   - Laravel, Eloquent + 4 (PostreSQL)
-   - Symfony, Doctrine + 5 (Oracle)
+   - Yii, ActiveRecord, SQL Server
+   - Laravel, Eloquent, PostreSQL
+   - Symfony, Doctrine, Oracle
    - Laminas Project (Zend Framework)
 1. [JS] Express, Sequelize/Knex, Alpine, Pico
 2. [JS] Fastify, Prisma/Slonik, Solid, Tailwind
