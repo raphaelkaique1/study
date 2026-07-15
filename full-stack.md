@@ -350,9 +350,9 @@
 - Sass
 
 > skill stack
-0. [PHP + HTMX + Tailwind]
+0. [Composer + nginx + Docker + HTMX + TailwindCSS]
    - PHP, PDO, SQLite
-   - Slim, NoSQL (MongoDB)
+   - Slim, MongoDB
    - CodeIgniter, RedBeanPHP, MariaDB
    - CakePHP, CakePHP ORM, MySQL
    - Yii, ActiveRecord, SQL Server
