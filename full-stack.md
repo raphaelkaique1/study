@@ -358,6 +358,7 @@
    - Yii, ActiveRecord, SQL Server
    - Laravel, Eloquent, PostreSQL
    - Symfony, Doctrine, Oracle
+   - Open Swoole + Hyperf
    - Laminas Project (Zend Framework)
 1. [JS] Express, Sequelize/Knex, Alpine, Pico
 2. [JS] Fastify, Prisma/Slonik, Solid, Tailwind
