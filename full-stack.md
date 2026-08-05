@@ -329,28 +329,17 @@
 - linux
 - git
 - docker
-- kubernetes
-- SQL
-  - Embedded
-    - SQLite
-  - Server
-    - PostgreSQL
-    - MariaDB
-- NoSQL
-  - Embedded
-    - NeDB
-    - LevelDB
-  - Server
-    - MongoDB
-    - Neo4j
+- MongoDB
+- Neo4j
+- SQLite
+- PostgreSQL
 - Redis
 - Elasticsearch (Logstash* / Kibana*)
-- GraphQL (Apollo - Nest / Mercurius - Fastify)
-- BEMCSS
-- Sass
+- GraphQL (Apollo - Nest)
+- TailwindCSS
 
 > skill stack
-0. [Composer + nginx + Docker + HTMX + TailwindCSS]
+0. [Composer + NGINX + Docker + HTMX]
    - PHP, PDO, SQLite
    - Slim, MongoDB
    - CodeIgniter, RedBeanPHP, MariaDB
