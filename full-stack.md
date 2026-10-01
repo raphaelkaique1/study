@@ -326,34 +326,26 @@
 
 ```
 > base stack
-- linux
-- git
-- docker
+- Linux
+- NGINX
+- Git
+- Docker
 - MongoDB
 - Neo4j
 - SQLite
 - PostgreSQL
+- OracleDB
 - Redis
 - Elasticsearch (Logstash* / Kibana*)
 - GraphQL (Apollo - Nest)
+- HTMX
+- Alpine.js
+- Vue.js
 - TailwindCSS
-
-> skill stack
-0. [Composer + NGINX + Docker + HTMX]
-   - PHP, PDO, SQLite
-   - Slim, MongoDB
-   - CodeIgniter, RedBeanPHP, MariaDB
-   - CakePHP, CakePHP ORM, MySQL
-   - Yii, ActiveRecord, SQL Server
-   - Laravel, Eloquent, PostreSQL
-   - Symfony, Doctrine, Oracle
-   - Open Swoole + Hyperf
-   - Laminas Project (Zend Framework)
-1. [JS] Express, Sequelize/Knex, Alpine, Pico
-2. [JS] Fastify, Prisma/Slonik, Solid, Tailwind
-3. [TS] Nest, TypeORM/Drizzle, Angular, Foundation
-4. [JS] Vue, Nuxt, Uno (integrated)
-5. [TS] React, Next, JSS (Modular)
+- PHP, Composer, PDO
+  - Symfony / Doctrine
+  - Open Swoole / Hyperf
+- JS/TS
 ```
 
 # LINKS
