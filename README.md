@@ -5,7 +5,7 @@
 - **[DEV-T](https://github.com/raphaelkaique1/study/blob/main/full-stack.md)**
 - **[LINGUAGENS DE PROGRAMAÇÃO](https://quickref.me/)**
 
-## [PROJECTS](https://github.com/raphaelkaique1/projects)
+## [PROJETOS](https://github.com/raphaelkaique1/projects)
 
 ## COMPUTER SCIENCE: FULL STACK CYCLE
 
