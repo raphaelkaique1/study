@@ -925,25 +925,7 @@
 - [ ] [Industrial IoT and Control Systems in Manufacturing](https://www.netacad.com/pt/courses/industrial-iot-and-control-systems-in-manufacturing?courseLang=en-US)
 - [ ] [Formação IoT Specialist](https://web.dio.me/track/formacao-iot-specialist)
 
-## PS
-- [ ] [Introdução à Gestão de Projetos](https://www.ev.org.br/cursos/introducao-a-gestao-de-projetos)
-- [ ] [Gerência e Qualidade de Software por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [BPMN: Mapeamento de Processos](https://plataforma.escoladnc.com.br/learning/bpmn-mapeamento-de-processos/90)
-- [ ] [Modelagem de Software usando UML por Bóson treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Infraestrutura para sistemas de software por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Projeto de Sistemas Web](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
-- [ ] [Produto Mínimo Viável](https://plataforma.escoladnc.com.br/learning/produto-minimo-viavel/44)
-- [ ] [Design Patterns na programação por Otávio Miranda](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
-- [ ] [Formação OutSystems Fundamentals](https://web.dio.me/track/formacao-outsystems-fundamentals)
-
 ## CI/CD
-- [ ] [Introdução ao Conceito de DevOps e Preparação do Ambiente GCloud SDK](https://web.dio.me/course/introducao-ao-conceito-de-devops-e-preparacao-do-ambiente-gcloud-sdk/learning/33d1f5a5-ee60-4f58-a013-af53f6b9aa22)
-- [ ] [Introdução a Cloud Azure do Zero](https://web.dio.me/lives/introducao-a-cloud-azure-do-zero)
-- [ ] [Explore o poder da Engenharia de Dados na Nuvem](https://web.dio.me/lives/explore-o-poder-da-engenharia-de-dados-na-nuvem)
-- [ ] [Importação e Manipulação de Dados na Prática com MicroStrategy](https://web.dio.me/lives/introducao-ao-cloudera-e-google-cloud-platform-gcp)
-- [ ] [Cloud para Aplicações Serverless: O Futuro da Arquitetura de Software](https://web.dio.me/lives/cloud-para-aplicacoes-serverless-o-futuro-da-arquitetura-de-software)
-- [ ] [Infraestrutura Como Código com Serverless Framework na AWS](https://web.dio.me/lab/infraestrutura-como-codigo-com-serverless-framework-na-aws/learning/bc741bc5-977c-49c9-bd5d-44b2381e847a)
-- [ ] [Simplifique o Gerenciamento de Infraestrutura com Terraform na AWS](https://web.dio.me/lab/simplifique-o-gerenciamento-de-infraestrutura-com-terraform-na-aws/learning/125bec86-57f3-4a6a-9cf9-19650e30dfbc)
 - [ ] [YAML Zero to Master](https://www.udemy.com/course/yaml-zero-to-master/)
 - [ ] [Formação CI/CD com GitLab](https://web.dio.me/track/formacao-gitlab-cicd)
 - [ ] [Trabalhando com Git e GitLab na Prática](https://web.dio.me/course/trabalhando-com-git-e-gitlab-na-pratica/learning/b05c2fe6-9831-445a-a27d-9aa3434a25f8)
@@ -964,6 +946,13 @@
 - [ ] [Formação Kubernetes Fundamentals](https://web.dio.me/track/formacao-kubernetes)
 - [ ] [Mentoria #4: Introdução ao Cloud Computing e Serverless](https://web.dio.me/lives/mentoria-4-introducao-ao-cloud-computing-e-serveless)
 - [ ] [Cloud Fundamentals, Administration and Solution Architect](https://on.fiap.com.br/nano-courses/course/?id=5875)
+- [ ] [Introdução ao Conceito de DevOps e Preparação do Ambiente GCloud SDK](https://web.dio.me/course/introducao-ao-conceito-de-devops-e-preparacao-do-ambiente-gcloud-sdk/learning/33d1f5a5-ee60-4f58-a013-af53f6b9aa22)
+- [ ] [Introdução a Cloud Azure do Zero](https://web.dio.me/lives/introducao-a-cloud-azure-do-zero)
+- [ ] [Explore o poder da Engenharia de Dados na Nuvem](https://web.dio.me/lives/explore-o-poder-da-engenharia-de-dados-na-nuvem)
+- [ ] [Importação e Manipulação de Dados na Prática com MicroStrategy](https://web.dio.me/lives/introducao-ao-cloudera-e-google-cloud-platform-gcp)
+- [ ] [Cloud para Aplicações Serverless: O Futuro da Arquitetura de Software](https://web.dio.me/lives/cloud-para-aplicacoes-serverless-o-futuro-da-arquitetura-de-software)
+- [ ] [Infraestrutura Como Código com Serverless Framework na AWS](https://web.dio.me/lab/infraestrutura-como-codigo-com-serverless-framework-na-aws/learning/bc741bc5-977c-49c9-bd5d-44b2381e847a)
+- [ ] [Simplifique o Gerenciamento de Infraestrutura com Terraform na AWS](https://web.dio.me/lab/simplifique-o-gerenciamento-de-infraestrutura-com-terraform-na-aws/learning/125bec86-57f3-4a6a-9cf9-19650e30dfbc)
 - [ ] [Mentoria 05: Conhecendo o ambiente GCP](https://web.dio.me/lives/mentoria-06-conhecendo-o-ambiente-gcp)
 - [ ] [Formação Google Cloud Platform (GCP) Specialist](https://web.dio.me/track/formacao-gcp-specialist)
 - [ ] [AWS para Iniciantes: Uma Jornada na Computação em Nuvem](https://web.dio.me/lives/aws-para-iniciantes-uma-jornada-na-computacao-em-nuvem)
@@ -1009,6 +998,17 @@
 - [ ] [DevOps & Agile Culture](https://on.fiap.com.br/nano-courses/course/?id=3915)
 - [ ] [Ganhando Produtividade com o Amazon Q](https://web.dio.me/lives/ganhando-produtividade-com-o-amazon-codewhisperer)
 - [ ] [Trabalhando com Nuvem Híbrida com Azure Red Hat OpenShift (ARO)](https://web.dio.me/lives/trabalhando-com-nuvem-hibrida-com-azure-red-hat-openshift-aro)
+
+## PS
+- [ ] [Introdução à Gestão de Projetos](https://www.ev.org.br/cursos/introducao-a-gestao-de-projetos)
+- [ ] [Gerência e Qualidade de Software por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [BPMN: Mapeamento de Processos](https://plataforma.escoladnc.com.br/learning/bpmn-mapeamento-de-processos/90)
+- [ ] [Modelagem de Software usando UML por Bóson treinamentos](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Infraestrutura para sistemas de software por Univesp](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Projeto de Sistemas Web](https://aprendamais.mec.gov.br/course/index.php?categoryid=8)
+- [ ] [Produto Mínimo Viável](https://plataforma.escoladnc.com.br/learning/produto-minimo-viavel/44)
+- [ ] [Design Patterns na programação por Otávio Miranda](https://play.google.com/store/apps/details?id=com.ionicframework.cursosdegraca)
+- [ ] [Formação OutSystems Fundamentals](https://web.dio.me/track/formacao-outsystems-fundamentals)
 
 ## PHP
 - [ ] [Introdução à linguagem de programação PHP](https://cursos.timtec.com.br/course/introphp/intro)
